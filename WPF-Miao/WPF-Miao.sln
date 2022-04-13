@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF-Miao", "WPF-Miao\WPF-Miao.csproj", "{954668F3-0F17-4972-8CC0-C698D61BE27D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FC287EB-182A-4A4F-82F9-E99E0CCAEFE2}
+	EndGlobalSection
+EndGlobal
