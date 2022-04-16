@@ -5,3 +5,7 @@
 *.suo
 /WPF-Miao/WPF-Miao/obj
 /.vs
+*.v1
+**/obj
+**/bin
+**/.vs

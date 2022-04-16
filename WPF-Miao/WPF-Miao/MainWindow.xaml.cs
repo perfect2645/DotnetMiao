@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Miao.Platform;
 
 namespace WPF_Miao
 {
@@ -23,6 +24,11 @@ namespace WPF_Miao
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void DianYiTong_Click(object sender, RoutedEventArgs e)
+        {
+            new DianYiTong();
         }
     }
 }
