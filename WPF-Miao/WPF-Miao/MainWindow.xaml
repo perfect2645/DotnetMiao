@@ -14,5 +14,6 @@
     </Window.Resources>
     <Grid>
         <Button Content="滇医通" Click="DianYiTong_Click"></Button>
+        <Button Content="SubmitOrder" Click="SubmitOrder_Click"></Button>
     </Grid>
 </Window>

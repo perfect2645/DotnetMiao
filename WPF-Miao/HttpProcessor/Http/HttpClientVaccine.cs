@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace HttpProcessor.Http
 {
@@ -19,6 +21,22 @@ namespace HttpProcessor.Http
             var resString = await HttpGetStringAsync(url);
             var jObj = JsonConvert.DeserializeObject<object>(resString);
             return jObj;
+        }
+
+        public static async Task<string> PostHttpObjectAsync(string url, StringContent stringContent)
+        {
+
+
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+
+
+            var response = await httpClient.PostAsync(url, stringContent);
+            var resultStr = response.Content.ReadAsStringAsync().Result;
+
+            resultStr = Regex.Unescape(resultStr);
+
+            return resultStr;
         }
     }
 }

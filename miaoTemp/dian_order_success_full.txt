@@ -192,7 +192,29 @@ Referer: https://appv2.ynhdkc.com/registration_order_confirm
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
-{"doc_name":"带状疱疹疫苗","hos_name":"西山区马街社区卫生服务中心（疫苗）","hos_code":"872018","dep_name":"成人疫苗预约","level_name":"","dep_id":"960","doc_id":"3548","pat_id":21180400,"schedule_id":1294772,"jz_card":"","sch_date":"2022-04-26","time_type":"2","info":"","ghf":0,"zlf":0,"zjf":0,"jz_start_time":0,"amt":0,"jz_card_type":0,"queue_sn_id":"","wechat_login":""}
+{
+    "doc_name": "带状疱疹疫苗",
+    "hos_name": "西山区马街社区卫生服务中心（疫苗）",
+    "hos_code": "872018",
+    "dep_name": "成人疫苗预约",
+    "level_name": "",
+    "dep_id": "960",
+    "doc_id": "3548",
+    "pat_id": 21180400,
+    "schedule_id": 1294772,
+    "jz_card": "",
+    "sch_date": "2022-04-26",
+    "time_type": "2",
+    "info": "",
+    "ghf": 0,
+    "zlf": 0,
+    "zjf": 0,
+    "jz_start_time": 0,
+    "amt": 0,
+    "jz_card_type": 0,
+    "queue_sn_id": "",
+    "wechat_login": ""
+}
 HTTP/1.1 200 OK
 Date: Wed, 20 Apr 2022 08:02:12 GMT
 Content-Type: application/json; charset=utf-8

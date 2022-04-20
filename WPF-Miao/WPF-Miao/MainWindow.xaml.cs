@@ -28,7 +28,13 @@ namespace WPF_Miao
 
         private void DianYiTong_Click(object sender, RoutedEventArgs e)
         {
-            new DianYiTong();
+            new DianYiTongMain();
+        }
+
+        private void SubmitOrder_Click(object sender, RoutedEventArgs e)
+        {
+            var submitOrder = new SubmitOrder();
+            submitOrder.TrySubmitOrder();
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Net.Http;
 
 namespace WPF_Miao.Platform
 {
-    internal class DianYiTong
+    internal class DianYiTongMain
     {
-        public DianYiTong()
+        public DianYiTongMain()
         {
             GetContent();
         }
