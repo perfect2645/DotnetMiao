@@ -8,5 +8,10 @@ namespace WPF_Miao.Platform
 {
     internal class SubmitOrder
     {
+
+        public void TrySubmitOrder()
+        {
+            HttpClientVaccine
+        }
     }
 }
