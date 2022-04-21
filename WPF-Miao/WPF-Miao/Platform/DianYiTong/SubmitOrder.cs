@@ -74,7 +74,7 @@ namespace WPF_Miao.Platform
             headers.Add("Origin", "https://appv2.ynhdkc.com");
             headers.Add("Authorization", "DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA0NDM0NzYsImlhdCI6MTY1MDQzNzg3Nn0.IYrW3VVoDvvQgUaA6alvM3GamS_8OKFhD4TCSy2aInk");
             headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)");
-            headers.Add("x-uuid", "3E4BBCBF68FF8B3382B2DC3F0B51387E");
+            headers.Add("x-uuid", "7524DCD703D2D80C29C5B5620E688FD5");
             headers.Add("Content-Type", "application/json");
             headers.Add("Sec-Fetch-Site", "same-site");
             headers.Add("Sec-Fetch-Mode", "cors");
