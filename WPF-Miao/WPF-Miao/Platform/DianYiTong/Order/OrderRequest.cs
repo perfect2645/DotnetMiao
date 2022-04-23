@@ -6,6 +6,9 @@ namespace WPF_Miao.Platform.DianYiTong.Order
 {
     public partial class OrderRequest
     {
+
+        #region Properties
+
         [JsonProperty("doc_name")]
         public string DocName { get; set; }
 
@@ -72,5 +75,12 @@ namespace WPF_Miao.Platform.DianYiTong.Order
 
         [JsonProperty("wechat_login")]
         public string WechatLogin { get; set; }
+
+        #endregion Properties
+
+        public string ToJson()
+        {
+            return JsonSerialize<OrderRequest>.ToJson(this);
+        }
     }
 }

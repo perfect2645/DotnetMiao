@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using WPF_Miao.Platform.DianYiTong.Session;
 
 namespace WPF_Miao.Platform
 {
@@ -62,11 +63,20 @@ namespace WPF_Miao.Platform
 
             {"code":1,"msg":"预约成功","data":{"order_id":"19725606","wxresult_url":""}}
         */
-        public async void TrySubmitOrder()
+        public async void TrySubmitOrderTest()
         {
             var url = "https://dytapi.ynhdkc.com/v1/appoint?hos_code=872018&dep_id=960&doc_id=3548&pat_id=21180400&user_id=3669053&schedule_id=1294772&cate_name=";
             var jsonContent = "{\"doc_name\":\"带状疱疹疫苗\",\"hos_name\":\"西山区马街社区卫生服务中心（疫苗）\",\"hos_code\":\"872018\",\"dep_name\":\"成人疫苗预约\",\"level_name\":\"\",\"dep_id\":\"960\",\"doc_id\":\"3548\",\"pat_id\":21180400,\"schedule_id\":1294772,\"jz_card\":\"\",\"sch_date\":\"2022 - 04 - 26\",\"time_type\":\"2\",\"info\":\"\",\"ghf\":0,\"zlf\":0,\"zjf\":0,\"jz_start_time\":0,\"amt\":0,\"jz_card_type\":0,\"queue_sn_id\":\"\",\"wechat_login\":\"\"}";
             var stringContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var headerDic = GetHeader();
+
+            var taskResponse = HttpClientVaccine.PostHttpObjectAsync(url, stringContent);
+            var stringResponse = await taskResponse;
+
+        }
+
+        private Dictionary<string, string> GetHeader()
+        {
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("Host", "dytapi.ynhdkc.com");
             headers.Add("Connection", "keep-alive");
@@ -82,6 +92,16 @@ namespace WPF_Miao.Platform
             headers.Add("Referer", "https://appv2.ynhdkc.com/registration_order_confirm");
             headers.Add("Accept-Encoding", "gzip, deflate, br");
             headers.Add("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+
+            return headers;
+        }
+
+        public async void TrySubmitOrder()
+        {
+            var url = "https://dytapi.ynhdkc.com/v1/appoint?hos_code=872018&dep_id=960&doc_id=3548&pat_id=21180400&user_id=3669053&schedule_id=1294772&cate_name=";
+            var jsonContent = DianSession.OrderRequest.ToJson();
+            var stringContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var headers = GetHeader();
 
             var taskResponse = HttpClientVaccine.PostHttpObjectAsync(url, stringContent);
             var stringResponse = await taskResponse;
