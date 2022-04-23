@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
     <ProjectReference Include="..\ProcessModel\ProcessModel.csproj" />
   </ItemGroup>
 
