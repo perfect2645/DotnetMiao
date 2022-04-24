@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,7 @@ namespace WPF_Miao
 
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
+            GLog.TestLogger();
             var submitOrder = new SubmitOrder();
             submitOrder.TrySubmitOrder();
         }

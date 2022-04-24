@@ -99,7 +99,7 @@ namespace WPF_Miao.Platform
         public async void TrySubmitOrder()
         {
             var url = "https://dytapi.ynhdkc.com/v1/appoint?hos_code=872018&dep_id=960&doc_id=3548&pat_id=21180400&user_id=3669053&schedule_id=1294772&cate_name=";
-            var jsonContent = DianSession.OrderRequest.ToJson();
+            var jsonContent = DianSession.OrderRequest?.ToJson();
             var stringContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             var headers = GetHeader();
 
