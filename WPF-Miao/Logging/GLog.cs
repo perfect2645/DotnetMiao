@@ -15,7 +15,7 @@ namespace Logging
         private static ConsoleAppender _consoleAppender;
         private static RollingFileAppender _rollingFileAppender;
 
-        private static string _loggerLayout = "%date{yyyy-MM-dd HH:mm:ss,fff}[%level][%class][%method][%message]%newline";
+        private static string _loggerLayout = "%date{yyyy-MM-dd HH:mm:ss,fff}[%level][%class][%method]:%message%newline";
         public static string LoggerLayout
         {
             set {  _loggerLayout = value; }
