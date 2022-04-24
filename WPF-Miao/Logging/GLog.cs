@@ -15,7 +15,7 @@ namespace Logging
         private static ConsoleAppender _consoleAppender;
         private static RollingFileAppender _rollingFileAppender;
 
-        private static string _loggerLayout = "%date{yyyy-MM-dd HH:mm:ss,fff} {%level} {%class} {%method} {%message%newline}";
+        private static string _loggerLayout = "%date{yyyy-MM-dd HH:mm:ss,fff}[%level][%class][%method][%message]%newline";
         public static string LoggerLayout
         {
             set {  _loggerLayout = value; }
@@ -80,7 +80,7 @@ namespace Logging
 
         #region Public
 
-        public static ILog GetLogger(Type type)
+        public static ILog GetLogger()
         {
             if (_logger != null)
             {
@@ -88,7 +88,11 @@ namespace Logging
             }
 
             InitLog4NetConfig();
-            _logger = LogManager.GetLogger(type);
+            //var st = new System.Diagnostics.StackTrace();
+            //var frames = st.GetFrames();
+            //var currentFrame = frames[1];
+            //var currentType = currentFrame?.GetMethod()?.ReflectedType?.GetType();
+            _logger = LogManager.GetLogger(GetLoggerType(null));
 
             return _logger;
         }
@@ -107,5 +111,19 @@ namespace Logging
         }
 
         #endregion Public
+
+        #region Private
+
+        private static Type GetLoggerType(Type? type)
+        {
+            if (type == null)
+            {
+                return typeof(GLog);
+            }
+
+            return type;
+        }
+
+        #endregion Private
     }
 }
