@@ -34,7 +34,7 @@ namespace WPF_Miao
 
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
-            GLog.GetLogger().Info("start");
+            GLog.GetLogger().Info("SubmitOrder---start");
             var submitOrder = new SubmitOrder();
             submitOrder.TrySubmitOrder();
         }
