@@ -25,8 +25,6 @@ namespace HttpProcessor.Http
 
         public static async Task<string> PostHttpObjectAsync(string url, StringContent stringContent)
         {
-
-
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 

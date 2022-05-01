@@ -8,15 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using WPF_Miao.Platform.DianYiTong.Session;
 
-namespace WPF_Miao.Platform
+namespace WPF_Miao.Platform.Submit
 {
     internal class SubmitOrder
     {
+        #region Properties
+
+        private readonly HttpClient _submitHttpClient;
+
+        #endregion Properties
+
+        #region Constructor
+
+        public SubmitOrder(HttpClient submitHttpClient)
+        {
+            _submitHttpClient = submitHttpClient;
+        }
+
+        #endregion Constructor
+
+
+        #region Appoint
+
+        public void Appoint()
+        {
+            _submitHttpClient.PostAsync();  
+        }
+
+        #endregion Appoint
+
         /*        POST https://dytapi.ynhdkc.com/v1/appoint?hos_code=872018&dep_id=960&doc_id=3548&pat_id=21180400&user_id=3669053&schedule_id=1294772&cate_name= HTTP/1.1
             Host: dytapi.ynhdkc.com
             Connection: keep-alive
             Content-Length: 402
-            Accept: application/json, text/plain, **//*
+            Accept: application/json, text/plain, 
             Origin: https://appv2.ynhdkc.com
             Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA0NDM0NzYsImlhdCI6MTY1MDQzNzg3Nn0.IYrW3VVoDvvQgUaA6alvM3GamS_8OKFhD4TCSy2aInk
             User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
