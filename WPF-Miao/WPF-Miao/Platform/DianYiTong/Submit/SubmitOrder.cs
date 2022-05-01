@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using WPF_Miao.Platform.DianYiTong.Session;
+using WPF_Miao.Platform.DianYiTong.Submit;
 
 namespace WPF_Miao.Platform.Submit
 {
@@ -30,9 +31,9 @@ namespace WPF_Miao.Platform.Submit
 
         #region Appoint
 
-        public void Appoint()
+        public void Appoint(SubmitContent submitContent)
         {
-            _submitHttpClient.PostAsync();  
+            _submitHttpClient.PostAsync(submitContent.RequestUrl, submitContent.GetJsonContent());  
         }
 
         #endregion Appoint

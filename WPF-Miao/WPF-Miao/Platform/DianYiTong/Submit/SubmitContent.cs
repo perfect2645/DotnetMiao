@@ -12,5 +12,8 @@ namespace WPF_Miao.Platform.DianYiTong.Submit
 {
     internal class SubmitContent : HttpClientContentBase
     {
+        public SubmitContent(string requestUrl) : base(requestUrl)
+        {
+        }
     }
 }

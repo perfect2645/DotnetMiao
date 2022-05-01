@@ -8,6 +8,13 @@ namespace HttpProcessor.Client
     {
         private readonly Dictionary<string, object> _contents = new Dictionary<string, object>();
 
+        public string RequestUrl { get; private set; }
+
+        public HttpClientContentBase(string requestUrl)
+        {
+            RequestUrl = requestUrl;
+        }
+
         public StringContent GetJsonContent()
         {
             var jsonString = JsonSerializer.Serialize(_contents, JsonEncoder.JsonOption);
