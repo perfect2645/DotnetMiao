@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HttpProcessor.Http
+namespace HttpProcessor.Request
 {
     public static class HttpClientVaccine
     {

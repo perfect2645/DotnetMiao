@@ -1,4 +1,5 @@
-﻿using HttpProcessor.Http;
+﻿using HttpProcessor.Client;
+using HttpProcessor.Request;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -15,10 +16,10 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
 
         #region Query Hospital Summary
 
-        public async Task<string> SearchAsync(HospitalSummaryContent submitContent)
+        public async Task<HttpDicResponse> SearchAsync(HospitalSummaryContent submitContent)
         {
-            var resMessage = await _hospitalSummaryClient.SearchAsync(submitContent);
-            return resMessage;
+            var response = await _hospitalSummaryClient.SearchAsync(submitContent);
+            return response;
         }
 
         public void Search(HospitalSummaryContent submitContent)
@@ -26,7 +27,7 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
             _hospitalSummaryClient.Search(submitContent, PostSearch);
         }
 
-        private void PostSearch(string response)
+        private void PostSearch(HttpDicResponse response)
         {
 
         }
