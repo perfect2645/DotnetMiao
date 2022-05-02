@@ -1,9 +1,6 @@
 ﻿using HttpProcessor.Http;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using WPF_Miao.Platform.DianYiTong.Session;
@@ -31,9 +28,10 @@ namespace WPF_Miao.Platform.Submit
 
         #region Appoint
 
-        public void Appoint(SubmitContent submitContent)
+        public async Task<HttpResponseMessage> Appoint(SubmitContent submitContent)
         {
-            _submitHttpClient.PostAsync(submitContent.RequestUrl, submitContent.GetJsonContent());  
+            var resMessage = await _submitHttpClient.PostAsync(submitContent.RequestUrl, submitContent.GetJsonContent());
+            return resMessage;
         }
 
         #endregion Appoint

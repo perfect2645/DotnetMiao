@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
 
@@ -8,7 +9,13 @@ namespace WPF_Miao.Platform
     {
         public DianYiTongMain()
         {
+            InitHttpController();
             GetContent();
+        }
+
+        private void InitHttpController()
+        {
+            var containerBuilder = new ServiceCollection();
         }
 
         ///*

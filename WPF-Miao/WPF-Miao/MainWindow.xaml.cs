@@ -1,6 +1,10 @@
 ﻿using Logging;
+using System;
+using System.Net.Http;
 using System.Windows;
 using WPF_Miao.Platform;
+using WPF_Miao.Platform.DianYiTong.Hospital;
+using WPF_Miao.Platform.Submit;
 
 namespace WPF_Miao
 {
@@ -21,9 +25,28 @@ namespace WPF_Miao
 
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
-            GLog.GetLogger().Info("SubmitOrder---start");
-            var submitOrder = new SubmitOrder();
-            submitOrder.TrySubmitOrder();
+            //GLog.GetLogger().Info("SubmitOrder---start");
+            //var submitOrder = new SubmitOrder();
+            //submitOrder.TrySubmitOrder();
+        }
+
+        private void Hospital_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GLog.GetLogger().Info("Hospital_Click");
+                var queryHospitalSummaryClient = new HttpClient();
+                var service = new QueryHospitalSummaryService(queryHospitalSummaryClient);
+
+                //[TODO url serialize]
+                var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
+                service.Search(queryContent);
+            }
+            catch(Exception ex)
+            {
+                GLog.GetLogger().Error(ex);
+            }
+
         }
     }
 }
