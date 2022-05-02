@@ -1,12 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
-using System.Linq;
 
 namespace HttpProcessor.Client
 {
     public class HttpDicResponse
     {
         #region Properties
+
+        public ushort StatusCode { get; private set; }
+
+        public string Message { get; private set; }
 
         public Dictionary<string, object> Headers { get; private set; }
 
@@ -55,5 +58,24 @@ namespace HttpProcessor.Client
         }
 
         #endregion Body
+
+        #region Status
+
+        public virtual void SetStatus(ushort status)
+        {
+            StatusCode = status;
+        }
+
+        public virtual void SetMessage(string msg)
+        {
+            Message = msg;
+        }
+
+        private void SetStatus()
+        {
+
+        }
+
+        #endregion Status
     }
 }
