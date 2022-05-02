@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Logging;
+using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace HttpProcessor.Client
 {
@@ -15,14 +17,24 @@ namespace HttpProcessor.Client
 
         public Dictionary<string, object> Body { get; private set; }
 
+        public JsonDocument JsonBody { get; private set; }
+
         #endregion Properties
 
         #region Constructor
 
         public HttpDicResponse(HttpResponseMessage response)
         {
-            BuildHeaders(response.Headers);
-            BuildBody(response.Content);
+            try
+            {
+                BuildHeaders(response.Headers);
+                BuildBody(response.Content);
+            }
+            catch (Exception ex)
+            {
+                GLog.GetLogger().Error(ex);
+            }
+
         }
 
         #endregion Constructor
@@ -54,7 +66,10 @@ namespace HttpProcessor.Client
         {
             var contentStr = content.ReadAsStringAsync().Result;
             var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
+
             Body = contentDic ?? new Dictionary<string, object>();
+
+            JsonBody = JsonDocument.Parse(contentStr);
         }
 
         #endregion Body
