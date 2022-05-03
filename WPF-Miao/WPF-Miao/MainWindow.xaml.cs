@@ -1,4 +1,5 @@
 ﻿using Logging;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Windows;
@@ -34,6 +35,7 @@ namespace WPF_Miao
         {
             try
             {
+                var containerBuilder = new ServiceCollection();
                 GLog.GetLogger().Info("Hospital_Click");
                 var queryHospitalSummaryClient = new HttpClient();
                 var service = new QueryHospitalSummaryService(queryHospitalSummaryClient);

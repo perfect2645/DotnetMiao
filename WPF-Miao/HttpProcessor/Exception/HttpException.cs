@@ -1,12 +1,12 @@
 ﻿namespace HttpProcessor.ExceptionManager
 {
-    public class HttpException : Exception
+    public class HttpException : HttpRequestException
     {
-        public int StatusCode { get; private set; }
+        public string ErrCode { get; private set; }
 
-        public HttpException(string message, int statusCode = 200): base(message)
+        public HttpException(string message, string errCode = "OK"): base(message)
         {
-            StatusCode = statusCode;
+            ErrCode = errCode;
         }
     }
 }

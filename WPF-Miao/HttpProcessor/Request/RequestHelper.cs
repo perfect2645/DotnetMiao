@@ -1,20 +1,31 @@
 ﻿using HttpProcessor.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HttpProcessor.ExceptionManager;
+using Logging;
 
 namespace HttpProcessor.Request
 {
     public static class RequestHelper
     {
-
         #region Get
         public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpClientContentBase content)
         {
-            var response = await client.GetAsync(content.RequestUrl);
-            var dicResponse = new HttpDicResponse(response);
+            HttpDicResponse? dicResponse = null;
+
+            try
+            {
+                var response = await client.GetAsync(content.RequestUrl);
+                response.EnsureSuccessStatusCode();
+                dicResponse = new HttpDicResponse(response);
+            }
+            catch(HttpException httpEx)
+            {
+                GLog.GetLogger().Error($"StatusCode:{httpEx.StatusCode}", httpEx);
+            }
+            catch(Exception ex)
+            {
+                GLog.GetLogger().Error(ex);
+            }
+
             return dicResponse;
         }
 
@@ -28,7 +39,6 @@ namespace HttpProcessor.Request
             var task = client.Search(content);
             callback(task.Result);
         }
-
 
         #endregion Get
     }
