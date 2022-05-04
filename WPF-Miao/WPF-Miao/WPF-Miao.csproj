@@ -30,4 +30,8 @@
     <ProjectReference Include="..\ProcessModel\ProcessModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Platform\DianYiTong\Services\" />
+  </ItemGroup>
+
 </Project>
