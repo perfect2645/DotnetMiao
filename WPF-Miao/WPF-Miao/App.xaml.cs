@@ -14,21 +14,15 @@ namespace WPF_Miao
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            GLog.Logger.Info("***************** Application Start *****************");
             base.OnStartup(e);
             InitAppDoman();
-            InitHttpController();
         }
 
         private void InitAppDoman()
         {
             var logPath = Settings.Default.LogPath;
             AppDomain.CurrentDomain.SetData("LogPath", logPath);
-        }
-
-        private void InitHttpController()
-        {
-            var controller = HttpServiceController.Instance;
-            GLog.Logger.Info("InitHttpController");
         }
     }
 }

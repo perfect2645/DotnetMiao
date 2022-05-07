@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HttpProcessor.Container;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
@@ -10,12 +11,10 @@ namespace WPF_Miao.Platform
         public DianYiTongMain()
         {
             InitHttpController();
-            GetContent();
         }
 
         private void InitHttpController()
         {
-            var containerBuilder = new ServiceCollection();
         }
 
         ///*
@@ -34,17 +33,5 @@ namespace WPF_Miao.Platform
         //* Accept-Encoding: gzip, deflate, br
         //*  Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
         //*/
-
-        private async void GetContent()
-        {
-            var httpClient = new HttpClient();
-            var res = await httpClient.GetAsync("https://newdytapi.ynhdkc.com/index/hospital/hoscate?cate_type=4");
-
-            var resStream = res.Content.ReadAsStream();
-            var resString = await res.Content.ReadAsStringAsync();
-            var jobj = JsonConvert.DeserializeObject<object>(resString);
-            var p = jobj.GetType().GetProperty("Last").GetValue(jobj);
-
-        }
     }
 }
