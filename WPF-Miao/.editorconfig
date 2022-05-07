@@ -14,3 +14,6 @@ dotnet_diagnostic.CS8602.severity = none
 
 # CA1715: 标识符应具有正确的前缀
 dotnet_diagnostic.CA1715.severity = none
+
+# CS8601: 引用类型赋值可能为 null。
+dotnet_diagnostic.CS8601.severity = none

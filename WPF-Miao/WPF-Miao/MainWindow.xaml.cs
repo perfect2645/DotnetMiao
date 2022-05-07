@@ -36,7 +36,7 @@ namespace WPF_Miao
             try
             {
                 var containerBuilder = new ServiceCollection();
-                GLog.GetLogger().Info("Hospital_Click");
+                GLog.Logger.Info("Hospital_Click");
                 var queryHospitalSummaryClient = new HttpClient();
                 var service = new QueryHospitalSummaryService(queryHospitalSummaryClient);
 
@@ -46,7 +46,7 @@ namespace WPF_Miao
             }
             catch(Exception ex)
             {
-                GLog.GetLogger().Error(ex);
+                GLog.Logger.Error(ex);
             }
 
         }

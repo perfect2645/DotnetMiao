@@ -1,15 +1,18 @@
 ﻿using HttpProcessor.Client;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HttpProcessor.Container
 {
     public class HttpServiceController
     {
+        public static ServiceCollection Instance
+        {
+            get
+            {
+                return _serviceController;
+            }
+        }
+
         private static readonly ServiceCollection _serviceController;
 
         static HttpServiceController()

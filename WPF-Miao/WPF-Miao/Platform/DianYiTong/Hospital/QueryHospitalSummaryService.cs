@@ -29,7 +29,6 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
 
         private void PostSearch(HttpDicResponse response)
         {
-
         }
 
         #endregion Query Hospital Summary

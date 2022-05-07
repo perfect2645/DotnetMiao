@@ -3,6 +3,7 @@ using log4net.Appender;
 using log4net.Config;
 using log4net.Core;
 using log4net.Layout;
+using System;
 
 namespace Logging
 {
@@ -21,6 +22,21 @@ namespace Logging
             set {  _loggerLayout = value; }
         }
 
+        public static ILog Logger { get { return GetLogger(); } }
+
+        private static string _logPath = @"TestLogger.log";
+        public static string LogPath
+        {
+            get { return _logPath; }
+            set 
+            { 
+                if (_logPath != value)
+                {
+                    _logPath = value;
+                }
+            }
+        }
+
         #endregion Properties
 
         static GLog()
@@ -33,8 +49,16 @@ namespace Logging
 
         private static void InitLog4NetConfig()
         {
+            InitLogPath();
             InitConsoleLogger();
             InitRolllingFileLogger();
+        }
+
+        private static void InitLogPath()
+        {
+            var logPath = AppDomain.CurrentDomain.GetData("LogPath")?.ToString();
+
+            LogPath = logPath ?? "TestLogger.log";
         }
 
         private static void InitConsoleLogger()
@@ -44,7 +68,7 @@ namespace Logging
 
             _consoleAppender = new ConsoleAppender()
             {
-                Name = "ConsoleAppender",
+                Name = _logPath,
                 Layout = consoleLayout,
                 Threshold = Level.All,
             };
@@ -66,7 +90,7 @@ namespace Logging
                 Name = "RollingFileAppender",
                 Layout = rollingFileLayout,
                 Threshold = Level.All,
-                File = "TestLogger.log",
+                File = _logPath,
                 AppendToFile = true,
                 MaximumFileSize = "1MB",
                 MaxSizeRollBackups = 20,
@@ -80,7 +104,7 @@ namespace Logging
 
         #region Public
 
-        public static ILog GetLogger()
+        private static ILog GetLogger()
         {
             if (_logger != null)
             {

@@ -19,11 +19,11 @@ namespace HttpProcessor.Request
             }
             catch(HttpException httpEx)
             {
-                GLog.GetLogger().Error($"StatusCode:{httpEx.StatusCode}", httpEx);
+                GLog.Logger.Error($"StatusCode:{httpEx.StatusCode}", httpEx);
             }
             catch(Exception ex)
             {
-                GLog.GetLogger().Error(ex);
+                GLog.Logger.Error(ex);
             }
 
             return dicResponse;

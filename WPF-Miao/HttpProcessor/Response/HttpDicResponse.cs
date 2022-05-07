@@ -32,7 +32,7 @@ namespace HttpProcessor.Client
             }
             catch (Exception ex)
             {
-                GLog.GetLogger().Error(ex);
+                GLog.Logger.Error(ex);
             }
 
         }
