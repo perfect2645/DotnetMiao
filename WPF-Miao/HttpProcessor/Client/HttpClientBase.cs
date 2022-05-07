@@ -1,14 +1,18 @@
 ﻿namespace HttpProcessor.Client
 {
-    public abstract class HttpClientBase : IHttpClient
+    public class HttpClientBase : IHttpClient
     {
-        private readonly HttpClient _httpClient;
+        protected readonly HttpClient Client;
 
         public HttpClientBase(HttpClient httpClient)
         {
-            _httpClient = httpClient;
+            Client = httpClient;
         }
 
-        public abstract void Search();
+        public virtual async Task<string> Search(HttpClientContentBase content)
+        {
+            var response = await Client.GetAsync(content.RequestUrl);
+            return await response.Content.ReadAsStringAsync();
+        }
     }
 }

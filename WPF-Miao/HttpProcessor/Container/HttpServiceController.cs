@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace HttpProcessor.Container
 {
-    public class HttpServiceController
+    public static class HttpServiceController
     {
         public static ServiceCollection Instance
         {
@@ -20,11 +20,20 @@ namespace HttpProcessor.Container
             _serviceController = new ServiceCollection();
         }
 
-        public void AddService<TClient, THandler>(TClient client, THandler handler) 
+        public static void AddTransientService<TClient, THandler>() 
             where TClient : HttpClientBase
             where THandler : HttpHandler
         {
             _serviceController.AddTransient<THandler>()
+                .AddHttpClient<TClient>()
+                .AddHttpMessageHandler<THandler>();
+        }
+
+        public static void AddAddSingletonService<TClient, THandler>()
+            where TClient : HttpClientBase
+            where THandler : HttpHandler
+        {
+            _serviceController.AddSingleton<THandler>()
                 .AddHttpClient<TClient>()
                 .AddHttpMessageHandler<THandler>();
         }

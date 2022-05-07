@@ -2,6 +2,6 @@
 {
     public interface IHttpClient
     {
-        void Search();
+        Task<string> Search(HttpClientContentBase content);
     }
 }

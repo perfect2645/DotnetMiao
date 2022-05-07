@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HttpProcessor.Client
 {
-    public class HttpHandler : DelegatingHandler
+    public abstract class HttpHandler : DelegatingHandler
     {
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {

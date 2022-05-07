@@ -1,8 +1,5 @@
 ﻿using HttpProcessor.Container;
-using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using System.IO;
-using System.Net.Http;
+using WPF_Miao.Platform.DianYiTong.Hospital;
 
 namespace WPF_Miao.Platform
 {
@@ -15,6 +12,7 @@ namespace WPF_Miao.Platform
 
         private void InitHttpController()
         {
+            HttpServiceController.AddTransientService<HospitalSummaryClient, HospitalSummaryHandler>();
         }
 
         ///*
