@@ -36,14 +36,16 @@ namespace WPF_Miao
         {
             try
             {
-                //HttpServiceController./*Instance*/
+                var client = HttpServiceController.GetService<HospitalSummaryClient>();
                 GLog.Logger.Info("Hospital_Click");
-                var queryHospitalSummaryClient = new HttpClient();
-                var service = new QueryHospitalSummaryService(queryHospitalSummaryClient);
 
+                var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
+                var result = client.Search(queryContent).Result;
+/*                var queryHospitalSummaryClient = new HttpClient();
+                var service = new QueryHospitalSummaryService(queryHospitalSummaryClient);
                 //[TODO url serialize]
                 var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
-                service.Search(queryContent);
+                service.Search(queryContent);*/
             }
             catch(Exception ex)
             {

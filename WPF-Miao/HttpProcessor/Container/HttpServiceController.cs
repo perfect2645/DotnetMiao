@@ -15,6 +15,8 @@ namespace HttpProcessor.Container
 
         private static readonly ServiceCollection _serviceController;
 
+        private static readonly ServiceProvider _serviceProvider;
+
         static HttpServiceController()
         {
             _serviceController = new ServiceCollection();
@@ -27,15 +29,25 @@ namespace HttpProcessor.Container
             _serviceController.AddTransient<THandler>()
                 .AddHttpClient<TClient>()
                 .AddHttpMessageHandler<THandler>();
+
+            _serviceController.BuildServiceProvider();
         }
 
-        public static void AddAddSingletonService<TClient, THandler>()
+        public static void AddSingletonService<TClient, THandler>()
             where TClient : HttpClientBase
             where THandler : HttpHandler
         {
             _serviceController.AddSingleton<THandler>()
                 .AddHttpClient<TClient>()
                 .AddHttpMessageHandler<THandler>();
+
+            _serviceController.BuildServiceProvider();
+        }
+
+        public static TClient GetService<TClient>() where TClient : HttpClientBase
+        {
+            var service = _serviceProvider.GetRequiredService<TClient>();
+            return service;
         }
     }
 }
