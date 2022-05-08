@@ -32,7 +32,7 @@ namespace WPF_Miao
             {
                 var client = HttpServiceController.GetService<HospitalSummaryClient>();
                 GLog.Logger.Info("Hospital_Click");
-
+                client = HttpServiceController.GetService<HospitalSummaryClient>();
                 var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
                 var result = client.Search(queryContent).Result;
             }
