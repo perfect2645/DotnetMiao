@@ -1,4 +1,5 @@
-﻿using Logging;
+﻿using HttpProcessor.Request;
+using Logging;
 
 namespace HttpProcessor.Client
 {
@@ -19,10 +20,30 @@ namespace HttpProcessor.Client
             Client = httpClient;
         }
 
-        public virtual async Task<string> Search(HttpClientContentBase content)
+        public virtual async Task<HttpDicResponse> SearchAsync(HttpClientContentBase content)
         {
-            var response = await Client.GetAsync(content.RequestUrl);
-            return await response.Content.ReadAsStringAsync();
+            try
+            {
+                var response = await Client.SearchAsync(content);
+                return response;
+            } 
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return null;
+            }
+        }
+
+        public virtual void Search(HttpClientContentBase content, Action<HttpDicResponse> callback)
+        {
+            try
+            {
+                Client.Search(content, callback);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+            }
         }
     }
 }
