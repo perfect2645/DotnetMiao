@@ -24,7 +24,7 @@ namespace Logging
 
         public static ILog Logger { get { return GetLogger(); } }
 
-        private static string _logPath = @"TestLogger.log";
+        private static string _logPath = "TestLogger";
         public static string LogPath
         {
             get { return _logPath; }
@@ -52,13 +52,14 @@ namespace Logging
             InitLogPath();
             InitConsoleLogger();
             InitRolllingFileLogger();
+            _logger = LogManager.GetLogger(GetLoggerType(null));
         }
 
         private static void InitLogPath()
         {
             var logPath = AppDomain.CurrentDomain.GetData("LogPath")?.ToString();
-
-            LogPath = logPath ?? "TestLogger.log";
+            logPath = logPath ?? _logPath;
+            LogPath = $"{logPath}-{DateTime.Today.ToString("yyyyMMdd")}.log";
         }
 
         private static void InitConsoleLogger()
@@ -91,6 +92,7 @@ namespace Logging
                 Layout = rollingFileLayout,
                 Threshold = Level.All,
                 File = _logPath,
+                PreserveLogFileNameExtension = false,
                 AppendToFile = true,
                 MaximumFileSize = "1MB",
                 MaxSizeRollBackups = 20,

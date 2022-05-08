@@ -26,7 +26,7 @@ namespace HttpProcessor.Container
             where TClient : HttpClientBase
             where THandler : HttpHandler
         {
-            _serviceController.AddTransient<THandler>()
+            _serviceController.AddTransient<TClient>()
                 .AddHttpClient<TClient>()
                 .AddHttpMessageHandler<THandler>();
 

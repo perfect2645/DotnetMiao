@@ -14,9 +14,9 @@ namespace WPF_Miao
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            InitAppDoman();
             GLog.Logger.Info("***************** Application Start *****************");
             base.OnStartup(e);
-            InitAppDoman();
         }
 
         private void InitAppDoman()

@@ -16,7 +16,6 @@
         <StackPanel>
             <Button Content="滇医通" Click="DianYiTong_Click"></Button>
             <Button Content="点击医院" Click="Hospital_Click"></Button>
-            <Button Content="SubmitOrder" Click="SubmitOrder_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

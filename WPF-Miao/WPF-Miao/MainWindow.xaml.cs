@@ -18,18 +18,12 @@ namespace WPF_Miao
         public MainWindow()
         {
             InitializeComponent();
+            InitPlatform();
         }
 
-        private void DianYiTong_Click(object sender, RoutedEventArgs e)
+        private void InitPlatform()
         {
             new DianYiTongMain();
-        }
-
-        private void SubmitOrder_Click(object sender, RoutedEventArgs e)
-        {
-            //GLog.GetLogger().Info("SubmitOrder---start");
-            //var submitOrder = new SubmitOrder();
-            //submitOrder.TrySubmitOrder();
         }
 
         private void Hospital_Click(object sender, RoutedEventArgs e)
@@ -41,16 +35,15 @@ namespace WPF_Miao
 
                 var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
                 var result = client.Search(queryContent).Result;
-/*                var queryHospitalSummaryClient = new HttpClient();
-                var service = new QueryHospitalSummaryService(queryHospitalSummaryClient);
-                //[TODO url serialize]
-                var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
-                service.Search(queryContent);*/
             }
             catch(Exception ex)
             {
                 GLog.Logger.Error(ex);
             }
+        }
+
+        private void DianYiTong_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

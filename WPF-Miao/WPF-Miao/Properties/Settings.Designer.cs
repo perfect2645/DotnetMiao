@@ -25,7 +25,7 @@ namespace WPF_Miao.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\CSharp\\logs\\miao.log")]
+        [global::System.Configuration.DefaultSettingValueAttribute("E:\\CSharp\\logs\\miao")]
         public string LogPath {
             get {
                 return ((string)(this["LogPath"]));

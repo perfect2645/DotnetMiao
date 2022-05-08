@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="LogPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\CSharp\logs\miao.log</Value>
+      <Value Profile="(Default)">E:\CSharp\logs\miao</Value>
     </Setting>
   </Settings>
 </SettingsFile>
