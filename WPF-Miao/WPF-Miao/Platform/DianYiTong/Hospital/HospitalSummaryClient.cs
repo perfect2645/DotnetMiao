@@ -14,5 +14,19 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
         {
 
         }
+
+        #region Search
+
+        public void Search(HttpClientContentBase content)
+        {
+            Search(content, PostSearch);
+        }
+
+        private void PostSearch(HttpDicResponse dicResponse)
+        {
+
+        }
+
+        #endregion Search
     }
 }
