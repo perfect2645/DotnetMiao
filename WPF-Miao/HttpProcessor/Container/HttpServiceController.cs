@@ -36,6 +36,24 @@ namespace HttpProcessor.Container
             _serviceProvider = _serviceController.BuildServiceProvider();
         }
 
+        public static void AddClient<TClient, THandler>()
+            where TClient : HttpClientBase
+            where THandler : HttpHandler, new()
+        {
+            _serviceController
+                .AddHttpClient<TClient, TClient>("test", (httpclient) =>
+                {
+                    var myChient = (TClient)Activator.CreateInstance(typeof(TClient), new object?[] { httpclient })!;
+                    return myChient;
+                })
+                .AddHttpMessageHandler(s =>
+                {
+                    return new THandler();
+                });
+
+            _serviceProvider = _serviceController.BuildServiceProvider();
+        }
+
         public static void AddSingletonService<TClient, THandler>()
             where TClient : HttpClientBase
             where THandler : HttpHandler

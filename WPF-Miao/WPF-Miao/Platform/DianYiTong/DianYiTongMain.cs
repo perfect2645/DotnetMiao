@@ -12,7 +12,8 @@ namespace WPF_Miao.Platform
 
         private void InitHttpController()
         {
-            HttpServiceController.AddTransientService<HospitalSummaryClient, HospitalSummaryHandler>();
+            //HttpServiceController.AddTransientService<HospitalSummaryClient, HospitalSummaryHandler>();
+            HttpServiceController.AddClient<HospitalSummaryClient, HospitalSummaryHandler>();
         }
 
         ///*
