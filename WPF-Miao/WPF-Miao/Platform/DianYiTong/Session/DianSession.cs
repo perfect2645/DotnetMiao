@@ -10,5 +10,11 @@ namespace WPF_Miao.Platform.DianYiTong.Session
     internal static class DianSession
     {
         public static OrderRequest OrderRequest { get; set; }
+
+        #region Required Info
+
+
+
+        #endregion Required Info
     }
 }
