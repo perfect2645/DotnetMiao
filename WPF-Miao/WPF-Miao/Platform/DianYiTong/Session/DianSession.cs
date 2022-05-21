@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WPF_Miao.Platform.DianYiTong.Order;
 
 namespace WPF_Miao.Platform.DianYiTong.Session
@@ -13,6 +9,7 @@ namespace WPF_Miao.Platform.DianYiTong.Session
 
         #region Required Info
 
+        public static Dictionary<string, object> Session { get; set; }
 
 
         #endregion Required Info

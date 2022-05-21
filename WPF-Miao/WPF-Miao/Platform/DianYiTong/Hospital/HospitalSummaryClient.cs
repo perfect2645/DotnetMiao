@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace WPF_Miao.Platform.DianYiTong.Hospital
@@ -24,7 +25,8 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
 
         private void PostSearch(HttpDicResponse dicResponse)
         {
-
+            var data = dicResponse.Body["data"];
+            var dateList = dicResponse.Body["date_list"];
         }
 
         #endregion Search
