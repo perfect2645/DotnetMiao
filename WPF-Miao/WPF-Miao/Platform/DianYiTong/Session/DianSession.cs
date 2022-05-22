@@ -7,13 +7,13 @@ namespace WPF_Miao.Platform.DianYiTong.Session
     {
         static DianSession()
         {
-            SessionData = new Dictionary<string, object>();
+            HospitalSession = new Dictionary<string, object>();
         }
         public static OrderRequest OrderRequest { get; set; }
 
         #region Required Info
 
-        public static Dictionary<string, object> SessionData { get; set; }
+        public static Dictionary<string, object> HospitalSession { get; set; }
 
 
         #endregion Required Info

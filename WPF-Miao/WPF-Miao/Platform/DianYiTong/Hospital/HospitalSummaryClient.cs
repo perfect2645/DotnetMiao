@@ -42,7 +42,7 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
                         continue;
                     }
                     var doctorId = prop.GetProperty("doc_id").GetInt32().ToString();
-                    DianSession.SessionData.AddOrUpdate(doctorId, contentDic);
+                    DianSession.HospitalSession.AddOrUpdate(doctorId, contentDic);
                 }
             }
         }
