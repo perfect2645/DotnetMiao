@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="CoreControl.LogConsole.LogPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:CoreControl.LogConsole"
+      x:Name="LogPanelCtrl">
+
+    <Grid>
+        <RichTextBox x:Name="logText" 
+                   Width="Auto"
+                   Height="Auto"
+                   MinWidth="300"
+                   MinHeight="200"
+                   SelectionBrush="SkyBlue"
+                   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                   SelectionChanged="logText_SelectionChanged">
+            
+        </RichTextBox>
+    </Grid>
+</UserControl>
