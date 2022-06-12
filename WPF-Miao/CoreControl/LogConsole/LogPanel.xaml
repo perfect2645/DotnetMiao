@@ -10,10 +10,12 @@
                    Height="Auto"
                    MinWidth="300"
                    MinHeight="200"
+                   FontSize="12"
+                   Background="#ddd"
+                   SelectionTextBrush="YellowGreen"
                    SelectionBrush="SkyBlue"
                    ScrollViewer.VerticalScrollBarVisibility="Auto"
                    SelectionChanged="logText_SelectionChanged">
-            
         </RichTextBox>
     </Grid>
 </UserControl>
