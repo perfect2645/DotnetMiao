@@ -45,5 +45,10 @@ namespace WPF_Miao
         {
 
         }
+
+        private void shanxi_Click(object sender, RoutedEventArgs e)
+        {
+            Platform.shanxi.Initializer.Init();
+        }
     }
 }

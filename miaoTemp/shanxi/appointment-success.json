@@ -1,0 +1,148 @@
+
+POST https://h5-health.tengmed.com/api/gateway/VaccinationServer/immunizationAppointment HTTP/1.1
+appid: wxca6ee50592b1d6cc
+Content-Length: 734
+Connection: keep-alive
+Accept-Encoding: gzip, deflate, br
+businessid: healthcard_report
+Content-Type: application/json;charset=utf-8
+Origin: https://h5-health.tengmed.com
+authtype: tencent-health-h5
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.16(0x18001042) NetType/WIFI Language/zh_CN miniProgram
+sessionid: nszli1654216940491InEAkpONAngf44ytFrJPzUSjNbQ11817138
+Cookie: thlogin_0_6cc_04a_sid=nszli1654216940491InEAkpONAngf44ytFrJPzUSjNbQ11817138; thlogin_0_6cc_04a_sid_openid=ouTV-0Wae0sEkrkWZXZ5LPQpSyvY; thlogin_0_6cc_04a_sid_soid=%40aooouTVsoV3AT4OJSA_MHmSgepOR7GHldE; hc.sid=s%3AKLc_0bXvuUv8qc5rJRvou83swzuvEpa8.RnZ8hz3HfCoctDm44MSkWbRpZvSmqNUxveEMwgbAW68
+sub-businessid: healthcard_report
+Host: h5-health.tengmed.com
+request: 90af7a1e-8e1b-4dc2-a15f-759f99863b1c
+Referer: https://h5-health.tengmed.com/h5/mobile/hpv/appoint/confirm?type=adult4&cityCode=610000&cityType=2&channel=0402009&hospitalId=32243&healthCardId=A58B67C5310AF5DA41634C1A35E125770F16545B5E7878BF643E1525088027CE&geoCityCode=610204&needLocation=true&verifyjump=1&isvAppid=ddb0398a35512e9e50fc81f8725bd3c1&isvHospitalId=30043&geoCityName=%E9%93%9C%E5%B7%9D%E5%B8%82&geoDistrictName=%E8%80%80%E5%B7%9E%E5%8C%BA&lat=34.910135466&lng=108.969778804&ecardNo=A58B67C5310AF5DA41634C1A35E125770F16545B5E7878BF643E1525088027CE&noUserHeader=1&depaId=adult4_6102000003
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept: application/json, text/plain, */*
+
+
+{"service":"VaccinationServer","func":"immunizationAppointment","args":{"req":{"date":"","ouatId":"","ecardNo":"A58B67C5310AF5DA41634C1A35E125770F16545B5E7878BF643E1525088027CE","type":"adult4","id":"4573022","openId":"","cityId":"610000","vacName":"石琳","relationship":"夫妻","vacHealthCardId":"A58B67C5310AF5DA41634C1A35E125770F16545B5E7878BF643E1525088027CE","param":"","vaccineId":"","unionId":"","idcard":"","isRelease":1,"reseId":"","timestamp":1654221620167,"sign":"MPD/DVLDY4/4SY9tUhmUBap02yBOVxN9XGmTzTjcWyo=","ext":{},"depaId":"adult4_6102000003"},"commonIn":{"requestId":"90af7a1e-8e1b-4dc2-a15f-759f99863b1c","hospitalId":"32243","cityCode":"610000","adtag":"","sourceType":1001,"miniId":"","appId":""}},"context":{}}
+HTTP/1.1 200 OK
+Server: THProxyServer
+Connection: keep-alive
+trace: 069860d0-5385-45d5-b15d-51897201135e
+Vary: Origin, Accept
+Access-Control-Max-Age: 86400
+Content-Type: application/json
+Access-Control-Allow-Origin: https://h5-health.tengmed.com
+Cache-Control: no-cache
+userId: ohNH9sp_MrcUddgfy185fqfteUzY
+charset: utf-8
+sessionId: nszli1654216940491InEAkpONAngf44ytFrJPzUSjNbQ11817138
+openId: ouTV-0Wae0sEkrkWZXZ5LPQpSyvY
+request: 90af7a1e-8e1b-4dc2-a15f-759f99863b1c
+Date: Fri, 03 Jun 2022 02:00:20 GMT
+Access-Control-Expose-Headers: sessionId,openId,userId
+Content-Length: 977
+
+{"code":0,"msg":"success","ret":0,"args":{"commonOut":{ "resultCode": 0, "errMsg": "成功", "data": "", "requestId": "" },"rsp":{ "reseId": "5bdc6f2a", "outpName": "", "outpAddress": "", "date": "", "ouatId": "", "record": { "reseId": "", "healthCardId": "", "vacId": "", "vacBarCode": "", "vacChildCode": "", "depaId": "", "reseDate": "", "ouatId": "", "reseCreatedTime": "", "reseCheckCode": "", "reseStatus": "", "reseCacelTime": "", "reseUpdatedTime": "", "reseStartTime": "", "reseEndTime": "", "reseMobile": "", "reseReason": "", "reucChildName": "", "outpName": "", "reucChildSex": "", "ecardNo": "", "outpAddress": "", "id": 0, "reucChildBirthday": "", "reseType": "", "caseId": "", "resepName": "", "resepIdType": "", "resepIdNumber": "", "relationship": "", "vacName": "", "resepPhone": "", "appointmentDate": "", "appointType": 0, "groupName": "", "type": "", "vaccineId": "", "vaccineSubId": "", "reseCount": 0, "vacIdCard": "", "leftMins": 0, "leftCount": 0 } }}}
+
+*/
+
+// request
+{
+    "service": "VaccinationServer",
+    "func": "immunizationAppointment",
+    "args": {
+        "req": {
+            "date": "",
+            "ouatId": "",
+            "ecardNo": "A58B67C5310AF5DA41634C1A35E125770F16545B5E7878BF643E1525088027CE",
+            "type": "adult4",
+            "id": "4573022",
+            "openId": "",
+            "cityId": "610000",
+            "vacName": "石琳",
+            "relationship": "夫妻",
+            "vacHealthCardId": "A58B67C5310AF5DA41634C1A35E125770F16545B5E7878BF643E1525088027CE",
+            "param": "",
+            "vaccineId": "",
+            "unionId": "",
+            "idcard": "",
+            "isRelease": 1,
+            "reseId": "",
+            "timestamp": 1654221620167,
+            "sign": "MPD/DVLDY4/4SY9tUhmUBap02yBOVxN9XGmTzTjcWyo=",
+            "ext": {},
+            "depaId": "adult4_6102000003"
+        },
+        "commonIn": {
+            "requestId": "90af7a1e-8e1b-4dc2-a15f-759f99863b1c",
+            "hospitalId": "32243",
+            "cityCode": "610000",
+            "adtag": "",
+            "sourceType": 1001,
+            "miniId": "",
+            "appId": ""
+        }
+    },
+    "context": {}
+}
+
+{
+    "code": 0,
+    "msg": "success",
+    "ret": 0,
+    "args": {
+        "commonOut": {
+            "resultCode": 0,
+            "errMsg": "成功",
+            "data": "",
+            "requestId": ""
+        },
+        "rsp": {
+            "reseId": "5bdc6f2a",
+            "outpName": "",
+            "outpAddress": "",
+            "date": "",
+            "ouatId": "",
+            "record": {
+                "reseId": "",
+                "healthCardId": "",
+                "vacId": "",
+                "vacBarCode": "",
+                "vacChildCode": "",
+                "depaId": "",
+                "reseDate": "",
+                "ouatId": "",
+                "reseCreatedTime": "",
+                "reseCheckCode": "",
+                "reseStatus": "",
+                "reseCacelTime": "",
+                "reseUpdatedTime": "",
+                "reseStartTime": "",
+                "reseEndTime": "",
+                "reseMobile": "",
+                "reseReason": "",
+                "reucChildName": "",
+                "outpName": "",
+                "reucChildSex": "",
+                "ecardNo": "",
+                "outpAddress": "",
+                "id": 0,
+                "reucChildBirthday": "",
+                "reseType": "",
+                "caseId": "",
+                "resepName": "",
+                "resepIdType": "",
+                "resepIdNumber": "",
+                "relationship": "",
+                "vacName": "",
+                "resepPhone": "",
+                "appointmentDate": "",
+                "appointType": 0,
+                "groupName": "",
+                "type": "",
+                "vaccineId": "",
+                "vaccineSubId": "",
+                "reseCount": 0,
+                "vacIdCard": "",
+                "leftMins": 0,
+                "leftCount": 0
+            }
+        }
+    }
+}
