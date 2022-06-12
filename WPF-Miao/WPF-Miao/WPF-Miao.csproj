@@ -35,6 +35,8 @@
   <ItemGroup>
     <Folder Include="Platform\DianYiTong\Services\" />
     <Folder Include="Platform\DianYiTong\View\ViewModel\" />
+    <Folder Include="Platform\shanxi\Session\" />
+    <Folder Include="Platform\shanxi\Clients\" />
   </ItemGroup>
 
   <ItemGroup>

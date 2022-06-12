@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{68267264-AD29-4893-84CA-94A9EB8D852E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreControl", "CoreControl\CoreControl.csproj", "{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreControl", "CoreControl\CoreControl.csproj", "{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explore", "..\..\Explore\Explore.csproj", "{0840E8BF-9ECA-402A-8F50-FE28378DC368}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
