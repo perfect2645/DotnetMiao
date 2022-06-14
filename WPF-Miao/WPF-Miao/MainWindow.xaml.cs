@@ -50,5 +50,10 @@ namespace WPF_Miao
         {
             Platform.shanxi.Initializer.Init();
         }
+
+        private void yunnan_Click(object sender, RoutedEventArgs e)
+        {
+            Platform.yunnan.Initializer.Init();
+        }
     }
 }

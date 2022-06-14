@@ -22,6 +22,7 @@
             <Button Content="滇医通" Click="DianYiTong_Click"></Button>
             <Button Content="点击医院" Click="Hospital_Click"></Button>
             <Button Content="陕西" Click="shanxi_Click"></Button>
+            <Button Content="云南" Click="yunnan_Click"></Button>
         </StackPanel>
         <Grid Grid.Row="1" >
             <controls:LogPanel>

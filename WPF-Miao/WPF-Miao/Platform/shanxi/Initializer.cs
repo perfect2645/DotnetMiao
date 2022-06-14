@@ -14,6 +14,7 @@ namespace WPF_Miao.Platform.shanxi
         public static void Init()
         {
             HttpServiceController.AddTransientService<AppointmentController, AppointmentHandler>();
+
         }
     }
 }

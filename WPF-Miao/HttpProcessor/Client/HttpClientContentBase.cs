@@ -15,8 +15,6 @@ namespace HttpProcessor.Client
             RequestUrl = requestUrl;
         }
 
-        public void 
-
         public StringContent GetJsonContent()
         {
             var jsonString = JsonSerializer.Serialize(_contents, JsonEncoder.JsonOption);
