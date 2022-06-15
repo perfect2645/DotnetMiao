@@ -1,0 +1,417 @@
+OPTIONS https://dytapi.ynhdkc.com/v1/appoint?hos_code=872018&dep_id=960&doc_id=3548&pat_id=21180400&user_id=3669053&schedule_id=1294772&cate_name= HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: https://appv2.ynhdkc.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Access-Control-Request-Headers: authorization,content-type,x-uuid
+Accept: */*
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/registration_order_confirm
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:26 GMT
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 0
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388867097120e8060b81ee1f3187615e1524cbb2aa8bdcdb5;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET,PUT,DELETE,OPTIONS
+Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept,Authorization,x-uuid, token, openid, timestamp, signature
+Access-Control-Max-Age: 172800
+
+
+
+------------------------------------------------------------------
+
+POST https://dytapi.ynhdkc.com/v1/appoint?hos_code=872018&dep_id=960&doc_id=3548&pat_id=21180400&user_id=3669053&schedule_id=1294772&cate_name= HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Content-Length: 402
+Accept: application/json, text/plain, */*
+Origin: https://appv2.ynhdkc.com
+Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA1NDQzNjYsImlhdCI6MTY1MDUzODc2Nn0.AjvZXjvZQSh3V6XX7MdK5qxvLHlsdwLJi35jzUGTO8Y
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+x-uuid: 7524DCD703D2D80C29C5B5620E688FD5
+Content-Type: application/json
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/registration_order_confirm
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{
+    "doc_name": "带状疱疹疫苗",
+    "hos_name": "西山区马街社区卫生服务中心（疫苗）",
+    "hos_code": "872018",
+    "dep_name": "成人疫苗预约",
+    "level_name": "",
+    "dep_id": "960",
+    "doc_id": "3548",
+    "pat_id": 21180400,
+    "schedule_id": 1294772,
+    "jz_card": "",
+    "sch_date": "2022-04-26",
+    "time_type": "2",
+    "info": "",
+    "ghf": 0,
+    "zlf": 0,
+    "zjf": 0,
+    "jz_start_time": 0,
+    "amt": 0,
+    "jz_card_type": 0,
+    "queue_sn_id": "",
+    "wechat_login": ""
+}
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388867777124e80602bcf202d5379dde71334e9d5c3f1faf2;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Content-Length: 80
+
+{"code":1,"msg":"预约成功","data":{"order_id":"19749270","wxresult_url":""}}
+
+------------------------------------------------------------------
+
+GET https://appv2.ynhdkc.com/static/js/66.db9cd2f777b626494dab.js HTTP/1.1
+Host: appv2.ynhdkc.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Accept: */*
+Cookie: acw_tc=78c052a616505387652404908e936d9cf6721ebdf024d259ab8d2a5a30; Hm_lvt_c4ecc77b88e2e39040653322606064e4=1650538766; _ga=GA1.2.1848134938.1650538766; _gid=GA1.2.1064554961.1650538766; Hm_lpvt_c4ecc77b88e2e39040653322606064e4=1650538767; _gat_gtag_UA_123911569_1=1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: https://appv2.ynhdkc.com/registration_order_confirm
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 147840
+Connection: keep-alive
+Strict-Transport-Security: max-age=5184000
+Date: Thu, 21 Apr 2022 10:44:11 GMT
+x-oss-request-id: 6261357BE5DA9E3839B64C48
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "76FF191C2B93072FE8558FBB5724049A"
+Last-Modified: Thu, 21 Apr 2022 01:52:56 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 13973850414129585803
+x-oss-storage-class: Standard
+Vary: Accept-Encoding
+Content-MD5: dv8ZHCuTBy/oVY+7VyQEmg==
+x-oss-server-time: 16
+Ali-Swift-Global-Savetime: 1650537851
+Via: cache10.l2cn2635[0,3,200-0,H], cache27.l2cn2635[5,0], kunlun7.cn104[127,126,200-0,M], kunlun1.cn104[134,0]
+Age: 1036
+X-Cache: MISS TCP_MISS dirn:10:475098924
+X-Swift-SaveTime: Thu, 21 Apr 2022 11:01:27 GMT
+X-Swift-CacheTime: 3291
+Timing-Allow-Origin: *
+EagleId: 78c0529f16505388873671171e
+
+------------------------------------------------------------------
+
+OPTIONS https://dytapi.ynhdkc.com/v1/appoint/19749270?record_type=0 HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Access-Control-Request-Method: GET
+Origin: https://appv2.ynhdkc.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Access-Control-Request-Headers: authorization,x-uuid
+Accept: */*
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 0
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388875967176e80609ba03aae14b20042011fe671c1fcc93c;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET,PUT,DELETE,OPTIONS
+Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept,Authorization,x-uuid, token, openid, timestamp, signature
+Access-Control-Max-Age: 172800
+
+
+
+------------------------------------------------------------------
+
+OPTIONS https://maskservice.ynhdkc.com/bannerApi/search/banner?type=28&hos_id=1010 HTTP/1.1
+Host: maskservice.ynhdkc.com
+Connection: keep-alive
+Access-Control-Request-Method: GET
+Origin: https://appv2.ynhdkc.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Access-Control-Request-Headers: authorization,x-uuid
+Accept: */*
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: nginx
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Length: 0
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: https://appv2.ynhdkc.com
+Access-Control-Allow-Methods: GET
+Access-Control-Allow-Headers: authorization, x-uuid
+Access-Control-Allow-Credentials: true
+
+
+
+------------------------------------------------------------------
+
+GET https://dytapi.ynhdkc.com/v1/appoint/19749270?record_type=0 HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Origin: https://appv2.ynhdkc.com
+Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA1NDQzNjYsImlhdCI6MTY1MDUzODc2Nn0.AjvZXjvZQSh3V6XX7MdK5qxvLHlsdwLJi35jzUGTO8Y
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+x-uuid: 7524DCD703D2D80C29C5B5620E688FD5
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388876367180e8060187d6448c99d111309eca780fd3159e0;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Content-Length: 2968
+
+{"code":1,"msg":"获取成功","data":{"id":19749270,"user_id":3669053,"hos_payed_no":"","ext_order_no":"","order_no":"DYTGH220421538886181872","patient_id":21180400,"jz_card":"","patient_id_card":0,"patient_name":"刘振宇","patient_phone":0,"hos_id":"872018","dep_id":"960","doc_id":"3548","dep_name":"成人疫苗预约","doc_name":"带状疱疹疫苗","schedule_id":"1294772","queue_sn":0,"ghf":"0.00","zlf":"0.00","zjf":"0.00","yyid":0,"hyid":"","hzid":"0","start_time":"0","end_time":"0","sch_date":"2022-04-26","time_type":2,"jz_start_time":"0","amt":"0.00","pay_status":-1,"status":1,"sign":0,"his_status":0,"cancel_time":0,"cancel_times":0,"stop_msg_times":0,"jz_address":null,"create_time":1650538886,"consultation_status":0,"channel":"","mark":"","cancel_msg":"","msg_content":"恭喜刘振宇已成功预约西山区马街社区卫生服务中心（疫苗）成人疫苗预约的带状疱疹疫苗医师，就诊时间2022-04-26 下午，请于就诊当日凭本人身份证原件及就诊卡(如有)至一楼缴费窗口取号就诊。如无法前往请提前一天下午4:00以前撤销预约。","hos_name":"西山区马街社区卫生服务中心（疫苗）","hos_logo":"\/uploads\/hospital_logo\/20210926\/a351bf63d0d7eca33fdc5834e401d51f.png","appoint_sign":0,"doc_level_name":"","doc_avatar":"","pay_limit_minute":0,"dep_addr":"","check_code":"","backmoney_notice":"","record_type":0,"hospital_rule":"<div style=\"text-align:center;font-weight:bold;\">预约须知：<\/div><br \/>\r\n尊敬的用户，近期出现部分用户通过不正规渠道预约宫颈癌疫苗的情况，滇医通提醒您：<br \/>\r\n<span style=\"color:red;font-weight:bold;\">1. 预约时，请勿短时间内进行多次排班查询；<br \/>\r\n2. 对于已经无号的疫苗，请勿进行预约点击，请耐心等待下次放号；<br \/>\r\n3.  请勿通过技术手段试图提前预约或者进行号源试探。<br \/>\r\n如有违反以上任意一种情况且预约成功的，系统会对用户进行封禁及自动退号处理，此外，预约宫颈癌疫苗，滇医通不收取任何预约费用。以任何形式向您收取预约费用的，均属于违规行为，滇医通不承担相应责任，请您注意甄别。<\/span><br \/>\r\n<br \/>\r\n为保证预约的公平公正，当前需申领<span style=\"color:red;font-weight:bold;\">电子健康卡<\/span>认证为实名就诊人后方可预约，请至<span style=\"color:red;font-weight:bold;\">【我的】-【我的服务】-【电子健康卡】<\/span>中为就诊人申领电子健康卡。同时对于反复添加删除就诊人的行为进行限制，当系统检测就诊人绑定不满三十天且就诊人身份证在其他用户下绑定过时，将对九价宫颈癌疫苗预约进行限制，直至就诊人在当前帐号下绑定超过30日方可预约。","comment":"","pay_success":"","other_info":"","no_refund":0,"current_time":1650538887,"jz_card_name":"就诊码"}}
+
+------------------------------------------------------------------
+
+GET https://maskservice.ynhdkc.com/bannerApi/search/banner?type=28&hos_id=1010 HTTP/1.1
+Host: maskservice.ynhdkc.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Origin: https://appv2.ynhdkc.com
+Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA1NDQzNjYsImlhdCI6MTY1MDUzODc2Nn0.AjvZXjvZQSh3V6XX7MdK5qxvLHlsdwLJi35jzUGTO8Y
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+x-uuid: 7524DCD703D2D80C29C5B5620E688FD5
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: nginx
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Type: application/json
+Content-Length: 2
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: https://appv2.ynhdkc.com
+Access-Control-Allow-Credentials: true
+ETag: W/"0d751713988987e9331980363e24189ce"
+
+[]
+
+------------------------------------------------------------------
+
+OPTIONS https://maskservice.ynhdkc.com/bannerApi/search/banner?type=28&hos_id=872018 HTTP/1.1
+Host: maskservice.ynhdkc.com
+Connection: keep-alive
+Access-Control-Request-Method: GET
+Origin: https://appv2.ynhdkc.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Access-Control-Request-Headers: authorization,x-uuid
+Accept: */*
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: nginx
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Length: 0
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: https://appv2.ynhdkc.com
+Access-Control-Allow-Methods: GET
+Access-Control-Allow-Headers: authorization, x-uuid
+Access-Control-Allow-Credentials: true
+
+
+
+------------------------------------------------------------------
+
+GET https://maskservice.ynhdkc.com/bannerApi/search/banner?type=28&hos_id=872018 HTTP/1.1
+Host: maskservice.ynhdkc.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Origin: https://appv2.ynhdkc.com
+Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA1NDQzNjYsImlhdCI6MTY1MDUzODc2Nn0.AjvZXjvZQSh3V6XX7MdK5qxvLHlsdwLJi35jzUGTO8Y
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+x-uuid: 7524DCD703D2D80C29C5B5620E688FD5
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: nginx
+Date: Thu, 21 Apr 2022 11:01:27 GMT
+Content-Type: application/json
+Content-Length: 2
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: https://appv2.ynhdkc.com
+Access-Control-Allow-Credentials: true
+ETag: W/"0d751713988987e9331980363e24189ce"
+
+[]
+
+------------------------------------------------------------------
+
+OPTIONS https://dytapi.ynhdkc.com/v1/appoint/19749270 HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Access-Control-Request-Method: PUT
+Origin: https://appv2.ynhdkc.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Access-Control-Request-Headers: authorization,content-type,x-uuid
+Accept: */*
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:33 GMT
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 0
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388936217424e8060f50f73697fc135f08687f7581c2dc1e0;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET,PUT,DELETE,OPTIONS
+Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept,Authorization,x-uuid, token, openid, timestamp, signature
+Access-Control-Max-Age: 172800
+
+
+
+------------------------------------------------------------------
+
+PUT https://dytapi.ynhdkc.com/v1/appoint/19749270 HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Content-Length: 60
+Accept: application/json, text/plain, */*
+Origin: https://appv2.ynhdkc.com
+Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA1NDQzNjYsImlhdCI6MTY1MDUzODc2Nn0.AjvZXjvZQSh3V6XX7MdK5qxvLHlsdwLJi35jzUGTO8Y
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+x-uuid: 7524DCD703D2D80C29C5B5620E688FD5
+Content-Type: application/json
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"action":"cancel_order","cancel_channel":1,"record_type":0}
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:33 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388936637428e8060bb9b56b5c4ccd7df7e9d7f7162c11686;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Content-Length: 41
+
+{"code":1,"msg":"撤销成功","data":[]}
+
+------------------------------------------------------------------
+
+GET https://dytapi.ynhdkc.com/v1/appoint/19749270?record_type=0 HTTP/1.1
+Host: dytapi.ynhdkc.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Origin: https://appv2.ynhdkc.com
+Authorization: DYT eyJhbGciOiJIUzI1NiJ9.eyJ3ZWNoYXRfaWQiOjUxNjQ0OTMsInN1YnNjcmliZSI6MCwiZHpqX3N1YnNjcmliZSI6MCwib3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInRoaXJkX3VzZXJfaWQiOiIiLCJpc3MiOiJkeXQiLCJuZXdfc3Vic2NyaWJlIjoxLCJuZXdfb3BlbmlkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVzZXJfaWQiOjM2NjkwNTMsIndlY2hhdF9vcGVuX2lkIjoibzdMQ1g2SzRFTjJJYTJGeWdNd0RUWFBsYzUwMCIsInVuaW9uX2lkIjoib05RejQwUnFpaVdzVkQ2Q2E3N3ltQ2JZaWxuQSIsIm1vY2tfb3BlbmlkIjpmYWxzZSwibWluaV9vcGVuaWQiOiIiLCJleHAiOjE2NTA1NDQzNjYsImlhdCI6MTY1MDUzODc2Nn0.AjvZXjvZQSh3V6XX7MdK5qxvLHlsdwLJi35jzUGTO8Y
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+x-uuid: 7524DCD703D2D80C29C5B5620E688FD5
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appv2.ynhdkc.com/ucenter_register_records_detail?order_id=19749270&record_type=0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 21 Apr 2022 11:01:34 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Set-Cookie: acw_tc=2760823b16505388940287434e8060263f840fb6e77087f0f7f4bd5b2453e1;path=/;HttpOnly;Max-Age=1800
+Server: nginx
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Content-Length: 2978
+
+{"code":1,"msg":"获取成功","data":{"id":19749270,"user_id":3669053,"hos_payed_no":"","ext_order_no":"","order_no":"DYTGH220421538886181872","patient_id":21180400,"jz_card":"","patient_id_card":0,"patient_name":"刘振宇","patient_phone":0,"hos_id":"872018","dep_id":"960","doc_id":"3548","dep_name":"成人疫苗预约","doc_name":"带状疱疹疫苗","schedule_id":"1294772","queue_sn":0,"ghf":"0.00","zlf":"0.00","zjf":"0.00","yyid":0,"hyid":"","hzid":"0","start_time":"0","end_time":"0","sch_date":"2022-04-26","time_type":2,"jz_start_time":"0","amt":"0.00","pay_status":-1,"status":-1,"sign":0,"his_status":0,"cancel_time":1650538893,"cancel_times":0,"stop_msg_times":0,"jz_address":null,"create_time":1650538886,"consultation_status":0,"channel":"","mark":"","cancel_msg":"","msg_content":"恭喜刘振宇已成功预约西山区马街社区卫生服务中心（疫苗）成人疫苗预约的带状疱疹疫苗医师，就诊时间2022-04-26 下午，请于就诊当日凭本人身份证原件及就诊卡(如有)至一楼缴费窗口取号就诊。如无法前往请提前一天下午4:00以前撤销预约。","hos_name":"西山区马街社区卫生服务中心（疫苗）","hos_logo":"\/uploads\/hospital_logo\/20210926\/a351bf63d0d7eca33fdc5834e401d51f.png","appoint_sign":0,"doc_level_name":"","doc_avatar":"","pay_limit_minute":0,"dep_addr":"","check_code":"","backmoney_notice":"","record_type":0,"hospital_rule":"<div style=\"text-align:center;font-weight:bold;\">预约须知：<\/div><br \/>\r\n尊敬的用户，近期出现部分用户通过不正规渠道预约宫颈癌疫苗的情况，滇医通提醒您：<br \/>\r\n<span style=\"color:red;font-weight:bold;\">1. 预约时，请勿短时间内进行多次排班查询；<br \/>\r\n2. 对于已经无号的疫苗，请勿进行预约点击，请耐心等待下次放号；<br \/>\r\n3.  请勿通过技术手段试图提前预约或者进行号源试探。<br \/>\r\n如有违反以上任意一种情况且预约成功的，系统会对用户进行封禁及自动退号处理，此外，预约宫颈癌疫苗，滇医通不收取任何预约费用。以任何形式向您收取预约费用的，均属于违规行为，滇医通不承担相应责任，请您注意甄别。<\/span><br \/>\r\n<br \/>\r\n为保证预约的公平公正，当前需申领<span style=\"color:red;font-weight:bold;\">电子健康卡<\/span>认证为实名就诊人后方可预约，请至<span style=\"color:red;font-weight:bold;\">【我的】-【我的服务】-【电子健康卡】<\/span>中为就诊人申领电子健康卡。同时对于反复添加删除就诊人的行为进行限制，当系统检测就诊人绑定不满三十天且就诊人身份证在其他用户下绑定过时，将对九价宫颈癌疫苗预约进行限制，直至就诊人在当前帐号下绑定超过30日方可预约。","comment":"","pay_success":"","other_info":"","no_refund":0,"current_time":1650538894,"jz_card_name":"就诊码"}}
+
+------------------------------------------------------------------
+

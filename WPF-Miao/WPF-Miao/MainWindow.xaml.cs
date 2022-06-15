@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HttpProcessor.Container;
+using Logging;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPF_Miao.Platform;
+using WPF_Miao.Platform.DianYiTong.Hospital;
+using WPF_Miao.Platform.Submit;
 
 namespace WPF_Miao
 {
@@ -24,11 +18,42 @@ namespace WPF_Miao
         public MainWindow()
         {
             InitializeComponent();
+            InitPlatform();
+        }
+
+        private void InitPlatform()
+        {
+            new DianYiTongMain();
+        }
+
+        private void Hospital_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GLog.Logger.Info("Search HospitalSummary Start");
+                var client = HttpServiceController.GetService<HospitalSummaryClient>();
+                var queryContent = new HospitalSummaryContent("https://newdytapi.ynhdkc.com/index/doctor?hos_code=872018&dep_id=960&from_date=2022-05-02&end_date=2022-05-10&reg_date=2017-2-20&vip=0");
+                client.Search(queryContent);
+            }
+            catch(Exception ex)
+            {
+                GLog.Logger.Error(ex);
+            }
         }
 
         private void DianYiTong_Click(object sender, RoutedEventArgs e)
         {
-            new DianYiTong();
+
+        }
+
+        private void shanxi_Click(object sender, RoutedEventArgs e)
+        {
+            Platform.shanxi.Initializer.Init();
+        }
+
+        private void yunnan_Click(object sender, RoutedEventArgs e)
+        {
+            Platform.yunnan.Initializer.Init();
         }
     }
 }

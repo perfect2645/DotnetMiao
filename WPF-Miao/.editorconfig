@@ -2,3 +2,18 @@
 
 # CS8618: 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 dotnet_diagnostic.CS8618.severity = none
+
+# CS8765: 参数类型的为 Null 性与重写成员不匹配(可能是由于为 Null 性特性)。
+dotnet_diagnostic.CS8765.severity = none
+
+# CS8603: 可能返回 null 引用。
+dotnet_diagnostic.CS8603.severity = none
+
+# CS8602: 解引用可能出现空引用。
+dotnet_diagnostic.CS8602.severity = none
+
+# CA1715: 标识符应具有正确的前缀
+dotnet_diagnostic.CA1715.severity = none
+
+# CS8601: 引用类型赋值可能为 null。
+dotnet_diagnostic.CS8601.severity = none
