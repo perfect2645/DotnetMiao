@@ -36,6 +36,15 @@ namespace HttpProcessor.Container
             _serviceProvider = _serviceController.BuildServiceProvider();
         }
 
+        public static void AddTransientService<TClient>()
+            where TClient : HttpClientBase
+        {
+            _serviceController
+                .AddHttpClient<TClient>();
+
+            _serviceProvider = _serviceController.BuildServiceProvider();
+        }
+
         public static void AddClient<TClient, THandler>()
             where TClient : HttpClientBase
             where THandler : HttpHandler, new()

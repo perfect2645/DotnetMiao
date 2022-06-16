@@ -1,4 +1,6 @@
 ﻿using HttpProcessor.Container;
+using System.Threading.Tasks;
+using WPF_Miao.Platform.yunnan.getTimestamp;
 
 namespace WPF_Miao.Platform.yunnan
 {
@@ -6,11 +8,18 @@ namespace WPF_Miao.Platform.yunnan
     {
         public static void Init()
         {
+            Task.Factory.StartNew(() => InitFromNonDispatcher());
+        }
+
+        public static void InitFromNonDispatcher()
+        {
             HttpServiceController.AddTransientService<AppointmentController, AppointmentHandler>();
+            HttpServiceController.AddTransientService<GetTimestampController>();
 
-
-            var controller = HttpServiceController.GetService<AppointmentController>();
-            controller.AppointmentAsync().Wait();
+            var appContr = HttpServiceController.GetService<AppointmentController>();
+            var timeContr = HttpServiceController.GetService<GetTimestampController>();
+            appContr.TimeContra = timeContr;
+            appContr.AppointmentAsync().Wait();
         }
     }
 }

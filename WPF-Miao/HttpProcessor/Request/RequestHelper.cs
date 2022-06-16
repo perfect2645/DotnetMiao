@@ -29,6 +29,28 @@ namespace HttpProcessor.Request
             return dicResponse;
         }
 
+        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, string url)
+        {
+            HttpDicResponse? dicResponse = null;
+
+            try
+            {
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                dicResponse = new HttpDicResponse(response);
+            }
+            catch (HttpException httpEx)
+            {
+                GLog.Logger.Error($"StatusCode:{httpEx.StatusCode}", httpEx);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+            }
+
+            return dicResponse;
+        }
+
         public static Task<HttpDicResponse> Search(this HttpClient client, HttpClientContentBase content)
         {
             return Task.Run(() => client.SearchAsync(content).Result);
