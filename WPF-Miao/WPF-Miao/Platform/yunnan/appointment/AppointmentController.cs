@@ -1,12 +1,10 @@
 ﻿using HttpProcessor.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using HttpProcessor.Container;
+using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using WPF_Miao.Platform.yunnan.getTimestamp;
+using WPF_Miao.Platform.yunnan.model;
 
 namespace WPF_Miao.Platform.yunnan
 {
@@ -17,11 +15,18 @@ namespace WPF_Miao.Platform.yunnan
         {
         }
 
-        public GetTimestampController TimeContra { get; internal set; }
+
 
         public async Task AppointmentAsync()
         {
-            var timestamp = await TimeContra.GetTimestamp();
+            var secureHeader = HttpServiceController.ServiceProvider.GetService<SecureHeader>();
+            var content = HttpServiceController.ServiceProvider.GetService<AppointmentContent>();
+            content.HttpRequestMessage.Method = HttpMethod.Post;
+
+            await secureHeader.BuildHeader();
+            content.AddHeaders(secureHeader.SecurityHeaderDic);
+
+            var response = await Client.SendAsync(content.HttpRequestMessage);
 
             //var content = new AppointmentContent("h5-health.tengmed.com/api/gateway/VaccinationServer/immunizationAppointment");
             //var stringContent = content.GetJsonContent();
@@ -31,7 +36,7 @@ namespace WPF_Miao.Platform.yunnan
 
         }
 
-        private string GetSignHeader()
+        private void GetSignHeader()
         {
             //    var textToSign = "";
             //    var headerArr = ["X-Ca-Key", "X-Ca-Nonce", "X-Ca-Timestamp", "X-Content-MD5", "X-Service-Id", "X-Service-Method"];
@@ -49,13 +54,7 @@ namespace WPF_Miao.Platform.yunnan
 
             var textToSign = "";
             var headerArr = new string[] { "X-Ca-Key", "X-Ca-Nonce", "X-Ca-Timestamp", "X-Content-MD5", "X-Service-Id", "X-Service-Method"};
-            for (var i = 0; i < headerArr.Length; i++)
-            {
-                var it = headerArr[i];
-                var name = it.ToLower();
-                var value = headers[it];
-                textToSign += name + ":" + value + "&";
-            }
+
 
         }
     }

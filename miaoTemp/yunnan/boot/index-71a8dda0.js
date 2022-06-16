@@ -2,18 +2,18 @@ $env.setDevMode("production" == "development" || $env.getUrlParam("wxDebug") == 
 $env.setServerContextUrl("https://weixin.ngarihealth.com/weixin/");
 $env.setCDNStaticServerUrl("https://weixinnode.ngarihealth.com/weixin/");
 $env.setVersion(1654710216390);
-window.onload = function() {
+window.onload = function () {
     var isJoinBtnPress = true;
     var isCountDownEnd = true;
     var isInitialFinish = false;
     var countDownInterval = null;
     var hasLoading = false;
     var hasClick = false;
-    $manifest().then(loadBaseJs).then(initLogger).then(loadConsole).then(loadIndexTemplate).fail(function(e) {
+    $manifest().then(loadBaseJs).then(initLogger).then(loadConsole).then(loadIndexTemplate).fail(function (e) {
         $env.errorCatch(e)
-    }).then(loadCss).then(loadUtilJs).then(handleWxFontSetting).then(checkThirdUrl).fail(function(e) {
+    }).then(loadCss).then(loadUtilJs).then(handleWxFontSetting).then(checkThirdUrl).fail(function (e) {
         $env.errorCatch(e)
-    }).then(handleWX).then(handleCountDown).then(initConsultPageId).fail(function(e) {
+    }).then(handleWX).then(handleCountDown).then(initConsultPageId).fail(function (e) {
         $env.errorCatch(e)
     });
     function handleCountDown() {
@@ -40,7 +40,7 @@ window.onload = function() {
             project: "ehealth-weixin-h5",
             module: "home",
             defaultLevel: Logger.INFO,
-            formatter: function(messages, context) {
+            formatter: function (messages, context) {
                 messages.unshift((new Date).toUTCString())
             },
             fetchError: _fetchError
@@ -57,9 +57,9 @@ window.onload = function() {
                     useAES: false
                 },
                 jsonData: [info]
-            }).then(function() {
+            }).then(function () {
                 cb && cb()
-            }).fail(function(e) {
+            }).fail(function (e) {
                 console.error(e);
                 cb && cb()
             })
@@ -88,7 +88,7 @@ window.onload = function() {
             var countDownSecond = _config.countdownSecond;
             $(".countdown").text(countDownSecond + "秒");
             $(".countdown").show();
-            countDownInterval = setInterval(()=>{
+            countDownInterval = setInterval(() => {
                 if (countDownSecond <= 0) {
                     isCountDownEnd = true;
                     gotoProtal()
@@ -97,7 +97,7 @@ window.onload = function() {
                 }
                 countDownSecond--
             }
-            , 1e3)
+                , 1e3)
         } else {
             isCountDownEnd = true
         }
@@ -105,7 +105,7 @@ window.onload = function() {
             !_config.countdown && (isJoinBtnPress = true);
             $(".join-portal-btn").text(_config.enterHomePageTip);
             $(".join-portal-btn").show();
-            $(".join-portal-btn").on("click", function() {
+            $(".join-portal-btn").on("click", function () {
                 isJoinBtnPress = true;
                 if (isInitialFinish && !hasClick && !hasLoading) {
                     hasClick = true;
@@ -136,24 +136,24 @@ window.onload = function() {
                 } else {
                     configIndexTemplate(templateObj.tempProperties);
                     switch (templateObj.indexTempId) {
-                    case "indexTempId_1":
-                        $(".template-1").css("display", "block");
-                        $(".template-1 .img-auto").attr("src", $sys.thumb(templateObj.mode.pic_1));
-                        break;
-                    case "indexTempId_2":
-                        $(".template-2").css("display", "block");
-                        $(".template-2 .img-top").attr("src", $sys.thumb(templateObj.mode.pic_1));
-                        $(".template-2 .img-bottom").attr("src", $sys.thumb(templateObj.mode.pic_2));
-                        break;
-                    case "indexTempId_3":
-                        $(".template-3").css("display", "block");
-                        $(".template-3 .img-top").attr("src", $sys.thumb(templateObj.mode.pic_1));
-                        $(".template-3 .img-middle").attr("src", $sys.thumb(templateObj.mode.pic_2));
-                        $(".template-3 .img-bottom").attr("src", $sys.thumb(templateObj.mode.pic_3));
-                        break;
-                    default:
-                        $(".defaultBg").css("display", "block");
-                        break
+                        case "indexTempId_1":
+                            $(".template-1").css("display", "block");
+                            $(".template-1 .img-auto").attr("src", $sys.thumb(templateObj.mode.pic_1));
+                            break;
+                        case "indexTempId_2":
+                            $(".template-2").css("display", "block");
+                            $(".template-2 .img-top").attr("src", $sys.thumb(templateObj.mode.pic_1));
+                            $(".template-2 .img-bottom").attr("src", $sys.thumb(templateObj.mode.pic_2));
+                            break;
+                        case "indexTempId_3":
+                            $(".template-3").css("display", "block");
+                            $(".template-3 .img-top").attr("src", $sys.thumb(templateObj.mode.pic_1));
+                            $(".template-3 .img-middle").attr("src", $sys.thumb(templateObj.mode.pic_2));
+                            $(".template-3 .img-bottom").attr("src", $sys.thumb(templateObj.mode.pic_3));
+                            break;
+                        default:
+                            $(".defaultBg").css("display", "block");
+                            break
                     }
                 }
             } catch (error) {
@@ -178,7 +178,7 @@ window.onload = function() {
             audio.pause();
             window.audio = audio
         }
-        !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) && document.addEventListener("WeixinJSBridgeReady", function() {
+        !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) && document.addEventListener("WeixinJSBridgeReady", function () {
             audioAutoPlay()
         }, false);
         var js = ["lib.crypto.crypto-js-min", "ngari.rmi.serviceAdapter", "lib.antbridge-min", "ngari.utils.codec.md5", "lib.ionic.ionic-bundle-1-1-1-min", "ngari.ionicInit", "lib.jweixin-1-6-0", "eh.wx.util.filter", "eh.wx.health.config.ConfigCenter", "ngari.utils.DologMgr"];
@@ -191,7 +191,7 @@ window.onload = function() {
     }
     function handleWX(values) {
         var appid = $sys.getLocationAppId()
-          , appid = appid && appid[0];
+            , appid = appid && appid[0];
         var WXApp = $env.getCookie("WXApp") ? $decode($decode($env.getCookie("WXApp"))) : {};
         $env.requestNoAES = !(!!+WXApp.openAES || $env.getUrlParam("useAes") == "true");
         $env.version = 2.9;
@@ -207,10 +207,10 @@ window.onload = function() {
     }
     function xssInputListener() {
         var inputFlag = false;
-        var xssfilterFunc = function(e) {
+        var xssfilterFunc = function (e) {
             var targetVal = e.target.value;
             var filterValue = filterXSS(targetVal, {
-                escapeHtml: function(html) {
+                escapeHtml: function (html) {
                     var reg = /<(a|script).*\/>|<(a|script).*\/(a|script).*>/i;
                     return html.replace(reg, "").replace(/\[removed\]/, "")
                 },
@@ -219,7 +219,7 @@ window.onload = function() {
             });
             e.target.value = filterValue.replace(/\[removed\]/g, "")
         };
-        $(document.body).on("input", "input", function(e) {
+        $(document.body).on("input", "input", function (e) {
             if (inputFlag) {
                 return
             }
@@ -229,10 +229,10 @@ window.onload = function() {
                 xssfilterFunc(e)
             }
         });
-        $(document.body).on("compositionstart", "input", function(e) {
+        $(document.body).on("compositionstart", "input", function (e) {
             inputFlag = true
         });
-        $(document.body).on("compositionend", "input", function(e) {
+        $(document.body).on("compositionend", "input", function (e) {
             inputFlag = false;
             if (!inputFlag) {
                 var target = e.target;
@@ -242,17 +242,17 @@ window.onload = function() {
                 }
             }
         });
-        $(document.body).on("blur", "input", function(e) {
+        $(document.body).on("blur", "input", function (e) {
             var target = e.target;
             var typeList = ["text", "password", "email", "url"];
             if (typeList.includes(target.type)) {
                 xssfilterFunc(e)
             }
         });
-        $(document.body).on("input", "textarea", function(e) {
+        $(document.body).on("input", "textarea", function (e) {
             xssfilterFunc(e)
         });
-        $(document.body).on("blur", "textarea", function(e) {
+        $(document.body).on("blur", "textarea", function (e) {
             xssfilterFunc(e)
         })
     }
@@ -267,10 +267,10 @@ window.onload = function() {
             "z-index": "10"
         }), delay = $env.getUrlParam("delay");
         $(document.body).prepend('<div id="initBg" style="position: absolute;top: 0;bottom: 0;right: 0;left: 0;background: #f1f2f5;z-index: 7;"></div>');
-        $create("eh.wx.health.portal.Portal").then(function(m) {
-            m.on("ready", function() {
+        $create("eh.wx.health.portal.Portal").then(function (m) {
+            m.on("ready", function () {
                 if (delay) {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         st.addClass("animated fadeOut");
                         st.remove()
                     }, 1e3)
@@ -280,16 +280,16 @@ window.onload = function() {
                 }
             }, st, !0);
             $env.homePage = m;
-            $env.getCookie("initClz") && (f = function() {
+            $env.getCookie("initClz") && (f = function () {
                 $(document.body).find("#initBg").hide();
                 window.removeEventListener("popstate", f)
             }
-            ,
-            window.addEventListener("popstate", f));
+                ,
+                window.addEventListener("popstate", f));
             !$env.getCookie("initClz") && $(document.body).find("#initBg").hide();
             xssInputListener();
             m.appendTo($(document.body))
-        }).fail(function(e) {
+        }).fail(function (e) {
             $env.errorCatch(e)
         })
     }
@@ -298,7 +298,7 @@ window.onload = function() {
             WeixinJSBridge.invoke("setFontSizeCallback", {
                 fontSize: 0
             });
-            WeixinJSBridge.on("menu:setfont", function() {
+            WeixinJSBridge.on("menu:setfont", function () {
                 WeixinJSBridge.invoke("setFontSizeCallback", {
                     fontSize: 0
                 })
@@ -316,4 +316,4 @@ window.onload = function() {
         }
     }
 }
-;
+    ;
