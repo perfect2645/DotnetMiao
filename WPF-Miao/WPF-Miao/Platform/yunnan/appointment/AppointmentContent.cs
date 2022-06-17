@@ -37,8 +37,8 @@ namespace WPF_Miao.Platform.yunnan
 
         internal void BuildContentMd5Header()
         {
-            var md5 = MD5Encryptor.Encrypt("[108346253]", 16);
-            var base64Md5 = MD5Encryptor.EncryptBase64(md5);
+            var md5HashArray = Encryptor.ToMD5Hash("[108346253]");
+            var base64Md5 = Encryptor.EncryptBase64(md5HashArray);
             AddHeader(Constants.XContentMD5, base64Md5);
         }
 

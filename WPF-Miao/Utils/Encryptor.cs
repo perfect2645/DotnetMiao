@@ -7,18 +7,24 @@ using System.Threading.Tasks;
 
 namespace Utils
 {
-    public static class MD5Encryptor
+    public static class Encryptor
     {
-        public static string Encrypt(string source, int length = 32)
+        public static byte[] ToMD5Hash(string source)
         {
             if (string.IsNullOrEmpty(source))
             {
-                return string.Empty;
+                return new byte[] { };
             }
 
             HashAlgorithm? provider = CryptoConfig.CreateFromName("MD5") as HashAlgorithm;
             byte[] byteSource = Encoding.UTF8.GetBytes(source);
             byte[] hashValue = provider.ComputeHash(byteSource);
+            return hashValue;
+        }
+
+        public static string ToMD5String(string source, int length = 32)
+        {
+            var hashValue = ToMD5Hash(source);
 
             var sb = new StringBuilder();
             switch(length)
@@ -43,6 +49,7 @@ namespace Utils
                     break;
             }
 
+            var t = Convert.ToBase64String(hashValue);
             return sb.ToString();
         }
 
@@ -53,7 +60,15 @@ namespace Utils
                 return string.Empty;
             }
             byte[] byteSource = Encoding.UTF8.GetBytes(source);
+
             var result = Convert.ToBase64String(byteSource);
+
+            return result ?? string.Empty;
+        }
+
+        public static string EncryptBase64(byte[] hashValue)
+        {
+            var result = Convert.ToBase64String(hashValue);
 
             return result ?? string.Empty;
         }
