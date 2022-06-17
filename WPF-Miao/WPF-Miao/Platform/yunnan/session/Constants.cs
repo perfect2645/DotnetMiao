@@ -12,5 +12,6 @@
         public const string X_CODED_JSON_CODE = "X-Auth-Failed-Code";
         public const string CONTENT_TYPE = "Content-Type";
         public const string CHARSET = "utf-8";
+        public const string XContentMD5 = "X-Content-MD5";
     }
 }

@@ -7,12 +7,7 @@ namespace HttpProcessor.Client
 {
     public abstract class HttpClientContentBase
     {
-        private readonly Dictionary<string, object> _contents = new Dictionary<string, object>();
-
-        public Dictionary<string, object> Contents
-        {
-            get { return _contents; }
-        }
+        public Dictionary<string, object> Contents { get; set; }
 
         public string RequestUrl { get; private set; }
 
@@ -21,6 +16,7 @@ namespace HttpProcessor.Client
         public HttpClientContentBase()
         {
             HttpRequestMessage = new HttpRequestMessage();
+            Contents = new Dictionary<string, object>();
         }
 
         public HttpClientContentBase(string requestUrl)
@@ -38,7 +34,7 @@ namespace HttpProcessor.Client
             }
         }
 
-        internal void AddHeader(string key, string value)
+        public void AddHeader(string key, string value)
         {
             HttpRequestMessage.Headers.Add(key, value);
         }
@@ -47,12 +43,12 @@ namespace HttpProcessor.Client
 
         #region Contents
 
-        internal void AddContents(Dictionary<string, object> contents)
+        public void AddContents(Dictionary<string, object> contents)
         {
             Contents.AddOrUpdate(contents);
         }
 
-        internal void AddContent(string key, string value)
+        public void AddContent(string key, string value)
         {
             Contents.AddOrUpdate(key, value);
         }
@@ -62,7 +58,7 @@ namespace HttpProcessor.Client
 
         public StringContent GetJsonContent()
         {
-            var jsonString = JsonSerializer.Serialize(_contents, JsonEncoder.JsonOption);
+            var jsonString = JsonSerializer.Serialize(Contents, JsonEncoder.JsonOption);
             return new StringContent(jsonString, Encoding.UTF8, "application/json");
         }
     }

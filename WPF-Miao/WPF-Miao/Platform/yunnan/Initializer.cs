@@ -22,8 +22,9 @@ namespace WPF_Miao.Platform.yunnan
             HttpServiceController.ServiceCollection.AddTransient<SecureHeader>();
             HttpServiceController.ServiceCollection.BuildServiceProvider();
 
+            HttpServiceController.BuidServiceProvider();
+
             var appContr = HttpServiceController.GetService<AppointmentController>();
-            var timeContr = HttpServiceController.GetService<GetTimestampController>();
             appContr.AppointmentAsync().Wait();
         }
     }
