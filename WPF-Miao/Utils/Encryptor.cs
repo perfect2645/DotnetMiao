@@ -27,10 +27,10 @@ namespace Utils
             var hashValue = ToMD5Hash(source);
 
             var sb = new StringBuilder();
-            switch(length)
+            switch (length)
             {
                 case 16: // 16位密文是32位密文的9到24位字符
-                    for (int i = 4; i < 12;i++)
+                    for (int i = 4; i < 12; i++)
                     {
                         sb.Append(hashValue[i].ToString("x2"));
                     }
@@ -75,9 +75,24 @@ namespace Utils
 
         public static string ToBase64Md5(string source)
         {
-            var md5hashArray = ToMD5Hash(source);
-            var base64Md5 = EncryptBase64(md5hashArray);
-            return base64Md5;
+            if (string.IsNullOrEmpty(source))
+            {
+                return string.Empty;
+            }
+
+            HashAlgorithm? provider = CryptoConfig.CreateFromName("MD5") as HashAlgorithm;
+            byte[] byteSource = Encoding.UTF8.GetBytes(source);
+            byte[] hashValue = provider.ComputeHash(byteSource);
+
+            var base64Md5 = Convert.ToBase64String(hashValue);
+            return base64Md5 ?? string.Empty;
+        }
+
+        public static byte[] HmacSHA256(string srouce, string key)
+        {
+            var mac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+            byte[] hash = mac.ComputeHash(Encoding.UTF8.GetBytes(srouce));
+            return hash;
         }
     }
 }

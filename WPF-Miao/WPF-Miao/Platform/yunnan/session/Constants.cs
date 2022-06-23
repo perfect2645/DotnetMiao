@@ -13,5 +13,12 @@
         public const string CONTENT_TYPE = "Content-Type";
         public const string CHARSET = "utf-8";
         public const string XContentMD5 = "X-Content-MD5";
+        public const string XCaKey = "X-Ca-Key";
+        public const string XCaNonce = "X-Ca-Nonce";
+        public const string XCaTimestamp = "X-Ca-Timestamp";
+        public const string XServiceId = "X-Service-Id";
+        public const string XServiceMethod = "X-Service-Method";
+        public const string XCaSignature = "X-Ca-Signature";
+
     }
 }

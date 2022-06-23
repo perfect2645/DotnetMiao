@@ -24,6 +24,8 @@ namespace WPF_Miao.Platform.yunnan
             content.HttpRequestMessage.Method = HttpMethod.Post;
 
             await secureHeader.BuildHeader();
+            secureHeader.SetXContentMD5("[108346253]");
+            secureHeader.BuildXCaSignature();
             content.AddHeaders(secureHeader.SecurityHeaderDic);
 
             var response = await Client.SendAsync(content.HttpRequestMessage);

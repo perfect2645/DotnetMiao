@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
+using Utils;
 using WPF_Miao.Platform.yunnan.getTimestamp;
 using WPF_Miao.Platform.yunnan.session;
 
@@ -15,10 +17,13 @@ namespace WPF_Miao.Platform.yunnan.model
         public SecureHeader(GetTimestampController timeContra)
         {
             _timeContra = timeContra;
-
-            SecurityHeaderDic.Add("X-Ca-Key", Constants.CAKEY);
-            SecurityHeaderDic.Add("X-Ca-Nonce", string.Empty);
-            SecurityHeaderDic.Add("X-Ca-Timestamp", string.Empty);
+            //["X-Ca-Key", "X-Ca-Nonce", "X-Ca-Timestamp", "X-Content-MD5", "X-Service-Id", "X-Service-Method"]
+            SecurityHeaderDic.Add(Constants.XCaKey, Constants.CAKEY);
+            SecurityHeaderDic.Add(Constants.XCaNonce, string.Empty);
+            SecurityHeaderDic.Add(Constants.XCaTimestamp, string.Empty);
+            SecurityHeaderDic.Add(Constants.XContentMD5, string.Empty);
+            SecurityHeaderDic.Add(Constants.XServiceId, "appoint.preConsultService");
+            SecurityHeaderDic.Add(Constants.XServiceMethod, "canPreConsult");
         }
 
         public async Task BuildHeader()
@@ -30,12 +35,35 @@ namespace WPF_Miao.Platform.yunnan.model
 
         private void SetTimestamp(string time)
         {
-            SecurityHeaderDic["X-Ca-Timestamp"] = time;
+            SecurityHeaderDic[Constants.XCaTimestamp] = time;
         }
 
         private void SetXCaNonce(string xCaNonce)
         {
-            SecurityHeaderDic["X-Ca-Nonce"] = xCaNonce;
+            SecurityHeaderDic[Constants.XCaNonce] = xCaNonce;
+        }
+
+        public void SetXContentMD5(string contentJson)
+        {
+            var base64Md5 = Encryptor.ToBase64Md5(contentJson);
+            SecurityHeaderDic[Constants.XContentMD5] = base64Md5;
+        }
+
+        public void BuildXCaSignature()
+        {
+            var sb = new StringBuilder();
+            foreach (var header in SecurityHeaderDic)
+            {
+                sb.Append(header.Key.ToLower());
+                sb.Append(":");
+                sb.Append(header.Value);
+                sb.Append("&");
+            }
+            var textToSign = sb.ToString().TrimEnd('&');
+            var sha256 = Encryptor.HmacSHA256(textToSign, Constants.CASECRET);
+            var signature = Encryptor.EncryptBase64(sha256);
+
+            SecurityHeaderDic.Add(Constants.XCaSignature, signature);
         }
     }
 }
