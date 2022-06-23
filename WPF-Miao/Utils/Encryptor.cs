@@ -72,5 +72,12 @@ namespace Utils
 
             return result ?? string.Empty;
         }
+
+        public static string ToBase64Md5(string source)
+        {
+            var md5hashArray = ToMD5Hash(source);
+            var base64Md5 = EncryptBase64(md5hashArray);
+            return base64Md5;
+        }
     }
 }
