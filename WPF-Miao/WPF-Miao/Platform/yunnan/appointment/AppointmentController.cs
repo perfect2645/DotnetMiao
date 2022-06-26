@@ -3,19 +3,15 @@ using HttpProcessor.Container;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;
 using System.Threading.Tasks;
-using WPF_Miao.Platform.yunnan.getTimestamp;
 using WPF_Miao.Platform.yunnan.model;
 
 namespace WPF_Miao.Platform.yunnan
 {
     internal class AppointmentController : HttpClientBase
     {
-
         public AppointmentController(HttpClient httpClient) : base(httpClient)
         {
         }
-
-
 
         public async Task AppointmentAsync()
         {

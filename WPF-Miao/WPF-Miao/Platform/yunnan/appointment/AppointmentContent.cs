@@ -1,8 +1,6 @@
 ﻿using HttpProcessor.Client;
 using System;
 using System.Net.Http;
-using Utils;
-using WPF_Miao.Platform.yunnan.session;
 
 namespace WPF_Miao.Platform.yunnan
 {
