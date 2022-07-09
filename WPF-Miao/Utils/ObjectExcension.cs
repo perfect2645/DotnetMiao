@@ -16,6 +16,10 @@ namespace Utils
 
         public static object Dic(this object obj, string key)
         {
+            if (obj == null)
+            {
+                return null;
+            }
             if (obj is IDictionary<string, object>)
             {
                 var dic = obj as IDictionary<string, object>;
@@ -23,7 +27,7 @@ namespace Utils
             }
             if (obj is JObject)
             {
-                return GetJValue(obj as JObject, key);
+                return GetJValue((obj as JObject)!, key);
             }
             return obj;
         }
