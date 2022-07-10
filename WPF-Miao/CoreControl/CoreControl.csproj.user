@@ -10,7 +10,13 @@
     <Page Update="LogConsole\LogPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resources\MaterialDesign.xaml">
+    <Page Update="Resources\MaterialDesign\Base.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\MaterialDesign\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\MaterialDesign\MaterialDesign.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

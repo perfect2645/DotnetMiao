@@ -8,10 +8,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <!--<Style TargetType="Button" x:Key="buttonStyle">
-            <Setter Property="Width" Value="80" />
-            <Setter Property="Height" Value="30" />
-        </Style>-->
+        <Style TargetType="Button" BasedOn="{StaticResource LightBtn}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="36" />
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Button Content="滇医通" Click="DianYiTong_Click" Width="80"></Button>
+            <Button Content="滇医通" Click="DianYiTong_Click"></Button>
             <Button Content="点击医院" Click="Hospital_Click"></Button>
             <Button Content="陕西" Click="shanxi_Click"></Button>
             <Button Content="云南" Click="yunnan_Click"></Button>
