@@ -5,19 +5,19 @@
         xmlns:controls="clr-namespace:CoreControl.LogConsole;assembly=CoreControl"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="YunnanConsole" 
-        Height="1000" Width="800" 
-        WindowStyle="None" 
-        AllowsTransparency="True"
-        WindowState="Maximized">
+        Height="800" Width="800" 
+        WindowState="Normal">
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="30" Background="SkyBlue">
-            
-        </Grid>
-        <Grid DockPanel.Dock="Right" x:Name="console">
 
         </Grid>
-        <Grid DockPanel.Dock="Left" x:Name="logs">
-            <controls:LogPanel>
+        <Grid DockPanel.Dock="Right" x:Name="console" HorizontalAlignment="Left">
+            <Button Command="{Binding AppointmentCommand}">
+                
+            </Button>
+        </Grid>
+        <Grid DockPanel.Dock="Left" x:Name="logs" Width="300">
+            <controls:LogPanel WriteLineAction="{Binding WriteLineAction, Mode=OneWayToSource}">
 
             </controls:LogPanel>
         </Grid>

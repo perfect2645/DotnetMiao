@@ -12,23 +12,39 @@ namespace CoreControl.LogConsole
     {
         private static readonly Type ControlType = typeof(LogPanel);
 
-        public FlowDocument LogPanelDocument
+        private static readonly object _lock = new object();
+
+        public Action<string> WriteLineAction
         {
-            get { return (FlowDocument)GetValue(LogPanelDocumentProperty); }
-            set { SetValue(LogPanelDocumentProperty, value); }
+            get { return (Action<string>)GetValue(WriteLineActionProperty); }
+            set { SetValue(WriteLineActionProperty, value); }
         }
 
-        public static readonly DependencyProperty LogPanelDocumentProperty =
-            DependencyProperty.Register("LogPanelDocument", typeof(FlowDocument), ControlType);
+        public static readonly DependencyProperty WriteLineActionProperty =
+            DependencyProperty.Register("WriteLineAction", typeof(Action<string>), ControlType);
 
         public LogPanel()
         {
             InitializeComponent();
+            WriteLineAction = new Action<string>(WriteLine);
         }
 
         private void logText_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
         }
+
+        #region Write
+        private void WriteLine(string text)
+        {
+            lock(_lock)
+            {
+                var paragraph = new Paragraph();
+                paragraph.Inlines.Add(new Run(text));
+                document.Blocks.Add(paragraph);
+            }
+        }
+
+        #endregion Write
     }
 }

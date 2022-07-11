@@ -11,11 +11,14 @@
                    MinWidth="300"
                    MinHeight="200"
                    FontSize="12"
-                   Background="#ddd"
+                   Background="AliceBlue"
                    SelectionTextBrush="YellowGreen"
                    SelectionBrush="SkyBlue"
                    ScrollViewer.VerticalScrollBarVisibility="Auto"
                    SelectionChanged="logText_SelectionChanged">
+            <FlowDocument LineHeight="5" x:Name="document">
+                
+            </FlowDocument>
         </RichTextBox>
     </Grid>
 </UserControl>
