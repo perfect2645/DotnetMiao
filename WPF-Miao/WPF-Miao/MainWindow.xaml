@@ -23,9 +23,7 @@
             <Button Content="云南" Click="yunnan_Click" ></Button>
         </StackPanel>
         <Grid Grid.Row="1" >
-            <controls:LogPanel>
-                
-            </controls:LogPanel>
+            <ContentControl x:Name="logCtrlContent" />
         </Grid>
     </Grid>
 </Window>

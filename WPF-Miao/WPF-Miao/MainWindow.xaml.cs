@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Container;
 using Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Prism.Regions;
 using System;
 using System.Net.Http;
 using System.Windows;
@@ -15,10 +16,15 @@ namespace WPF_Miao
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IRegionManager _regionManager;
+
+        public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
             InitPlatform();
+            _regionManager = regionManager;
+
+            RegionManager.SetRegionName(logCtrlContent, "LogControl");
         }
 
         private void InitPlatform()
