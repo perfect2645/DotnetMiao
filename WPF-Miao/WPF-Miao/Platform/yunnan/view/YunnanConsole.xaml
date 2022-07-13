@@ -4,20 +4,20 @@
         xmlns:local="clr-namespace:WPF_Miao.Platform.yunnan.view"
         xmlns:controls="clr-namespace:CoreControl.LogConsole;assembly=CoreControl"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="YunnanConsole" 
+        Title="Yunnan" 
         Height="800" Width="800" 
         WindowState="Normal">
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="30" Background="SkyBlue">
 
         </Grid>
-        <Grid DockPanel.Dock="Right" x:Name="console" HorizontalAlignment="Left">
-            <Button Command="{Binding AppointmentCommand}">
+        <Grid DockPanel.Dock="Right" x:Name="console" HorizontalAlignment="Left" Width="200">
+            <Button Command="{Binding AppointmentCommand}" Width="100">
                 
             </Button>
         </Grid>
-        <Grid DockPanel.Dock="Left" x:Name="logs" Width="300">
-            <controls:LogPanel WriteLineAction="{Binding WriteLineAction, Mode=OneWayToSource}">
+        <Grid DockPanel.Dock="Left" x:Name="logs" Width="auto">
+            <controls:LogPanel x:Name="logPanel">
 
             </controls:LogPanel>
         </Grid>

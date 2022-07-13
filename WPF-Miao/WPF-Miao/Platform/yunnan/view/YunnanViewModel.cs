@@ -10,13 +10,13 @@ namespace WPF_Miao.Platform.yunnan.view
 {
     internal class YunnanViewModel
     {
-        public Action<string> WriteLineAction { get; set; }
-
         public ICommand AppointmentCommand { get; set; }
+        public Action<string> WriteLogAction { get; }
 
-        public YunnanViewModel()
+        public YunnanViewModel(Action<string> writeLogAction)
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
+            WriteLogAction = writeLogAction;
         }
 
 
@@ -24,6 +24,7 @@ namespace WPF_Miao.Platform.yunnan.view
 
         private void ExecuteAppointment()
         {
+            WriteLogAction?.Invoke("123");
         }
 
         private bool CanExecuteAppointment()

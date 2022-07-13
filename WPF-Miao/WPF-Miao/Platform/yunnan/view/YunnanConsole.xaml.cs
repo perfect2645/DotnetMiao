@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace WPF_Miao.Platform.yunnan.view
 {
@@ -10,7 +11,8 @@ namespace WPF_Miao.Platform.yunnan.view
         public YunnanConsole()
         {
             InitializeComponent();
-            DataContext = new YunnanViewModel();
+
+            DataContext = new YunnanViewModel(logPanel.WriteLogAction);
         }
     }
 }

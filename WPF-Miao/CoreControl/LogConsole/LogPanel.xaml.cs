@@ -14,19 +14,12 @@ namespace CoreControl.LogConsole
 
         private static readonly object _lock = new object();
 
-        public Action<string> WriteLineAction
-        {
-            get { return (Action<string>)GetValue(WriteLineActionProperty); }
-            set { SetValue(WriteLineActionProperty, value); }
-        }
-
-        public static readonly DependencyProperty WriteLineActionProperty =
-            DependencyProperty.Register("WriteLineAction", typeof(Action<string>), ControlType);
+        public Action<string> WriteLogAction { get; private set; }
 
         public LogPanel()
         {
             InitializeComponent();
-            WriteLineAction = new Action<string>(WriteLine);
+            WriteLogAction = new Action<string>(WriteLine);
         }
 
         private void logText_SelectionChanged(object sender, RoutedEventArgs e)
