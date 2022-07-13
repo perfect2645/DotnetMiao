@@ -12,9 +12,9 @@ namespace WPF_Miao.Platform.yunnan
     {
         public static void Init()
         {
+            Task.Factory.StartNew(() => InitFromNonDispatcher());
             var win = new YunnanConsole();
             win.ShowDialog();
-            //Task.Factory.StartNew(() => InitFromNonDispatcher());
         }
 
         public static void InitFromNonDispatcher()
@@ -24,11 +24,7 @@ namespace WPF_Miao.Platform.yunnan
             HttpServiceController.ServiceCollection.AddTransient<AppointmentContent>();
             HttpServiceController.ServiceCollection.AddTransient<SecureHeader>();
             HttpServiceController.ServiceCollection.BuildServiceProvider();
-
             HttpServiceController.BuidServiceProvider();
-
-            var appContr = HttpServiceController.GetService<AppointmentController>();
-            appContr.AppointmentAsync().Wait();
         }
     }
 }
