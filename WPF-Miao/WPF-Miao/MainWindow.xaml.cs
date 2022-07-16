@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Prism.Regions;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows;
 using WPF_Miao.Platform;
 using WPF_Miao.Platform.DianYiTong.Hospital;
@@ -57,9 +58,9 @@ namespace WPF_Miao
             Platform.shanxi.Initializer.Init();
         }
 
-        private void yunnan_Click(object sender, RoutedEventArgs e)
+        private async void yunnan_Click(object sender, RoutedEventArgs e)
         {
-            Platform.yunnan.Initializer.InitAsync();
+            await Platform.yunnan.Initializer.InitAsync();
         }
     }
 }
