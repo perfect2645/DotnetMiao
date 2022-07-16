@@ -19,6 +19,7 @@
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0"
+                Text="{Binding SessionItem.Cookie}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
                 Height="100"
@@ -39,6 +40,7 @@
             </TextBox>
 
             <TextBox Grid.Row="1"
+                Text="{Binding SessionItem.Referer}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
                 Height="100"

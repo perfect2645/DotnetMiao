@@ -59,7 +59,7 @@ namespace WPF_Miao
 
         private void yunnan_Click(object sender, RoutedEventArgs e)
         {
-            Platform.yunnan.Initializer.Init();
+            Platform.yunnan.Initializer.InitAsync();
         }
     }
 }

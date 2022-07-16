@@ -15,17 +15,7 @@ namespace WPF_Miao.Platform.yunnan.session
                 return ++_localTimeOffset;
             }
         }
+        public static string Cookie { get; set; }
 
-        private static string _cookie;
-
-        public static string Cookie
-        {
-            get { return _cookie; }
-            set
-            {
-                _cookie = value;
-                NotifyStaticChanged.NotifyStatic(() => Cookie);
-            }
-        }
     }
 }

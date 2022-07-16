@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Windows;
+using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan.view
 {
@@ -12,7 +14,16 @@ namespace WPF_Miao.Platform.yunnan.view
         {
             InitializeComponent();
 
-            DataContext = new YunnanViewModel(logPanel.WriteLogAction);
+            try
+            {
+                var sessionItem = Container.ServiceProvider.GetService<ISessionItem>();
+                DataContext = new YunnanViewModel(logPanel, sessionItem!);
+            }
+            catch(Exception ex)
+            {
+                Logging.GLog.Logger.Error(ex);
+            }
+
         }
     }
 }

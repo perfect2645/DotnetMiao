@@ -15,11 +15,13 @@ namespace CoreControl.LogConsole
         private static readonly object _lock = new object();
 
         public Action<string> WriteLogAction { get; private set; }
+        public Func<string> GetLogAction { get; private set; }
 
         public LogPanel()
         {
             InitializeComponent();
             WriteLogAction = new Action<string>(WriteLine);
+            GetLogAction = new Func<string>(GetRichText);
         }
 
         private void logText_SelectionChanged(object sender, RoutedEventArgs e)
@@ -39,5 +41,19 @@ namespace CoreControl.LogConsole
         }
 
         #endregion Write
+
+        #region Read
+
+        public string GetRichText()
+        {
+            if (logText.Document?.ContentStart == null)
+            {
+                return string.Empty;
+            }
+            TextRange textRange = new TextRange(logText.Document.ContentStart, logText.Document.ContentEnd);
+            return textRange?.Text ?? string.Empty;
+        }
+
+        #endregion Read
     }
 }
