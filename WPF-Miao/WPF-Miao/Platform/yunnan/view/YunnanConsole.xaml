@@ -7,13 +7,50 @@
         Title="Yunnan" 
         Height="800" Width="800" 
         WindowState="Normal">
-    <DockPanel>
+    <DockPanel LastChildFill="True">
         <Grid DockPanel.Dock="Top" Height="30" Background="SkyBlue">
 
         </Grid>
-        <Grid DockPanel.Dock="Right" x:Name="console" HorizontalAlignment="Left" Width="200">
-            <Button Command="{Binding AppointmentCommand}" Width="100">
-                
+        <Grid DockPanel.Dock="Right" x:Name="console" HorizontalAlignment="Left" MinWidth="300">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                VerticalAlignment="Top"
+                Height="100"
+                Margin="5 10"
+                TextWrapping="Wrap"
+                MaxLength="200"
+                materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
+                VerticalScrollBarVisibility="Auto"
+                materialDesign:HintAssist.Hint="Copy Cookie">
+                <!--<Binding
+                    Path="Name"
+                    UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <domain:NotEmptyValidationRule
+                            ValidatesOnTargetUpdated="True" xmlns:domain="clr-namespace:CoreControl.LogConsole" />
+                    </Binding.ValidationRules>
+                </Binding>-->
+            </TextBox>
+
+            <TextBox Grid.Row="1"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                VerticalAlignment="Top"
+                Height="100"
+                Margin="5"
+                TextWrapping="Wrap"
+                MaxLength="200"
+                materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
+                VerticalScrollBarVisibility="Auto"
+                materialDesign:HintAssist.Hint="Copy Referer" />
+            <Button Grid.Row="3"
+                    Command="{Binding AppointmentCommand}" Width="100"
+                    Content="约">
             </Button>
         </Grid>
         <Grid DockPanel.Dock="Left" x:Name="logs" Width="auto">
