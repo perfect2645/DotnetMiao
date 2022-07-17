@@ -21,8 +21,8 @@ namespace WPF_Miao.Platform.yunnan.model
             SecurityHeaderDic.Add(Constants.XCaNonce, string.Empty);
             SecurityHeaderDic.Add(Constants.XCaTimestamp, string.Empty);
             SecurityHeaderDic.Add(Constants.XContentMD5, string.Empty);
-            SecurityHeaderDic.Add(Constants.XServiceId, "appoint.preConsultService");
-            SecurityHeaderDic.Add(Constants.XServiceMethod, "canPreConsult");
+            SecurityHeaderDic.Add(Constants.XServiceId, "appoint.requestAppointRecordService");
+            SecurityHeaderDic.Add(Constants.XServiceMethod, "addAppointRecord");
         }
 
         public async Task BuildHeader()
