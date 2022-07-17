@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Container;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WPF_Miao.Platform.yunnan.model;
@@ -17,14 +18,17 @@ namespace WPF_Miao.Platform.yunnan
         {
             var secureHeader = HttpServiceController.ServiceProvider.GetService<SecureHeader>();
             var content = HttpServiceController.ServiceProvider.GetService<AppointmentContent>();
-            content.HttpRequestMessage.Method = HttpMethod.Post;
 
             await secureHeader.BuildHeader();
-            secureHeader.SetXContentMD5("[108346253]");
-            secureHeader.BuildXCaSignature();
-            content.AddHeaders(secureHeader.SecurityHeaderDic);
+            content.BuildRequest(secureHeader);
 
             var response = await Client.SendAsync(content.HttpRequestMessage);
+
+            ParseAppointmentResult(response);
+        }
+
+        private void ParseAppointmentResult(HttpResponseMessage response)
+        {
         }
     }
 }

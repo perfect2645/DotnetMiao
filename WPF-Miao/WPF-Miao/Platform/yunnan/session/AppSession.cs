@@ -15,6 +15,8 @@ namespace WPF_Miao.Platform.yunnan.session
                 return ++_localTimeOffset;
             }
         }
+
+        public static string YunnanUrl = "https://weixin.ngarihealth.com/weixin/wx/mp/wxf119c4ff0a602d44/gateway";
         public static string Cookie { get; set; }
 
     }

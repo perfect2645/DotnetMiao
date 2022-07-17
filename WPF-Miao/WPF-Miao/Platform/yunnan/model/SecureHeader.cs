@@ -44,7 +44,8 @@ namespace WPF_Miao.Platform.yunnan.model
 
         public void SetXContentMD5(string contentJson)
         {
-            var base64Md5 = Encryptor.ToBase64Md5(contentJson);
+            string contentArray = $"[{contentJson}]";
+            var base64Md5 = Encryptor.ToBase64Md5(contentArray);
             SecurityHeaderDic[Constants.XContentMD5] = base64Md5;
         }
 

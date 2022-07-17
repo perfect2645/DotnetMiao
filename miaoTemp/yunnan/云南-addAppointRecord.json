@@ -79,3 +79,44 @@ Strict-Transport-Security: max-age=31536000
         "isRealTime": 0
     }
 ]
+
+
+{
+    "mpiid": "2c90823e8147f0a4018157f291d845f8",
+    "patientName": "崔法威",
+    "certId": "2****************0",
+    "linkTel": "139****7525",
+    "organAppointId": "",
+    "appointSourceId": 1363693193,
+    "organId": "1001176",
+    "appointDepartId": "1083",
+    "appointDepartName": "新生儿随访门诊",
+    "doctorId": 162516,
+    "workDate": "2022-07-20 00:00:00",
+    "workType": 2,
+    "sourceType": 1,
+    "startTime": "2022-07-20 14:00:00",
+    "endTime": "2022-07-20 14:30:00",
+    "orderNum": 9,
+    "appointRoad": 5,
+    "appointStatus": 0,
+    "appointPath": 9,
+    "appointUser": "2c90823e8147f0a4018157f291d845f8",
+    "appointName": "崔法威",
+    "appointOragn": "",
+    "clinicPrice": 5.5,
+    "transferId": 0,
+    "sourceLevel": 1,
+    "clinicId": "",
+    "ifCreateFollowPlan": 1,
+    "cardId": "210302198608163030",
+    "triggerId": null,
+    "medInsureCarId": "",
+    "appointRecordExt": {
+        "illSummaryTxt": "",
+        "thirdChannel": null
+    },
+    "analyzeNvcData": "",
+    "ruleString": "",
+    "isRealTime": 0
+}

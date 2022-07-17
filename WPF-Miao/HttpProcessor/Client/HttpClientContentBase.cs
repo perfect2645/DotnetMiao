@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.JsonFactory;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using Utils;
@@ -12,6 +13,7 @@ namespace HttpProcessor.Client
         public string RequestUrl { get; private set; }
 
         public HttpRequestMessage HttpRequestMessage { get; private set; }
+        public string JsonContent { get; private set; }
 
         public HttpClientContentBase()
         {
@@ -53,13 +55,38 @@ namespace HttpProcessor.Client
             Contents.AddOrUpdate(key, value);
         }
 
+        protected virtual void BuildEntityHeaders()
+        {
+            HttpRequestMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        }
+
+        protected void BuildRequest()
+        {
+            BuildRequestHeaders();
+            BuildRequestContent();
+            BuildEntityHeaders();
+        }
+
+        protected  virtual void BuildRequestHeaders()
+        {
+        }
+
+        protected virtual void BuildRequestContent()
+        {
+            BuildEntityHeaders();
+        }
 
         #endregion Contents
 
-        public StringContent GetJsonContent()
+        public virtual StringContent GetJsonContent(bool isArr = false)
         {
-            var jsonString = JsonSerializer.Serialize(Contents, JsonEncoder.JsonOption);
-            return new StringContent(jsonString, Encoding.UTF8, "application/json");
+            var jsonContent = JsonSerializer.Serialize(Contents, JsonEncoder.JsonOption);
+            if (isArr)
+            {
+                jsonContent = $"[{jsonContent}]";
+            }
+            JsonContent = jsonContent;
+            return new StringContent(JsonContent, Encoding.UTF8, "application/json");
         }
     }
 }

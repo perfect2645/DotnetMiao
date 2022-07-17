@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json.Nodes;
+using WPF_Miao.Platform.yunnan.model;
+using WPF_Miao.Platform.yunnan.session;
 
 namespace WPF_Miao.Platform.yunnan
 {
@@ -29,7 +32,7 @@ namespace WPF_Miao.Platform.yunnan
             HttpRequestMessage.Headers.Add("Accept-Encoding", "gzip, deflate, br");
             //HttpRequestMessage.Headers.Add("X-Service-Id", "appoint.requestAppointRecordService");
             HttpRequestMessage.Headers.Add("Origin", "https://weixin.ngarihealth.com");
-            HttpRequestMessage.Headers.Add("content-Type", "application/json");
+            //HttpRequestMessage.Headers.Add("content-Type", "application/json"); //TODO exception
             HttpRequestMessage.Headers.Add("User-Agent", @"Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Language/zh_CN");
 
             //HttpRequestMessage.Headers.Add("X-Service-Method", "saveBuriedPointList");
@@ -55,7 +58,7 @@ namespace WPF_Miao.Platform.yunnan
             Contents.Add("linkTel", "139****7525");
             Contents.Add("organAppointId", "");
             Contents.Add("appointSourceId", 1363693193);//Dynamic
-            Contents.Add("organId", "1001176");     //Dynamic
+            Contents.Add("organId", 1001176);     //Dynamic
             Contents.Add("appointDepartId", "1083");//Dynamic
             Contents.Add("appointDepartName", "新生儿随访门诊");
             Contents.Add("doctorId", 162516);       //Dynamic
@@ -91,5 +94,32 @@ namespace WPF_Miao.Platform.yunnan
         }
 
         #endregion Contents
+
+        #region Request
+
+        internal void BuildRequest(SecureHeader secureHeader)
+        {
+            HttpRequestMessage.RequestUri = new Uri(AppSession.YunnanUrl);
+
+            HttpRequestMessage.Method = HttpMethod.Post;
+            var jsonContent = GetJsonContent(true);
+            HttpRequestMessage.Content = jsonContent;
+            BuildEntityHeaders();
+            secureHeader.SetXContentMD5(JsonContent);
+            secureHeader.BuildXCaSignature();
+            AddHeaders(secureHeader.SecurityHeaderDic);
+        }
+
+        protected override void BuildRequestHeaders()
+        {
+            base.BuildRequestHeaders();
+        }
+
+        protected override void BuildRequestContent()
+        {
+            base.BuildRequestContent();
+        }
+
+        #endregion Request
     }
 }
