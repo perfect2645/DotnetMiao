@@ -35,7 +35,23 @@
         }
         return null
     };
+    var removeClass = function(className) {
+        var pkgs = className.split(".");
+        var obj = g, p;
+        for (var i = 0, n = pkgs.length; i < n; i++) {
+            p = pkgs[i];
+            if (obj[p]) {
+                if (i == n - 1 && is.Class(obj[p])) {
+                    delete obj[p];
+                    return
+                } else {
+                    obj = obj[p]
+                }
+            }
+        }
+    };
     g.$findClass = findClass;
+    g.$removeClass = removeClass;
     var emptyFunction = function() {};
     g.$emptyFunction = emptyFunction;
     g.$AppContext = {};
@@ -100,11 +116,12 @@
         if (hasLinkDom) {
             window.Logger && Logger.warn("资源加载错误：" + domTarget.src || domTarget.href)
         } else {
-            window.Logger && Logger.error(e)
+            window.Logger && Logger.error("资源报错", e)
         }
     }, true);
     window.addEventListener("unhandledrejection", function(e) {
-        console.log("promise捕获到异常： ", e)
+        console.log("promise捕获到异常： ", e);
+        window.Logger && Logger.error("promise捕获到异常： ", e)
     });
     var appRelativePath = function() {
         var pathname = window.location.pathname;
@@ -353,6 +370,10 @@
     var getCookie = function(name) {
         try {
             var cookie = $env.hybrid ? env._cookie : document.cookie;
+            if ($sys.isWeixin() && name == "WXApp" && env.isWeixinCookieOpen) {
+                console.log("cookie open");
+                return $encode(decodeURIComponent(window.WXApp))
+            }
             var arg = name + "="
               , alen = arg.length
               , clen = cookie.length
@@ -640,7 +661,8 @@
         env.firefoxVersion = firefoxVersion;
         env.ieVersion = ieVersion || ie11Version;
         env.safariVersion = safariVersion;
-        env.originalHeight = document.documentElement.clientHeight || document.body.clientHeight
+        env.originalHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        env.isWeixinCookieOpen = true
     }
     )();
     g.$env = env;
@@ -1399,6 +1421,7 @@
             delete scriptLoaded[cn]
         }
     };
+    env.clearCache = clearCache;
     var createNewTransport = function(conf) {
         var transport = new XMLHttpRequest;
         var withCredentials = true;
@@ -1589,7 +1612,7 @@
         };
         script.onload = function() {
             var loadings = [], i, cp, p;
-            window.Logger ? Logger.log("load url:" + url) : console.log("load url:" + url);
+            console.log("load url:" + url);
             clearLoadingPromise(ncs);
             if (is.String(cls)) {
                 p = classDefining[ncs]
@@ -1722,7 +1745,7 @@
             };
             script.onload = function() {
                 var loadings = [], i, cp, p;
-                window.Logger ? Logger.log("load url:" + url) : console.log("load url:" + url);
+                console.log("load url:" + url);
                 clearLoadingPromise(ncs);
                 if (is.String(cls)) {
                     p = classDefining[ncs]
@@ -2082,6 +2105,20 @@
         }
         return false
     };
+    var oldPersonLoadeds = [];
+    var setOldPersonLoaded = function(url) {
+        if (!oldPersonLoadeds)
+            oldPersonLoadeds = [];
+        oldPersonLoadeds.push(url)
+    };
+    env.oldPersonLoadeds = function() {
+        return oldPersonLoadeds
+    }
+    ;
+    env.clearOldPersonLoadeds = function() {
+        oldPersonLoadeds = []
+    }
+    ;
     var define = function(classname, overrides) {
         var defer = new Defer;
         classDefining[classname] = defer.promise;
@@ -2175,12 +2212,17 @@
             delete overrides.css
         }
         var hts = overrides.hts;
+        var oldFlag = overrides.oldFlag;
         if (hts) {
             if (is.Boolean(hts)) {
                 hts = classname
             } else if (hts == "/") {
                 hts += classname
             }
+            if (oldFlag) {
+                setOldPersonLoaded(classname)
+            }
+            oldFlag && $sys.hook && (hts = $sys.hook.oldPersonHtml(classname));
             $sys.hook && $sys.hook.html(classname) && (hts = $sys.hook.html(classname));
             loadings.push(loadHts(hts).then(function(s) {
                 overrides.html = s

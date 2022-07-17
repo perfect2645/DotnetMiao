@@ -19,6 +19,36 @@ namespace WPF_Miao.Platform.yunnan.viewModel
 
         public ISessionItem SessionItem { get; set;}
 
+        private string _contentMD5;
+
+        public string ContentMD5
+        {
+            get { return _contentMD5; }
+            set 
+            {
+                if (_contentMD5 == value)
+                {
+                    return;
+                }
+                _contentMD5 = value;
+                NotifyUI(() => ContentMD5);
+                ComputeMD5(_contentMD5);
+            }
+        }
+
+        private string _md5Result;
+
+        public string MD5Result
+        {
+            get { return _md5Result; }
+            set
+            {
+                _md5Result = value;
+                NotifyUI(() => MD5Result);
+            }
+        }
+
+
         #endregion Properties
 
         #region Constructor
@@ -53,6 +83,15 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         }
 
         #endregion Appointment
+
+        #region Tool
+
+        private void ComputeMD5(string contentMD5)
+        {
+            MD5Result = Encryptor.ToBase64Md5(contentMD5);
+        }
+
+        #endregion Tool
 
         #region Log
 

@@ -7,7 +7,7 @@
         Title="Yunnan" 
         Height="800" Width="800" 
         WindowState="Normal">
-    <DockPanel LastChildFill="True">
+    <DockPanel >
         <Grid DockPanel.Dock="Top" Height="30" Background="SkyBlue">
 
         </Grid>
@@ -15,8 +15,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="150" />
                 <RowDefinition Height="150" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="300" />
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0"
                 Text="{Binding SessionItem.Cookie}"
@@ -25,7 +26,7 @@
                 Height="100"
                 Margin="5 10"
                 TextWrapping="Wrap"
-                MaxLength="200"
+                MaxLength="600"
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
                 VerticalScrollBarVisibility="Auto"
                 materialDesign:HintAssist.Hint="Copy Cookie">
@@ -44,9 +45,9 @@
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
                 Height="100"
-                Margin="5"
+                Margin="5 10"
                 TextWrapping="Wrap"
-                MaxLength="200"
+                MaxLength="600"
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
                 VerticalScrollBarVisibility="Auto"
                 materialDesign:HintAssist.Hint="Copy Referer" />
@@ -54,6 +55,26 @@
                     Command="{Binding AppointmentCommand}" Width="100"
                     Content="约">
             </Button>
+            <StackPanel Grid.Row="4"
+                    x:Name="ContentMD5" 
+                    Background="SeaShell">
+                <TextBox Grid.Row="0"
+                    Text="{Binding ContentMD5}"
+                         Height="100"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    Margin="5 10"
+                    TextWrapping="Wrap"
+                    MaxLength="1000"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="Test Content MD5">
+                </TextBox>
+                <TextBox
+                    Text="{Binding MD5Result}"
+                    Margin="5" 
+                    IsReadOnly="True"/>
+            </StackPanel>
         </Grid>
         <Grid DockPanel.Dock="Left" x:Name="logs" Width="auto">
             <controls:LogPanel x:Name="logPanel">
