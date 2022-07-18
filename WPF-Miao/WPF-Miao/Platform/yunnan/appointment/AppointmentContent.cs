@@ -11,14 +11,6 @@ namespace WPF_Miao.Platform.yunnan
 {
     internal class AppointmentContent : HttpClientContentBase
     {
-        public string Cookie
-        {
-            get
-            {
-                return "client-id=81150288; isNewUser=false; api=WX; tk=3715d2e8-7cbe-43cf-b3bb-f9442b3aaa5e; acw_tc=2f61f26b16580288796837140e41ac0dba2e81e5102b9a01bd8dbfaab2ac56";
-            }
-        }
-
         public AppointmentContent() : base()
         {
             BuildDefaultHeaders();
@@ -37,8 +29,8 @@ namespace WPF_Miao.Platform.yunnan
 
             //HttpRequestMessage.Headers.Add("X-Service-Method", "saveBuriedPointList");
             HttpRequestMessage.Headers.Add("Host", "weixin.ngarihealth.com");
-            HttpRequestMessage.Headers.Add("Cookie", Cookie);// TODO
-            HttpRequestMessage.Headers.Add("Referer", "https://weixin.ngarihealth.com/weixin/wx/mp/wxf119c4ff0a602d44/index.html?module=appointHomePage&source=wx_menu&code=021Vx1100KZ0cO1JSH300LtCKw2Vx11S&state=STATE");
+            HttpRequestMessage.Headers.Add("Cookie", YunnanSession.MiaoSession["TestName"].Cookie);
+            HttpRequestMessage.Headers.Add("Referer", YunnanSession.MiaoSession["TestName"].Referer);
             HttpRequestMessage.Headers.Add("Accept-Language", "zh-CN,zh-Hans;q=0.9");
             HttpRequestMessage.Headers.Add("encoding", "utf-8");
             HttpRequestMessage.Headers.Add("Accept", "*/*"); // TODO

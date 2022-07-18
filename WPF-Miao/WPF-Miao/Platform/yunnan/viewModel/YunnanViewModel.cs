@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using WPF_Miao.Platform.yunnan.helper;
+using WPF_Miao.Platform.yunnan.session;
 
 namespace WPF_Miao.Platform.yunnan.viewModel
 {
@@ -55,10 +56,16 @@ namespace WPF_Miao.Platform.yunnan.viewModel
 
         public YunnanViewModel(LogPanel logPanel, ISessionItem sessionItem)
         {
-            SessionItem = sessionItem;
+            InitSession(sessionItem);
             LogPanel = logPanel;
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SaveLogCommand = new DelegateCommand(SaveLogs, CanSaveLogs);
+        }
+
+        private void InitSession(ISessionItem sessionItem)
+        {
+            SessionItem = sessionItem;
+            YunnanSession.AddOrUpdate((SessionItem as SessionItem)!);
         }
 
         #endregion Constructor

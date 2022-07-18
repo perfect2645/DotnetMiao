@@ -2,7 +2,7 @@
 
 namespace WPF_Miao.Platform.yunnan.viewModel
 {
-    internal class SessionItem : NotifyChanged, ISessionItem
+    public class SessionItem : NotifyChanged, ISessionItem
     {
         private string _cookie;
         public string Cookie 
@@ -26,6 +26,9 @@ namespace WPF_Miao.Platform.yunnan.viewModel
                 NotifyUI(() => Referer);
             }
         }
+
+        public string UserName { get; set; }
+        public int Tel { get; set; }
 
         public SessionItem()
         {

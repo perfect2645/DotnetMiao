@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WPF_Miao.Platform.yunnan.viewModel
+﻿namespace WPF_Miao.Platform.yunnan.viewModel
 {
     internal interface ISessionItem
     {
+        string UserName { get; set; }
         string Cookie { get; set; }
         string Referer { get; set; }
+        int Tel { get; set; }
     }
 }
