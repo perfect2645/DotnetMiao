@@ -5,6 +5,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WPF_Miao.Platform.yunnan.model;
+using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan
 {
@@ -14,13 +15,13 @@ namespace WPF_Miao.Platform.yunnan
         {
         }
 
-        public async Task AppointmentAsync()
+        public async Task AppointmentAsync(ISessionItem sessionItem)
         {
             var secureHeader = HttpServiceController.ServiceProvider.GetService<SecureHeader>();
             var content = HttpServiceController.ServiceProvider.GetService<AppointmentContent>();
 
             await secureHeader.BuildHeader();
-            content.BuildRequest(secureHeader);
+            content.BuildRequest(secureHeader, sessionItem);
 
             var response = await Client.SendAsync(content.HttpRequestMessage);
 
@@ -29,6 +30,7 @@ namespace WPF_Miao.Platform.yunnan
 
         private void ParseAppointmentResult(HttpResponseMessage response)
         {
+            var resString = response.Content.ReadAsStringAsync();
         }
     }
 }

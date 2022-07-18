@@ -6,11 +6,14 @@ using System.Net.Http.Headers;
 using System.Text.Json.Nodes;
 using WPF_Miao.Platform.yunnan.model;
 using WPF_Miao.Platform.yunnan.session;
+using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan
 {
     internal class AppointmentContent : HttpClientContentBase
     {
+
+        private ISessionItem SessionItem { get; set; }
         public AppointmentContent() : base()
         {
             BuildDefaultHeaders();
@@ -22,15 +25,9 @@ namespace WPF_Miao.Platform.yunnan
         private void BuildDefaultHeaders()
         {
             HttpRequestMessage.Headers.Add("Accept-Encoding", "gzip, deflate, br");
-            //HttpRequestMessage.Headers.Add("X-Service-Id", "appoint.requestAppointRecordService");
             HttpRequestMessage.Headers.Add("Origin", "https://weixin.ngarihealth.com");
-            //HttpRequestMessage.Headers.Add("content-Type", "application/json"); //TODO exception
             HttpRequestMessage.Headers.Add("User-Agent", @"Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Language/zh_CN");
-
-            //HttpRequestMessage.Headers.Add("X-Service-Method", "saveBuriedPointList");
             HttpRequestMessage.Headers.Add("Host", "weixin.ngarihealth.com");
-            HttpRequestMessage.Headers.Add("Cookie", YunnanSession.MiaoSession["TestName"].Cookie);
-            HttpRequestMessage.Headers.Add("Referer", YunnanSession.MiaoSession["TestName"].Referer);
             HttpRequestMessage.Headers.Add("Accept-Language", "zh-CN,zh-Hans;q=0.9");
             HttpRequestMessage.Headers.Add("encoding", "utf-8");
             HttpRequestMessage.Headers.Add("Accept", "*/*"); // TODO
@@ -89,17 +86,26 @@ namespace WPF_Miao.Platform.yunnan
 
         #region Request
 
-        internal void BuildRequest(SecureHeader secureHeader)
+        internal void BuildRequest(SecureHeader secureHeader, viewModel.ISessionItem sessionItem)
         {
+            SessionItem = sessionItem;
+
             HttpRequestMessage.RequestUri = new Uri(AppSession.YunnanUrl);
 
             HttpRequestMessage.Method = HttpMethod.Post;
             var jsonContent = GetJsonContent(true);
             HttpRequestMessage.Content = jsonContent;
             BuildEntityHeaders();
+            BuildSessionHeaders();
             secureHeader.SetXContentMD5(JsonContent);
             secureHeader.BuildXCaSignature();
             AddHeaders(secureHeader.SecurityHeaderDic);
+        }
+
+        private void BuildSessionHeaders()
+        {
+            HttpRequestMessage.Headers.Add("Cookie", SessionItem.Cookie);
+            HttpRequestMessage.Headers.Add("Referer", SessionItem.Referer);
         }
 
         protected override void BuildRequestHeaders()

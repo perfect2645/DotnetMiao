@@ -27,7 +27,17 @@ namespace WPF_Miao.Platform.yunnan.viewModel
             }
         }
 
-        public string UserName { get; set; }
+        private string _userName = "userName";
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                NotifyUI(() => UserName);
+            }
+        }
+
         public int Tel { get; set; }
 
         public SessionItem()

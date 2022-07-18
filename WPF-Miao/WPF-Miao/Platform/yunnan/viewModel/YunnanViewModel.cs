@@ -56,16 +56,10 @@ namespace WPF_Miao.Platform.yunnan.viewModel
 
         public YunnanViewModel(LogPanel logPanel, ISessionItem sessionItem)
         {
-            InitSession(sessionItem);
+            SessionItem = sessionItem;
             LogPanel = logPanel;
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SaveLogCommand = new DelegateCommand(SaveLogs, CanSaveLogs);
-        }
-
-        private void InitSession(ISessionItem sessionItem)
-        {
-            SessionItem = sessionItem;
-            YunnanSession.AddOrUpdate((SessionItem as SessionItem)!);
         }
 
         #endregion Constructor
@@ -75,13 +69,14 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         private void ExecuteAppointment()
         {
             Log("Appointment Start");
+            YunnanSession.AddOrUpdate((SessionItem as SessionItem)!);
             Task.Factory.StartNew(AppointmentAsync);
         }
 
         private void AppointmentAsync()
         {
             var appContr = HttpServiceController.GetService<AppointmentController>();
-            appContr.AppointmentAsync().Wait();
+            appContr.AppointmentAsync(SessionItem).Wait();
         }
 
         private bool CanExecuteAppointment()

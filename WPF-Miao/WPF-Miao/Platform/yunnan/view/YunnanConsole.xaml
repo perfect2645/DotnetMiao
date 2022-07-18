@@ -13,13 +13,20 @@
         </Grid>
         <Grid DockPanel.Dock="Right" x:Name="console" HorizontalAlignment="Left" MinWidth="300">
             <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
                 <RowDefinition Height="150" />
                 <RowDefinition Height="150" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="300" />
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0"
+            <TextBox Width="80" 
+                    Margin="5"
+                    Height="30"
+                    IsReadOnly="True"
+                    Text="{Binding SessionItem.UserName}">
+            </TextBox>
+            <TextBox Grid.Row="1"
                 Text="{Binding SessionItem.Cookie}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
@@ -40,7 +47,7 @@
                 </Binding>-->
             </TextBox>
 
-            <TextBox Grid.Row="1"
+            <TextBox Grid.Row="2"
                 Text="{Binding SessionItem.Referer}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
@@ -51,11 +58,11 @@
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
                 VerticalScrollBarVisibility="Auto"
                 materialDesign:HintAssist.Hint="Copy Referer" />
-            <Button Grid.Row="3"
+            <Button Grid.Row="4"
                     Command="{Binding AppointmentCommand}" Width="100"
                     Content="约">
             </Button>
-            <StackPanel Grid.Row="4"
+            <StackPanel Grid.Row="5"
                     x:Name="ContentMD5" 
                     Background="SeaShell">
                 <TextBox Grid.Row="0"
