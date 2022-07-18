@@ -1,4 +1,7 @@
-﻿using Utils;
+﻿using HttpProcessor.Container;
+using System;
+using Utils;
+using WPF_Miao.Platform.yunnan.getUserInfo;
 
 namespace WPF_Miao.Platform.yunnan.viewModel
 {
@@ -39,15 +42,17 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         }
 
         public int Tel { get; set; }
+        public Action GetUserSessionAction { get; set; }
 
         public SessionItem()
         {
+            GetUserSessionAction = new Action(GetUserSession);
         }
 
-        public SessionItem(string cookie, string referer)
+        private void GetUserSession()
         {
-            Cookie = cookie;
-            Referer = referer;
+            var controller = HttpServiceController.GetService<UserInfoController>();
+            var userInfo = controller.GetUserInfo(coo).Wait();
         }
     }
 }

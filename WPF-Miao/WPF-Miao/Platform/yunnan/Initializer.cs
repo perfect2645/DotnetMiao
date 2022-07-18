@@ -7,6 +7,7 @@ using HttpProcessor.Client;
 using WPF_Miao.Platform.yunnan.view;
 using System;
 using WPF_Miao.Platform.yunnan.viewModel;
+using WPF_Miao.Platform.yunnan.getUserInfo;
 
 namespace WPF_Miao.Platform.yunnan
 {
@@ -21,6 +22,8 @@ namespace WPF_Miao.Platform.yunnan
         }
         private static void InitHttpContainer()
         {
+            HttpServiceController.AddTransientService<UserInfoController, AppointmentHandler>();
+
             HttpServiceController.AddTransientService<AppointmentController, AppointmentHandler>();
             HttpServiceController.AddTransientService<GetTimestampController>();
             HttpServiceController.ServiceCollection.AddTransient<AppointmentContent>();
