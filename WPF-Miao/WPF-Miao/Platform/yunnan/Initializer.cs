@@ -23,6 +23,7 @@ namespace WPF_Miao.Platform.yunnan
         private static void InitHttpContainer()
         {
             HttpServiceController.AddTransientService<UserInfoController, AppointmentHandler>();
+            HttpServiceController.ServiceCollection.AddTransient<UserInfoContent>();
 
             HttpServiceController.AddTransientService<AppointmentController, AppointmentHandler>();
             HttpServiceController.AddTransientService<GetTimestampController>();

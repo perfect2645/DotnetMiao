@@ -52,7 +52,7 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         private void GetUserSession()
         {
             var controller = HttpServiceController.GetService<UserInfoController>();
-            var userInfo = controller.GetUserInfo(coo).Wait();
+            var userInfo = controller.GetUserInfo().Result;
         }
     }
 }

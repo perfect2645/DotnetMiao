@@ -1,4 +1,6 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
+using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -12,9 +14,11 @@ namespace WPF_Miao.Platform.yunnan.getUserInfo
 
         public async Task<string> GetUserInfo()
         {
-            var content = 
-            var searchResponse = await SearchAsync(timeUrl);
-            return new HeaderTimestamp(searchResponse);
+            var content = HttpServiceController.ServiceProvider.GetService<UserInfoContent>();
+
+            var searchResponse = await SearchAsync(content!);
+
+            return searchResponse.JsonBody.ToString();
         }
     }
 }
