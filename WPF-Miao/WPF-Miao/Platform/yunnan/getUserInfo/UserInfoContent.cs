@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF_Miao.Platform.yunnan.session;
 using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan.getUserInfo
@@ -12,7 +13,9 @@ namespace WPF_Miao.Platform.yunnan.getUserInfo
     {
         public UserInfoContent()
         {
+            HttpRequestMessage.RequestUri = new Uri("https://weixin.ngarihealth.com/weixin/logon/currentUrtNew");
             BuildDefaultHeaders();
+            BuildSessionHeaders();
         }
 
         #region Headers
@@ -28,6 +31,12 @@ namespace WPF_Miao.Platform.yunnan.getUserInfo
             HttpRequestMessage.Headers.Add("Accept-Encoding", "gzip, deflate, br");
             HttpRequestMessage.Headers.Add("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
             HttpRequestMessage.Headers.Add("Accept", "*/*");
+        }
+
+        private void BuildSessionHeaders()
+        {
+            HttpRequestMessage.Headers.Add("Cookie", YunnanSession.GetSessionItem().Cookie);
+            HttpRequestMessage.Headers.Add("Referer", YunnanSession.GetSessionItem().Referer);
         }
 
         #endregion Headers

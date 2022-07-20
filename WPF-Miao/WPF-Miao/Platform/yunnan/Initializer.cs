@@ -8,6 +8,8 @@ using WPF_Miao.Platform.yunnan.view;
 using System;
 using WPF_Miao.Platform.yunnan.viewModel;
 using WPF_Miao.Platform.yunnan.getUserInfo;
+using System.Net.Http;
+using System.Net;
 
 namespace WPF_Miao.Platform.yunnan
 {
@@ -22,6 +24,7 @@ namespace WPF_Miao.Platform.yunnan
         }
         private static void InitHttpContainer()
         {
+            //var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip };
             HttpServiceController.AddTransientService<UserInfoController, AppointmentHandler>();
             HttpServiceController.ServiceCollection.AddTransient<UserInfoContent>();
 

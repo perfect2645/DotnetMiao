@@ -69,14 +69,22 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         private void ExecuteAppointment()
         {
             Log("Appointment Start");
-            YunnanSession.AddOrUpdate((SessionItem as SessionItem)!);
+            //YunnanSession.AddOrUpdate((SessionItem as SessionItem)!);
             Task.Factory.StartNew(AppointmentAsync);
         }
 
         private void AppointmentAsync()
         {
             var appContr = HttpServiceController.GetService<AppointmentController>();
-            appContr.AppointmentAsync(SessionItem).Wait();
+
+            try
+            {
+                appContr.AppointmentAsync(SessionItem).Wait();
+            }
+            catch(AggregateException ex)
+            {
+                Log(ex);
+            }
         }
 
         private bool CanExecuteAppointment()
@@ -96,6 +104,17 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         #endregion Tool
 
         #region Log
+
+        private void Log(Exception ex)
+        {
+            if (ex.InnerException != null)
+            {
+                Log(ex.InnerException);
+                return;
+            }
+            var logStr = string.Empty;
+            LogHelper.PrintLog(LogPanel.WriteLogAction, logStr);
+        }
 
         private void Log(string logStr)
         {

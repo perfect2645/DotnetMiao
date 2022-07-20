@@ -1,7 +1,9 @@
 ﻿using HttpProcessor.Container;
 using System;
+using System.Threading.Tasks;
 using Utils;
 using WPF_Miao.Platform.yunnan.getUserInfo;
+using WPF_Miao.Platform.yunnan.session;
 
 namespace WPF_Miao.Platform.yunnan.viewModel
 {
@@ -13,7 +15,12 @@ namespace WPF_Miao.Platform.yunnan.viewModel
             get { return _cookie; }
             set
             {
+                if (_cookie == value)
+                {
+                    return;
+                }
                 _cookie = value;
+                TryGetUserInfo();
                 NotifyUI(() => Cookie);
             }
         }
@@ -25,7 +32,12 @@ namespace WPF_Miao.Platform.yunnan.viewModel
             get { return _referer; }
             set 
             {
+                if (_referer == value)
+                {
+                    return;
+                }
                 _referer = value;
+                TryGetUserInfo();
                 NotifyUI(() => Referer);
             }
         }
@@ -42,17 +54,41 @@ namespace WPF_Miao.Platform.yunnan.viewModel
         }
 
         public int Tel { get; set; }
+
+        #region User Session
+
         public Action GetUserSessionAction { get; set; }
 
         public SessionItem()
         {
-            GetUserSessionAction = new Action(GetUserSession);
+            YunnanSession.AddOrUpdate(this);
+            GetUserSessionAction = new Action(GetUserSessionAsync);
         }
 
-        private void GetUserSession()
+        private void GetUserSessionAsync()
         {
-            var controller = HttpServiceController.GetService<UserInfoController>();
-            var userInfo = controller.GetUserInfo().Result;
+            var getUserTask = Task.Factory.StartNew(() =>
+            {
+                var controller = HttpServiceController.GetService<UserInfoController>();
+                return controller.GetUserInfo().Result;
+            });
+            var userInfoResponse = getUserTask.Result;
         }
+
+        private void TryGetUserInfo()
+        {
+            if (string.IsNullOrWhiteSpace(Cookie))
+            {
+                return;
+            }
+            if (string.IsNullOrEmpty(Referer))
+            {
+                return;
+            }
+
+            GetUserSessionAction?.Invoke();
+        }
+
+        #endregion User Session
     }
 }

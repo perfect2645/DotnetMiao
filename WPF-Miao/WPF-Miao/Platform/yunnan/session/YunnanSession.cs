@@ -6,7 +6,6 @@ namespace WPF_Miao.Platform.yunnan.session
 {
     public class YunnanSession
     {
-
         private YunnanSession() { }
 
         public static Dictionary<string, SessionItem> MiaoSession { get; set; }
@@ -26,12 +25,14 @@ namespace WPF_Miao.Platform.yunnan.session
             MiaoSession = new Dictionary<string, SessionItem>();
         }
 
-        public SessionItem this[string userName]
+        public static SessionItem GetSessionItem(string? userName = null)
         {
-            get
+            if (string.IsNullOrEmpty(userName))
             {
-                return MiaoSession[userName];
+                return MiaoSession["userName"];
             }
+
+            return MiaoSession[userName];
         }
     }
 }

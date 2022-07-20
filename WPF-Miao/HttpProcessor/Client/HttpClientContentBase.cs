@@ -10,7 +10,7 @@ namespace HttpProcessor.Client
     {
         public Dictionary<string, object> Contents { get; set; }
 
-        public string RequestUrl { get; private set; }
+        public string RequestUrl { get; protected set; }
 
         public HttpRequestMessage HttpRequestMessage { get; private set; }
         public string JsonContent { get; private set; }

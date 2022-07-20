@@ -18,7 +18,7 @@ namespace WPF_Miao.Platform.yunnan.getUserInfo
 
             var searchResponse = await SearchAsync(content!);
 
-            return searchResponse.JsonBody.ToString();
+            return searchResponse.JsonBody?.ToString();
         }
     }
 }
