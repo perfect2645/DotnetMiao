@@ -1,7 +1,9 @@
 ﻿using Logging;
 using Newtonsoft.Json;
+using System.IO.Compression;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using Utils;
 
 namespace HttpProcessor.Client
 {
@@ -64,12 +66,29 @@ namespace HttpProcessor.Client
 
         private void BuildBody(HttpContent content)
         {
-            var contentStr = content.ReadAsStringAsync().Result;
+            var contentStr = string.Empty;
+            if (content.Headers?.ContentEncoding?.Contains("gzip") == true)
+            {
+                contentStr = BuildBodyFromGzip(content);
+            }
+            else
+            {
+                contentStr = content.ReadAsStringAsync().Result;
+            }
+
             var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
 
             Body = contentDic ?? new Dictionary<string, object>();
 
             JsonBody = JsonDocument.Parse(contentStr);
+        }
+
+        private string BuildBodyFromGzip(HttpContent httpContent)
+        {
+            //var contentStream = httpContent.ReadAsStreamAsync().Result;
+            //return Gzip.Decompress(contentStream);
+            var resString = httpContent.ReadAsStringAsync().Result;
+            return resString;
         }
 
         #endregion Body

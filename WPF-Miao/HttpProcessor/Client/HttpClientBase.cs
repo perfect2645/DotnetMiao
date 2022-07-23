@@ -34,6 +34,20 @@ namespace HttpProcessor.Client
             }
         }
 
+        public virtual async Task<HttpDicResponse> SearchAsync(string url)
+        {
+            try
+            {
+                var response = await Client.SearchAsync(url);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return null;
+            }
+        }
+
         public virtual void Search(HttpClientContentBase content, Action<HttpDicResponse> callback)
         {
             try
