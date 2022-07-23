@@ -16,7 +16,7 @@ namespace WPF_Miao.Platform.DianYiTong.Order
         public string HosName { get; set; }
 
         [JsonProperty("hos_code")]
-        [JsonConverter(typeof(JsonStringConverter))]
+        [JsonConverter(typeof(JsonToValue))]
         public long HosCode { get; set; }
 
         [JsonProperty("dep_name")]
@@ -26,11 +26,11 @@ namespace WPF_Miao.Platform.DianYiTong.Order
         public string LevelName { get; set; }
 
         [JsonProperty("dep_id")]
-        [JsonConverter(typeof(JsonStringConverter))]
+        [JsonConverter(typeof(JsonToValue))]
         public long DepId { get; set; }
 
         [JsonProperty("doc_id")]
-        [JsonConverter(typeof(JsonStringConverter))]
+        [JsonConverter(typeof(JsonToValue))]
         public long DocId { get; set; }
 
         [JsonProperty("pat_id")]
@@ -46,7 +46,7 @@ namespace WPF_Miao.Platform.DianYiTong.Order
         public DateTimeOffset SchDate { get; set; }
 
         [JsonProperty("time_type")]
-        [JsonConverter(typeof(JsonStringConverter))]
+        [JsonConverter(typeof(JsonToValue))]
         public long TimeType { get; set; }
 
         [JsonProperty("info")]
