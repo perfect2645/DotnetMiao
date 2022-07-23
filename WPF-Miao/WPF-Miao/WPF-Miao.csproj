@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Platform\DianYiTong\View\ViewModel\" />
+    <Folder Include="Platform\DianYiTong\backup\View\ViewModel\" />
     <Folder Include="Platform\shanxi\Session\" />
   </ItemGroup>
 
