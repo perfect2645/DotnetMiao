@@ -1,8 +1,10 @@
 ﻿using HttpProcessor.Container;
 using Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Prism.Regions;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows;
 using WPF_Miao.Platform;
 using WPF_Miao.Platform.DianYiTong.Hospital;
@@ -15,10 +17,15 @@ namespace WPF_Miao
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IRegionManager _regionManager;
+
+        public MainWindow(IRegionManager regionManager)
         {
             InitializeComponent();
             InitPlatform();
+            _regionManager = regionManager;
+
+            RegionManager.SetRegionName(logCtrlContent, "LogControl");
         }
 
         private void InitPlatform()
@@ -51,9 +58,9 @@ namespace WPF_Miao
             Platform.shanxi.Initializer.Init();
         }
 
-        private void yunnan_Click(object sender, RoutedEventArgs e)
+        private async void yunnan_Click(object sender, RoutedEventArgs e)
         {
-            Platform.yunnan.Initializer.Init();
+            await Platform.yunnan.Initializer.InitAsync();
         }
     }
 }

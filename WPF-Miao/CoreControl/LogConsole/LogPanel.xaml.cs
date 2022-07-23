@@ -12,23 +12,48 @@ namespace CoreControl.LogConsole
     {
         private static readonly Type ControlType = typeof(LogPanel);
 
-        public FlowDocument LogPanelDocument
-        {
-            get { return (FlowDocument)GetValue(LogPanelDocumentProperty); }
-            set { SetValue(LogPanelDocumentProperty, value); }
-        }
+        private static readonly object _lock = new object();
 
-        public static readonly DependencyProperty LogPanelDocumentProperty =
-            DependencyProperty.Register("LogPanelDocument", typeof(FlowDocument), ControlType);
+        public Action<string> WriteLogAction { get; private set; }
+        public Func<string> GetLogAction { get; private set; }
 
         public LogPanel()
         {
             InitializeComponent();
+            WriteLogAction = new Action<string>(WriteLine);
+            GetLogAction = new Func<string>(GetRichText);
         }
 
         private void logText_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
         }
+
+        #region Write
+        private void WriteLine(string text)
+        {
+            lock(_lock)
+            {
+                var paragraph = new Paragraph();
+                paragraph.Inlines.Add(new Run(text));
+                document.Blocks.Add(paragraph);
+            }
+        }
+
+        #endregion Write
+
+        #region Read
+
+        public string GetRichText()
+        {
+            if (logText.Document?.ContentStart == null)
+            {
+                return string.Empty;
+            }
+            TextRange textRange = new TextRange(logText.Document.ContentStart, logText.Document.ContentEnd);
+            return textRange?.Text ?? string.Empty;
+        }
+
+        #endregion Read
     }
 }

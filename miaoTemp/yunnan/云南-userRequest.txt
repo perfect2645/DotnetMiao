@@ -1,0 +1,30 @@
+GET https://weixin.ngarihealth.com/weixin/logon/currentUrtNew HTTP/1.1
+Host: weixin.ngarihealth.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307001d)
+Accept: */*
+Cookie: tk=a6acfebc-f920-4aa7-b5dc-93532e482aa9; client-id=81150288; isNewUser=false; api=WX; acw_tc=2f624a0f16581495400212453e36a759f20a98db22c8320cd8f7e56d7926db; initArgs=%22%7B%5C%22module%5C%22%3A%5C%22appointHomePage%5C%22%2C%5C%22source%5C%22%3A%5C%22wx_menu%5C%22%2C%5C%22code%5C%22%3A%5C%22071EC01w3cH6TY20Cg0w3zL9351EC01a%5C%22%2C%5C%22state%5C%22%3A%5C%22STATE%5C%22%7D%22; initClz=eh.wx.health.doctFinder.Reservation
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://weixin.ngarihealth.com/weixin/wx/mp/wxf119c4ff0a602d44/index.html?module=appointHomePage&source=wx_menu&code=071EC01w3cH6TY20Cg0w3zL9351EC01a&state=STATE
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Mon, 18 Jul 2022 13:05:42 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 1364
+Connection: keep-alive
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Cache-Control: no-cache, no-store, max-age=0
+X-Coded-JSON-Message: true
+Vary: Accept-Encoding
+Cache-Control: no-cache, no-store
+X-Orange-Upstream-Latency: 7
+X-Orange-Proxy-Latency: 0
+Strict-Transport-Security: max-age=31536000
+
+{"code":200,"body":{"properties":{"patient":{"loginId":"62a5dfe35458356fb32c18e3","mpiId":"2c90823e8147f0a4018157f291d845f8","patientName":"崔法威","patientSex":"1","birthday":"1986-08-15","patientType":"1","idcard":"210302198608163030","mobile":"13940897525","address":"常住地麻园","homeArea":"530112002","createDate":"2022-06-12 20:45:24","lastModify":"2022-06-12 20:45:24","status":1,"healthProfileFlag":false,"guardianFlag":false,"certificate":"210302198608163030","certificateType":1,"fullHomeArea":"云南省 昆明市 西山区 马街街道","patientUserType":0,"authStatus":0,"isOwn":true,"age":35,"urt":56979830,"job":"17","nation":"1","reclaimFlag":false,"clientConfigId":145,"defaultPatient":false}},"id":56979830,"userId":"62a5dfe35458356fb32c18e3","roleId":"patient","tenantId":"eh","manageUnit":"eh","lastLoginTime":"2022-07-18 21:05:41","lastIPAddress":"223.102.68.228","lastUserAgent":"CHROME8,81.0.4044.138,WINDOWS_7","createDt":"2022-06-12 20:45:24","modifyDt":"2022-07-18 21:05:41","doctor":false,"chemist":false,"admin":false,"roleName":"患者","tenantName":"纳里健康","manageUnitName":"","ownMpiId":"2c90823e8147f0a4018157f291d845f8","patient":true,"userName":"崔法威","displayName":"纳里健康-患者"},"properties":{"homeArea":"530112002","fullHomeArea":"云南省 昆明市 西山区 马街街道","mobile":"13940897525"}}

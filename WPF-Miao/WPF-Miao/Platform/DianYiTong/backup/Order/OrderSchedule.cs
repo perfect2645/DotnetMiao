@@ -22,7 +22,7 @@ namespace WPF_Miao.Platform.DianYiTong.Order
 
         [Description("doc_id=4705")]
         [JsonProperty("doc_id")]
-        [JsonConverter(typeof(JsonStringConverter))]
+        [JsonConverter(typeof(JsonToValue))]
         public string DocId { get; set; }
 
         [JsonProperty("ghf")]
@@ -44,7 +44,7 @@ namespace WPF_Miao.Platform.DianYiTong.Order
         public long ScheduleId { get; set; }
 
         [JsonProperty("time_type")]
-        [JsonConverter(typeof(JsonStringConverter))]
+        [JsonConverter(typeof(JsonToValue))]
         public long TimeType { get; set; }
 
         [JsonProperty("sch_date")]
