@@ -19,8 +19,8 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*" MinWidth="400"/>
+                <ColumnDefinition Width="450"/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="logs"
                   Grid.Column="0">
@@ -39,7 +39,7 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="300" />
                 </Grid.RowDefinitions>
-                <TextBox Width="80" 
+                <TextBox Width="auto" 
                     Margin="5"
                     Height="30"
                     IsReadOnly="True"
@@ -49,6 +49,8 @@
                 Text="{Binding SessionItem.Cookie}"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
+                         MinWidth="400"
+                         HorizontalAlignment="Stretch"
                 Height="100"
                 Margin="5 10"
                 TextWrapping="Wrap"
