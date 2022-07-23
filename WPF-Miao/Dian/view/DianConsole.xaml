@@ -15,7 +15,6 @@
               Grid.Row="0"
               Height="30" 
               Background="SkyBlue">
-
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -46,39 +45,31 @@
                     Text="{Binding SessionItem.UserName}">
                 </TextBox>
                 <TextBox Grid.Row="1"
-                Text="{Binding SessionItem.Cookie}"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                VerticalAlignment="Top"
-                         MinWidth="400"
-                         HorizontalAlignment="Stretch"
-                Height="100"
-                Margin="5 10"
-                TextWrapping="Wrap"
-                MaxLength="600"
-                materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
-                VerticalScrollBarVisibility="Auto"
-                materialDesign:HintAssist.Hint="Copy Cookie">
-                    <!--<Binding
-                    Path="Name"
-                    UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <domain:NotEmptyValidationRule
-                            ValidatesOnTargetUpdated="True" xmlns:domain="clr-namespace:CoreControl.LogConsole" />
-                    </Binding.ValidationRules>
-                </Binding>-->
+                    Text="{Binding SessionItem.Cookie}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    MinWidth="400"
+                    HorizontalAlignment="Stretch"
+                    Height="100"
+                    Margin="5 10"
+                    TextWrapping="Wrap"
+                    MaxLength="600"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="Copy Cookie">
                 </TextBox>
 
                 <TextBox Grid.Row="2"
-                Text="{Binding SessionItem.Referer}"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                VerticalAlignment="Top"
-                Height="100"
-                Margin="5 10"
-                TextWrapping="Wrap"
-                MaxLength="600"
-                materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
-                VerticalScrollBarVisibility="Auto"
-                materialDesign:HintAssist.Hint="Copy Referer" />
+                    Text="{Binding SessionItem.Referer}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    Height="100"
+                    Margin="5 10"
+                    TextWrapping="Wrap"
+                    MaxLength="600"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="Copy Referer" />
                 <Button Grid.Row="4"
                     Command="{Binding AppointmentCommand}" Width="100"
                     Content="约">
@@ -87,21 +78,21 @@
                     x:Name="ContentMD5" 
                     Background="SeaShell">
                     <TextBox Grid.Row="0"
-                    Text="{Binding ContentMD5}"
-                         Height="100"
-                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                    VerticalAlignment="Top"
-                    Margin="5 10"
-                    TextWrapping="Wrap"
-                    MaxLength="1000"
-                    materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible"
-                    VerticalScrollBarVisibility="Auto"
-                    materialDesign:HintAssist.Hint="Test Content MD5">
-                    </TextBox>
-                    <TextBox
-                    Text="{Binding MD5Result}"
-                    Margin="5" 
-                    IsReadOnly="True"/>
+                        Text="{Binding ContentMD5}"
+                        Height="100"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        Margin="5 10"
+                        TextWrapping="Wrap"
+                        MaxLength="1000"
+                        materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="Test Content MD5">
+                        </TextBox>
+                        <TextBox
+                        Text="{Binding MD5Result}"
+                        Margin="5" 
+                        IsReadOnly="True"/>
                 </StackPanel>
             </Grid>
         </Grid>
