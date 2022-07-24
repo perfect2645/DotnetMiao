@@ -88,8 +88,8 @@
                         materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible"
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Test Content MD5">
-                        </TextBox>
-                        <TextBox
+                    </TextBox>
+                    <TextBox
                         Text="{Binding MD5Result}"
                         Margin="5" 
                         IsReadOnly="True"/>
@@ -100,7 +100,6 @@
               Grid.Row="2"
               Height="30" 
               Background="SkyBlue">
-
         </Grid>
     </Grid>
 </Page>
