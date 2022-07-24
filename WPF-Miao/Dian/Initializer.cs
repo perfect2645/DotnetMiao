@@ -25,8 +25,8 @@ namespace Dian
 
         private static void InitViewContainer()
         {
-/*            Container.ServiceCollection.AddTransient<ISessionItem, SessionItem>();
-            Container.BuildServiceProvider();*/
+            Container.ServiceCollection.AddTransient<ISessionItem, SessionItem>();
+            Container.BuildServiceProvider();
         }
     }
 }
