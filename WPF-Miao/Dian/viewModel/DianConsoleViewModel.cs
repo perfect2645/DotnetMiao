@@ -1,4 +1,8 @@
-﻿using CoreControl.LogConsole;
+﻿using Base.viewModel;
+using CoreControl.LogConsole;
+using Dian.appointment;
+using HttpProcessor.Container;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +13,10 @@ using Utils;
 
 namespace Dian.viewModel
 {
-    public class DianConsoleViewModel : NotifyChanged
+    public class DianConsoleViewModel : ViewModelBase
     {
         #region Properties
         public ICommand AppointmentCommand { get; set; }
-        public ICommand SaveLogCommand { get; set; }
-        //public Action<string> WriteLogAction { get; }
-        public LogPanel LogPanel { get; set; }
 
         public ISessionItem SessionItem { get; set; }
 
@@ -53,12 +54,11 @@ namespace Dian.viewModel
 
         #region Constructor
 
-        public YunnanViewModel(LogPanel logPanel, ISessionItem sessionItem)
+        public DianConsoleViewModel(LogPanel logPanel, ISessionItem sessionItem)
         {
             SessionItem = sessionItem;
             LogPanel = logPanel;
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
-            SaveLogCommand = new DelegateCommand(SaveLogs, CanSaveLogs);
         }
 
         #endregion Constructor
@@ -78,7 +78,7 @@ namespace Dian.viewModel
 
             try
             {
-                appContr.AppointmentAsync(SessionItem).Wait();
+                //appContr.AppointmentAsync(SessionItem).Wait();
             }
             catch (AggregateException ex)
             {

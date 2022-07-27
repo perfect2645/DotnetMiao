@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dian.viewModel
 {
-    internal class ISessionItem
+    public interface ISessionItem
     {
     }
 }

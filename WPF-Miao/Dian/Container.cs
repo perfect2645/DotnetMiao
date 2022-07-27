@@ -3,17 +3,32 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Dian
 {
-    internal class Container : ContainerBase
+    internal class Container
     {
+        public static ServiceCollection ServiceCollection
+        {
+            get
+            {
+                return _serviceCollection;
+            }
+        }
+
+        private static readonly ServiceCollection _serviceCollection;
+
+        public static ServiceProvider ServiceProvider
+        {
+            get
+            {
+                return _serviceProvider;
+            }
+        }
+
+        private static ServiceProvider? _serviceProvider = null;
 
 
         static Container()
         {
             _serviceCollection = new ServiceCollection();
-        }
-
-        private Container()
-        {
         }
 
         public static void BuildServiceProvider()
