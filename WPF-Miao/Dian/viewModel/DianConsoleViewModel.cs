@@ -68,7 +68,6 @@ namespace Dian.viewModel
         private void ExecuteAppointment()
         {
             Log("Appointment Start");
-            //YunnanSession.AddOrUpdate((SessionItem as SessionItem)!);
             Task.Factory.StartNew(AppointmentAsync);
         }
 
