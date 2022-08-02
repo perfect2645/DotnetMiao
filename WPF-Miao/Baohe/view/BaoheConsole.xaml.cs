@@ -1,13 +1,13 @@
 ﻿using System.Windows.Controls;
 
-namespace Dian.view
+namespace Baohe.view
 {
     /// <summary>
-    /// DianConsole.xaml 的交互逻辑
+    /// BaoheConsole.xaml 的交互逻辑
     /// </summary>
-    public partial class DianConsole : Page
+    public partial class BaoheConsole : Page
     {
-        public DianConsole()
+        public BaoheConsole()
         {
             InitializeComponent();
         }

@@ -1,0 +1,10 @@
+﻿<Page x:Class="Baohe.view.BaoheConsole"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:basePage="clr-namespace:Base.view;assembly=Base"
+      Title="BaoheConsole">
+
+    <basePage:BaseConsole>
+        
+    </basePage:BaseConsole>
+</Page>
