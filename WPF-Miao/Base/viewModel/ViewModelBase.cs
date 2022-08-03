@@ -15,9 +15,18 @@ namespace Base.viewModel
         #region Properties
 
         public ICommand SaveLogCommand { get; set; }
-        public LogPanel LogPanel { get; set; }
+        public LogPanel LogPanel { get; private set; }
 
         #endregion Properties
+
+        #region Constructor
+
+        public ViewModelBase(LogPanel logPanel)
+        {
+            LogPanel = logPanel;
+        }
+
+        #endregion Constructor
 
         #region Log
 

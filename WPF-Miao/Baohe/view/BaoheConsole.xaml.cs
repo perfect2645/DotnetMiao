@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using CoreControl.LogConsole;
+using System;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Baohe.view
 {
@@ -7,6 +10,12 @@ namespace Baohe.view
     /// </summary>
     public partial class BaoheConsole : Page
     {
+        #region Properties
+
+        private static readonly Type ControlType = typeof(BaoheConsole);
+
+        #endregion Properties
+
         public BaoheConsole()
         {
             InitializeComponent();

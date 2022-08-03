@@ -21,7 +21,7 @@
             </Grid.ColumnDefinitions>
             <Grid x:Name="logs"
                   Grid.Column="0">
-                <controls:LogPanel x:Name="logPanel">
+                <controls:LogPanel x:Name="logPanelCtrl">
 
                 </controls:LogPanel>
             </Grid>

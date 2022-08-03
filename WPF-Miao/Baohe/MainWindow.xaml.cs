@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Baohe.viewModel;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Baohe
 {
@@ -23,6 +12,14 @@ namespace Baohe
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                DataContext = new BaoheViewModel(baoheConsole.baseConsole.LogPanel);
+            }
+            catch (Exception ex)
+            {
+                Logging.GLog.Logger.Error(ex);
+            }
         }
     }
 }

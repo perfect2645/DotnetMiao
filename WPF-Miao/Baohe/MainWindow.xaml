@@ -5,7 +5,7 @@
         Title="Dian" 
         Height="800" MinWidth="830" 
         WindowState="Normal">
-    <views:BaoheConsole>
+    <views:BaoheConsole x:Name="baoheConsole">
 
     </views:BaoheConsole>
 </Window>

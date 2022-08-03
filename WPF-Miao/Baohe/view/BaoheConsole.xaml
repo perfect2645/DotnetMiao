@@ -2,9 +2,10 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
-      Title="BaoheConsole">
+      Title="BaoheConsole"
+      x:Name="BaohePage">
 
-    <basePage:BaseConsole>
+    <basePage:BaseConsole x:Name="baseConsole">
         
     </basePage:BaseConsole>
 </Page>
