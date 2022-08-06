@@ -1,8 +1,10 @@
-﻿using Base.logging;
+﻿using Base.container;
+using Base.logging;
 using CoreControl.LogConsole;
 using System;
 using System.Windows.Input;
 using Utils;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Base.viewModel
 {
@@ -13,6 +15,8 @@ namespace Base.viewModel
         public ICommand SaveLogCommand { get; set; }
         public LogPanel LogPanel { get; private set; }
 
+        public ISessionItem SessionItem { get; private set; }
+
         #endregion Properties
 
         #region Constructor
@@ -20,6 +24,7 @@ namespace Base.viewModel
         public ViewModelBase(LogPanel logPanel)
         {
             LogPanel = logPanel;
+            SessionItem = ContainerBase.ServiceProvider.GetService<ISessionItem>();
         }
 
         #endregion Constructor
