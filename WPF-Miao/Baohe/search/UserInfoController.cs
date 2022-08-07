@@ -18,7 +18,7 @@ namespace Baohe.search
         {
             var url = "https://appoint.yihu.com/appoint/do/user/getUserInfo";
             var content = new UserInfoContent(url);
-            var userInfo = Search(content);
+            var userInfo = PostStringAsync(content);
         }
     }
 }

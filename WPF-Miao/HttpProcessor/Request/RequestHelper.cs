@@ -31,7 +31,7 @@ namespace HttpProcessor.Request
             }
             catch (HttpException httpEx)
             {
-                GLog.Logger.Error($"StatusCode:{httpEx.StatusCode}", httpEx);
+                GLog.Logger.Error($"StatusCode:{httpEx.ErrCode}", httpEx);
             }
             catch (Exception ex)
             {
@@ -87,18 +87,18 @@ namespace HttpProcessor.Request
 
         #region Post
 
-        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpStringContent content)
+        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content)
         {
             try
             {
-                var response = await client.PostAsync(content);
+                var response = await client.PostAsync(content.RequestUrl, content.GetJsonContent());
                 response.EnsureSuccessStatusCode();
                 return new HttpDicResponse(response);
             }
             catch (Exception ex)
             {
                 GLog.Logger.Error(ex);
-                throw new HttpException("SearchAsync");
+                throw new HttpException(ex, "PostStringAsync");
             }
         }
 

@@ -63,11 +63,15 @@ namespace HttpProcessor.Client
             }
         }
 
-        public virtual async Task<HttpDicResponse> SearchAsync(HttpStringContent content)
+        #endregion Search
+
+        #region Post String
+
+        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content)
         {
             try
             {
-                var response = await Client.SearchAsync(content);
+                var response = await Client.PostStringAsync(content);
                 return response;
             }
             catch (Exception ex)
@@ -77,6 +81,6 @@ namespace HttpProcessor.Client
             }
         }
 
-        #endregion Search
+        #endregion Post String
     }
 }

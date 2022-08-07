@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using Utils;
 
-namespace HttpProcessor.Client
+namespace HttpProcessor.Content
 {
     public abstract class HttpMessageContentBase
     {
