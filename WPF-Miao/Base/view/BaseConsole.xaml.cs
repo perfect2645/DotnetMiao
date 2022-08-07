@@ -23,6 +23,15 @@ namespace Base.view
         public static readonly DependencyProperty LogPanelProperty =
             DependencyProperty.Register("LogPanel", typeof(LogPanel), ControlType);
 
+        public StackPanel ButtonArea
+        {
+            get { return (StackPanel)GetValue(ButtonAreaProperty); }
+            set { SetValue(ButtonAreaProperty, value); }
+        }
+
+        public static readonly DependencyProperty ButtonAreaProperty =
+            DependencyProperty.Register("ButtonArea", typeof(StackPanel), ControlType);
+
         #endregion Properties
 
         #region Constructor

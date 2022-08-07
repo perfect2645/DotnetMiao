@@ -6,6 +6,15 @@
       x:Name="BaohePage">
 
     <basePage:BaseConsole x:Name="baseConsole">
-        
+        <basePage:BaseConsole.ButtonArea>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="查"
+                    Command="{Binding SearchCommand}" Width="100">
+                </Button>
+                <Button Content="约"
+                    Command="{Binding AppointmentCommand}" Width="100">
+                </Button>
+            </StackPanel>
+        </basePage:BaseConsole.ButtonArea>
     </basePage:BaseConsole>
 </Page>

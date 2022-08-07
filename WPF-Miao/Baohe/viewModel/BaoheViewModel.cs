@@ -1,9 +1,11 @@
 ﻿using Baohe.appointment;
+using Baohe.search;
 using Base.viewModel;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using Prism.Commands;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Baohe.viewModel
@@ -13,6 +15,8 @@ namespace Baohe.viewModel
         #region Properties
 
         public ICommand AppointmentCommand { get; set; }
+
+        public ICommand SearchCommand { get; set; }
 
         #endregion Properties
 
@@ -27,8 +31,8 @@ namespace Baohe.viewModel
         private void InitCommands()
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
+            SearchCommand = new DelegateCommand(ExecuteSearch, CanExecuteSearch);
         }
-
 
         #endregion Constructor
 
@@ -55,5 +59,21 @@ namespace Baohe.viewModel
 
 
         #endregion Appointment
+
+        #region Search
+
+        private bool CanExecuteSearch()
+        {
+            return true;
+        }
+
+        private void ExecuteSearch()
+        {
+            var searchContr = HttpServiceController.GetService<SearchController>();
+
+            searchContr.SearchAsync()
+        }
+
+        #endregion Search
     }
 }
