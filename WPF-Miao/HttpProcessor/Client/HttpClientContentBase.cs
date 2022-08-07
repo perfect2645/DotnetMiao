@@ -6,7 +6,7 @@ using Utils;
 
 namespace HttpProcessor.Client
 {
-    public abstract class HttpClientContentBase
+    public abstract class HttpMessageContentBase
     {
         public Dictionary<string, object> Contents { get; set; }
 
@@ -15,13 +15,13 @@ namespace HttpProcessor.Client
         public HttpRequestMessage HttpRequestMessage { get; private set; }
         public string JsonContent { get; private set; }
 
-        public HttpClientContentBase()
+        public HttpMessageContentBase()
         {
             HttpRequestMessage = new HttpRequestMessage();
             Contents = new Dictionary<string, object>();
         }
 
-        public HttpClientContentBase(string requestUrl)
+        public HttpMessageContentBase(string requestUrl)
         {
             RequestUrl = requestUrl;
         }

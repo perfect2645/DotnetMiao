@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using Logging;
 using System.Net.Http.Headers;
@@ -8,7 +9,7 @@ namespace HttpProcessor.Request
     public static class RequestHelper
     {
         #region Get
-        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpClientContentBase content)
+        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpMessageContentBase content)
         {
             if (content.HttpRequestMessage?.Headers != null)
             {
@@ -18,7 +19,7 @@ namespace HttpProcessor.Request
             return await GetAsync(client, content);
         }
 
-        private static async Task<HttpDicResponse> GetAsync(HttpClient client, HttpClientContentBase content)
+        private static async Task<HttpDicResponse> GetAsync(HttpClient client, HttpMessageContentBase content)
         {
             HttpDicResponse? dicResponse = null;
 
@@ -40,7 +41,7 @@ namespace HttpProcessor.Request
             return dicResponse;
         }
 
-        private static async Task<HttpDicResponse> SendAsync(HttpClient client, HttpClientContentBase content)
+        private static async Task<HttpDicResponse> SendAsync(HttpClient client, HttpMessageContentBase content)
         {
             try
             {
@@ -71,17 +72,36 @@ namespace HttpProcessor.Request
             }
         }
 
-        public static Task<HttpDicResponse> Search(this HttpClient client, HttpClientContentBase content)
+        public static Task<HttpDicResponse> Search(this HttpClient client, HttpMessageContentBase content)
         {
             return Task.Run(() => client.SearchAsync(content).Result);
         }
 
-        public static void Search(this HttpClient client, HttpClientContentBase content, Action<HttpDicResponse> callback)
+        public static void Search(this HttpClient client, HttpMessageContentBase content, Action<HttpDicResponse> callback)
         {
             var task = client.Search(content);
             callback(task.Result);
         }
 
         #endregion Get
+
+        #region Post
+
+        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpStringContent content)
+        {
+            try
+            {
+                var response = await client.PostAsync(content);
+                response.EnsureSuccessStatusCode();
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException("SearchAsync");
+            }
+        }
+
+        #endregion Post
     }
 }

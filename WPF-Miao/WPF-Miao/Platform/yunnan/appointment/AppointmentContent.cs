@@ -10,7 +10,7 @@ using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan
 {
-    internal class AppointmentContent : HttpClientContentBase
+    internal class AppointmentContent : HttpMessageContentBase
     {
 
         private ISessionItem SessionItem { get; set; }

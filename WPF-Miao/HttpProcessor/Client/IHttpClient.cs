@@ -2,7 +2,7 @@
 {
     public interface IHttpClient
     {
-        Task<HttpDicResponse> SearchAsync(HttpClientContentBase content);
-        void Search(HttpClientContentBase content, Action<HttpDicResponse> callback);
+        Task<HttpDicResponse> SearchAsync(HttpMessageContentBase content);
+        void Search(HttpMessageContentBase content, Action<HttpDicResponse> callback);
     }
 }

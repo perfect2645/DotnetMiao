@@ -69,9 +69,9 @@ namespace Baohe.viewModel
 
         private void ExecuteSearch()
         {
-            var searchContr = HttpServiceController.GetService<SearchController>();
-
-            searchContr.SearchAsync()
+            //var searchContr = HttpServiceController.GetService<SearchController>();
+            var userInfoContr = HttpServiceController.GetService<UserInfoController>();
+            userInfoContr.GetUserInfo();
         }
 
         #endregion Search

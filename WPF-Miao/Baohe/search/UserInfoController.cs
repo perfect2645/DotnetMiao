@@ -16,7 +16,9 @@ namespace Baohe.search
 
         public void GetUserInfo()
         {
-
+            var url = "https://appoint.yihu.com/appoint/do/user/getUserInfo";
+            var content = new UserInfoContent(url);
+            var userInfo = Search(content);
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Miao.Platform.DianYiTong.Submit
 {
-    internal class SubmitContent : HttpClientContentBase
+    internal class SubmitContent : HttpMessageContentBase
     {
         public SubmitContent(string requestUrl) : base(requestUrl)
         {

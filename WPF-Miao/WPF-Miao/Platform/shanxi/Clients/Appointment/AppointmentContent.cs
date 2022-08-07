@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Miao.Platform.shanxi.Clients.Appointment
 {
-    internal class AppointmentContent : HttpClientContentBase
+    internal class AppointmentContent : HttpMessageContentBase
     {
         public AppointmentContent(string requestUrl) : base(requestUrl)
         {

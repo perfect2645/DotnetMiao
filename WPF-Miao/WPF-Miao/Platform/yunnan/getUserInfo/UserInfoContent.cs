@@ -9,7 +9,7 @@ using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan.getUserInfo
 {
-    public class UserInfoContent : HttpClientContentBase
+    public class UserInfoContent : HttpMessageContentBase
     {
         public UserInfoContent()
         {

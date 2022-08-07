@@ -1,0 +1,38 @@
+GET https://weixinauth.yihu.com/?m=wxauth&c=wxauth&tourl=https%3A%2F%2Fappoint.yihu.com%2Fappoint%2Fhospital%2FghDeptList.html%3FplatformType%3D9000393%26hospitalId%3D1039346%26_channel_id%3D9000393&code=09112Ekl2iWNE94u0Col2BJynq312EkE&state=1&appid=wxdf52d9c755f2c5b6 HTTP/1.1
+
+Get https://weixinauth.yihu.com/?m=wxauth&c=wxauth&tourl=https%3A%2F%2Fappoint.yihu.com%2Fappoint%2Fhospital%2FghDeptList.html%3FplatformType%3D9000393%26hospitalId%3D1039346%26_channel_id%3D9000393&code=081DqLll2ELaE94nWoll2tl6yj3DqLle&state=1&appid=wxdf52d9c755f2c5b6 HTTP/1.1
+
+// 只有code需要解析
+
+Host: weixinauth.yihu.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 302 Found
+Server: nginx
+Date: Sat, 06 Aug 2022 05:15:49 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+Set-Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiU2VjU3RyIjoiMjE0MzJFOUE4MzRENzM3REYyMzczRkQ3MUI5RDQ0MDYifQ%3D%3D; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: logintype=62; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: loginprovinceid=0; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: logincityid=0; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: loginid=oA3ZA0cFHRTawO843XTJZpQaBhI8; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: OpenID=oA3ZA0cFHRTawO843XTJZpQaBhI8; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: BaseDoctorUid=0; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: BaseUserType=0; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: LoginChannel=9000393; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxNTMiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTU1NyIsIkxvZ2luSWQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJGQTMxQ0VEMkU3NzE1NTYzNzU3ODkyMEU5RDRFNTU1OSJ9; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Set-Cookie: TOKEN_D2A3F1116EACBC455D70F61215A4E4B5=2D137B05BA9D49F68322498D571A72AB; expires=Sun, 07-Aug-2022 05:16:48 GMT; Max-Age=86400; path=/; domain=.yihu.com
+Location: https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9000393&hospitalId=1039346&time=1659763008
+Content-Length: 0
+

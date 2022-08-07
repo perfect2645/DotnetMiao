@@ -2,7 +2,7 @@
 
 namespace WPF_Miao.Platform.DianYiTong.Hospital
 {
-    internal class HospitalSummaryContent : HttpClientContentBase
+    internal class HospitalSummaryContent : HttpMessageContentBase
     {
         public HospitalSummaryContent(string requestUrl) : base(requestUrl)
         {
