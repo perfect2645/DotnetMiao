@@ -71,7 +71,7 @@ namespace Baohe.viewModel
         {
             //var searchContr = HttpServiceController.GetService<SearchController>();
             var userInfoContr = HttpServiceController.GetService<UserInfoController>();
-            userInfoContr.GetUserInfo();
+            userInfoContr.GetUserInfoAsync();
         }
 
         #endregion Search

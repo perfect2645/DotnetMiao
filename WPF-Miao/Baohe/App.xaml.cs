@@ -31,6 +31,7 @@ namespace Baohe
 
         private void InitController()
         {
+            HttpServiceController.AddTransientService<UserInfoController>();
             HttpServiceController.AddTransientService<SearchController>();
 
             HttpServiceController.BuidServiceProvider();

@@ -4,7 +4,7 @@ namespace HttpProcessor.Client
 {
     public interface IHttpClient
     {
-        Task<HttpDicResponse> SearchAsync(HttpMessageContentBase content);
-        void Search(HttpMessageContentBase content, Action<HttpDicResponse> callback);
+        Task<HttpDicResponse> SearchAsync(HttpMessageContent content);
+        void Search(HttpMessageContent content, Action<HttpDicResponse> callback);
     }
 }

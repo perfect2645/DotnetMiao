@@ -23,7 +23,7 @@ namespace HttpProcessor.Client
 
         #region Search
 
-        public virtual async Task<HttpDicResponse> SearchAsync(HttpMessageContentBase content)
+        public virtual async Task<HttpDicResponse> SearchAsync(HttpMessageContent content)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace HttpProcessor.Client
             }
         }
 
-        public virtual void Search(HttpMessageContentBase content, Action<HttpDicResponse> callback)
+        public virtual void Search(HttpMessageContent content, Action<HttpDicResponse> callback)
         {
             try
             {

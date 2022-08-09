@@ -9,7 +9,7 @@ namespace HttpProcessor.Request
     public static class RequestHelper
     {
         #region Get
-        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpMessageContentBase content)
+        public static async Task<HttpDicResponse> SearchAsync(this HttpClient client, HttpMessageContent content)
         {
             if (content.HttpRequestMessage?.Headers != null)
             {
@@ -19,7 +19,7 @@ namespace HttpProcessor.Request
             return await GetAsync(client, content);
         }
 
-        private static async Task<HttpDicResponse> GetAsync(HttpClient client, HttpMessageContentBase content)
+        private static async Task<HttpDicResponse> GetAsync(HttpClient client, HttpMessageContent content)
         {
             HttpDicResponse? dicResponse = null;
 
@@ -41,7 +41,7 @@ namespace HttpProcessor.Request
             return dicResponse;
         }
 
-        private static async Task<HttpDicResponse> SendAsync(HttpClient client, HttpMessageContentBase content)
+        private static async Task<HttpDicResponse> SendAsync(HttpClient client, HttpMessageContent content)
         {
             try
             {
@@ -72,12 +72,12 @@ namespace HttpProcessor.Request
             }
         }
 
-        public static Task<HttpDicResponse> Search(this HttpClient client, HttpMessageContentBase content)
+        public static Task<HttpDicResponse> Search(this HttpClient client, HttpMessageContent content)
         {
             return Task.Run(() => client.SearchAsync(content).Result);
         }
 
-        public static void Search(this HttpClient client, HttpMessageContentBase content, Action<HttpDicResponse> callback)
+        public static void Search(this HttpClient client, HttpMessageContent content, Action<HttpDicResponse> callback)
         {
             var task = client.Search(content);
             callback(task.Result);
