@@ -93,23 +93,13 @@ namespace HttpProcessor.Client
 
         #endregion Body
 
-        #region Status
+        #region Log
 
-        public virtual void SetStatus(ushort status)
-        {
-            StatusCode = status;
-        }
-
-        public virtual void SetMessage(string msg)
-        {
-            Message = msg;
-        }
-
-        private void SetStatus()
+        public void LogBody()
         {
 
         }
 
-        #endregion Status
+        #endregion Log
     }
 }

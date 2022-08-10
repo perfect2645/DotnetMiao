@@ -1,16 +1,14 @@
-﻿using HttpProcessor.Client;
+﻿using HttpProcessor.Content;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text.Json.Nodes;
 using WPF_Miao.Platform.yunnan.model;
 using WPF_Miao.Platform.yunnan.session;
 using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan
 {
-    internal class AppointmentContent : HttpMessageContentBase
+    internal class AppointmentContent : HttpMessageContent
     {
 
         private ISessionItem SessionItem { get; set; }

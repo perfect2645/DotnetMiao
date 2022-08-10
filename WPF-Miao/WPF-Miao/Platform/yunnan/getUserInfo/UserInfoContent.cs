@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using WPF_Miao.Platform.yunnan.viewModel;
 
 namespace WPF_Miao.Platform.yunnan.getUserInfo
 {
-    public class UserInfoContent : HttpMessageContentBase
+    public class UserInfoContent : HttpMessageContent
     {
         public UserInfoContent()
         {

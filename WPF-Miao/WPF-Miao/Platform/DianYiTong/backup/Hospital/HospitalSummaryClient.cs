@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Content;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -17,7 +18,7 @@ namespace WPF_Miao.Platform.DianYiTong.Hospital
 
         #region Search
 
-        public void Search(HttpMessageContentBase content)
+        public void Search(HttpMessageContent content)
         {
             Search(content, PostSearch);
         }

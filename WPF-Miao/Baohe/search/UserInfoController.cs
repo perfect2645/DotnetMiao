@@ -27,7 +27,7 @@ namespace Baohe.search
 
             content.BuildDefaultHeaders(Client);
 
-            var userInfo = PostStringAsync(content).Result;
+            HttpDicResponse userInfo = PostStringAsync(content).Result;
         }
     }
 }

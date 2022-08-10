@@ -1,10 +1,10 @@
 ﻿using Base.container;
 using Base.logging;
 using CoreControl.LogConsole;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Input;
 using Utils;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Base.viewModel
 {
@@ -13,7 +13,7 @@ namespace Base.viewModel
         #region Properties
 
         public ICommand SaveLogCommand { get; set; }
-        public LogPanel LogPanel { get; private set; }
+        public LogPanel LogPanel { get; set; }
 
         public ISessionItem SessionItem { get; private set; }
 

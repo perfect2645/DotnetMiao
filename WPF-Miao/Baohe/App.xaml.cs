@@ -13,7 +13,6 @@ namespace Baohe
     /// </summary>
     public partial class App : Application
     {
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -28,7 +27,6 @@ namespace Baohe
                 InitViewContainer();
             });
         }
-
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserInfoController>();
@@ -41,6 +39,5 @@ namespace Baohe
             ContainerBase.ServiceCollection.AddTransient<ISessionItem, SessionItem>();
             ContainerBase.BuildServiceProvider();
         }
-
     }
 }
