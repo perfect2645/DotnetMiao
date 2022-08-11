@@ -5,6 +5,19 @@ namespace Base.Events
 {
     public class SessionEvents
     {
+        #region Constructor
+
+        public static SessionEvents Instance { get; private set; }
+
+        static SessionEvents()
+        {
+            Instance = new SessionEvents();
+        }
+
+        private SessionEvents() { }
+
+        #endregion Constructor
+
         #region Handler
 
         public event EventHandler<SesstionEventArgs> SessionEventHandler;
@@ -16,6 +29,11 @@ namespace Base.Events
         public void Subscribe(EventHandler<SesstionEventArgs> handler)
         {
             SessionEventHandler += handler;
+        }
+
+        public void UnSubscribe(EventHandler<SesstionEventArgs> handler)
+        {
+            SessionEventHandler -= handler;
         }
 
         #endregion Subscribe
@@ -32,6 +50,11 @@ namespace Base.Events
 
     public class SesstionEventArgs : EventArgs
     {
-        public Dictionary<string, object> Session { get; set; }
+        public Dictionary<string, object> Session { get; private set; }
+
+        public SesstionEventArgs(Dictionary<string, object> session)
+        {
+            Session = session;
+        }
     }
 }

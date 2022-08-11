@@ -1,5 +1,6 @@
 ﻿using Baohe.appointment;
 using Baohe.search;
+using Base.Events;
 using Base.viewModel;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -32,6 +33,7 @@ namespace Baohe.viewModel
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SearchCommand = new DelegateCommand(ExecuteSearch, CanExecuteSearch);
+            SessionEvents.Instance.Subscribe(LogSession);
         }
 
         #endregion Constructor
@@ -75,5 +77,14 @@ namespace Baohe.viewModel
         }
 
         #endregion Search
+
+        #region Session
+
+        private void LogSession(object? sender, SesstionEventArgs args)
+        {
+
+        }
+
+        #endregion Session
     }
 }

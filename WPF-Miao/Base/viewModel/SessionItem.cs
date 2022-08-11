@@ -6,8 +6,7 @@ namespace Base.viewModel
 {
     public class SessionItem : NotifyChanged, ISessionItem
     {
-        public string UserName { get; set; }
-        public string UserId { get; set; }
+        public string Key { get; set; }
         private string _cookie;
         public string Cookie
         {
@@ -40,5 +39,10 @@ namespace Base.viewModel
         }
         public Dictionary<string, object> SessionDic { get; set; }
         public Action GetUserSessionAction { get; set; }
+
+        public SessionItem(string key)
+        {
+            Key = key;
+        }
     }
 }

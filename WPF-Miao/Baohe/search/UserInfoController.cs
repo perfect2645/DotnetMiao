@@ -1,4 +1,6 @@
-﻿using HttpProcessor.Client;
+﻿using Baohe.constants;
+using Baohe.session;
+using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,9 @@ namespace Baohe.search
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse userInfo = PostStringAsync(content).Result;
+            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value;
+            BaoheSession.AddOrUpdate(Constant.AccountSn, userInfo.Body);
+
         }
     }
 }
