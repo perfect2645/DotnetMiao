@@ -32,7 +32,7 @@ namespace Baohe.viewModel
         private void InitCommands()
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
-            SearchCommand = new DelegateCommand(ExecuteSearch, CanExecuteSearch);
+            SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
             SessionEvents.Instance.Subscribe(LogSession);
         }
 
@@ -69,11 +69,11 @@ namespace Baohe.viewModel
             return true;
         }
 
-        private void ExecuteSearch()
+        private async void ExecuteSearchAsync()
         {
             //var searchContr = HttpServiceController.GetService<SearchController>();
             var userInfoContr = HttpServiceController.GetService<UserInfoController>();
-            userInfoContr.GetUserInfoAsync();
+            await userInfoContr.GetUserInfoAsync(SessionItem);
         }
 
         #endregion Search

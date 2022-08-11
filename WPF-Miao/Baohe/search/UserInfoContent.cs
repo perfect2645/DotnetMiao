@@ -23,7 +23,6 @@ namespace Baohe.search
             AddHeader("Sec-Fetch-Site", "same-origin");
             AddHeader("Sec-Fetch-Mode", "cors");
             AddHeader("Sec-Fetch-Dest", "empty");
-            AddHeader("Referer", "https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9000393&hospitalId=1039346&time=1659972666");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
 

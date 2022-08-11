@@ -33,6 +33,7 @@ namespace Baohe.session
 
             var newSessionItem = new SessionItem(sessionKey);
             newSessionItem.SessionDic.AddOrUpdate(dicValue);
+            Session.AddOrUpdate(sessionKey, newSessionItem);
         }
 
         #endregion AddOrUpdate

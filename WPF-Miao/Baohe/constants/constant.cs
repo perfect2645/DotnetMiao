@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Baohe.constants
+﻿namespace Baohe.constants
 {
     public static class Constant
     {
-        public const string AccountSn = "AccountSn";
+        public const string ProjectName = "Baohe";
+        public const string AccountSn = "accountSn";
     }
 }

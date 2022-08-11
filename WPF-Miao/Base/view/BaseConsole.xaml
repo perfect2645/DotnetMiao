@@ -53,7 +53,6 @@
                     Margin="5 10"
                     TextWrapping="Wrap"
                     MaxLength="600"
-                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
                     VerticalScrollBarVisibility="Auto"
                     materialDesign:HintAssist.Hint="Copy Cookie">
                 </TextBox>
@@ -66,7 +65,6 @@
                     Margin="5 10"
                     TextWrapping="Wrap"
                     MaxLength="600"
-                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox, Converter={StaticResource BooleanToVisibilityConverter}}"
                     VerticalScrollBarVisibility="Auto"
                     materialDesign:HintAssist.Hint="Copy Referer" />
                 <ContentControl Grid.Row="4"

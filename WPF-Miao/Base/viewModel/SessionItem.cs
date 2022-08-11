@@ -40,9 +40,14 @@ namespace Base.viewModel
         public Dictionary<string, object> SessionDic { get; set; }
         public Action GetUserSessionAction { get; set; }
 
+        public SessionItem()
+        {
+        }
+
         public SessionItem(string key)
         {
             Key = key;
+            SessionDic = new Dictionary<string, object>();
         }
     }
 }
