@@ -40,6 +40,8 @@ namespace Baohe.search
             }
             BaoheSession.AddOrUpdate(userid, userInfo.Body);
 
+            BaoheSession.Session[userid].Cookie = sessionItem.Cookie;
+            BaoheSession.Session[userid].Referer = sessionItem.Referer;
         }
     }
 }
