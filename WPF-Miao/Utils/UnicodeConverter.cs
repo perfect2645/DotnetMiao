@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Tools.Converter
+namespace Utils
 {
-    public class UnicodeConverter
+    public static class UnicodeConverter
     {
         #region UrlEncode(对Url进行编码)
 
@@ -18,9 +16,9 @@ namespace Tools.Converter
         /// </summary>
         /// <param name="url">url</param>
         /// <param name="isUpper">编码字符是否转成大写,范例,"http://"转成"http%3A%2F%2F"</param>
-        public string UrlEncode(string url, bool isUpper = false)
+        public static string Decode(string content, bool isUpper = false)
         {
-            return UrlDecode(url, Encoding.UTF8, isUpper);
+            return Decode(content, Encoding.UTF8, isUpper);
         }
 
         /// <summary>
@@ -29,9 +27,9 @@ namespace Tools.Converter
         /// <param name="url">url</param>
         /// <param name="encoding">字符编码</param>
         /// <param name="isUpper">编码字符是否转成大写,范例,"http://"转成"http%3A%2F%2F"</param>
-        public string UrlDecode(string url, Encoding encoding, bool isUpper = false)
+        public static string Decode(string content, Encoding encoding, bool isUpper = false)
         {
-            var result = HttpUtility.UrlDecode(url, encoding);
+            var result = HttpUtility.UrlDecode(content, encoding);
             if (!isUpper)
                 return result;
             return GetUpperEncode(result);
@@ -42,7 +40,7 @@ namespace Tools.Converter
         /// </summary>
         /// <param name="encode">字串</param>
         /// <returns></returns>
-        private string GetUpperEncode(string encode)
+        private static string GetUpperEncode(string encode)
         {
             var result = new StringBuilder();
             int index = int.MinValue;
@@ -60,6 +58,4 @@ namespace Tools.Converter
 
         #endregion
     }
-
-
 }

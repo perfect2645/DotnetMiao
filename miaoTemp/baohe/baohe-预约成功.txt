@@ -27,3 +27,70 @@ Cache-Control: no-cache
 Pragma: no-cache
 
 {"Code":10000,"Message":"成功","Orderid":"97861555985837","Haspay":true,"Payvaliditytime":"2022-08-11 15:44:16"}
+
+
+doctorRegOrder={"waterId":"722834913","waitingInfor":"08:00-08:05","store":"","serialNo":"1","memberSn":"54985240","memberName":"刘振宇","memberPhone":"13940897525","memberAddress":"东城白云山","memberBirthday":"2000-03-10","memberSex":"2","memberId":"54985240","othercard":"","guardianmembersn":"","identitytype":"1","memberZhengjianid":"110***********5689","memberIdcard":"110***********5689","accManageGoodSn":null,"regpaytype":"","cliniccard":"","applyNo":"","mobile":"13940897525","doctorSn":"710869460","hosDeptId":"7175975","hosDeptName":"儿童保健科","hospitalId":"1040231","hospitalName":"合肥市蜀山区南岗镇卫生院","doctorService_gh":"2","doctorUid":"710659564","doctorName":"儿保科医生","doctorPic":"","doctorClinicName":"主治医师","GH_HosProId":"12","GH_HosProName":"安徽","GH_HosCityId":"101","GH_HosCityName":"合肥","registerDate":"2022-08-12","timeId":1,"arrangeId":160023903,"ghAmount":0,"securityDeposit":0,"ghfeeway":0,"ModeId":0,"GhFee":0,"AllFee":0,"availablenum":9,"UnOpened":false,"FHTimes":"23:00","FHDays":"2","accountSn":148528129,"cardNumber":"2078631533","loginId":"od0AjwJ0eodDYYA4pUfDRUCIIm8E","channelId":"9000370","utm_source":"0.0.h.1026.bus010.0__0.0.h.1026.bus010.0","doctorOfficeName":"","retId":"8f1adb4a37e143a885d53db93f803eeb"}&ghFormCon=[{"keyValue":"110***********5689","keyName":"CardNo"},{"keyValue":"东城白云山","keyName":"familyaddress"},{"keyValue":"","keyName":"name"},{"keyValue":"","keyName":"ClinicCard"},{"keyValue":"2","keyName":"sex"},{"keyValue":"13940897525","keyName":"mobile"},{"keyValue":"1","keyName":"cardtype"},{"keyValue":"0","keyName":"cmb_disease"},{"keyValue":"0","keyName":"cmb_disease"},{"keyValue":"未确诊","keyName":"cmb_diseaseName"}]
+
+
+
+doctorRegOrder={
+    "waterId":"722834913",
+    "waitingInfor":"08:00-08:05",
+    "store":"",
+    "serialNo":"1",
+    "memberSn":"54985240",
+    "memberName":"刘振宇",
+    "memberPhone":"13940897525",
+    "memberAddress":"东城白云山",
+    "memberBirthday":"2000-03-10",
+    "memberSex":"2",
+    "memberId":"54985240",
+    "othercard":"",
+    "guardianmembersn":"",
+    "identitytype":"1",
+    "memberZhengjianid":"110***********5689",
+    "memberIdcard":"110***********5689",
+    "accManageGoodSn":null,"regpaytype":"",
+    "cliniccard":"",
+    "applyNo":"",
+    "mobile":"13940897525",
+    "doctorSn":"710869460",
+    "hosDeptId":"7175975",
+    "hosDeptName":"儿童保健科",
+    "hospitalId":"1040231",
+    "hospitalName":"合肥市蜀山区南岗镇卫生院",
+    "doctorService_gh":"2",
+    "doctorUid":"710659564",
+    "doctorName":"儿保科医生",
+    "doctorPic":"",
+    "doctorClinicName":"主治医师",
+    "GH_HosProId":"12",
+    "GH_HosProName":"安徽",
+    "GH_HosCityId":"101",
+    "GH_HosCityName":"合肥",
+    "registerDate":"2022-08-12",
+    "timeId":1,"arrangeId":160023903,"ghAmount":0,"securityDeposit":0,"ghfeeway":0,"ModeId":0,"GhFee":0,"AllFee":0,"availablenum":9,"UnOpened":false,"FHTimes":"23:00",
+    "FHDays":"2",
+    "accountSn":148528129,"cardNumber":"2078631533",
+    "loginId":"od0AjwJ0eodDYYA4pUfDRUCIIm8E",
+    "channelId":"9000370",
+    "utm_source":"0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName":"",
+    "retId":"8f1adb4a37e143a885d53db93f803eeb"
+}
+
+
+
+
+&ghFormCon=[
+    {"keyValue":"110***********5689","keyName":"CardNo"},
+    {"keyValue":"东城白云山","keyName":"familyaddress"},
+    {"keyValue":"","keyName":"name"},
+    {"keyValue":"","keyName":"ClinicCard"},
+    {"keyValue":"2","keyName":"sex"},
+    {"keyValue":"13940897525","keyName":"mobile"},
+    {"keyValue":"1","keyName":"cardtype"},
+    {"keyValue":"0","keyName":"cmb_disease"},
+    {"keyValue":"0","keyName":"cmb_disease"},
+    {"keyValue":"未确诊","keyName":"cmb_diseaseName"}
+]
