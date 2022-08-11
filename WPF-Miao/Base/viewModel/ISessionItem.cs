@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base.Events;
+using System;
 using System.Collections.Generic;
 
 namespace Base.viewModel
@@ -10,5 +11,7 @@ namespace Base.viewModel
         string Referer { get; set; }
         Dictionary<string, object> SessionDic { get; set; }
         Action GetUserSessionAction { get; set; }
+
+        LogEvents PrintLogEvent { get; set; }
     }
 }

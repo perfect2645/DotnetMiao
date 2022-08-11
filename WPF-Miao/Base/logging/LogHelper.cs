@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Base.Events;
+using System;
+using System.Text;
 
 namespace Base.logging
 {
@@ -20,6 +22,23 @@ namespace Base.logging
         {
             writeLogAction?.Invoke(logStr);
             Logging.GLog.Logger.Error(logStr);
+        }
+
+        internal static void PrintLog(Action<string> writeLogAction, LogEventArgs e)
+        {
+            if (e?.Items == null)
+            {
+                return;
+            }
+
+            var sb = new StringBuilder();
+            sb.AppendLine("Printing Start*********");
+            foreach (var item in e.Items)
+            {
+                sb.AppendLine($"{item.Key}:{item.Value}");
+            }
+            sb.AppendLine("Printing End*********");
+            Logging.GLog.Logger.Info(sb.ToString());
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Baohe.constants;
 using Baohe.session;
+using Base.logging;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.ExceptionManager;
@@ -34,11 +35,13 @@ namespace Baohe.search
 
             HttpDicResponse userInfo = PostStringAsync(content).Result;
             var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
-            if (userid == null)
+            if (userid == null || userid == "0")
             {
                 throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
             }
-            BaoheSession.AddOrUpdate(userid, userInfo.Body);
+            sessionItem.Key = userid;
+            BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
+            BaoheSession.Session[userid].PrintLogEvent.Publish(this, userInfo.Body);
 
             BaoheSession.Session[userid].Cookie = sessionItem.Cookie;
             BaoheSession.Session[userid].Referer = sessionItem.Referer;

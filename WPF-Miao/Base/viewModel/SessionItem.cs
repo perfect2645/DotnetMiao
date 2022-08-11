@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Base.Events;
+using System;
 using System.Collections.Generic;
 using Utils;
 
@@ -6,6 +7,7 @@ namespace Base.viewModel
 {
     public class SessionItem : NotifyChanged, ISessionItem
     {
+        #region Properties
         public string Key { get; set; }
         private string _cookie;
         public string Cookie
@@ -40,14 +42,24 @@ namespace Base.viewModel
         public Dictionary<string, object> SessionDic { get; set; }
         public Action GetUserSessionAction { get; set; }
 
+        public LogEvents PrintLogEvent { get; set; } = new LogEvents();
+
+        #endregion Properties
+
         public SessionItem()
         {
+            SessionDic = new Dictionary<string, object>();
         }
 
         public SessionItem(string key)
         {
             Key = key;
             SessionDic = new Dictionary<string, object>();
+        }
+
+        public void PrintLog(Dictionary<string, object> body)
+        {
+            throw new NotImplementedException();
         }
     }
 }

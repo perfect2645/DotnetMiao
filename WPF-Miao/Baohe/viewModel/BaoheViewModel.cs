@@ -4,6 +4,7 @@ using Base.Events;
 using Base.viewModel;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
+using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
 using System.Threading.Tasks;
@@ -71,9 +72,20 @@ namespace Baohe.viewModel
 
         private async void ExecuteSearchAsync()
         {
-            //var searchContr = HttpServiceController.GetService<SearchController>();
-            var userInfoContr = HttpServiceController.GetService<UserInfoController>();
-            await userInfoContr.GetUserInfoAsync(SessionItem);
+            try
+            {
+                //var searchContr = HttpServiceController.GetService<SearchController>();
+                var userInfoContr = HttpServiceController.GetService<UserInfoController>();
+                await userInfoContr.GetUserInfoAsync(SessionItem);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
         #endregion Search

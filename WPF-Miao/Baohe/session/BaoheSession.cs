@@ -10,30 +10,22 @@ namespace Baohe.session
 {
     public static class BaoheSession
     {
-        public static Dictionary<string, SessionItem> Session { get; private set; }
+        public static Dictionary<string, ISessionItem> Session { get; private set; }
 
         static BaoheSession() 
         {
-            Session = new Dictionary<string, SessionItem>();
+            Session = new Dictionary<string, ISessionItem>();
         }
 
         #region AddOrUpdate
 
-        public static void AddOrUpdate(string sessionKey, string value)
+        public static void AddOrUpdate(ISessionItem sessionItem, Dictionary<string, object> dicValue)
         {
-
-        }
-
-        public static void AddOrUpdate(string sessionKey, Dictionary<string, object> dicValue)
-        {
-            if (Session.ContainsKey(sessionKey))
+            sessionItem.SessionDic.AddOrUpdate(dicValue);
+            if (!Session.ContainsKey(sessionItem.Key))
             {
-                Session[sessionKey].SessionDic.AddOrUpdate(dicValue);
+                Session.AddOrUpdate(sessionItem.Key, sessionItem);
             }
-
-            var newSessionItem = new SessionItem(sessionKey);
-            newSessionItem.SessionDic.AddOrUpdate(dicValue);
-            Session.AddOrUpdate(sessionKey, newSessionItem);
         }
 
         #endregion AddOrUpdate

@@ -1,4 +1,5 @@
 ﻿using Base.container;
+using Base.Events;
 using Base.logging;
 using CoreControl.LogConsole;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,11 +26,17 @@ namespace Base.viewModel
         {
             LogPanel = logPanel;
             SessionItem = ContainerBase.ServiceProvider.GetService<ISessionItem>();
+            SessionItem.PrintLogEvent.Subscribe(PrintLog);
         }
 
         #endregion Constructor
 
         #region Log
+
+        protected virtual void PrintLog(object? sender, LogEventArgs e)
+        {
+            LogHelper.PrintLog(LogPanel.WriteLogAction, e);
+        }
 
         public void Log(Exception ex)
         {
@@ -38,8 +45,8 @@ namespace Base.viewModel
                 Log(ex.InnerException);
                 return;
             }
-            var logStr = string.Empty;
-            LogHelper.PrintLog(LogPanel.WriteLogAction, logStr);
+
+            LogHelper.PrintLog(LogPanel.WriteLogAction, ex.Message);
         }
 
         public void Log(string logStr)
