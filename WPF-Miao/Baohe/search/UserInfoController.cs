@@ -41,10 +41,7 @@ namespace Baohe.search
             }
             sessionItem.Key = userid;
             BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
-            BaoheSession.Session[userid].PrintLogEvent.Publish(this, userInfo.Body);
-
-            BaoheSession.Session[userid].Cookie = sessionItem.Cookie;
-            BaoheSession.Session[userid].Referer = sessionItem.Referer;
+            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
         }
     }
 }

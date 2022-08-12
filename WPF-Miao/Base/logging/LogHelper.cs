@@ -38,7 +38,10 @@ namespace Base.logging
                 sb.AppendLine($"{item.Key}:{item.Value}");
             }
             sb.AppendLine("Printing End*********");
-            Logging.GLog.Logger.Info(sb.ToString());
+
+            var logStr = sb.ToString();
+            writeLogAction?.Invoke(logStr);
+            Logging.GLog.Logger.Info(logStr);
         }
     }
 }

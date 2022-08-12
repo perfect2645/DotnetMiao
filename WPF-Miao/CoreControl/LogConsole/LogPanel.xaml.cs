@@ -34,9 +34,12 @@ namespace CoreControl.LogConsole
         {
             lock(_lock)
             {
-                var paragraph = new Paragraph();
-                paragraph.Inlines.Add(new Run(text));
-                document.Blocks.Add(paragraph);
+                Dispatcher.Invoke(() =>
+                {
+                    var paragraph = new Paragraph();
+                    paragraph.Inlines.Add(new Run(text));
+                    document.Blocks.Add(paragraph);
+                });
             }
         }
 
