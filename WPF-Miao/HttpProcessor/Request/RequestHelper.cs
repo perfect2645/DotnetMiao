@@ -87,11 +87,26 @@ namespace HttpProcessor.Request
 
         #region Post
 
-        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content)
+        public static async Task<HttpDicResponse> PostJsonAsync(this HttpClient client, HttpStringContent content)
         {
             try
             {
                 var response = await client.PostAsync(content.RequestUrl, content.GetJsonContent());
+                response.EnsureSuccessStatusCode();
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, "PostStringAsync");
+            }
+        }
+
+        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content)
+        {
+            try
+            {
+                var response = await client.PostAsync(content.RequestUrl, content.GetStringContent());
                 response.EnsureSuccessStatusCode();
                 return new HttpDicResponse(response);
             }

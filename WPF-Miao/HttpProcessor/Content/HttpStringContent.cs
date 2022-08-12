@@ -24,12 +24,6 @@ namespace HttpProcessor.Content
             Headers = new Dictionary<string, string>();
         }
 
-        public virtual StringContent GetJsonContent()
-        {
-            var jsonContent = JsonSerializer.Serialize(Content, JsonEncoder.JsonOption);
-            return new StringContent(jsonContent, Encoding.UTF8, "application/json");
-        }
-
         #region Header
 
         public void BuildClientHeaders(HttpClient httpClient)
@@ -77,6 +71,24 @@ namespace HttpProcessor.Content
         public void AddContents(Dictionary<string, object> pairs)
         {
             Content.AddOrUpdate(pairs);
+        }
+
+        public virtual StringContent GetJsonContent()
+        {
+            var jsonContent = JsonSerializer.Serialize(Content, JsonEncoder.JsonOption);
+            return new StringContent(jsonContent, Encoding.UTF8, "application/json");
+        }
+
+        public virtual StringContent GetStringContent()
+        {
+            var sb = new StringBuilder();
+            foreach(var item in Content)
+            {
+                sb.Append($"{item.Key}={item.Value}&");
+            }
+            var stringContent = sb.ToString().TrimEnd('&');
+
+            return new StringContent(stringContent, Encoding.UTF8, "application/json");
         }
 
         #endregion Content

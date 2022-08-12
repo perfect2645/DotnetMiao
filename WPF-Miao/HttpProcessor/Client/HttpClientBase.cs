@@ -67,12 +67,17 @@ namespace HttpProcessor.Client
 
         #region Post String
 
-        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content)
+        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, ContentType contentType = ContentType.Json)
         {
             try
             {
-                var response = await Client.PostStringAsync(content);
-                return response;
+                if (contentType == ContentType.String)
+                {
+                    return await Client.PostStringAsync(content);
+                } else
+                {
+                    return await Client.PostJsonAsync(content);
+                }
             }
             catch (Exception ex)
             {
