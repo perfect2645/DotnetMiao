@@ -1,0 +1,28 @@
+POST https://appoint.yihu.com/appoint/do/user/getUserInfo HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 0
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63070517)
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiU2VjU3RyIjoiQjQwQTEzOTVGQjI1RkQ2MzRDRDkyNjA2MkM2M0UxQTUifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=od0AjwJ0eodDYYA4pUfDRUCIIm8E; OpenID=od0AjwJ0eodDYYA4pUfDRUCIIm8E; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000370; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4MEI0RUFEN0NDOTY1M0YxQkQ1MjVBM0VGNEM5MkNGRCJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=C600554136584217A36C13CF9683F91E
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9000370&hospitalId=1040231&time=1660398993
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 13 Aug 2022 13:58:51 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 148
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"accountSn":148528129,"cardNumber":"2078631533","loginId":"od0AjwJ0eodDYYA4pUfDRUCIIm8E","secStr":"80B4EAD7CC9653F1BD525A3EF4C92CFD","userName":""}

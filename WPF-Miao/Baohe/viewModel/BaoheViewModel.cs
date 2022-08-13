@@ -1,5 +1,7 @@
 ﻿using Baohe.appointment;
+using Baohe.constants;
 using Baohe.search;
+using Baohe.session;
 using Base.Events;
 using Base.viewModel;
 using CoreControl.LogConsole;
@@ -27,7 +29,19 @@ namespace Baohe.viewModel
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
             Log("BaoheViewModel start");
+            InitPlatformSession();
             InitCommands();
+        }
+
+        private void InitPlatformSession()
+        {
+            BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
+            BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
+
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            var tsStr = Convert.ToInt64(ts.TotalMilliseconds).ToString();
+            var sessionTime = tsStr.Substring(0, 10);
+            BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
         }
 
         private void InitCommands()

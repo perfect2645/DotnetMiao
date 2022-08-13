@@ -26,7 +26,7 @@ namespace Baohe.search
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
             var content = new AppointNumbersContent(url);
             content.AddHeader("Cookie", sessionItem.Cookie);
-            content.AddHeader("Referer", "https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9000370&hospitalId=1040231&deptId=7175975&doctorSn=710869460&arrangeId=160023903&utm_source=0.0.h.1026.bus010.0&channelId=9000370&sceneId=&isGuahao=&fmId=hfssqngzwsy&retid=8f1adb4a37e143a885d53db93f803eeb&canreg=1");
+            content.AddHeader("Referer", "https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9000370&hospitalId=1040231&deptId=7215573&doctorSn=711111254&arrangeId=160157974&utm_source=0.0.h.1026.bus010.0&channelId=9000370&sceneId=&isGuahao=&fmId=hfssqngzwsy&retid=3e2e5ba74cdc4034bc27c38dee3e073a&canreg=1");
 
             content.BuildDefaultHeaders(Client);
 

@@ -10,10 +10,12 @@ namespace Baohe.session
 {
     public static class BaoheSession
     {
+        public static Dictionary<string, string> PlatformSesstion { get; private set; }
         public static Dictionary<string, ISessionItem> Session { get; private set; }
 
         static BaoheSession() 
         {
+            PlatformSesstion = new Dictionary<string, string>();
             Session = new Dictionary<string, ISessionItem>();
         }
 

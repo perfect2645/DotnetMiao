@@ -29,7 +29,7 @@ namespace Baohe.search
             var url = "https://appoint.yihu.com/appoint/do/user/getUserInfo";
             var content = new UserInfoContent(url);
             content.AddHeader("Cookie", sessionItem.Cookie);
-            content.AddHeader("Referer", sessionItem.Referer);
+            content.AddHeader("Referer", GetReferer());
 
             content.BuildDefaultHeaders(Client);
 
@@ -42,6 +42,17 @@ namespace Baohe.search
             sessionItem.Key = userid;
             BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
             sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
+        }
+
+        private string GetReferer()
+        {
+            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+
+            var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+
+            return refererTemplate;
         }
     }
 }

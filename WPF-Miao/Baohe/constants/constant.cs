@@ -8,5 +8,10 @@
         public const string WaitingInfor = "waitingInfor";
         public const string GetNumbers = "GetNumbers";
         public const string StatusCode = "Code";
+
+
+        public const string PlatformType = "platformType";
+        public const string HospitalId = "hospitalId";
+        public const string SessionTime = "time";
     }
 }
