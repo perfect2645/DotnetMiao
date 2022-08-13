@@ -52,7 +52,7 @@ namespace Baohe.viewModel
 
             try
             {
-                appContr.AppointmentAsync().Wait();
+                appContr.AppointmentAsync(SessionItem).Wait();
             }
             catch (AggregateException ex)
             {

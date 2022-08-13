@@ -30,14 +30,14 @@ namespace Baohe.search
 
             content.BuildDefaultHeaders(Client);
 
-            HttpDicResponse userInfo = PostStringAsync(content, ContentType.String).Result;
-            var code = userInfo.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            HttpDicResponse appointNumbers = PostStringAsync(content, ContentType.String).Result;
+            var code = appointNumbers.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {userInfo.Body["Message"]}", Constant.GetNumbers);
+                throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {appointNumbers.Body["Message"]}", Constant.GetNumbers);
             }
-            //BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
-            //sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
+            BaoheSession.AddOrUpdate(sessionItem, appointNumbers.Body);
+            sessionItem.PrintLogEvent.Publish(this, appointNumbers.Body);
         }
     }
 }
