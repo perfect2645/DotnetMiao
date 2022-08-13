@@ -1,4 +1,8 @@
-﻿using HttpProcessor.Client;
+﻿using Baohe.constants;
+using Baohe.session;
+using Base.viewModel;
+using HttpProcessor.Client;
+using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +18,30 @@ namespace Baohe.appointment
         {
         }
 
-        public async Task AppointmentAsync()
+
+        public Task AppointmentAsync(ISessionItem sessionItem)
         {
+            return Task.Factory.StartNew(() => Appointment(sessionItem));
+        }
 
-            //var response = await Client.SendAsync(content.HttpRequestMessage);
+        public void Appointment(ISessionItem sessionItem)
+        {
+            var url = "https://appoint.yihu.com/appoint/do/registerInfo/register";
+            var content = new AppointmentContent(url, sessionItem);
+            content.AddHeader("Cookie", sessionItem.Cookie);
+            content.AddHeader("Referer", sessionItem.Referer);
 
-            //ParseAppointmentResult(response);
+            content.BuildDefaultHeaders(Client);
+
+            HttpDicResponse userInfo = PostStringAsync(content).Result;
+            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
+            if (userid == null || userid == "0")
+            {
+                throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
+            }
+            sessionItem.Key = userid;
+            BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
+            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
         }
 
         private void ParseAppointmentResult(HttpResponseMessage response)

@@ -4,6 +4,8 @@
     {
         public const string ProjectName = "Baohe";
         public const string AccountSn = "accountSn";
+        public const string WaterId = "waterId";
+        public const string WaitingInfor = "waitingInfor";
         public const string GetNumbers = "GetNumbers";
         public const string StatusCode = "Code";
     }
