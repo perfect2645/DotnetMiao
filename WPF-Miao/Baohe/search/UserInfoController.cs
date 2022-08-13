@@ -37,7 +37,7 @@ namespace Baohe.search
             var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
             if (userid == null || userid == "0")
             {
-                throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
+                throw new HttpException($"{Constant.ProjectName}:GetUserInfo-{url} failed", Constant.AccountSn);
             }
             sessionItem.Key = userid;
             BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);

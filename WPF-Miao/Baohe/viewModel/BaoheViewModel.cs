@@ -77,6 +77,9 @@ namespace Baohe.viewModel
                 //var searchContr = HttpServiceController.GetService<SearchController>();
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync(SessionItem);
+
+                var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+                await appointNumbers.GetNumbersAsync(SessionItem);
             }
             catch (HttpException ex)
             {

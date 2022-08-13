@@ -26,19 +26,18 @@ namespace Baohe.search
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
             var content = new AppointNumbersContent(url);
             content.AddHeader("Cookie", sessionItem.Cookie);
-            content.AddHeader("Referer", sessionItem.Referer);
+            content.AddHeader("Referer", "https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9000370&hospitalId=1040231&deptId=7175975&doctorSn=710869460&arrangeId=160023903&utm_source=0.0.h.1026.bus010.0&channelId=9000370&sceneId=&isGuahao=&fmId=hfssqngzwsy&retid=8f1adb4a37e143a885d53db93f803eeb&canreg=1");
 
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse userInfo = PostStringAsync(content, ContentType.String).Result;
-            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
-            if (userid == null || userid == "0")
+            var code = userInfo.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            if (code == null || code != "10000")
             {
-                throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
+                throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {userInfo.Body["Message"]}", Constant.GetNumbers);
             }
-            sessionItem.Key = userid;
-            BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
-            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
+            //BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
+            //sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
         }
     }
 }

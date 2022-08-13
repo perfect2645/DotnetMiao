@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Content;
 using System;
 using System.Net.Http;
+using System.Windows.Shapes;
 
 namespace Baohe.search
 {
@@ -8,16 +9,19 @@ namespace Baohe.search
     {
         public AppointNumbersContent(string url) : base(url)
         {
+            ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
         {
             AddHeader("Host", "appoint.yihu.com");
+            AddHeader("Connection", "keep-alive");
             AddHeader("Accept", "application/json, text/javascript, */*; q=0.01");
             AddHeader("Origin", "https://appoint.yihu.com");
             AddHeader("X-Requested-With", "XMLHttpRequest");
             AddHeader("User-Agent", @"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36");
+            //AddHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
             AddHeader("Sec-Fetch-Site", "same-origin");
             AddHeader("Sec-Fetch-Mode", "cors");

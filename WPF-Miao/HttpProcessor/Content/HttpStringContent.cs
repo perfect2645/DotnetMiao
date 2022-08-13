@@ -13,6 +13,8 @@ namespace HttpProcessor.Content
         public Dictionary<string, string> Headers { get; private set; }
         public Dictionary<string, object> Content { get; private set; }
 
+        public string ContentType { get; set; } = "application/json";
+
         public string RequestUrl { get; private set; }
 
         #endregion Properties
@@ -76,7 +78,7 @@ namespace HttpProcessor.Content
         public virtual StringContent GetJsonContent()
         {
             var jsonContent = JsonSerializer.Serialize(Content, JsonEncoder.JsonOption);
-            return new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            return new StringContent(jsonContent, Encoding.UTF8, ContentType);
         }
 
         public virtual StringContent GetStringContent()
@@ -88,7 +90,7 @@ namespace HttpProcessor.Content
             }
             var stringContent = sb.ToString().TrimEnd('&');
 
-            return new StringContent(stringContent, Encoding.UTF8, "application/json");
+            return new StringContent(stringContent, Encoding.UTF8, ContentType);
         }
 
         #endregion Content

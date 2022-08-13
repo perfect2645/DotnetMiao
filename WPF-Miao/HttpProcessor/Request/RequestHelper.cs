@@ -106,7 +106,8 @@ namespace HttpProcessor.Request
         {
             try
             {
-                var response = await client.PostAsync(content.RequestUrl, content.GetStringContent());
+                var strContent = content.GetStringContent();
+                var response = await client.PostAsync(content.RequestUrl, strContent);
                 response.EnsureSuccessStatusCode();
                 return new HttpDicResponse(response);
             }

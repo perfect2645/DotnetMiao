@@ -30,6 +30,7 @@ namespace Baohe
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserInfoController>();
+            HttpServiceController.AddTransientService<AppointNumbersController>();
             HttpServiceController.AddTransientService<SearchController>();
 
             HttpServiceController.BuidServiceProvider();
