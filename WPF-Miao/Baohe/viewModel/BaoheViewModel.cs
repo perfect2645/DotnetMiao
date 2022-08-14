@@ -1,6 +1,7 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
 using Baohe.search;
+using Baohe.search.auth;
 using Baohe.session;
 using Base.Events;
 using Base.viewModel;
@@ -35,13 +36,25 @@ namespace Baohe.viewModel
 
         private void InitPlatformSession()
         {
-            BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
-            BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
+            try
+            {
+                GetAuth();
+                BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
+                BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
 
-            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            var tsStr = Convert.ToInt64(ts.TotalMilliseconds).ToString();
-            var sessionTime = tsStr.Substring(0, 10);
-            BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
+                TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+                var tsStr = Convert.ToInt64(ts.TotalMilliseconds).ToString();
+                var sessionTime = tsStr.Substring(0, 10);
+                BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
         private void InitCommands()
@@ -52,6 +65,25 @@ namespace Baohe.viewModel
         }
 
         #endregion Constructor
+
+
+        #region Auth
+
+        private void GetAuth()
+        {
+            var authController = HttpServiceController.GetService<AuthController>();
+
+            try
+            {
+                authController.GetAuthAsync();
+            }
+            catch (AggregateException ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Auth
 
         #region Appointment
 

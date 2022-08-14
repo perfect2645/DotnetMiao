@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Web;
 
 namespace Utils
 {
     public static class UnicodeConverter
     {
-        #region UrlEncode(对Url进行编码)
+        #region UrlDecode(对Url进行编码)
 
         /// <summary>
         /// 对Url进行编码
@@ -57,5 +53,33 @@ namespace Utils
         }
 
         #endregion
+
+        #region UrlEncode
+
+
+        /// <summary>
+        /// 对Url进行编码
+        /// </summary>
+        /// <param name="url">url</param>
+        /// <param name="isUpper">编码字符是否转成大写,范例,"http://"转成"http%3A%2F%2F"</param>
+        public static string Encode(string content, bool isUpper = false)
+        {
+            return Encode(content, Encoding.UTF8, isUpper);
+        }
+
+        /// <summary>
+        /// 对Url进行编码
+        /// </summary>
+        /// <param name="url">url</param>
+        /// <param name="encoding">字符编码</param>
+        /// <param name="isUpper">编码字符是否转成大写,范例,"http://"转成"http%3A%2F%2F"</param>
+        public static string Encode(string content, Encoding encoding, bool isUpper = false)
+        {
+            var result = HttpUtility.UrlEncode(content, encoding);
+            if (!isUpper)
+                return result;
+            return GetUpperEncode(result);
+        }
+        #endregion 
     }
 }

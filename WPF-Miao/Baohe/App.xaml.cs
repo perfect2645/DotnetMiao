@@ -1,4 +1,5 @@
 ﻿using Baohe.search;
+using Baohe.search.auth;
 using Base.container;
 using Base.viewModel;
 using HttpProcessor.Container;
@@ -29,6 +30,7 @@ namespace Baohe
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<AuthController>();
             HttpServiceController.AddTransientService<UserInfoController>();
             HttpServiceController.AddTransientService<AppointNumbersController>();
             HttpServiceController.AddTransientService<SearchController>();
