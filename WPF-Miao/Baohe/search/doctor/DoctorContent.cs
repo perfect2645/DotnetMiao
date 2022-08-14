@@ -4,6 +4,7 @@ using Baohe.session;
 using HttpProcessor.Content;
 using System.Net.Http;
 using System.Text;
+using Utils.datetime;
 
 namespace Baohe.search.doctor
 {
@@ -17,26 +18,25 @@ namespace Baohe.search.doctor
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
         {
-
             base.BuildDefaultHeaders(httpClient);
         }
 
         private void BuildContent()
         {
-            AddContent("arrangeId", "160023903");
-            AddContent("hospitalId", "1040231");
-            AddContent("appliedDepartment", "");
-            AddContent("channelId", "9000370");
-            AddContent("ClinicCard", "");
+            AddContent("t", DateTimeUtil.GetTimeStamp());
+            AddContent("hosId", BaoheSession.PlatformSesstion[Constant.HospitalId]);
+            AddContent("deptId", BaoheSession.PlatformSesstion[Constant.DeptId]);
+            AddContent("pageIndex", "1");
+            AddContent("pageSize", "15");
+            AddContent("multiHosDeptId", "");
         }
 
         public string BuildReferer()
         {
             var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
             var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
 
-            var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+            var refererTemplate = $"https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType={platformType}&hospitalId={hospitalId}&exConsult=&consultHosId={hospitalId}";
 
             return refererTemplate;
         }

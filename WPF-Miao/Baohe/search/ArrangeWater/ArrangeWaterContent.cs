@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Baohe.baseClasses;
+using Baohe.constants;
+using Baohe.session;
 
 namespace Baohe.search.ArrangeWater
 {
-    internal class ArrangeWaterContent
+    internal class ArrangeWaterContent : ContentBase
     {
+        public ArrangeWaterContent(string url) : base(url)
+        {
+        }
+
+        public string BuildReferer()
+        {
+            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+
+            var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+
+            return refererTemplate;
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace Baohe.search.ArrangeWater
         private void GetArrangeWater(ISessionItem sessionItem)
         {
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
-            var content = new UserInfoContent(url);
+            var content = new ArrangeWaterContent(url);
             content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 

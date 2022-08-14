@@ -12,6 +12,7 @@
 
         public const string PlatformType = "platformType";
         public const string HospitalId = "hospitalId";
+        public const string DeptId = "deptId";
         public const string SessionTime = "time";
         public const string YihuOpenId = "YiHu_OpenId";
         public const string LoginType = "logintype";

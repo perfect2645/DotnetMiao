@@ -1,0 +1,29 @@
+POST https://appoint.yihu.com/appoint/do/doctor/getDocListByDeptId HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 84
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307001e)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiU2VjU3RyIjoiQjQwQTEzOTVGQjI1RkQ2MzRDRDkyNjA2MkM2M0UxQTUifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=od0AjwJ0eodDYYA4pUfDRUCIIm8E; OpenID=od0AjwJ0eodDYYA4pUfDRUCIIm8E; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000370; TOKEN_28BF437073E3440D653DCFCFB15BCD93=FB6065A93DCE43DDA6A5168BACD7D72B; _YyghSysTrackUUID=11095502857; jkzlAn_uuid=CFA1F5AA-ED7D-414B-900E-67982A6F03D0; jkzlAn_sid=EA68A416-CF97-4024-BA52-7F1910B06ED9; jkzlAn_channelid=9000370; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4MEI0RUFEN0NDOTY1M0YxQkQ1MjVBM0VGNEM5MkNGRCJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=C600554136584217A36C13CF9683F91E; jkzlAn_userid=148528129; jkzlAn_ct=1660183317500
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType=9000370&deptId=7175975&hospitalId=1040231&exConsult=&consultHosId=1040231
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+t=1660183320273&hosId=1040231&deptId=7175975&pageIndex=1&pageSize=15&multiHosDeptId=
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 11 Aug 2022 02:00:26 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 363
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":10000,"Message":"成功","Total":1,"Result":[{"hospitalId":"1040231","deptName":"儿童保健科","doctorUid":"710659564","doctorName":"儿保科医生","doctorSex":"3","lczcName":"主治医师","skill":"","photoUri":"","doctorSn":"710869460","doctorService_gh":"2","doctorService_phone":"0","doctorService_text":"0","doctorNumberList":"","numCount":30}]}

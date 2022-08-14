@@ -11,8 +11,8 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using Utils.datetime;
 
 namespace Baohe.viewModel
 {
@@ -42,9 +42,9 @@ namespace Baohe.viewModel
                 GetAuth();
                 BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
                 BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
+                BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
 
-                TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-                var tsStr = Convert.ToInt64(ts.TotalMilliseconds).ToString();
+                var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
                 BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
             }
@@ -66,7 +66,6 @@ namespace Baohe.viewModel
         }
 
         #endregion Constructor
-
 
         #region Auth
 
@@ -121,17 +120,8 @@ namespace Baohe.viewModel
         {
             try
             {
-                var authController = HttpServiceController.GetService<AuthController>();
-                authController.GetCookieAdvance(SessionItem.Cookie);
-
-                var userInfoContr = HttpServiceController.GetService<UserInfoController>();
-                await userInfoContr.GetUserInfoAsync(SessionItem);
-
-                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-                await arrangeWater.GetArrangeWaterAsync(SessionItem);
-
-                var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                await appointNumbers.GetNumbersAsync(SessionItem);
+                var searchController = HttpServiceController.GetService<SearchController>();
+                await searchController.SearchAllAsync(SessionItem);
             }
             catch (HttpException ex)
             {
