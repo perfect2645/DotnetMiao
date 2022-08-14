@@ -2,6 +2,7 @@
 using Baohe.session;
 using Base.viewModel;
 using HttpProcessor.Client;
+using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using System.Linq;
 using System.Net.Http;
@@ -24,17 +25,19 @@ namespace Baohe.search.doctor
         {
             var url = "https://appoint.yihu.com/appoint/do/doctor/getDocListByDeptId";
             var content = new DoctorContent(url);
-            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", sessionItem.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
 
-            HttpDicResponse response = PostStringAsync(content).Result;
+            HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - {response.Body["Message"]}", Constant.GetNumbers);
             }
+
+            var result = response.JsonBody.RootElement;
         }
     }
 }
