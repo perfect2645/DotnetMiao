@@ -1,6 +1,7 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
 using Baohe.search;
+using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.session;
 using Base.Events;
@@ -125,6 +126,9 @@ namespace Baohe.viewModel
 
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync(SessionItem);
+
+                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+                await arrangeWater.GetArrangeWaterAsync(SessionItem);
 
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
                 await appointNumbers.GetNumbersAsync(SessionItem);
