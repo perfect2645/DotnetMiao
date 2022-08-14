@@ -120,7 +120,9 @@ namespace Baohe.viewModel
         {
             try
             {
-                //var searchContr = HttpServiceController.GetService<SearchController>();
+                var authController = HttpServiceController.GetService<AuthController>();
+                authController.GetCookieAdvance(SessionItem.Cookie);
+
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync(SessionItem);
 

@@ -1,6 +1,9 @@
-﻿using HttpProcessor.Content;
+﻿using Baohe.constants;
+using Baohe.session;
+using HttpProcessor.Content;
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Windows.Shapes;
 
 namespace Baohe.search
@@ -39,6 +42,34 @@ namespace Baohe.search
             AddContent("appliedDepartment", "");
             AddContent("channelId", "9000370");
             AddContent("ClinicCard", "");
+        }
+
+        public string BuildReferer()
+        {
+            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+
+            var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+
+            return refererTemplate;
+        }
+
+        public string BuildCookie()
+        {
+            var sb = new StringBuilder();
+            sb.BuildSession(Constant.YihuOpenId);
+            sb.BuildSession(Constant.LoginType);
+            sb.BuildSession(Constant.LoginProvinceiId);
+            sb.BuildSession(Constant.LoginCityId);
+            sb.BuildSession(Constant.LoginId);
+            sb.BuildSession(Constant.OpenId);
+            sb.BuildSession(Constant.BaseDoctorUid);
+            sb.BuildSession(Constant.BaseUserType);
+            sb.BuildSession(Constant.LoginChannel);
+            sb.BuildSession(Constant.YiHuUserJosn);
+
+            return sb.ToString();
         }
     }
 }

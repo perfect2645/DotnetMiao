@@ -2,6 +2,8 @@
 using HttpProcessor.Client;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils;
+using Utils.stringBuilder;
 
 namespace Baohe.search.auth
 {
@@ -32,6 +34,18 @@ namespace Baohe.search.auth
             BaoheSession.PlatformSesstion.Add("LoginChannel", "9000370");
             BaoheSession.PlatformSesstion.Add("YiHu_UserJosn", "eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4MEI0RUFEN0NDOTY1M0YxQkQ1MjVBM0VGNEM5MkNGRCJ9");
             BaoheSession.PlatformSesstion.Add("TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2", "C600554136584217A36C13CF9683F91E");
+        }
+
+        public void GetCookieAdvance(string cookie)
+        {
+            if (string.IsNullOrWhiteSpace(cookie))
+            {
+                return;
+            }
+
+            var dic = cookie.CookieToDic();
+
+            BaoheSession.PlatformSesstion.AddOrUpdate(dic);
         }
     }
 }

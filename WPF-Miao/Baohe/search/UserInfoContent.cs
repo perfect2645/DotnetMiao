@@ -1,8 +1,8 @@
-﻿using HttpProcessor.Content;
-using System;
-using System.Collections.Generic;
+﻿using Baohe.constants;
+using Baohe.session;
+using HttpProcessor.Content;
 using System.Net.Http;
-using Utils;
+using System.Text;
 
 namespace Baohe.search
 {
@@ -27,6 +27,35 @@ namespace Baohe.search
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
 
             base.BuildDefaultHeaders(httpClient);
+        }
+
+        public string BuildReferer()
+        {
+            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+
+            var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+
+            return refererTemplate;
+        }
+
+        public string BuildCookie()
+        {
+            var sb = new StringBuilder();
+            sb.BuildSession(Constant.YihuOpenId);
+            sb.BuildSession(Constant.LoginType);
+            sb.BuildSession(Constant.LoginProvinceiId);
+            sb.BuildSession(Constant.LoginCityId);
+            sb.BuildSession(Constant.LoginId);
+            sb.BuildSession(Constant.OpenId);
+            sb.BuildSession(Constant.BaseDoctorUid);
+            sb.BuildSession(Constant.BaseUserType);
+            sb.BuildSession(Constant.LoginChannel);
+            sb.BuildSession(Constant.YiHuUserJosn);
+            sb.BuildSession(Constant.TOKEN);
+
+            return sb.ToString();
         }
     }
 }
