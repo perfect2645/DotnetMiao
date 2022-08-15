@@ -9,9 +9,16 @@ namespace Tools.Jsoncv
 {
     internal class JsonToDic
     {
+
+        //private JsonDocument TestJsonDoc = new JsonDocument("");
+
         public Dictionary<string, object> GetJsonDic(JsonDocument jsonDocument)
         {
+            var dic = new Dictionary<string, object>();
 
+
+
+            return dic;
         }
     }
 }
