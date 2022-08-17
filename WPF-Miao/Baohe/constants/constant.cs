@@ -40,6 +40,7 @@
         #region Doctor
         public const string DoctorList = "DoctorList";
         public const string DoctorSn = "doctorSn";
+        public const string ArrangeWater = "ArrangeWater";
         #endregion Doctor
     }
 }

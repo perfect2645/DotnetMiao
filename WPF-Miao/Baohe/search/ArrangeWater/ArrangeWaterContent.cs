@@ -11,6 +11,7 @@ namespace Baohe.search.ArrangeWater
     {
         public ArrangeWaterContent(string url) : base(url)
         {
+            ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
