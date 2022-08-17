@@ -8,6 +8,7 @@
         public const string WaitingInfor = "waitingInfor";
         public const string GetNumbers = "GetNumbers";
         public const string StatusCode = "Code";
+        public const string ArrangeId = "arrangeId";
 
 
         public const string PlatformType = "platformType";
@@ -23,6 +24,7 @@
         public const string BaseDoctorUid = "BaseDoctorUid";
         public const string BaseUserType = "BaseUserType";
         public const string LoginChannel = "LoginChannel";
+        public const string ChannelId = "channelId";
         public const string YiHuUserJosn = "YiHu_UserJosn";
         public const string TOKEN = "TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2";
         public const string _YyghSysTrackUUID = "_YyghSysTrackUUID";
@@ -42,5 +44,11 @@
         public const string DoctorSn = "doctorSn";
         public const string ArrangeWater = "ArrangeWater";
         #endregion Doctor
+
+        #region User
+
+        public const string MemberList = "MemberList";
+
+        #endregion User
     }
 }

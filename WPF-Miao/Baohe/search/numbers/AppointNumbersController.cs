@@ -24,7 +24,7 @@ namespace Baohe.search.numbers
         private void GetNumbers(ISessionItem sessionItem)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
-            var content = new AppointNumbersContent(url);
+            var content = new AppointNumbersContent(url, sessionItem);
             content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 

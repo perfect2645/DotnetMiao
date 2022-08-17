@@ -1,6 +1,7 @@
 ﻿using Baohe.baseClasses;
 using Baohe.constants;
 using Baohe.session;
+using Base.viewModel;
 using HttpProcessor.Content;
 using System;
 using System.Net.Http;
@@ -11,18 +12,21 @@ namespace Baohe.search.numbers
 {
     internal class AppointNumbersContent : ContentBase
     {
-        public AppointNumbersContent(string url) : base(url)
+        private ISessionItem SessionItem { get; }
+        public AppointNumbersContent(string url, ISessionItem sessionItem) : base(url)
         {
+            SessionItem = sessionItem;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            AddContent("arrangeId", "160023903");
-            AddContent("hospitalId", "1040231");
-            AddContent("appliedDepartment", "");
-            AddContent("channelId", "9000370");
+            var arrangeWater = SessionBuilder.GetArrangeWater(SessionItem);
+            
+            AddContent(Constant.ArrangeId, arrangeWater);
+            AddContent(Constant.HospitalId, BaoheSession.PlatformSesstion);
+            AddContent(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.LoginChannel]);
             AddContent("ClinicCard", "");
         }
 

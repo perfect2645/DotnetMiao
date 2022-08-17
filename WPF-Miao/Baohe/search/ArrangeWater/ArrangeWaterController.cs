@@ -57,6 +57,8 @@ namespace Baohe.search.ArrangeWater
             var arrangeWater = JsonAnalysis.JsonToDicList(jsonElement);
 
             sessionItem.SessionDic.AddOrUpdate(Constant.ArrangeWater, arrangeWater);
+
+            sessionItem.PrintLogEvent.Publish(this, arrangeWater, "ArrangeWater");
         }
     }
 }
