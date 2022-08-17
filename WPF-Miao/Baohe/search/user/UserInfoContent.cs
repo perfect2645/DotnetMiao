@@ -2,7 +2,7 @@
 using Baohe.constants;
 using Baohe.session;
 
-namespace Baohe.search
+namespace Baohe.search.user
 {
     internal class UserInfoContent : ContentBase
     {

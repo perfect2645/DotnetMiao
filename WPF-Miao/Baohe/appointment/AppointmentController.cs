@@ -29,19 +29,11 @@ namespace Baohe.appointment
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/register";
             var content = new AppointmentContent(url, sessionItem);
             content.AddHeader("Cookie", sessionItem.Cookie);
-            content.AddHeader("Referer", sessionItem.Referer);
+            content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
 
-            HttpDicResponse userInfo = PostStringAsync(content).Result;
-            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
-            if (userid == null || userid == "0")
-            {
-                throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
-            }
-            sessionItem.Key = userid;
-            BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
-            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
+
         }
 
         private void ParseAppointmentResult(HttpResponseMessage response)

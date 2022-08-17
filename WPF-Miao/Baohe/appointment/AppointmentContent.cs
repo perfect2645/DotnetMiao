@@ -41,6 +41,8 @@ namespace Baohe.appointment
             AddContent("doctorRegOrder", doctorOrder);
         }
 
+        #region Content
+
         private Dictionary<string, object> BuildDoctorOrder()
         {
             var sessionDic = Session.SessionDic;
@@ -102,6 +104,19 @@ namespace Baohe.appointment
             doctorRegOrder.Add("retId", "8f1adb4a37e143a885d53db93f803eeb");
 
             return doctorRegOrder;
+        }
+
+        #endregion Content
+
+        public string BuildReferer()
+        {
+            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+
+            var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+
+            return refererTemplate;
         }
     }
 }
