@@ -2,9 +2,9 @@
 {
     public static class CookieHelper
     {
-        public static Dictionary<string, string> ArrToDic(this string[] strings)
+        public static Dictionary<string, object> ArrToDic(this string[] strings)
         {
-            var dic = new Dictionary<string, string>();
+            var dic = new Dictionary<string, object>();
             foreach (var item in strings)
             {
                 if (!item.Contains("="))
@@ -18,7 +18,7 @@
             return dic;
         }
 
-        public static Dictionary<string, string> CookieToDic(this string cookie)
+        public static Dictionary<string, object> CookieToDic(this string cookie)
         {
             if (string.IsNullOrEmpty(cookie))
             {

@@ -24,7 +24,8 @@ namespace Baohe.search.ArrangeWater
         {
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
-            content.AddHeader("Cookie", content.BuildCookie());
+            //content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", sessionItem.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -33,8 +34,10 @@ namespace Baohe.search.ArrangeWater
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - {response.Body["Message"]}", Constant.GetNumbers);
+                throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - {response.Body["Message"]}", "Arrange Water");
             }
+
+            sessionItem.PrintLogEvent.Publish(this, response.Body);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Baohe.search.doctor
             var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
             //"[{"hospitalId":"1040231","deptName":"儿童保健科","doctorUid":"710659564","doctorName":"儿保科医生","doctorSex":"3","lczcName":"主治医师","skill":"","photoUri":"","doctorSn":"710869460","doctorService_gh":"2","doctorService_phone":"0","doctorService_text":"0","doctorNumberList":"","numCount":30}]"
 
-            BaoheSession.PlatformSesstion.AddOrUpdate("DoctorList", doctorDept);
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorList, doctorDept);
         }
     }
 }

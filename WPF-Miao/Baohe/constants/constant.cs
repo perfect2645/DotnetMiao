@@ -36,5 +36,10 @@
         public const string JkzlAn_userid = "jkzlAn_userid";
         public const string JkzlAn_ct = "jkzlAn_ct";
         public const string YIHU_SCALE_my_user_info20200212 = "YIHU_SCALE_my_user_info20200212";
+
+        #region Doctor
+        public const string DoctorList = "DoctorList";
+        public const string DoctorSn = "doctorSn";
+        #endregion Doctor
     }
 }
