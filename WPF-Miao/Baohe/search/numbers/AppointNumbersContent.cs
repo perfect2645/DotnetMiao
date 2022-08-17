@@ -24,7 +24,7 @@ namespace Baohe.search.numbers
         {
             var arrangeWater = SessionBuilder.GetArrangeWater(SessionItem);
             
-            AddContent(Constant.ArrangeId, arrangeWater);
+            AddContent(Constant.ArrangeId, arrangeWater["ArrangeID"]);
             AddContent(Constant.HospitalId, BaoheSession.PlatformSesstion);
             AddContent(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.LoginChannel]);
             AddContent("ClinicCard", "");

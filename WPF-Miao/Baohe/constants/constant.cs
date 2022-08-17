@@ -50,5 +50,11 @@
         public const string MemberList = "MemberList";
 
         #endregion User
+
+        #region Numbers
+
+        public const string Numbers = "Numbers";
+
+        #endregion Numbers
     }
 }

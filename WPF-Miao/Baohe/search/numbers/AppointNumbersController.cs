@@ -6,7 +6,10 @@ using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Utils;
+using Utils.json;
 
 namespace Baohe.search.numbers
 {
@@ -30,14 +33,27 @@ namespace Baohe.search.numbers
 
             content.BuildDefaultHeaders(Client);
 
-            HttpDicResponse appointNumbers = PostStringAsync(content, ContentType.String).Result;
-            var code = appointNumbers.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {appointNumbers.Body["Message"]}", Constant.GetNumbers);
+                throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {response.Body["Message"]}", Constant.GetNumbers);
             }
-            BaoheSession.AddOrUpdate(sessionItem, appointNumbers.Body);
-            sessionItem.PrintLogEvent.Publish(this, appointNumbers.Body);
+
+            var result = response.JsonBody.RootElement.GetProperty("Result");
+            if (result.ValueKind == JsonValueKind.Null)
+            {
+                throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
+            }
+            AnalizeResult(result, sessionItem);
+        }
+
+        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        {
+            var numbers = JsonAnalysis.JsonToDicList(jsonElement);
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.Numbers, numbers);
+
+            sessionItem.PrintLogEvent.Publish(this, numbers, "Numbers");
         }
     }
 }
