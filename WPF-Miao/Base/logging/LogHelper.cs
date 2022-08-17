@@ -26,18 +26,20 @@ namespace Base.logging
 
         internal static void PrintLog(Action<string> writeLogAction, LogEventArgs e)
         {
-            if (e?.Items == null)
+            if (e?.Items == null && string.IsNullOrWhiteSpace(e.Message))
             {
                 return;
             }
 
+            var title = string.IsNullOrWhiteSpace(e.Message) ? string.Empty : e.Message;
+
             var sb = new StringBuilder();
-            sb.AppendLine("Printing Start*********");
+            sb.AppendLine($"Printing {title} Start*********");
             foreach (var item in e.Items)
             {
                 sb.AppendLine($"{item.Key}:{item.Value}");
             }
-            sb.AppendLine("Printing End*********");
+            sb.AppendLine($"Printing {title} End*********");
 
             var logStr = sb.ToString();
             writeLogAction?.Invoke(logStr);
