@@ -1,6 +1,7 @@
 ﻿using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.search.doctor;
+using Baohe.search.numbers;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;

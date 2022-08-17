@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Baohe.search
+namespace Baohe.search.numbers
 {
     internal class AppointNumbersController : HttpClientBase
     {
