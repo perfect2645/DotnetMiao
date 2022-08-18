@@ -85,10 +85,10 @@ namespace HttpProcessor.Client
 
         private string BuildBodyFromGzip(HttpContent httpContent)
         {
-            //var contentStream = httpContent.ReadAsStreamAsync().Result;
-            //return Gzip.Decompress(contentStream);
-            var resString = httpContent.ReadAsStringAsync().Result;
-            return resString;
+            var contentStream = httpContent.ReadAsStreamAsync().Result;
+            return Gzip.Decompress(contentStream);
+            //var resString = httpContent.ReadAsStringAsync().Result;
+            //return resString;
         }
 
         #endregion Body

@@ -51,7 +51,7 @@ namespace Baohe.search.numbers
         private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
         {
             var numbers = JsonAnalysis.JsonToDicList(jsonElement);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.Numbers, numbers);
+            sessionItem.SessionDic.AddOrUpdate(Constant.Numbers, numbers);
 
             sessionItem.PrintLogEvent.Publish(this, numbers, "Numbers");
         }

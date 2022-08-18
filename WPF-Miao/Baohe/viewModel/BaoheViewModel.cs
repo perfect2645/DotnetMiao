@@ -11,6 +11,7 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils.datetime;
 
@@ -31,15 +32,15 @@ namespace Baohe.viewModel
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
             Log("BaoheViewModel start");
-            InitPlatformSession();
+            InitPlatformSessionAsync();
             InitCommands();
         }
 
-        private void InitPlatformSession()
+        private async void InitPlatformSessionAsync()
         {
             try
             {
-                GetAuth();
+                await GetAuthAsync();
                 BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
                 BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
                 BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
@@ -69,13 +70,13 @@ namespace Baohe.viewModel
 
         #region Auth
 
-        private void GetAuth()
+        private async Task GetAuthAsync()
         {
             var authController = HttpServiceController.GetService<AuthController>();
 
             try
             {
-                authController.GetAuthAsync();
+                await authController.GetAuthAsync();
             }
             catch (AggregateException ex)
             {

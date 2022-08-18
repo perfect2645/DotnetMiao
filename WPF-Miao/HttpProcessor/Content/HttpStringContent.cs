@@ -70,7 +70,7 @@ namespace HttpProcessor.Content
             Content.AddOrUpdate(key, value);
         }
 
-        public void AddContent(string key, Dictionary<string, object> source)
+        public void AddContent(Dictionary<string, object> source, string key)
         {
             Content.AddOrUpdate(key, source[key]);
         }

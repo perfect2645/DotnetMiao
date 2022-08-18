@@ -13,9 +13,9 @@ namespace Baohe.search.auth
         {
         }
 
-        public void GetAuthAsync()
+        public async Task GetAuthAsync()
         {
-            Task.Factory.StartNew(() =>
+            await Task.Factory.StartNew(() =>
             {
                 GetAuth();
             });
@@ -27,7 +27,7 @@ namespace Baohe.search.auth
             BaoheSession.PlatformSesstion.Add("logintype", "62");
             BaoheSession.PlatformSesstion.Add("loginprovinceid", "0");
             BaoheSession.PlatformSesstion.Add("logincityid", "0");
-            BaoheSession.PlatformSesstion.Add("loginid", "od0AjwJ0eodDYYA4pUfDRUCIIm8E");
+            BaoheSession.PlatformSesstion.Add("loginId", "od0AjwJ0eodDYYA4pUfDRUCIIm8E");
             BaoheSession.PlatformSesstion.Add("OpenID", "od0AjwJ0eodDYYA4pUfDRUCIIm8E");
             BaoheSession.PlatformSesstion.Add("BaseDoctorUid", "0");
             BaoheSession.PlatformSesstion.Add("BaseUserType", "0");

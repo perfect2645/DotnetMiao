@@ -20,5 +20,26 @@ namespace Baohe.session
 
             return arrangeWaterList?.FirstOrDefault();
         }
+
+        public static Dictionary<string, object> GetDefaultNumber(ISessionItem sessionItem)
+        {
+            var result = sessionItem.SessionDic[Constant.Numbers] as List<Dictionary<string, object>>;
+
+            return result?.FirstOrDefault();
+        }
+
+        public static Dictionary<string, object> GetDefaultMember(ISessionItem sessionItem)
+        {
+            var result = sessionItem.SessionDic[Constant.MemberList] as List<Dictionary<string, object>>;
+
+            return result?.FirstOrDefault();
+        }
+
+        public static Dictionary<string, object> GetDefaultDoctor()
+        {
+            var result = BaoheSession.PlatformSesstion[Constant.DoctorList] as List<Dictionary<string, object>>;
+
+            return result?.FirstOrDefault();
+        }
     }
 }
