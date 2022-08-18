@@ -1,6 +1,7 @@
 ﻿using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.search.doctor;
+using Baohe.search.Liudiao;
 using Baohe.search.numbers;
 using Baohe.search.user;
 using Base.viewModel;
@@ -27,6 +28,9 @@ namespace Baohe.search
 
             var userInfoContr = HttpServiceController.GetService<UserInfoController>();
             await userInfoContr.GetUserInfoAsync(sessionItem);
+
+            //var liudiao = HttpServiceController.GetService<LiudiaoController>();
+            //await liudiao.LiudiaoAsync(sessionItem);
 
             var doctorContr = HttpServiceController.GetService<DoctorController>();
             await doctorContr.GetDoctorListAsync(sessionItem);

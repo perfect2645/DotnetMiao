@@ -30,9 +30,10 @@ namespace Baohe.search.Liudiao
 
         private void BuildContent()
         {
-            AddContent("userName", DateTimeUtil.GetTimeStamp());
-            AddContent("phone", BaoheSession.PlatformSesstion[Constant.HospitalId]);
-            AddContent("cardNum", BaoheSession.PlatformSesstion[Constant.DeptId]);
+            var member = SessionBuilder.GetDefaultMember(SessionItem);
+            AddContent("userName", member["Cname"]);
+            AddContent("phone", member["Phone"]);
+            AddContent("cardNum", SessionItem.SessionDic["cardNumber"]);
             AddContent("cardType", "1");
             AddContent("question1", "2");
             AddContent("question2", "2");
@@ -45,7 +46,7 @@ namespace Baohe.search.Liudiao
             AddContent("channelId", "2");
             AddContent("sceneId", "");
             AddContent("isGuahao", "");
-            AddContent("fmId", "");
+            AddContent("fmId", "hfssqngzwsy");
         }
 
         public string BuildReferer()
