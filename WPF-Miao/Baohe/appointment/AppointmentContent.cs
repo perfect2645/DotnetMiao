@@ -74,7 +74,7 @@ namespace Baohe.appointment
             doctorRegOrder.Add("memberIdcard", member["Idcard"]);
             doctorRegOrder.Add("accManageGoodSn", null);
             doctorRegOrder.Add("regpaytype", "");
-            doctorRegOrder.Add("cliniccard", "");
+            doctorRegOrder.Add("cliniccard", member["Cliniccard"]);
             doctorRegOrder.Add("applyNo", "");
             doctorRegOrder.Add("mobile", member["Phone"]);
             doctorRegOrder.Add(Constant.DoctorSn, defaultNumber["DoctorSN"]);
@@ -115,13 +115,38 @@ namespace Baohe.appointment
             return doctorRegOrder;
         }
 
-        private Dictionary<string, object> BuildGhFormCon()
+        private List<Dictionary<string, object>> BuildGhFormCon()
         {
-            var ghFormCon = new Dictionary<string, object>();
+            var sessionDic = Session.SessionDic;
+            var platformSesstion = BaoheSession.PlatformSesstion;
+            var arrangeWater = SessionBuilder.GetArrangeWater(Session);
+            var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
+            var member = SessionBuilder.GetDefaultMember(Session);
+            var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
-            ghFormCon.Add("doctorOfficeName", "");
+            var ghFormCon = new List<Dictionary<string, object>>();
+
+            ghFormCon.Add(BuildGhFormConItem(member["Phone"], "CardNo"));
+            ghFormCon.Add(BuildGhFormConItem(member["Familyaddress"], "familyaddress"));
+            ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
+            ghFormCon.Add(BuildGhFormConItem(member["Cliniccard"], "ClinicCard"));
+            ghFormCon.Add(BuildGhFormConItem(member["Sex"], "sex"));
+            ghFormCon.Add(BuildGhFormConItem(member["Phone"], "mobile"));
+            ghFormCon.Add(BuildGhFormConItem(member["Identitytype"], "cardtype"));
+            ghFormCon.Add(BuildGhFormConItem("0", "cmb_disease"));
+            ghFormCon.Add(BuildGhFormConItem("0", "cmb_disease"));
+            ghFormCon.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));
 
             return ghFormCon;
+        }
+
+        private Dictionary<string, object> BuildGhFormConItem(object keyValue, string keyName)
+        {
+            return new Dictionary<string, object>
+            {
+                {"keyValue", keyValue },
+                {"keyName", keyName },
+            };
         }
 
         #endregion Content
