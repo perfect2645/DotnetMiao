@@ -118,6 +118,22 @@ namespace HttpProcessor.Request
             }
         }
 
+        public static async Task<HttpDicResponse> PostRichEncodeAsync(this HttpClient client, HttpStringContent content)
+        {
+            try
+            {
+                var strContent = content.GetRichStringContent();
+                var response = await client.PostAsync(content.RequestUrl, strContent);
+                response.EnsureSuccessStatusCode();
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, "PostStringAsync");
+            }
+        }
+
         #endregion Post
     }
 }

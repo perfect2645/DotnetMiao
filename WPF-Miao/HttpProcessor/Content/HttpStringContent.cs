@@ -1,8 +1,8 @@
 ﻿using HttpProcessor.ExceptionManager;
-using HttpProcessor.JsonFactory;
 using System.Text;
 using System.Text.Json;
 using Utils;
+using Utils.json;
 
 namespace HttpProcessor.Content
 {
@@ -92,6 +92,26 @@ namespace HttpProcessor.Content
             foreach(var item in Content)
             {
                 sb.Append($"{item.Key}={item.Value}&");
+            }
+            var stringContent = sb.ToString().TrimEnd('&');
+
+            return new StringContent(stringContent, Encoding.UTF8, ContentType);
+        }
+
+        public virtual StringContent GetRichStringContent()
+        {
+            var sb = new StringBuilder();
+
+            var contentJson = Content.ToJson();
+
+            foreach (var item in Content)
+            {
+                if (item.Value.GetType() == typeof(Dictionary<string, object>))
+                {
+                    var valueJson = (item.Value as Dictionary<string, object>)?.ToJson();
+                    sb.Append($"{item.Key}={valueJson}&");
+                }
+                
             }
             var stringContent = sb.ToString().TrimEnd('&');
 

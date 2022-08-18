@@ -41,9 +41,7 @@ namespace Baohe.viewModel
             try
             {
                 await GetAuthAsync();
-                BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
-                BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
-                BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
+                SetPlatFormSession();
 
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
@@ -57,6 +55,19 @@ namespace Baohe.viewModel
             {
                 Log(ex);
             }
+        }
+
+        protected virtual void SetPlatFormSession()
+        {
+            //BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
+            //BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
+            //BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
+
+            //https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9001026&hospitalId=1047063&time=1660836185
+
+            BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9001026");
+            BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1047063");
+            BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7209050");
         }
 
         private void InitCommands()

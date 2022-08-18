@@ -74,10 +74,12 @@ namespace HttpProcessor.Client
                 if (contentType == ContentType.String)
                 {
                     return await Client.PostStringAsync(content);
-                } else
-                {
-                    return await Client.PostJsonAsync(content);
                 }
+                if (contentType == ContentType.RichEncode)
+                {
+                    return await Client.PostRichEncodeAsync(content);
+                }
+                return await Client.PostJsonAsync(content);
             }
             catch (Exception ex)
             {

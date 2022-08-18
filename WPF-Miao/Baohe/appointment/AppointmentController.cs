@@ -2,6 +2,7 @@
 using Baohe.session;
 using Base.viewModel;
 using HttpProcessor.Client;
+using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,12 @@ namespace Baohe.appointment
 
             content.BuildDefaultHeaders(Client);
 
-
+            HttpDicResponse response = PostStringAsync(content, ContentType.RichEncode).Result;
+            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            if (code == null || code != "10000")
+            {
+                throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - {response.Body["Message"]}", "bad response");
+            }
         }
 
         private void ParseAppointmentResult(HttpResponseMessage response)
