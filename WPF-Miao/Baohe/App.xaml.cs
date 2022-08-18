@@ -3,6 +3,7 @@ using Baohe.search;
 using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.search.doctor;
+using Baohe.search.Liudiao;
 using Baohe.search.numbers;
 using Baohe.search.user;
 using Base.container;
@@ -42,8 +43,9 @@ namespace Baohe
             HttpServiceController.AddTransientService<AppointNumbersController>();
             HttpServiceController.AddTransientService<SearchController>();
 
+            HttpServiceController.AddTransientService<LiudiaoController>();
             HttpServiceController.AddTransientService<AppointmentController>();
-            
+
 
             HttpServiceController.BuidServiceProvider();
         }

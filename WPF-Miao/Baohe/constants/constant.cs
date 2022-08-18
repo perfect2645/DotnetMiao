@@ -48,6 +48,7 @@
         #region User
 
         public const string MemberList = "MemberList";
+        public const string Liudiao = "Liudiao";
 
         #endregion User
 

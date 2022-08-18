@@ -1,6 +1,7 @@
 ﻿using Baohe.baseClasses;
 using Baohe.constants;
 using Baohe.session;
+using Base.viewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,13 @@ namespace Baohe.search.Liudiao
 {
     internal class LiudiaoContent : ContentBase
     {
-        public LiudiaoContent(string url) : base(url)
+        public ISessionItem SessionItem { get; }
+
+        public LiudiaoContent(string url, ISessionItem sessionItem) : base(url)
         {
+            ContentType = "application/x-www-form-urlencoded";
+            SessionItem = sessionItem;
+            BuildContent();
         }
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
