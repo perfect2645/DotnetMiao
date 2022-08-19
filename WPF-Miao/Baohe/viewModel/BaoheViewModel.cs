@@ -13,6 +13,7 @@ using Prism.Commands;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Utils;
 using Utils.datetime;
 
 namespace Baohe.viewModel
@@ -24,6 +25,8 @@ namespace Baohe.viewModel
         public ICommand AppointmentCommand { get; set; }
 
         public ICommand SearchCommand { get; set; }
+
+        public ICommand TestCommand { get; set; }
 
         #endregion Properties
 
@@ -41,7 +44,7 @@ namespace Baohe.viewModel
             try
             {
                 await GetAuthAsync();
-                SetPlatFormSession4JIa();
+                //SetPlatFormSession4JIa();
 
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
@@ -59,34 +62,41 @@ namespace Baohe.viewModel
 
         protected virtual void SetPlatFormSessionTest()
         {
+            Log("切换到测试科室");
             //BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
             //BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
             //BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
 
             //https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9001026&hospitalId=1047063&time=1660836185
 
-            BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9001026");
-            BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1047063");
-            BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7209050");
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, "9001026");
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, "1047063");
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, "7209050");
+
+            Log($"{Constant.PlatformType} : {BaoheSession.PlatformSesstion[Constant.PlatformType]}");
+            Log($"{Constant.HospitalId} : {BaoheSession.PlatformSesstion[Constant.HospitalId]}");
+            Log($"{Constant.DeptId} : {BaoheSession.PlatformSesstion[Constant.DeptId]}");
         }
 
         protected virtual void SetPlatFormSession4JIa()
         {
-            //BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
-            //BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
-            //BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
-
+            Log("切换到4价");
             //https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType=9001026&deptId=7229244&hospitalId=1047063&exConsult=&consultHosId=1047063
 
-            BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9001026");
-            BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1047063");
-            BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7229244");
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, "9001026");
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, "1047063");
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, "7229244");
+
+            Log($"{Constant.PlatformType} : {BaoheSession.PlatformSesstion[Constant.PlatformType]}");
+            Log($"{Constant.HospitalId} : {BaoheSession.PlatformSesstion[Constant.HospitalId]}");
+            Log($"{Constant.DeptId} : {BaoheSession.PlatformSesstion[Constant.DeptId]}");
         }
 
         private void InitCommands()
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
+            TestCommand = new DelegateCommand(ExecuteTest);
             SessionEvents.Instance.Subscribe(LogSession);
         }
 
@@ -145,6 +155,7 @@ namespace Baohe.viewModel
         {
             try
             {
+                //SetPlatFormSession4JIa();
                 var searchController = HttpServiceController.GetService<SearchController>();
                 await searchController.SearchAllAsync(SessionItem);
             }
@@ -168,5 +179,14 @@ namespace Baohe.viewModel
         }
 
         #endregion Session
+
+        #region Test
+
+        private void ExecuteTest()
+        {
+            SetPlatFormSessionTest();
+        }
+
+        #endregion Test
     }
 }

@@ -12,7 +12,10 @@
                     Command="{Binding SearchCommand}" Width="100">
                 </Button>
                 <Button Content="约"
-                    Command="{Binding AppointmentCommand}" Width="100">
+                    Command="{Binding AppointmentCommand}" Width="100" Margin="50, 0">
+                </Button>
+                <Button Content="测试"
+                    Command="{Binding TestCommand}" Width="100">
                 </Button>
             </StackPanel>
         </basePage:BaseConsole.ButtonArea>

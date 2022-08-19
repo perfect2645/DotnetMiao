@@ -45,7 +45,7 @@ namespace Baohe.appointment
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - {response.Body["Message"]}", "bad response");
             }
 
-            var result = response.JsonBody.RootElement.GetProperty("Result");
+            var result = response.JsonBody.RootElement;
             if (result.ValueKind == JsonValueKind.Null)
             {
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
