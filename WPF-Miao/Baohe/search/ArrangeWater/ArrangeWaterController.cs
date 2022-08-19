@@ -41,8 +41,6 @@ namespace Baohe.search.ArrangeWater
                 throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - {response.Body["Message"]}", "Arrange Water");
             }
 
-            sessionItem.PrintLogEvent.Publish(this, response.Body);
-
             var result = response.JsonBody.RootElement.GetProperty("Result");
             if (result.ValueKind == JsonValueKind.Null)
             {

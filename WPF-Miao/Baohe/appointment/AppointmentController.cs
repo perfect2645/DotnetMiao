@@ -59,7 +59,7 @@ namespace Baohe.appointment
 
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorList, result);
 
-            sessionItem.PrintLogEvent.Publish(this, result, "Appointment");
+            sessionItem.PrintLogEvent.Publish(this, result, "预约成功");
         }
     }
 }
