@@ -59,6 +59,7 @@
         #endregion Numbers
 
         public const string Appointment = "Appointment";
-        public const string VerifyCode = "VerifyCode";
+        public const string VerifyCodeFull = "VerifyCodeFull";
+        public const string GraphAuthCode = "graphAuthCode";
     }
 }
