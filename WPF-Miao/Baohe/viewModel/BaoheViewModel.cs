@@ -44,7 +44,7 @@ namespace Baohe.viewModel
             try
             {
                 await GetAuthAsync();
-                //SetPlatFormSession4JIa();
+                SetPlatFormSession4JIa();
 
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
@@ -129,16 +129,10 @@ namespace Baohe.viewModel
 
         private void ExecuteAppointment()
         {
-            var appContr = HttpServiceController.GetService<AppointmentController>();
 
-            try
-            {
-                appContr.AppointmentAsync(SessionItem).Wait();
-            }
-            catch (AggregateException ex)
-            {
-                Log(ex);
-            }
+            var appRouter = new AppointmentRouter(SessionItem);
+
+            appRouter.AppTimer.Start();
         }
 
 
