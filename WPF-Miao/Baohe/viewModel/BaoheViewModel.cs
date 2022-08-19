@@ -132,7 +132,8 @@ namespace Baohe.viewModel
 
             var appRouter = new AppointmentRouter(SessionItem);
 
-            appRouter.AppTimer.Start();
+            appRouter.AppointTickAsync();
+            //appRouter.AppTimer.Start();
         }
 
 

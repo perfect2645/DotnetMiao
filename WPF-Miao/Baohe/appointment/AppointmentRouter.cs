@@ -46,8 +46,8 @@ namespace Baohe.appointment
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
                 await appointNumbers.GetNumbersAsync(SessionItem);
 
-                var getverifyCode = HttpServiceController.GetService<GetVerifyCodeController>();
-                await getverifyCode.GetVerifyCodeAsync(SessionItem);
+                //var getverifyCode = HttpServiceController.GetService<GetVerifyCodeController>();
+                //await getverifyCode.GetVerifyCodeAsync(SessionItem);
 
                 var appContr = HttpServiceController.GetService<AppointmentController>();
 

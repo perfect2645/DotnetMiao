@@ -80,6 +80,19 @@ namespace HttpProcessor.Client
             }
         }
 
+        public virtual async Task<Stream> GetStreamAsync(HttpStringContent content)
+        {
+            try
+            {
+                return await Client.GetStreamAsync(content.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("GetStringAsync Failed", ex);
+                return null;
+            }
+        }
+
         #endregion Get
 
         #region Post String
