@@ -4,6 +4,6 @@
     {
         Json,
         String,
-        RichEncode,
+        Encode,
     }
 }

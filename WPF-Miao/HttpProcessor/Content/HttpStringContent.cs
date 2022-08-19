@@ -102,20 +102,22 @@ namespace HttpProcessor.Content
         {
             var sb = new StringBuilder();
 
-            var contentJson = Content.ToJson();
-
             foreach (var item in Content)
             {
-                if (item.Value.GetType() == typeof(Dictionary<string, object>))
-                {
-                    var valueJson = (item.Value as Dictionary<string, object>)?.ToJson();
-                    sb.Append($"{item.Key}={valueJson}&");
-                }
-                
+                var valueJson = ToJson(item.Value);
+                var encodeValue = UnicodeConverter.Encode(valueJson, true);
+                sb.Append($"{item.Key}={encodeValue}&");
             }
             var stringContent = sb.ToString().TrimEnd('&');
 
             return new StringContent(stringContent, Encoding.UTF8, ContentType);
+        }
+
+        private string ToJson(object content)
+        {
+            var json = JsonSerializer.Serialize(content, JsonEncoder.JsonOption);
+
+            return json;
         }
 
         #endregion Content

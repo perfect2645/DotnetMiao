@@ -115,7 +115,7 @@ namespace Baohe.appointment
 
             var ghFormCon = new List<Dictionary<string, object>>();
 
-            ghFormCon.Add(BuildGhFormConItem(member["Phone"], "CardNo"));
+            ghFormCon.Add(BuildGhFormConItem(member["Idcard"], "CardNo"));
             ghFormCon.Add(BuildGhFormConItem(member["Familyaddress"], "familyaddress"));
             ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
             ghFormCon.Add(BuildGhFormConItem(member["Cliniccard"], "ClinicCard"));
@@ -137,6 +137,8 @@ namespace Baohe.appointment
                 {"keyName", keyName },
             };
         }
+
+
 
         #endregion Content
 

@@ -75,7 +75,7 @@ namespace HttpProcessor.Client
                 {
                     return await Client.PostStringAsync(content);
                 }
-                if (contentType == ContentType.RichEncode)
+                if (contentType == ContentType.Encode)
                 {
                     return await Client.PostRichEncodeAsync(content);
                 }

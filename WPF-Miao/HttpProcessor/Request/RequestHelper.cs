@@ -130,7 +130,7 @@ namespace HttpProcessor.Request
             catch (Exception ex)
             {
                 GLog.Logger.Error(ex);
-                throw new HttpException(ex, "PostStringAsync");
+                throw new HttpException(ex, "PostRichEncodeAsync");
             }
         }
 
