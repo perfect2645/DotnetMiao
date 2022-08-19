@@ -22,7 +22,7 @@ namespace Baohe.search.numbers
 
         private void BuildContent()
         {
-            var arrangeWater = SessionBuilder.GetArrangeWater(SessionItem);
+            var arrangeWater = SessionBuilder.GetMaxArrangeWater(SessionItem);
             
             AddContent(Constant.ArrangeId, arrangeWater["ArrangeID"]);
             AddContent(BaoheSession.PlatformSesstion, Constant.HospitalId);

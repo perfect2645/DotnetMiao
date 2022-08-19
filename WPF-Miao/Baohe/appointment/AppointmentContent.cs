@@ -6,6 +6,7 @@ using HttpProcessor.Content;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Utils.stringBuilder;
 
 namespace Baohe.appointment
 {
@@ -16,6 +17,7 @@ namespace Baohe.appointment
         public AppointmentContent(string url, ISessionItem session) : base(url)
         {
             Session = session;
+            ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
@@ -38,15 +40,15 @@ namespace Baohe.appointment
         {
             var sessionDic = Session.SessionDic;
             var platformSesstion = BaoheSession.PlatformSesstion;
-            var arrangeWater = SessionBuilder.GetArrangeWater(Session);
+            var arrangeWater = SessionBuilder.GetMaxArrangeWater(Session);
             var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
             var member = SessionBuilder.GetDefaultMember(Session);
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
 
             var doctorRegOrder = new Dictionary<string, object>();
-            doctorRegOrder.Add(Constant.WaterId, defaultNumber["NumberSN"]);
-            doctorRegOrder.Add(Constant.WaitingInfor, defaultNumber["CommendScope"]);
+            doctorRegOrder.Add(Constant.WaterId, defaultNumber["NumberSN"].ToString()!.ToLong());
+            doctorRegOrder.Add(Constant.WaitingInfor, $"第{defaultNumber["SerialNo"]}号 {defaultNumber["CommendScope"]}");
             doctorRegOrder.Add("store", "");
             doctorRegOrder.Add("serialNo", defaultNumber["SerialNo"]);
             doctorRegOrder.Add("memberSn", member["Membersn"]);
@@ -82,14 +84,14 @@ namespace Baohe.appointment
             doctorRegOrder.Add("GH_HosCityName", "合肥");
             doctorRegOrder.Add("registerDate", arrangeWater["registerdate"]);
             doctorRegOrder.Add("timeId", 1);
-            doctorRegOrder.Add("arrangeId", defaultNumber["ArrangeID"]);
+            doctorRegOrder.Add("arrangeId", defaultNumber["ArrangeID"].ToString()!.ToLong());
             doctorRegOrder.Add("ghAmount", 0);
             doctorRegOrder.Add("securityDeposit", 0);
             doctorRegOrder.Add("ghfeeway", 0);
             doctorRegOrder.Add("ModeId", 0);
             doctorRegOrder.Add("GhFee", 0);
             doctorRegOrder.Add("AllFee", 0);
-            doctorRegOrder.Add("availablenum", arrangeWater["availablenum"]);
+            doctorRegOrder.Add("availablenum", arrangeWater["availablenum"].ToString()!.ToLong());
             doctorRegOrder.Add("UnOpened", false);
             doctorRegOrder.Add("FHTimes", arrangeWater["FHTimes"]);
             doctorRegOrder.Add("FHDays", arrangeWater["FHDays"]);
@@ -108,17 +110,18 @@ namespace Baohe.appointment
         {
             var sessionDic = Session.SessionDic;
             var platformSesstion = BaoheSession.PlatformSesstion;
-            var arrangeWater = SessionBuilder.GetArrangeWater(Session);
+            var arrangeWater = SessionBuilder.GetMaxArrangeWater(Session);
             var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
             var member = SessionBuilder.GetDefaultMember(Session);
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
             var ghFormCon = new List<Dictionary<string, object>>();
 
-            ghFormCon.Add(BuildGhFormConItem(member["Idcard"], "CardNo"));
             ghFormCon.Add(BuildGhFormConItem(member["Familyaddress"], "familyaddress"));
-            ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
+            //ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
+            ghFormCon.Add(BuildGhFormConItem("", "name"));
             ghFormCon.Add(BuildGhFormConItem(member["Cliniccard"], "ClinicCard"));
+            ghFormCon.Add(BuildGhFormConItem(member["Idcard"], "CardNo"));
             ghFormCon.Add(BuildGhFormConItem(member["Sex"], "sex"));
             ghFormCon.Add(BuildGhFormConItem(member["Phone"], "mobile"));
             ghFormCon.Add(BuildGhFormConItem(member["Identitytype"], "cardtype"));

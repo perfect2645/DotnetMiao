@@ -16,6 +16,7 @@ Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
 doctorRegOrder=%7B%22waterId%22%3A724415655%2C%22waitingInfor%22%3A%22%E7%AC%AC21%E5%8F%B7+08%3A40-08%3A42%22%2C%22store%22%3A%22%22%2C%22serialNo%22%3A%2221%22%2C%22memberSn%22%3A%2254985240%22%2C%22memberName%22%3A%22%E5%88%98%E6%8C%AF%E5%AE%87%22%2C%22memberPhone%22%3A%2213940897525%22%2C%22memberAddress%22%3A%22%E4%B8%9C%E5%9F%8E%E7%99%BD%E4%BA%91%E5%B1%B1%22%2C%22memberBirthday%22%3A%222000-03-10%22%2C%22memberSex%22%3A%222%22%2C%22memberId%22%3A%2254985240%22%2C%22othercard%22%3A%22%22%2C%22guardianmembersn%22%3A%22%22%2C%22identitytype%22%3A%221%22%2C%22memberZhengjianid%22%3A%22110***********5689%22%2C%22memberIdcard%22%3A%22110***********5689%22%2C%22accManageGoodSn%22%3Anull%2C%22regpaytype%22%3A%22%22%2C%22cliniccard%22%3A%22%22%2C%22applyNo%22%3A%22%22%2C%22mobile%22%3A%2213940897525%22%2C%22doctorSn%22%3A%22711068538%22%2C%22hosDeptId%22%3A%227209050%22%2C%22hosDeptName%22%3A%22%E5%84%BF%E4%BF%9D%E7%A7%91%EF%BC%8842%E5%A4%A9%E5%88%B03%E5%91%A8%E5%B2%81%E4%BD%93%E6%A3%80%EF%BC%89%22%2C%22hospitalId%22%3A%221047063%22%2C%22hospitalName%22%3A%22%E8%9C%80%E5%B1%B1%E5%8C%BA%E7%BB%8F%E5%BC%80%E5%8C%BA%E4%BA%95%E5%B2%97%E9%95%87%E7%A4%BE%E5%8C%BA%E5%8D%AB%E7%94%9F%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83%22%2C%22doctorService_gh%22%3A%222%22%2C%22doctorUid%22%3A%22710742231%22%2C%22doctorName%22%3A%22%E5%84%BF%E4%BF%9D%E7%A7%91%E5%8C%BB%E7%94%9F%22%2C%22doctorPic%22%3A%22%22%2C%22doctorClinicName%22%3A%22%E4%B8%BB%E6%B2%BB%E5%8C%BB%E5%B8%88%22%2C%22GH_HosProId%22%3A%2212%22%2C%22GH_HosProName%22%3A%22%E5%AE%89%E5%BE%BD%22%2C%22GH_HosCityId%22%3A%22101%22%2C%22GH_HosCityName%22%3A%22%E5%90%88%E8%82%A5%22%2C%22registerDate%22%3A%222022-08-22%22%2C%22timeId%22%3A1%2C%22arrangeId%22%3A160229232%2C%22ghAmount%22%3A0%2C%22securityDeposit%22%3A0%2C%22ghfeeway%22%3A0%2C%22ModeId%22%3A0%2C%22GhFee%22%3A0%2C%22AllFee%22%3A0%2C%22availablenum%22%3A63%2C%22UnOpened%22%3Afalse%2C%22FHTimes%22%3A%2216%3A00%22%2C%22FHDays%22%3A%227%22%2C%22accountSn%22%3A148528129%2C%22cardNumber%22%3A%222078631533%22%2C%22loginId%22%3A%22o8e_80VAT573U6MIXnu_UdYWbgpk%22%2C%22channelId%22%3A%229001026%22%2C%22utm_source%22%3A%220.0.h.1026.bus010.0__0.0.h.1026.bus010.0%22%2C%22doctorOfficeName%22%3A%22%22%7D&ghFormCon=%5B%7B%22keyValue%22%3A%22%E4%B8%9C%E5%9F%8E%E7%99%BD%E4%BA%91%E5%B1%B1%22%2C%22keyName%22%3A%22familyaddress%22%7D%2C%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22name%22%7D%2C%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22ClinicCard%22%7D%2C%7B%22keyValue%22%3A%22110***********5689%22%2C%22keyName%22%3A%22CardNo%22%7D%2C%7B%22keyValue%22%3A%222%22%2C%22keyName%22%3A%22sex%22%7D%2C%7B%22keyValue%22%3A%2213940897525%22%2C%22keyName%22%3A%22mobile%22%7D%2C%7B%22keyValue%22%3A%221%22%2C%22keyName%22%3A%22cardtype%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%22%E6%9C%AA%E7%A1%AE%E8%AF%8A%22%2C%22keyName%22%3A%22cmb_diseaseName%22%7D%5D
+doctorRegOrder=%7B%22waterId%22%3A723511022%2C%22waitingInfor%22%3A%2209%3A18-09%3A20%22%2C%                     22store%22%3A%22%22%2C%22serialNo%22%3A%2240%22%2C%22memberSn%22%3A%2254985240%22%2C%22memberName%22%3A%22%E5%88%98%E6%8C%AF%E5%AE%87%22%2C%22memberPhone%22%3A%2213940897525%22%2C%22memberAddress%22%3A%22%E4%B8%9C%E5%9F%8E%E7%99%BD%E4%BA%91%E5%B1%B1%22%2C%22memberBirthday%22%3A%222000-03-10%22%2C%22memberSex%22%3A%222%22%2C%22memberId%22%3A%2254985240%22%2C%22othercard%22%3A%22%22%2C%22guardianmembersn%22%3A%22%22%2C%22identitytype%22%3A%221%22%2C%22memberZhengjianid%22%3A%221101**********5689%22%2C%22memberIdcard%22%3A%221101**********5689%22%2C%22accManageGoodSn%22%3Anull%2C%22regpaytype%22%3A%22%22%2C%22cliniccard%22%3A%22%22%2C%22applyNo%22%3A%22%22%2C%22mobile%22%3A%2213940897525%22%2C%22doctorSn%22%3A%22711068538%22%2C%22hosDeptId%22%3A%227209050%22%2C%22hosDeptName%22%3A%22%E5%84%BF%E4%BF%9D%E7%A7%91%EF%BC%8842%E5%A4%A9%E5%88%B03%E5%91%A8%E5%B2%81%E4%BD%93%E6%A3%80%EF%BC%89%22%2C%22hospitalId%22%3A%221047063%22%2C%22hospitalName%22%3A%22%E8%9C%80%E5%B1%B1%E5%8C%BA%E7%BB%8F%E5%BC%80%E5%8C%BA%E4%BA%95%E5%B2%97%E9%95%87%E7%A4%BE%E5%8C%BA%E5%8D%AB%E7%94%9F%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83%22%2C%22doctorService_gh%22%3A%222%22%2C%22doctorUid%22%3A%22710742231%22%2C%22doctorName%22%3A%22%E5%84%BF%E4%BF%9D%E7%A7%91%E5%8C%BB%E7%94%9F%22%2C%22doctorPic%22%3A%22%22%2C%22doctorClinicName%22%3A%22%E4%B8%BB%E6%B2%BB%E5%8C%BB%E5%B8%88%22%2C%22GH_HosProId%22%3A%2212%22%2C%22GH_HosProName%22%3A%22%E5%AE%89%E5%BE%BD%22%2C%22GH_HosCityId%22%3A%22101%22%2C%22GH_HosCityName%22%3A%22%E5%90%88%E8%82%A5%22%2C%22registerDate%22%3A%222022-08-19%22%2C%22timeId%22%3A1%2C%22arrangeId%22%3A160112446%2C%22ghAmount%22%3A0%2C%22securityDeposit%22%3A0%2C%22ghfeeway%22%3A0%2C%22ModeId%22%3A0%2C%22GhFee%22%3A0%2C%22AllFee%22%3A0%2C%22availablenum%22%3A42%2C%22UnOpened%22%3Afalse%2C%22FHTimes%22%3A%2216%3A00%22%2C%22FHDays%22%3A%227%22%2C%22accountSn%22%3A148528129%2C%22cardNumber%22%3A%222078631533%22%2C%22loginId%22%3A%22o8e_80VAT573U6MIXnu_UdYWbgpk%22%2C%22channelId%22%3A%229001026%22%2C%22utm_source%22%3A%220.0.h.1026.bus010.0__0.0.h.1026.bus010.0%22%2C%22doctorOfficeName%22%3A%22%22%7D&ghFormCon=%5B%7B%22keyValue%22%3A%221101**********5689%22%2C%22keyName%22%3A%22CardNo%22%7D%2C%7B%22keyValue%22%3A%22%E4%B8%9C%E5%9F%8E%E7%99%BD%E4%BA%91%E5%B1%B1%22%2C%22keyName%22%3A%22familyaddress%22%7D%2C%7B%22keyValue%22%3A%22%E5%88%98%E6%8C%AF%E5%AE%87%22%2C%22keyName%22%3A%22name%22%7D%2C%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22ClinicCard%22%7D%2C%7B%22keyValue%22%3A%222%22%2C%22keyName%22%3A%22sex%22%7D%2C%7B%22keyValue%22%3A%2213940897525%22%2C%22keyName%22%3A%22mobile%22%7D%2C%7B%22keyValue%22%3A%221%22%2C%22keyName%22%3A%22cardtype%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%22%E6%9C%AA%E7%A1%AE%E8%AF%8A%22%2C%22keyName%22%3A%22cmb_diseaseName%22%7D%5D
 HTTP/1.1 200 OK
 Server: nginx
 Date: Thu, 18 Aug 2022 15:22:32 GMT
@@ -97,3 +98,71 @@ doctorRegOrder={
 {"keyValue":"0","keyName":"cmb_disease"},
 {"keyValue":"未确诊","keyName":"cmb_diseaseName"}
 ]
+
+doctorRegOrder={
+    "waterId":"723511022",
+    "waitingInfor":"09:18-09:20",
+    "store":"",
+    "serialNo":"40",
+    "memberSn":"54985240",
+    "memberName":"刘振宇",
+    "memberPhone":"13940897525",
+    "memberAddress":"东城白云山",
+    "memberBirthday":"2000-03-10",
+    "memberSex":"2",
+    "memberId":"54985240",
+    "othercard":"",
+    "guardianmembersn":"",
+    "identitytype":"1",
+    "memberZhengjianid":"1101**********5689",
+    "memberIdcard":"1101**********5689",
+    "accManageGoodSn":null,
+    "regpaytype":"",
+    "cliniccard":"",
+    "applyNo":"",
+    "mobile":"13940897525",
+    "doctorSn":"711068538",
+    "hosDeptId":"7209050",
+    "hosDeptName":"儿保科（42天到3周岁体检）",
+    "hospitalId":"1047063",
+    "hospitalName":"蜀山区经开区井岗镇社区卫生服务中心",
+    "doctorService_gh":"2",
+    "doctorUid":"710742231",
+    "doctorName":"儿保科医生",
+    "doctorPic":"",
+    "doctorClinicName":"主治医师",
+    "GH_HosProId":"12",
+    "GH_HosProName":"安徽",
+    "GH_HosCityId":"101",
+    "GH_HosCityName":"合肥",
+    "registerDate":"2022-08-19",
+    "timeId":1,
+    "arrangeId":"160112446",
+    "ghAmount":0,
+    "securityDeposit":0,
+    "ghfeeway":0,
+    "ModeId":0,
+    "GhFee":0,
+    "AllFee":0,
+    "availablenum":"42",
+    "UnOpened":false,
+    "FHTimes":"16:00",
+    "FHDays":"7",
+    "accountSn":148528129,
+    "cardNumber":"2078631533",
+    "loginId":"o8e_80VAT573U6MIXnu_UdYWbgpk",
+    "channelId":"9001026",
+    "utm_source":"0.0.h.1026.bus010.0",
+    "doctorOfficeName":""
+}
+&ghFormCon=[
+    {"keyValue":"13940897525","keyName":"CardNo"},
+{"keyValue":"东城白云山","keyName":"familyaddress"},
+{"keyValue":"刘振宇","keyName":"name"},
+{"keyValue":"","keyName":"ClinicCard"},
+{"keyValue":"2","keyName":"sex"},
+{"keyValue":"13940897525","keyName":"mobile"},
+{"keyValue":"1","keyName":"cardtype"},
+{"keyValue":"0","keyName":"cmb_disease"},
+{"keyValue":"0","keyName":"cmb_disease"},
+{"keyValue":"未确诊","keyName":"cmb_diseaseName"}]

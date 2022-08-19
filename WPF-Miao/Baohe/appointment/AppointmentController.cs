@@ -9,7 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Utils;
+using Utils.json;
 
 namespace Baohe.appointment
 {
@@ -31,6 +34,7 @@ namespace Baohe.appointment
             var content = new AppointmentContent(url, sessionItem);
             content.AddHeader("Cookie", sessionItem.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
+            //content.AddHeader("Referer", sessionItem.Referer);
 
             content.BuildDefaultHeaders(Client);
 
@@ -40,11 +44,22 @@ namespace Baohe.appointment
             {
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - {response.Body["Message"]}", "bad response");
             }
+
+            var result = response.JsonBody.RootElement.GetProperty("Result");
+            if (result.ValueKind == JsonValueKind.Null)
+            {
+                throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
+            }
+            AnalizeResult(result, sessionItem);
         }
 
-        private void ParseAppointmentResult(HttpResponseMessage response)
+        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
         {
-            var resString = response.Content.ReadAsStringAsync();
+            var result = JsonAnalysis.JsonToDicList(jsonElement);
+
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorList, result);
+
+            sessionItem.PrintLogEvent.Publish(this, result, "Appointment");
         }
     }
 }

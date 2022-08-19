@@ -14,11 +14,11 @@ namespace Baohe.session
             sb.BuildKeyValue(name, BaoheSession.PlatformSesstion[name]);
         }
 
-        public static Dictionary<string, object> GetArrangeWater(ISessionItem sessionItem)
+        public static Dictionary<string, object> GetMaxArrangeWater(ISessionItem sessionItem)
         {
             var arrangeWaterList = sessionItem.SessionDic[Constant.ArrangeWater] as List<Dictionary<string, object>>;
-
-            return arrangeWaterList?.FirstOrDefault();
+            var availableWater = arrangeWaterList?.MaxBy(x => x["availablenum"].ToString()!.ToLong());
+            return availableWater;
         }
 
         public static Dictionary<string, object> GetDefaultNumber(ISessionItem sessionItem)

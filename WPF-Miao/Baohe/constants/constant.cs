@@ -57,5 +57,7 @@
         public const string Numbers = "Numbers";
 
         #endregion Numbers
+
+        public const string Appointment = "Appointment";
     }
 }
