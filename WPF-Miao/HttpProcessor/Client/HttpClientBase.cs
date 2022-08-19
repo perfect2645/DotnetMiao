@@ -65,6 +65,23 @@ namespace HttpProcessor.Client
 
         #endregion Search
 
+        #region Get
+
+        public virtual async Task<string> GetStringAsync(HttpStringContent content)
+        {
+            try
+            {
+                return await Client.GetStringAsync(content.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("GetStringAsync Failed", ex);
+                return null;
+            }
+        }
+
+        #endregion Get
+
         #region Post String
 
         public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, ContentType contentType = ContentType.Json)

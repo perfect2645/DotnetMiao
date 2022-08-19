@@ -25,7 +25,7 @@ namespace Baohe.session
         {
             var result = sessionItem.SessionDic[Constant.Numbers] as List<Dictionary<string, object>>;
 
-            return result?.FirstOrDefault();
+            return result?.LastOrDefault();
         }
 
         public static Dictionary<string, object> GetDefaultMember(ISessionItem sessionItem)

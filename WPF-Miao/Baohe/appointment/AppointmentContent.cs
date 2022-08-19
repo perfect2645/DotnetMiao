@@ -102,6 +102,8 @@ namespace Baohe.appointment
             doctorRegOrder.Add("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             doctorRegOrder.Add("doctorOfficeName", "");
             //doctorRegOrder.Add("retId", "8f1adb4a37e143a885d53db93f803eeb");
+            doctorRegOrder.Add("graphAuthCode", sessionDic["graphAuthCode"]);
+            
 
             return doctorRegOrder;
         }

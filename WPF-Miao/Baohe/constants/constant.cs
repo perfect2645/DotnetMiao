@@ -59,5 +59,6 @@
         #endregion Numbers
 
         public const string Appointment = "Appointment";
+        public const string VerifyCode = "VerifyCode";
     }
 }

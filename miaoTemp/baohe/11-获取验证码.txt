@@ -1,0 +1,37 @@
+POST https://appoint.yihu.com/appoint/do/registerAuth/checkVerifyCode HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 14
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: jkzlAn_uuid=7C8851F4-E508-4AF6-877B-A013232523DB; YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBWSEdFd0NOZlIyNW9hTHB4SmZleEIwIiwiU2VjU3RyIjoiODgyQkJGNjAwQUMzQTA3NjlCREFENzAwMTU5QjQyRkYifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=o8e_80VHGEwCNfR25oaLpxJfexB0; OpenID=o8e_80VHGEwCNfR25oaLpxJfexB0; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9001026; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvOGVfODBWSEdFd0NOZlIyNW9hTHB4SmZleEIwIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI0Njg0MjU1QkI0NzZEMjY3MDVGMDBGRkNFNEI2NEZENCJ9; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=02536EEA24F34FDB95BAD9D34D33EC8A; _YyghSysTrackUUID=19151507677; jkzlAn_channelid=9001026; jkzlAn_userid=142687055; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_sid=4159D7EE-9411-47E6-AF33-99D1BCBF1CE1; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1660899915849; _YyghValifyTemp=8d98244ce3f94241f2b0987e72541fbd; _YyghValifyTempTime=1660899982857
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9001026&hospitalId=1047063&deptId=7229244&doctorSn=711188785&arrangeId=160450569&utm_source=0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+inputCode=63VX
+
+
+
+
+
+
+
+GET https://appoint.yihu.com/appoint/do/registerAuth/showVerifyCode?t=1111111 HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: image/webp,image/apng,image/*,*/*;q=0.8
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBZb196X1RaVmRGRzE4V0l4MjRkSTVJIiwiU2VjU3RyIjoiMUFFQ0FGQkUxMDA3MkYzNzUwMEMxMjdDMjJFQjc5MDIifQ%3D%3D; logintype=62; loginid=o8e_80Yo_z_TZVdFG18WIx24dI5I; OpenID=o8e_80Yo_z_TZVdFG18WIx24dI5I; LoginChannel=9001026; TOKEN_FF92E02EA4CF7703D9822F4F8653931A=CD65CE0480E0410E98DA89C89CAD3D5F; _YyghSysTrackUUID=19122812629; jkzlAn_uuid=08212D24-6F80-476B-9345-61E89AA82CE6; jkzlAn_channelid=9001026; jkzlAn_userid=149169340; jkzlAn_p=-1; jkzlAn_c=-1; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDkxNjkzNDAiLCJDYXJkTnVtYmVyIjoiMjA3OTI3MjEwOSIsIkxvZ2luSWQiOiJvOGVfODBZb196X1RaVmRGRzE4V0l4MjRkSTVJIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4QkFEQzY5MUJCRUQ0QUY4MDJBRjFGMzQxNTU0MjAzMiJ9; jkzlAn_ct=1660898263151
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9001026&hospitalId=1047063&deptId=7229244&doctorSn=711188785&arrangeId=160450569&utm_source=0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
