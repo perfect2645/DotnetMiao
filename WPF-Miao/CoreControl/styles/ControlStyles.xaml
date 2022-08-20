@@ -9,8 +9,9 @@
 
     <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignOutlinedComboBox}" x:Key="mui_combobox">
         <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Margin" Value="2" />
         <Setter Property="Padding" Value="2,6,6,6" />
-        <Setter Property="Height" Value="30" />
+        <Setter Property="Height" Value="36" />
     </Style>
 </ResourceDictionary>

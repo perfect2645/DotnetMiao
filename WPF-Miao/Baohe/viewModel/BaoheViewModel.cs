@@ -1,16 +1,18 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
 using Baohe.search;
-using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.session;
+using Baohe.viewModel.platform;
 using Base.Events;
 using Base.viewModel;
+using Base.viewModel.hospital;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -23,10 +25,7 @@ namespace Baohe.viewModel
         #region Properties
 
         public ICommand AppointmentCommand { get; set; }
-
         public ICommand SearchCommand { get; set; }
-
-        public ICommand TestCommand { get; set; }
 
         #endregion Properties
 
@@ -34,9 +33,20 @@ namespace Baohe.viewModel
 
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
-            Log("BaoheViewModel start");
+            InitStaticData();
             InitPlatformSessionAsync();
             InitCommands();
+        }
+
+        private void InitStaticData()
+        {
+            Departments = new List<HospitalDept>();
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
+                "7229244", "四价Hpv"));
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
+                "7209050", "(测试)儿童保健科"));
         }
 
         private async void InitPlatformSessionAsync()
@@ -44,7 +54,6 @@ namespace Baohe.viewModel
             try
             {
                 await GetAuthAsync();
-                SetPlatFormSession4JIa();
 
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
@@ -60,44 +69,13 @@ namespace Baohe.viewModel
             }
         }
 
-        protected virtual void SetPlatFormSessionTest()
-        {
-            Log("切换到测试科室");
-            //BaoheSession.PlatformSesstion.Add(Constant.PlatformType, "9000370");
-            //BaoheSession.PlatformSesstion.Add(Constant.HospitalId, "1040231");
-            //BaoheSession.PlatformSesstion.Add(Constant.DeptId, "7175975");
-
-            //https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9001026&hospitalId=1047063&time=1660836185
-
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, "9001026");
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, "1047063");
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, "7209050");
-
-            Log($"{Constant.PlatformType} : {BaoheSession.PlatformSesstion[Constant.PlatformType]}");
-            Log($"{Constant.HospitalId} : {BaoheSession.PlatformSesstion[Constant.HospitalId]}");
-            Log($"{Constant.DeptId} : {BaoheSession.PlatformSesstion[Constant.DeptId]}");
-        }
-
-        protected virtual void SetPlatFormSession4JIa()
-        {
-            Log("切换到4价");
-            //https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType=9001026&deptId=7229244&hospitalId=1047063&exConsult=&consultHosId=1047063
-
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, "9001026");
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, "1047063");
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, "7229244");
-
-            Log($"{Constant.PlatformType} : {BaoheSession.PlatformSesstion[Constant.PlatformType]}");
-            Log($"{Constant.HospitalId} : {BaoheSession.PlatformSesstion[Constant.HospitalId]}");
-            Log($"{Constant.DeptId} : {BaoheSession.PlatformSesstion[Constant.DeptId]}");
-        }
-
         private void InitCommands()
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
-            TestCommand = new DelegateCommand(ExecuteTest);
             SessionEvents.Instance.Subscribe(LogSession);
+
+            SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
 
         #endregion Constructor
@@ -175,13 +153,18 @@ namespace Baohe.viewModel
 
         #endregion Session
 
-        #region Test
+        #region Hospital Dept
 
-        private void ExecuteTest()
+        private void OnSelectedDepartmentChanged()
         {
-            SetPlatFormSessionTest();
+            var selectedDept = SelectedDepartment as Jiankangzhilu;
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
+
+            Log(selectedDept.ToLogString());
         }
 
-        #endregion Test
+        #endregion Hospital Dept
     }
 }

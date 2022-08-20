@@ -8,5 +8,10 @@ namespace Utils.stringBuilder
         {
             sb.Append(key).Append("=").Append(value).Append("; ");
         }
+
+        public static void AppendField(this StringBuilder sb, string key, object value)
+        {
+            sb.Append(key).Append(":").Append(value).AppendLine();
+        }
     }
 }

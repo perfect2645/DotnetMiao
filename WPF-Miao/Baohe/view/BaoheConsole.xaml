@@ -6,7 +6,9 @@
       x:Name="BaohePage">
 
     <basePage:BaseConsole x:Name="baseConsole"
-                          Title="{Binding Title}">
+                          Title="{Binding Title}"
+                          HospitalDeptList="{Binding Departments}"
+                          SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel Orientation="Horizontal">
                 <Button Content="查"
@@ -14,9 +16,6 @@
                 </Button>
                 <Button Content="约"
                     Command="{Binding AppointmentCommand}" Width="100" Margin="50, 0">
-                </Button>
-                <Button Content="测试"
-                    Command="{Binding TestCommand}" Width="100">
                 </Button>
             </StackPanel>
         </basePage:BaseConsole.ButtonArea>

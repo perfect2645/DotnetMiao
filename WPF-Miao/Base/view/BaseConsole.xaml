@@ -50,9 +50,11 @@
                     x:Name="OutlinedComboBox"
                     Style="{StaticResource mui_combobox}"
                     materialDesign:HintAssist.Hint="选择医院"
-                    ItemsSource="{Binding HospitalList}"
-                    SelectedItem="{Binding SelectedHospital}"
-                    Width="256" />
+                    ItemsSource="{Binding HospitalDeptList, ElementName=baseConsole}"
+                    SelectedItem="{Binding SelectedHospitalDept, ElementName=baseConsole}"
+                    DisplayMemberPath="Display"
+                    SelectedValuePath="DepartmentId"
+                    Width="auto" />
                 <TextBox Grid.Row="1"
                     Text="{Binding SessionItem.Cookie}"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"

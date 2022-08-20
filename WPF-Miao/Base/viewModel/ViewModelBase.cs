@@ -1,9 +1,11 @@
 ﻿using Base.container;
 using Base.Events;
 using Base.logging;
+using Base.viewModel.hospital;
 using CoreControl.LogConsole;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using Utils;
 
@@ -18,6 +20,8 @@ namespace Base.viewModel
 
         public ISessionItem SessionItem { get; private set; }
 
+        public Action SelectedDepartmentChanged { get; set; }
+
         private string _title = "请先选择医院";
         public string Title
         {
@@ -26,6 +30,29 @@ namespace Base.viewModel
             {
                 _title = value;
                 NotifyUI(() => Title);
+            }
+        }
+
+        private List<HospitalDept> _departments;
+        public List<HospitalDept> Departments
+        {
+            get { return _departments; }
+            set
+            {
+                _departments = value;
+                NotifyUI(() => Departments);
+            }
+        }
+
+        private HospitalDept _selectedDepartment;
+        public HospitalDept SelectedDepartment
+        {
+            get { return _selectedDepartment; }
+            set
+            {
+                _selectedDepartment = value;
+                NotifyUI(() => SelectedDepartment);
+                SelectedDepartmentChanged?.Invoke();
             }
         }
 

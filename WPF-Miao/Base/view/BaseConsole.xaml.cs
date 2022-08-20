@@ -1,7 +1,8 @@
-﻿using CoreControl.LogConsole;
+﻿using Base.viewModel.hospital;
+using CoreControl.LogConsole;
 using System;
+using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Automation;
 using System.Windows.Controls;
 
 namespace Base.view
@@ -22,7 +23,25 @@ namespace Base.view
         }
 
         public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register("Title", typeof(string), ControlType, new PropertyMetadata("请选择医院"));
+            DependencyProperty.Register("Title", typeof(string), ControlType, new PropertyMetadata("请选择医院-科室"));
+
+        public List<HospitalDept> HospitalDeptList
+        {
+            get { return (List<HospitalDept>)GetValue(HospitalDeptListProperty); }
+            set { SetValue(HospitalDeptListProperty, value); }
+        }
+
+        public static readonly DependencyProperty HospitalDeptListProperty =
+            DependencyProperty.Register("HospitalDeptList", typeof(List<HospitalDept>), ControlType);
+
+        public HospitalDept SelectedHospitalDept
+        {
+            get { return (HospitalDept)GetValue(SelectedHospitalDeptProperty); }
+            set { SetValue(SelectedHospitalDeptProperty, value); }
+        }
+
+        public static readonly DependencyProperty SelectedHospitalDeptProperty =
+            DependencyProperty.Register("SelectedHospitalDept", typeof(HospitalDept), ControlType, new PropertyMetadata(SelectedHospitalDeptChanged));
 
         public LogPanel LogPanel
         {
@@ -53,5 +72,14 @@ namespace Base.view
         }
 
         #endregion Constructor
+
+        #region events
+
+        private static void SelectedHospitalDeptChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctrl = d as BaseConsole;
+            ctrl.Title = ctrl.SelectedHospitalDept?.Display;
+        }
+        #endregion events
     }
 }
