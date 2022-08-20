@@ -18,6 +18,17 @@ namespace Base.viewModel
 
         public ISessionItem SessionItem { get; private set; }
 
+        private string _title = "请先选择医院";
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                NotifyUI(() => Title);
+            }
+        }
+
         #endregion Properties
 
         #region Constructor

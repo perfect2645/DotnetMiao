@@ -5,7 +5,8 @@
       Title="BaoheConsole"
       x:Name="BaohePage">
 
-    <basePage:BaseConsole x:Name="baseConsole">
+    <basePage:BaseConsole x:Name="baseConsole"
+                          Title="{Binding Title}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel Orientation="Horizontal">
                 <Button Content="查"

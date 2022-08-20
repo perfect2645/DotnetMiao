@@ -4,9 +4,14 @@
       xmlns:controls="clr-namespace:CoreControl.LogConsole;assembly=CoreControl"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       x:Name="baseConsole">
+    <UserControl.Resources>
+
+
+    </UserControl.Resources>   
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
@@ -14,6 +19,10 @@
               Grid.Row="0"
               Height="30" 
               Background="SkyBlue">
+            <StackPanel Orientation="Horizontal" 
+                        VerticalAlignment="Center">
+                <TextBlock Text="{Binding Title, ElementName=baseConsole}" Style="{StaticResource TitleH3}" />
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -37,12 +46,13 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="300" />
                 </Grid.RowDefinitions>
-                <TextBox Width="auto" 
-                    Margin="5"
-                    Height="30"
-                    IsReadOnly="True"
-                    Text="{Binding SessionItem.UserName}">
-                </TextBox>
+                <ComboBox
+                    x:Name="OutlinedComboBox"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    IsEnabled="{Binding Path=IsChecked, ElementName=OutlinedComboBoxEnabledCheckBox}"
+                    materialDesign:HintAssist.Hint="Some item"
+                    ItemsSource="{Binding ShortStringList}"
+                    Width="256" />
                 <TextBox Grid.Row="1"
                     Text="{Binding SessionItem.Cookie}"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"

@@ -1,6 +1,7 @@
 ﻿using CoreControl.LogConsole;
 using System;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 
 namespace Base.view
@@ -13,6 +14,15 @@ namespace Base.view
         #region Properties
 
         private static readonly Type ControlType = typeof(BaseConsole);
+
+        public string Title
+        {
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
+        }
+
+        public static readonly DependencyProperty TitleProperty =
+            DependencyProperty.Register("Title", typeof(string), ControlType, new PropertyMetadata("请选择医院"));
 
         public LogPanel LogPanel
         {
