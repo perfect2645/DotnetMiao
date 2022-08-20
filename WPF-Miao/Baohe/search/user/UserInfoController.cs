@@ -45,7 +45,7 @@ namespace Baohe.search.user
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} failed", Constant.AccountSn);
             }
             sessionItem.Key = userid;
-            BaoheSession.AddOrUpdate(sessionItem, userInfo.Body);
+            BaoheSession.AddMiaoSession(sessionItem, userInfo.Body);
             sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
         }
 

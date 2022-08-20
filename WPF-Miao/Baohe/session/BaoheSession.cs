@@ -1,9 +1,5 @@
 ﻿using Base.viewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utils;
 
 namespace Baohe.session
@@ -11,30 +7,32 @@ namespace Baohe.session
     public static class BaoheSession
     {
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
-        public static Dictionary<string, ISessionItem> Session { get; private set; }
+        public static Dictionary<string, ISessionItem> MiaoSession { get; private set; }
+        public static Dictionary<string, ISessionItem> UserSession { get; private set; }
 
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
-            Session = new Dictionary<string, ISessionItem>();
+            MiaoSession = new Dictionary<string, ISessionItem>();
+            UserSession = new Dictionary<string, ISessionItem>();
         }
 
         #region AddOrUpdate
 
-        public static void AddOrUpdate(ISessionItem sessionItem, Dictionary<string, object> dicValue)
+        public static void AddMiaoSession(ISessionItem sessionItem, Dictionary<string, object> dicValue)
         {
             sessionItem.SessionDic.AddOrUpdate(dicValue);
-            if (!Session.ContainsKey(sessionItem.Key))
+            if (!MiaoSession.ContainsKey(sessionItem.Key))
             {
-                Session.AddOrUpdate(sessionItem.Key, sessionItem);
+                MiaoSession.AddOrUpdate(sessionItem.Key, sessionItem);
             }
         }
 
         #endregion AddOrUpdate
 
-        public static void Clear(string key)
+        public static void ClearMiaoSession(string key)
         {
-            Session.Remove(key);
+            MiaoSession.Remove(key);
         }
     }
 }

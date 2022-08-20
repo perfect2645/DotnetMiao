@@ -2,17 +2,13 @@
 using Baohe.session;
 using Base.viewModel;
 using HttpProcessor.Client;
-using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
-using Utils.json;
 
 namespace Baohe.appointment
 {
@@ -33,33 +29,24 @@ namespace Baohe.appointment
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/register";
             var content = new AppointmentContent(url, sessionItem);
             content.AddHeader("Cookie", sessionItem.Cookie);
-            content.AddHeader("Referer", content.BuildReferer());
-            //content.AddHeader("Referer", sessionItem.Referer);
+            content.AddHeader("Referer", sessionItem.Referer);
 
             content.BuildDefaultHeaders(Client);
 
-            HttpDicResponse response = PostStringAsync(content, ContentType.Encode).Result;
-            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
-            if (code == null || code != "10000")
+            HttpDicResponse userInfo = PostStringAsync(content).Result;
+            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
+            if (userid == null || userid == "0")
             {
-                throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - {response.Body["Message"]}", "bad response");
+                throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
             }
-
-            var result = response.JsonBody.RootElement;
-            if (result.ValueKind == JsonValueKind.Null)
-            {
-                throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
-            }
-            AnalizeResult(result, sessionItem);
+            sessionItem.Key = userid;
+            BaoheSession.AddMiaoSession(sessionItem, userInfo.Body);
+            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
         }
 
-        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private void ParseAppointmentResult(HttpResponseMessage response)
         {
-            var result = JsonAnalysis.JsonToDicList(jsonElement);
-
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorList, result);
-
-            sessionItem.PrintLogEvent.Publish(this, result, "预约成功");
+            var resString = response.Content.ReadAsStringAsync();
         }
     }
 }
