@@ -34,7 +34,7 @@ namespace Baohe.viewModel
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitStaticData();
-            InitPlatformSessionAsync();
+            //InitPlatformSessionAsync();
             InitCommands();
         }
 

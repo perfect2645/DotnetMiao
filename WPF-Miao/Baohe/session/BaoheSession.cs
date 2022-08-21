@@ -28,6 +28,15 @@ namespace Baohe.session
             }
         }
 
+        public static void AddUserSession(ISessionItem sessionItem, Dictionary<string, object> dicValue)
+        {
+            sessionItem.SessionDic.AddOrUpdate(dicValue);
+            if (!UserSession.ContainsKey(sessionItem.Key))
+            {
+                UserSession.AddOrUpdate(sessionItem.Key, sessionItem);
+            }
+        }
+
         #endregion AddOrUpdate
 
         public static void ClearMiaoSession(string key)
