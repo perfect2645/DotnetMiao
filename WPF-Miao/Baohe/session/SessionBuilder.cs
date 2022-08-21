@@ -11,7 +11,10 @@ namespace Baohe.session
     {
         public static void BuildSession(this StringBuilder sb, string name)
         {
-            sb.BuildKeyValue(name, BaoheSession.PlatformSesstion[name]);
+            if (BaoheSession.PlatformSesstion.ContainsKey(name))
+            {
+                sb.BuildKeyValue(name, BaoheSession.PlatformSesstion[name]);
+            }
         }
 
         public static Dictionary<string, object> GetMaxArrangeWater(ISessionItem sessionItem)

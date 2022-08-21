@@ -44,9 +44,8 @@ namespace Baohe.search.user
             {
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} failed", Constant.AccountSn);
             }
-            sessionItem.Key = userid;
-            BaoheSession.AddUserSession(sessionItem, userInfo.Body);
-            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
+            BaoheSession.BuildUserSession(userid, userInfo.Body);
+            BaoheSession.PrintLogEvent.Publish(this, userInfo.Body);
         }
 
         private void GetUserDetails(ISessionItem sessionItem)
@@ -77,7 +76,7 @@ namespace Baohe.search.user
         {
             var memberList = JsonAnalysis.JsonToDicList(jsonElement);
 
-            sessionItem.SessionDic.AddOrUpdate(Constant.MemberList, memberList);
+            BaoheSession.AddUserSession(Constant.MemberList, memberList);
         }
     }
 }

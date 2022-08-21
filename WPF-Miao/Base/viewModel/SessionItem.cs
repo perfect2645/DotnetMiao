@@ -40,7 +40,6 @@ namespace Base.viewModel
             }
         }
         public Dictionary<string, object> SessionDic { get; set; }
-        public Action GetUserSessionAction { get; set; }
 
         public LogEvents PrintLogEvent { get; set; } = new LogEvents();
 
@@ -59,7 +58,7 @@ namespace Base.viewModel
 
         public void PrintLog(Dictionary<string, object> body)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

@@ -19,6 +19,7 @@
         public const string LoginType = "logintype";
         public const string LoginProvinceiId = "loginprovinceid";
         public const string LoginCityId = "logincityid";
+        public const string Loginid = "loginid";
         public const string LoginId = "loginId";
         public const string OpenId = "OpenID";
         public const string BaseDoctorUid = "BaseDoctorUid";

@@ -22,6 +22,8 @@ namespace Base.viewModel
 
         public Action SelectedDepartmentChanged { get; set; }
 
+        public LogEvents PrintLogEvent { get; set; }
+
         private string _title = "请先选择医院";
         public string Title
         {
@@ -64,7 +66,8 @@ namespace Base.viewModel
         {
             LogPanel = logPanel;
             SessionItem = ContainerBase.ServiceProvider.GetService<ISessionItem>();
-            SessionItem.PrintLogEvent.Subscribe(PrintLog);
+            PrintLogEvent = new LogEvents();
+            PrintLogEvent.Subscribe(PrintLog);
         }
 
         #endregion Constructor

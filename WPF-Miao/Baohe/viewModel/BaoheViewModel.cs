@@ -34,8 +34,8 @@ namespace Baohe.viewModel
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitStaticData();
-            //InitPlatformSessionAsync();
             InitCommands();
+            BaoheSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
@@ -47,14 +47,15 @@ namespace Baohe.viewModel
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
                 "7209050", "(测试)儿童保健科"));
+
+
+            InitPlatformSession();
         }
 
-        private async void InitPlatformSessionAsync()
+        private void InitPlatformSession()
         {
             try
             {
-                await GetAuthAsync();
-
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
                 BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
@@ -81,20 +82,6 @@ namespace Baohe.viewModel
         #endregion Constructor
 
         #region Auth
-
-        private async Task GetAuthAsync()
-        {
-            var authController = HttpServiceController.GetService<AuthController>();
-
-            try
-            {
-                await authController.GetAuthAsync();
-            }
-            catch (AggregateException ex)
-            {
-                Log(ex);
-            }
-        }
 
         #endregion Auth
 

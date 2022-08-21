@@ -40,7 +40,7 @@ namespace Baohe.appointment
                 throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
             }
             sessionItem.Key = userid;
-            BaoheSession.AddMiaoSession(sessionItem, userInfo.Body);
+            BaoheSession.AddMiaoSession(userInfo.Body);
             sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
         }
 
