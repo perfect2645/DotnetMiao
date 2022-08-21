@@ -58,5 +58,13 @@ namespace CoreControl.LogConsole
         }
 
         #endregion Read
+
+        #region Clear
+
+        public void Clear()
+        {
+        }
+
+        #endregion Clear
     }
 }

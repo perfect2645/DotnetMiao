@@ -71,6 +71,11 @@ namespace Base.viewModel
 
         #region Log
 
+        public void ClearLogs()
+        {
+            //LogPanel.ClearValue();
+        }
+
         protected virtual void PrintLog(object? sender, LogEventArgs e)
         {
             LogHelper.PrintLog(LogPanel.WriteLogAction, e);

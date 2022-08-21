@@ -4,6 +4,7 @@ using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -19,12 +20,12 @@ namespace Baohe.search.ArrangeWater
         {
         }
 
-        public Task GetArrangeWaterAsync(ISessionItem sessionItem)
+        public Task GetArrangeWaterAsync(ISessionItem sessionItem, bool isPrintLog = false)
         {
-            return Task.Factory.StartNew(() => GetArrangeWater(sessionItem));
+            return Task.Factory.StartNew(() => GetArrangeWater(sessionItem, isPrintLog));
         }
 
-        private void GetArrangeWater(ISessionItem sessionItem)
+        private void GetArrangeWater(ISessionItem sessionItem, bool isPrintLog = false)
         {
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
@@ -47,16 +48,21 @@ namespace Baohe.search.ArrangeWater
                 throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - Result is empty", "empty result");
             }
 
-            AnalizeResult(result, sessionItem);
+            var arrangeWaters = AnalizeResult(result, sessionItem);
+
+            if (isPrintLog)
+            {
+                sessionItem.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
+            }
         }
 
-        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
         {
             var arrangeWater = JsonAnalysis.JsonToDicList(jsonElement);
 
             sessionItem.SessionDic.AddOrUpdate(Constant.ArrangeWater, arrangeWater);
 
-            sessionItem.PrintLogEvent.Publish(this, arrangeWater, "ArrangeWater");
+            return arrangeWater;
         }
     }
 }

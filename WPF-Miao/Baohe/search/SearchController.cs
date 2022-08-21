@@ -35,11 +35,11 @@ namespace Baohe.search
             var doctorContr = HttpServiceController.GetService<DoctorController>();
             await doctorContr.GetDoctorListAsync(sessionItem);
 
-            //var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-            //await arrangeWater.GetArrangeWaterAsync(sessionItem);
+            var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+            await arrangeWater.GetArrangeWaterAsync(sessionItem, true);
 
-            //var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-            //await appointNumbers.GetNumbersAsync(sessionItem);
+            var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+            await appointNumbers.GetNumbersAsync(sessionItem, true);
         }
     }
 }
