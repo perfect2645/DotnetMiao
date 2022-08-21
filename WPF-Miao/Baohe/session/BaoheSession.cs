@@ -7,14 +7,17 @@ namespace Baohe.session
     public static class BaoheSession
     {
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
-        public static Dictionary<string, ISessionItem> MiaoSession { get; private set; }
-        public static Dictionary<string, ISessionItem> UserSession { get; private set; }
+        public static MiaoSession MiaoSession { get; private set; }
+        public static UserSession UserSession { get; private set; }
+
+        public static OrderSession OrderSession { get; private set; }
 
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
-            MiaoSession = new Dictionary<string, ISessionItem>();
-            UserSession = new Dictionary<string, ISessionItem>();
+            MiaoSession = new MiaoSession();
+            UserSession = new UserSession();
+            OrderSession = new OrderSession();
         }
 
         #region AddOrUpdate

@@ -128,7 +128,6 @@ namespace Baohe.viewModel
         {
             try
             {
-                //SetPlatFormSession4JIa();
                 var searchController = HttpServiceController.GetService<SearchController>();
                 await searchController.SearchAllAsync(SessionItem);
             }
