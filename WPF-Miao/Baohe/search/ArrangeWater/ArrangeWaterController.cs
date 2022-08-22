@@ -1,6 +1,5 @@
 ﻿using Baohe.constants;
 using Baohe.session;
-using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
@@ -9,7 +8,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
 using Utils.json;
 
 namespace Baohe.search.ArrangeWater

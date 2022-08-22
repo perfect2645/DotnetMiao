@@ -12,17 +12,15 @@ namespace Baohe.search.numbers
 {
     internal class AppointNumbersContent : ContentBase
     {
-        private ISessionItem SessionItem { get; }
-        public AppointNumbersContent(string url, ISessionItem sessionItem) : base(url)
+        public AppointNumbersContent(string url) : base(url)
         {
-            SessionItem = sessionItem;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var arrangeWater = SessionBuilder.GetMaxArrangeWater(SessionItem);
+            var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
             
             AddContent(Constant.ArrangeId, arrangeWater["ArrangeID"]);
             AddContent(BaoheSession.PlatformSesstion, Constant.HospitalId);

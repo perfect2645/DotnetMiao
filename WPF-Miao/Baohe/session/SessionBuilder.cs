@@ -3,6 +3,7 @@ using Base.viewModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace Baohe.session
@@ -17,10 +18,12 @@ namespace Baohe.session
             }
         }
 
-        public static Dictionary<string, object> GetMaxArrangeWater(ISessionItem sessionItem)
+        public static Dictionary<string, object> GetAvailableArrangeWater()
         {
-            var arrangeWaterList = sessionItem.SessionDic[Constant.ArrangeWater] as List<Dictionary<string, object>>;
-            var availableWater = arrangeWaterList?.MaxBy(x => x["availablenum"].ToString()!.ToLong());
+            var arrangeWaterList = BaoheSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
+            var availableWater = arrangeWaterList?.FirstOrDefault(x => x["ArrangeStatus"].NotNullString().ToLong() == 1
+                && DateTimeUtil.IsEqualOrGreaterThanToday(x["StopRegisterDate"].NotNullString()));
+
             return availableWater;
         }
 
