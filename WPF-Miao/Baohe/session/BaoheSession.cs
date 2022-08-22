@@ -20,7 +20,7 @@ namespace Baohe.session
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
-            MiaoSession = new MiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId]);
+            MiaoSession = new MiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId].ToString()!);
             OrderSession = new OrderSession();
         }
 

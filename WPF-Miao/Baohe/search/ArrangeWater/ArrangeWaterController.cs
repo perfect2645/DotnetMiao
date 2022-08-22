@@ -20,17 +20,16 @@ namespace Baohe.search.ArrangeWater
         {
         }
 
-        public Task GetArrangeWaterAsync(ISessionItem sessionItem, bool isPrintLog = false)
+        public Task GetArrangeWaterAsync(bool isPrintLog = false)
         {
-            return Task.Factory.StartNew(() => GetArrangeWater(sessionItem, isPrintLog));
+            return Task.Factory.StartNew(() => GetArrangeWater(isPrintLog));
         }
 
-        private void GetArrangeWater(ISessionItem sessionItem, bool isPrintLog = false)
+        private void GetArrangeWater(bool isPrintLog = false)
         {
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
-            //content.AddHeader("Cookie", content.BuildCookie());
-            content.AddHeader("Cookie", sessionItem.Cookie);
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -48,19 +47,19 @@ namespace Baohe.search.ArrangeWater
                 throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - Result is empty", "empty result");
             }
 
-            var arrangeWaters = AnalizeResult(result, sessionItem);
+            var arrangeWaters = AnalizeResult(result);
 
             if (isPrintLog)
             {
-                sessionItem.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
+                BaoheSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
             }
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)
         {
             var arrangeWater = JsonAnalysis.JsonToDicList(jsonElement);
 
-            sessionItem.SessionDic.AddOrUpdate(Constant.ArrangeWater, arrangeWater);
+            BaoheSession.AddMiaoSession(Constant.ArrangeWater, arrangeWater);
 
             return arrangeWater;
         }

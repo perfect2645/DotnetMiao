@@ -18,7 +18,7 @@ namespace Baohe.search.ArrangeWater
         private void BuildContent()
         {
             //doctorSn=711111254&hospitalId=1040231&channelId=9000370
-            var doctorList = BaoheSession.PlatformSesstion[Constant.DoctorList] as List<Dictionary<string, object>>;
+            var doctorList = BaoheSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
             var targetDoctor = doctorList?.FirstOrDefault();
             if (targetDoctor == null)
             {
