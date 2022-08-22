@@ -1,4 +1,5 @@
-﻿using Base.Events;
+﻿using Baohe.constants;
+using Base.Events;
 using Base.viewModel;
 using System.Collections.Generic;
 using Utils;
@@ -19,7 +20,7 @@ namespace Baohe.session
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
-            MiaoSession = new MiaoSession();
+            MiaoSession = new MiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId]);
             OrderSession = new OrderSession();
         }
 
@@ -38,6 +39,11 @@ namespace Baohe.session
         public static void AddUserSession(string key, object value)
         {
             UserSession.SessionItem.SessionDic.AddOrUpdate(key, value);
+        }
+
+        public static void AddMiaoSession(string key, object value)
+        {
+            MiaoSession.SessionItem.SessionDic.AddOrUpdate(key, value);
         }
 
         public static void BuildUserSession(string userid, Dictionary<string, object> dicValue)

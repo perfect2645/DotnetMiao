@@ -7,5 +7,24 @@ namespace Baohe.session
     {
         public string Key { get; set; }
         public ISessionItem SessionItem { get; set; }
+
+        public MiaoSession(string key)
+        {
+            Key = key;
+            SessionItem = new SessionItem(key);
+        }
+
+        public object this[string key]
+        {
+            get
+            {
+                if (SessionItem.SessionDic.ContainsKey(key))
+                {
+                    return SessionItem.SessionDic[key];
+                }
+
+                return null;
+            }
+        }
     }
 }

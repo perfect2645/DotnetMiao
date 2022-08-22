@@ -1,6 +1,5 @@
 ﻿using Baohe.constants;
 using Baohe.session;
-using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
@@ -8,7 +7,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
 using Utils.json;
 
 namespace Baohe.search.user
@@ -19,17 +17,17 @@ namespace Baohe.search.user
         {
         }
 
-        public Task GetUserInfoAsync(ISessionItem sessionItem)
+        public Task GetUserInfoAsync()
         {
-            return Task.Factory.StartNew(() => GetUserInfo(sessionItem));
+            return Task.Factory.StartNew(() => GetUserInfo());
         }
 
-        private void GetUserInfo(ISessionItem sessionItem)
+        private void GetUserInfo()
         {
-            GetUserSummary(sessionItem);
-            GetUserDetails(sessionItem);
+            GetUserSummary();
+            GetUserDetails();
         }
-        private void GetUserSummary(ISessionItem sessionItem)
+        private void GetUserSummary()
         {
             var url = "https://appoint.yihu.com/appoint/do/user/getUserInfo";
             var content = new UserInfoContent(url);
@@ -48,7 +46,7 @@ namespace Baohe.search.user
             BaoheSession.PrintLogEvent.Publish(this, userInfo.Body, "user summary");
         }
 
-        private void GetUserDetails(ISessionItem sessionItem)
+        private void GetUserDetails()
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getMemberList";
             var content = new MemberListContent(url);
@@ -69,10 +67,10 @@ namespace Baohe.search.user
             {
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result, sessionItem);
+            AnalizeResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private void AnalizeResult(JsonElement jsonElement)
         {
             var memberList = JsonAnalysis.JsonToDicList(jsonElement);
 

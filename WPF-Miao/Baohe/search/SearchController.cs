@@ -25,13 +25,13 @@ namespace Baohe.search
             authController.GetCookieAdvance(sessionItem.Cookie);
 
             var userInfoContr = HttpServiceController.GetService<UserInfoController>();
-            await userInfoContr.GetUserInfoAsync(sessionItem);
+            await userInfoContr.GetUserInfoAsync();
 
             //var liudiao = HttpServiceController.GetService<LiudiaoController>();
             //await liudiao.LiudiaoAsync(sessionItem);
 
             var doctorContr = HttpServiceController.GetService<DoctorController>();
-            await doctorContr.GetDoctorListAsync(sessionItem);
+            await doctorContr.GetDoctorListAsync();
 
             var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
             await arrangeWater.GetArrangeWaterAsync(sessionItem, true);

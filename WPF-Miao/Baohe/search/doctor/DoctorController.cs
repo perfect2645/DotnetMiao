@@ -1,15 +1,12 @@
 ﻿using Baohe.constants;
 using Baohe.session;
-using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
 using Utils.json;
 
 namespace Baohe.search.doctor
@@ -20,16 +17,16 @@ namespace Baohe.search.doctor
         {
         }
 
-        public Task GetDoctorListAsync(ISessionItem sessionItem)
+        public Task GetDoctorListAsync()
         {
-            return Task.Factory.StartNew(() => GetDoctorList(sessionItem));
+            return Task.Factory.StartNew(() => GetDoctorList());
         }
 
-        private void GetDoctorList(ISessionItem sessionItem)
+        private void GetDoctorList()
         {
             var url = "https://appoint.yihu.com/appoint/do/doctor/getDocListByDeptId";
             var content = new DoctorContent(url);
-            content.AddHeader("Cookie", sessionItem.Cookie);
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -46,16 +43,16 @@ namespace Baohe.search.doctor
             {
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result, sessionItem);
+            AnalizeResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private void AnalizeResult(JsonElement jsonElement)
         {
             var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
 
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorList, doctorDept);
+            BaoheSession.AddMiaoSession(Constant.DoctorList, doctorDept);
 
-            sessionItem.PrintLogEvent.Publish(this, doctorDept, "DoctorList");
+            BaoheSession.PrintLogEvent.Publish(this, doctorDept, "DoctorList");
         }
     }
 }
