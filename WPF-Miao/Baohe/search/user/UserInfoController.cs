@@ -45,13 +45,13 @@ namespace Baohe.search.user
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} failed", Constant.AccountSn);
             }
             BaoheSession.BuildUserSession(userid, userInfo.Body);
-            BaoheSession.PrintLogEvent.Publish(this, userInfo.Body);
+            BaoheSession.PrintLogEvent.Publish(this, userInfo.Body, "user summary");
         }
 
         private void GetUserDetails(ISessionItem sessionItem)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getMemberList";
-            var content = new MemberListContent(url, sessionItem);
+            var content = new MemberListContent(url);
             content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 
@@ -77,6 +77,8 @@ namespace Baohe.search.user
             var memberList = JsonAnalysis.JsonToDicList(jsonElement);
 
             BaoheSession.AddUserSession(Constant.MemberList, memberList);
+
+            BaoheSession.PrintLogEvent.Publish(this, memberList, "user details");
         }
     }
 }

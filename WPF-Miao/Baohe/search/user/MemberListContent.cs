@@ -13,12 +13,9 @@ namespace Baohe.search.user
 {
     internal class MemberListContent : ContentBase
     {
-        public ISessionItem SessionItem { get; }
-
-        public MemberListContent(string url, ISessionItem sessionItem) : base(url)
+        public MemberListContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
-            SessionItem = sessionItem;
             BuildContent();
         }
 
