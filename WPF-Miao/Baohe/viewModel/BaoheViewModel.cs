@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
+using Utils.stringBuilder;
 
 namespace Baohe.viewModel
 {
@@ -81,10 +82,6 @@ namespace Baohe.viewModel
 
         #endregion Constructor
 
-        #region Auth
-
-        #endregion Auth
-
         #region Appointment
 
         private bool CanExecuteAppointment()
@@ -98,7 +95,6 @@ namespace Baohe.viewModel
             var appRouter = new AppointmentRouter(SessionItem);
 
             appRouter.AppointTickAsync();
-            //appRouter.AppTimer.Start();
         }
 
 
@@ -149,6 +145,8 @@ namespace Baohe.viewModel
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
+
+            BaoheSession.BuildMiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId].NotNullString());
         }
 
         #endregion Hospital Dept

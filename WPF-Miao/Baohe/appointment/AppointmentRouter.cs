@@ -41,10 +41,10 @@ namespace Baohe.appointment
             Task.Factory.StartNew(async () =>
             {
                 var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-                await arrangeWater.GetArrangeWaterAsync(SessionItem);
+                await arrangeWater.GetArrangeWaterAsync();
 
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                await appointNumbers.GetNumbersAsync(SessionItem);
+                await appointNumbers.GetNumbersAsync();
 
                 //var getverifyCode = HttpServiceController.GetService<GetVerifyCodeController>();
                 //await getverifyCode.GetVerifyCodeAsync(SessionItem);

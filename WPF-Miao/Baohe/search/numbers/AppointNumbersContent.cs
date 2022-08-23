@@ -3,6 +3,7 @@ using Baohe.constants;
 using Baohe.session;
 using Base.viewModel;
 using HttpProcessor.Content;
+using HttpProcessor.ExceptionManager;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -21,6 +22,11 @@ namespace Baohe.search.numbers
         private void BuildContent()
         {
             var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
+
+            if (arrangeWater == null)
+            {
+                throw new HttpException($"{Constant.ProjectName}:查苗成功-没有可用苗", "no miao");
+            }
             
             AddContent(Constant.ArrangeId, arrangeWater["ArrangeID"]);
             AddContent(BaoheSession.PlatformSesstion, Constant.HospitalId);

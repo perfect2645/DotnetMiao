@@ -40,7 +40,7 @@ namespace Baohe.appointment
         {
             var sessionDic = Session.SessionDic;
             var platformSesstion = BaoheSession.PlatformSesstion;
-            var arrangeWater = SessionBuilder.GetMaxArrangeWater(Session);
+            var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
             var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
             var member = SessionBuilder.GetDefaultMember(Session);
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
@@ -112,7 +112,7 @@ namespace Baohe.appointment
         {
             var sessionDic = Session.SessionDic;
             var platformSesstion = BaoheSession.PlatformSesstion;
-            var arrangeWater = SessionBuilder.GetMaxArrangeWater(Session);
+            var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
             var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
             var member = SessionBuilder.GetDefaultMember(Session);
             var doctorInfo = SessionBuilder.GetDefaultDoctor();

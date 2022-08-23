@@ -20,15 +20,15 @@ namespace Baohe.search.numbers
         {
         }
 
-        public Task GetNumbersAsync(ISessionItem sessionItem, bool isPrintLog = false)
+        public Task GetNumbersAsync(bool isPrintLog = false)
         {
-            return Task.Factory.StartNew(() => GetNumbers(sessionItem, isPrintLog));
+            return Task.Factory.StartNew(() => GetNumbers(isPrintLog));
         }
 
-        private void GetNumbers(ISessionItem sessionItem, bool isPrintLog = false)
+        private void GetNumbers(bool isPrintLog = false)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
-            var content = new AppointNumbersContent(url, sessionItem);
+            var content = new AppointNumbersContent(url);
             content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 
@@ -46,18 +46,18 @@ namespace Baohe.search.numbers
             {
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
             }
-            var numbers = AnalizeResult(result, sessionItem);
+            var numbers = AnalizeResult(result);
 
             if (isPrintLog)
             {
-                sessionItem.PrintLogEvent.Publish(this, numbers, "Numbers");
+                BaoheSession.PrintLogEvent.Publish(this, numbers, "Numbers");
             }
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)
         {
             var numbers = JsonAnalysis.JsonToDicList(jsonElement);
-            sessionItem.SessionDic.AddOrUpdate(Constant.Numbers, numbers);
+            BaoheSession.AddMiaoSession(Constant.Numbers, numbers);
 
             return numbers;
         }

@@ -2,7 +2,7 @@
 {
     public static class Constant
     {
-        public const string ProjectName = "Baohe";
+        public const string ProjectName = "健康之路";
         public const string AccountSn = "accountSn";
         public const string WaterId = "waterId";
         public const string WaitingInfor = "waitingInfor";

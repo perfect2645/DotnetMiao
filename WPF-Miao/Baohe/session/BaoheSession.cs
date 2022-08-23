@@ -20,7 +20,6 @@ namespace Baohe.session
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
-            MiaoSession = new MiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId].ToString()!);
             OrderSession = new OrderSession();
         }
 
@@ -50,6 +49,11 @@ namespace Baohe.session
         {
             UserSession = new UserSession(userid);
             UserSession.SessionItem.SessionDic.AddOrUpdate(dicValue);
+        }
+
+        public static void BuildMiaoSession(string deptId)
+        {
+            MiaoSession = new MiaoSession(deptId);
         }
 
         #endregion AddOrUpdate

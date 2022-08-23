@@ -34,10 +34,10 @@ namespace Baohe.search
             await doctorContr.GetDoctorListAsync();
 
             var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-            await arrangeWater.GetArrangeWaterAsync(sessionItem, true);
+            await arrangeWater.GetArrangeWaterAsync(true);
 
             var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-            await appointNumbers.GetNumbersAsync(sessionItem, true);
+            await appointNumbers.GetNumbersAsync(true);
         }
     }
 }
