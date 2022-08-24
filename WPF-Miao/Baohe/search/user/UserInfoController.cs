@@ -3,6 +3,7 @@ using Baohe.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -13,6 +14,9 @@ namespace Baohe.search.user
 {
     internal class UserInfoController : HttpClientBase
     {
+
+        public List<Dictionary<string, object>> MemberList { get; private set; }
+
         public UserInfoController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -72,11 +76,11 @@ namespace Baohe.search.user
 
         private void AnalizeResult(JsonElement jsonElement)
         {
-            var memberList = JsonAnalysis.JsonToDicList(jsonElement);
+            MemberList = JsonAnalysis.JsonToDicList(jsonElement);
 
-            BaoheSession.AddUserSession(Constant.MemberList, memberList);
+            BaoheSession.AddUserSession(Constant.MemberList, MemberList);
 
-            BaoheSession.PrintLogEvent.Publish(this, memberList, "user details");
+            BaoheSession.PrintLogEvent.Publish(this, MemberList, "user details");
         }
     }
 }

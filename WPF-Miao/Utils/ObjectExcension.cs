@@ -46,5 +46,15 @@ namespace Utils
             var jvalue = jObj.GetValue(key);
             return obj;
         }
+
+        public static bool HasItem<T>(this IEnumerable<T> list)
+        {
+            if (list == null)
+            {
+                return false;
+            }
+
+            return list.Count() > 0;
+        }
     }
 }

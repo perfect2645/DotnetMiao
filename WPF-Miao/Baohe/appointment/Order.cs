@@ -1,4 +1,8 @@
-﻿namespace Baohe.appointment
+﻿using Baohe.constants;
+using System.Collections.Generic;
+using Utils.stringBuilder;
+
+namespace Baohe.appointment
 {
     internal class Order
     {
@@ -10,7 +14,11 @@
         }
 
         public string MemberSn { get; }
-        public string NumberSn { get; }
+        public string NumberSn { get; private set; }
+
+        public Dictionary<string, object> MemberInfo { get; set; }
+
+        public Dictionary<string, object> MiaoInfo { get; set; }
 
         public OrderStatus Status { get; set; }
 
@@ -20,20 +28,15 @@
 
         #region Constructor
 
-        public Order(string memberSn)
+        public Order(Dictionary<string, object> memberInfo)
         {
-            MemberSn = memberSn;
+            MemberInfo = memberInfo;
+            MemberSn = memberInfo[Constant.AccountSn].NotNullString();
 
             OrderStatusEvent.OrderStatusChangedEvent += OrderStatusEvent_OrderStatusChangedEvent;
-        }
 
-        public Order(string memberSn, string numberSn)
-        {
-            MemberSn = memberSn;
-            NumberSn = numberSn;
-            OrderKey = $"{memberSn}_{numberSn}";
+            InitContent();
 
-            OrderStatusEvent.OrderStatusChangedEvent += OrderStatusEvent_OrderStatusChangedEvent;
         }
 
         #endregion Constructor
@@ -42,6 +45,7 @@
 
         public void InitContent()
         {
+            Content = new AppointmentContent();
 
         }
 

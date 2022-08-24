@@ -41,5 +41,14 @@ namespace Utils
             return json;
         }
 
+        public static bool HasItem(this Dictionary<string, object> dic)
+        {
+            if (dic == null)
+            {
+                return false;
+            }
+
+            return dic.Count > 0;
+        }
     }
 }

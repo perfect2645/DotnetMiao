@@ -12,13 +12,18 @@ namespace Baohe.appointment
 {
     internal class AppointmentContent : ContentBase
     {
-        private readonly ISessionItem Session;
 
-        public AppointmentContent(string url, ISessionItem session) : base(url)
+        public Dictionary<string, object> MemberInfo { get; set; }
+
+        public Dictionary<string, object> MiaoInfo { get; set; }
+
+        private Dictionary<string, object> DoctorOrder { get; set; }
+        private Dictionary<string, object> GhFormConOrder { get; set; }
+
+        public AppointmentContent() : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
         {
-            Session = session;
             ContentType = "application/x-www-form-urlencoded";
-            BuildContent();
+            InitContent();
         }
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
@@ -26,15 +31,106 @@ namespace Baohe.appointment
             base.BuildDefaultHeaders(httpClient);
         }
 
-        private void BuildContent()
+        #region Content
+
+        private void InitContent()
         {
-            var doctorOrder = BuildDoctorOrder();
-            var ghFormCon = BuildGhFormCon();
-            AddContent("doctorRegOrder", doctorOrder);
-            AddContent("ghFormCon", ghFormCon);
+            BuildDefaultDoctorOrder();
+            BuildDefaultGhFormCon();
+
         }
 
-        #region Content
+        public void FillContent()
+        {
+            BuildNumberDoctorOrder();
+            BuildNumberGhFormCon();
+
+            AddContent("DoctorOrder", DoctorOrder);
+            AddContent("ghFormCon", GhFormConOrder);
+        }
+
+        private void BuildDefaultDoctorOrder()
+        {
+            DoctorOrder = new Dictionary<string, object>();
+
+            var platformSesstion = BaoheSession.PlatformSesstion;
+            var doctorInfo = SessionBuilder.GetDefaultDoctor();
+
+            DoctorOrder.Add("memberSn", MemberInfo["Membersn"]);
+            DoctorOrder.Add("memberName", MemberInfo["Cname"]);
+            DoctorOrder.Add("memberPhone", MemberInfo["Phone"]);
+            DoctorOrder.Add("memberAddress", MemberInfo["Familyaddress"]);
+            DoctorOrder.Add("memberBirthday", MemberInfo["Birthday"]);
+            DoctorOrder.Add("memberSex", MemberInfo["Sex"]);
+            DoctorOrder.Add("memberId", MemberInfo["Memberid"]);
+            DoctorOrder.Add("othercard", MemberInfo["Othercard"]);
+            DoctorOrder.Add("guardianmembersn", MemberInfo["Guardianmembersn"]);
+            DoctorOrder.Add("identitytype", MemberInfo["Identitytype"]);
+            DoctorOrder.Add("memberZhengjianid", MemberInfo["Zhengjianid"]);
+            DoctorOrder.Add("memberIdcard", MemberInfo["Idcard"]);
+            DoctorOrder.Add("accManageGoodSn", null);
+            DoctorOrder.Add("regpaytype", "");
+            DoctorOrder.Add("cliniccard", MemberInfo["Cliniccard"]);
+            DoctorOrder.Add("applyNo", "");
+            DoctorOrder.Add("mobile", MemberInfo["Phone"]);
+
+            DoctorOrder.Add("hosDeptId", platformSesstion[Constant.DeptId]);
+
+            DoctorOrder.Add("doctorService_gh", doctorInfo["doctorService_gh"]);
+            DoctorOrder.Add("doctorUid", doctorInfo["doctorUid"]);
+            DoctorOrder.Add("doctorName", doctorInfo["doctorName"]);
+            DoctorOrder.Add("doctorPic", "");
+            DoctorOrder.Add("doctorClinicName", doctorInfo["lczcName"]);
+            DoctorOrder.Add("GH_HosProId", "12");
+            DoctorOrder.Add("GH_HosProName", "安徽");
+            DoctorOrder.Add("GH_HosCityId", "101");
+            DoctorOrder.Add("GH_HosCityName", "合肥");
+
+            DoctorOrder.Add("timeId", 1);
+
+            DoctorOrder.Add("ghAmount", 0);
+            DoctorOrder.Add("securityDeposit", 0);
+            DoctorOrder.Add("ghfeeway", 0);
+            DoctorOrder.Add("ModeId", 0);
+            DoctorOrder.Add("GhFee", 0);
+            DoctorOrder.Add("AllFee", 0);
+
+            DoctorOrder.Add("UnOpened", false);
+
+            DoctorOrder.Add(Constant.AccountSn, sessionDic[Constant.AccountSn]);
+            DoctorOrder.Add("cardNumber", sessionDic["cardNumber"]);
+            DoctorOrder.Add(Constant.LoginId, sessionDic[Constant.LoginId]);
+            DoctorOrder.Add(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
+            DoctorOrder.Add("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
+            DoctorOrder.Add("doctorOfficeName", "");
+        }
+
+        private void BuildDefaultGhFormCon()
+        {
+        }
+
+        private void BuildNumberDoctorOrder()
+        {
+            DoctorOrder.Add("registerDate", MiaoInfo["registerdate"]);
+            DoctorOrder.Add("hosDeptName", MiaoInfo["deptname"]);
+            DoctorOrder.Add("hospitalId", MiaoInfo["hosid"]);
+            DoctorOrder.Add("hospitalName", MiaoInfo["hosname"]);
+            DoctorOrder.Add("availablenum", MiaoInfo["availablenum"].ToString()!.ToLong());
+            DoctorOrder.Add("FHTimes", MiaoInfo["FHTimes"]);
+            DoctorOrder.Add("FHDays", MiaoInfo["FHDays"]);
+
+            DoctorOrder.Add(Constant.WaterId, MiaoInfo["NumberSN"].ToString()!.ToLong());
+            DoctorOrder.Add(Constant.WaitingInfor, $"第{MiaoInfo["SerialNo"]}号 {MiaoInfo["CommendScope"]}");
+            DoctorOrder.Add("store", "");
+            DoctorOrder.Add("serialNo", MiaoInfo["SerialNo"]);
+            DoctorOrder.Add(Constant.DoctorSn, MiaoInfo["DoctorSN"]);
+            DoctorOrder.Add("arrangeId", MiaoInfo["ArrangeID"].ToString()!.ToLong());
+        }
+
+        private void BuildNumberGhFormCon()
+        {
+
+        }
 
         private Dictionary<string, object> BuildDoctorOrder()
         {
@@ -46,66 +142,66 @@ namespace Baohe.appointment
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
 
-            var doctorRegOrder = new Dictionary<string, object>();
-            doctorRegOrder.Add(Constant.WaterId, defaultNumber["NumberSN"].ToString()!.ToLong());
-            doctorRegOrder.Add(Constant.WaitingInfor, $"第{defaultNumber["SerialNo"]}号 {defaultNumber["CommendScope"]}");
-            doctorRegOrder.Add("store", "");
-            doctorRegOrder.Add("serialNo", defaultNumber["SerialNo"]);
-            doctorRegOrder.Add("memberSn", member["Membersn"]);
-            doctorRegOrder.Add("memberName", member["Cname"]);
-            doctorRegOrder.Add("memberPhone", member["Phone"]);
-            doctorRegOrder.Add("memberAddress", member["Familyaddress"]);
-            doctorRegOrder.Add("memberBirthday", member["Birthday"]);
-            doctorRegOrder.Add("memberSex", member["Sex"]);
-            doctorRegOrder.Add("memberId", member["Memberid"]);
-            doctorRegOrder.Add("othercard", member["Othercard"]);
-            doctorRegOrder.Add("guardianmembersn", member["Guardianmembersn"]);
-            doctorRegOrder.Add("identitytype", member["Identitytype"]);
-            doctorRegOrder.Add("memberZhengjianid", member["Zhengjianid"]);
-            doctorRegOrder.Add("memberIdcard", member["Idcard"]);
-            doctorRegOrder.Add("accManageGoodSn", null);
-            doctorRegOrder.Add("regpaytype", "");
-            doctorRegOrder.Add("cliniccard", member["Cliniccard"]);
-            doctorRegOrder.Add("applyNo", "");
-            doctorRegOrder.Add("mobile", member["Phone"]);
-            doctorRegOrder.Add(Constant.DoctorSn, defaultNumber["DoctorSN"]);
-            doctorRegOrder.Add("hosDeptId", platformSesstion[Constant.DeptId]);
-            doctorRegOrder.Add("hosDeptName", arrangeWater["deptname"]);
-            doctorRegOrder.Add("hospitalId", arrangeWater["hosid"]);
-            doctorRegOrder.Add("hospitalName", arrangeWater["hosname"]);
-            doctorRegOrder.Add("doctorService_gh", doctorInfo["doctorService_gh"]);
-            doctorRegOrder.Add("doctorUid", doctorInfo["doctorUid"]);
-            doctorRegOrder.Add("doctorName", doctorInfo["doctorName"]);
-            doctorRegOrder.Add("doctorPic", "");
-            doctorRegOrder.Add("doctorClinicName", doctorInfo["lczcName"]);
-            doctorRegOrder.Add("GH_HosProId", "12");
-            doctorRegOrder.Add("GH_HosProName", "安徽");
-            doctorRegOrder.Add("GH_HosCityId", "101");
-            doctorRegOrder.Add("GH_HosCityName", "合肥");
-            doctorRegOrder.Add("registerDate", arrangeWater["registerdate"]);
-            doctorRegOrder.Add("timeId", 1);
-            doctorRegOrder.Add("arrangeId", defaultNumber["ArrangeID"].ToString()!.ToLong());
-            doctorRegOrder.Add("ghAmount", 0);
-            doctorRegOrder.Add("securityDeposit", 0);
-            doctorRegOrder.Add("ghfeeway", 0);
-            doctorRegOrder.Add("ModeId", 0);
-            doctorRegOrder.Add("GhFee", 0);
-            doctorRegOrder.Add("AllFee", 0);
-            doctorRegOrder.Add("availablenum", arrangeWater["availablenum"].ToString()!.ToLong());
-            doctorRegOrder.Add("UnOpened", false);
-            doctorRegOrder.Add("FHTimes", arrangeWater["FHTimes"]);
-            doctorRegOrder.Add("FHDays", arrangeWater["FHDays"]);
-            doctorRegOrder.Add(Constant.AccountSn, sessionDic[Constant.AccountSn]);
-            doctorRegOrder.Add("cardNumber", sessionDic["cardNumber"]);
-            doctorRegOrder.Add(Constant.LoginId, sessionDic[Constant.LoginId]);
-            doctorRegOrder.Add(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
-            doctorRegOrder.Add("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
-            doctorRegOrder.Add("doctorOfficeName", "");
-            //doctorRegOrder.Add("retId", "8f1adb4a37e143a885d53db93f803eeb");
-            //doctorRegOrder.Add("graphAuthCode", sessionDic["graphAuthCode"]);
+            var DoctorOrder = new Dictionary<string, object>();
+            DoctorOrder.Add(Constant.WaterId, defaultNumber["NumberSN"].ToString()!.ToLong());
+            DoctorOrder.Add(Constant.WaitingInfor, $"第{defaultNumber["SerialNo"]}号 {defaultNumber["CommendScope"]}");
+            DoctorOrder.Add("store", "");
+            DoctorOrder.Add("serialNo", defaultNumber["SerialNo"]);
+            DoctorOrder.Add("memberSn", member["Membersn"]);
+            DoctorOrder.Add("memberName", member["Cname"]);
+            DoctorOrder.Add("memberPhone", member["Phone"]);
+            DoctorOrder.Add("memberAddress", member["Familyaddress"]);
+            DoctorOrder.Add("memberBirthday", member["Birthday"]);
+            DoctorOrder.Add("memberSex", member["Sex"]);
+            DoctorOrder.Add("memberId", member["Memberid"]);
+            DoctorOrder.Add("othercard", member["Othercard"]);
+            DoctorOrder.Add("guardianmembersn", member["Guardianmembersn"]);
+            DoctorOrder.Add("identitytype", member["Identitytype"]);
+            DoctorOrder.Add("memberZhengjianid", member["Zhengjianid"]);
+            DoctorOrder.Add("memberIdcard", member["Idcard"]);
+            DoctorOrder.Add("accManageGoodSn", null);
+            DoctorOrder.Add("regpaytype", "");
+            DoctorOrder.Add("cliniccard", member["Cliniccard"]);
+            DoctorOrder.Add("applyNo", "");
+            DoctorOrder.Add("mobile", member["Phone"]);
+            DoctorOrder.Add(Constant.DoctorSn, defaultNumber["DoctorSN"]);
+            DoctorOrder.Add("hosDeptId", platformSesstion[Constant.DeptId]);
+            DoctorOrder.Add("hosDeptName", arrangeWater["deptname"]);
+            DoctorOrder.Add("hospitalId", arrangeWater["hosid"]);
+            DoctorOrder.Add("hospitalName", arrangeWater["hosname"]);
+            DoctorOrder.Add("doctorService_gh", doctorInfo["doctorService_gh"]);
+            DoctorOrder.Add("doctorUid", doctorInfo["doctorUid"]);
+            DoctorOrder.Add("doctorName", doctorInfo["doctorName"]);
+            DoctorOrder.Add("doctorPic", "");
+            DoctorOrder.Add("doctorClinicName", doctorInfo["lczcName"]);
+            DoctorOrder.Add("GH_HosProId", "12");
+            DoctorOrder.Add("GH_HosProName", "安徽");
+            DoctorOrder.Add("GH_HosCityId", "101");
+            DoctorOrder.Add("GH_HosCityName", "合肥");
+            DoctorOrder.Add("registerDate", arrangeWater["registerdate"]);
+            DoctorOrder.Add("timeId", 1);
+            DoctorOrder.Add("arrangeId", defaultNumber["ArrangeID"].ToString()!.ToLong());
+            DoctorOrder.Add("ghAmount", 0);
+            DoctorOrder.Add("securityDeposit", 0);
+            DoctorOrder.Add("ghfeeway", 0);
+            DoctorOrder.Add("ModeId", 0);
+            DoctorOrder.Add("GhFee", 0);
+            DoctorOrder.Add("AllFee", 0);
+            DoctorOrder.Add("availablenum", arrangeWater["availablenum"].ToString()!.ToLong());
+            DoctorOrder.Add("UnOpened", false);
+            DoctorOrder.Add("FHTimes", arrangeWater["FHTimes"]);
+            DoctorOrder.Add("FHDays", arrangeWater["FHDays"]);
+            DoctorOrder.Add(Constant.AccountSn, sessionDic[Constant.AccountSn]);
+            DoctorOrder.Add("cardNumber", sessionDic["cardNumber"]);
+            DoctorOrder.Add(Constant.LoginId, sessionDic[Constant.LoginId]);
+            DoctorOrder.Add(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
+            DoctorOrder.Add("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
+            DoctorOrder.Add("doctorOfficeName", "");
+            //DoctorOrder.Add("retId", "8f1adb4a37e143a885d53db93f803eeb");
+            //DoctorOrder.Add("graphAuthCode", sessionDic["graphAuthCode"]);
             
 
-            return doctorRegOrder;
+            return DoctorOrder;
         }
 
         private List<Dictionary<string, object>> BuildGhFormCon()

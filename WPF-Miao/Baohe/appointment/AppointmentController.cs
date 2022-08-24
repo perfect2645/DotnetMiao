@@ -26,8 +26,8 @@ namespace Baohe.appointment
 
         public void Appointment(ISessionItem sessionItem)
         {
-            var url = "https://appoint.yihu.com/appoint/do/registerInfo/register";
-            var content = new AppointmentContent(url, sessionItem);
+            
+            var content = new AppointmentContent();
             content.AddHeader("Cookie", sessionItem.Cookie);
             content.AddHeader("Referer", sessionItem.Referer);
 
@@ -37,7 +37,7 @@ namespace Baohe.appointment
             var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
             if (userid == null || userid == "0")
             {
-                throw new HttpException($"{Constant.ProjectName}:{url} has issue", Constant.AccountSn);
+                throw new HttpException($"{Constant.ProjectName}:{content.RequestUrl} has issue", Constant.AccountSn);
             }
             sessionItem.Key = userid;
             BaoheSession.AddMiaoSession(userInfo.Body);

@@ -6,8 +6,11 @@ using Baohe.search.user;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils;
 
 namespace Baohe.search
 {
@@ -27,6 +30,8 @@ namespace Baohe.search
             var userInfoContr = HttpServiceController.GetService<UserInfoController>();
             await userInfoContr.GetUserInfoAsync();
 
+            BuildOrderSession(userInfoContr.MemberList);
+
             //var liudiao = HttpServiceController.GetService<LiudiaoController>();
             //await liudiao.LiudiaoAsync(sessionItem);
 
@@ -38,6 +43,19 @@ namespace Baohe.search
 
             var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
             await appointNumbers.GetNumbersAsync(true);
+        }
+
+        private void BuildOrderSession(List<Dictionary<string, object>> memberList)
+        {
+            if (!memberList.HasItem())
+            {
+                return;
+            }
+
+            foreach (var member in memberList)
+            {
+
+            }
         }
     }
 }
