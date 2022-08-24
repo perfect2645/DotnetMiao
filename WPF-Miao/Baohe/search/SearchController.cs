@@ -1,8 +1,10 @@
-﻿using Baohe.search.ArrangeWater;
+﻿using Baohe.appointment;
+using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.search.doctor;
 using Baohe.search.numbers;
 using Baohe.search.user;
+using Baohe.session;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
@@ -30,13 +32,13 @@ namespace Baohe.search
             var userInfoContr = HttpServiceController.GetService<UserInfoController>();
             await userInfoContr.GetUserInfoAsync();
 
+            var doctorContr = HttpServiceController.GetService<DoctorController>();
+            await doctorContr.GetDoctorListAsync();
+
             BuildOrderSession(userInfoContr.MemberList);
 
             //var liudiao = HttpServiceController.GetService<LiudiaoController>();
             //await liudiao.LiudiaoAsync(sessionItem);
-
-            var doctorContr = HttpServiceController.GetService<DoctorController>();
-            await doctorContr.GetDoctorListAsync();
 
             var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
             await arrangeWater.GetArrangeWaterAsync(true);
@@ -54,7 +56,11 @@ namespace Baohe.search
 
             foreach (var member in memberList)
             {
-
+                for(var i = 0; i < 2; i++)
+                {
+                    var order = new Order(member, i);
+                    BaoheSession.OrderSession.AddOrder(order);
+                }
             }
         }
     }

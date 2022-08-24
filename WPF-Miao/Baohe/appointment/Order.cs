@@ -4,16 +4,17 @@ using Utils.stringBuilder;
 
 namespace Baohe.appointment
 {
-    internal class Order
+    public class Order
     {
         #region properties
 
         public string OrderKey 
         { 
-           get { return $"{MemberSn}_{NumberSn}"; }
+           get { return $"{MemberSn}_{Index}_{NumberSn}"; }
         }
 
         public string MemberSn { get; }
+        public int Index { get; }
         public string NumberSn { get; private set; }
 
         public Dictionary<string, object> MemberInfo { get; set; }
@@ -22,15 +23,16 @@ namespace Baohe.appointment
 
         public OrderStatus Status { get; set; }
 
-        public AppointmentContent Content { get; set; }
+        internal AppointmentContent Content { get; set; }
 
         #endregion properties
 
         #region Constructor
 
-        public Order(Dictionary<string, object> memberInfo)
+        public Order(Dictionary<string, object> memberInfo, int index)
         {
             MemberInfo = memberInfo;
+            Index = index;
             MemberSn = memberInfo[Constant.AccountSn].NotNullString();
 
             OrderStatusEvent.OrderStatusChangedEvent += OrderStatusEvent_OrderStatusChangedEvent;

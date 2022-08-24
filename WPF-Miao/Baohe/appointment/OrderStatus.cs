@@ -2,7 +2,7 @@
 
 namespace Baohe.appointment
 {
-    internal enum OrderStatus
+    public enum OrderStatus
     {
         Pending,
         Running,
@@ -10,7 +10,7 @@ namespace Baohe.appointment
         Cancelled,
     }
 
-    internal class OrderStatusEvent
+    public class OrderStatusEvent
     {
         internal static event EventHandler<OrderStatusArgs> OrderStatusChangedEvent;
 
@@ -25,7 +25,7 @@ namespace Baohe.appointment
         }
     }
 
-    internal class OrderStatusArgs : EventArgs
+    public class OrderStatusArgs : EventArgs
     {
         public string OrderKey { get; set; }
         public OrderStatus Status { get; set; }

@@ -1,11 +1,20 @@
-﻿namespace Baohe.session
+﻿using Baohe.appointment;
+using System.Collections.Generic;
+
+namespace Baohe.session
 {
     public class OrderSession
     {
-        public string Key { get; set; }
+        public static HashSet<Order> OrderList { get;}
 
-        public string Desc { get; set; }
-        public string Status { get; set; }
+        static OrderSession()
+        {
+            OrderList = new HashSet<Order>();
+        }
 
+        public void AddOrder(Order order)
+        {
+            OrderList.Add(order);
+        }
     }
 }
