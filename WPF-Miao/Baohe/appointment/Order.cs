@@ -51,8 +51,10 @@ namespace Baohe.appointment
 
         }
 
-        public void FillContent()
+        public void FillContent(session.MiaoSession miaoSession)
         {
+            MiaoInfo = new Dictionary<string, object>();
+
             Appoint();
         }
 

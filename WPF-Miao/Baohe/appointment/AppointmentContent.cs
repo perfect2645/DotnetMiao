@@ -73,6 +73,8 @@ namespace Baohe.appointment
             DoctorOrder.Add("cliniccard", MemberInfo["Cliniccard"]);
             DoctorOrder.Add("applyNo", "");
             DoctorOrder.Add("mobile", MemberInfo["Phone"]);
+            DoctorOrder.Add(Constant.AccountSn, MemberInfo[Constant.AccountSn]);
+            DoctorOrder.Add("cardNumber", MemberInfo["cardNumber"]);
 
             DoctorOrder.Add("hosDeptId", platformSesstion[Constant.DeptId]);
 
@@ -97,9 +99,8 @@ namespace Baohe.appointment
 
             DoctorOrder.Add("UnOpened", false);
 
-            DoctorOrder.Add(Constant.AccountSn, sessionDic[Constant.AccountSn]);
-            DoctorOrder.Add("cardNumber", sessionDic["cardNumber"]);
-            DoctorOrder.Add(Constant.LoginId, sessionDic[Constant.LoginId]);
+
+            DoctorOrder.Add(Constant.LoginId, platformSesstion[Constant.LoginId]);
             DoctorOrder.Add(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
             DoctorOrder.Add("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             DoctorOrder.Add("doctorOfficeName", "");
@@ -132,12 +133,10 @@ namespace Baohe.appointment
 
         }
 
-        private Dictionary<string, object> BuildDoctorOrder()
+/*        private Dictionary<string, object> BuildDoctorOrder()
         {
-            var sessionDic = Session.SessionDic;
             var platformSesstion = BaoheSession.PlatformSesstion;
             var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
-            var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
             var member = SessionBuilder.GetDefaultMember(Session);
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
@@ -202,27 +201,24 @@ namespace Baohe.appointment
             
 
             return DoctorOrder;
-        }
+        }*/
 
         private List<Dictionary<string, object>> BuildGhFormCon()
         {
-            var sessionDic = Session.SessionDic;
             var platformSesstion = BaoheSession.PlatformSesstion;
             var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
-            var defaultNumber = SessionBuilder.GetDefaultNumber(Session);
-            var member = SessionBuilder.GetDefaultMember(Session);
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
             var ghFormCon = new List<Dictionary<string, object>>();
 
-            ghFormCon.Add(BuildGhFormConItem(member["Familyaddress"], "familyaddress"));
+            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Familyaddress"], "familyaddress"));
             //ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
             ghFormCon.Add(BuildGhFormConItem("", "name"));
-            ghFormCon.Add(BuildGhFormConItem(member["Cliniccard"], "ClinicCard"));
-            ghFormCon.Add(BuildGhFormConItem(member["Idcard"], "CardNo"));
-            ghFormCon.Add(BuildGhFormConItem(member["Sex"], "sex"));
-            ghFormCon.Add(BuildGhFormConItem(member["Phone"], "mobile"));
-            ghFormCon.Add(BuildGhFormConItem(member["Identitytype"], "cardtype"));
+            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Cliniccard"], "ClinicCard"));
+            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Idcard"], "CardNo"));
+            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Sex"], "sex"));
+            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Phone"], "mobile"));
+            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Identitytype"], "cardtype"));
             ghFormCon.Add(BuildGhFormConItem("0", "cmb_disease"));
             ghFormCon.Add(BuildGhFormConItem("0", "cmb_disease"));
             ghFormCon.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));

@@ -5,16 +5,21 @@ namespace Baohe.session
 {
     public class OrderSession
     {
-        public static HashSet<Order> OrderList { get;}
+        public static List<Order> OrderList { get;}
 
         static OrderSession()
         {
-            OrderList = new HashSet<Order>();
+            OrderList = new List<Order>();
         }
 
         public void AddOrder(Order order)
         {
             OrderList.Add(order);
+        }
+
+        public List<Order> GetOrders()
+        {
+            return OrderList;
         }
     }
 }

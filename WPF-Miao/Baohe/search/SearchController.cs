@@ -35,7 +35,7 @@ namespace Baohe.search
             var doctorContr = HttpServiceController.GetService<DoctorController>();
             await doctorContr.GetDoctorListAsync();
 
-            BuildOrderSession(userInfoContr.MemberList);
+            BuildMemberOrder(userInfoContr.MemberList);
 
             //var liudiao = HttpServiceController.GetService<LiudiaoController>();
             //await liudiao.LiudiaoAsync(sessionItem);
@@ -45,9 +45,11 @@ namespace Baohe.search
 
             var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
             await appointNumbers.GetNumbersAsync(true);
+
+            BuildMiaoOrder();
         }
 
-        private void BuildOrderSession(List<Dictionary<string, object>> memberList)
+        private void BuildMemberOrder(List<Dictionary<string, object>> memberList)
         {
             if (!memberList.HasItem())
             {
@@ -61,6 +63,16 @@ namespace Baohe.search
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);
                 }
+            }
+        }
+
+        private void BuildMiaoOrder()
+        {
+            var orders = BaoheSession.OrderSession.GetOrders();
+
+            foreach (var order in orders)
+            {
+                order.FillContent(BaoheSession.MiaoSession);
             }
         }
     }
