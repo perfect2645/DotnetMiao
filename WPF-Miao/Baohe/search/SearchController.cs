@@ -76,10 +76,10 @@ namespace Baohe.search
             {
                 orders = orders.Take(numberCount).ToList();
             }
-            foreach (var order in orders)
+            Parallel.ForEach(orders, (order) =>
             {
                 order.FillContent(BaoheSession.MiaoSession);
-            }
+            });
         }
     }
 }
