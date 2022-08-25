@@ -41,10 +41,10 @@ namespace Baohe.search.user
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse userInfo = PostStringAsync(content).Result;
-            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
+            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.accountSn).Value?.ToString();
             if (userid == null || userid == "0")
             {
-                throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} failed", Constant.AccountSn);
+                throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} failed", Constant.accountSn);
             }
             BaoheSession.BuildUserSession(userid, userInfo.Body);
             BaoheSession.PrintLogEvent.Publish(this, userInfo.Body, "user summary");

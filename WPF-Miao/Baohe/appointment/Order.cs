@@ -33,7 +33,7 @@ namespace Baohe.appointment
         {
             MemberInfo = memberInfo;
             Index = index;
-            MemberSn = memberInfo[Constant.AccountSn].NotNullString();
+            MemberSn = memberInfo[Constant.Accountsn].NotNullString();
 
             OrderStatusEvent.OrderStatusChangedEvent += OrderStatusEvent_OrderStatusChangedEvent;
 
@@ -47,7 +47,7 @@ namespace Baohe.appointment
 
         public void InitContent()
         {
-            Content = new AppointmentContent();
+            Content = new AppointmentContent(MemberInfo);
 
         }
 

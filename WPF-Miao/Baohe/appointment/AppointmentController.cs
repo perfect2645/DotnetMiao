@@ -27,21 +27,21 @@ namespace Baohe.appointment
         public void Appointment(ISessionItem sessionItem)
         {
             
-            var content = new AppointmentContent();
+/*            var content = new AppointmentContent();
             content.AddHeader("Cookie", sessionItem.Cookie);
             content.AddHeader("Referer", sessionItem.Referer);
 
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse userInfo = PostStringAsync(content).Result;
-            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.AccountSn).Value?.ToString();
+            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.accountSn).Value?.ToString();
             if (userid == null || userid == "0")
             {
-                throw new HttpException($"{Constant.ProjectName}:{content.RequestUrl} has issue", Constant.AccountSn);
+                throw new HttpException($"{Constant.ProjectName}:{content.RequestUrl} has issue", Constant.accountSn);
             }
             sessionItem.Key = userid;
             BaoheSession.AddMiaoSession(userInfo.Body);
-            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);
+            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);*/
         }
 
         private void ParseAppointmentResult(HttpResponseMessage response)

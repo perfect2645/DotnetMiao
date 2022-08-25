@@ -43,7 +43,7 @@ namespace Baohe.session
 
         public static Dictionary<string, object> GetDefaultDoctor()
         {
-            var result = BaoheSession.PlatformSesstion[Constant.DoctorList] as List<Dictionary<string, object>>;
+            var result = BaoheSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
 
             return result?.FirstOrDefault();
         }

@@ -18,10 +18,11 @@ namespace Baohe.appointment
         public Dictionary<string, object> MiaoInfo { get; set; }
 
         private Dictionary<string, object> DoctorOrder { get; set; }
-        private Dictionary<string, object> GhFormConOrder { get; set; }
+        private List<Dictionary<string, object>> GhFormConOrder { get; set; }
 
-        public AppointmentContent() : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
+        public AppointmentContent(Dictionary<string, object> memberInfo) : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
         {
+            MemberInfo = memberInfo;
             ContentType = "application/x-www-form-urlencoded";
             InitContent();
         }
@@ -73,8 +74,8 @@ namespace Baohe.appointment
             DoctorOrder.Add("cliniccard", MemberInfo["Cliniccard"]);
             DoctorOrder.Add("applyNo", "");
             DoctorOrder.Add("mobile", MemberInfo["Phone"]);
-            DoctorOrder.Add(Constant.AccountSn, MemberInfo[Constant.AccountSn]);
-            DoctorOrder.Add("cardNumber", MemberInfo["cardNumber"]);
+            DoctorOrder.Add(Constant.accountSn, MemberInfo[Constant.Accountsn]);
+            DoctorOrder.Add("cardNumber", BaoheSession.UserSession["cardNumber"]);
 
             DoctorOrder.Add("hosDeptId", platformSesstion[Constant.DeptId]);
 
@@ -100,7 +101,7 @@ namespace Baohe.appointment
             DoctorOrder.Add("UnOpened", false);
 
 
-            DoctorOrder.Add(Constant.LoginId, platformSesstion[Constant.LoginId]);
+            DoctorOrder.Add(Constant.LoginId, platformSesstion[Constant.Loginid]);
             DoctorOrder.Add(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
             DoctorOrder.Add("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             DoctorOrder.Add("doctorOfficeName", "");
@@ -108,6 +109,18 @@ namespace Baohe.appointment
 
         private void BuildDefaultGhFormCon()
         {
+            GhFormConOrder = new List<Dictionary<string, object>>();
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Familyaddress"], "familyaddress"));
+            //ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
+            GhFormConOrder.Add(BuildGhFormConItem("", "name"));
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Cliniccard"], "ClinicCard"));
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Idcard"], "CardNo"));
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Sex"], "sex"));
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Phone"], "mobile"));
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Identitytype"], "cardtype"));
+            GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
+            GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
+            GhFormConOrder.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));
         }
 
         private void BuildNumberDoctorOrder()

@@ -3,7 +3,8 @@
     public static class Constant
     {
         public const string ProjectName = "健康之路";
-        public const string AccountSn = "accountSn";
+        public const string accountSn = "accountSn";
+        public const string Accountsn = "Accountsn";
         public const string WaterId = "waterId";
         public const string WaitingInfor = "waitingInfor";
         public const string GetNumbers = "GetNumbers";

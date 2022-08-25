@@ -26,7 +26,7 @@ namespace Baohe.search.user
 
         public void BuildContent()
         {
-            AddContent(Constant.AccountSn, BaoheSession.UserSession[Constant.AccountSn]);
+            AddContent(Constant.accountSn, BaoheSession.UserSession[Constant.accountSn]);
             AddContent("hosKey", string.Empty);
         }
 
