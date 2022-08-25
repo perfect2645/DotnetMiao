@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Utils;
 using Utils.json;
 
 namespace Baohe.search.ArrangeWater
@@ -56,10 +57,16 @@ namespace Baohe.search.ArrangeWater
         private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)
         {
             var arrangeWater = JsonAnalysis.JsonToDicList(jsonElement);
+            var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater(arrangeWater);
 
-            BaoheSession.AddMiaoSession(Constant.ArrangeWater, arrangeWater);
+            if (!arrangeWaterList.HasItem())
+            {
+                throw new HttpException($"{Constant.ProjectName}:查苗成功-没有可用苗", "no water");
+            }
 
-            return arrangeWater;
+            BaoheSession.AddMiaoSession(Constant.ArrangeWater, arrangeWaterList);
+
+            return arrangeWaterList;
         }
     }
 }

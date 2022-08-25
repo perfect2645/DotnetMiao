@@ -6,6 +6,7 @@ using HttpProcessor.Content;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Utils;
 using Utils.stringBuilder;
 
 namespace Baohe.appointment
@@ -125,13 +126,14 @@ namespace Baohe.appointment
 
         private void BuildNumberDoctorOrder()
         {
-            DoctorOrder.Add("registerDate", MiaoInfo["registerdate"]);
-            DoctorOrder.Add("hosDeptName", MiaoInfo["deptname"]);
-            DoctorOrder.Add("hospitalId", MiaoInfo["hosid"]);
-            DoctorOrder.Add("hospitalName", MiaoInfo["hosname"]);
-            DoctorOrder.Add("availablenum", MiaoInfo["availablenum"].ToString()!.ToLong());
-            DoctorOrder.Add("FHTimes", MiaoInfo["FHTimes"]);
-            DoctorOrder.Add("FHDays", MiaoInfo["FHDays"]);
+            var water = MiaoInfo["arrangeWater"].Dic();
+            DoctorOrder.Add("registerDate", water["registerdate"]);
+            DoctorOrder.Add("hosDeptName", water["deptname"]);
+            DoctorOrder.Add("hospitalId", water["hosid"]);
+            DoctorOrder.Add("hospitalName", water["hosname"]);
+            DoctorOrder.Add("availablenum", water["availablenum"].ToString()!.ToLong());
+            DoctorOrder.Add("FHTimes", water["FHTimes"]);
+            DoctorOrder.Add("FHDays", water["FHDays"]);
 
             DoctorOrder.Add(Constant.WaterId, MiaoInfo["NumberSN"].ToString()!.ToLong());
             DoctorOrder.Add(Constant.WaitingInfor, $"第{MiaoInfo["SerialNo"]}号 {MiaoInfo["CommendScope"]}");
@@ -219,7 +221,6 @@ namespace Baohe.appointment
         private List<Dictionary<string, object>> BuildGhFormCon()
         {
             var platformSesstion = BaoheSession.PlatformSesstion;
-            var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
             var ghFormCon = new List<Dictionary<string, object>>();

@@ -5,6 +5,8 @@ using Base.viewModel;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Shapes;
@@ -13,22 +15,18 @@ namespace Baohe.search.numbers
 {
     internal class AppointNumbersContent : ContentBase
     {
-        public AppointNumbersContent(string url) : base(url)
+        private Dictionary<string, object> ArrangeWater { get; }
+
+        public AppointNumbersContent(string url, Dictionary<string, object> arrangeWater) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
+            ArrangeWater = arrangeWater;
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
-
-            if (arrangeWater == null)
-            {
-                throw new HttpException($"{Constant.ProjectName}:查苗成功-没有可用苗", "no miao");
-            }
-            
-            AddContent(Constant.ArrangeId, arrangeWater["ArrangeID"]);
+            AddContent(Constant.ArrangeId, ArrangeWater["ArrangeID"]);
             AddContent(BaoheSession.PlatformSesstion, Constant.HospitalId);
             AddContent(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.LoginChannel]);
             AddContent("ClinicCard", "");

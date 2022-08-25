@@ -28,7 +28,12 @@ namespace Baohe.search.numbers
         private void GetNumbers(bool isPrintLog = false)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
-            var content = new AppointNumbersContent(url);
+
+            var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+            //TODO 选取所有的water
+            var arrangeWater = arrangeWaterList.LastOrDefault()!;
+
+            var content = new AppointNumbersContent(url, arrangeWater);
             content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 
@@ -46,7 +51,7 @@ namespace Baohe.search.numbers
             {
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
             }
-            var numbers = AnalizeResult(result);
+            var numbers = AnalizeResult(result, arrangeWater);
 
             if (isPrintLog)
             {
@@ -54,9 +59,13 @@ namespace Baohe.search.numbers
             }
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)
+        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, Dictionary<string, object> arrangeWater)
         {
             var numbers = JsonAnalysis.JsonToDicList(jsonElement);
+            foreach (var number in numbers)
+            {
+                number.AddOrUpdate("arrangeWater", arrangeWater);
+            }
             BaoheSession.AddMiaoSession(Constant.Numbers, numbers);
 
             return numbers;

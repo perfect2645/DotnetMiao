@@ -24,8 +24,8 @@ namespace Utils.datetime
             {
                 return true;
             }
-            var d1 = new DateTime(darr1[0].ToInt(), darr1[1].ToInt(), darr1[2].ToInt());
-            var d2 = new DateTime(darr2[0].ToInt(), darr2[1].ToInt(), darr2[2].ToInt());
+            var d1 = new DateTime(darr1[0].ToInt(), darr1[1].ToInt(), darr1[2].Substring(0, 2).ToInt());
+            var d2 = new DateTime(darr2[0].ToInt(), darr2[1].ToInt(), darr2[2].Substring(0, 2).ToInt());
 
             return d1 >= d2;
         }

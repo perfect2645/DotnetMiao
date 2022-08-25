@@ -1,4 +1,5 @@
 ﻿using Baohe.constants;
+using System.Collections;
 using System.Collections.Generic;
 using Utils.stringBuilder;
 
@@ -53,9 +54,12 @@ namespace Baohe.appointment
 
         public void FillContent(session.MiaoSession miaoSession)
         {
-            MiaoInfo = new Dictionary<string, object>();
+            MiaoInfo = (miaoSession["Numbers"] as IList)[Index] as Dictionary<string, object>;
+            NumberSn = MiaoInfo["NumberSN"].NotNullString();
+            Content.MiaoInfo = MiaoInfo;
+            Content.FillContent();
 
-            Appoint();
+            //Appoint();
         }
 
         #endregion BuildContent

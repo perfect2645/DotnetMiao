@@ -18,11 +18,21 @@ namespace Baohe.session
             }
         }
 
-        public static Dictionary<string, object> GetAvailableArrangeWater()
+        public static List<Dictionary<string, object>> GetAvailableArrangeWater()
         {
             var arrangeWaterList = BaoheSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
-            var availableWater = arrangeWaterList?.FirstOrDefault(x => x["OverTime"].NotNullString().ToLong() == 0
-                && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString()));
+            var availableWater = arrangeWaterList?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
+            && x["availablenum"].NotNullString().ToLong() > 0
+                && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
+
+            return availableWater;
+        }
+
+        public static List<Dictionary<string, object>> GetAvailableArrangeWater(List<Dictionary<string, object>> originalWaters)
+        {
+            var availableWater = originalWaters?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
+            && x["availablenum"].NotNullString().ToLong() > 0
+                && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
 
             return availableWater;
         }

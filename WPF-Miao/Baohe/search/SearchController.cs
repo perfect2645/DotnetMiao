@@ -9,7 +9,9 @@ using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Utils;
@@ -58,7 +60,7 @@ namespace Baohe.search
 
             foreach (var member in memberList)
             {
-                for(var i = 0; i < 2; i++)
+                for(var i = 0; i < 100; i++)
                 {
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);
@@ -69,7 +71,11 @@ namespace Baohe.search
         private void BuildMiaoOrder()
         {
             var orders = BaoheSession.OrderSession.GetOrders();
-
+            var numberCount = (BaoheSession.MiaoSession["Numbers"] as IList).Count;
+            if (orders.Count > numberCount)
+            {
+                orders = orders.Take(numberCount).ToList();
+            }
             foreach (var order in orders)
             {
                 order.FillContent(BaoheSession.MiaoSession);
