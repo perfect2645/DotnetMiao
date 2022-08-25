@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Utils.stringBuilder;
 
 namespace Baohe.appointment
 {
@@ -53,6 +54,9 @@ namespace Baohe.appointment
 
         private void Appointment(object? sender, OrderArgs e)
         {
+            var key = sender.NotNullString();
+            BaoheSession.PrintLogEvent.Publish(this, $"开始预约：key : {key}");
+
             var content = e.Content;
             content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());

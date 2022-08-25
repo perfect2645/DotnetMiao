@@ -17,6 +17,16 @@ namespace Base.Events
             PrintLogEvent?.Invoke(sender, e);
         }
 
+        public void Publish(object? sender, string message)
+        {
+            var e = new LogEventArgs
+            {
+                Items = new Dictionary<string, object>(),
+                Message = message ?? sender.GetType().Name,
+            };
+            PrintLogEvent?.Invoke(sender, e);
+        }
+
         public void Publish(object? sender, Dictionary<string, object> args, string message = null)
         {
             var e = new LogEventArgs

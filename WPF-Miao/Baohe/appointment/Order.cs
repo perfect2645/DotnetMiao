@@ -68,12 +68,15 @@ namespace Baohe.appointment
 
         private void Appoint()
         {
-            if (Status == OrderStatus.Pending)
+            if (Status != OrderStatus.Pending)
             {
-                Status = OrderStatus.Running;
+                return;
                 // publish to appointmentcontroller
             }
+            Status = OrderStatus.Running;
 
+            var orderArgs = new OrderArgs(OrderKey, Content);
+            OrderEvent.Publish(OrderKey, orderArgs);
         }
 
         #endregion Appointment

@@ -1,6 +1,7 @@
 ﻿using Base.Events;
 using System;
 using System.Text;
+using Utils;
 
 namespace Base.logging
 {
@@ -29,6 +30,11 @@ namespace Base.logging
             if (e?.Items == null && string.IsNullOrWhiteSpace(e.Message))
             {
                 return;
+            }
+
+            if (!e.Items.HasItem() && !string.IsNullOrWhiteSpace(e.Message))
+            {
+                PrintLog(writeLogAction, e.Message);
             }
 
             var title = string.IsNullOrWhiteSpace(e.Message) ? string.Empty : e.Message;

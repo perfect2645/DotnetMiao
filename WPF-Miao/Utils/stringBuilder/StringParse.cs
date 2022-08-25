@@ -20,7 +20,7 @@
             return Convert.ToInt32(str);
         }
 
-        public static string NotNullString(this object source)
+        public static string NotNullString(this object? source)
         {
             var strSource = source?.ToString();
             return strSource ?? string.Empty;
