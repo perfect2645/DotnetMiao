@@ -19,12 +19,12 @@ namespace Baohe.search.ArrangeWater
         {
         }
 
-        public Task GetArrangeWaterAsync(bool isPrintLog = false)
+        public Task<bool> GetArrangeWaterAsync(bool isPrintLog = false)
         {
             return Task.Factory.StartNew(() => GetArrangeWater(isPrintLog));
         }
 
-        private void GetArrangeWater(bool isPrintLog = false)
+        private bool GetArrangeWater(bool isPrintLog = false)
         {
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
@@ -52,6 +52,8 @@ namespace Baohe.search.ArrangeWater
             {
                 BaoheSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
             }
+
+            return true;
         }
 
         private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)

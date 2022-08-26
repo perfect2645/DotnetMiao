@@ -14,19 +14,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Timers;
 using Utils;
 
 namespace Baohe.search
 {
     internal class SearchController : HttpClientBase
     {
+
+        public Timer AutoRunTimer { get; set; }
+
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
+            InitAuoRunTimer();
+        }
 
-            
+        private void InitAuoRunTimer()
+        {
+            AutoRunTimer.Enabled = false;
+            AutoRunTimer.Interval = 10000;
+
+            AutoRunTimer.AutoReset = true;
+
+            AutoRunTimer.Elapsed += new System.Timers.ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
         }
 
         internal async Task SearchAllAsync(ISessionItem sessionItem)
+        {
+            await SearchUserInfo(sessionItem);
+
+            await SearchMiaoInfo();
+
+            //BuildMiaoOrder();
+        }
+
+        #region AutoRun
+
+        internal async Task AutoSearchAsync(ISessionItem sessionItem)
+        {
+            await SearchUserInfo(sessionItem);
+
+            //await SearchMiaoInfo();
+            AutoRunTimer.Start();
+
+            BuildMiaoOrder();
+        }
+
+        private async void AutoRunTimer_ElapsedAsync(object? sender, ElapsedEventArgs e)
+        {
+            await SearchMiaoInfo();
+        }
+
+        #endregion AutoRun
+
+
+
+        private static async Task SearchMiaoInfo()
+        {
+            var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+            await arrangeWater.GetArrangeWaterAsync(true);
+
+            var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+            await appointNumbers.GetNumbersAsync(true);
+        }
+
+        private async Task SearchUserInfo(ISessionItem sessionItem)
         {
             var authController = HttpServiceController.GetService<AuthController>();
             authController.GetCookieAdvance(sessionItem.Cookie);
@@ -37,18 +89,10 @@ namespace Baohe.search
             var doctorContr = HttpServiceController.GetService<DoctorController>();
             await doctorContr.GetDoctorListAsync();
 
-            BuildMemberOrder(userInfoContr.MemberList);
-
             //var liudiao = HttpServiceController.GetService<LiudiaoController>();
             //await liudiao.LiudiaoAsync(sessionItem);
 
-            var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-            await arrangeWater.GetArrangeWaterAsync(true);
-
-            var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-            await appointNumbers.GetNumbersAsync(true);
-
-            BuildMiaoOrder();
+            BuildMemberOrder(userInfoContr.MemberList);
         }
 
         private void BuildMemberOrder(List<Dictionary<string, object>> memberList)

@@ -135,6 +135,27 @@ namespace Baohe.viewModel
 
         private void ExecuteAutoRun()
         {
+            Task.Factory.StartNew(async () =>
+            {
+                await AutoRunAsync();
+            });
+        }
+
+        private async Task AutoRunAsync()
+        {
+            try
+            {
+                var searchController = HttpServiceController.GetService<SearchController>();
+                await searchController.SearchAllAsync(SessionItem);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
         #endregion AutoRun
