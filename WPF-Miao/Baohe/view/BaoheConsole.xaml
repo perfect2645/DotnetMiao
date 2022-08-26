@@ -17,6 +17,9 @@
                 <Button Content="约"
                     Command="{Binding AppointmentCommand}" Width="100" Margin="50, 0">
                 </Button>
+                <Button Content="自动查约"
+                    Command="{Binding AutoRunCommand}" Width="100" Margin="50, 0">
+                </Button>
             </StackPanel>
         </basePage:BaseConsole.ButtonArea>
     </basePage:BaseConsole>

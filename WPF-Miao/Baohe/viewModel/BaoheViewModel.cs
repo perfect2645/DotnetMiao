@@ -28,6 +28,8 @@ namespace Baohe.viewModel
         public ICommand AppointmentCommand { get; set; }
         public ICommand SearchCommand { get; set; }
 
+        public ICommand AutoRunCommand { get; set; }
+
         #endregion Properties
 
         #region Constructor
@@ -75,6 +77,9 @@ namespace Baohe.viewModel
         {
             AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
+
+            AutoRunCommand = new DelegateCommand(ExecuteAutoRun);
+
             SessionEvents.Instance.Subscribe(LogSession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
@@ -125,6 +130,14 @@ namespace Baohe.viewModel
         }
 
         #endregion Search
+
+        #region AutoRun
+
+        private void ExecuteAutoRun()
+        {
+        }
+
+        #endregion AutoRun
 
         #region Session
 
