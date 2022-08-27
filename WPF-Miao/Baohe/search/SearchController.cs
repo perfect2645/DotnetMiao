@@ -5,9 +5,7 @@ using Baohe.search.doctor;
 using Baohe.search.numbers;
 using Baohe.search.user;
 using Baohe.session;
-using Base.logging;
 using Base.viewModel;
-using CoreControl.LogConsole;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
@@ -16,10 +14,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using Utils;
 using Utils.datetime;
+using Timer = System.Timers.Timer;
 
 namespace Baohe.search
 {
@@ -156,7 +156,7 @@ namespace Baohe.search
 
             foreach (var member in memberList)
             {
-                for(var i = 0; i < 1; i++)
+                for(var i = 0; i < 2; i++)
                 {
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);
@@ -175,10 +175,12 @@ namespace Baohe.search
             {
                 orders = orders.Take(numberCount).ToList();
             }
-            Parallel.ForEach(orders, (order) =>
+
+            foreach(var order in orders)
             {
                 order.FillContent(BaoheSession.MiaoSession);
-            });
+                Thread.Sleep(2000);
+            }
         }
     }
 }
