@@ -11,6 +11,11 @@ namespace Utils.datetime
             return tsStr;
         }
 
+        public static string GetNow()
+        {
+            return DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff");
+        }
+
         public static bool IsEqualOrGreaterDate(string str1, string str2, string spliter = "-")
         {
             var darr1 = str1?.Split(spliter);

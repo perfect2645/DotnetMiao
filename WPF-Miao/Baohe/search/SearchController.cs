@@ -19,6 +19,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Timers;
 using Utils;
+using Utils.datetime;
 
 namespace Baohe.search
 {
@@ -34,6 +35,8 @@ namespace Baohe.search
 
         public Timer AutoRunTimer { get; set; }
 
+        private readonly object OrderLock = new object();
+
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
             InitAuoRunTimer();
@@ -43,11 +46,11 @@ namespace Baohe.search
         {
             AutoRunTimer = new Timer();
             AutoRunTimer.Enabled = false;
-            AutoRunTimer.Interval = 10000;
+            AutoRunTimer.Interval = 100;
 
             AutoRunTimer.AutoReset = true;
 
-            AutoRunTimer.Elapsed += new System.Timers.ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
+            AutoRunTimer.Elapsed += new ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
         }
 
         internal async Task SearchAllAsync(ISessionItem sessionItem)
@@ -76,7 +79,7 @@ namespace Baohe.search
                 if (SearchStatus == SearchStatus.NumbersGet)
                 {
                     AutoRunTimer.Stop();
-                    BuildMiaoOrder();
+                    return;
                 }
                 await SearchMiaoInfo();
             }
@@ -99,7 +102,7 @@ namespace Baohe.search
             if (SearchStatus == SearchStatus.Start)
             {
                 var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-                var isWaterGet = await arrangeWater.GetArrangeWaterAsync(true);
+                var isWaterGet = await arrangeWater.GetArrangeWaterAsync();
                 if (isWaterGet)
                 {
                     SearchStatus = SearchStatus.WaterGet;
@@ -109,10 +112,20 @@ namespace Baohe.search
             if (SearchStatus == SearchStatus.WaterGet)
             {
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                var isNumbersGet = await appointNumbers.GetNumbersAsync(true);
-                if (isNumbersGet)
+                var isNumbersGet = await appointNumbers.GetNumbersAsync();
+                BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}, Time = {DateTimeUtil.GetNow()}");
+                lock (OrderLock)
                 {
-                    SearchStatus = SearchStatus.NumbersGet;
+                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet)
+                    {
+                        SearchStatus = SearchStatus.NumbersGet;
+
+                        lock (OrderLock)
+                        {
+                            BaoheSession.PrintLogEvent.Publish(this, $"SearchStatus={SearchStatus}, Time = {DateTimeUtil.GetNow()}");
+                            BuildMiaoOrder();
+                        }
+                    }
                 }
             }
         }
@@ -155,6 +168,9 @@ namespace Baohe.search
         {
             var orders = BaoheSession.OrderSession.GetOrders();
             var numberCount = (BaoheSession.MiaoSession["Numbers"] as IList).Count;
+
+            var appContr = HttpServiceController.GetService<AppointmentController>();
+
             if (orders.Count > numberCount)
             {
                 orders = orders.Take(numberCount).ToList();
