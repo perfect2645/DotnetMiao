@@ -143,19 +143,8 @@ namespace Baohe.viewModel
 
         private async Task AutoRunAsync()
         {
-            try
-            {
-                var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAllAsync(SessionItem);
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
+            var searchController = HttpServiceController.GetService<SearchController>();
+            await searchController.AutoSearchAsync(SessionItem);
         }
 
         #endregion AutoRun

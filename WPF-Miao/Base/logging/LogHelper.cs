@@ -35,6 +35,7 @@ namespace Base.logging
             if (!e.Items.HasItem() && !string.IsNullOrWhiteSpace(e.Message))
             {
                 PrintLog(writeLogAction, e.Message);
+                return;
             }
 
             var title = string.IsNullOrWhiteSpace(e.Message) ? string.Empty : e.Message;

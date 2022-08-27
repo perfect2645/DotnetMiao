@@ -20,12 +20,12 @@ namespace Baohe.search.numbers
         {
         }
 
-        public Task GetNumbersAsync(bool isPrintLog = false)
+        public Task<bool> GetNumbersAsync(bool isPrintLog = false)
         {
             return Task.Factory.StartNew(() => GetNumbers(isPrintLog));
         }
 
-        private void GetNumbers(bool isPrintLog = false)
+        private bool GetNumbers(bool isPrintLog = false)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
 
@@ -51,12 +51,15 @@ namespace Baohe.search.numbers
             {
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
             }
+
             var numbers = AnalizeResult(result, arrangeWater);
 
             if (isPrintLog)
             {
                 BaoheSession.PrintLogEvent.Publish(this, numbers, "Numbers");
             }
+
+            return true;
         }
 
         private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, Dictionary<string, object> arrangeWater)

@@ -5,9 +5,12 @@ using Baohe.search.doctor;
 using Baohe.search.numbers;
 using Baohe.search.user;
 using Baohe.session;
+using Base.logging;
 using Base.viewModel;
+using CoreControl.LogConsole;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
+using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,8 +22,15 @@ using Utils;
 
 namespace Baohe.search
 {
+    internal enum SearchStatus
+    {
+        Start,
+        WaterGet,
+        NumbersGet,
+    }
     internal class SearchController : HttpClientBase
     {
+        private SearchStatus SearchStatus { get; set; }
 
         public Timer AutoRunTimer { get; set; }
 
@@ -31,6 +41,7 @@ namespace Baohe.search
 
         private void InitAuoRunTimer()
         {
+            AutoRunTimer = new Timer();
             AutoRunTimer.Enabled = false;
             AutoRunTimer.Interval = 10000;
 
@@ -56,26 +67,54 @@ namespace Baohe.search
 
             //await SearchMiaoInfo();
             AutoRunTimer.Start();
-
-            BuildMiaoOrder();
         }
 
         private async void AutoRunTimer_ElapsedAsync(object? sender, ElapsedEventArgs e)
         {
-            await SearchMiaoInfo();
+            try
+            {
+                if (SearchStatus == SearchStatus.NumbersGet)
+                {
+                    AutoRunTimer.Stop();
+                    BuildMiaoOrder();
+                }
+                await SearchMiaoInfo();
+            }
+            catch (HttpException ex)
+            {
+                BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+            }
         }
 
         #endregion AutoRun
 
 
 
-        private static async Task SearchMiaoInfo()
+        private async Task SearchMiaoInfo()
         {
-            var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-            await arrangeWater.GetArrangeWaterAsync(true);
+            if (SearchStatus == SearchStatus.Start)
+            {
+                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+                var isWaterGet = await arrangeWater.GetArrangeWaterAsync(true);
+                if (isWaterGet)
+                {
+                    SearchStatus = SearchStatus.WaterGet;
+                }
+            }
 
-            var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-            await appointNumbers.GetNumbersAsync(true);
+            if (SearchStatus == SearchStatus.WaterGet)
+            {
+                var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+                var isNumbersGet = await appointNumbers.GetNumbersAsync(true);
+                if (isNumbersGet)
+                {
+                    SearchStatus = SearchStatus.NumbersGet;
+                }
+            }
         }
 
         private async Task SearchUserInfo(ISessionItem sessionItem)
@@ -104,7 +143,7 @@ namespace Baohe.search
 
             foreach (var member in memberList)
             {
-                for(var i = 0; i < 100; i++)
+                for(var i = 0; i < 1; i++)
                 {
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);

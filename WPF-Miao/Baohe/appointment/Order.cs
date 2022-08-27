@@ -59,7 +59,7 @@ namespace Baohe.appointment
             Content.MiaoInfo = MiaoInfo;
             Content.FillContent();
 
-            //Appoint();
+            Appoint();
         }
 
         #endregion BuildContent
@@ -71,7 +71,6 @@ namespace Baohe.appointment
             if (Status != OrderStatus.Pending)
             {
                 return;
-                // publish to appointmentcontroller
             }
             Status = OrderStatus.Running;
 
