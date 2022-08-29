@@ -179,7 +179,7 @@ namespace Baohe.search
             foreach(var order in orders)
             {
                 order.FillContent(BaoheSession.MiaoSession);
-                Thread.Sleep(2000);
+                Thread.Sleep(3000);
             }
         }
     }
