@@ -78,7 +78,9 @@ namespace Baohe.search
             {
                 if (SearchStatus == SearchStatus.NumbersGet)
                 {
+                    BaoheSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}, Time = {DateTimeUtil.GetNow()}");
                     AutoRunTimer.Stop();
+
                     return;
                 }
                 await SearchMiaoInfo();
@@ -122,7 +124,6 @@ namespace Baohe.search
 
                         lock (OrderLock)
                         {
-                            BaoheSession.PrintLogEvent.Publish(this, $"SearchStatus={SearchStatus}, Time = {DateTimeUtil.GetNow()}");
                             BuildMiaoOrder();
                         }
                     }
@@ -156,7 +157,7 @@ namespace Baohe.search
 
             foreach (var member in memberList)
             {
-                for(var i = 0; i < 2; i++)
+                for(var i = 0; i < 10; i++)
                 {
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);
@@ -170,13 +171,12 @@ namespace Baohe.search
             var numberCount = (BaoheSession.MiaoSession["Numbers"] as IList).Count;
 
             var appContr = HttpServiceController.GetService<AppointmentController>();
-
             if (orders.Count > numberCount)
             {
                 orders = orders.Take(numberCount).ToList();
             }
 
-            foreach(var order in orders)
+            foreach (var order in orders)
             {
                 order.FillContent(BaoheSession.MiaoSession);
                 Thread.Sleep(3000);

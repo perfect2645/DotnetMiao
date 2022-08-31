@@ -25,6 +25,8 @@ namespace Baohe.appointment
 
         public void AppointmentAsync(object? sender, OrderArgs e)
         {
+            var key = sender.NotNullString();
+            
             Task.Factory.StartNew(() => 
             {
                 try
