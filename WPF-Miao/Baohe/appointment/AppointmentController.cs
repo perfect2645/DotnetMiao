@@ -20,32 +20,26 @@ namespace Baohe.appointment
     {
         public AppointmentController(HttpClient httpClient) : base(httpClient)
         {
-            OrderEvent.Subscribe(Appointment);
+            OrderEvent.Subscribe(AppointmentAsync);
         }
 
-        public Task AppointmentAsync(ISessionItem sessionItem)
+        public void AppointmentAsync(object? sender, OrderArgs e)
         {
-            return Task.Factory.StartNew(() => Appointment(sessionItem));
-        }
-
-        public void Appointment(ISessionItem sessionItem)
-        {
-            
-/*            var content = new AppointmentContent();
-            content.AddHeader("Cookie", sessionItem.Cookie);
-            content.AddHeader("Referer", sessionItem.Referer);
-
-            content.BuildDefaultHeaders(Client);
-
-            HttpDicResponse userInfo = PostStringAsync(content).Result;
-            var userid = userInfo.Body.FirstOrDefault(x => x.Key == Constant.accountSn).Value?.ToString();
-            if (userid == null || userid == "0")
+            Task.Factory.StartNew(() => 
             {
-                throw new HttpException($"{Constant.ProjectName}:{content.RequestUrl} has issue", Constant.accountSn);
-            }
-            sessionItem.Key = userid;
-            BaoheSession.AddMiaoSession(userInfo.Body);
-            sessionItem.PrintLogEvent.Publish(this, userInfo.Body);*/
+                try
+                {
+                    Appointment(sender, e);
+                }
+                catch (HttpException ex)
+                {
+                    BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+                }
+            });
         }
 
         private void ParseAppointmentResult(HttpResponseMessage response)

@@ -51,14 +51,14 @@ namespace Baohe.appointment
 
                 var appContr = HttpServiceController.GetService<AppointmentController>();
 
-                try
-                {
-                    appContr.AppointmentAsync(SessionItem).Wait();
-                }
-                catch (AggregateException ex)
-                {
-                    Logging.GLog.Logger.Error(ex);
-                }
+                //try
+                //{
+                //    appContr.AppointmentAsync(SessionItem).Wait();
+                //}
+                //catch (AggregateException ex)
+                //{
+                //    Logging.GLog.Logger.Error(ex);
+                //}
             });
         }
     }
