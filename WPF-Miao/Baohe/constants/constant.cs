@@ -51,6 +51,7 @@
 
         public const string MemberList = "MemberList";
         public const string Liudiao = "Liudiao";
+        public const string Phone = "Phone";
 
         #endregion User
 

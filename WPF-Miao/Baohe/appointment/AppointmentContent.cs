@@ -60,7 +60,7 @@ namespace Baohe.appointment
 
             DoctorOrder.AddOrUpdate("memberSn", MemberInfo["Membersn"]);
             DoctorOrder.AddOrUpdate("memberName", MemberInfo["Cname"]);
-            DoctorOrder.AddOrUpdate("memberPhone", MemberInfo["Phone"]);
+            DoctorOrder.AddOrUpdate("memberPhone", MemberInfo[Constant.Phone]);
             DoctorOrder.AddOrUpdate("memberAddress", MemberInfo["Familyaddress"]);
             DoctorOrder.AddOrUpdate("memberBirthday", MemberInfo["Birthday"]);
             DoctorOrder.AddOrUpdate("memberSex", MemberInfo["Sex"]);
