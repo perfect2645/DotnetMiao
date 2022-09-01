@@ -31,3 +31,6 @@ Set-Cookie: TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=C600554136584217A36C13CF9683F
 Location: https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9000370&hospitalId=1040231&time=1660406734
 Content-Length: 0
 
+
+https://weixinauth.yihu.com/?m=wxauth&c=wxauth&tourl=https://mcenter.yihu.com/UserCenter/web/index/index.html?platformType=9001026&sourceId=0&sourceType=0&_channel_id=9001026&code=083tF5000Hl8rO1dvi200wrX0T1tF505&state=1
+https://weixinauth.yihu.com/?m=wxauth&c=wxauth&tourl=https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9001026&hospitalId=1047063&_channel_id=9001026&code=031hkZZv36UM8Z23VT1w38Mt6X0hkZZc&state=1
