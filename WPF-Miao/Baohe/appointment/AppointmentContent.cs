@@ -49,6 +49,8 @@ namespace Baohe.appointment
 
             AddContent("doctorRegOrder", DoctorOrder);
             AddContent("ghFormCon", GhFormConOrder);
+
+            AddContent("isread", "1");
         }
 
         private void BuildDefaultDoctorOrder()
@@ -104,7 +106,7 @@ namespace Baohe.appointment
 
             DoctorOrder.AddOrUpdate(Constant.LoginId, platformSesstion[Constant.Loginid]);
             DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
-            DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
+            //DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             DoctorOrder.AddOrUpdate("doctorOfficeName", "");
         }
 

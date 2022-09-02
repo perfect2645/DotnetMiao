@@ -56,7 +56,7 @@ namespace Baohe.viewModel
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
                 TargetAction = ExecuteSendYzmAsync,
-                ActionTime = ActionTime
+                ActionTime = date
             };
         }
 
