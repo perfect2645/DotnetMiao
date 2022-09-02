@@ -48,7 +48,8 @@ namespace Baohe.viewModel
 
         public VerifyCode(LogPanel logPanel) : base(logPanel)
         {
-            ActionTime = DateTime.Now.AddMinutes(1);
+            //ActionTime = DateTime.Now.AddMinutes(1);
+            var date = new DateTime(2022, 9, 2, 19, 58, 0);
 
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
             VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
