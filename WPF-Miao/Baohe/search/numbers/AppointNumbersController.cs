@@ -34,7 +34,7 @@ namespace Baohe.search.numbers
             var arrangeWater = arrangeWaterList.LastOrDefault()!;
 
             var content = new AppointNumbersContent(url, arrangeWater);
-            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);

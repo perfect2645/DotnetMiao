@@ -29,7 +29,7 @@ namespace Baohe.verification
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
             var content = new SendYzmContent(url);
-            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -48,7 +48,7 @@ namespace Baohe.verification
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/checkYzm";
             var content = new CheckYzmContent(url, yzm);
-            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);

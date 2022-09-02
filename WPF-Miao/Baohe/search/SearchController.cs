@@ -133,19 +133,31 @@ namespace Baohe.search
 
         private async Task SearchUserInfo(ISessionItem sessionItem)
         {
-            var authController = HttpServiceController.GetService<AuthController>();
-            authController.GetCookieAdvance(sessionItem.Cookie);
+            try
+            {
+                var authController = HttpServiceController.GetService<AuthController>();
+                authController.GetCookieAdvance(sessionItem.Cookie);
 
-            var userInfoContr = HttpServiceController.GetService<UserInfoController>();
-            await userInfoContr.GetUserInfoAsync();
+                var userInfoContr = HttpServiceController.GetService<UserInfoController>();
+                await userInfoContr.GetUserInfoAsync();
 
-            var doctorContr = HttpServiceController.GetService<DoctorController>();
-            await doctorContr.GetDoctorListAsync();
+                var doctorContr = HttpServiceController.GetService<DoctorController>();
+                await doctorContr.GetDoctorListAsync();
 
-            //var liudiao = HttpServiceController.GetService<LiudiaoController>();
-            //await liudiao.LiudiaoAsync(sessionItem);
+                //var liudiao = HttpServiceController.GetService<LiudiaoController>();
+                //await liudiao.LiudiaoAsync(sessionItem);
 
-            BuildMemberOrder(userInfoContr.MemberList);
+                BuildMemberOrder(userInfoContr.MemberList);
+            }
+            catch (HttpException ex)
+            {
+                BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+            }
+
         }
 
         private void BuildMemberOrder(List<Dictionary<string, object>> memberList)

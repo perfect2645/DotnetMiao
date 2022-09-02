@@ -139,6 +139,7 @@ namespace Baohe.viewModel
 
         private void ExecuteAutoRun()
         {
+            BaoheSession.Cookie = SessionItem.Cookie;
             Task.Factory.StartNew(async () =>
             {
                 await AutoRunAsync();

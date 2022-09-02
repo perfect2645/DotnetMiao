@@ -35,7 +35,7 @@ namespace Baohe.search.user
         {
             var url = "https://appoint.yihu.com/appoint/do/user/getUserInfo";
             var content = new UserInfoContent(url);
-            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -54,7 +54,7 @@ namespace Baohe.search.user
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getMemberList";
             var content = new MemberListContent(url);
-            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
