@@ -46,7 +46,7 @@ namespace Baohe.search
         {
             AutoRunTimer = new Timer();
             AutoRunTimer.Enabled = false;
-            AutoRunTimer.Interval = 100;
+            AutoRunTimer.Interval = 3000;
 
             AutoRunTimer.AutoReset = true;
 
