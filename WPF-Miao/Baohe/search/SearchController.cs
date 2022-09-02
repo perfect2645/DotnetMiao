@@ -55,8 +55,8 @@ namespace Baohe.search
 
             AutoRunTimer.Elapsed += new ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
 
-            var date = new DateTime(2022, 9, 2, 19, 59, 56);
-
+            //var date = new DateTime(2022, 9, 2, 19, 59, 56);
+            var date = DateTime.Now.AddMinutes(1);
             StartWaterSearchTimer = new ActionOnTime("开始查miao", 500)
             {
                 ActionTime = date,

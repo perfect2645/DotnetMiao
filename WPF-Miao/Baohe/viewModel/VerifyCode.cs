@@ -48,7 +48,7 @@ namespace Baohe.viewModel
 
         public VerifyCode(LogPanel logPanel) : base(logPanel)
         {
-            //ActionTime = DateTime.Now.AddMinutes(1);
+            //var date = DateTime.Now.AddMinutes(1);
             var date = new DateTime(2022, 9, 2, 19, 59, 0);
 
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
@@ -82,8 +82,19 @@ namespace Baohe.viewModel
         }
         private async void ExecuteVerifyYzmAsync()
         {
-            var yzmController = HttpServiceController.GetService<YzmController>();
-            await yzmController.CheckYzmAsync(Yzm);
+            try
+            {
+                var yzmController = HttpServiceController.GetService<YzmController>();
+                await yzmController.CheckYzmAsync(Yzm);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
         #endregion 验证码
