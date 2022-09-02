@@ -26,7 +26,7 @@ namespace Baohe.search.doctor
         {
             var url = "https://appoint.yihu.com/appoint/do/doctor/getDocListByDeptId";
             var content = new DoctorContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);

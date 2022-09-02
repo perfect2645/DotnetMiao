@@ -5,7 +5,6 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
-using System.Timers;
 using System.Windows.Input;
 using Utils.timerUtil;
 
@@ -16,6 +15,8 @@ namespace Baohe.viewModel
         #region Properties
 
         public ICommand SendYzmCommand { get; set; }
+
+        public ICommand VerifyYzmCommand { get; set; }
 
         public ActionOnTime SendYzmTimer { get; set; }
 
@@ -30,13 +31,27 @@ namespace Baohe.viewModel
             }
         }
 
+        private string yzm;
+        public string Yzm
+        {
+            get { return yzm; }
+            set
+            {
+                yzm = value;
+                NotifyUI(() => Yzm);
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
 
         public VerifyCode(LogPanel logPanel) : base(logPanel)
         {
+            ActionTime = DateTime.Now.AddMinutes(1);
+
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
+            VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
                 TargetAction = ExecuteSendYzmAsync,
@@ -63,6 +78,11 @@ namespace Baohe.viewModel
             {
                 Log(ex);
             }
+        }
+        private async void ExecuteVerifyYzmAsync()
+        {
+            var yzmController = HttpServiceController.GetService<YzmController>();
+            await yzmController.CheckYzmAsync(Yzm);
         }
 
         #endregion 验证码

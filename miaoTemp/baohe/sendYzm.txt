@@ -1,0 +1,29 @@
+POST https://appoint.yihu.com/appoint/do/registerAuth/sendYzm HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 35
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBZb196X1RaVmRGRzE4V0l4MjRkSTVJIiwiU2VjU3RyIjoiMUFFQ0FGQkUxMDA3MkYzNzUwMEMxMjdDMjJFQjc5MDIifQ%3D%3D; logintype=62; loginid=o8e_80Yo_z_TZVdFG18WIx24dI5I; OpenID=o8e_80Yo_z_TZVdFG18WIx24dI5I; LoginChannel=9001026; TOKEN_FF92E02EA4CF7703D9822F4F8653931A=CD65CE0480E0410E98DA89C89CAD3D5F; _YyghSysTrackUUID=19122812629; jkzlAn_uuid=08212D24-6F80-476B-9345-61E89AA82CE6; jkzlAn_channelid=9001026; jkzlAn_userid=149169340; jkzlAn_p=-1; jkzlAn_c=-1; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDkxNjkzNDAiLCJDYXJkTnVtYmVyIjoiMjA3OTI3MjEwOSIsIkxvZ2luSWQiOiJvOGVfODBZb196X1RaVmRGRzE4V0l4MjRkSTVJIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4QkFEQzY5MUJCRUQ0QUY4MDJBRjFGMzQxNTU0MjAzMiJ9; jkzlAn_sid=C3F99B72-E68C-4227-BF44-D8764F28A8C3; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1660910414222
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9001026&hospitalId=1047063&deptId=7229244&doctorSn=711188785&arrangeId=160450472&utm_source=0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+tel=16217009341&accountSn=149169340
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 19 Aug 2022 12:03:41 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 48
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":10000,"Message":"验证码下发成功"}

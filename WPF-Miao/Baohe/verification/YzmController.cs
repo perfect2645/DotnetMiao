@@ -20,16 +20,21 @@ namespace Baohe.verification
             return Task.Factory.StartNew(() => SendYzm());
         }
 
+        public Task CheckYzmAsync(string yzm)
+        {
+            return Task.Factory.StartNew(() => CheckYzm(yzm));
+        }
+
         private void SendYzm()
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
             var content = new SendYzmContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", content.BuildCookie());
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
 
-            HttpDicResponse response = PostStringAsync(content).Result;
+            HttpDicResponse response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
@@ -37,6 +42,25 @@ namespace Baohe.verification
             }
 
             BaoheSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}, Time = {DateTimeUtil.GetNow()}");
+        }
+
+        private void CheckYzm(string yzm)
+        {
+            var url = "https://appoint.yihu.com/appoint/do/registerAuth/checkYzm";
+            var content = new CheckYzmContent(url, yzm);
+            content.AddHeader("Cookie", content.BuildCookie());
+            content.AddHeader("Referer", content.BuildReferer());
+
+            content.BuildDefaultHeaders(Client);
+
+            HttpDicResponse response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            if (code == null || code != "10000")
+            {
+                throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "check Yzm");
+            }
+
+            BaoheSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}, Time = {DateTimeUtil.GetNow()}");
         }
     }
 }

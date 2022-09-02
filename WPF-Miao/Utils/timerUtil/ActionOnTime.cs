@@ -25,6 +25,7 @@ namespace Utils.timerUtil
         {
             if (e.SignalTime > ActionTime)
             {
+                OnTimeTimer.Stop();
                 Logging.GLog.Logger.Info($"{Name} Action tick");
                 TargetAction?.Invoke();
             }

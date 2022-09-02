@@ -2,18 +2,20 @@
 using Baohe.constants;
 using Baohe.session;
 using System.Collections.Generic;
-using Utils;
 using Utils.stringBuilder;
 
 namespace Baohe.verification
 {
-    internal class SendYzmContent : ContentBase
+    internal class CheckYzmContent : ContentBase
     {
         public string Tel { get; private set; }
+        public string Yzm { get; private set; }
 
-        public SendYzmContent(string url) : base(url)
+        public CheckYzmContent(string url, string yzm) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
+
+            Yzm = yzm;
             BuildContent();
         }
 
@@ -25,6 +27,7 @@ namespace Baohe.verification
             Tel = userDetail[0][Constant.Phone].NotNullString();
 
             Content.Add("tel", Tel);
+            Content.Add("yzmCode", Yzm);
             Content.Add(Constant.accountSn, accountSn);
         }
 
