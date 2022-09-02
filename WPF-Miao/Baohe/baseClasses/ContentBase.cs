@@ -12,7 +12,6 @@ namespace Baohe.baseClasses
 {
     internal class ContentBase : HttpStringContent
     {
-
         public ContentBase(string url) : base(url)
         {
         }

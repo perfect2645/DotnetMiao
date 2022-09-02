@@ -1,17 +1,14 @@
 ﻿using Baohe.baseClasses;
 using Baohe.constants;
 using Baohe.session;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utils.stringBuilder;
 
 namespace Baohe.verification
 {
     internal class SendYzmContent : ContentBase
     {
+        public string Tel { get; private set; }
+
         public SendYzmContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
@@ -21,11 +18,10 @@ namespace Baohe.verification
         private void BuildContent()
         {
             var accountSn = BaoheSession.UserSession[Constant.accountSn].NotNullString();
-            var tel = BaoheSession.UserSession[Constant.Phone].NotNullString();
+            Tel = BaoheSession.UserSession[Constant.Phone].NotNullString();
 
-            Content.Add(Constant.DoctorSn, targetDoctor[Constant.DoctorSn]);
-            Content.Add(Constant.HospitalId, BaoheSession.PlatformSesstion[Constant.HospitalId]);
-            Content.Add("channelId", BaoheSession.PlatformSesstion[Constant.LoginChannel]);
+            Content.Add("tel", Tel);
+            Content.Add(Constant.accountSn, accountSn);
         }
 
         public string BuildReferer()

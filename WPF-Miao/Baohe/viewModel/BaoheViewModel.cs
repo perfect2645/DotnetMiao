@@ -3,6 +3,7 @@ using Baohe.constants;
 using Baohe.search;
 using Baohe.search.auth;
 using Baohe.session;
+using Baohe.verification;
 using Baohe.viewModel.platform;
 using Base.Events;
 using Base.viewModel;
@@ -30,12 +31,15 @@ namespace Baohe.viewModel
 
         public ICommand AutoRunCommand { get; set; }
 
+        public VerifyCode VerifyCode { get; set; }
+
         #endregion Properties
 
         #region Constructor
 
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
+            VerifyCode = new VerifyCode(logPanel);
             InitStaticData();
             InitCommands();
             BaoheSession.PrintLogEvent = PrintLogEvent;
@@ -173,5 +177,6 @@ namespace Baohe.viewModel
         }
 
         #endregion Hospital Dept
+
     }
 }
