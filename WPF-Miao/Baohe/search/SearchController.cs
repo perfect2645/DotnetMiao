@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using Utils;
 using Utils.datetime;
+using Utils.timerUtil;
 using Timer = System.Timers.Timer;
 
 namespace Baohe.search
@@ -34,6 +35,8 @@ namespace Baohe.search
         private SearchStatus SearchStatus { get; set; }
 
         public Timer AutoRunTimer { get; set; }
+
+        public ActionOnTime StartWaterSearchTimer { get; set; }
 
         private readonly object OrderLock = new object();
 
@@ -51,6 +54,16 @@ namespace Baohe.search
             AutoRunTimer.AutoReset = true;
 
             AutoRunTimer.Elapsed += new ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
+
+            var date = new DateTime(2022, 9, 2, 19, 59, 56);
+            StartWaterSearchTimer = new ActionOnTime("开始查miao", 500)
+            {
+                ActionTime = date,
+                TargetAction = () =>
+                {
+                    AutoRunTimer.Start();
+                },
+            };
         }
 
         internal async Task SearchAllAsync(ISessionItem sessionItem)
@@ -69,7 +82,7 @@ namespace Baohe.search
             await SearchUserInfo(sessionItem);
 
             //await SearchMiaoInfo();
-            AutoRunTimer.Start();
+
         }
 
         private async void AutoRunTimer_ElapsedAsync(object? sender, ElapsedEventArgs e)
