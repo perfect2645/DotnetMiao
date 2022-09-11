@@ -1,4 +1,5 @@
-﻿using HttpProcessor.Request;
+﻿using HttpProcessor.Content;
+using HttpProcessor.Request;
 using Logging;
 
 namespace HttpProcessor.Client
@@ -20,7 +21,9 @@ namespace HttpProcessor.Client
             Client = httpClient;
         }
 
-        public virtual async Task<HttpDicResponse> SearchAsync(HttpClientContentBase content)
+        #region Search
+
+        public virtual async Task<HttpDicResponse> SearchAsync(HttpMessageContent content)
         {
             try
             {
@@ -48,7 +51,7 @@ namespace HttpProcessor.Client
             }
         }
 
-        public virtual void Search(HttpClientContentBase content, Action<HttpDicResponse> callback)
+        public virtual void Search(HttpMessageContent content, Action<HttpDicResponse> callback)
         {
             try
             {
@@ -59,5 +62,62 @@ namespace HttpProcessor.Client
                 GLog.Logger.Error("Search Failed", ex);
             }
         }
+
+        #endregion Search
+
+        #region Get
+
+        public virtual async Task<string> GetStringAsync(HttpStringContent content)
+        {
+            try
+            {
+                return await Client.GetStringAsync(content.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("GetStringAsync Failed", ex);
+                return null;
+            }
+        }
+
+        public virtual async Task<Stream> GetStreamAsync(HttpStringContent content)
+        {
+            try
+            {
+                return await Client.GetStreamAsync(content.RequestUrl);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("GetStringAsync Failed", ex);
+                return null;
+            }
+        }
+
+        #endregion Get
+
+        #region Post String
+
+        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, ContentType contentType = ContentType.Json)
+        {
+            try
+            {
+                if (contentType == ContentType.String)
+                {
+                    return await Client.PostStringAsync(content);
+                }
+                if (contentType == ContentType.Encode)
+                {
+                    return await Client.PostRichEncodeAsync(content);
+                }
+                return await Client.PostJsonAsync(content);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return null;
+            }
+        }
+
+        #endregion Post String
     }
 }

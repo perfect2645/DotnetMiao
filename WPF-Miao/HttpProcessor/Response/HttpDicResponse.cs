@@ -85,31 +85,21 @@ namespace HttpProcessor.Client
 
         private string BuildBodyFromGzip(HttpContent httpContent)
         {
-            //var contentStream = httpContent.ReadAsStreamAsync().Result;
-            //return Gzip.Decompress(contentStream);
-            var resString = httpContent.ReadAsStringAsync().Result;
-            return resString;
+            var contentStream = httpContent.ReadAsStreamAsync().Result;
+            return Gzip.Decompress(contentStream);
+            //var resString = httpContent.ReadAsStringAsync().Result;
+            //return resString;
         }
 
         #endregion Body
 
-        #region Status
+        #region Log
 
-        public virtual void SetStatus(ushort status)
-        {
-            StatusCode = status;
-        }
-
-        public virtual void SetMessage(string msg)
-        {
-            Message = msg;
-        }
-
-        private void SetStatus()
+        public void LogBody()
         {
 
         }
 
-        #endregion Status
+        #endregion Log
     }
 }

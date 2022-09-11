@@ -1,0 +1,40 @@
+﻿<Page x:Class="Baohe.view.BaoheConsole"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:basePage="clr-namespace:Base.view;assembly=Base"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="BaoheConsole"
+      x:Name="BaohePage">
+
+    <basePage:BaseConsole x:Name="baseConsole"
+                          Title="{Binding Title}"
+                          HospitalDeptList="{Binding Departments}"
+                          SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
+        <basePage:BaseConsole.ButtonArea>
+            <StackPanel Orientation="Horizontal">
+                    <Button Content="查" Margin="0,0,10,0"
+                    Command="{Binding SearchCommand}" Width="100">
+                </Button>
+                <!--<Button Content="约"
+                    Command="{Binding AppointmentCommand}" Width="100" Margin="50, 0">
+                </Button>-->
+                <Button Content="自动查约"
+                    Command="{Binding AutoRunCommand}" Width="100" >
+                </Button>
+                <!--<Button Content="手动验证码"
+                    Command="{Binding VerifyCode.SendYzmCommand}" Width="100" Margin="50, 0">
+                </Button>-->
+                <TextBox
+                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Width="100"
+                      materialDesign:HintAssist.Hint="验证码"
+                      Text="{Binding VerifyCode.Yzm}"
+                      Margin="8 0 0 0"
+                      VerticalAlignment="Bottom" />
+                <Button Content="验证"
+                        Command="{Binding VerifyCode.VerifyYzmCommand}" Width="100">
+                </Button>
+            </StackPanel>
+        </basePage:BaseConsole.ButtonArea>
+    </basePage:BaseConsole>
+</Page>

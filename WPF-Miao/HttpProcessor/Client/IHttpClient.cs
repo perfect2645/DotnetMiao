@@ -1,8 +1,10 @@
-﻿namespace HttpProcessor.Client
+﻿using HttpProcessor.Content;
+
+namespace HttpProcessor.Client
 {
     public interface IHttpClient
     {
-        Task<HttpDicResponse> SearchAsync(HttpClientContentBase content);
-        void Search(HttpClientContentBase content, Action<HttpDicResponse> callback);
+        Task<HttpDicResponse> SearchAsync(HttpMessageContent content);
+        void Search(HttpMessageContent content, Action<HttpDicResponse> callback);
     }
 }

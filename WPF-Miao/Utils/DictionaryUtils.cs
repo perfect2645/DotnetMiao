@@ -1,4 +1,7 @@
-﻿namespace Utils
+﻿using System.Text.Json;
+using Utils.json;
+
+namespace Utils
 {
     public static class DictionaryUtils
     {
@@ -28,6 +31,24 @@
             {
                 dic.AddOrUpdate(pair.Key, pair.Value);
             }
+        }
+
+
+        public static string ToJson(this Dictionary<string, object> dic)
+        {
+            var json = JsonSerializer.Serialize(dic, JsonEncoder.JsonOption);
+
+            return json;
+        }
+
+        public static bool HasItem(this Dictionary<string, object> dic)
+        {
+            if (dic == null)
+            {
+                return false;
+            }
+
+            return dic.Count > 0;
         }
     }
 }

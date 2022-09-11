@@ -11,4 +11,11 @@
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="styles\ControlStyles.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

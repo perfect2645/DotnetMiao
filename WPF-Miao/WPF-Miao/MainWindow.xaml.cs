@@ -1,14 +1,10 @@
 ﻿using HttpProcessor.Container;
 using Logging;
-using Microsoft.Extensions.DependencyInjection;
 using Prism.Regions;
 using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Windows;
 using WPF_Miao.Platform;
 using WPF_Miao.Platform.DianYiTong.Hospital;
-using WPF_Miao.Platform.Submit;
 
 namespace WPF_Miao
 {

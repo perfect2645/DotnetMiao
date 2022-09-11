@@ -1,8 +1,8 @@
-﻿using HttpProcessor.Client;
+﻿using HttpProcessor.Content;
 
 namespace WPF_Miao.Platform.DianYiTong.Hospital
 {
-    internal class HospitalSummaryContent : HttpClientContentBase
+    internal class HospitalSummaryContent : HttpMessageContent
     {
         public HospitalSummaryContent(string requestUrl) : base(requestUrl)
         {

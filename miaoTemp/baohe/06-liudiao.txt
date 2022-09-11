@@ -1,0 +1,35 @@
+POST https://fycombat.yihu.com/AHForm/doRegHFSSNGWSYEpidemic HTTP/1.1
+Host: fycombat.yihu.com
+Connection: keep-alive
+Content-Length: 242
+Accept: */*
+Origin: https://fycombat.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307001e)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiU2VjU3RyIjoiQjQwQTEzOTVGQjI1RkQ2MzRDRDkyNjA2MkM2M0UxQTUifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=od0AjwJ0eodDYYA4pUfDRUCIIm8E; OpenID=od0AjwJ0eodDYYA4pUfDRUCIIm8E; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000370; TOKEN_28BF437073E3440D653DCFCFB15BCD93=FB6065A93DCE43DDA6A5168BACD7D72B; _YyghSysTrackUUID=11095502857; jkzlAn_uuid=CFA1F5AA-ED7D-414B-900E-67982A6F03D0; jkzlAn_sid=EA68A416-CF97-4024-BA52-7F1910B06ED9; jkzlAn_channelid=9000370; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZDBBandKMGVvZERZWUE0cFVmRFJVQ0lJbThFIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4MEI0RUFEN0NDOTY1M0YxQkQ1MjVBM0VGNEM5MkNGRCJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=C600554136584217A36C13CF9683F91E; PHPSESSID=dh0fsfl1jfmt7tj4c40esmhb70; YIHU_SCALE_myAccessToken=C600554136584217A36C13CF9683F91E; jkzlAn_userid=C5E4A1359B42420CA64C3CCAF3BF017C; jkzlAn_ct=1660183326860; YIHU_SCALE_my_user_info20200212=snmlra59dqqzdHevsX7Zm4-5gcubZY2onaiyqYLPoM6yibVqr41-Z7OEf22tn92bj5R52pN3bGSbua6gnM56m66fra2vs5xls6p7abGws5uCpX3Um2Sbo5vN0J-Cz6DOx2e1rbKQpWa5mnikxmi4d424n6OHenmJk822h4-6f6-4jJRqs4x-pq-ejLK-jrCBj7lkzYKcppyCy9udnb1_0cig0KGqo6Sct6qMfrJ7q6qD3IiWipyIrIemrauKlXaXs3qxsLJpg3W4moR7tqCnqoSSgMqFdYGmm5TIpJvRg5rIfLmfsKJ-ZbOZf6uto6ycj5SJ25xjiamalLqpgs-gzravva2ufYpktHR7srKgu2aEpnzZh2J8rYfNsayGlX-stIm9aq5pjmizhYuhsHmwY5mUidqOeZ-pnamcnYjOes6xeK6sxICLqLmHh6Gzn7CokKZ1o5qgm36Gqbqqk6qDv7yKqWbEf4uguHaAjrVm0nyYtpungpuunJ2p0J6al4eVrp_Tn7CNdqqzdINrsXyeqYPNgNqGdpBmi6bMeobPepWyebZ8so2deLh0j7C1obx5haZ02Yt2fKuHta2ngtNz1MdnmaKqo6Scs4SDbbJ6p2aFtpaShpyMnJ-zoXE
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://fycombat.yihu.com/AHForm/HFSSNGWSYEpidemic?channelId=9000370&tourl=https%3A%2F%2Fappoint.yihu.com%2Fappoint%2Fregister%2FregisterOrder.html%3FplatformType%3D9000370%26hospitalId%3D1040231%26deptId%3D7175975%26doctorSn%3D710869460%26arrangeId%3D160023903%26utm_source%3D0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+userName=%E5%88%98%E6%8C%AF%E5%AE%87&phone=13921684652&cardNum=110101200003105689&cardType=1&question1=2&question2=2&question3=2&question4=2&question5=2&question6=2&question7=2&question8=2&channelId=9000370&sceneId=&isGuahao=&fmId=hfssqngzwsy
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 11 Aug 2022 02:13:50 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Accept-Encoding
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Set-Cookie: YIHU_SCALE_my_user_info20200212=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=.yihu.com
+Set-Cookie: YIHU_SCALE_my_user_info20200212=snmlra59dqqzdHevsX7Zm4-5gcubZY2onaiyqYLPoM6yibVqr41-Z7OEf22tn92bj5R52pN3bGSbua6gnM56m66fra2vs5xls6p7abGws5uCpX3Um2Sbo5vN0J-Cz6DOx2e1rbKQpWa5mnikxmi4d424n6OHenmJk822h4-6f6-4jJRqs4x-pq-ejLK-jrCBj7lkzYKcppyCy9udnb1_0cig0KGqo6Sct6qMfrJ7q6qD3IiWipyIrIemrauKlXaXs3qxsLJpg3W4moR7tqCnqoSSgMqFdYGmm5TIpJvRg5rIfLmfsKJ-ZbOZf6uto6ycj5SJ25xjiamalLqpgs-gzravva2ufYpktHR7srKgu2aEpnzZh2J8rYfNsayGlX-stIm9aq5pjmizhYuhsHmwY5mUidqOeZ-pnamcnYjOes6xeK6sxICLqLmHh6Gzn7CokKZ1o5qgm36Gqbqqk6qDv7yKqWbEf4uguHaAjrVm0nyYtpungpuunJ2p0J6al4eVrp_Tn7CNdqqzdINrsXyeqYPNgNqGdpBmi6bMeobPepWyebZ8so2deLh0j7C1obx5haZ02Yt2fKuHta2ngtNz1MdnmaKqo6Scs4SDbbJ6p2aFtpaShpyMnJ-zoXE; expires=Fri, 22-Mar-2075 04:23:10 GMT; Max-Age=1660270295; path=/; domain=.yihu.com
+Set-Cookie: YIHU_SCALE_my_auth_count=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=.yihu.com
+Set-Cookie: YIHU_SCALE_myAccessToken=C600554136584217A36C13CF9683F91E; path=/; domain=.yihu.com
+Content-Length: 83
+
+{"Code":10000,"Message":"\u6210\u529f","Result":"8f1adb4a37e143a885d53db93f803eeb"}

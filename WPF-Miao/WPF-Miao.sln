@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF-Miao", "WPF-Miao\WPF-Miao.csproj", "{954668F3-0F17-4972-8CC0-C698D61BE27D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessModel", "ProcessModel\ProcessModel.csproj", "{6CEE080D-B710-4C2D-AD1D-37BFAC2CAB3B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpProcessor", "HttpProcessor\HttpProcessor.csproj", "{051FEC86-45FC-476F-AB31-63F7EF72D004}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1CE4233A-2EBB-42E8-A81A-DF0A7B07DA9F}"
@@ -26,7 +24,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dian", "Dian\Dian.csproj", "{54885459-C14E-43BE-90A5-0EB716F7743B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{58851B8E-310F-43F9-BCCD-BF1BE3231352}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Base", "Base\Base.csproj", "{58851B8E-310F-43F9-BCCD-BF1BE3231352}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Baohe", "Baohe\Baohe.csproj", "{01A64344-C6CD-44CB-A7D7-61909421C034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{C625F37B-CE98-49CB-88DF-20D8842BDC49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,10 +40,6 @@ Global
 		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{954668F3-0F17-4972-8CC0-C698D61BE27D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CEE080D-B710-4C2D-AD1D-37BFAC2CAB3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CEE080D-B710-4C2D-AD1D-37BFAC2CAB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CEE080D-B710-4C2D-AD1D-37BFAC2CAB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CEE080D-B710-4C2D-AD1D-37BFAC2CAB3B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{051FEC86-45FC-476F-AB31-63F7EF72D004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{051FEC86-45FC-476F-AB31-63F7EF72D004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{051FEC86-45FC-476F-AB31-63F7EF72D004}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,6 +68,14 @@ Global
 		{58851B8E-310F-43F9-BCCD-BF1BE3231352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58851B8E-310F-43F9-BCCD-BF1BE3231352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58851B8E-310F-43F9-BCCD-BF1BE3231352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A64344-C6CD-44CB-A7D7-61909421C034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A64344-C6CD-44CB-A7D7-61909421C034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A64344-C6CD-44CB-A7D7-61909421C034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A64344-C6CD-44CB-A7D7-61909421C034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C625F37B-CE98-49CB-88DF-20D8842BDC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C625F37B-CE98-49CB-88DF-20D8842BDC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C625F37B-CE98-49CB-88DF-20D8842BDC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C625F37B-CE98-49CB-88DF-20D8842BDC49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{54885459-C14E-43BE-90A5-0EB716F7743B} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
 		{58851B8E-310F-43F9-BCCD-BF1BE3231352} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
+		{01A64344-C6CD-44CB-A7D7-61909421C034} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FC287EB-182A-4A4F-82F9-E99E0CCAEFE2}

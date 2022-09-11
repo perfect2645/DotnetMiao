@@ -54,7 +54,7 @@ namespace Dian.viewModel
 
         #region Constructor
 
-        public DianConsoleViewModel(LogPanel logPanel, ISessionItem sessionItem)
+        public DianConsoleViewModel(LogPanel logPanel, ISessionItem sessionItem) : base(logPanel)
         {
             SessionItem = sessionItem;
             LogPanel = logPanel;

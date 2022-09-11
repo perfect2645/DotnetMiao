@@ -1,0 +1,12 @@
+https: //weixinauth.yihu.com/?m=wxauth&c=wxauth&tourl=https%3A%2F%2Fappoint.yihu.com%2Fappoint%2Fhospital%2FghDeptList.html%3FplatformType%3D9000370%26hospitalId%3D1040231%26_channel_id%3D9000370&code=061dEEkl2yBlH9484vol2f6fx23dEEkW&state=1 HTTP/1.1
+
+Location: https: //appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=9000370&hospitalId=1040231&time=1660367594
+
+
+platforms: [
+    {
+        "platformType": "9000370",
+        "hospitalId": "1040231",
+        "platformName": "合肥市蜀山区南岗镇卫生院",
+    }
+]
