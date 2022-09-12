@@ -23,7 +23,6 @@ namespace Baohe.viewModel
 
         public ICommand AutoRunCommand { get; set; }
 
-        public VerifyCode VerifyCode { get; set; }
 
         #endregion Properties
 
@@ -31,7 +30,6 @@ namespace Baohe.viewModel
 
         public Jk160ViewModel(LogPanel logPanel) : base(logPanel)
         {
-            VerifyCode = new VerifyCode(logPanel);
             InitStaticData();
             InitCommands();
             BaoheSession.PrintLogEvent = PrintLogEvent;
