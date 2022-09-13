@@ -1,11 +1,11 @@
 ﻿using Base.Events;
-using Jk160.session;
+using Base.session;
 using System.Collections.Generic;
 using Utils;
 
 namespace Jk160.session
 {
-    public static class Jk160Session
+    public class Jk160Session : ISessionContainer
     {
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
