@@ -1,5 +1,5 @@
 ﻿using Baohe.constants;
-using Base.viewModel;
+using Baohe.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
@@ -7,7 +7,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
 using Utils.json;
 
 namespace Baohe.search.Liudiao
@@ -18,16 +17,16 @@ namespace Baohe.search.Liudiao
         {
         }
 
-        public Task LiudiaoAsync(ISessionItem sessionItem)
+        public Task LiudiaoAsync()
         {
-            return Task.Factory.StartNew(() => Liudiao(sessionItem));
+            return Task.Factory.StartNew(() => Liudiao());
         }
 
-        private void Liudiao(ISessionItem sessionItem)
+        private void Liudiao()
         {
             var url = "https://fycombat.yihu.com/AHForm/doRegHFSSNGWSYEpidemic";
-            var content = new LiudiaoContent(url, sessionItem);
-            content.AddHeader("Cookie", sessionItem.Cookie);
+            var content = new LiudiaoContent(url);
+            content.AddHeader("Cookie", BaoheSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -44,15 +43,15 @@ namespace Baohe.search.Liudiao
             {
                 throw new HttpException($"{Constant.ProjectName}:Liudiao-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result, sessionItem);
+            AnalizeResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement, ISessionItem sessionItem)
+        private void AnalizeResult(JsonElement jsonElement)
         {
             var result = JsonAnalysis.JsonToDicList(jsonElement);
-            sessionItem.SessionDic.AddOrUpdate(Constant.Liudiao, result);
+            BaoheSession.AddUserSession(Constant.Liudiao, result);
 
-            sessionItem.PrintLogEvent.Publish(this, result, "Liudiao");
+            BaoheSession.PrintLogEvent.Publish(this, result, "Liudiao");
         }
     }
 }

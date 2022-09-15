@@ -37,16 +37,9 @@ namespace Baohe.session
             return availableWater;
         }
 
-        public static Dictionary<string, object> GetDefaultNumber(ISessionItem sessionItem)
+        public static Dictionary<string, object> GetDefaultMember()
         {
-            var result = sessionItem.SessionDic[Constant.Numbers] as List<Dictionary<string, object>>;
-
-            return result?.LastOrDefault();
-        }
-
-        public static Dictionary<string, object> GetDefaultMember(ISessionItem sessionItem)
-        {
-            var result = sessionItem.SessionDic[Constant.MemberList] as List<Dictionary<string, object>>;
+            var result = BaoheSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
 
             return result?.FirstOrDefault();
         }

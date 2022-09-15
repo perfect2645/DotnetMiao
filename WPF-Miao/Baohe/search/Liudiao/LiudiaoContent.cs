@@ -1,25 +1,16 @@
 ﻿using Baohe.baseClasses;
 using Baohe.constants;
 using Baohe.session;
-using Base.viewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using Utils.datetime;
 
 namespace Baohe.search.Liudiao
 {
     internal class LiudiaoContent : ContentBase
     {
-        public ISessionItem SessionItem { get; }
-
-        public LiudiaoContent(string url, ISessionItem sessionItem) : base(url)
+        public LiudiaoContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
-            SessionItem = sessionItem;
             BuildContent();
         }
 
@@ -30,10 +21,10 @@ namespace Baohe.search.Liudiao
 
         private void BuildContent()
         {
-            var member = SessionBuilder.GetDefaultMember(SessionItem);
+            var member = SessionBuilder.GetDefaultMember();
             AddContent("userName", member["Cname"]);
             AddContent("phone", member["Phone"]);
-            AddContent("cardNum", SessionItem.SessionDic["cardNumber"]);
+            AddContent("cardNum", member["cardNumber"]);
             AddContent("cardType", "1");
             AddContent("question1", "2");
             AddContent("question2", "2");
