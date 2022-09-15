@@ -1,4 +1,6 @@
-﻿using Baohe.verification;
+﻿using Baohe.constants;
+using Baohe.session;
+using Baohe.verification;
 using Base.viewModel;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -48,15 +50,16 @@ namespace Baohe.viewModel
 
         public VerifyCode(LogPanel logPanel) : base(logPanel)
         {
-            //var date = DateTime.Now.AddMinutes(1);
-            var date = new DateTime(2022, 9, 15, 21, 59, 0);
+            var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            startTime = startTime.AddMinutes(-1);
+            //var date = new DateTime(2022, 9, 15, 21, 59, 0);
 
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
             VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
                 TargetAction = ExecuteSendYzmAsync,
-                ActionTime = date
+                ActionTime = startTime
             };
         }
 
