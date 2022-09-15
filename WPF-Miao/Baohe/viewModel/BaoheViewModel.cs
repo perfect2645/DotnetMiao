@@ -33,6 +33,18 @@ namespace Baohe.viewModel
 
         public VerifyCode VerifyCode { get; set; }
 
+        private string _retId;
+        public string RetId
+        {
+            get { return _retId; }
+            set
+            {
+                _retId = value;
+                BaoheSession.PlatformSesstion.AddOrUpdate(Constant.RetId, value);
+                NotifyUI(() => RetId);
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -60,12 +72,15 @@ namespace Baohe.viewModel
 
             Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
                 "1040231", "蜀山区南岗镇卫生院",
+                "7211892", "四价Hpv"));
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
                 "7211903", "九价Hpv"));
 
             Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
                 "1040231", "蜀山区南岗镇卫生院",
                 "7175975", "(测试)儿童保健科"));
-
 
             InitPlatformSession();
         }

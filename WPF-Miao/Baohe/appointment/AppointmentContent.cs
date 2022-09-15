@@ -49,8 +49,6 @@ namespace Baohe.appointment
 
             AddContent("doctorRegOrder", DoctorOrder);
             AddContent("ghFormCon", GhFormConOrder);
-
-            AddContent("isread", "1");
         }
 
         private void BuildDefaultDoctorOrder()
@@ -108,6 +106,8 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
             //DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             DoctorOrder.AddOrUpdate("doctorOfficeName", "");
+            DoctorOrder.AddOrUpdate("isread", "1");
+            DoctorOrder.AddOrUpdate("retid", platformSesstion[Constant.RetId]);
         }
 
         private void BuildDefaultGhFormCon()
@@ -118,12 +118,14 @@ namespace Baohe.appointment
             GhFormConOrder.Add(BuildGhFormConItem("", "name"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Cliniccard"], "ClinicCard"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Idcard"], "CardNo"));
+            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Birthday"], "birthday"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Sex"], "sex"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Phone"], "mobile"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Identitytype"], "cardtype"));
             GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
             GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
             GhFormConOrder.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));
+            GhFormConOrder.Add(BuildGhFormConItem("1", "isread"));
         }
 
         private void BuildNumberDoctorOrder()
@@ -148,98 +150,6 @@ namespace Baohe.appointment
         private void BuildNumberGhFormCon()
         {
 
-        }
-
-/*        private Dictionary<string, object> BuildDoctorOrder()
-        {
-            var platformSesstion = BaoheSession.PlatformSesstion;
-            var arrangeWater = SessionBuilder.GetAvailableArrangeWater();
-            var member = SessionBuilder.GetDefaultMember(Session);
-            var doctorInfo = SessionBuilder.GetDefaultDoctor();
-
-
-            var DoctorOrder = new Dictionary<string, object>();
-            DoctorOrder.AddOrUpdate(Constant.WaterId, defaultNumber["NumberSN"].ToString()!.ToLong());
-            DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"第{defaultNumber["SerialNo"]}号 {defaultNumber["CommendScope"]}");
-            DoctorOrder.AddOrUpdate("store", "");
-            DoctorOrder.AddOrUpdate("serialNo", defaultNumber["SerialNo"]);
-            DoctorOrder.AddOrUpdate("memberSn", member["Membersn"]);
-            DoctorOrder.AddOrUpdate("memberName", member["Cname"]);
-            DoctorOrder.AddOrUpdate("memberPhone", member["Phone"]);
-            DoctorOrder.AddOrUpdate("memberAddress", member["Familyaddress"]);
-            DoctorOrder.AddOrUpdate("memberBirthday", member["Birthday"]);
-            DoctorOrder.AddOrUpdate("memberSex", member["Sex"]);
-            DoctorOrder.AddOrUpdate("memberId", member["Memberid"]);
-            DoctorOrder.AddOrUpdate("othercard", member["Othercard"]);
-            DoctorOrder.AddOrUpdate("guardianmembersn", member["Guardianmembersn"]);
-            DoctorOrder.AddOrUpdate("identitytype", member["Identitytype"]);
-            DoctorOrder.AddOrUpdate("memberZhengjianid", member["Zhengjianid"]);
-            DoctorOrder.AddOrUpdate("memberIdcard", member["Idcard"]);
-            DoctorOrder.AddOrUpdate("accManageGoodSn", null);
-            DoctorOrder.AddOrUpdate("regpaytype", "");
-            DoctorOrder.AddOrUpdate("cliniccard", member["Cliniccard"]);
-            DoctorOrder.AddOrUpdate("applyNo", "");
-            DoctorOrder.AddOrUpdate("mobile", member["Phone"]);
-            DoctorOrder.AddOrUpdate(Constant.DoctorSn, defaultNumber["DoctorSN"]);
-            DoctorOrder.AddOrUpdate("hosDeptId", platformSesstion[Constant.DeptId]);
-            DoctorOrder.AddOrUpdate("hosDeptName", arrangeWater["deptname"]);
-            DoctorOrder.AddOrUpdate("hospitalId", arrangeWater["hosid"]);
-            DoctorOrder.AddOrUpdate("hospitalName", arrangeWater["hosname"]);
-            DoctorOrder.AddOrUpdate("doctorService_gh", doctorInfo["doctorService_gh"]);
-            DoctorOrder.AddOrUpdate("doctorUid", doctorInfo["doctorUid"]);
-            DoctorOrder.AddOrUpdate("doctorName", doctorInfo["doctorName"]);
-            DoctorOrder.AddOrUpdate("doctorPic", "");
-            DoctorOrder.AddOrUpdate("doctorClinicName", doctorInfo["lczcName"]);
-            DoctorOrder.AddOrUpdate("GH_HosProId", "12");
-            DoctorOrder.AddOrUpdate("GH_HosProName", "安徽");
-            DoctorOrder.AddOrUpdate("GH_HosCityId", "101");
-            DoctorOrder.AddOrUpdate("GH_HosCityName", "合肥");
-            DoctorOrder.AddOrUpdate("registerDate", arrangeWater["registerdate"]);
-            DoctorOrder.AddOrUpdate("timeId", 1);
-            DoctorOrder.AddOrUpdate("arrangeId", defaultNumber["ArrangeID"].ToString()!.ToLong());
-            DoctorOrder.AddOrUpdate("ghAmount", 0);
-            DoctorOrder.AddOrUpdate("securityDeposit", 0);
-            DoctorOrder.AddOrUpdate("ghfeeway", 0);
-            DoctorOrder.AddOrUpdate("ModeId", 0);
-            DoctorOrder.AddOrUpdate("GhFee", 0);
-            DoctorOrder.AddOrUpdate("AllFee", 0);
-            DoctorOrder.AddOrUpdate("availablenum", arrangeWater["availablenum"].ToString()!.ToLong());
-            DoctorOrder.AddOrUpdate("UnOpened", false);
-            DoctorOrder.AddOrUpdate("FHTimes", arrangeWater["FHTimes"]);
-            DoctorOrder.AddOrUpdate("FHDays", arrangeWater["FHDays"]);
-            DoctorOrder.AddOrUpdate(Constant.AccountSn, sessionDic[Constant.AccountSn]);
-            DoctorOrder.AddOrUpdate("cardNumber", sessionDic["cardNumber"]);
-            DoctorOrder.AddOrUpdate(Constant.LoginId, sessionDic[Constant.LoginId]);
-            DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
-            DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
-            DoctorOrder.AddOrUpdate("doctorOfficeName", "");
-            //DoctorOrder.AddOrUpdate("retId", "8f1adb4a37e143a885d53db93f803eeb");
-            //DoctorOrder.AddOrUpdate("graphAuthCode", sessionDic["graphAuthCode"]);
-            
-
-            return DoctorOrder;
-        }*/
-
-        private List<Dictionary<string, object>> BuildGhFormCon()
-        {
-            var platformSesstion = BaoheSession.PlatformSesstion;
-            var doctorInfo = SessionBuilder.GetDefaultDoctor();
-
-            var ghFormCon = new List<Dictionary<string, object>>();
-
-            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Familyaddress"], "familyaddress"));
-            //ghFormCon.Add(BuildGhFormConItem(member["Cname"], "name"));
-            ghFormCon.Add(BuildGhFormConItem("", "name"));
-            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Cliniccard"], "ClinicCard"));
-            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Idcard"], "CardNo"));
-            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Sex"], "sex"));
-            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Phone"], "mobile"));
-            ghFormCon.Add(BuildGhFormConItem(MemberInfo["Identitytype"], "cardtype"));
-            ghFormCon.Add(BuildGhFormConItem("0", "cmb_disease"));
-            ghFormCon.Add(BuildGhFormConItem("0", "cmb_disease"));
-            ghFormCon.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));
-
-            return ghFormCon;
         }
 
         private Dictionary<string, object> BuildGhFormConItem(object keyValue, string keyName)

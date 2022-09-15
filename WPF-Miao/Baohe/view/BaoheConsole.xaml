@@ -11,10 +11,21 @@
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
-            <StackPanel CanVerticallyScroll="True">
+            <StackPanel CanVerticallyScroll="True" Background="#eee">
+                <TextBox Grid.Row="2"
+                    Text="{Binding RetId}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    Height="50"
+                    Margin="10"
+                    TextWrapping="Wrap"
+                    MaxLength="600"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="RetId"/>
                 <materialDesign:TimePicker Width="150" SelectedTime="{Binding StartTime}"
                     Style="{StaticResource MaterialDesignOutlinedTimePicker}"
                                            ToolTip="开始时间"
+                                           HorizontalAlignment="Left"
                                            materialDesign:HintAssist.Hint="开始时间"
                                            Margin="10"
                                            Is24Hours="True"/>
