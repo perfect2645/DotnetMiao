@@ -39,16 +39,15 @@ namespace Baohe.viewModel
 
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
-            VerifyCode = new VerifyCode(logPanel);
-            InitStaticData();
             InitCommands();
+            InitStaticData();
+            VerifyCode = new VerifyCode(logPanel);
             BaoheSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 9, 15, 22, 0, 0);
-
 
             Departments = new List<HospitalDept>();
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
@@ -124,6 +123,11 @@ namespace Baohe.viewModel
 
         #region Search
 
+        private void SetSearchTimers()
+        {
+            VerifyCode.SetTimer();
+        }
+
         private bool CanExecuteSearch()
         {
             return true;
@@ -135,6 +139,8 @@ namespace Baohe.viewModel
             {
                 BaoheSession.Cookie = SessionItem.Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
+                searchController.SetTimer();
+                SetSearchTimers();
                 await searchController.SearchAllAsync(SessionItem);
             }
             catch (HttpException ex)
@@ -163,6 +169,8 @@ namespace Baohe.viewModel
         private async Task AutoRunAsync()
         {
             var searchController = HttpServiceController.GetService<SearchController>();
+            searchController.SetTimer();
+            SetSearchTimers();
             await searchController.AutoSearchAsync(SessionItem);
         }
 

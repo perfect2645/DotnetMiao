@@ -50,22 +50,27 @@ namespace Baohe.viewModel
 
         public VerifyCode(LogPanel logPanel) : base(logPanel)
         {
+            SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
+            VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
+        }
+
+        #endregion Properties
+
+        #region 验证码
+
+        public void SetTimer()
+        {
             var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
             startTime = startTime.AddMinutes(-1);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
 
-            SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
-            VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
+
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
                 TargetAction = ExecuteSendYzmAsync,
                 ActionTime = startTime
             };
         }
-
-        #endregion Properties
-
-        #region 验证码
 
         private async void ExecuteSendYzmAsync()
         {

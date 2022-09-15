@@ -56,6 +56,10 @@ namespace Baohe.search
 
             AutoRunTimer.Elapsed += new ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
 
+        }
+
+        public void SetTimer()
+        {
             var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
             startTime = startTime.AddSeconds(-2);
 
