@@ -1,4 +1,5 @@
 ﻿using Baohe.appointment;
+using Baohe.constants;
 using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.search.doctor;
@@ -55,11 +56,14 @@ namespace Baohe.search
 
             AutoRunTimer.Elapsed += new ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
 
-            var date = new DateTime(2022, 9, 15, 21, 59, 58);
+            var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            startTime = startTime.AddSeconds(-2);
+
+            //var date = new DateTime(2022, 9, 15, 21, 59, 58);
             //var date = DateTime.Now.AddMinutes(1);
             StartWaterSearchTimer = new ActionOnTime("开始查miao", 500)
             {
-                ActionTime = date,
+                ActionTime = startTime,
                 TargetAction = () =>
                 {
                     AutoRunTimer.Start();

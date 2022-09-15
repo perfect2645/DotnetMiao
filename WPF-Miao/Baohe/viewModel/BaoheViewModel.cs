@@ -47,6 +47,9 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
+            StartTime = new DateTime(2022, 9, 15, 22, 0, 0);
+
+
             Departments = new List<HospitalDept>();
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
@@ -96,6 +99,7 @@ namespace Baohe.viewModel
             SessionEvents.Instance.Subscribe(LogSession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+            StartTimeChanged = new Action<DateTime?>(OnStartTimeChanged);
         }
 
         #endregion Constructor
@@ -188,6 +192,15 @@ namespace Baohe.viewModel
         }
 
         #endregion Hospital Dept
+
+        #region Start Time
+
+        private void OnStartTimeChanged(DateTime? selectedTime)
+        {
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.StartTime, selectedTime!);
+        }
+
+        #endregion Start Time
 
     }
 }

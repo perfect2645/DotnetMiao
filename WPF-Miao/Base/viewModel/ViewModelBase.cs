@@ -22,6 +22,8 @@ namespace Base.viewModel
 
         public Action SelectedDepartmentChanged { get; set; }
 
+        public Action<DateTime?> StartTimeChanged { get; set; }
+
         public LogEvents PrintLogEvent { get; set; }
 
         private string _title = "请先选择医院";
@@ -55,6 +57,22 @@ namespace Base.viewModel
                 _selectedDepartment = value;
                 NotifyUI(() => SelectedDepartment);
                 SelectedDepartmentChanged?.Invoke();
+            }
+        }
+
+        private DateTime? _startTime = DateTime.Now;
+        public DateTime? StartTime
+        {
+            get { return _startTime; }
+            set
+            {
+                if (value == _startTime)
+                {
+                    return;
+                }
+                _startTime = value;
+                StartTimeChanged?.Invoke(value);
+                NotifyUI(() => StartTime);
             }
         }
 

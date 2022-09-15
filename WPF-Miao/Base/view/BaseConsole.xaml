@@ -43,7 +43,7 @@
                     <RowDefinition Height="150" />
                     <RowDefinition Height="150" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="auto" MinHeight="100" />
                     <RowDefinition Height="300" />
                 </Grid.RowDefinitions>
                 <ComboBox
