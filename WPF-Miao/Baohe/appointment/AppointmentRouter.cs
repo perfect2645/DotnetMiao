@@ -1,6 +1,5 @@
 ﻿using Baohe.search.ArrangeWater;
 using Baohe.search.numbers;
-using Baohe.search.varifycode;
 using Base.viewModel;
 using HttpProcessor.Container;
 using System;
