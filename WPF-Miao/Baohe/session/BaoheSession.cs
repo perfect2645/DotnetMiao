@@ -1,6 +1,4 @@
-﻿using Baohe.constants;
-using Base.Events;
-using Base.viewModel;
+﻿using Base.Events;
 using System.Collections.Generic;
 using Utils;
 
@@ -12,7 +10,6 @@ namespace Baohe.session
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
         public static MiaoSession MiaoSession { get; private set; }
         public static UserSession UserSession { get; private set; }
-
         public static OrderSession OrderSession { get; private set; }
 
         public static LogEvents PrintLogEvent { get; set; }
