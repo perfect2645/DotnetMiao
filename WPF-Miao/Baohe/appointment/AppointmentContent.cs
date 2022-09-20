@@ -13,7 +13,6 @@ namespace Baohe.appointment
 {
     internal class AppointmentContent : ContentBase
     {
-
         public Dictionary<string, object> MemberInfo { get; set; }
 
         public Dictionary<string, object> MiaoInfo { get; set; }
