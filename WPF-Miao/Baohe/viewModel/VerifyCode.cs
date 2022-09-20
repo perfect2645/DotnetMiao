@@ -72,6 +72,11 @@ namespace Baohe.viewModel
             };
         }
 
+        public void StopTimer()
+        {
+            SendYzmTimer.StopTimer();
+        }
+
         private async void ExecuteSendYzmAsync()
         {
             try
@@ -81,10 +86,12 @@ namespace Baohe.viewModel
             }
             catch (HttpException ex)
             {
+                StopTimer();
                 Log(ex);
             }
             catch (Exception ex)
             {
+                StopTimer();
                 Log(ex);
             }
         }

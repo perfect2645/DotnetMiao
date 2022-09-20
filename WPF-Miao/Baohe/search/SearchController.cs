@@ -75,6 +75,11 @@ namespace Baohe.search
             };
         }
 
+        public void StopTimer()
+        {
+            AutoRunTimer.Stop();
+        }
+
         internal async Task SearchAllAsync(ISessionItem sessionItem)
         {
             await SearchUserInfo(sessionItem);
@@ -109,10 +114,12 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
@@ -173,13 +180,14 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
-
         }
 
         private void BuildMemberOrder(List<Dictionary<string, object>> memberList)

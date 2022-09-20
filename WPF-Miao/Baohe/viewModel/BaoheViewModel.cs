@@ -45,6 +45,8 @@ namespace Baohe.viewModel
             }
         }
 
+        private SearchController SearchController;
+
         #endregion Properties
 
         #region Constructor
@@ -140,7 +142,14 @@ namespace Baohe.viewModel
 
         private void SetSearchTimers()
         {
+            SearchController.SetTimer();
             VerifyCode.SetTimer();
+        }
+
+        private void StopSearchTimers()
+        {
+            SearchController.StopTimer();
+            VerifyCode.StopTimer();
         }
 
         private bool CanExecuteSearch()
@@ -153,17 +162,19 @@ namespace Baohe.viewModel
             try
             {
                 BaoheSession.Cookie = SessionItem.Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                searchController.SetTimer();
+                SearchController = HttpServiceController.GetService<SearchController>();
+                ;
                 SetSearchTimers();
-                await searchController.SearchAllAsync(SessionItem);
+                await SearchController.SearchAllAsync(SessionItem);
             }
             catch (HttpException ex)
             {
+                StopSearchTimers();
                 Log(ex);
             }
             catch (Exception ex)
             {
+                StopSearchTimers();
                 Log(ex);
             }
         }
@@ -183,10 +194,9 @@ namespace Baohe.viewModel
 
         private async Task AutoRunAsync()
         {
-            var searchController = HttpServiceController.GetService<SearchController>();
-            searchController.SetTimer();
+            SearchController = HttpServiceController.GetService<SearchController>();
             SetSearchTimers();
-            await searchController.AutoSearchAsync(SessionItem);
+            await SearchController.AutoSearchAsync(SessionItem);
         }
 
         #endregion AutoRun
