@@ -33,28 +33,60 @@ namespace Baohe.viewModel
 
         public VerifyCode VerifyCode { get; set; }
 
+        private string _retId;
+        public string RetId
+        {
+            get { return _retId; }
+            set
+            {
+                _retId = value;
+                BaoheSession.PlatformSesstion.AddOrUpdate(Constant.RetId, value);
+                NotifyUI(() => RetId);
+            }
+        }
+
+        private SearchController SearchController;
+
         #endregion Properties
 
         #region Constructor
 
         public BaoheViewModel(LogPanel logPanel) : base(logPanel)
         {
-            VerifyCode = new VerifyCode(logPanel);
-            InitStaticData();
             InitCommands();
+            InitStaticData();
+            VerifyCode = new VerifyCode(logPanel);
             BaoheSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
         {
+            StartTime = new DateTime(2022, 9, 15, 22, 0, 0);
+
             Departments = new List<HospitalDept>();
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
                 "7229244", "四价Hpv"));
+
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
                 "7209050", "(测试)儿童保健科"));
 
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7211892", "四价Hpv"));
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7211903", "九价Hpv"));
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7175975", "(测试)儿童保健科"));
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7215685", "(测试)国产二价"));
 
             InitPlatformSession();
         }
@@ -87,6 +119,7 @@ namespace Baohe.viewModel
             SessionEvents.Instance.Subscribe(LogSession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+            StartTimeChanged = new Action<DateTime?>(OnStartTimeChanged);
         }
 
         #endregion Constructor
@@ -111,6 +144,18 @@ namespace Baohe.viewModel
 
         #region Search
 
+        private void SetSearchTimers()
+        {
+            SearchController.SetTimer();
+            VerifyCode.SetTimer();
+        }
+
+        private void StopSearchTimers()
+        {
+            SearchController.StopTimer();
+            VerifyCode.StopTimer();
+        }
+
         private bool CanExecuteSearch()
         {
             return true;
@@ -120,15 +165,20 @@ namespace Baohe.viewModel
         {
             try
             {
-                var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAllAsync(SessionItem);
+                BaoheSession.Cookie = SessionItem.Cookie;
+                SearchController = HttpServiceController.GetService<SearchController>();
+                ;
+                SetSearchTimers();
+                await SearchController.SearchAllAsync(SessionItem);
             }
             catch (HttpException ex)
             {
+                StopSearchTimers();
                 Log(ex);
             }
             catch (Exception ex)
             {
+                StopSearchTimers();
                 Log(ex);
             }
         }
@@ -148,8 +198,9 @@ namespace Baohe.viewModel
 
         private async Task AutoRunAsync()
         {
-            var searchController = HttpServiceController.GetService<SearchController>();
-            await searchController.AutoSearchAsync(SessionItem);
+            SearchController = HttpServiceController.GetService<SearchController>();
+            SetSearchTimers();
+            await SearchController.AutoSearchAsync(SessionItem);
         }
 
         #endregion AutoRun
@@ -178,6 +229,15 @@ namespace Baohe.viewModel
         }
 
         #endregion Hospital Dept
+
+        #region Start Time
+
+        private void OnStartTimeChanged(DateTime? selectedTime)
+        {
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.StartTime, selectedTime!);
+        }
+
+        #endregion Start Time
 
     }
 }

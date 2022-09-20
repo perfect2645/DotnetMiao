@@ -11,30 +11,50 @@
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel CanVerticallyScroll="True" Background="#eee">
+                <TextBox Grid.Row="2"
+                    Text="{Binding RetId}"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    Height="50"
+                    Margin="10"
+                    TextWrapping="Wrap"
+                    MaxLength="600"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="RetId"/>
+                <materialDesign:TimePicker Width="150" SelectedTime="{Binding StartTime}"
+                    Style="{StaticResource MaterialDesignOutlinedTimePicker}"
+                                           ToolTip="开始时间"
+                                           HorizontalAlignment="Left"
+                                           materialDesign:HintAssist.Hint="开始时间"
+                                           Margin="10"
+                                           Is24Hours="True"/>
+                <StackPanel Orientation="Horizontal">
                     <Button Content="查" Margin="0,0,10,0"
                     Command="{Binding SearchCommand}" Width="100">
-                </Button>
-                <!--<Button Content="约"
+                    </Button>
+                    <!--<Button Content="约"
                     Command="{Binding AppointmentCommand}" Width="100" Margin="50, 0">
                 </Button>-->
-                <Button Content="自动查约"
+                    <Button Content="自动查约"
                     Command="{Binding AutoRunCommand}" Width="100" >
-                </Button>
-                <!--<Button Content="手动验证码"
+                    </Button>
+                    <!--<Button Content="手动验证码"
                     Command="{Binding VerifyCode.SendYzmCommand}" Width="100" Margin="50, 0">
                 </Button>-->
-                <TextBox
+                    <TextBox
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Width="100"
                       materialDesign:HintAssist.Hint="验证码"
                       Text="{Binding VerifyCode.Yzm}"
                       Margin="8 0 0 0"
                       VerticalAlignment="Bottom" />
-                <Button Content="验证"
+                    <Button Content="验证"
                         Command="{Binding VerifyCode.VerifyYzmCommand}" Width="100">
-                </Button>
+                    </Button>
+                </StackPanel>
             </StackPanel>
+
         </basePage:BaseConsole.ButtonArea>
     </basePage:BaseConsole>
 </Page>

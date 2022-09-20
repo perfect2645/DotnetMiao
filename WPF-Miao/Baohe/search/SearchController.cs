@@ -1,4 +1,5 @@
 ﻿using Baohe.appointment;
+using Baohe.constants;
 using Baohe.search.ArrangeWater;
 using Baohe.search.auth;
 using Baohe.search.doctor;
@@ -55,16 +56,28 @@ namespace Baohe.search
 
             AutoRunTimer.Elapsed += new ElapsedEventHandler(AutoRunTimer_ElapsedAsync);
 
-            //var date = new DateTime(2022, 9, 2, 19, 59, 56);
-            var date = DateTime.Now.AddMinutes(1);
+        }
+
+        public void SetTimer()
+        {
+            var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            startTime = startTime.AddSeconds(-2);
+
+            //var date = new DateTime(2022, 9, 15, 21, 59, 58);
+            //var date = DateTime.Now.AddMinutes(1);
             StartWaterSearchTimer = new ActionOnTime("开始查miao", 500)
             {
-                ActionTime = date,
+                ActionTime = startTime,
                 TargetAction = () =>
                 {
                     AutoRunTimer.Start();
                 },
             };
+        }
+
+        public void StopTimer()
+        {
+            AutoRunTimer.Stop();
         }
 
         internal async Task SearchAllAsync(ISessionItem sessionItem)
@@ -101,10 +114,12 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
@@ -165,13 +180,14 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
+                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
-
         }
 
         private void BuildMemberOrder(List<Dictionary<string, object>> memberList)

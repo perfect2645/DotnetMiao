@@ -6,7 +6,6 @@ using Baohe.search.doctor;
 using Baohe.search.Liudiao;
 using Baohe.search.numbers;
 using Baohe.search.user;
-using Baohe.search.varifycode;
 using Baohe.verification;
 using Base.container;
 using Base.viewModel;
@@ -46,12 +45,9 @@ namespace Baohe
             HttpServiceController.AddTransientService<SearchController>();
 
             HttpServiceController.AddTransientService<LiudiaoController>();
-            HttpServiceController.AddTransientService<GetVerifyCodeController>();
             
             HttpServiceController.AddTransientService<AppointmentController>();
             HttpServiceController.AddTransientService<YzmController>();
-            
-
 
             HttpServiceController.BuidServiceProvider();
         }

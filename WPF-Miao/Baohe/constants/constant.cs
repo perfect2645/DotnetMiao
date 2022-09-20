@@ -2,6 +2,8 @@
 {
     public static class Constant
     {
+        public const string StartTime = "StartTime";
+
         public const string ProjectName = "健康之路";
         public const string accountSn = "accountSn";
         public const string Accountsn = "Accountsn";
@@ -40,6 +42,7 @@
         public const string JkzlAn_userid = "jkzlAn_userid";
         public const string JkzlAn_ct = "jkzlAn_ct";
         public const string YIHU_SCALE_my_user_info20200212 = "YIHU_SCALE_my_user_info20200212";
+        public const string RetId = "retid";
 
         #region Doctor
         public const string DoctorList = "DoctorList";

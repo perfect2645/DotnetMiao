@@ -1,4 +1,5 @@
 ﻿using CoreControl.LogConsole;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Controls;

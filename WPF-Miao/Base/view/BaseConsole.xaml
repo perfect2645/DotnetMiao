@@ -41,10 +41,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="150" />
-                    <RowDefinition Height="150" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="300" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" MinHeight="200" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <ComboBox
                     x:Name="OutlinedComboBox"
@@ -73,7 +73,7 @@
                     Text="{Binding SessionItem.Referer}"
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     VerticalAlignment="Top"
-                    Height="100"
+                    Height="30"
                     Margin="5 10"
                     TextWrapping="Wrap"
                     MaxLength="600"
