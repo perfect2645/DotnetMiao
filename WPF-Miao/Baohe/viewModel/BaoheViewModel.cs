@@ -84,6 +84,10 @@ namespace Baohe.viewModel
                 "1040231", "蜀山区南岗镇卫生院",
                 "7175975", "(测试)儿童保健科"));
 
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7215685", "(测试)国产二价"));
+
             InitPlatformSession();
         }
 

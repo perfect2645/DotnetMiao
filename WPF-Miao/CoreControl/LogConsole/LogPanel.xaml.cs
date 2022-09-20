@@ -32,15 +32,12 @@ namespace CoreControl.LogConsole
         #region Write
         private void WriteLine(string text)
         {
-            lock(_lock)
+            Dispatcher.BeginInvoke(() =>
             {
-                Dispatcher.Invoke(() =>
-                {
-                    var paragraph = new Paragraph();
-                    paragraph.Inlines.Add(new Run(text));
-                    document.Blocks.Add(paragraph);
-                });
-            }
+                var paragraph = new Paragraph();
+                paragraph.Inlines.Add(new Run(text));
+                document.Blocks.Add(paragraph);
+            });
         }
 
         #endregion Write

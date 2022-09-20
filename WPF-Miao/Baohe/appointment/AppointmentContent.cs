@@ -107,7 +107,11 @@ namespace Baohe.appointment
             //DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             DoctorOrder.AddOrUpdate("doctorOfficeName", "");
             DoctorOrder.AddOrUpdate("isread", "1");
-            DoctorOrder.AddOrUpdate("retid", platformSesstion[Constant.RetId]);
+
+            if (platformSesstion.ContainsKey(Constant.RetId))
+            {
+                DoctorOrder.AddOrUpdate("retid", platformSesstion[Constant.RetId]);
+            }
         }
 
         private void BuildDefaultGhFormCon()
