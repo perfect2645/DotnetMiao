@@ -83,7 +83,7 @@ namespace Base.viewModel
         public ViewModelBase(LogPanel logPanel)
         {
             LogPanel = logPanel;
-            SessionItem = ContainerBase.ServiceProvider.GetService<ISessionItem>();
+            SessionItem = ContainerBase.ServiceProvider?.GetService<ISessionItem>();
             PrintLogEvent = new LogEvents();
             PrintLogEvent.Subscribe(PrintLog);
         }
