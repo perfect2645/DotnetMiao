@@ -1,4 +1,6 @@
-﻿using Base.Events;
+﻿using Baohe.constants;
+using Base.Events;
+using System;
 using System.Collections.Generic;
 using Utils;
 
@@ -54,5 +56,16 @@ namespace Baohe.session
         }
 
         #endregion AddOrUpdate
+
+        public static DateTime GetStartTime()
+        {
+            var stTime = DateTime.Now;
+            if (PlatformSesstion.ContainsKey(Constant.StartTime))
+            {
+                stTime = (PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            }
+
+            return stTime;
+        }
     }
 }

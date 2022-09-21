@@ -60,7 +60,7 @@ namespace Baohe.search
 
         public void SetTimer()
         {
-            var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            var startTime = BaoheSession.GetStartTime();
             startTime = startTime.AddSeconds(-2);
 
             //var date = new DateTime(2022, 9, 15, 21, 59, 58);
