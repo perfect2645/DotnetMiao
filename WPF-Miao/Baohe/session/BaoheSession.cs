@@ -1,6 +1,9 @@
-﻿using Base.Events;
+﻿using Baohe.constants;
+using Base.Events;
+using System;
 using System.Collections.Generic;
 using Utils;
+using Utils.stringBuilder;
 
 namespace Baohe.session
 {
@@ -54,5 +57,26 @@ namespace Baohe.session
         }
 
         #endregion AddOrUpdate
+
+        public static DateTime GetStartTime()
+        {
+            var stTime = DateTime.Now;
+            if (PlatformSesstion.ContainsKey(Constant.StartTime))
+            {
+                stTime = (PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            }
+
+            return stTime;
+        }
+
+        internal static int GetRandomSeed()
+        {
+            if (PlatformSesstion.ContainsKey(Constant.RandomSeed))
+            {
+                return PlatformSesstion[Constant.RandomSeed].NotNullString().ToInt();
+            }
+
+            return 0;
+        }
     }
 }

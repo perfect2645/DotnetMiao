@@ -60,7 +60,7 @@ namespace Baohe.search
 
         public void SetTimer()
         {
-            var startTime = (BaoheSession.PlatformSesstion[Constant.StartTime] as DateTime?) ?? DateTime.Now;
+            var startTime = BaoheSession.GetStartTime();
             startTime = startTime.AddSeconds(-2);
 
             //var date = new DateTime(2022, 9, 15, 21, 59, 58);
@@ -114,7 +114,6 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
-                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
@@ -197,9 +196,11 @@ namespace Baohe.search
                 return;
             }
 
+            BaoheSession.OrderSession.Clear();
+
             foreach (var member in memberList)
             {
-                for(var i = 0; i < 1; i++)
+                for(var i = 0; i < 5; i++)
                 {
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);
