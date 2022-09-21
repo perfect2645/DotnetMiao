@@ -52,7 +52,6 @@ namespace Baohe.appointment
         public void InitContent()
         {
             Content = new AppointmentContent(MemberInfo);
-
         }
 
         public void FillContent(session.MiaoSession miaoSession)
@@ -60,12 +59,13 @@ namespace Baohe.appointment
             var numbers = miaoSession["Numbers"] as IList;
             //var seed = BaoheSession.GetRandomSeed();
             var index = NumberUtil.IntRandom(0, numbers.Count - 1);
+
             MiaoInfo = numbers[index] as Dictionary<string, object>;
             NumberSn = MiaoInfo["NumberSN"].NotNullString();
             Content.MiaoInfo = MiaoInfo;
             Content.FillContent();
 
-            //Appoint();
+            Appoint();
         }
 
         #endregion BuildContent
