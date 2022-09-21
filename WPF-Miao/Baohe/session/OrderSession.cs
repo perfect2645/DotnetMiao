@@ -21,5 +21,10 @@ namespace Baohe.session
         {
             return OrderList;
         }
+
+        public void Clear()
+        {
+            OrderList?.Clear();
+        }
     }
 }
