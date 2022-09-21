@@ -196,9 +196,11 @@ namespace Baohe.search
                 return;
             }
 
+            BaoheSession.OrderSession.Clear();
+
             foreach (var member in memberList)
             {
-                for(var i = 0; i < 1; i++)
+                for(var i = 0; i < 5; i++)
                 {
                     var order = new Order(member, i);
                     BaoheSession.OrderSession.AddOrder(order);

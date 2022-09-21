@@ -3,6 +3,7 @@ using Baohe.session;
 using System.Collections;
 using System.Collections.Generic;
 using Utils.datetime;
+using Utils.number;
 using Utils.stringBuilder;
 
 namespace Baohe.appointment
@@ -56,12 +57,15 @@ namespace Baohe.appointment
 
         public void FillContent(session.MiaoSession miaoSession)
         {
-            MiaoInfo = (miaoSession["Numbers"] as IList)[Index] as Dictionary<string, object>;
+            var numbers = miaoSession["Numbers"] as IList;
+            //var seed = BaoheSession.GetRandomSeed();
+            var index = NumberUtil.IntRandom(0, numbers.Count - 1);
+            MiaoInfo = numbers[index] as Dictionary<string, object>;
             NumberSn = MiaoInfo["NumberSN"].NotNullString();
             Content.MiaoInfo = MiaoInfo;
             Content.FillContent();
 
-            Appoint();
+            //Appoint();
         }
 
         #endregion BuildContent

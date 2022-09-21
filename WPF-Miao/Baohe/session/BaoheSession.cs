@@ -3,6 +3,7 @@ using Base.Events;
 using System;
 using System.Collections.Generic;
 using Utils;
+using Utils.stringBuilder;
 
 namespace Baohe.session
 {
@@ -66,6 +67,16 @@ namespace Baohe.session
             }
 
             return stTime;
+        }
+
+        internal static int GetRandomSeed()
+        {
+            if (PlatformSesstion.ContainsKey(Constant.RandomSeed))
+            {
+                return PlatformSesstion[Constant.RandomSeed].NotNullString().ToInt();
+            }
+
+            return 0;
         }
     }
 }
