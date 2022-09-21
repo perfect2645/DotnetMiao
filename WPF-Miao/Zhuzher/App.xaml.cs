@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+﻿using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
+using Zhuzher.collectsun;
+using Zhuzher.Exchange;
+using Zhuzher.miaosha;
 
 namespace Zhuzher
 {
@@ -13,5 +12,26 @@ namespace Zhuzher
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            InitControllerAsync();
+        }
+
+        private void InitControllerAsync()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                InitController();
+            });
+        }
+        private void InitController()
+        {
+            HttpServiceController.AddTransientService<CollectSunController>();
+            HttpServiceController.AddTransientService<ExchangeController>();
+            HttpServiceController.AddTransientService<SeckillController>();
+
+            HttpServiceController.BuidServiceProvider();
+        }
     }
 }

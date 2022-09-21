@@ -1,0 +1,731 @@
+
+POST https://z.onewo.com/market/api/activity/please/task HTTP/1.1
+Host: z.onewo.com
+Origin: https://enterprise.4009515151.com
+Content-Type: application/json;charset=UTF-8
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2022090201 vanke_app_version/5.3.92 X_API_VERSION/20220902 vanke_app/zhuzher vanke_jsbridge_version/5.3.92
+Authorization: Bearer eae684f8-6f99-41a1-9534-123925683b1b
+Referer: https://enterprise.4009515151.com/
+Content-Length: 77
+
+{"activityId":"290","projectCode":"21020012","projectName":"大连樱花园"}
+HTTP/1.1 200 OK
+Date: Wed, 21 Sep 2022 06:31:40 GMT
+Content-Type: application/json
+Connection: keep-alive
+Set-Cookie: acw_tc=2f6a1fa316637419003032318e40740121dd002f0bee468bd75214e62e57c3;path=/;HttpOnly;Max-Age=1800
+Vary: Accept-Encoding
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-SVC: prod-zhuzher-server-netway-http
+Content-Length: 12275
+
+
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 1939,
+            "taskId": 334,
+            "taskName": "逛逛朴里特卖会会场",
+            "chanceNumber": 2,
+            "taskDesc": "朴里节",
+            "tips": "浏览10秒以上可以收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 334,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://uiis.4009515151.com/fg_activity/template?id=2180",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:CONV:0002",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 1940,
+            "taskId": 335,
+            "taskName": "下单购买桶装水",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "购买集阳光，每日1次（部分社区尚未开通，新客免单）",
+            "detail": [
+                {
+                    "taskDetailId": 335,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "",
+                    "url": "https://uiis.4009515151.com/fg_activity/template?id=2180",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0002",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 5,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 5,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1941,
+            "taskId": 336,
+            "taskName": "看看你社区周边的福利",
+            "chanceNumber": 2,
+            "taskDesc": "朴里节",
+            "tips": "浏览10秒以上可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 336,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://sqmallh5.onewo.com/#/strollZhuzher?source=pulijie",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:MALL:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 1942,
+            "taskId": 337,
+            "taskName": "购买社区周边优惠商品",
+            "chanceNumber": 2,
+            "taskDesc": "朴里节",
+            "tips": "购买完成即可收集阳光，每日3次",
+            "detail": [
+                {
+                    "taskDetailId": 337,
+                    "sceneName": "社区MALL商品支付成功",
+                    "sceneCode": "5thzone-mall-pay",
+                    "sceneDesc": "",
+                    "url": "https://sqmallh5.onewo.com/#/strollZhuzher?source=pulijie",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "LIVE:MALL:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1943,
+            "taskId": 338,
+            "taskName": "到店核销，即得阳光！",
+            "chanceNumber": 14,
+            "taskDesc": "朴里节",
+            "tips": "到店出示券码核销使用，即可收集阳光，每日5次",
+            "detail": [
+                {
+                    "taskDetailId": 338,
+                    "sceneName": "核销社区MALL商品",
+                    "sceneCode": "5thzone-mall-verification",
+                    "sceneDesc": "",
+                    "url": "https://sqmallh5.onewo.com/#/strollZhuzher?source=pulijie",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "LIVE:MALL:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 7,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 7,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 5,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1944,
+            "taskId": 344,
+            "taskName": "看朴里节精彩视频集锦",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "至少完整看完一集视频，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 344,
+                    "sceneName": "完播社区课堂视频",
+                    "sceneCode": "app-communityclassfinish",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/video?vkSource=video&courseId=MjEy&selectId=",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "CMS:CONTENT:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 5,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 5,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 1945,
+            "taskId": 358,
+            "taskName": "预约直播",
+            "chanceNumber": 10,
+            "taskDesc": "2阶段",
+            "tips": "隐藏任务，9月21日开始",
+            "detail": [
+                {
+                    "taskDetailId": 358,
+                    "sceneName": "预约直播",
+                    "sceneCode": "puli-booking",
+                    "sceneDesc": "2022朴里节",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 5,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 5,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1946,
+            "taskId": 352,
+            "taskName": "去逛逛鲁花专卖店",
+            "chanceNumber": 2,
+            "taskDesc": "2阶段",
+            "tips": "浏览10秒以上，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 352,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://uiis.4009515151.com/activityTopic/4455?pageMark=lhplzzehd",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 1947,
+            "taskId": 341,
+            "taskName": "特惠权益肯德基5折起",
+            "chanceNumber": 2,
+            "taskDesc": "朴里节",
+            "tips": "浏览10秒以上，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 341,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/rightsCenter?from=pulijie",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:RIGHTS:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 1948,
+            "taskId": 342,
+            "taskName": "猜谜答题，分百万积分",
+            "chanceNumber": 2,
+            "taskDesc": "朴里节",
+            "tips": "参与1次趣味竞猜，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 342,
+                    "sceneName": "参与积分竞猜",
+                    "sceneCode": "5thzone-integral-guessing",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/guess",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1949,
+            "taskId": 353,
+            "taskName": "参与朴里小画家活动",
+            "chanceNumber": 2,
+            "taskDesc": "2阶段",
+            "tips": "发帖上传宝宝作品，或参与讨论，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 353,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=189",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1950,
+            "taskId": 354,
+            "taskName": "作品集赞20个以上",
+            "chanceNumber": 20,
+            "taskDesc": "2阶段",
+            "tips": "参与朴里小画家活动后，点赞超过20个，即可收集阳光",
+            "detail": [
+                {
+                    "taskDetailId": 354,
+                    "sceneName": "集赞20个以上",
+                    "sceneCode": "app-postlike-puli",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=189",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 10,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 10,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1951,
+            "taskId": 355,
+            "taskName": "去逛逛大闸蟹专卖店",
+            "chanceNumber": 2,
+            "taskDesc": "2阶段",
+            "tips": "浏览10秒以上，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 355,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://uiis.4009515151.com/activityTopic/3061?pageMark=22ndzxsjkm",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 1952,
+            "taskId": 356,
+            "taskName": "逛逛朴邻资产服务",
+            "chanceNumber": 2,
+            "taskDesc": "2阶段",
+            "tips": "浏览10秒以上，即可收集阳光，每日3次",
+            "detail": [
+                {
+                    "taskDetailId": 356,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://pulin.vankeservice.com/weh5/#/pages/index/index?isAssetCard=1",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ASSET:HOUSE:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1953,
+            "taskId": 357,
+            "taskName": "填写找房需求卡",
+            "chanceNumber": 6,
+            "taskDesc": "2阶段",
+            "tips": "了解朴邻资产服务，填写找房需求，提交后即可收集阳光",
+            "detail": [
+                {
+                    "taskDetailId": 357,
+                    "sceneName": "填写找房卡",
+                    "sceneCode": "pulin-retaincapital",
+                    "sceneDesc": "朴邻",
+                    "url": "https://jyw.onewo.com/customer/#/pages/home/index?id=47",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "ASSET:HOUSE:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 3,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 3,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1954,
+            "taskId": 346,
+            "taskName": "每日分享朴里节主会场",
+            "chanceNumber": 4,
+            "taskDesc": "摩天轮",
+            "tips": "点击分享朴里节活动到微信，即可收集阳光，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 346,
+                    "sceneName": "分享页面",
+                    "sceneCode": "app-h5share",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/puliActivity",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 2,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 2,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 0
+        },
+        {
+            "activityTaskId": 1955,
+            "taskId": 359,
+            "taskName": "升级app到最新版本",
+            "chanceNumber": 100,
+            "taskDesc": "2阶段",
+            "tips": "隐藏任务，9月21日开始",
+            "detail": [
+                {
+                    "taskDetailId": 359,
+                    "sceneName": "升级app",
+                    "sceneCode": "app-update",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 452,
+                    "gameId": 384,
+                    "gameTitle": "阳光(夺宝)",
+                    "limitCount": 50,
+                    "chanceName": ""
+                },
+                {
+                    "activityGameId": 466,
+                    "gameId": 383,
+                    "gameTitle": "阳光(秒杀)",
+                    "limitCount": 50,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": 1
+        }
+    ]
+}

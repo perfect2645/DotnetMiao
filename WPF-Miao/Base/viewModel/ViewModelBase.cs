@@ -26,6 +26,17 @@ namespace Base.viewModel
 
         public LogEvents PrintLogEvent { get; set; }
 
+        private string _cookie;
+        public string Cookie
+        {
+            get { return _cookie; }
+            set
+            {
+                _cookie = value;
+                NotifyUI(() => Cookie);
+            }
+        }
+
         private string _title = "请先选择医院";
         public string Title
         {

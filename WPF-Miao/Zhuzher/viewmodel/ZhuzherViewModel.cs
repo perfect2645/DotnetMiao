@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Zhuzher.collectsun;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -19,9 +20,9 @@ namespace Zhuzher.viewmodel
     {
         #region Properties
 
-        public ICommand AppointmentCommand { get; set; }
-        public ICommand SearchCommand { get; set; }
-        public ICommand AutoRunCommand { get; set; }
+        public ICommand CollectSunCommand { get; set; }
+        public ICommand ExchangeCommand { get; set; }
+        public ICommand SeckillCommand { get; set; }
 
         #endregion Properties
 
@@ -38,13 +39,10 @@ namespace Zhuzher.viewmodel
         {
         }
 
-
-
         private void InitCommands()
         {
-            SearchCommand = new AsyncRelayCommand(ExecuteSearchAsync, CanExecuteSearch);
-
-            AutoRunCommand = new RelayCommand(ExecuteAutoRun);
+            CollectSunCommand = new RelayCommand(ExecuteCollectSunAsync, CanExecuteCollectSun);
+            ExchangeCommand = new RelayCommand(ExecuteExchange);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -53,17 +51,18 @@ namespace Zhuzher.viewmodel
 
         #region Search
 
-        private bool CanExecuteSearch()
+        private bool CanExecuteCollectSun()
         {
             return true;
         }
 
-        private async Task ExecuteSearchAsync()
+        private void ExecuteCollectSunAsync()
         {
             try
             {
-                var searchController = HttpServiceController.GetService<MiaoshaSearch>();
-                //await searchController.SearchAllAsync(SessionItem);
+                ZhuzherSession.Cookie = Cookie;
+                var searchController = HttpServiceController.GetService<CollectSunController>();
+                searchController.CollectSunAsync();
             }
             catch (HttpException ex)
             {
@@ -79,7 +78,7 @@ namespace Zhuzher.viewmodel
 
         #region AutoRun
 
-        private void ExecuteAutoRun()
+        private void ExecuteExchange()
         {
             Task.Factory.StartNew(async () =>
             {

@@ -12,14 +12,14 @@
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel Orientation="Horizontal">
-                <Button Content="查" Margin="0,0,10,0"
-                    Command="{Binding SearchCommand}" Width="100">
+                <Button Content="攒阳光" Margin="0,0,10,0"
+                    Command="{Binding CollectSunCommand}" Width="100">
                 </Button>
-                <Button Content="约"
-                    Command="{Binding AppointmentCommand}" Width="100" Margin="50, 0">
+                <Button Content="换礼品"
+                    Command="{Binding ExchangeCommand}" Width="100" Margin="50, 0">
                 </Button>
-                <Button Content="自动查约"
-                    Command="{Binding AutoRunCommand}" Width="100" >
+                <Button Content="秒杀"
+                    Command="{Binding SeckillCommand}" Width="100" >
                 </Button>
             </StackPanel>
         </basePage:BaseConsole.ButtonArea>
