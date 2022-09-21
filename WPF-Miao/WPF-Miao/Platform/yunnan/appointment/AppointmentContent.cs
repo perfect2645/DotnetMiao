@@ -28,7 +28,7 @@ namespace WPF_Miao.Platform.yunnan
             HttpRequestMessage.Headers.Add("Host", "weixin.ngarihealth.com");
             HttpRequestMessage.Headers.Add("Accept-Language", "zh-CN,zh-Hans;q=0.9");
             HttpRequestMessage.Headers.Add("encoding", "utf-8");
-            HttpRequestMessage.Headers.Add("Accept", "*/*"); // TODO
+            HttpRequestMessage.Headers.Add("Accept", "*/*");
         }
 
         #endregion Headers
@@ -77,7 +77,7 @@ namespace WPF_Miao.Platform.yunnan
             Contents.Add("ruleString", "");
             Contents.Add("isRealTime", 0);
 
-            //Contents.Add("startTime", timeStart.ToString("yyyy-MM-dd HH:mm:ss")); //TODO
+            //Contents.Add("startTime", timeStart.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
         #endregion Contents
