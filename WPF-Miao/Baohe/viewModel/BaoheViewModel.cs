@@ -61,7 +61,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 9, 15, 22, 0, 0);
+            //StartTime = new DateTime(2022, 9, 15, 22, 0, 0);
 
             Departments = new List<HospitalDept>();
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",

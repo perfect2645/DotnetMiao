@@ -114,7 +114,6 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
-                StopTimer();
                 BaoheSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
