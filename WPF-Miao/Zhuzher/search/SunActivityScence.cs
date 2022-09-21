@@ -27,7 +27,7 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/rightsCenter?from=pulijie");
             AddScene("app-browseweb", 1, "https://uiis.4009515151.com/activityTopic/3061?pageMark=22ndzxsjkm");
             AddScene("app-browseweb", 3, "https://pulin.vankeservice.com/weh5/#/pages/index/index?isAssetCard=1");
-            AddScene("5thzone-convenience-pay", 1);
+            AddScene("5thzone-convenience-pay", 3);
             AddScene("5thzone-mall-pay", 3);
             AddScene("5thzone-mall-verification", 5);
             AddScene("app-communityclassfinish", 1);
