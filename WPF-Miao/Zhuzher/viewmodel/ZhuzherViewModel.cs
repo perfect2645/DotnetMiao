@@ -25,6 +25,17 @@ namespace Zhuzher.viewmodel
         public ICommand ExchangeCommand { get; set; }
         public ICommand SeckillCommand { get; set; }
 
+        private List<MiaoshaItem> _miaoshaList;
+        public List<MiaoshaItem> MiaoshaList
+        {
+            get { return _miaoshaList; }
+            set
+            {
+                _miaoshaList = value;
+                NotifyUI(() => MiaoshaList);
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -38,6 +49,8 @@ namespace Zhuzher.viewmodel
 
         private void InitStaticData()
         {
+            var mslist = new MiaoshaItemList();
+            MiaoshaList = mslist.MiaoshaList;
         }
 
         private void InitCommands()

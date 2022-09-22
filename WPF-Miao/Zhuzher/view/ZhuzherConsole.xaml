@@ -6,6 +6,28 @@
       Title="zhuzherConcole"
       x:Name="ZhuzherPage">
 
+    <Page.Resources>
+        <ControlTemplate x:Key="MiaoshaListItemTemplate">
+            <TextBlock>
+                
+            </TextBlock>
+        </ControlTemplate>
+
+        <Style TargetType="ListViewItem" x:Key="ContainerStyle" BasedOn="{StaticResource MaterialDesignCardsListBoxItem}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Status}" Value="0">
+                    <Setter Property="Foreground" Value="RoyalBlue" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="1">
+                    <Setter Property="Foreground" Value="Green" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="2">
+                    <Setter Property="Foreground" Value="Gray" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    
     <basePage:BaseConsole x:Name="baseConsole"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
@@ -16,32 +38,20 @@
                           Margin="20" 
                           Height="400"
                           BorderBrush="Pink"
-                          BorderThickness="1">
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="Hello" />
-                    <ListViewItem Content="World" />
-                    <ListViewItem Content=":)" />
+                          BorderThickness="1"
+                          ItemsSource="{Binding MiaoshaList}"
+                          DisplayMemberPath="Display"
+                          ItemContainerStyle="{StaticResource ContainerStyle}">
                 </ListView>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                     <Button Content="攒阳光" Margin="0,0,10,0"
-                    Command="{Binding CollectSunCommand}" Width="100">
+                        Command="{Binding CollectSunCommand}" Width="100">
                     </Button>
                     <Button Content="换礼品"
-                    Command="{Binding ExchangeCommand}" Width="100" Margin="50, 0">
+                        Command="{Binding ExchangeCommand}" Width="100" Margin="50, 0">
                     </Button>
                     <Button Content="秒杀"
-                    Command="{Binding SeckillCommand}" Width="100" >
+                        Command="{Binding SeckillCommand}" Width="100" >
                     </Button>
                 </StackPanel>
             </StackPanel>

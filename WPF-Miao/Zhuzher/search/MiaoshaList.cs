@@ -13,6 +13,13 @@ namespace Zhuzher.search
         public string GoodName { get; set; }
         public DateTime StartTime { get; set; }
         public int Number { get; set; }
+        public int Status { get; set; }
+        public string Display { 
+            get
+            {
+                return $"{StartTime.ToString("t")} - {GoodName}";
+            }
+        }
     }
 
     internal class MiaoshaItemList
@@ -27,6 +34,7 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
+            AddMiaoshaItem(2817, "iPhone 14 Pro", "452", 72);
             AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
         }
 

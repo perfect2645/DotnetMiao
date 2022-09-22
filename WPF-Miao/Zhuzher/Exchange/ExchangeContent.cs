@@ -5,9 +5,7 @@ namespace Zhuzher.Exchange
 {
     internal class ExchangeContent : HttpStringContent
     {
-        private const string url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
-
-        public ExchangeContent() : base(url)
+        public ExchangeContent(string url) : base(url)
         {
             BuildHeader();
             BuildContent();
