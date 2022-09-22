@@ -41,6 +41,10 @@ namespace Zhuzher.Exchange
             content.AddContent("projectName", user.ProjectName);
             content.AddContent("activityGameId", good.ActivityGameId);
             content.AddContent("gameGoodId", good.GameGoodId);
+            if (good.Number > 0)
+            {
+                content.AddContent("number", good.Number);
+            }
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;

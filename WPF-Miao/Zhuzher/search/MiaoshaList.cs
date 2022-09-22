@@ -12,6 +12,7 @@ namespace Zhuzher.search
         public int GameGoodId { get; set; }
         public string GoodName { get; set; }
         public DateTime StartTime { get; set; }
+        public int Number { get; set; }
     }
 
     internal class MiaoshaItemList
@@ -29,14 +30,15 @@ namespace Zhuzher.search
             AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
         }
 
-        private void AddMiaoshaItem(int gameGoodId, string goodName, string activityGameId, DateTime startTime = default(DateTime))
+        private void AddMiaoshaItem(int gameGoodId, string goodName, string activityGameId, int number = 0, DateTime startTime = default(DateTime))
         {
             MiaoshaList.Add(new MiaoshaItem
             {
                 GameGoodId = gameGoodId,
                 GoodName = goodName,
                 ActivityGameId = activityGameId,
-                StartTime = startTime
+                Number = number,
+                StartTime = startTime,
             });
         }
 
