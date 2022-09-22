@@ -41,10 +41,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="150" />
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="0" />
                     <RowDefinition Height="10" />
-                    <RowDefinition Height="*" MinHeight="200" />
-                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*"/>
+                    <!--<RowDefinition Height="auto" />-->
                 </Grid.RowDefinitions>
                 <ComboBox
                     x:Name="OutlinedComboBox"
@@ -81,9 +81,10 @@
                     materialDesign:HintAssist.Hint="Copy Referer"
                          Visibility="Collapsed"/>
                 <ContentControl Grid.Row="4"
+                                VerticalAlignment="Stretch"
                                 Content="{Binding ButtonArea, ElementName=baseConsole}" >
                 </ContentControl>
-                <StackPanel Grid.Row="5"
+                <!--<StackPanel Grid.Row="5"
                     x:Name="ContentMD5" 
                     Background="SeaShell">
                     <TextBox Grid.Row="0"
@@ -102,7 +103,7 @@
                         Text="{Binding MD5Result}"
                         Margin="5" 
                         IsReadOnly="True"/>
-                </StackPanel>
+                </StackPanel>-->
             </Grid>
         </Grid>
         <Grid x:Name="fotter"
