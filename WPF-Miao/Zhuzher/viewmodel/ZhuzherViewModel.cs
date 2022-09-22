@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Zhuzher.collectsun;
+using Zhuzher.Exchange;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -80,10 +81,20 @@ namespace Zhuzher.viewmodel
 
         private void ExecuteExchange()
         {
-            Task.Factory.StartNew(async () =>
+            try
             {
-                await AutoRunAsync();
-            });
+                ZhuzherSession.Cookie = Cookie;
+                var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
+                exchangeHandler.ExchangeAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
         private async Task AutoRunAsync()

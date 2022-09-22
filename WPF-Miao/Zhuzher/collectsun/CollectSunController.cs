@@ -72,11 +72,6 @@ namespace Zhuzher.collectsun
                 throw new HttpException($"失败：{msg}");
             }
             PrintLog(user, scene, msg);
-            //var result = response.JsonBody.RootElement.GetProperty("Result");
-            //if (result.ValueKind == JsonValueKind.Null)
-            //{
-            //    throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
-            //}
         }
 
         private void PrintLog(UserProject user, SunActivityScence scene, string? msg)
