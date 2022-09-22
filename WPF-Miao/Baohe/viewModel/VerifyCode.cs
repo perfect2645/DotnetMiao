@@ -61,7 +61,7 @@ namespace Baohe.viewModel
         public void SetTimer()
         {
             var startTime = BaoheSession.GetStartTime();
-            startTime = startTime.AddMinutes(-1);
+            startTime = startTime.AddMinutes(-3);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
 
 

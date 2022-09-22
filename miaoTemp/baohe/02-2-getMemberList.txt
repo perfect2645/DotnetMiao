@@ -27,3 +27,8 @@ Cache-Control: no-cache
 Pragma: no-cache
 
 {"Code":10000,"Message":"成功","Pagesize":0,"Pageindex":0,"Totalproperty":1,"Result":[{"Addresscityname":"","Birthday":"2000-03-10","Sex":"2","Phone":"13940897525","Areaname":"","Memberid":"54985240","Operatorid":"9000370","Accountsn":"148528129","Defaultmemberflag":"0","Provinceid":"-1","Provincename":"","Age":22,"Familyaddress":"东城白云山","Zhengjianid":"1101**********5689","Othercard":"","Relationname":"其他","Relation":"14","Areaid":"-1","Addresscityid":"-1","Cityid":"-1","Idcard":"1101**********5689","Parentname":"","Address":"东城白云山","Membersn":"54985240","Identitytype":"1","Opertime":"2022-08-11 10:16:12","Cname":"刘振宇","Authtype":"","Guardianmembersn":"","Lastupdatetime":"2022-08-11 10:17:15","Email":"","Job":"","Cliniccard":"","Postcode":"","Telephone":"","Mobile":"","Officephone":"","Orgid":"","Zhengjiantype":""}]}
+
+
+
+
+retid=dfad9d1a378349e18417a4099e7da757&canreg=1
