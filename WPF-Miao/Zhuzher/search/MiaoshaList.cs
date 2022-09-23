@@ -3,22 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
+using Utils.datetime;
 
 namespace Zhuzher.search
 {
-    internal class MiaoshaItem
+    internal class MiaoshaItem : NotifyChanged
     {
         public string ActivityGameId { get; set; }
         public int GameGoodId { get; set; }
         public string GoodName { get; set; }
         public DateTime StartTime { get; set; }
         public int Number { get; set; }
-        public int Status { get; set; }
+
+        /*
+         * 0: 未开始
+         * 1: 正在进行
+         * 2: 结束
+         * 3: 中奖了
+         */
+        private int _status;
+        public int Status
+        {
+            get { return _status; }
+            set
+            {
+                _status = value;
+                NotifyUI(() => Status);
+            }
+        }
         public int Group { get; set; }
         public string Display { 
             get
             {
                 return $"{Group} - {StartTime.ToString("t")} - {GoodName}";
+            }
+        }
+
+        public string Log
+        {
+            get
+            {
+                return $"{DateTimeUtil.GetNow()} - {Group} - {StartTime.ToString("t")} - {GoodName}";
             }
         }
     }
@@ -30,7 +56,14 @@ namespace Zhuzher.search
         public MiaoshaItemList()
         {
             MiaoshaList = new List<MiaoshaItem>();
-            InitMiaoshaList();
+            TestInitMiaoshaList();
+            //InitMiaoshaList();
+        }
+
+        private void TestInitMiaoshaList()
+        {
+            AddMiaoshaItem(2859, 1, "AirPods 3", "466", "2022-09-23 22:50:10");
+
         }
 
         private void InitMiaoshaList()

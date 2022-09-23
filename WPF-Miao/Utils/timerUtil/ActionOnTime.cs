@@ -10,7 +10,7 @@ namespace Utils.timerUtil
         public DateTime ActionTime { get; set; }
         public Action TargetAction { get; set; }
         public string Name { get; }
-        public ActionOnTime(string name, int interval = 30000)
+        public ActionOnTime(string name, double interval = 30000)
         {
             Name = name;
             OnTimeTimer = new System.Timers.Timer();

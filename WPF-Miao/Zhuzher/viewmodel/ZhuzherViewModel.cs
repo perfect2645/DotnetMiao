@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Zhuzher.collectsun;
 using Zhuzher.Exchange;
+using Zhuzher.miaosha;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -57,13 +58,14 @@ namespace Zhuzher.viewmodel
         {
             CollectSunCommand = new RelayCommand(ExecuteCollectSunAsync, CanExecuteCollectSun);
             ExchangeCommand = new RelayCommand(ExecuteExchange);
+            SeckillCommand = new RelayCommand(ExecuteSeckill);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
 
         #endregion Constructor
 
-        #region Search
+        #region CollectSun
 
         private bool CanExecuteCollectSun()
         {
@@ -88,9 +90,9 @@ namespace Zhuzher.viewmodel
             }
         }
 
-        #endregion Search
+        #endregion CollectSun
 
-        #region AutoRun
+        #region Exchange
 
         private void ExecuteExchange()
         {
@@ -110,13 +112,29 @@ namespace Zhuzher.viewmodel
             }
         }
 
-        private async Task AutoRunAsync()
+        #endregion Exchange
+
+        #region Seckill
+
+        private void ExecuteSeckill()
         {
-            var searchController = HttpServiceController.GetService<MiaoshaSearch>();
-            //await searchController.AutoSearchAsync(SessionItem);
+            try
+            {
+                ZhuzherSession.Cookie = Cookie;
+                var seckillHandler = HttpServiceController.GetService<SeckillController>();
+                seckillHandler.Seckill(MiaoshaList);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
-        #endregion AutoRun
+        #endregion Seckill
 
         #region Session
 
