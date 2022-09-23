@@ -37,7 +37,7 @@ namespace Zhuzher.search
             AddScene("app-postlike-puli", 1);
             AddScene("pulin-retaincapital", 1);
             AddScene("app-h5share", 1, "https://enterprise.4009515151.com/marketing-pages/puliActivity");
-            AddScene("app-update", 1);
+            //AddScene("app-update", 1);
         }
 
         private void AddScene(string code, int time, string? url=null)

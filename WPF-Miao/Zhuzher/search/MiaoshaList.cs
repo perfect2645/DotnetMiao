@@ -14,10 +14,11 @@ namespace Zhuzher.search
         public DateTime StartTime { get; set; }
         public int Number { get; set; }
         public int Status { get; set; }
+        public int Group { get; set; }
         public string Display { 
             get
             {
-                return $"{StartTime.ToString("t")} - {GoodName}";
+                return $"{Group} - {StartTime.ToString("t")} - {GoodName}";
             }
         }
     }
@@ -34,11 +35,58 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(2817, "iPhone 14 Pro", "452", 72);
-            AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
+            //AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
+            //AddDuobaoItem(2817, "iPhone 14 Pro", "452", 72);
+            //AddDuobaoItem(2818, "iPhone 14 Pro", "452", 72);
+            AddMiaoshaItem(2832, 1, "AirPods 3", "466", "2022-09-25 12:00:00");
+            AddMiaoshaItem(2835, 1, "长粒香东北大米5KG", "466", "2022-09-25 12:00:00");
+            AddMiaoshaItem(2834, 1, "送一个月物业费", "466", "2022-09-25 12:00:00");
+            AddMiaoshaItem(2841, 1, "5元物业券", "466", "2022-09-25 12:00:00");
+            AddMiaoshaItem(2836, 2, "蒙牛圣牧有机奶1箱", "466", "2022-09-25 14:00:00");
+            AddMiaoshaItem(2842, 2, "AirPods 3", "466", "2022-09-25 14:00:00");
+            AddMiaoshaItem(2843, 2, "送一个月物业费", "466", "2022-09-25 14:00:00");
+            AddMiaoshaItem(2844, 3, "AirPods 3", "466", "2022-09-25 16:00:00");
+            AddMiaoshaItem(2845, 3, "送一个月物业费", "466", "2022-09-25 16:00:00");
+            AddMiaoshaItem(2837, 3, "温氏牧场原味酸奶1箱", "466", "2022-09-25 16:00:00");
+            AddMiaoshaItem(2833, 4, "一年物业费", "466", "2022-09-25 18:00:00");
+            AddMiaoshaItem(2846, 4, "AirPods 3", "466", "2022-09-25 18:00:00");
+            AddMiaoshaItem(2838, 4, "维达蓝色经典有芯卷纸", "466", "2022-09-25 18:00:00");
+            AddMiaoshaItem(2819, 4, "10元物业券", "466", "2022-09-25 18:00:00");
+            AddMiaoshaItem(2847, 5, "AirPods 3", "466", "2022-09-25 20:00:00");
+            AddMiaoshaItem(2848, 5, "送一个月物业费", "466", "2022-09-25 20:00:00");
+            AddMiaoshaItem(2839, 5, "荣事达亚摩斯304不锈钢小奶锅", "466", "2022-09-25 20:00:00");
+            AddMiaoshaItem(2851, 5, "20元物业券", "466", "2022-09-25 20:00:00");
+            AddMiaoshaItem(2849, 6, "AirPods 3", "466", "2022-09-25 22:00:00");
+            AddMiaoshaItem(2850, 6, "送一个月物业费", "466", "2022-09-25 22:00:00");
+            AddMiaoshaItem(2840, 6, "心相印印花厨房纸巾8卷", "466", "2022-09-25 22:00:00");
+
         }
 
-        private void AddMiaoshaItem(int gameGoodId, string goodName, string activityGameId, int number = 0, DateTime startTime = default(DateTime))
+        private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
+        {
+            var startTime = DateTime.Today;
+            if (!string.IsNullOrEmpty(startTimeStr))
+            {
+                startTime = Convert.ToDateTime(startTimeStr);
+            }
+
+            if (startTime < DateTime.Now)
+            {
+                startTime = DateTime.Today;
+            }
+
+            MiaoshaList.Add(new MiaoshaItem
+            {
+                GameGoodId = gameGoodId,
+                Group = group,
+                GoodName = goodName,
+                ActivityGameId = activityGameId,
+                Number = 0,
+                StartTime = startTime,
+            });
+        }
+
+        private void AddDuobaoItem(int gameGoodId, string goodName, string activityGameId, int number = 0)
         {
             MiaoshaList.Add(new MiaoshaItem
             {
@@ -46,7 +94,7 @@ namespace Zhuzher.search
                 GoodName = goodName,
                 ActivityGameId = activityGameId,
                 Number = number,
-                StartTime = startTime,
+                StartTime = DateTime.Today,
             });
         }
 
