@@ -24,7 +24,7 @@
                 <DataTrigger Binding="{Binding Status}" Value="2">
                     <Setter Property="Foreground" Value="Gray" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Status}" Value="2">
+                <DataTrigger Binding="{Binding Status}" Value="3">
                     <Setter Property="Foreground" Value="Gold" />
                 </DataTrigger>
             </Style.Triggers>

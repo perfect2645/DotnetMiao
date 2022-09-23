@@ -100,6 +100,10 @@ namespace Zhuzher.Exchange
             }
             content.BuildDefaultHeaders(Client);
 
+            if (good.Status == 3)
+            {
+                return;
+            }
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
