@@ -26,8 +26,8 @@ namespace Zhuzher.search
         {
             //AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer e44ed039-db7a-47dc-8f8e-20e5cb6d8e58");
             //AddUserProject(15045709, "妈妈", "21020025", "大连万科半山半海", "Bearer 28c0b276-c6d6-461b-8462-8804e10ee942");
-            //AddUserProject(11067046, "Fawei", "21020002", "大连假日风景", "Bearer 6dec9468-da9b-4dad-9e91-68a29796ef89");
-            AddUserProject(14929048, "Gary", "21020012", "大连樱花园", "Bearer e30c4d14-635d-428c-bbd2-91d5640843fb");
+            AddUserProject(11067046, "Fawei", "21020002", "大连假日风景", "Bearer 90c59e82-f2b7-4afc-ae67-ea86d004443b");
+            //AddUserProject(14929048, "Gary", "21020012", "大连樱花园", "Bearer e30c4d14-635d-428c-bbd2-91d5640843fb");
             //AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer b26ed045-4534-452e-a595-dd8559c946db");
         }
 
