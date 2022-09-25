@@ -97,7 +97,7 @@ namespace Zhuzher.Exchange
             }
             content.BuildDefaultHeaders(Client);
 
-            if (good.Status == 3)
+            if (good.Status >= 2)
             {
                 return;
             }
@@ -107,6 +107,7 @@ namespace Zhuzher.Exchange
                 ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
+            good.Status = 2;
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
             if  (msg == "已达个人上限")
