@@ -58,7 +58,6 @@ namespace Zhuzher.search
         public MiaoshaItemList()
         {
             MiaoshaList = new List<MiaoshaItem>();
-            //TestInitMiaoshaList();
             InitMiaoshaList();
         }
 
