@@ -11,7 +11,7 @@
             return Convert.ToInt64(str);
         }
 
-        public static int ToInt(this string str)
+        public static int ToInt(this string? str)
         {
             if (string.IsNullOrEmpty(str))
             {

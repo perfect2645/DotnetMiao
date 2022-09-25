@@ -17,7 +17,7 @@ using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
 
-namespace Baohe.viewModel
+namespace Jk160.viewModel
 {
     internal class Jk160ViewModel: ViewModelBase
     {
