@@ -19,7 +19,7 @@ namespace Utils.timerUtil
         {
             IntervalAction = action;
 
-            InitOnTimeTimer(name, stratTime.AddMilliseconds(-100));
+            InitOnTimeTimer(name, stratTime.AddMilliseconds(-300));
 
             InitIntervalTimer();
         }

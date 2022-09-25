@@ -76,9 +76,9 @@ namespace Zhuzher.search
             //AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
             //AddDuobaoItem(2817, "iPhone 14 Pro", "452", 72);
             //AddDuobaoItem(2818, "iPhone 14 Pro", "452", 125);
-            AddMiaoshaItem(2832, 1, "AirPods 3", "466", "2022-09-25 12:00:00");
-            AddMiaoshaItem(2835, 1, "长粒香东北大米5KG", "466", "2022-09-25 12:00:00");
-            AddMiaoshaItem(2834, 1, "送一个月物业费", "466", "2022-09-25 12:00:00");
+            //AddMiaoshaItem(2832, 1, "AirPods 3", "466", "2022-09-25 12:00:00");
+            //AddMiaoshaItem(2835, 1, "长粒香东北大米5KG", "466", "2022-09-25 12:00:00");
+            //AddMiaoshaItem(2834, 1, "送一个月物业费", "466", "2022-09-25 12:00:00");
             //AddMiaoshaItem(2841, 1, "5元物业券", "466", "2022-09-25 12:00:00");
             AddMiaoshaItem(2836, 2, "蒙牛圣牧有机奶1箱", "466", "2022-09-25 14:00:00");
             AddMiaoshaItem(2842, 2, "AirPods 3", "466", "2022-09-25 14:00:00");

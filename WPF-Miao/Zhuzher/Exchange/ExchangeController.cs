@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.datetime;
 using Utils.stringBuilder;
 using Zhuzher.search;
 using Zhuzher.session;
@@ -106,6 +105,7 @@ namespace Zhuzher.Exchange
             if (response == null)
             {
                 ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                return;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
