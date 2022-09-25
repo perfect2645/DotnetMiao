@@ -108,7 +108,13 @@ namespace Zhuzher.Exchange
                 ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
-            if (code == "502")
+            var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
+            if  (msg == "已达个人上限")
+            {
+                // 中奖了
+                good.Status = 3;
+            }
+            else if (code == "502")
             {
                 // 未开始
                 good.Status = 0;
@@ -118,13 +124,12 @@ namespace Zhuzher.Exchange
                 // 中奖了
                 good.Status = 3;
             }
-            else if (code.ToInt() >= 500)
+            else if (code.ToInt() > 500)
             {
                 // 结束了
                 good.Status = 2;
             }
 
-            var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
             PrintLog(user, good, msg);
         }
 

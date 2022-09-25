@@ -45,7 +45,7 @@ namespace Zhuzher.miaosha
             {
                 try
                 {
-                    if (item.Status == 2)
+                    if (item.Status > 1)
                     {
                         IntervalList[item.GameGoodId].StopInterval();
                     }
