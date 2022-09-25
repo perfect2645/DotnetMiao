@@ -114,7 +114,7 @@ namespace Zhuzher.Exchange
                 // 中奖了
                 good.Status = 3;
             }
-            else if (code == "502")
+            else if (msg == "好礼兑换未开始")
             {
                 // 未开始
                 good.Status = 0;
