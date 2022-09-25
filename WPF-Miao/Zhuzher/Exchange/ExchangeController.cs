@@ -91,6 +91,11 @@ namespace Zhuzher.Exchange
             content.AddContent("projectName", user.ProjectName);
             content.AddContent("activityGameId", good.ActivityGameId);
             content.AddContent("gameGoodId", good.GameGoodId);
+            if (good.GameGoodId == 2875)
+            {
+                content.AddContent("activityId", 301);
+            }
+
             if (isLoot)
             {
                 content.AddContent("number", good.Number);

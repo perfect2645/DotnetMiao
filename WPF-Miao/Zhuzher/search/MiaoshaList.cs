@@ -86,20 +86,19 @@ namespace Zhuzher.search
             //AddMiaoshaItem(2844, 3, "AirPods 3", "466", "2022-09-25 16:00:00");
             //AddMiaoshaItem(2845, 3, "送一个月物业费", "466", "2022-09-25 16:00:00");
             //AddMiaoshaItem(2837, 3, "温氏牧场原味酸奶1箱", "466", "2022-09-25 16:00:00");
-            AddMiaoshaItem(2833, 4, "一年物业费", "466", "2022-09-25 18:00:00");
-            AddMiaoshaItem(2846, 4, "AirPods 3", "466", "2022-09-25 18:00:00");
-            AddMiaoshaItem(2838, 4, "维达蓝色经典有芯卷纸", "466", "2022-09-25 18:00:00");
-            AddMiaoshaItem(2819, 4, "10元物业券", "466", "2022-09-25 18:00:00");
+            //AddMiaoshaItem(2833, 4, "一年物业费", "466", "2022-09-25 18:00:00");
+            //AddMiaoshaItem(2846, 4, "AirPods 3", "466", "2022-09-25 18:00:00");
+            //AddMiaoshaItem(2838, 4, "维达蓝色经典有芯卷纸", "466", "2022-09-25 18:00:00");
+            //AddMiaoshaItem(2819, 4, "10元物业券", "466", "2022-09-25 18:00:00");
             AddMiaoshaItem(2847, 5, "AirPods 3", "466", "2022-09-25 20:00:00");
             AddMiaoshaItem(2848, 5, "送一个月物业费", "466", "2022-09-25 20:00:00");
             AddMiaoshaItem(2839, 5, "荣事达亚摩斯304不锈钢小奶锅", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2851, 5, "20元物业券", "466", "2022-09-25 20:00:00");
+            //AddMiaoshaItem(2851, 5, "20元物业券", "466", "2022-09-25 20:00:00");
             AddMiaoshaItem(2824, 6, "送1个月物业费", "465", "2022-09-25 20:20:00");
             AddMiaoshaItem(2849, 7, "AirPods 3", "466", "2022-09-25 22:00:00");
             AddMiaoshaItem(2850, 7, "送一个月物业费", "466", "2022-09-25 22:00:00");
             AddMiaoshaItem(2840, 7, "心相印印花厨房纸巾8卷", "466", "2022-09-25 22:00:00");
-
-
+            AddMiaoshaItem(2875, 100, "iPhone 14 Pro Max 256G", "476", "2022-09-25 21:00:00");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
