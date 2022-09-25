@@ -1,7 +1,5 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
-using HttpProcessor.ExceptionManager;
-using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -133,7 +131,7 @@ namespace Zhuzher.Exchange
         private void PrintLog(UserProject user, MiaoshaItem good, string? msg)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{DateTimeUtil.GetNow()}兑换奖品- User:{user.UserName}, good:{good.GoodName}, message:{msg}");
+            sb.Append($"兑换奖品- {good.Log}, message:{msg}");
             ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }

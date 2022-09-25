@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.datetime;
@@ -44,7 +45,8 @@ namespace Zhuzher.search
         {
             get
             {
-                return $"{DateTimeUtil.GetNow()} - {Group} - {StartTime.ToString("t")} - {GoodName}";
+                var threadId = Thread.CurrentThread.ManagedThreadId;
+                return $"{DateTimeUtil.GetNow()} - Thread({threadId}) - {StartTime.ToString("t")} - {GoodName}";
             }
         }
     }
@@ -56,8 +58,8 @@ namespace Zhuzher.search
         public MiaoshaItemList()
         {
             MiaoshaList = new List<MiaoshaItem>();
-            //TestInitMiaoshaList();
-            InitMiaoshaList();
+            TestInitMiaoshaList();
+            //InitMiaoshaList();
         }
 
         private void TestInitMiaoshaList()
