@@ -1,0 +1,11 @@
+﻿<Window x:Class="Zhuzher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Zhuzher.view"
+        Title="住这儿" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:ZhuzherConsole x:Name="mainConsole">
+
+    </view:ZhuzherConsole>
+</Window>
