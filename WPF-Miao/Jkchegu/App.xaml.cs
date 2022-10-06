@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Container;
 using Jkchegu.appointment;
 using Jkchegu.search;
+using Jkchegu.search.yzm;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -27,7 +28,8 @@ namespace Jkchegu
         private void InitController()
         {
             HttpServiceController.AddTransientService<SearchController>();
-            HttpServiceController.AddTransientService<AppointController>();
+            HttpServiceController.AddTransientService<AppointController>(); 
+            HttpServiceController.AddTransientService<YzmController>();
 
             HttpServiceController.BuidServiceProvider();
         }
