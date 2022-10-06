@@ -98,7 +98,7 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 2, 9, 0));
+            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 7, 49, 0));
 
             DateList = new List<DspVal>
             {

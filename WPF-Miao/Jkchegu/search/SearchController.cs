@@ -18,6 +18,8 @@ namespace Jkchegu.search
     internal class SearchController : HttpClientBase
     {
         private IntervalOnTime SearchInterval { get; set; }
+        private bool isGetMiao = false;
+        private bool isGetYzm = false;
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
@@ -27,14 +29,18 @@ namespace Jkchegu.search
 
         private async Task SearchAsync()
         {
-            var isGetMiao = await Task.Factory.StartNew(() => Search());
+            isGetMiao = await Task.Factory.StartNew(() => Search());
             if (!isGetMiao)
             {
                 //return;
             }
             SearchInterval.StopInterval();
 
-            await GetYzmAsync();
+            if (!isGetYzm)
+            {
+                isGetYzm = true;
+                await GetYzmAsync();
+            }
 
             var appointController = HttpServiceController.GetService<AppointController>();
             appointController.AppointAsync();

@@ -40,7 +40,7 @@ namespace Jkchegu.appointment
             AddContent("ETID", "7bf4400434ea4e80a6dfb331f6f6a077");
             AddContent("VACCINES_NAME", "18");
             AddContent("DOC_CUSTOM_VACCINE_GUID", JkSession.MiaoSession["GUID"]);
-            AddContent("code", JkSession.MiaoSession["YZM"]);
+            AddContent("code", JkSession.MiaoSession["Yzm"]);
         }
     }
 }
