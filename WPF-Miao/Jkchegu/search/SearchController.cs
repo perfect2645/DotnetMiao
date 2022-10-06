@@ -1,10 +1,8 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Container;
 using HttpProcessor.Content;
-using HttpProcessor.ExceptionManager;
 using Jkchegu.appointment;
 using Jkchegu.session;
-using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -38,7 +36,7 @@ namespace Jkchegu.search
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
             var content = new SearchContent(url);
-            content.AddHeader("Cookie", "JSESSIONID=A4BD0E1ABA6C5ED6C3ADAB40BD93F7A6");
+            content.AddHeader("Cookie", JkSession.Cookie);
 
             content.BuildDefaultHeaders(Client);
 

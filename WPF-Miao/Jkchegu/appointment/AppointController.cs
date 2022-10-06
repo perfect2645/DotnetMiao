@@ -24,7 +24,7 @@ namespace Jkchegu.appointment
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_save.do";
 
             var content = new AppointContent(url);
-            content.AddHeader("Cookie", "JSESSIONID=A4BD0E1ABA6C5ED6C3ADAB40BD93F7A6");
+            content.AddHeader("Cookie", JkSession.Cookie);
 
             content.BuildDefaultHeaders(Client);
 
