@@ -82,6 +82,8 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
+            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 1, 14, 0));
+
             DateList = new List<DspVal>
             {
                 new DspVal("2022-10-10"),
@@ -104,7 +106,7 @@ namespace Jkchegu.viewmodel
 
         private void InitCommands()
         {
-            SearchCommand = new AsyncRelayCommand(ExecuteSearchAsync);
+            SearchCommand = new RelayCommand(ExecuteSearchAsync);
             AppointCommand = new RelayCommand(ExecuteAppoint);
 
             SessionEvents.Instance.Subscribe(LogSession);
@@ -114,13 +116,13 @@ namespace Jkchegu.viewmodel
 
         #region Search
 
-        private async Task ExecuteSearchAsync()
+        private void ExecuteSearchAsync()
         {
             try
             {
                 JkSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAsync();
+                //searchController.Search();
             }
             catch (HttpException ex)
             {
