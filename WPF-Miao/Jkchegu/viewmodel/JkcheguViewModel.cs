@@ -69,6 +69,18 @@ namespace Jkchegu.viewmodel
             }
         }
 
+        private string _etid;
+        public string Etid
+        {
+            get { return _etid; }
+            set
+            {
+                _etid = value;
+                JkSession.MiaoSession.AddOrUpdate("Etid", value);
+                NotifyUI(() => Etid);
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -82,7 +94,7 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 1, 14, 0));
+            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 1, 31, 0));
 
             DateList = new List<DspVal>
             {
