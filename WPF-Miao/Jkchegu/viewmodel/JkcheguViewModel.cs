@@ -8,6 +8,7 @@ using Jkchegu.appointment;
 using Jkchegu.search;
 using Jkchegu.session;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Jkchegu.viewmodel
@@ -36,7 +37,7 @@ namespace Jkchegu.viewmodel
 
         private void InitCommands()
         {
-            SearchCommand = new RelayCommand(ExecuteSearch);
+            SearchCommand = new AsyncRelayCommand(ExecuteSearchAsync);
             AppointCommand = new RelayCommand(ExecuteAppoint);
 
             SessionEvents.Instance.Subscribe(LogSession);
@@ -51,13 +52,13 @@ namespace Jkchegu.viewmodel
             return true;
         }
 
-        private void ExecuteSearch()
+        private async Task ExecuteSearchAsync()
         {
             try
             {
                 JkSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                searchController.SearchAsync();
+                await searchController.SearchAsync();
             }
             catch (HttpException ex)
             {
@@ -79,7 +80,7 @@ namespace Jkchegu.viewmodel
             {
                 JkSession.Cookie = Cookie;
                 var appointController = HttpServiceController.GetService<AppointController>();
-                appointController.Appoint();
+                appointController.AppointAsync();
             }
             catch (HttpException ex)
             {

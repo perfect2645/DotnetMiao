@@ -1,6 +1,8 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
+using Jkchegu.appointment;
 using Jkchegu.session;
 using System.Linq;
 using System.Net.Http;
@@ -18,12 +20,19 @@ namespace Jkchegu.search
         {
         }
 
-        public void SearchAsync()
+        public async Task SearchAsync()
         {
-            Task.Factory.StartNew(() => Search());
+            var isGetMiao = await Task.Factory.StartNew(() => Search());
+            if (!isGetMiao)
+            {
+                return;
+            }
+
+            var appointController = HttpServiceController.GetService<AppointController>();
+            appointController.AppointAsync();
         }
 
-        private void Search()
+        private bool Search()
         {
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
@@ -42,9 +51,11 @@ namespace Jkchegu.search
             if (result.ValueKind == JsonValueKind.Null)
             {
                 JkSession.PrintLogEvent.Publish(this, $"未查到苗 - {DateTimeUtil.GetNow()}");
-                return;
+                return false;
             }
             AnalizeResult(result);
+
+            return true;
         }
 
         private void AnalizeResult(JsonElement jsonElement)
