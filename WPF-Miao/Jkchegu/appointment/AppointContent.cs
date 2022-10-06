@@ -33,8 +33,8 @@ namespace Jkchegu.appointment
 
         private void BuildContent()
         {
-            AddContent("APPOINTMENT_DATE", "2022-10-08"); //TODO
-            AddContent("dateCount", "DATE2_COUNT");//TODO
+            AddContent("APPOINTMENT_DATE", JkSession.MiaoSession["Date"]);
+            AddContent("dateCount", JkSession.MiaoSession["Time"]);
             AddContent("ETID", "7bf4400434ea4e80a6dfb331f6f6a077");
             AddContent("VACCINES_NAME", "18");
             AddContent("DOC_CUSTOM_VACCINE_GUID", JkSession.MiaoSession["GUID"]);

@@ -18,6 +18,7 @@ namespace Jkchegu.search
     {
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
+
         }
 
         public async Task SearchAsync()

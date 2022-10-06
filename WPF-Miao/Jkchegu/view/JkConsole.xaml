@@ -11,14 +11,34 @@
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Button Content="查询" Margin="0,0,10,0"
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <ComboBox
+                        Style="{StaticResource mui_combobox}"
+                        materialDesign:HintAssist.Hint="选择日期"
+                        ItemsSource="{Binding DateList}"
+                        SelectedItem="{Binding SelectedDate}"
+                        DisplayMemberPath="Display"
+                        SelectedValuePath="Value"
+                        Width="auto" />
+                    <ComboBox
+                        Style="{StaticResource mui_combobox}"
+                        materialDesign:HintAssist.Hint="选择时间"
+                        ItemsSource="{Binding TimeList}"
+                        SelectedItem="{Binding SelectedTime}"
+                        DisplayMemberPath="Display"
+                        SelectedValuePath="Value"
+                        Width="auto" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Content="查询" Margin="0,0,10,0"
                     Command="{Binding SearchCommand}" Width="100">
-                </Button>
+                    </Button>
 
-                <Button Content="约"
+                    <Button Content="约"
                     Command="{Binding AppointCommand}" Width="100" >
-                </Button>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </basePage:BaseConsole.ButtonArea>
     </basePage:BaseConsole>
