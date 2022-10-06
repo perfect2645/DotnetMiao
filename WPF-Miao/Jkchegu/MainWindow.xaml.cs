@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jkchegu.viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace Jkchegu
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                DataContext = new JkcheguViewModel(mainConsole.baseConsole.LogPanel);
+            }
+            catch (Exception ex)
+            {
+                Logging.GLog.Logger.Error(ex);
+            }
         }
     }
 }
