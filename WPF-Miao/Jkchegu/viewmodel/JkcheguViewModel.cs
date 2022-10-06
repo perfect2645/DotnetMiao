@@ -7,9 +7,11 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jkchegu.appointment;
 using Jkchegu.search;
+using Jkchegu.search.yzm;
 using Jkchegu.session;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -22,6 +24,8 @@ namespace Jkchegu.viewmodel
 
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
+        public ICommand YzmCommand { get; set; }
+        
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -94,7 +98,7 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 1, 31, 0));
+            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 2, 9, 0));
 
             DateList = new List<DspVal>
             {
@@ -120,7 +124,7 @@ namespace Jkchegu.viewmodel
         {
             SearchCommand = new RelayCommand(ExecuteSearchAsync);
             AppointCommand = new RelayCommand(ExecuteAppoint);
-
+            YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
         }
 
@@ -169,6 +173,16 @@ namespace Jkchegu.viewmodel
         }
 
         #endregion Appoint
+
+        #region 验证码
+
+        private async Task ExecuteYzmAsync()
+        {
+            var yzmController = HttpServiceController.GetService<YzmController>();
+            await yzmController.GetYzmAsync();
+        }
+
+        #endregion 验证码
 
         #region Session
 

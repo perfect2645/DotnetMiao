@@ -2,6 +2,7 @@
 using HttpProcessor.Container;
 using HttpProcessor.Content;
 using Jkchegu.appointment;
+using Jkchegu.search.yzm;
 using Jkchegu.session;
 using System;
 using System.Net.Http;
@@ -29,12 +30,20 @@ namespace Jkchegu.search
             var isGetMiao = await Task.Factory.StartNew(() => Search());
             if (!isGetMiao)
             {
-                return;
+                //return;
             }
             SearchInterval.StopInterval();
 
+            await GetYzmAsync();
+
             var appointController = HttpServiceController.GetService<AppointController>();
             appointController.AppointAsync();
+        }
+
+        private async Task GetYzmAsync()
+        {
+            var yzmController = HttpServiceController.GetService<YzmController>();
+            await yzmController.GetYzmAsync();
         }
 
         public bool Search()
