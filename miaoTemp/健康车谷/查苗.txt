@@ -27,3 +27,6 @@ X-Content-Type-Options: nosniff
 Content-Length: 77
 
 {"pdList":[],"ORG_CODE":"whsjjkfqzyjxmsqwsfwzx","yyDate":"","doccustom":null}
+
+
+ValueKind = Object : "{"pdList":[{"THEDATE":"2022-10-09"},{"THEDATE":"2022-10-10"},{"THEDATE":"2022-10-11"},{"THEDATE":"2022-10-12"},{"THEDATE":"2022-10-13"},{"THEDATE":"2022-10-14"}],"ORG_CODE":"whsjjkfqzyjxmsqwsfwzx","yyDate":"2022-10-07","doccustom":null}"

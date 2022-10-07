@@ -24,10 +24,10 @@ namespace Jkchegu.search
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
             var startTime = JkSession.MiaoSession["StartTime"] as DateTime?;
-            SearchInterval = new IntervalOnTime(async () => await SearchAsync(), "SearchInterval", startTime ?? DateTime.Now, 300);
+            SearchInterval = new IntervalOnTime(async () => await SearchAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
         }
 
-        private async Task SearchAsync()
+        public async Task SearchAsync()
         {
             isGetMiao = await Task.Factory.StartNew(() => Search());
             if (!isGetMiao)
@@ -36,6 +36,11 @@ namespace Jkchegu.search
             }
             SearchInterval.StopInterval();
 
+            await Yuyue();
+        }
+
+        private async Task Yuyue()
+        {
             if (!isGetYzm)
             {
                 isGetYzm = true;
@@ -91,7 +96,6 @@ namespace Jkchegu.search
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
 
-            JkSession.ClearMiaoSession();
             JkSession.MiaoSession.AddOrUpdate(dicResult);
             JkSession.PrintLogEvent.Publish(this, dicResult, $"查到苗 - {DateTimeUtil.GetNow()}");
         }

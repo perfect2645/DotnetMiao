@@ -32,7 +32,7 @@ namespace Jkchegu.search
         private void BuildContent()
         {
             AddContent("ORG_CODE", "whsjjkfqzyjxmsqwsfwzx");
-            AddContent("yyDate", "2022-10-07");
+            AddContent("yyDate", JkSession.MiaoSession["Date"]);
         }
     }
 }

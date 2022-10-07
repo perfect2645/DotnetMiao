@@ -98,7 +98,7 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 29, 55));
+            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
 
             DateList = new List<DspVal>
             {
@@ -123,7 +123,7 @@ namespace Jkchegu.viewmodel
         private void InitCommands()
         {
             SearchCommand = new RelayCommand(ExecuteSearchAsync);
-            AppointCommand = new RelayCommand(ExecuteAppoint);
+            AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -154,13 +154,13 @@ namespace Jkchegu.viewmodel
 
         #region Appoint
 
-        private void ExecuteAppoint()
+        private async void ExecuteAppointAsync()
         {
             try
             {
                 JkSession.Cookie = Cookie;
-                var appointController = HttpServiceController.GetService<AppointController>();
-                appointController.AppointAsync();
+                var searchController = HttpServiceController.GetService<SearchController>();
+                await searchController.SearchAsync();
             }
             catch (HttpException ex)
             {
