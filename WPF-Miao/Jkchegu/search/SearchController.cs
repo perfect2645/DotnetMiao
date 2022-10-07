@@ -24,7 +24,7 @@ namespace Jkchegu.search
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
             var startTime = JkSession.MiaoSession["StartTime"] as DateTime?;
-            SearchInterval = new IntervalOnTime(async () => await SearchAsync(), "SearchInterval", startTime ?? DateTime.Now, 5000);
+            SearchInterval = new IntervalOnTime(async () => await SearchAsync(), "SearchInterval", startTime ?? DateTime.Now, 300);
         }
 
         private async Task SearchAsync()
@@ -32,7 +32,7 @@ namespace Jkchegu.search
             isGetMiao = await Task.Factory.StartNew(() => Search());
             if (!isGetMiao)
             {
-                //return;
+                return;
             }
             SearchInterval.StopInterval();
 
