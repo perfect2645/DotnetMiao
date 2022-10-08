@@ -51,6 +51,34 @@ namespace HttpProcessor.Client
             }
         }
 
+        public async Task<Stream> SearchStreamAsync(string url)
+        {
+            try
+            {
+                var response = await Client.GetStreamAsync(url);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return null;
+            }
+        }
+
+        public async Task<byte[]> SearchByteAsync(string url)
+        {
+            try
+            {
+                var response = await Client.GetByteArrayAsync(url);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return null;
+            }
+        }
+
         public virtual void Search(HttpMessageContent content, Action<HttpDicResponse> callback)
         {
             try
