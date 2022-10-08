@@ -1,34 +1,862 @@
-//疫苗名称+剂次
-function layerOpenGzsByVaccNameAndDose(text) {
-  event.stopPropagation();
-  var vaccName = encodeURIComponent(text);
-  var url = "/reply/newMsgReplyInform?gzs=" + vaccName;
-  var index = layer.open({
-    type: 2,
-    content: url,
-    area: ["100%", "100%"],
-    title: false,
-    shadeClose: true,
-    shade: 0.8,
-    maxmin: true,
-    fix: false,
-  });
-  //layer.full(index);
-}
-//疫苗名称
-function layerOpenGzsByVaccName(text) {
-  event.stopPropagation();
-  var vaccName = encodeURIComponent(text);
-  var url = "/reply/gzs?gzs=" + vaccName;
-  var index = layer.open({
-    type: 2,
-    content: url,
-    area: ["100%", "100%"],
-    title: false,
-    shadeClose: true,
-    shade: 0.8,
-    maxmin: true,
-    fix: false,
-  });
-  //layer.full(index);
-}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>选择疫苗</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="/jsp/wechat_client/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/jsp/wechat_client/css/wb/common3.css?v=4"/>
+        <link rel="stylesheet" href="/jsp/wechat_client/css/appointment_vacc.css">
+        <link rel="stylesheet" type="text/css" href="/jsp/css/common_loading.css">
+        <script type="text/javascript" src="/jsp/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="/jsp/js/jquery.form1.js"></script>
+        <script type="text/javascript" src="/jsp/layer_private/layer.js"></script>
+        <script type="text/javascript" src="/jsp/js/appointment.js"></script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+        <style>
+            .cs {
+                line-height: 30px;
+                font-size: 30px;
+                margin: 0 auto;
+            }
+
+            .lbCont {
+                color: #848484;
+                font-size: .8rem;
+                line-height: 1.5rem;
+                clear: both;
+                width: 81%;
+                margin: 0 auto;
+            }
+
+            .green {
+                color: #1BC43F;
+            }
+
+            .orange {
+                color: #FFC000;
+            }
+
+            .gray {
+                color: gray;
+            }
+
+            .cs p {
+                float: left;
+                padding-top: 4px;
+            }
+
+            .cs p:nth-child(1) {
+                padding-left: 2rem;
+                padding-right: 4px;
+            }
+
+            .cs p:nth-child(3) {
+                float: right;
+                padding-right: 4px;
+            }
+
+            .xqCont {
+                margin-left: 9% !important;
+            }
+
+            .free,.charge {
+                display: block;
+            }
+
+            .top_titYes {
+                text-align: center;
+                box-sizing: border-box;
+                color: red;
+                padding: 0 10px;
+                margin-top: 10px;
+            }
+
+            .no_find_vacc {
+                width: 90%;
+                margin: .5rem auto;
+                padding: .5rem;
+                text-align: left;
+                background-color: #fff;
+                border-radius: 5px;
+                color: #202020;
+                position: relative;
+            }
+
+            .no_find_vacc:after {
+                content: "";
+                width: 1.6rem;
+                height: 1.6rem;
+                display: inline-block;
+                transform: rotate(-90deg);
+                -ms-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                -webkit-transform: rotate(-90deg);
+                -o-transform: rotate(-90deg);
+                background: url('/jsp/wechat_client/images/triangle.png') no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 0;
+                top: 0.8rem;
+            }
+
+            .no_find_vacc p:first-child {
+                font-size: 1rem;
+                color: red;
+            }
+
+            .no_find_vacc p:last-child {
+                font-size: .8rem;
+                color: red;
+            }
+
+            /* .layui-layer{
+				top: 0 !important;
+			} */
+            /*.top_titNo{
+				width: 100%;
+				line-height: 500px;
+				text-align: center;
+				font-size: 1rem;
+				background: #f1f1f1;
+				position: relative;
+				z-index:100;
+			}
+			.top_titNo p{
+				width: 90%;
+				position: absolute;
+				top: 50%;
+				left:50%;
+				transform: translate(-50%,-50%);
+				-webkit-transform: translate(-50%,-50%);
+				-moz-transform: translate(-50%,-50%);
+				-ms-transform: translate(-50%,-50%);
+			}*/
+            /* 遮罩层 */
+            .mask {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: #000;
+                z-index: 9000;
+                opacity: 0.5;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <header>请选择需要接种的疫苗：</header> -->
+        <div class="user_info" style='margin-bottom:10px;margin-bottom: 10px;padding:0 5px;height: 28px;line-height: 28px;background: #fff;font-size: 14px;'>
+            <span style="float:left">王可言(22岁1月)</span>
+            <span style="float:left;width:30%;text-align:center">女</span>
+            <span style="float:right">2000-09-06</span>
+        </div>
+        <div class="top_Scroll" style="clear:both">
+            <div class="slide_all">
+                <div onclick="toScheme('2162');" class="slide-item  ">戊肝疫苗</div>
+                <div onclick="toScheme('2161');" class="slide-item  ">国产二价</div>
+                <div onclick="toScheme('2158');" class="slide-item  active2">四价HPV</div>
+                <div onclick="toScheme('2163');" class="slide-item  ">参考程序</div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="vaccineListWrap">
+                <div class="top_titYes">
+                    <p>20~45岁女性人群，全程0、2、6个月接种3剂次。备孕及哺乳期暂缓接种！</p>
+                </div>
+                <div style='background:#fff;width:100%;height:8px;margin-bottom:4px;'></div>
+                <form id="saveForm" action="" method="POST">
+                    <input type="hidden" name="appointmentDate" id="appointmentDate" value="2022-10-10"/>
+                    <input type="hidden" name="appointmentTime" id="appointmentTime" value="09:01~09:30"/>
+                    <input type="hidden" name="appointmentTimeId" id="appointmentTimeId" value="2059"/>
+                    <input type="hidden" name="dataFrom" id="dataFrom" value="0"/>
+                    <input type="hidden" name="dealStatus" id="dealStatus" value="0"/>
+                    <input type="hidden" name="etId" id="etId" value="19E9DCA43E6A4AFB81FCA744E38AB223"/>
+                    <input type="hidden" name="configValue" id="configValue" value="1"/>
+                    <input type="hidden" name="openid" id="openid" value="oSfkt5jTELgDNfJnxR_HjyF5Ardo"/>
+                    <input type="hidden" name="schemeId" id="schemeId" value="2158"/>
+                    <input type="hidden" name="subOpenid" id="subOpenid" value="oSfkt5jTELgDNfJnxR_HjyF5Ardo"/>
+                    <input type="hidden" name="subWechatId" id="subWechatId" value="3F8787D1A0E349AF8366D3170074DAC6"/>
+                    <input type="hidden" name="subId" id="subId" value="8D4AAA5FA2C04B8E971C89FCA2A4D4F4"/>
+                    <input type="hidden" name="payFlag" id="payFlag" value="0"/>
+                    <div class="vaccine-list-content">
+                        <div class="vaccine-list-wrap">
+                            <div class="vaccine-list-month">9岁0月至45岁6月	       
+	     </div>
+                            <input type="hidden" name='logVaccList["0"].appointmentVaId' id="appointmentVaId5B0320293A854EA9963FAACEC2E56267" value="13846"/>
+                            <input type="hidden" name='logVaccList["0"].vaName' id="vaName5B0320293A854EA9963FAACEC2E56267" value="四价人乳头瘤病毒疫苗(酿酒酵母)"/>
+                            <input type="hidden" name='logVaccList["0"].vaId' id="vaId5B0320293A854EA9963FAACEC2E56267" value="CDC5BCD8B3E94F9F8BDFE64782D9C73F"/>
+                            <input type="hidden" name='logVaccList["0"].vaDose' id="vaDose5B0320293A854EA9963FAACEC2E56267" value="①"/>
+                            <input type="hidden" class="mySelectFlag" name='logVaccList["0"].selectFlag' appointmentVaId="13846" vaccId="CDC5BCD8B3E94F9F8BDFE64782D9C73F" id="selectFlag5B0320293A854EA9963FAACEC2E56267" value="0"/>
+                            <input type="hidden" name='logVaccList["0"].etPlanId' id="etPlanId5B0320293A854EA9963FAACEC2E56267" value="5B0320293A854EA9963FAACEC2E56267"/>
+                            <input type="hidden" name='logVaccList["0"].cosumeVaPrice' id="cosumeVaPrice5B0320293A854EA9963FAACEC2E56267" value="1.00"/>
+                            <input type="hidden" name='logVaccList["0"].trueVaPrice' id="trueVaPrice5B0320293A854EA9963FAACEC2E56267" value="1.00"/>
+                            <input type="hidden" name='logVaccList["0"].producer' id="producer5B0320293A854EA9963FAACEC2E56267" value=""/>
+                            <input type="hidden" name='logVaccList["0"].norms' id="norms5B0320293A854EA9963FAACEC2E56267" value=""/>
+                            <input type="hidden" name='logVaccList["0"].dose' id="dose5B0320293A854EA9963FAACEC2E56267" value="">
+                            <input type="hidden" name='logVaccList["0"].discPercentage' id="discPercentage5B0320293A854EA9963FAACEC2E56267" value="100"/>
+                            <input type="hidden" name='logVaccList["0"].planBeginDate' id="planBeginDate5B0320293A854EA9963FAACEC2E56267" value=""/>
+                            <input type="hidden" name='logVaccList["0"].myToken1' id="myToken15B0320293A854EA9963FAACEC2E56267" value="3893764e7c32255718580aa8e758c90b"/>
+                            <input type="hidden" name='logVaccList["0"].myToken2' id="myToken25B0320293A854EA9963FAACEC2E56267" value=""/>
+                            <input type="hidden" id="scosumeVaPrice5B0320293A854EA9963FAACEC2E56267" value="1.00"/>
+                            <input type="hidden" id="strueVaPrice5B0320293A854EA9963FAACEC2E56267" value="1.00"/>
+                            <a id="5B0320293A854EA9963FAACEC2E56267" todayJzFlag="0" kc="0" singleDoseNum="0" vaccType="1" tjFlag="0" href="javaScript:toNext('0','5B0320293A854EA9963FAACEC2E56267','CDC5BCD8B3E94F9F8BDFE64782D9C73F','','四价人乳头瘤病毒疫苗(酿酒酵母)','①');">
+                                <div class="vaccineList free clearFix" id="div5B0320293A854EA9963FAACEC2E56267" vaccId="CDC5BCD8B3E94F9F8BDFE64782D9C73F">
+                                    <div>
+                                        <div class="vassName">
+                                            四价人乳头瘤病毒疫苗(酿酒酵母)① <span style="color: red;font-size: 12px;">非该苗接种日</span>
+                                        </div>
+                                    </div>
+                                    <div class="cs clearfix" style="display: none;" id="goodsDiv5B0320293A854EA9963FAACEC2E56267">
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    <div class="lbCont" id="lbCont5B0320293A854EA9963FAACEC2E56267">
+                                        <p id="lbContp5B0320293A854EA9963FAACEC2E56267">自愿选择自费接种的疫苗</p>
+                                    </div>
+                                    <div class="xqCont">
+                                        <div class="green price_type" id="price_type5B0320293A854EA9963FAACEC2E56267">
+                                            <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPrice5B0320293A854EA9963FAACEC2E56267"></span>
+                                        </div>
+                                        <div class="xqBtn">
+                                            <button type="button" style="background:#1ac43f;color:#fff;" onclick="goGZS('四价人乳头瘤病毒疫苗(酿酒酵母)①',this,'CDC5BCD8B3E94F9F8BDFE64782D9C73F');">告知书</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vaccine-list-wrap">
+                            <div class="vaccine-list-month">9岁2月至45岁7月	       
+	     </div>
+                            <input type="hidden" name='logVaccList["1"].appointmentVaId' id="appointmentVaId3115DAF9595E4B99A3260A6388A06919" value="13846"/>
+                            <input type="hidden" name='logVaccList["1"].vaName' id="vaName3115DAF9595E4B99A3260A6388A06919" value="四价人乳头瘤病毒疫苗(酿酒酵母)"/>
+                            <input type="hidden" name='logVaccList["1"].vaId' id="vaId3115DAF9595E4B99A3260A6388A06919" value="CDC5BCD8B3E94F9F8BDFE64782D9C73F"/>
+                            <input type="hidden" name='logVaccList["1"].vaDose' id="vaDose3115DAF9595E4B99A3260A6388A06919" value="②"/>
+                            <input type="hidden" class="mySelectFlag" name='logVaccList["1"].selectFlag' appointmentVaId="13846" vaccId="CDC5BCD8B3E94F9F8BDFE64782D9C73F" id="selectFlag3115DAF9595E4B99A3260A6388A06919" value="0"/>
+                            <input type="hidden" name='logVaccList["1"].etPlanId' id="etPlanId3115DAF9595E4B99A3260A6388A06919" value="3115DAF9595E4B99A3260A6388A06919"/>
+                            <input type="hidden" name='logVaccList["1"].cosumeVaPrice' id="cosumeVaPrice3115DAF9595E4B99A3260A6388A06919" value="1.00"/>
+                            <input type="hidden" name='logVaccList["1"].trueVaPrice' id="trueVaPrice3115DAF9595E4B99A3260A6388A06919" value="1.00"/>
+                            <input type="hidden" name='logVaccList["1"].producer' id="producer3115DAF9595E4B99A3260A6388A06919" value=""/>
+                            <input type="hidden" name='logVaccList["1"].norms' id="norms3115DAF9595E4B99A3260A6388A06919" value=""/>
+                            <input type="hidden" name='logVaccList["1"].dose' id="dose3115DAF9595E4B99A3260A6388A06919" value="">
+                            <input type="hidden" name='logVaccList["1"].discPercentage' id="discPercentage3115DAF9595E4B99A3260A6388A06919" value="100"/>
+                            <input type="hidden" name='logVaccList["1"].planBeginDate' id="planBeginDate3115DAF9595E4B99A3260A6388A06919" value=""/>
+                            <input type="hidden" name='logVaccList["1"].myToken1' id="myToken13115DAF9595E4B99A3260A6388A06919" value="3893764e7c32255718580aa8e758c90b"/>
+                            <input type="hidden" name='logVaccList["1"].myToken2' id="myToken23115DAF9595E4B99A3260A6388A06919" value=""/>
+                            <input type="hidden" id="scosumeVaPrice3115DAF9595E4B99A3260A6388A06919" value="1.00"/>
+                            <input type="hidden" id="strueVaPrice3115DAF9595E4B99A3260A6388A06919" value="1.00"/>
+                            <a id="3115DAF9595E4B99A3260A6388A06919" todayJzFlag="0" kc="0" singleDoseNum="0" vaccType="1" tjFlag="0" href="javaScript:toNext('0','3115DAF9595E4B99A3260A6388A06919','CDC5BCD8B3E94F9F8BDFE64782D9C73F','','四价人乳头瘤病毒疫苗(酿酒酵母)','②');">
+                                <div class="vaccineList free clearFix" id="div3115DAF9595E4B99A3260A6388A06919" vaccId="CDC5BCD8B3E94F9F8BDFE64782D9C73F">
+                                    <div>
+                                        <div class="vassName">
+                                            四价人乳头瘤病毒疫苗(酿酒酵母)② <span style="color: red;font-size: 12px;">非该苗接种日</span>
+                                        </div>
+                                    </div>
+                                    <div class="cs clearfix" style="display: none;" id="goodsDiv3115DAF9595E4B99A3260A6388A06919">
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    <div class="lbCont" id="lbCont3115DAF9595E4B99A3260A6388A06919">
+                                        <p id="lbContp3115DAF9595E4B99A3260A6388A06919">自愿选择自费接种的疫苗</p>
+                                    </div>
+                                    <div class="xqCont">
+                                        <div class="green price_type" id="price_type3115DAF9595E4B99A3260A6388A06919">
+                                            <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPrice3115DAF9595E4B99A3260A6388A06919"></span>
+                                        </div>
+                                        <div class="xqBtn">
+                                            <button type="button" style="background:#1ac43f;color:#fff;" onclick="goGZS('四价人乳头瘤病毒疫苗(酿酒酵母)②',this,'CDC5BCD8B3E94F9F8BDFE64782D9C73F');">告知书</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vaccine-list-wrap">
+                            <div class="vaccine-list-month">9岁6月至46岁0月	       
+	     </div>
+                            <input type="hidden" name='logVaccList["2"].appointmentVaId' id="appointmentVaIdB0E3B76279964A6EBA3CAFEFC4858263" value="13846"/>
+                            <input type="hidden" name='logVaccList["2"].vaName' id="vaNameB0E3B76279964A6EBA3CAFEFC4858263" value="四价人乳头瘤病毒疫苗(酿酒酵母)"/>
+                            <input type="hidden" name='logVaccList["2"].vaId' id="vaIdB0E3B76279964A6EBA3CAFEFC4858263" value="CDC5BCD8B3E94F9F8BDFE64782D9C73F"/>
+                            <input type="hidden" name='logVaccList["2"].vaDose' id="vaDoseB0E3B76279964A6EBA3CAFEFC4858263" value="③"/>
+                            <input type="hidden" class="mySelectFlag" name='logVaccList["2"].selectFlag' appointmentVaId="13846" vaccId="CDC5BCD8B3E94F9F8BDFE64782D9C73F" id="selectFlagB0E3B76279964A6EBA3CAFEFC4858263" value="0"/>
+                            <input type="hidden" name='logVaccList["2"].etPlanId' id="etPlanIdB0E3B76279964A6EBA3CAFEFC4858263" value="B0E3B76279964A6EBA3CAFEFC4858263"/>
+                            <input type="hidden" name='logVaccList["2"].cosumeVaPrice' id="cosumeVaPriceB0E3B76279964A6EBA3CAFEFC4858263" value="1.00"/>
+                            <input type="hidden" name='logVaccList["2"].trueVaPrice' id="trueVaPriceB0E3B76279964A6EBA3CAFEFC4858263" value="1.00"/>
+                            <input type="hidden" name='logVaccList["2"].producer' id="producerB0E3B76279964A6EBA3CAFEFC4858263" value=""/>
+                            <input type="hidden" name='logVaccList["2"].norms' id="normsB0E3B76279964A6EBA3CAFEFC4858263" value=""/>
+                            <input type="hidden" name='logVaccList["2"].dose' id="doseB0E3B76279964A6EBA3CAFEFC4858263" value="">
+                            <input type="hidden" name='logVaccList["2"].discPercentage' id="discPercentageB0E3B76279964A6EBA3CAFEFC4858263" value="100"/>
+                            <input type="hidden" name='logVaccList["2"].planBeginDate' id="planBeginDateB0E3B76279964A6EBA3CAFEFC4858263" value=""/>
+                            <input type="hidden" name='logVaccList["2"].myToken1' id="myToken1B0E3B76279964A6EBA3CAFEFC4858263" value="3893764e7c32255718580aa8e758c90b"/>
+                            <input type="hidden" name='logVaccList["2"].myToken2' id="myToken2B0E3B76279964A6EBA3CAFEFC4858263" value=""/>
+                            <input type="hidden" id="scosumeVaPriceB0E3B76279964A6EBA3CAFEFC4858263" value="1.00"/>
+                            <input type="hidden" id="strueVaPriceB0E3B76279964A6EBA3CAFEFC4858263" value="1.00"/>
+                            <a id="B0E3B76279964A6EBA3CAFEFC4858263" todayJzFlag="0" kc="0" singleDoseNum="0" vaccType="1" tjFlag="0" href="javaScript:toNext('0','B0E3B76279964A6EBA3CAFEFC4858263','CDC5BCD8B3E94F9F8BDFE64782D9C73F','','四价人乳头瘤病毒疫苗(酿酒酵母)','③');">
+                                <div class="vaccineList free clearFix" id="divB0E3B76279964A6EBA3CAFEFC4858263" vaccId="CDC5BCD8B3E94F9F8BDFE64782D9C73F">
+                                    <div>
+                                        <div class="vassName">
+                                            四价人乳头瘤病毒疫苗(酿酒酵母)③ <span style="color: red;font-size: 12px;">非该苗接种日</span>
+                                        </div>
+                                    </div>
+                                    <div class="cs clearfix" style="display: none;" id="goodsDivB0E3B76279964A6EBA3CAFEFC4858263">
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                    <div class="lbCont" id="lbContB0E3B76279964A6EBA3CAFEFC4858263">
+                                        <p id="lbContpB0E3B76279964A6EBA3CAFEFC4858263">自愿选择自费接种的疫苗</p>
+                                    </div>
+                                    <div class="xqCont">
+                                        <div class="green price_type" id="price_typeB0E3B76279964A6EBA3CAFEFC4858263">
+                                            <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPriceB0E3B76279964A6EBA3CAFEFC4858263"></span>
+                                        </div>
+                                        <div class="xqBtn">
+                                            <button type="button" style="background:#1ac43f;color:#fff;" onclick="goGZS('四价人乳头瘤病毒疫苗(酿酒酵母)③',this,'CDC5BCD8B3E94F9F8BDFE64782D9C73F');">告知书</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="no_find_vacc" id="no_vacc_button">
+                        <p>找不到预约的疫苗</p>
+                        <p>点击刷新试试</p>
+                    </div>
+                    <!-- style="position:fixed;bottom:0px" -->
+                    <div class="submit">
+                        <p>提交</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="common-loading-wrapper" style="display:none" id="common-loading-wrapper">
+            <div class="common-layer"></div>
+            <div class="common-loading" style="width: 160px;height: 160px;margin-left: -80px;margin-top: -80px;">
+                <img src="/jsp/images/common-loading.gif">
+                <p>正在刷新,请稍等</p>
+            </div>
+        </div>
+</div><input id="vaccNameDose" type="hidden" value=""/>
+<input id="showBuySuit" type="hidden" value="0"/>
+<input id="infoCheck" type="hidden" value="0"/>
+<input id="checkId" type="hidden" value=""/>
+<input id="dealTextScheme" type="hidden" value="0"/>
+<input id="logId" type="hidden" value=""/>
+<script type="text/javascript">
+    var payFlag = "0";
+    $(function() {
+        //获取长度判断文字居中距离
+        getNum();
+        function getNum() {
+            var length = $('.vaccine-list-wrap').length;
+            if (length == 0) {
+                $('.top_titYes').find('p').css({
+                    "height": "500px",
+                    "line-height": "500px"
+                });
+                $('.submit').hide();
+            }
+
+        }
+
+        var number = $(".slide-item").length;
+        var px = number * 120 + "px";
+        $(".slide_all").css({
+            "width": px
+        });
+
+        $(".close").click(function(event) {
+            $("#coverWrapDiv").hide();
+            $(".submit").show()
+        });
+
+        $('#no_vacc_button').on('click', function() {
+            $('#common-loading-wrapper').show();
+            //计算计划
+            $.ajax({
+                url: "/yy/recomputeEt/6BA647C07FB44A5EBF047E07FD1F0DC3/19E9DCA43E6A4AFB81FCA744E38AB223",
+                type: 'get',
+                success: function(res) {
+                    setTimeout(function() {
+                        $('#common-loading-wrapper').hide();
+                    }, 2000)
+                    if (res.success) {
+                        alert(res.message);
+                        window.location.reload();
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                fail: function(res) {
+                    alert('请求失败');
+                }
+            })
+        })
+
+        $(".submit").click(function(event) {
+            selectVaccs();
+        });
+        getShowBuySuit();
+    })
+
+    //
+
+    var haveVaccFlag = -1;
+
+    function selectVaccs() {
+        if (opentBuySuit()) {
+            return;
+        }
+        var cids = "";
+        $(".mySelectFlag").each(function() {
+            if ($(this).val() == 1) {
+                cids = cids + "&vaccIds=" + $(this).attr("vaccId");
+            }
+        });
+
+        if (cids == "") {
+            alert("请选择要接种的疫苗");
+            return;
+        }
+        $('.submit').hide();
+        var action = "/newyy/selectVaccs?haveVaccFlag=1" + cids;
+        $("#saveForm").attr("action", action);
+        $("#saveForm").submit();
+
+    }
+
+    function selectNoVaccs() {
+        if (opentBuySuit()) {
+            return;
+        }
+        var cids = "";
+        $(".mySelectFlag").each(function() {
+            if ($(this).val() == 1) {
+                cids = cids + "&vaccIds=" + $(this).attr("vaccId");
+            }
+        });
+
+        if (cids == "") {
+            alert("请选择要接种的疫苗");
+            return;
+        }
+        $('.submit').hide();
+        var action = "/newyy/selectVaccs?haveVaccFlag=0" + cids;
+        $("#saveForm").attr("action", action);
+        $("#saveForm").submit();
+    }
+
+    function toNext(tjFlag, id, vaccId, count, vaName, vaDose) {
+        if (opentBuySuit()) {
+            return;
+        }
+        var todayJzFlag = $("#" + id).attr("todayJzFlag");
+        if (todayJzFlag == 0) {
+            alert("你选的日期不是该苗接种日");
+            return;
+        }
+        var singleDoseNum = $("#" + id).attr("singleDoseNum");
+        if (singleDoseNum == 1) {
+            layer.alert("此日该剂次已约满\n请选择其他日期预约");
+            return;
+        }
+
+        if ($("#selectFlag" + id).val() == 1) {
+            //没有被选定非该苗接种日
+            $("#selectFlag" + id).val(0);
+            $("#div" + id).removeClass("active");
+            $(".submit p").removeClass("active");
+            var countc = 0;
+            $(".mySelectFlag").each(function() {
+                if ($(this).val() == 1) {
+                    //count++;
+                    countc++;
+                }
+            });
+        } else {
+            var bool = false;
+            var selectVaccId = $("#selectFlag" + id).attr("vaccId");
+            $(".mySelectFlag").each(function() {
+                //获得已经选的是否有和当前的时一个疫苗的
+                var dictVaccId = $(this).attr("vaccId");
+                if ($(this).val() == 1 && selectVaccId == dictVaccId) {
+                    bool = true;
+                }
+            });
+            if (bool) {
+                alert("只能选择一个针次");
+                return;
+            }
+
+            $("#div" + id).addClass("active");
+            $(".submit p").addClass("active");
+            $("#selectFlag" + id).val(1);
+            var vaccType = $("#" + id).attr("vaccType");
+            if (tjFlag != 1 && vaccType != 5) {
+                //有苗非体检
+                $("#vaccNameDose").val(vaName + vaDose);
+                openVaccList(id, vaName);
+            }
+        }
+    }
+
+    function resetToNext(id, count) {
+        if ($("#selectFlag" + id).val() == 1) {
+            //没有被选定
+            $("#selectFlag" + id).val(0);
+            $("#div" + id).removeClass("active");
+            $(".submit p").removeClass("active");
+            var countc = 0;
+            $(".mySelectFlag").each(function() {
+                if ($(this).val() == 1) {
+                    //count++;
+                    countc++;
+                }
+            });
+            clearVaccInfo(id);
+        } else {
+            //这里允许不到
+            $("#div" + id).addClass("active");
+            $(".submit p").addClass("active");
+            $("#selectFlag" + id).val(1);
+
+        }
+    }
+
+    function stopPropagation(e) {
+        e = window.event || e;
+        if (document.all) {
+            //只有ie识别
+            e.cancelBubble = true;
+        } else {
+            e.stopPropagation();
+        }
+        if (e.preventDefault) {
+            e.preventDefault();
+        } else {
+            e.returnValue = false;
+        }
+    }
+
+    function dy(tit, urlMsg, w, h, t) {
+        var index = layer.open({
+            title: tit,
+            type: 2,
+            shadeClose: true,
+            shade: 0.8,
+            area: [w, h],
+            offset: t,
+            content: urlMsg,
+            fix: false,
+            maxmin: true,
+        })
+        layer.full(index);
+        $('.layui-layer-max').hide();
+    }
+    ;
+    function openVacc(tit, urlMsg, w, h, t) {
+        var index = layer.open({
+            closeBtn: 0,
+            title: tit,
+            type: 2,
+            shadeClose: true,
+            shade: 0.8,
+            area: [w, h],
+            offset: t,
+            content: urlMsg,
+            title: false
+        });
+        layer.full(index);
+    }
+    ;
+    function goGZS(v, el, vaccId) {
+        stopPropagation();
+        var vaccName = encodeURIComponent(v);
+        dy("基本信息", "/reply/newMsgReplyInform?gzs=" + vaccName + "&clinicId=6BA647C07FB44A5EBF047E07FD1F0DC3&vaccId=" + vaccId, "100%", "100%", "0");
+        //$(el).parents('.vaccineList').addClass('active');
+    }
+
+    function toScheme(schemeId) {
+        var length = $('.vaccine-list-wrap').length;
+        if (length == 0) {
+            $('.top_titYes').find('p').css({
+                "height": "500px",
+                "line-height": "500px"
+            });
+            $('.submit').hide();
+        }
+        var url = "/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=09:01~09:30&appointmentTimeId=2059&configValue=1&schemeId=" + schemeId;
+        document.location.href = url;
+    }
+
+    function openVaccList(vaccId, vaName) {
+        var vaId = $("#selectFlag" + vaccId).attr("vaccId");
+        var appointmentVaId = $("#selectFlag" + vaccId).attr("appointmentVaId");
+
+        var url = "/newApp/vaccList/6BA647C07FB44A5EBF047E07FD1F0DC3/" + vaccId + "?vaccName=" + encodeURIComponent(vaName) + "&sourceFlag=195&schemeName=四价HPV&schemeId=2158&monthAge=265&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&etId=19E9DCA43E6A4AFB81FCA744E38AB223&appointmentVaId=" + appointmentVaId;
+        openVacc("可选择疫苗", url, "100%", "100%", "0");
+    }
+
+    function clearVaccInfo(id) {
+        //$("#cosumeVaPrice"+id).val($("#scosumeVaPrice"+id).val());
+        //$("#trueVaPrice"+id).val($("#strueVaPrice"+id).val());
+        $("#producer" + id).val("");
+        $("#norms" + id).val("");
+        $("#dose" + id).val("");
+        $("#showPrice" + id).hide();
+        var vaccType = $("#" + id).attr("vaccType");
+        var tjFlag = $("#" + id).attr("tjFlag");
+        var cosumeVaPrice = $("#scosumeVaPrice" + id).val();
+        if (vaccType == 5) {
+            $("#lbContp" + id).html("政府免费提供的体检服务");
+        } else if (tjFlag == 1) {
+            $("#lbContp" + id).html("政府免费必须接种的疫苗");
+        } else if (cosumeVaPrice == '0.00') {
+            $("#lbContp" + id).html("政府免费必须接种的疫苗");
+        } else if (cosumeVaPrice != '0.00') {
+            $("#lbContp" + id).html("自愿选择自费接种的疫苗");
+        } else {
+            $("#lbContp" + id).html("根据实际情况选择接种的疫苗");
+        }
+        $("#goodsDiv" + id).hide();
+        $("#myToken2" + id).val("");
+    }
+
+    function setVaccInfo(id, producer, norms, dose, price) {
+        var content = "<p>厂商:" + producer + "</p><p>规格：" + norms + "</p><p>剂量：" + dose + "</p>";
+        $("#goodsDiv" + id).html(content);
+        $("#goodsDiv" + id).show();
+
+        var discPercentage = $("#discPercentage" + id).val();
+        var cosumeVaPrice = parseFloat(price) * parseInt(discPercentage) / 100;
+        $("#cosumeVaPrice" + id).val(cosumeVaPrice);
+        if (cosumeVaPrice > 0) {
+            $('#lbCont' + id).find('p').html('自愿选择自费接种的疫苗');
+            $('#lbCont' + id).parent().find('.price_type').addClass('orange');
+
+        } else {
+            $('#lbCont' + id).find('p').html('政府免费必须接种的疫苗');
+            $('#lbCont' + id).parent().find('.price_type').addClass('green');
+        }
+        $("#showPrice" + id).text("￥" + cosumeVaPrice);
+        $("#trueVaPrice" + id).val(price);
+        $("#producer" + id).val(producer);
+        $("#norms" + id).val(norms);
+        $("#dose" + id).val(dose);
+    }
+
+    function setNewVaccInfo(id, producer, norms, dose, price, token2) {
+        var content = "<p>厂商:" + producer + "</p><p>规格：" + norms + "</p><p>剂量：" + dose + "</p>";
+        $("#goodsDiv" + id).html(content);
+        $("#goodsDiv" + id).show();
+
+        var discPercentage = $("#discPercentage" + id).val();
+        var cosumeVaPrice = parseFloat(price) * parseInt(discPercentage) / 100;
+        $("#cosumeVaPrice" + id).val(cosumeVaPrice);
+        if (cosumeVaPrice > 0) {
+            $('#lbCont' + id).find('p').html('自愿选择自费接种的疫苗');
+            $('#lbCont' + id).parent().find('.price_type').addClass('orange');
+
+        } else {
+            $('#lbCont' + id).find('p').html('政府免费必须接种的疫苗');
+            $('#lbCont' + id).parent().find('.price_type').addClass('green');
+        }
+        $("#showPrice" + id).text("￥" + cosumeVaPrice);
+        $("#trueVaPrice" + id).val(price);
+        $("#producer" + id).val(producer);
+        $("#norms" + id).val(norms);
+        $("#dose" + id).val(dose);
+        $("#myToken2" + id).val(token2);
+    }
+
+    function opentBuySuit() {
+        if ("2158" == 0 || "4" == 0) {
+            return true;
+        }
+
+        var ageMonth = parseInt("265");
+        var etSex = "女";
+        var begin = "0";
+        var end = "2000";
+        var sexFlag = "2";
+        if (begin > ageMonth || ageMonth > end || (etSex == '女' && sexFlag == 1) || (etSex == '男' && sexFlag == 0)) {
+            layer.alert("'超龄'或'性别'不适合接种该疫苗");
+            //支付成功就去预约
+            return true;
+        }
+
+        var infoCheck = $("#infoCheck").val();
+        if (infoCheck == 3 || infoCheck == 4) {
+            //只给出提示
+            layer.alert($("#dealTextScheme").val());
+            //支付成功就去预约
+            return true;
+        } else if (infoCheck == 2 || infoCheck == 5) {
+            //直接打开方案审查
+            var index = layer.open({
+                closeBtn: 0,
+                title: "区域资料提交",
+                type: 2,
+                shadeClose: true,
+                skin: 'myskin',
+                area: ["90%", "80%"],
+                offset: "100px",
+                content: "/schemeCheck/uploadSchemeCheck/6BA647C07FB44A5EBF047E07FD1F0DC3/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/19E9DCA43E6A4AFB81FCA744E38AB223/2158?checkIdEnc=" + $("#checkId").val(),
+                //end:document.location.reload(),
+                title: false
+            });
+            return true;
+        }
+
+        var showBuySuit = $("#showBuySuit").val();
+        if (showBuySuit == "1") {
+            var index = layer.open({
+                closeBtn: 0,
+                title: "购买套餐",
+                type: 2,
+                shadeClose: true,
+                skin: 'myskin',
+                area: ["90%", "70%"],
+                offset: "100px",
+                content: "/newyy/toBuySuit/6BA647C07FB44A5EBF047E07FD1F0DC3/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/19E9DCA43E6A4AFB81FCA744E38AB223/2158?appointmentDate=2022-10-10&appointmentTimeId=2059&configValue=1",
+                title: false
+            });
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function getShowBuySuit() {
+        if ("2158" == 0 || "4" == 0) {
+            return;
+        }
+        var ageMonth = parseInt("265");
+        var etSex = "女";
+        var begin = "0";
+        var end = "2000";
+        var sexFlag = "2";
+        if (begin > ageMonth || ageMonth > end || (etSex == '女' && sexFlag == 1) || (etSex == '男' && sexFlag == 0)) {
+            layer.alert("'超龄'或'性别'不适合接种该疫苗");
+            //支付成功就去预约
+            return;
+        }
+        $.ajax({
+            url: "/newyy/getShowBuySuit/6BA647C07FB44A5EBF047E07FD1F0DC3/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/19E9DCA43E6A4AFB81FCA744E38AB223/2158",
+            type: 'get',
+            success: function(res) {
+                if (res.success) {
+                    setShowBuySuit(1);
+                    opentBuySuit();
+                } else if (res.status == 3 || res.status == 4) {
+                    //只给出提示
+                    $("#infoCheck").val(res.status);
+                    $("#dealTextScheme").val(res.message);
+                    layer.alert(res.message);
+                    //支付成功就去预约
+                } else if (res.status == 2) {
+                    //直接打开方案审查
+                    $("#infoCheck").val(res.status);
+                    $("#dealTextScheme").val(res.message);
+                    opentBuySuit();
+                } else if (res.status == 5) {
+                    //再次提交 打开原来的页面
+                    $("#infoCheck").val(res.status);
+                    $("#dealTextScheme").val(res.message);
+                    $("#checkId").val(res.checkId);
+                    opentBuySuit();
+
+                }
+            },
+            fail: function(res) {
+                alert('请求失败');
+            }
+        })
+    }
+
+    function setShowBuySuit(showBuySuit) {
+        $("#showBuySuit").val(showBuySuit);
+    }
+
+    function toPay(logId) {
+        $("#logId").val(logId);
+        $.ajax({
+            url: "/wechat/getWechatPay/" + logId + "/03",
+            type: "POST",
+            data: {
+                type: '3'
+            },
+            dataType: "json",
+            success: function(data) {
+                if ('0' == data.status) {
+                    //成功构建支付
+                    if (data.data.result_code != null) {
+                        alert(data.data.return_msg);
+                    } else {
+                        if (typeof WeixinJSBridge == "undefined") {
+                            if (document.addEventListener) {
+                                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                            } else if (document.attachEvent) {
+                                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                            }
+                        } else {
+                            onBridgeReady(data.data);
+                        }
+                    }
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: function() {}
+        });
+    }
+
+    function onBridgeReady(data) {
+        WeixinJSBridge.invoke('getBrandWCPayRequest', {
+            "appId": data.appId,
+            //公众号名称，由商户传入     
+            "timeStamp": data.timeStamp,
+            //时间戳，自1970年以来的秒数     
+            "nonceStr": data.nonceStr,
+            //随机串     
+            "package": data.package,
+            "signType": data.signType,
+            //微信签名方式：     
+            "paySign": data.paySign//微信签名 
+        }, function(res) {
+            if (res.err_msg == "get_brand_wcpay_request:ok") {
+                // 使用以上方式判断前端返回,微信团队郑重提示： res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                //alert('您已经支付成功' );//支付成功就去预约
+                setShowBuySuit(0);
+                //document.location.reload();
+                // closeLay();
+            } else {
+                setShowBuySuit(1);
+                cancelAppointmentSuitBuy()
+                alert('您取消支付');
+                //closeLay();
+            }
+        });
+    }
+
+    function closeWin() {
+        WeixinJSBridge.call('closeWindow');
+    }
+
+    function cancelAppointmentSuitBuy() {
+        $.ajax({
+            type: "POST",
+            url: "/newyy/cancelAppointmentSuitBuy/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/2158/" + $("#logId").val(),
+            data: {
+                sign: "05cfc287242f03797417e38128828f74",
+                t: "1665234228483"
+            },
+            success: function(data) {//alert(data.message); 
+            }
+        });
+    }
+</script>
+</body></html>
