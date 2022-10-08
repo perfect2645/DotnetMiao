@@ -1,0 +1,150 @@
+POST http://hoosn.cn/newyy/selectVaccs?haveVaccFlag=1&vaccIds=CDC5BCD8B3E94F9F8BDFE64782D9C73F HTTP/1.1
+Host: hoosn.cn
+Connection: keep-alive
+Content-Length: 2789
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://hoosn.cn
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: JSESSIONID=4ea0953e-05a9-49e0-ac4e-6759cb4509ad
+Referer: http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=14:30~15:00&appointmentTimeId=2067&configValue=1&schemeId=2158
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+appointmentDate=2022-10-10&appointmentTime=14%3A30%7E15%3A00&appointmentTimeId=2067&dataFrom=0&dealStatus=0&etId=19E9DCA43E6A4AFB81FCA744E38AB223&configValue=1&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&schemeId=2158&subOpenid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&subWechatId=3F8787D1A0E349AF8366D3170074DAC6&subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&payFlag=0&logVaccList%5B%220%22%5D.appointmentVaId=13846&logVaccList%5B%220%22%5D.vaName=%E5%9B%9B%E4%BB%B7%E4%BA%BA%E4%B9%B3%E5%A4%B4%E7%98%A4%E7%97%85%E6%AF%92%E7%96%AB%E8%8B%97%28%E9%85%BF%E9%85%92%E9%85%B5%E6%AF%8D%29&logVaccList%5B%220%22%5D.vaId=CDC5BCD8B3E94F9F8BDFE64782D9C73F&logVaccList%5B%220%22%5D.vaDose=%E2%91%A0&logVaccList%5B%220%22%5D.selectFlag=1&logVaccList%5B%220%22%5D.etPlanId=89C9CF10A7774167B8C59EBA56722180&logVaccList%5B%220%22%5D.cosumeVaPrice=820&logVaccList%5B%220%22%5D.trueVaPrice=820&logVaccList%5B%220%22%5D.producer=%E9%BB%98%E6%B2%99%E4%B8%9C&logVaccList%5B%220%22%5D.norms=%E6%94%AF&logVaccList%5B%220%22%5D.dose=0.5ml&logVaccList%5B%220%22%5D.discPercentage=100&logVaccList%5B%220%22%5D.planBeginDate=&logVaccList%5B%220%22%5D.myToken1=3893764e7c32255718580aa8e758c90b&logVaccList%5B%220%22%5D.myToken2=c4b706d58f49a6f1e9509d51a2dcc90e&logVaccList%5B%221%22%5D.appointmentVaId=13846&logVaccList%5B%221%22%5D.vaName=%E5%9B%9B%E4%BB%B7%E4%BA%BA%E4%B9%B3%E5%A4%B4%E7%98%A4%E7%97%85%E6%AF%92%E7%96%AB%E8%8B%97%28%E9%85%BF%E9%85%92%E9%85%B5%E6%AF%8D%29&logVaccList%5B%221%22%5D.vaId=CDC5BCD8B3E94F9F8BDFE64782D9C73F&logVaccList%5B%221%22%5D.vaDose=%E2%91%A1&logVaccList%5B%221%22%5D.selectFlag=0&logVaccList%5B%221%22%5D.etPlanId=BAABDCB61A704DDDB418B8C61205CDD7&logVaccList%5B%221%22%5D.cosumeVaPrice=1.00&logVaccList%5B%221%22%5D.trueVaPrice=1.00&logVaccList%5B%221%22%5D.producer=&logVaccList%5B%221%22%5D.norms=&logVaccList%5B%221%22%5D.dose=&logVaccList%5B%221%22%5D.discPercentage=100&logVaccList%5B%221%22%5D.planBeginDate=&logVaccList%5B%221%22%5D.myToken1=3893764e7c32255718580aa8e758c90b&logVaccList%5B%221%22%5D.myToken2=&logVaccList%5B%222%22%5D.appointmentVaId=13846&logVaccList%5B%222%22%5D.vaName=%E5%9B%9B%E4%BB%B7%E4%BA%BA%E4%B9%B3%E5%A4%B4%E7%98%A4%E7%97%85%E6%AF%92%E7%96%AB%E8%8B%97%28%E9%85%BF%E9%85%92%E9%85%B5%E6%AF%8D%29&logVaccList%5B%222%22%5D.vaId=CDC5BCD8B3E94F9F8BDFE64782D9C73F&logVaccList%5B%222%22%5D.vaDose=%E2%91%A2&logVaccList%5B%222%22%5D.selectFlag=0&logVaccList%5B%222%22%5D.etPlanId=D098A3ABD6564638A51032FEFD25322C&logVaccList%5B%222%22%5D.cosumeVaPrice=1.00&logVaccList%5B%222%22%5D.trueVaPrice=1.00&logVaccList%5B%222%22%5D.producer=&logVaccList%5B%222%22%5D.norms=&logVaccList%5B%222%22%5D.dose=&logVaccList%5B%222%22%5D.discPercentage=100&logVaccList%5B%222%22%5D.planBeginDate=&logVaccList%5B%222%22%5D.myToken1=3893764e7c32255718580aa8e758c90b&logVaccList%5B%222%22%5D.myToken2=
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 08 Oct 2022 13:44:39 GMT
+Content-Type: text/html;charset=utf-8
+Connection: keep-alive
+Content-Language: zh-CN
+Vary: Accept-Encoding
+Content-Length: 4759
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>预约完成</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="stylesheet" type="text/css" href="/jsp/wechat_client/css/wb/common.css?v=3" />
+
+<script type="text/javascript" src="/jsp/wechat_client/js/jquery.min.js"></script>
+<script type="text/javascript" src="/jsp/wechat_client/js/wb/wb_common.js"></script>
+<script type="text/javascript" src="/jsp/wechat_client/js/wb/wb_main.js"></script>
+<script type="text/javascript" src= "/jsp/layer/layer.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+	  function closeWin(){
+		 WeixinJSBridge.call('closeWindow');
+	  }
+</script>
+ </head>
+<body style="background-color: white">
+	<div>	
+		<div class="wrap" id="wrapDiv" >
+		<div class="ibox_tip" style="text-align:center;border: 1px solid #E0E0E0;">
+		   <img id="b_avt" src="https://api.hoosn.cn/t/wxpay.jpg" alt="" style="text-align:center; width: 68px; height: 68px;border-radius: 100%;border: 1px solid #E0E0E0;">
+		</div>
+		<div class="ibox_tip" style="text-align:center">预约成功</div>
+		
+		<div class="mainer">
+				<div class="ibox">
+					<div class="icheck_list">
+							<div class="item">
+								<div class="tit"  style="padding-right: 0.3rem;">
+		                                                           预约日期：<span  >2022-10-10(14:30~15:00)<span>
+		                        </div>
+		                        
+		                        <div class="item">
+									<div class="tit"  style="padding-right: 0.3rem;">
+			                                                           预约疫苗：<span>
+			                                  
+			                                     四价人乳头瘤病毒疫苗(酿酒酵母) ①
+			                                                           
+			                            <span>
+			                        </div>
+		                        </div>
+		                        
+		                        
+		                        <div class="item">
+									<div class="tit"  style="padding-right: 0.3rem;">
+			                                                           预约号码：<span  >C031(取号码：13940897525)<span>
+			                        </div>
+		                        </div>
+		                        
+		                        <div class="item">
+									<div class="tit"  style="padding-right: 0.3rem;">
+			                                                           支付金额：<span  style="color: red;">￥820<span>
+			                        </div>
+		                        </div>                       
+							</div>
+				       </div>
+			    </div>
+		</div>
+		
+		</div>
+         <div class="btnbox"   style="position:fixed;bottom: 150px;width: 100%">
+			<button type="button" onclick="doCancel('2400581');" class="btn btn_gray" style="float: left;width:40%;background: gray;">取消预约</button>	 
+			 <b style="float: left;width:20%">&nbsp;&nbsp;</b>
+			<button type="button" onclick="toIndex();"  id="showButton"   class="btn btn_green"   style ="float：left;width:40%;background: #1bc43f;">预约完成</button>
+		</div>
+	</div>
+<script>
+function toPreCheck(logId){
+    window.location.href="/newApp/preCheck?id="+logId;
+ }
+ 
+function toIndex(){
+    window.location.href="http://www.hoosn.cn/yy/cindex/6BA647C07FB44A5EBF047E07FD1F0DC3/oSfkt5jTELgDNfJnxR_HjyF5Ardo";
+ }
+function  doCancel(logId){		
+	layer.confirm('确定要取消本次预约吗？',
+	   {
+	      btn: ['取消','确定'],
+	      icon: 6,
+	      btn1:function(){
+	    	
+	    }, btn2:function(index){
+		//进行退款============================						
+	    	 $.ajax({
+				type: "POST",
+				url: "/newApp/cancelAppointment",
+				data: {
+					id : logId, 
+					//cancelUser:"Fawei",
+					//cancelType:1,
+					dealStatus: -1
+				},
+				success: function(data){
+					if(data.message.indexOf("已经支付")>=0){
+						alert("已经支付,请联系客服微信进行取消退款(微信号：hs84033936)");
+						document.location.reload();
+					}else{
+						alert(data.message);
+						if(data.success){
+							// document.location.reload();
+							closeWin();
+			 			}
+					}
+				}
+    		}); 
+		   //进行退款============================
+			 
+	    }
+	});
+}
+</script>
+</body>
+</html>
