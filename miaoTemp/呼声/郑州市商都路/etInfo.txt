@@ -1,0 +1,23 @@
+POST http://hoosn.cn/newApp/getETinfo HTTP/1.1
+Host: hoosn.cn
+Accept: */*
+X-Requested-With: XMLHttpRequest
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://hoosn.cn
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.28(0x18001c2e) NetType/WIFI Language/zh_CN
+Connection: keep-alive
+Referer: http://hoosn.cn/yy/newIndex?unionid=ohKKRjltOqECXwpwn2rFomPk6pSk&gh_ID=gh_7c3aea3624b8&openID=oSfkt5jTELgDNfJnxR_HjyF5Ardo&openid=oKaub1aCj7Ml00CE8sYHjycIzWUs&nickname=Fawei&sign=9e89a699edb9e32e26471fe06f355e9b
+Content-Length: 73
+Cookie: JSESSIONID=a00910fa-a95b-4591-8ef3-c78cb97bb6e8; Hm_lpvt_08b50eff0cc0ff570f27ba863823c644=1665240399; Hm_lvt_08b50eff0cc0ff570f27ba863823c644=1665240399
+
+etId=19E9DCA43E6A4AFB81FCA744E38AB223&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 09 Oct 2022 00:06:25 GMT
+Content-Type: applicaton/json;charset=UTF-8
+Connection: keep-alive
+Content-Length: 2048
+
+{"etInfo":{"id":"19E9DCA43E6A4AFB81FCA744E38AB223","createdate":1665231960000,"msgNoticeDate":null,"msgNoticeSoure":null,"clinicId":"6BA647C07FB44A5EBF047E07FD1F0DC3","clinicName":null,"vacc_status":0,"etCode":"410110050120003611","etBarcode":null,"carddate":null,"etName":"王可言","etSex":"女","etId":null,"etNo":null,"etBirthday":"2000-09-06","etWeight":null,"etParity":null,"etNation":null,"motherName":null,"motherUnit":null,"motherTel":null,"motherPhone":null,"encMotherPhone":null,"showMotherPhone":null,"motherIdCard":null,"fatherName":null,"fatherUnit":null,"fatherTel":null,"fatherPhone":null,"fatherIdCard":null,"hospital":null,"zoning":null,"liveType":null,"liveTypeUpload":null,"homeAddress":null,"residenceCode":null,"residenceAddress":null,"homeTel":"13940897525","homePhone":"13940897525","encHomePhone":"SuR68KqDfJ5EjLVdiShZslKv4KOM7RIa2bUjHeR3jig=","showHomePhone":"13940897525","maskHomePhone":"139****7525","email":null,"infectious":null,"allergy":null,"vaccResponse":null,"motherHb":null,"taboo":null,"tabooName":null,"nurseryDate":null,"nursery":null,"zcStatus":"在册","zcStatusUpload":null,"zcChangestatusDate":null,"moveCase":null,"nowMunitCode":null,"agoMunitCode":null,"changeDate":null,"uploadDate":null,"filingCountyGb":null,"filingUnitCode":null,"filingDate":"2022-10-08","filingCardPeople":null,"primarySchoolYear":null,"highSchoolYear":null,"moveInfo":null,"moveInfoType":null,"customCoding":null,"qrCode":null,"remark":null,"wxOpenID":null,"wxOpenName":null,"overStatus":null,"overStatusDate":null,"etFrom":1,"certOrg":null,"effDate":null,"expDate":null,"identityPic":null,"mxGetFingerData":null,"userName":null,"idNo":null,"birthday":null,"sexFlag":null,"detailAddress":null,"phone":null,"homeAddressAcode":null,"residenceAddressAcode":null,"homeAddressDist":null,"residenceAddressDist":null,"wechatId":null,"lvs":[],"subWechatList":null,"schemeId":null,"workUnit":null,"userClassification":null,"vacWill":null,"notJzReason":null,"fisrtDose":null,"extInfoMap":null,"updateTimes":null},"vaccCount":0,"status":1}
