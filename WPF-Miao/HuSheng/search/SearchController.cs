@@ -1,0 +1,102 @@
+﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
+using HttpProcessor.Content;
+using HuSheng.appointment;
+using HuSheng.session;
+using System;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Utils;
+using Utils.datetime;
+using Utils.json;
+using Utils.timerUtil;
+
+namespace HuSheng.search
+{
+    internal class SearchController : HttpClientBase
+    {
+        private IntervalOnTime SearchInterval { get; set; }
+        private bool isGetMiao = false;
+        private bool isGetYzm = false;
+
+        public SearchController(HttpClient httpClient) : base(httpClient)
+        {
+            var startTime = HushengSession.MiaoSession["StartTime"] as DateTime?;
+            SearchInterval = new IntervalOnTime(async () => await SearchAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
+        }
+
+        public async Task SearchAsync()
+        {
+            isGetMiao = await Task.Factory.StartNew(() => Search());
+            if (!isGetMiao)
+            {
+                return;
+            }
+            SearchInterval.StopInterval();
+
+            await Yuyue();
+        }
+
+        private async Task Yuyue()
+        {
+            if (!isGetYzm)
+            {
+                isGetYzm = true;
+                await GetYzmAsync();
+            }
+
+            var appointController = HttpServiceController.GetService<AppointController>();
+            appointController.AppointAsync();
+        }
+
+        private async Task GetYzmAsync()
+        {
+            //var yzmController = HttpServiceController.GetService<YzmController>();
+            //await yzmController.GetYzmAsync();
+        }
+
+        public bool Search()
+        {
+            var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
+
+            var content = new SearchContent(url);
+            content.AddHeader("Cookie", HushengSession.Cookie);
+
+            content.BuildDefaultHeaders(Client);
+
+            try
+            {
+                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                if (response == null)
+                {
+                    HushengSession.PrintLogEvent.Publish(this, $"Search - response == null");
+                    return false;
+                }
+
+                var result = response.JsonBody.RootElement.GetProperty("doccustom");
+                if (result.ValueKind == JsonValueKind.Null)
+                {
+                    HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - {DateTimeUtil.GetNow()}");
+                    return false;
+                }
+                AnalizeResult(result);
+            }
+            catch (Exception ex)
+            {
+                HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void AnalizeResult(JsonElement jsonElement)
+        {
+            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+
+            HushengSession.MiaoSession.AddOrUpdate(dicResult);
+            HushengSession.PrintLogEvent.Publish(this, dicResult, $"查到苗 - {DateTimeUtil.GetNow()}");
+        }
+    }
+}

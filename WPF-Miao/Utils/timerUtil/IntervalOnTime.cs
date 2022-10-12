@@ -24,6 +24,17 @@ namespace Utils.timerUtil
             InitIntervalTimer();
         }
 
+        public IntervalOnTime(Action action, string name, DateTime stratTime, int interval)
+        {
+            IntervalAction = action;
+            Interval = interval;
+
+            InitOnTimeTimer(name, stratTime);
+
+            InitIntervalTimer();
+
+        }
+
         #region On Time Timer
         private void InitOnTimeTimer(string name, DateTime stratTime)
         {
