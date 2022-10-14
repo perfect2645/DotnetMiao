@@ -1,0 +1,38 @@
+//疫苗名称+剂次
+function layerOpenGzsByVaccNameAndDose(text){
+	 event.stopPropagation();
+	var vaccName=encodeURIComponent(text);
+	var url="/reply/newMsgReplyInform?gzs="+vaccName;
+	var index = layer.open({
+		 type: 2,
+		 content: url,
+		 area: ['100%', '100%'], 
+		 title: false,
+		 shadeClose: true,
+		 shade: 0.8,
+		 maxmin: true,
+		 fix: false 
+
+  });
+	 //layer.full(index);
+}
+//疫苗名称
+function layerOpenGzsByVaccName(text){
+	 event.stopPropagation();
+	var vaccName=encodeURIComponent(text);
+	var url="/reply/gzs?gzs="+vaccName;
+	var index = layer.open({
+			 type: 2,
+			 content: url,
+			 area: ['100%', '100%'], 
+			 title: false,
+			 shadeClose: true,
+			 shade: 0.8,
+			 maxmin: true,
+			 fix: false 
+
+	  });
+	//layer.full(index);
+}
+
+ 

@@ -1,9 +1,12 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Container;
-using HttpProcessor.Content;
+using HttpProcessor.ExceptionManager;
+using HttpProcessor.HtmlAnalysis;
+using HttpProcessor.Response;
 using HuSheng.appointment;
 using HuSheng.session;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -18,15 +21,23 @@ namespace HuSheng.search
     {
         private IntervalOnTime SearchInterval { get; set; }
         private bool isGetMiao = false;
-        private bool isGetYzm = false;
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
             var startTime = HushengSession.MiaoSession["StartTime"] as DateTime?;
-            SearchInterval = new IntervalOnTime(async () => await SearchAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
+            //SearchInterval = new IntervalOnTime(async () => await SearchIntervalAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
         }
 
-        public async Task SearchAsync()
+        public async void SearchAsync()
+        {
+            isGetMiao = await Task.Factory.StartNew(() => Search());
+            if (!isGetMiao)
+            {
+                return;
+            }
+        }
+
+        public async Task SearchIntervalAsync()
         {
             isGetMiao = await Task.Factory.StartNew(() => Search());
             if (!isGetMiao)
@@ -35,68 +46,58 @@ namespace HuSheng.search
             }
             SearchInterval.StopInterval();
 
-            await Yuyue();
+            //await Yuyue();
         }
 
         private async Task Yuyue()
         {
-            if (!isGetYzm)
-            {
-                isGetYzm = true;
-                await GetYzmAsync();
-            }
-
             var appointController = HttpServiceController.GetService<AppointController>();
             appointController.AppointAsync();
         }
 
-        private async Task GetYzmAsync()
+        private bool Search()
         {
-            //var yzmController = HttpServiceController.GetService<YzmController>();
-            //await yzmController.GetYzmAsync();
-        }
-
-        public bool Search()
-        {
-            var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
-
-            var content = new SearchContent(url);
-            content.AddHeader("Cookie", HushengSession.Cookie);
-
-            content.BuildDefaultHeaders(Client);
+            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=15:01~15:30&appointmentTimeId=2068&configValue=1&schemeId=2158";
 
             try
             {
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HtmlResponse response = SearchHtml(url).Result;
                 if (response == null)
                 {
                     HushengSession.PrintLogEvent.Publish(this, $"Search - response == null");
                     return false;
                 }
 
-                var result = response.JsonBody.RootElement.GetProperty("doccustom");
-                if (result.ValueKind == JsonValueKind.Null)
-                {
-                    HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - {DateTimeUtil.GetNow()}");
-                    return false;
-                }
-                AnalizeResult(result);
+                AnalizeResult(response.Body);
+            }
+            catch (HttpException ex)
+            {
+                HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                return false;
             }
             catch (Exception ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
+                HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
 
             return true;
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalizeResult(HtmlDoc body)
         {
-            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+            var vassNames = body.SearchNodes("//*[@class='vassName']/text()");
+            if (vassNames == null)
+            {
+                HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
+                return;
+            }
 
-            HushengSession.MiaoSession.AddOrUpdate(dicResult);
-            HushengSession.PrintLogEvent.Publish(this, dicResult, $"查到苗 - {DateTimeUtil.GetNow()}");
+            var names = vassNames.Select(x => x.InnerText);
+            foreach (var name in names)
+            {
+                HushengSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
+            }
         }
     }
 }
