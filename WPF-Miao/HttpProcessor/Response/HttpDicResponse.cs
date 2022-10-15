@@ -1,4 +1,5 @@
-﻿using Logging;
+﻿using HttpProcessor.Response;
+using Logging;
 using Newtonsoft.Json;
 using System.IO.Compression;
 using System.Net.Http.Headers;
@@ -7,15 +8,13 @@ using Utils;
 
 namespace HttpProcessor.Client
 {
-    public class HttpDicResponse
+    public class HttpDicResponse : HttpResponseBase
     {
         #region Properties
 
         public ushort StatusCode { get; private set; }
 
         public string Message { get; private set; }
-
-        public Dictionary<string, object> Headers { get; private set; }
 
         public Dictionary<string, object> Body { get; private set; }
 
@@ -41,30 +40,9 @@ namespace HttpProcessor.Client
 
         #endregion Constructor
 
-        #region Header
-
-        private void BuildHeaders(HttpResponseHeaders headers)
-        {
-            var headerMap = headers.GetEnumerator();
-
-            if (headerMap == null)
-            {
-                return;
-            }
-
-            Headers = new Dictionary<string, object>();
-
-            while (headerMap.MoveNext())
-            {
-                Headers.Add(headerMap.Current.Key, headerMap.Current.Value);
-            }
-        }
-
-        #endregion Header
-
         #region Body
 
-        private void BuildBody(HttpContent content)
+        protected override void BuildBody(HttpContent content)
         {
             var contentStr = string.Empty;
             if (content.Headers?.ContentEncoding?.Contains("gzip") == true)
