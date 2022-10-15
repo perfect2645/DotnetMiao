@@ -1,5 +1,7 @@
 ﻿using HttpProcessor.Content;
+using HttpProcessor.ExceptionManager;
 using HttpProcessor.Request;
+using HttpProcessor.Response;
 using Logging;
 
 namespace HttpProcessor.Client
@@ -89,6 +91,12 @@ namespace HttpProcessor.Client
             {
                 GLog.Logger.Error("Search Failed", ex);
             }
+        }
+
+        public virtual async Task<HtmlResponse> SearchHtml(string url)
+        {
+            var response = await Client.SearchHtml(url);
+            return response;
         }
 
         #endregion Search

@@ -21,7 +21,7 @@ namespace HuSheng.viewmodel
 
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
-        public ICommand YzmCommand { get; set; }
+        public ICommand AutoCommand { get; set; }
 
 
         private List<DspVal> _dateList;
@@ -108,12 +108,7 @@ namespace HuSheng.viewmodel
 
             TimeList = new List<DspVal>
             {
-                new DspVal("8:00-8:30", "DATE1_COUNT"),
-                new DspVal("8:30-9:00", "DATE2_COUNT"),
-                new DspVal("9:00-9:30", "DATE3_COUNT"),
-                new DspVal("9:30-10:00", "DATE4_COUNT"),
-                new DspVal("10:00-10:30", "DATE5_COUNT"),
-                new DspVal("10:30-11:00", "DATE6_COUNT"),
+                new DspVal("09:01~09:30"),
             };
         }
 
@@ -121,7 +116,7 @@ namespace HuSheng.viewmodel
         {
             SearchCommand = new RelayCommand(ExecuteSearchAsync);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
-            YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
+            AutoCommand = new AsyncRelayCommand(ExecuteAutoAsync);
             SessionEvents.Instance.Subscribe(LogSession);
         }
 
@@ -135,7 +130,7 @@ namespace HuSheng.viewmodel
             {
                 HushengSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                //searchController.Search();
+                searchController.SearchAsync();
             }
             catch (HttpException ex)
             {
@@ -157,7 +152,7 @@ namespace HuSheng.viewmodel
             {
                 HushengSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAsync();
+                await searchController.SearchIntervalAsync();
             }
             catch (HttpException ex)
             {
@@ -173,7 +168,7 @@ namespace HuSheng.viewmodel
 
         #region 验证码
 
-        private async Task ExecuteYzmAsync()
+        private async Task ExecuteAutoAsync()
         {
             //var yzmController = HttpServiceController.GetService<YzmController>();
             //await yzmController.GetYzmAsync();

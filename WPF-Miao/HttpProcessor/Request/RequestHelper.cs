@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
+using HttpProcessor.Response;
 using Logging;
 using System.Net.Http.Headers;
 
@@ -81,6 +82,26 @@ namespace HttpProcessor.Request
         {
             var task = client.Search(content);
             callback(task.Result);
+        }
+
+        public static async Task<HtmlResponse> SearchHtml(this HttpClient client, string url)
+        {
+            try
+            {
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                return new HtmlResponse(response);
+            }
+            catch (HttpException ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, ex.ErrCode ?? "SearchHtml error");
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                return null;
+            }
         }
 
         #endregion Get
