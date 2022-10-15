@@ -1,0 +1,48 @@
+data=
+{
+    "apiVersion":"t141",
+    "appVersion":"1.5.1",
+    "areaCode":"CS000016",
+    "channel":"online",
+    "clientid":"a7ea53059fc868e2e3e2dd7c04027035",
+    "device_id":"z3tGgpTr98k8dQdVg6xeeSpiAMOQEPtRuq3x",
+    "time":1665842630622,
+    "reRule":"4",
+    "token":"c5d372fd360d5f7f2dbdae25e08cb394",
+    "viewSize":"720x1184",
+    "networkType":"wifi",
+    "isSimulator":false,
+    "osType":"4",
+    "scopeType":1,
+    "businessType":2,
+    "businessId":"30520001",
+    "deliveryCircleType":"2",
+    "body":{
+        "store_id":"3052",
+        "addrId":"3A500128-F309-42D9-8A35-00C6E3A0D9E4",
+        "pay_code":"45",
+        "pay_pwd":"",
+        "phone_model":"iPhone X (GSM+CDMA)<iPhone10,3>",
+        "orderNotesId":"",
+        "preCashCard":"",
+        "freshVoucherSeqs":{},
+        "itemsVoucherSeqs":{},
+        "proofSeqs":{},
+        "deductVoucherSeqs":{},
+        "packageExpress":{
+            "3052+day":{
+                "delivery_day":"2022-10-16",
+                "delivery_time":"10:00-13:00",
+                "packageName":"泉水店-半日达",
+                "packageId":"3052+day",
+                "dayTxt":"明日",
+                "dateTxt":"2022-10-16",
+                "timeTxt":"10:00-13:00",
+                "oreTimeTxt":"10:00-13:00 (6元配送费)",
+                "dayTabIndex":0,
+                "dayListScroll":101,
+                "chooseTimeTxt":"明日 10:00-13:00"
+            }
+        }
+    }
+}&h5=yx_touch&paramsMD5=5UnTlOWVyutH4GGj6rXg4m8BbSqjcMe/s+FOE5o2XIA=
