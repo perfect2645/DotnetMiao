@@ -8,11 +8,7 @@ using HuSheng.session;
 using System;
 using System.Linq;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
-using Utils.datetime;
-using Utils.json;
 using Utils.timerUtil;
 
 namespace HuSheng.search
@@ -86,15 +82,15 @@ namespace HuSheng.search
 
         private void AnalizeResult(HtmlDoc body)
         {
-            var vassNames = body.SearchNodes("//*[@class='vassName']/text()");
-            if (vassNames == null)
+            var vassNameNodes = body.SearchNodes("//*[@class='vassName']/text()");
+            if (vassNameNodes == null)
             {
                 HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
                 return;
             }
 
-            var names = vassNames.Select(x => x.InnerText);
-            foreach (var name in names)
+            var vassNames = vassNameNodes.Select(x => x.InnerText);
+            foreach (var name in vassNames)
             {
                 HushengSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
             }
