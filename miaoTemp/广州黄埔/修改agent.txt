@@ -1,0 +1,5 @@
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8320e743a5db7bff&component_appid=wx55e68b88a4022f45&response_type=code&scope=snsapi_userinfo&state=%3Fpanel%3D1%26hospitalId%3D2c924b1061e108200161e5bae2c031e8&redirect_uri=https://www.medic.ren/app/&connect_redirect=1#wechat_redirect
+
+
+
+Object.defineProperty(navigator,'platform',{get:function(){return 'iPhone';}});
