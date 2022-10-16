@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using Darunfa.search;
 using Darunfa.session;
+using Darunfa.submit;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using System;
@@ -150,13 +151,13 @@ namespace renren.viewmodel
 
         #region Appoint
 
-        private async void ExecuteAppointAsync()
+        private void ExecuteAppointAsync()
         {
             try
             {
                 MainSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAsync();
+                var submitController = HttpServiceController.GetService<SubmitController>();
+                submitController.AppointAsync();
             }
             catch (HttpException ex)
             {

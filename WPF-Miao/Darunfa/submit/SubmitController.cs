@@ -1,6 +1,6 @@
-﻿using HttpProcessor.Client;
+﻿using Darunfa.session;
+using HttpProcessor.Client;
 using HttpProcessor.Content;
-using renren.session;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -21,35 +21,47 @@ namespace Darunfa.submit
 
         public void Appoint()
         {
-            var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_save.do";
+            var url = "https://yx.feiniu.com/cart-yxapp/account/createOrder/t141";
 
             try
             {
                 var content = new SubmitContent(url);
-                content.AddHeader("Cookie", MainSession.Cookie);
-
                 content.BuildDefaultHeaders(Client);
 
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 if (response == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
-                }
-
-                MainSession.PrintLogEvent.Publish(this, $"预约完成-{DateTimeUtil.GetNow()}");
-                var result = response.JsonBody.RootElement.GetProperty("res").ToString();
-                if (string.IsNullOrEmpty(result))
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
                     return;
                 }
-                MainSession.PrintLogEvent.Publish(this, $"result:{result}");
+                ValidateRes(response);
+
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}-{DateTimeUtil.GetNow()}");
             }
 
+        }
+
+        private void ValidateRes(HttpDicResponse response)
+        {
+            MainSession.PrintLogEvent.Publish(this, $"抢购完成时间 - {DateTimeUtil.GetNow()}");
+            var errorDesc = response.JsonBody.RootElement.GetProperty("errorDesc").GetString();
+            if (!string.IsNullOrEmpty(errorDesc))
+            {
+                MainSession.PrintLogEvent.Publish(this, $"抢购失败 - 原因：{errorDesc}");
+                var logCode = response.JsonBody.RootElement.GetProperty("logCode").GetString();
+                MainSession.PrintLogEvent.Publish(this, $"抢购失败 - LogCode：{logCode}");
+                return;
+            }
+            var body = response.JsonBody.RootElement.GetProperty("body").ToString();
+            if (!string.IsNullOrEmpty(body))
+            {
+                MainSession.PrintLogEvent.Publish(this, $"抢购失败 - 原因：body is empty");
+                return;
+            }
+            MainSession.PrintLogEvent.Publish(this, $"result:{body}");
         }
     }
 }

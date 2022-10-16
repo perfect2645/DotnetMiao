@@ -76,6 +76,10 @@ namespace Utils
         public static string Encode(string content, Encoding encoding, bool isUpper = false)
         {
             var result = HttpUtility.UrlEncode(content, encoding);
+            result = result.Replace("+", "%20");
+            result = result.Replace("%5cu002B", "%2B");
+            result = result.Replace("%5cu003C", "%3C");
+            result = result.Replace("%5cu003E", "%3E");
             if (!isUpper)
                 return result;
             return GetUpperEncode(result);

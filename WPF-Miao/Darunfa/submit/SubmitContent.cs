@@ -1,6 +1,5 @@
 ﻿using Darunfa.session;
 using HttpProcessor.Content;
-using System;
 using System.Collections.Generic;
 using Utils;
 using Utils.datetime;
@@ -13,6 +12,7 @@ namespace Darunfa.submit
         public SubmitContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
+            IsEncode = true;
             BuildHeader();
             BuildContent();
         }
@@ -28,13 +28,17 @@ namespace Darunfa.submit
 
         private void BuildContent()
         {
+            ContentPrefix = "data=";
+            ContentSuffix = "&h5=yx_touch&paramsMD5=2L%2FZ3%2BKeo%2FaTFBGZuYOB%2FWqWNIV6eF52eNOqI1zXeUc%3D";
+
             AddContent("apiVersion", "t141");
             AddContent("appVersion", "1.5.1");
             AddContent("areaCode", "CS000016");
             AddContent("channel", "online");
             AddContent(MainSession.UserSession, Constants.ClientId);
             AddContent(MainSession.UserSession, Constants.DeviceId);
-            AddContent("time", DateTimeUtil.GetNow().ToInt());
+            //AddContent("time", DateTimeUtil.GetTimeStamp().ToLong());
+            AddContent("time", 1665910639595);
             AddContent("reRule", "4");
             AddContent("token", "c5d372fd360d5f7f2dbdae25e08cb394");
             AddContent("viewSize", "720x1184");
@@ -79,9 +83,21 @@ namespace Darunfa.submit
         private Dictionary<string, object> BuildStoreDay()
         {
             var storeDay = new Dictionary<string, object>();
-            storeDay.AddOrUpdate(Constants.DeliveryDay, MainSession.BuildDeliveryDay());
-            storeDay.AddOrUpdate(Constants.DeliveryTime, MainSession.BuildDeliveryTime());
-            storeDay.AddOrUpdate(Constants.DeliveryTime, MainSession.BuildDeliveryTime());
+
+            var deliveryDay = MainSession.BuildDeliveryDay();
+            var deliveryTime = MainSession.BuildDeliveryTime();
+
+            storeDay.AddOrUpdate(Constants.DeliveryDay, deliveryDay);
+            storeDay.AddOrUpdate(Constants.DeliveryTime, deliveryTime);
+            storeDay.AddOrUpdate(MainSession.ShopSession, Constants.PackageName);
+            storeDay.AddOrUpdate(MainSession.ShopSession, Constants.PackageId);
+            storeDay.AddOrUpdate("dayTxt", "明日");
+            storeDay.AddOrUpdate("dateTxt", deliveryDay);
+            storeDay.AddOrUpdate("timeTxt", deliveryTime);
+            storeDay.AddOrUpdate("oreTimeTxt", $"{MainSession.BuildDeliveryTime()} (6元配送费)");
+            storeDay.AddOrUpdate("dayTabIndex", 0);
+            storeDay.AddOrUpdate("dayListScroll", 303);//
+            storeDay.AddOrUpdate("chooseTimeTxt", $"明日 {deliveryTime}");
 
             return storeDay;
         }

@@ -39,7 +39,7 @@ namespace Darunfa.session
 
         public static string BuildDeliveryDay()
         {
-            var deliverDay = DateTime.Today.ToString("yyyy-MM-dd");
+            var deliverDay = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
             ShopSession.AddOrUpdate(Constants.DeliveryDay, deliverDay);
 
             return deliverDay;
@@ -49,7 +49,7 @@ namespace Darunfa.session
         {
             // 10:00-13:00 14:00-17:00 18:00-21:00
 
-            return "14:00-17:00";
+            return "18:00-21:00";
         }
 
         #endregion Build Date
