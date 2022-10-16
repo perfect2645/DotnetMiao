@@ -28,7 +28,7 @@ namespace Tools.Encode
             var seed = "@yx123*&^DKJ##CC";
             var seed2 = "@456yx#*^&HrUU99";
 
-            var sha256 = Encryptor.HmacSHA256(textToEn, seed);
+            var sha256 = Encryptor.HmacSHA256(textToEn, seed2);
             var base64 = Encryptor.EncryptBase64(sha256);
         }
     }
