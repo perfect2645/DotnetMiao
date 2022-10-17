@@ -12,10 +12,11 @@ namespace HttpProcessor.Content
 
         public Dictionary<string, string> Headers { get; private set; }
         public Dictionary<string, object> Content { get; private set; }
-
         public string ContentType { get; set; } = "application/json";
-
         public string RequestUrl { get; private set; }
+        public string ContentPrefix { get; set; }
+        public string ContentSuffix { get; set; }
+        public bool IsEncode { get; set; }
 
         #endregion Properties
 
@@ -83,6 +84,19 @@ namespace HttpProcessor.Content
         public virtual StringContent GetJsonContent()
         {
             var jsonContent = JsonSerializer.Serialize(Content, JsonEncoder.JsonOption);
+            if (IsEncode)
+            {
+                jsonContent = UnicodeConverter.Encode(jsonContent, true);
+            }
+            if (!string.IsNullOrEmpty(ContentPrefix))
+            {
+                jsonContent = $"{ContentPrefix}{jsonContent}";
+            }
+            if (!string.IsNullOrEmpty(ContentSuffix))
+            {
+                jsonContent = $"{jsonContent}{ContentSuffix}";
+            }
+
             return new StringContent(jsonContent, Encoding.UTF8, ContentType);
         }
 

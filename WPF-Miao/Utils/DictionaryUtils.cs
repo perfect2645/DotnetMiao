@@ -33,6 +33,19 @@ namespace Utils
             }
         }
 
+        public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dic, Dictionary<TKey, TValue> source, TKey key) where TKey : notnull
+        {
+            dic = dic ?? new Dictionary<TKey, TValue>();
+            if (dic.ContainsKey(key))
+            {
+                dic[key] = source[key];
+            }
+            else
+            {
+                dic.Add(key, source[key]);
+            }
+        }
+
 
         public static string ToJson(this Dictionary<string, object> dic)
         {

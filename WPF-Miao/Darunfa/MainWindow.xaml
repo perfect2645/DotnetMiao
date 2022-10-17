@@ -1,0 +1,12 @@
+﻿<Window x:Class="Darunfa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Darunfa.view"
+        Title="大润发" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:DarunfaConsole x:Name="mainConsole">
+
+    </view:DarunfaConsole>
+</Window>
+

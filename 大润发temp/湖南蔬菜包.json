@@ -1,0 +1,245 @@
+//request
+data={
+    "apiVersion": "t141",
+    "appVersion": "1.5.1",
+    "areaCode": "CS000016",
+    "channel": "online",
+    "clientid": "a7ea53059fc868e2e3e2dd7c04027035",
+    "device_id": "z3tGgpTr98k8dQdVg6xeeSpiAMOQEPtRuq3x",
+    "time": 1665849086011,
+    "reRule": "4",
+    "token": "c5d372fd360d5f7f2dbdae25e08cb394",
+    "viewSize": "720x1184",
+    "networkType": "wifi",
+    "isSimulator": false,
+    "osType": "4",
+    "scopeType": 1,
+    "businessType": 1,
+    "businessId": "30550001",
+    "deliveryCircleType": "1",
+    "body": {
+        "all_selected_status": 0,
+        "is_get": 1,
+        "action": 2,
+        "item_detail_list": [
+            {
+                "force_select": 0,
+                "id": 39825828,
+                "qty": 1,
+                "other_qty": 0,
+                "selected": 1
+            }
+        ],
+        "select": 0,
+        "store_id": "3055"
+    }
+}&h5=yx_touch&paramsMD5=5KQNXTBrNmbTiWrYKjPVbUPiQ9BJ0zI7k/WgSqVeo+E=
+
+
+
+//response
+{
+    "body": {
+        "settlementType": "1",
+        "canSettlement": false,
+        "amount": {
+            "voucherDiDiscount": "0.00",
+            "total_price": "39",
+            "total_info": "免配送费",
+            "voucherDiscountInfo": "优惠券已减¥10",
+            "pzDiscount": "0",
+            "voucherDiscount": "10",
+            "campaignDiscount": "0",
+            "discountDetail": {
+                "discountList": [
+                    {
+                        "amount": "49",
+                        "formatAmount": "¥49",
+                        "title": "商品总价",
+                        "type": 1
+                    },
+                    {
+                        "amount": "10",
+                        "formatAmount": "-¥10",
+                        "title": "优惠券已减",
+                        "type": 5
+                    },
+                    {
+                        "amount": "0",
+                        "formatAmount": "¥0",
+                        "title": "配送费",
+                        "type": 7
+                    },
+                    {
+                        "amount": "39",
+                        "formatAmount": "¥39",
+                        "title": "小计(小计金额包含商品和配送费)",
+                        "type": 99
+                    }
+                ],
+                "count": 0
+            },
+            "discountDetailDesc": "优惠券已减¥10",
+            "goodsTotalCost": "49",
+            "packingFee": "0",
+            "totalDiscount": "10",
+            "sgDiscount": "0",
+            "total_check_items": 1,
+            "freightInfo": "免配送费"
+        },
+        "settlementDesc": "已约满(1)",
+        "canGetVouchers": false,
+        "onlySelfNotice": "",
+        "switchStoreInfo": {
+            "subTitle": "(请点击选择服务门店)",
+            "title": "湖南街店当前配送运力已约满，您可切换以下门店为您提供到家服务"
+        },
+        "notDelivery": true,
+        "package_list": [
+            {
+                "all_selected_status": 1,
+                "freight": "免配送费",
+                "shopName": "湖南街店-小时达",
+                "pzToGoodsDesc": "",
+                "package_id": "3055+hour",
+                "dispFreDesIcon": true,
+                "packItemType": 1,
+                "hasSelected": true,
+                "autoChooseVoucherSeqs": {
+                    "393239168307263952": "0"
+                },
+                "packingFee": "",
+                "coupons": "可用券",
+                "merchantId": "1",
+                "oriShopName": "湖南街店",
+                "packageTotal": "39",
+                "merchantType": "1",
+                "order": 0,
+                "isSettlement": 1,
+                "packageIds": "3055+hour",
+                "packageSaleType": "1",
+                "shop_id": "3055",
+                "group_list": [
+                    {
+                        "camp_data": {
+                            "oriCampSeq": "90963",
+                            "camp_name": "已购满39元，可换购超值商品",
+                            "camp_collect_desc": "去换购",
+                            "active": 1,
+                            "camp_seq": "90963",
+                            "type_tags": {
+                                "bgcolor": "#FF5E52",
+                                "bgGraduallyColor": "#F63847",
+                                "color": "#FFFFFF",
+                                "form": 1,
+                                "rlink": "",
+                                "name": "换购",
+                                "bordercolor": "#e50113"
+                            },
+                            "type": 21,
+                            "jump_camp_native": 1
+                        }
+                    },
+                    {
+                        "product_list": [
+                            {
+                                "main": {
+                                    "joinFullGift": false,
+                                    "weightOfProduct": "6.35kg",
+                                    "specificate": "规格：1箱 | 6.35kg",
+                                    "source_sell": 1,
+                                    "ssm_limit_qty": 0,
+                                    "is_zero_goods": 0,
+                                    "sm_name": "蔬菜套餐A",
+                                    "min_select": 1,
+                                    "other_qty": 0,
+                                    "sm_price": "49",
+                                    "rowid": 39825828,
+                                    "selected_status": 1,
+                                    "sm_pic": "https://img10.fn-mart.com/pic/da9f1348c55cdc3f61ad/h2Hn22szD2CgKMZMnn/19SGQaUaKGTGWa/CsmRumNHaB6ATC4AAAgkpnP5Eow637_400x400_q75.jpg",
+                                    "foot_tag_list": [],
+                                    "service_id": "",
+                                    "max_select": 18,
+                                    "voucherExchangeType": "",
+                                    "present_voucher_seq": "",
+                                    "kind": 1,
+                                    "service_name": "",
+                                    "multiple": 1,
+                                    "specification": "",
+                                    "sku_id": "3754997",
+                                    "merchantStoreInfo": {
+                                        "merchantCode": "1",
+                                        "channelStoreId": "0002",
+                                        "merchantStoreId": "3055",
+                                        "saleStoreId": "002",
+                                        "merchantType": "1"
+                                    },
+                                    "isMultiSpecification": "0",
+                                    "force_select": 0,
+                                    "total_tag_list": [],
+                                    "is_max_select": 0,
+                                    "weight_unit": "箱",
+                                    "isVoucherGoods": "0",
+                                    "qty": 1,
+                                    "expectTimeDesc": ""
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "qty": 1,
+                "totalWeight": "重量6.35kg",
+                "merchantStoreId": "3055",
+                "maxDiscountInfo": {
+                    "need": "90",
+                    "discount": "20",
+                    "doorsill": "139",
+                    "couponId": "RTS4CBM9EEWTQOWW",
+                    "needWithUnit": "¥90",
+                    "needDescOrigin": "再买¥90可享",
+                    "needDesc": "再买<font color='#e50113'>¥90</font>可享",
+                    "offlineType": "0",
+                    "notEntry": "1",
+                    "couponDesc": "满139减20",
+                    "validTime": "10.15~10.21",
+                    "voucherSource": "1",
+                    "desc": "去凑单"
+                },
+                "needFreight": false,
+                "deliveryStatus": 1,
+                "couponsType": "1"
+            }
+        ],
+        "total_items": 1,
+        "localSettlementPage": "1",
+        "displayEatInStore": false,
+        "freshMonthVouchers": {
+            "count": 4,
+            "list": [
+                {
+                    "voucherType": "0",
+                    "doorsillDesc": "5元优惠券"
+                },
+                {
+                    "voucherType": "0",
+                    "doorsillDesc": "10元优惠券"
+                },
+                {
+                    "voucherType": "0",
+                    "doorsillDesc": "15元优惠券"
+                },
+                {
+                    "voucherType": "0",
+                    "doorsillDesc": "20元优惠券"
+                }
+            ]
+        },
+        "is_all_selected": 1
+    },
+    "debug": [],
+    "elapsedTime": 74,
+    "errorCode": 0,
+    "errorDesc": "",
+    "logCode": "7069227-1665849086619-181411356-23258-250-6434-f",
+    "success": true
+}
