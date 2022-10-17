@@ -3,6 +3,7 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using HttpProcessor.HtmlAnalysis;
 using HttpProcessor.Response;
+using HuSheng.analysis;
 using HuSheng.appointment;
 using HuSheng.session;
 using System;
@@ -82,18 +83,48 @@ namespace HuSheng.search
 
         private void AnalizeResult(HtmlDoc body)
         {
+            try
+            {
+                var has9 = HasNineJiaFirstDose(body);
+                if (!has9)
+                {
+                    return;
+                }
+
+                var miaohtml = GetForm(body);
+            }
+            catch(Exception ex)
+            {
+                HushengSession.PrintLogEvent.Publish(this, $"AnalizeResult异常 - {ex.Message}");
+            }
+        }
+
+        private HtmlDoc GetForm(HtmlDoc body)
+        {
+            var xpath = "//*[@id=\"saveForm\"]";
+            return body.GetInnerDoc(xpath);
+        }
+
+        private bool HasNineJiaFirstDose(HtmlDoc body)
+        {
             var vassNameNodes = body.SearchNodes("//*[@class='vassName']/text()");
             if (vassNameNodes == null)
             {
                 HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
-                return;
+                return false;
             }
 
             var vassNames = vassNameNodes.Select(x => x.InnerText);
             foreach (var name in vassNames)
             {
                 HushengSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
+                if (name.IsNine() && name.IsDoseOne())
+                {
+                    return true;
+                }
             }
+
+            return false;
         }
     }
 }

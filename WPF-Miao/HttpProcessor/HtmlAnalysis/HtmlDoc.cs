@@ -45,6 +45,20 @@ namespace HttpProcessor.HtmlAnalysis
             return RootNode.SelectNodes(xpath);
         }
 
+        public HtmlDoc GetInnerDoc(string xpath)
+        {
+            var innderNode = RootNode.SelectNodes(xpath)?.FirstOrDefault();
+            if (innderNode == null)
+            {
+                return null;
+            }
+
+            var innerHtml = innderNode.InnerHtml;
+            var innerDoc = new HtmlDoc(innerHtml);
+
+            return innerDoc;
+        }
+
         #endregion Html Node
     }
 }
