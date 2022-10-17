@@ -1,4 +1,5 @@
 ﻿using Utils;
+using Utils.datetime;
 
 namespace Tools.Encode
 {
@@ -23,7 +24,9 @@ namespace Tools.Encode
 
             var time = 1665910639595;
 
-            var textToEn = $"{dataDecode}{isSimulator.ToString().ToLower()}{viewSize}{netWorktype}{time}";
+            var dateSource = DateTimeUtil.GetTimeFromStamp(time);
+
+            var textToEn = $"{dataDecode}{isSimulator}{viewSize}{netWorktype}{dateSource}";
 
             var seed = "@yx123*&^DKJ##CC";
             var seed2 = "@456yx#*^&HrUU99";
