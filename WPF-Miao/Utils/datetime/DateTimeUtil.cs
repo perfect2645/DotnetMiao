@@ -6,9 +6,17 @@ namespace Utils.datetime
     {
         public static string GetTimeStamp()
         {
-            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 8, 0, 0, 0);
             var tsStr = Convert.ToInt64(ts.TotalMilliseconds).ToString();
             return tsStr;
+        }
+
+        public static string GetTimeFromStamp(long timeStamp)
+        {
+            DateTime dtStart = TimeZoneInfo.ConvertTime(new DateTime(1970, 1, 1), TimeZoneInfo.Local);
+            TimeSpan timeSpan = new TimeSpan(timeStamp * 10000);
+            DateTime targetDt = dtStart.Add(timeSpan).AddHours(8);
+            return targetDt.ToString("yyyyMMddhhmmssff");
         }
 
         public static string GetNow()
