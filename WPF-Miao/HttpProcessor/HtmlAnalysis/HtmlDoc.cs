@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using HttpProcessor.ExceptionManager;
+using Utils;
 
 namespace HttpProcessor.HtmlAnalysis
 {
@@ -45,20 +46,58 @@ namespace HttpProcessor.HtmlAnalysis
             return RootNode.SelectNodes(xpath);
         }
 
+        public HtmlNode GetDefaultNode(string xpath)
+        {
+            return RootNode.SelectNodes(xpath)?.FirstOrDefault();
+        }
+
         public HtmlDoc GetInnerDoc(string xpath)
         {
-            var innderNode = RootNode.SelectNodes(xpath)?.FirstOrDefault();
-            if (innderNode == null)
+            var innerNode = RootNode.SelectNodes(xpath)?.FirstOrDefault();
+            if (innerNode == null)
             {
                 return null;
             }
 
-            var innerHtml = innderNode.InnerHtml;
+            var innerHtml = innerNode.InnerHtml;
             var innerDoc = new HtmlDoc(innerHtml);
 
             return innerDoc;
         }
 
         #endregion Html Node
+
+        #region Form
+
+        public HtmlNode GetFormNode(string elementId)
+        {
+            var xpath = XpathTemplate.IdPath(elementId);
+            return GetDefaultNode(xpath);
+        }
+
+        public string GetFormString(string elementId, bool isEncode = false)
+        {
+            var formNode = GetFormNode(elementId);
+            var formNodeName = formNode.Name;
+            string formNodeValue = GetFormValue(formNode, isEncode);
+            if (string.IsNullOrEmpty(formNodeName) || string.IsNullOrEmpty(formNodeValue))
+            {
+                return string.Empty;
+            }
+
+            return $"{formNodeName}={formNodeValue}";
+        }
+
+        private static string GetFormValue(HtmlNode formNode, bool isEncode = false)
+        {
+            var formValue = formNode.GetAttributeValue("value", string.Empty);
+            if (isEncode)
+            {
+                formValue = UnicodeConverter.Encode(formValue);
+            }
+            return formValue;
+        }
+
+        #endregion Form
     }
 }

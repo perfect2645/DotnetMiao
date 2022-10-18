@@ -10,6 +10,7 @@ using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils;
 using Utils.timerUtil;
 
 namespace HuSheng.search
@@ -22,7 +23,7 @@ namespace HuSheng.search
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
             var startTime = HushengSession.MiaoSession["StartTime"] as DateTime?;
-            //SearchInterval = new IntervalOnTime(async () => await SearchIntervalAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
+            SearchInterval = new IntervalOnTime(async () => await SearchIntervalAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
         }
 
         public async void SearchAsync()
@@ -65,7 +66,7 @@ namespace HuSheng.search
                     return false;
                 }
 
-                AnalizeResult(response.Body);
+                return AnalizeResult(response.Body);
             }
             catch (HttpException ex)
             {
@@ -77,25 +78,27 @@ namespace HuSheng.search
                 HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
-
-            return true;
         }
 
-        private void AnalizeResult(HtmlDoc body)
+        private bool AnalizeResult(HtmlDoc body)
         {
             try
             {
                 var has9 = HasNineJiaFirstDose(body);
                 if (!has9)
                 {
-                    return;
+                    return false;
                 }
 
                 var miaohtml = GetForm(body);
+                HushengSession.MiaoSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
+
+                return true;
             }
             catch(Exception ex)
             {
                 HushengSession.PrintLogEvent.Publish(this, $"AnalizeResult异常 - {ex.Message}");
+                return false;
             }
         }
 

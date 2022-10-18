@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
+using HttpProcessor.HtmlAnalysis;
 using HuSheng.session;
 using System;
 using System.Net.Http;
@@ -25,7 +26,8 @@ namespace HuSheng.appointment
 
             try
             {
-                var content = new AppointContent(url);
+                var formDoc = (HushengSession.MiaoSession[Constants.MiaoHtml] as HtmlDoc)!;
+                var content = new AppointContent(url, formDoc);
                 content.AddHeader("Cookie", HushengSession.Cookie);
 
                 content.BuildDefaultHeaders(Client);
