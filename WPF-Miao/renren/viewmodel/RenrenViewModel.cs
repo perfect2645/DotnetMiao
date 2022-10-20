@@ -1,6 +1,7 @@
 ﻿using Base.Events;
 using Base.model;
 using Base.viewModel;
+using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -15,7 +16,7 @@ using Utils;
 
 namespace renren.viewmodel
 {
-    internal class RenrenViewModel : ViewModelBase
+    internal class RenrenViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -96,6 +97,17 @@ namespace renren.viewmodel
         private void InitStaticData()
         {
             //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            Departments = new List<HospitalDept>
+            {
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站",
+                },
+            };
 
             DateList = new List<DspVal>
             {
@@ -123,6 +135,8 @@ namespace renren.viewmodel
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
+
+            SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
 
         #endregion Constructor
@@ -180,6 +194,22 @@ namespace renren.viewmodel
         }
 
         #endregion 验证码
+
+
+        #region Hospital Dept
+
+        private void OnSelectedDepartmentChanged()
+        {
+            var selectedDept = SelectedDepartment as RenrenHospital;
+            MainSession.PlatformSesstion.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constants.UserHospitalId, selectedDept.UserHospitalId);
+
+            Log(selectedDept.ToLogString());
+
+            //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
+        }
+
+        #endregion Hospital Dept
 
         #region Session
 

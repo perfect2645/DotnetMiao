@@ -6,11 +6,12 @@
       Title="仁仁医疗"
       x:Name="RenrenPage">
 
-    <basePage:BaseConsole x:Name="baseConsole"
+    <basePage:OnTimeConsole x:Name="baseConsole"
                           Title="{Binding Title}"
+                          IsCookieVisible="Collapsed"
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
-        <basePage:BaseConsole.ButtonArea>
+        <basePage:OnTimeConsole.DynamicArea>
             <StackPanel>
                 <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
@@ -49,11 +50,7 @@
                     Command="{Binding YzmCommand}" Width="100" >
                     </Button>
                 </StackPanel>
-                <TextBox Width="300" Height="30"
-                         Margin="0,20,0,20"
-                        materialDesign:HintAssist.Hint="备注">
-                </TextBox>
             </StackPanel>
-        </basePage:BaseConsole.ButtonArea>
-    </basePage:BaseConsole>
+        </basePage:OnTimeConsole.DynamicArea>
+    </basePage:OnTimeConsole>
 </Page>
