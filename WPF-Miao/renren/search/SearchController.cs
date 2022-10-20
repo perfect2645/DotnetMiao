@@ -77,7 +77,7 @@ namespace renren.search
                 var result = response.JsonBody.RootElement.GetProperty("doccustom");
                 if (result.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {DateTimeUtil.GetNow()}");
+                    MainSession.PrintLogEvent.Publish(this, $"未查到苗");
                     return false;
                 }
                 AnalizeResult(result);
@@ -96,7 +96,7 @@ namespace renren.search
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
 
             //MainSession.MiaoSession.AddOrUpdate(dicResult);
-            MainSession.PrintLogEvent.Publish(this, dicResult, $"查到苗 - {DateTimeUtil.GetNow()}");
+            MainSession.PrintLogEvent.Publish(this, dicResult, $"查到苗");
         }
     }
 }

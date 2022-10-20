@@ -9,11 +9,17 @@ namespace Utils.timerUtil
 {
     public class IntervalOnTime
     {
+        #region Properties
+
         public System.Timers.Timer IntervalTimer { get; private set; }
         public ActionOnTime OnTimeTimer { get; private set; }
         public Action IntervalAction { get; private set; }
         public int Interval { get; set; } = 100;
         public string Name { get; private set; }
+
+        #endregion Properties
+
+        #region Constructor
 
         public IntervalOnTime(Action action, string name, DateTime stratTime)
         {
@@ -32,8 +38,9 @@ namespace Utils.timerUtil
             InitOnTimeTimer(name, stratTime);
 
             InitIntervalTimer();
-
         }
+
+        #endregion Constructor
 
         #region On Time Timer
         private void InitOnTimeTimer(string name, DateTime stratTime)
@@ -45,15 +52,13 @@ namespace Utils.timerUtil
                 return;
             }
 
+            OnTimeTimer?.StopTimer();
+
             OnTimeTimer = new ActionOnTime(name, onTimeInterval)
             {
                 ActionTime = stratTime,
                 TargetAction = StartIntervalOntime,
             };
-        }
-        private void StartIntervalOntime()
-        {
-            IntervalTimer.Start();
         }
 
         #endregion On Time Timer
@@ -62,11 +67,17 @@ namespace Utils.timerUtil
 
         private void InitIntervalTimer()
         {
+            StopInterval();
             IntervalTimer = new System.Timers.Timer();
             IntervalTimer.Enabled = false;
             IntervalTimer.Interval = Interval;
 
             IntervalTimer.Elapsed += new System.Timers.ElapsedEventHandler(IntervalTimer_Elapsed);
+        }
+
+        private void StartIntervalOntime()
+        {
+            IntervalTimer.Start();
         }
 
         private void IntervalTimer_Elapsed(object? sender, ElapsedEventArgs e)
@@ -76,7 +87,14 @@ namespace Utils.timerUtil
 
         public void StopInterval()
         {
-            IntervalTimer.Stop();
+            IntervalTimer?.Stop();
+        }
+
+        public void ResetTimer(DateTime stratTime, int interval)
+        {
+            Interval = interval;
+            InitOnTimeTimer(Name, stratTime);
+            InitIntervalTimer();
         }
 
         #endregion Interval Timer

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Utils.datetime;
 
 namespace Base.Events
 {
@@ -22,7 +23,7 @@ namespace Base.Events
             var e = new LogEventArgs
             {
                 Items = new Dictionary<string, object>(),
-                Message = message ?? sender.GetType().Name,
+                Message = $"{message ?? sender.GetType().Name} - Time={DateTimeUtil.GetNow()}",
             };
             PrintLogEvent?.Invoke(sender, e);
         }

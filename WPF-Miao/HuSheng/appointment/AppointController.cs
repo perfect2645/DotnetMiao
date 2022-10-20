@@ -38,7 +38,7 @@ namespace HuSheng.appointment
                     HushengSession.PrintLogEvent.Publish(this, $"Appoint response is null");
                 }
 
-                HushengSession.PrintLogEvent.Publish(this, $"预约完成-{DateTimeUtil.GetNow()}");
+                HushengSession.PrintLogEvent.Publish(this, $"预约完成");
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
                 if (string.IsNullOrEmpty(result))
                 {
@@ -49,7 +49,7 @@ namespace HuSheng.appointment
             }
             catch (Exception ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}-{DateTimeUtil.GetNow()}");
+                HushengSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
 
         }

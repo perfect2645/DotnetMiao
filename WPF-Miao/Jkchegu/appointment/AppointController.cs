@@ -37,7 +37,7 @@ namespace Jkchegu.appointment
                     JkSession.PrintLogEvent.Publish(this, $"Appoint response is null");
                 }
 
-                JkSession.PrintLogEvent.Publish(this, $"预约完成-{DateTimeUtil.GetNow()}");
+                JkSession.PrintLogEvent.Publish(this, $"预约完成");
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
                 if (string.IsNullOrEmpty(result))
                 {
@@ -48,7 +48,7 @@ namespace Jkchegu.appointment
             }
             catch(Exception ex)
             {
-                JkSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}-{DateTimeUtil.GetNow()}");
+                JkSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
             
         }

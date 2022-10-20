@@ -27,7 +27,7 @@ namespace Baohe.search.ArrangeWater
 
         private bool GetArrangeWater(bool isPrintLog = false)
         {
-            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater Start, Time = {DateTimeUtil.GetNow()}");
+            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater Start");
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
             content.AddHeader("Cookie", BaoheSession.Cookie);
@@ -36,7 +36,7 @@ namespace Baohe.search.ArrangeWater
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater End, Time = {DateTimeUtil.GetNow()}");
+            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater End");
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {

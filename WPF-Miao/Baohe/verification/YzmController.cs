@@ -41,7 +41,7 @@ namespace Baohe.verification
                 throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "Send Yzm");
             }
 
-            BaoheSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}, Time = {DateTimeUtil.GetNow()}");
+            BaoheSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}");
         }
 
         private void CheckYzm(string yzm)
@@ -60,7 +60,7 @@ namespace Baohe.verification
                 throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "check Yzm");
             }
 
-            BaoheSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}, Time = {DateTimeUtil.GetNow()}");
+            BaoheSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}");
         }
     }
 }

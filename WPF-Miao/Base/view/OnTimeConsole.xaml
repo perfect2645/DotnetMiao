@@ -74,7 +74,10 @@
                                 Content="{Binding DynamicArea, ElementName=baseConsole}" >
                 </ContentControl>
                 <timerControl:TimerControl Grid.Row="3"
-                                           VerticalAlignment="Bottom"/>
+                                           VerticalAlignment="Bottom"
+                                           StartTime="{Binding StartTime}"
+                                           Interval="{Binding Interval}"
+                                           StartCommand="{Binding AutoRunCommand}"/>
                 <TextBox Grid.Row="4"
                         Width="300" Height="30"
                         Margin="0,20,0,20"

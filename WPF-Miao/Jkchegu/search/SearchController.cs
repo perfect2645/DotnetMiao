@@ -78,7 +78,7 @@ namespace Jkchegu.search
                 var result = response.JsonBody.RootElement.GetProperty("doccustom");
                 if (result.ValueKind == JsonValueKind.Null)
                 {
-                    JkSession.PrintLogEvent.Publish(this, $"未查到苗 - {DateTimeUtil.GetNow()}");
+                    JkSession.PrintLogEvent.Publish(this, $"未查到苗");
                     return false;
                 }
                 AnalizeResult(result);
@@ -97,7 +97,7 @@ namespace Jkchegu.search
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
 
             JkSession.MiaoSession.AddOrUpdate(dicResult);
-            JkSession.PrintLogEvent.Publish(this, dicResult, $"查到苗 - {DateTimeUtil.GetNow()}");
+            JkSession.PrintLogEvent.Publish(this, dicResult, $"查到苗");
         }
     }
 }

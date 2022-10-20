@@ -1,48 +1,101 @@
-﻿using CoreControl.LogConsole;
+﻿using CommunityToolkit.Mvvm.Input;
+using CoreControl.LogConsole;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using Utils.timerUtil;
 
 namespace Base.viewModel
 {
-    public class OnTimeViewModel : ViewModelBase
+    public abstract class OnTimeViewModel : ViewModelBase
     {
         #region Properties
 
-        private DateTime _searhTime;
-        public DateTime SearhTime
+        private DateTime _startTime = DateTime.Now.AddMinutes(2);
+        public new DateTime StartTime
         {
-            get { return _searhTime; }
+            get { return _startTime; }
             set
             {
-                if (_searhTime != value)
+                if (_startTime != value)
                 {
-                    _searhTime = value;
-                    NotifyUI(() => SearhTime);
+                    _startTime = value;
+                    NotifyUI(() => StartTime);
                 }
             }
         }
 
-        private int _searchInterval = 200;
-        public int SearchInterval
+        private int _interval = 200;
+        public int Interval
         {
-            get { return _searchInterval; }
+            get { return _interval; }
             set
             {
-                if (_searchInterval != value)
+                if (_interval != value)
                 {
-                    _searchInterval = value;
-                    NotifyUI(() => SearchInterval);
+                    _interval = value;
+                    NotifyUI(() => Interval);
                 }
             }
         }
+
+        public ICommand AutoRunCommand { get; set; }
+
+        public IntervalOnTime AutoRunTimer { get; private set; }
 
         #endregion Properties
 
+        #region Constructor
+
         public OnTimeViewModel(LogPanel logPanel) : base(logPanel)
         {
+            AutoRunCommand = new RelayCommand(StartAutoRunTimer, CanAutoRun);
         }
+
+        #endregion Constructor
+
+        #region Ontime Action
+
+        private bool CanAutoRun()
+        {
+            if (Interval > 20)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        protected void StartAutoRunTimer()
+        {
+            try
+            {
+                if (AutoRunTimer == null)
+                {
+                    AutoRunTimer = new IntervalOnTime(AutoRun, "开启自动模式", StartTime, Interval);
+                    return;
+                }
+
+                AutoRunTimer.StopInterval();
+                AutoRunTimer.ResetTimer(StartTime, Interval);
+            }
+            catch (Exception ex)
+            {
+                PrintLogEvent.Publish(this, "StartAutoRunTimer Failed");
+                Logging.GLog.Logger.Error(ex);
+            }
+            finally
+            {
+                PrintLogEvent.Publish(this, "开启自动模式");
+            }
+        }
+
+        protected void StopAutoRunTimer()
+        {
+            AutoRunTimer.StopInterval();
+        }
+
+        protected abstract void AutoRun();
+
+        #endregion Ontime Action
     }
 }

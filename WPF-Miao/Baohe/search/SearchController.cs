@@ -105,7 +105,7 @@ namespace Baohe.search
             {
                 if (SearchStatus == SearchStatus.NumbersGet)
                 {
-                    BaoheSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}, Time = {DateTimeUtil.GetNow()}");
+                    BaoheSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}");
                     AutoRunTimer.Stop();
 
                     return;
@@ -143,7 +143,7 @@ namespace Baohe.search
             {
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
                 var isNumbersGet = await appointNumbers.GetNumbersAsync();
-                BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}, Time = {DateTimeUtil.GetNow()}");
+                BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
                 lock (OrderLock)
                 {
                     if (isNumbersGet && SearchStatus == SearchStatus.WaterGet)

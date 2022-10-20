@@ -185,6 +185,18 @@ namespace renren.viewmodel
 
         #endregion Appoint
 
+        #region AutoRun
+
+        protected override void AutoRun()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                PrintLogEvent.Publish(this, "开始了");
+            });
+        }
+
+        #endregion AutoRun
+
         #region 验证码
 
         private async Task ExecuteYzmAsync()
@@ -194,7 +206,6 @@ namespace renren.viewmodel
         }
 
         #endregion 验证码
-
 
         #region Hospital Dept
 
