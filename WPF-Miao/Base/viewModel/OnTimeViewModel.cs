@@ -11,7 +11,7 @@ namespace Base.viewModel
         #region Properties
 
         private DateTime _startTime = DateTime.Now.AddMinutes(2);
-        public new DateTime StartTime
+        public DateTime StartTime
         {
             get { return _startTime; }
             set

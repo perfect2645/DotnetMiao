@@ -88,6 +88,10 @@ namespace Utils.timerUtil
         public void StopInterval()
         {
             IntervalTimer?.Stop();
+            if (IntervalTimer != null)
+            {
+                IntervalTimer.Elapsed -= new System.Timers.ElapsedEventHandler(IntervalTimer_Elapsed);
+            }
         }
 
         public void ResetTimer(DateTime stratTime, int interval)

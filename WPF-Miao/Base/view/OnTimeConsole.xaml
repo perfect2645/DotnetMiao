@@ -75,8 +75,8 @@
                 </ContentControl>
                 <timerControl:TimerControl Grid.Row="3"
                                            VerticalAlignment="Bottom"
-                                           StartTime="{Binding StartTime}"
-                                           Interval="{Binding Interval}"
+                                           StartTime="{Binding StartTime, Mode=TwoWay}"
+                                           Interval="{Binding Interval, Mode=TwoWay}"
                                            StartCommand="{Binding AutoRunCommand}"/>
                 <TextBox Grid.Row="4"
                         Width="300" Height="30"

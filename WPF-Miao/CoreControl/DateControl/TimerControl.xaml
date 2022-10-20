@@ -13,6 +13,7 @@
                                    Grid.Column="0"
                                    SelectedTime="{Binding StartTime, ElementName=timerCtrl}"
                                    Style="{StaticResource MaterialDesignOutlinedTimePicker}"
+                                   WithSeconds="True"
                                    ToolTip="开始时间"
                                    HorizontalAlignment="Left"
                                    materialDesign:HintAssist.Hint="开始时间"
