@@ -74,9 +74,9 @@ namespace HuSheng.appointment
             AddFormContent("payFlag");
         }
 
-        private void AddFormContent(string elementId, bool isEncode = false)
+        private void AddFormContent(string elementName, bool isEncode = false)
         {
-            var appointmentDate = FormDoc.GetFormString(elementId, isEncode);
+            var appointmentDate = FormDoc.GetFormString(elementName, isEncode);
             AddContent("appointmentDate", appointmentDate);
         }
     }

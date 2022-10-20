@@ -69,15 +69,34 @@ namespace HttpProcessor.HtmlAnalysis
 
         #region Form
 
-        public HtmlNode GetFormNode(string elementId)
+        public HtmlNode GetFormNodeById(string elementId)
         {
             var xpath = XpathTemplate.IdPath(elementId);
             return GetDefaultNode(xpath);
         }
 
-        public string GetFormString(string elementId, bool isEncode = false)
+        public HtmlNode GetFormNodeByName(string elementName)
         {
-            var formNode = GetFormNode(elementId);
+            var xpath = XpathTemplate.NamePath(elementName);
+            return GetDefaultNode(xpath);
+        }
+
+        public string GetFormStringById(string elementId, bool isEncode = false)
+        {
+            var formNode = GetFormNodeById(elementId);
+            var formNodeName = formNode.Name;
+            string formNodeValue = GetFormValue(formNode, isEncode);
+            if (string.IsNullOrEmpty(formNodeName) || string.IsNullOrEmpty(formNodeValue))
+            {
+                return string.Empty;
+            }
+
+            return $"{formNodeName}={formNodeValue}";
+        }
+
+        public string GetFormString(string elementName, bool isEncode = false)
+        {
+            var formNode = GetFormNodeByName(elementName);
             var formNodeName = formNode.Name;
             string formNodeValue = GetFormValue(formNode, isEncode);
             if (string.IsNullOrEmpty(formNodeName) || string.IsNullOrEmpty(formNodeValue))
