@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CoreControl.DateControl
 {
@@ -20,9 +10,55 @@ namespace CoreControl.DateControl
     /// </summary>
     public partial class TimerControl : UserControl
     {
+        #region Properties
+
+        private static readonly Type ControlType = typeof(TimerControl);
+
+        public DateTime StartTime
+        {
+            get { return (DateTime)GetValue(StartTimeProperty); }
+            set { SetValue(StartTimeProperty, value); }
+        }
+
+        public static readonly DependencyProperty StartTimeProperty =
+            DependencyProperty.Register("StartTime", typeof(DateTime), ControlType, new PropertyMetadata(DateTime.Now.AddMinutes(2)));
+
+        public int Interval
+        {
+            get { return (int)GetValue(IntervalProperty); }
+            set { SetValue(IntervalProperty, value); }
+        }
+
+        public static readonly DependencyProperty IntervalProperty =
+            DependencyProperty.Register("Interval", typeof(int), ControlType, new PropertyMetadata(200));
+
+        public ICommand StartCommand
+        {
+            get { return (ICommand)GetValue(StartCommandProperty); }
+            set { SetValue(StartCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty StartCommandProperty =
+            DependencyProperty.Register("StartCommand", typeof(ICommand), ControlType);
+
+        public string CommandName
+        {
+            get { return (string)GetValue(CommandNameProperty); }
+            set { SetValue(CommandNameProperty, value); }
+        }
+
+        public static readonly DependencyProperty CommandNameProperty =
+            DependencyProperty.Register("CommandName", typeof(string), ControlType, new PropertyMetadata("启动"));
+
+        #endregion Properties
+
+        #region Constructor
+
         public TimerControl()
         {
             InitializeComponent();
         }
+
+        #endregion Constructor
     }
 }
