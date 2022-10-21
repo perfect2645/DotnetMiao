@@ -8,6 +8,7 @@ namespace renren.session
 {
     internal class Constants
     {
+        public const string OpenId = "openId";
         public const string UserHospitalId = "userHospitalId";
 
         public const string HospitalId = "hospitalId";
@@ -21,7 +22,6 @@ namespace renren.session
         public const string EndTime = "endTime";
         public const string IsAgent = "isAgent";
         public const string Fee = "fee";
-        public const string OpenId = "openId";
         public const string ServiceStartTime = "serviceStartTime";
         public const string BookingToken = "bookingToken";
 

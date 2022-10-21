@@ -1,12 +1,11 @@
 ﻿using HttpProcessor.Content;
 using renren.session;
-using Utils.stringBuilder;
 
-namespace renren.search
+namespace renren.search.patient
 {
-    internal class SearchContent : HttpStringContent
+    internal class PatientContent : HttpStringContent
     {
-        public SearchContent(string url) : base(url)
+        public PatientContent(string url) : base(url)
         {
             BuildHeader();
             BuildContent();
@@ -29,8 +28,10 @@ namespace renren.search
 
         private void BuildContent()
         {
-            //AddContent("ORG_CODE", "whsjjkfqzyjxmsqwsfwzx");
-            //AddContent("yyDate", MainSession.MiaoSession["Date"]);
+            AddContent("originUserHospitalId", MainSession.PlatformSesstion[Constants.UserHospitalId]);
+            AddContent("isTest", false);
+            AddContent("hasPatients", true);
+            AddContent("appId", "wx8320e743a5db7bff"); // https://www.medic.ren/PM-server/wechatAuthorizationInfo/getSignature 
         }
     }
 }

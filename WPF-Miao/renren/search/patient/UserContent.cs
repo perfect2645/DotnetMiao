@@ -1,12 +1,11 @@
 ﻿using HttpProcessor.Content;
 using renren.session;
-using Utils.stringBuilder;
 
-namespace renren.search
+namespace renren.search.patient
 {
-    internal class SearchContent : HttpStringContent
+    internal class UserContent : HttpStringContent
     {
-        public SearchContent(string url) : base(url)
+        public UserContent(string url) : base(url)
         {
             BuildHeader();
             BuildContent();
@@ -29,8 +28,8 @@ namespace renren.search
 
         private void BuildContent()
         {
-            //AddContent("ORG_CODE", "whsjjkfqzyjxmsqwsfwzx");
-            //AddContent("yyDate", MainSession.MiaoSession["Date"]);
+            AddContent(MainSession.PlatformSesstion, Constants.OpenId);
+            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
         }
     }
 }
