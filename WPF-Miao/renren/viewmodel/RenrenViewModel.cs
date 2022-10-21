@@ -71,15 +71,27 @@ namespace renren.viewmodel
             }
         }
 
-        private string _etid;
-        public string Etid
+        private string _medicToken;
+        public string MedicToken
         {
-            get { return _etid; }
+            get { return _medicToken; }
             set
             {
-                _etid = value;
-                //MainSession.MiaoSession.AddOrUpdate("Etid", value);
-                NotifyUI(() => Etid);
+                _medicToken = value;
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.MedicToken, value);
+                NotifyUI(() => MedicToken);
+            }
+        }
+
+        private string _openId;
+        public string OpenId
+        {
+            get { return _openId; }
+            set
+            {
+                _openId = value;
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.OpenId, value);
+                NotifyUI(() => OpenId);
             }
         }
 
@@ -147,9 +159,8 @@ namespace renren.viewmodel
         {
             try
             {
-                MainSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                //searchController.Search();
+                searchController.Search();
             }
             catch (HttpException ex)
             {

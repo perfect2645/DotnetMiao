@@ -8,6 +8,7 @@ namespace renren.session
 {
     internal class Constants
     {
+        public const string MedicToken = "medicToken";
         public const string OpenId = "openId";
         public const string UserHospitalId = "userHospitalId";
 

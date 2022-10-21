@@ -61,7 +61,6 @@ namespace renren.search
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
             var content = new SearchContent(url);
-            content.AddHeader("Cookie", MainSession.Cookie);
 
             content.BuildDefaultHeaders(Client);
 
