@@ -26,5 +26,9 @@ namespace renren.session
         public const string ServiceStartTime = "serviceStartTime";
         public const string BookingToken = "bookingToken";
 
+        public const string Mobile = "mobile";
+        public const string PublicKey = "publicKey";
+        public const string UserId = "userId";
+
     }
 }

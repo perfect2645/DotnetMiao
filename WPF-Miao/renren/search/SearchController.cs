@@ -19,9 +19,9 @@ namespace renren.search
         public async Task SearchAsync()
         {
             await Task.Factory.StartNew(() => Search());
-            SearchInterval.StopInterval();
+            //SearchInterval.StopInterval();
 
-            await Yuyue();
+            //await Yuyue();
         }
 
         private async Task Yuyue()
@@ -30,10 +30,10 @@ namespace renren.search
             appointController.AppointAsync();
         }
 
-        public void Search()
+        private void Search()
         {
             var patientController = HttpServiceController.GetService<PatientController>();
-            patientController.GetPatient();
+            patientController.GetUserInfoAsync();
         }
     }
 }

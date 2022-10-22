@@ -15,6 +15,7 @@ namespace renren.session
         static MainSession()
         {
             PlatformSesstion = new Dictionary<string, object>();
+            UserSession = new UserSession("2645");
         }
 
         #region UserSession

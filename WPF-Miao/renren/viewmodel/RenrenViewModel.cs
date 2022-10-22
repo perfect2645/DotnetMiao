@@ -72,7 +72,7 @@ namespace renren.viewmodel
             }
         }
 
-        private string _medicToken;
+        private string _medicToken = "CK5I1F9BUCUUSTG1+BSOXA==";
         public string MedicToken
         {
             get { return _medicToken; }
@@ -85,7 +85,7 @@ namespace renren.viewmodel
             }
         }
 
-        private string _openId;
+        private string _openId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
         public string OpenId
         {
             get { return _openId; }
@@ -106,6 +106,15 @@ namespace renren.viewmodel
         {
             InitStaticData();
             InitCommands();
+
+
+            TestData();
+        }
+
+        private void TestData()
+        {
+            MedicToken = "CK5I1F9BUCUUSTG1+BSOXA==";
+            OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
         }
 
         private void InitStaticData()
@@ -177,7 +186,7 @@ namespace renren.viewmodel
 
         }
 
-        protected override void OnGettingUserAsync()
+        protected override void OnSearchingAsync()
         {
 
         }
@@ -191,7 +200,7 @@ namespace renren.viewmodel
 
         #region Search
 
-        private void ExecuteSearchAsync()
+        private async void ExecuteSearchAsync()
         {
             if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.Init)
             {
@@ -201,8 +210,9 @@ namespace renren.viewmodel
 
             try
             {
+                MainSession.SetStatus(MiaoProgress.Searching);
                 var searchController = HttpServiceController.GetService<SearchController>();
-                searchController.Search();
+                await searchController.SearchAsync();
             }
             catch (HttpException ex)
             {

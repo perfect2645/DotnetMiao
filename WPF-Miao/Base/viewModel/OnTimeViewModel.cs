@@ -112,7 +112,7 @@ namespace Base.viewModel
             switch (currentStatus)
             {
                 case MiaoProgress.Init: OnStatusInit(); break;
-                case MiaoProgress.GettingUser: OnGettingUser(); break;
+                case MiaoProgress.Searching: OnSearching(); break;
                 case MiaoProgress.UserGet: OnUserGet(); break;
             }
         }
@@ -139,13 +139,13 @@ namespace Base.viewModel
         protected abstract void OnInitAsync();
 
 
-        protected virtual void OnGettingUser()
+        protected virtual void OnSearching()
         {
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    OnGettingUserAsync();
+                    OnSearchingAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -158,7 +158,7 @@ namespace Base.viewModel
             });
         }
 
-        protected abstract void OnGettingUserAsync();
+        protected abstract void OnSearchingAsync();
 
         protected virtual void OnUserGet()
         {

@@ -75,7 +75,7 @@ Content-Length: 1012
     "hasPatients": true,
     "appId": "wx8320e743a5db7bff",
     "mobile": "13940897525",
-    "hasRedpack": false,
+    "hasRedpack": false, //???? wo cao
     "userHospitalId": "2c92808a83597c0c0183c552cfb2585f",
     "publicKey": "35E40274-4CCF-4F19-BBBC-1933C89CD8CF",
     "hasTemporaryPatient": false,

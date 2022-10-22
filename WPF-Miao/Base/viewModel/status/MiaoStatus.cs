@@ -10,7 +10,7 @@ namespace renren.viewmodel
     {
         Init,
         ReadyForSearch,
-        GettingUser,
+        Searching,
         UserGet,
         GettingMiao,
         MiaoGet,

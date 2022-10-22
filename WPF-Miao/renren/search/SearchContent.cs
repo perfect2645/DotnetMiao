@@ -15,7 +15,7 @@ namespace renren.search
         private void BuildHeader()
         {
             AddHeader("Host", "www.medic.ren");
-            AddHeader("medicToken", MainSession.UserSession.Key);
+            AddHeader(MainSession.PlatformSesstion, Constants.MedicToken);
             AddHeader("Accept", "*/*");
             AddHeader("Authorization", "ddtoken");
             AddHeader("source", "wx");
@@ -29,8 +29,8 @@ namespace renren.search
 
         private void BuildContent()
         {
-            //AddContent("ORG_CODE", "whsjjkfqzyjxmsqwsfwzx");
-            //AddContent("yyDate", MainSession.MiaoSession["Date"]);
+            AddContent(MainSession.PlatformSesstion, Constants.OpenId);
+            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
         }
     }
 }
