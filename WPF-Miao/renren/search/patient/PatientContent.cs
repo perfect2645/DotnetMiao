@@ -14,7 +14,7 @@ namespace renren.search.patient
         private void BuildHeader()
         {
             AddHeader("Host", "www.medic.ren");
-            AddHeader("medicToken", MainSession.UserSession.Key);
+            AddHeader(MainSession.PlatformSesstion, Constants.MedicToken);
             AddHeader("Accept", "*/*");
             AddHeader("Authorization", "ddtoken");
             AddHeader("source", "wx");

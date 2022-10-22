@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Utils;
 using Utils.json;
+using Utils.stringBuilder;
 
 namespace HttpProcessor.Content
 {
@@ -55,6 +56,11 @@ namespace HttpProcessor.Content
         public void AddHeader(string key, string value)
         {
             Headers.AddOrUpdate(key, value);
+        }
+
+        public void AddHeader(Dictionary<string, object> source, string key)
+        {
+            Headers.AddOrUpdate(key, source[key].NotNullString());
         }
 
         public void AddHeaders(Dictionary<string, string> pairs)
