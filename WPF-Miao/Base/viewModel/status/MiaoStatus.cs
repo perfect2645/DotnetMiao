@@ -32,9 +32,10 @@ namespace renren.viewmodel
                 {
                     return;
                 }
+                var oldStatus = _miaoProgress;
                 _miaoProgress = value;
                 NotifyUI(() => MiaoProgress);
-                OnMiaoProgressUpdate();
+                OnMiaoProgressUpdate(oldStatus);
             }
         }
 
@@ -74,12 +75,14 @@ namespace renren.viewmodel
             ProgressEvent?.Invoke(sender, e);
         }
 
-        private void OnMiaoProgressUpdate()
+        private void OnMiaoProgressUpdate(MiaoProgress oldStatus)
         {
+            UpdateStatusDesc(oldStatus, MiaoProgress);
             Task.Factory.StartNew(() =>
             {
                 Publish(this, new StatusEventArgs
                 {
+                    OldStatus = oldStatus,
                     CurrentStatus = MiaoProgress,
                 });
             });
@@ -99,6 +102,7 @@ namespace renren.viewmodel
 
     public class StatusEventArgs
     {
+        public MiaoProgress OldStatus { get; set; }
         public MiaoProgress CurrentStatus { get; set; }
         public Dictionary<string, object> Data { get; set; }
     }

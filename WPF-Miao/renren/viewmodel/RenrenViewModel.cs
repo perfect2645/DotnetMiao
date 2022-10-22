@@ -166,6 +166,10 @@ namespace renren.viewmodel
             {
                 MainSession.SetStatus(MiaoProgress.ReadyForSearch);
             }
+            else
+            {
+                MainSession.SetStatus(MiaoProgress.Init);
+            }
         }
 
         protected override void OnInitAsync()
@@ -189,6 +193,12 @@ namespace renren.viewmodel
 
         private void ExecuteSearchAsync()
         {
+            if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.Init)
+            {
+                PrintLogEvent.Publish(this, "请补全必须的信息");
+                return;
+            }
+
             try
             {
                 var searchController = HttpServiceController.GetService<SearchController>();
