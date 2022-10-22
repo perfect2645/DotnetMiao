@@ -86,7 +86,7 @@ namespace Base.view
 
         private static void SelectedHospitalDeptChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctrl = d as BaseConsole;
+            var ctrl = d as OnTimeConsole;
             ctrl.Title = ctrl.SelectedHospitalDept?.Display;
         }
         #endregion events

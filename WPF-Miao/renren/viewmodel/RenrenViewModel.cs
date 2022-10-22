@@ -10,9 +10,11 @@ using renren.search;
 using renren.session;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.stringBuilder;
 
 namespace renren.viewmodel
 {
@@ -23,7 +25,6 @@ namespace renren.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
         public ICommand YzmCommand { get; set; }
-
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -80,6 +81,7 @@ namespace renren.viewmodel
                 _medicToken = value;
                 MainSession.PlatformSesstion.AddOrUpdate(Constants.MedicToken, value);
                 NotifyUI(() => MedicToken);
+                CheckInitStatus();
             }
         }
 
@@ -92,6 +94,7 @@ namespace renren.viewmodel
                 _openId = value;
                 MainSession.PlatformSesstion.AddOrUpdate(Constants.OpenId, value);
                 NotifyUI(() => OpenId);
+                CheckInitStatus();
             }
         }
 
@@ -156,6 +159,14 @@ namespace renren.viewmodel
         #endregion Constructor
 
         #region Status Control
+
+        private void CheckInitStatus()
+        {
+            if (StringUtil.NotEmpty(MedicToken, OpenId))
+            {
+                MainSession.SetStatus(MiaoProgress.ReadyForSearch);
+            }
+        }
 
         protected override void OnInitAsync()
         {

@@ -9,6 +9,7 @@ namespace renren.viewmodel
     public enum MiaoProgress
     {
         Init,
+        ReadyForSearch,
         GettingUser,
         UserGet,
         GettingMiao,
