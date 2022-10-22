@@ -1,6 +1,10 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using Base.session;
+using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
+using HttpProcessor.ExceptionManager;
+using renren.viewmodel;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils.timerUtil;
 
@@ -49,6 +53,7 @@ namespace Base.viewModel
         public OnTimeViewModel(LogPanel logPanel) : base(logPanel)
         {
             AutoRunCommand = new RelayCommand(StartAutoRunTimer, CanAutoRun);
+            MainSessionBase.MiaoStatus.Subscribe(OnMiaoStatusUpdate);
         }
 
         #endregion Constructor
@@ -97,5 +102,85 @@ namespace Base.viewModel
         protected abstract void AutoRun();
 
         #endregion Ontime Action
+
+        #region Status Control
+
+        protected virtual void OnMiaoStatusUpdate(object? sender, StatusEventArgs e)
+        {
+            var currentStatus = e.CurrentStatus;
+
+            switch (currentStatus)
+            {
+                case MiaoProgress.Init: OnStatusInit(); break;
+                case MiaoProgress.GettingUser: OnGettingUser(); break;
+                case MiaoProgress.UserGet: OnUserGet(); break;
+            }
+        }
+
+        protected virtual void OnStatusInit()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    OnInitAsync();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        protected abstract void OnInitAsync();
+
+
+        protected virtual void OnGettingUser()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    OnGettingUserAsync();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        protected abstract void OnGettingUserAsync();
+
+        protected virtual void OnUserGet()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    OnUserGetAsync();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        protected abstract void OnUserGetAsync();
+
+        #endregion Status Control
     }
 }

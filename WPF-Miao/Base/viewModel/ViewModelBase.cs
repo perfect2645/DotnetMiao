@@ -121,7 +121,7 @@ namespace Base.viewModel
                 return;
             }
 
-            LogHelper.PrintLog(LogPanel.WriteLogAction, ex.Message);
+            LogHelper.PrintErr(LogPanel.WriteLogAction, ex.Message, ex.StackTrace ?? "No Stacktrace");
         }
 
         public void Log(string logStr)

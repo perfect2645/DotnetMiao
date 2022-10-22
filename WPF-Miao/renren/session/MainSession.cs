@@ -6,18 +6,15 @@ using Utils;
 
 namespace renren.session
 {
-    internal class MainSession : ISessionContainer
+    internal class MainSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
-        public static LogEvents PrintLogEvent { get; set; }
-        public static MiaoStatus MiaoStatus { get; }
         public static UserSession UserSession { get; private set; }
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
 
         static MainSession()
         {
             PlatformSesstion = new Dictionary<string, object>();
-            MiaoStatus = new MiaoStatus();
         }
 
         #region UserSession

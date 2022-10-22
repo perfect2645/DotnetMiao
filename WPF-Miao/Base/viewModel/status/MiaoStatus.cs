@@ -9,8 +9,9 @@ namespace renren.viewmodel
     public enum MiaoProgress
     {
         Init,
+        GettingUser,
         UserGet,
-        MiaoPending,
+        GettingMiao,
         MiaoGet,
         AppointStart,
         AppointEnd,

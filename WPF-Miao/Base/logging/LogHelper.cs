@@ -19,10 +19,15 @@ namespace Base.logging
             Logging.GLog.Logger.Warn(logStr);
         }
 
-        public static void PrintErr(Action<string>? writeLogAction, string logStr)
+        public static void PrintErr(Action<string>? writeLogAction, string logStr, string stackTrace)
         {
-            writeLogAction?.Invoke(logStr);
-            Logging.GLog.Logger.Error(logStr);
+            var sb = new StringBuilder();
+            sb.AppendLine($"Error Occurred {logStr} Start*********");
+            sb.AppendLine($"Stack Trace : {stackTrace}");
+            sb.AppendLine($"Error Occurred {logStr} End*********");
+
+            writeLogAction?.Invoke(sb.ToString());
+            Logging.GLog.Logger.Error(sb.ToString());
         }
 
         internal static void PrintLog(Action<string> writeLogAction, LogEventArgs e)

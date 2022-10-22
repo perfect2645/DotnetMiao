@@ -103,7 +103,6 @@ namespace renren.viewmodel
         {
             InitStaticData();
             InitCommands();
-            MainSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
@@ -143,15 +142,37 @@ namespace renren.viewmodel
 
         private void InitCommands()
         {
+            MainSession.PrintLogEvent = PrintLogEvent;
+
             SearchCommand = new RelayCommand(ExecuteSearchAsync);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+
         }
 
         #endregion Constructor
+
+        #region Status Control
+
+        protected override void OnInitAsync()
+        {
+
+        }
+
+        protected override void OnGettingUserAsync()
+        {
+
+        }
+
+        protected override void OnUserGetAsync()
+        {
+
+        }
+
+        #endregion Status Control
 
         #region Search
 
