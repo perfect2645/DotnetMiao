@@ -1,0 +1,160 @@
+POST https://www.medic.ren/PM-server/mobteam/getTeamDetail HTTP/1.1
+Host: www.medic.ren
+medicToken: 1BYTA3FID0EXRIFN/ZNJVQ==
+Accept: */*
+Authorization: ddtoken
+source: wx
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Origin: https://www.medic.ren
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.28(0x18001c2e) NetType/WIFI Language/zh_CN
+Referer: https://www.medic.ren/app/
+Content-Length: 106
+Connection: keep-alive
+
+{"teamId":"2c9280977a0d16c4017a13a0de5310bf","role":1,"userHospitalId":"2c92808a83597c0c0183c552cfb2585f"}
+HTTP/1.1 200 OK
+Server: nginx/1.10.3
+Date: Tue, 11 Oct 2022 12:18:01 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Expires: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Frame-Options: DENY
+Access-Control-Allow-Origin: https://www.medic.ren
+Vary: Origin
+Access-Control-Allow-Credentials: true
+X-Content-Type-Options: nosniff
+X-Application-Context: PM-server:prodLinux:8097
+Content-Length: 3479
+
+{
+  "code" : "200",
+  "message" : "Success",
+  "data" : {
+    "image" : null,
+    "dept" : "HPV-富春卫生服务站",
+    "isFamily" : false,
+    "services" : [ {
+      "openHours" : 4,
+      "streetConfine" : "0",
+      "seqNum" : 1,
+      "fee" : 0.00,
+      "icon" : "vaccine",
+      "closeRule" : "+",
+      "isFamily" : 0,
+      "type" : "0",
+      "openRule" : "-",
+      "closeHours" : 14,
+      "doctorUserHospitalId" : null,
+      "doctorName" : "HPV-富春卫生服务站",
+      "dayLimit" : 0,
+      "name" : "四价HPV首针预约",
+      "id" : "2c9280977a0d16c4017a13a20ee4113a",
+      "closeDayLimit" : null
+    }, {
+      "openHours" : 4,
+      "streetConfine" : "0",
+      "seqNum" : 2,
+      "fee" : 0.00,
+      "icon" : "vaccine",
+      "closeRule" : null,
+      "isFamily" : 0,
+      "type" : "0",
+      "openRule" : "-",
+      "closeHours" : null,
+      "doctorUserHospitalId" : null,
+      "doctorName" : "HPV-富春卫生服务站",
+      "dayLimit" : null,
+      "name" : "四价HPV第二针预约",
+      "id" : "2c92809780590ea6018063d312be04ae",
+      "closeDayLimit" : null
+    }, {
+      "openHours" : 4,
+      "streetConfine" : "0",
+      "seqNum" : 3,
+      "fee" : 0.00,
+      "icon" : "vaccine",
+      "closeRule" : null,
+      "isFamily" : 0,
+      "type" : "0",
+      "openRule" : "-",
+      "closeHours" : null,
+      "doctorUserHospitalId" : null,
+      "doctorName" : "HPV-富春卫生服务站",
+      "dayLimit" : 0,
+      "name" : "四价HPV第三针预约",
+      "id" : "2c9280978201614d01821f71e2ac7d1d",
+      "closeDayLimit" : null
+    }, {
+      "openHours" : 4,
+      "streetConfine" : "0",
+      "seqNum" : 4,
+      "fee" : 0.00,
+      "icon" : "vaccine",
+      "closeRule" : "+",
+      "isFamily" : 0,
+      "type" : "0",
+      "openRule" : "-",
+      "closeHours" : 14,
+      "doctorUserHospitalId" : null,
+      "doctorName" : "HPV-富春卫生服务站",
+      "dayLimit" : 0,
+      "name" : "九价HPV首针预约",
+      "id" : "2c9280978201614d01821f73cc5c7da5",
+      "closeDayLimit" : null
+    }, {
+      "openHours" : 4,
+      "streetConfine" : "0",
+      "seqNum" : 5,
+      "fee" : 0.00,
+      "icon" : "vaccine",
+      "closeRule" : null,
+      "isFamily" : 0,
+      "type" : "0",
+      "openRule" : "-",
+      "closeHours" : null,
+      "doctorUserHospitalId" : null,
+      "doctorName" : "HPV-富春卫生服务站",
+      "dayLimit" : 0,
+      "name" : "九价HPV第二针预约",
+      "id" : "2c9280978201614d01821f7594977e2b",
+      "closeDayLimit" : null
+    }, {
+      "openHours" : 4,
+      "streetConfine" : "0",
+      "seqNum" : 6,
+      "fee" : 0.00,
+      "icon" : "vaccine",
+      "closeRule" : null,
+      "isFamily" : 0,
+      "type" : "0",
+      "openRule" : "-",
+      "closeHours" : null,
+      "doctorUserHospitalId" : null,
+      "doctorName" : "HPV-富春卫生服务站",
+      "dayLimit" : 0,
+      "name" : "九价HPV第三针预约",
+      "id" : "2c9280978201614d01821f7635e87e4f",
+      "closeDayLimit" : null
+    } ],
+    "topicPrice" : "0",
+    "title" : "医师",
+    "followed" : false,
+    "bp" : false,
+    "freeTopic" : "1",
+    "doctor" : "牛云",
+    "isFree" : true,
+    "hospitalId" : "2c924b1061e108200161e5bae2c031e8",
+    "shortDescribe" : null,
+    "contact" : null,
+    "intro" : null,
+    "name" : "HPV-富春卫生服务站",
+    "isTopic" : false,
+    "id" : "2c9280977a0d16c4017a13a0de5310bf",
+    "qrcodeUrl" : "http://weixin.qq.com/q/02lus949xEcyk10000007r"
+  }
+}

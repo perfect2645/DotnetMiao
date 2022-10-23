@@ -187,7 +187,7 @@ namespace renren.search.patient
                 throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
             }
             MainSession.PlatformSesstion.AddOrUpdate(data);
-            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存App Sign");
+            MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");
         }
 
         private void AnalysisGetUser(JsonElement jsonElement)
@@ -204,7 +204,7 @@ namespace renren.search.patient
                 throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
             }
             MainSession.AddUserSession(data);
-            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存用户信息");
+            MainSession.PrintLogEvent.Publish(this, data, $"保存用户信息");
         }
 
         private void AnalysisGetPatient(JsonElement jsonElement)
@@ -221,7 +221,7 @@ namespace renren.search.patient
                 throw new HttpException($"code = {code}, message = {message}, data.count = {dataList?.Count}");
             }
             MainSession.AddUserSession(data);
-            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存Patient信息");
+            MainSession.PrintLogEvent.Publish(this, data, $"保存Patient信息");
         }
 
         private void AnalysisGetPatientDetail(JsonElement jsonElement)
@@ -238,7 +238,7 @@ namespace renren.search.patient
                 throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
             }
             MainSession.AddUserSession(data);
-            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存用户详细信息");
+            MainSession.PrintLogEvent.Publish(this, data, $"保存用户详细信息");
         }
     }
 }
