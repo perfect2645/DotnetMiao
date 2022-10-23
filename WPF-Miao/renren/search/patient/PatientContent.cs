@@ -31,7 +31,7 @@ namespace renren.search.patient
             AddContent("originUserHospitalId", MainSession.PlatformSesstion[Constants.UserHospitalId]);
             AddContent("isTest", false);
             AddContent("hasPatients", true);
-            AddContent("appId", "wx8320e743a5db7bff"); // https://www.medic.ren/PM-server/wechatAuthorizationInfo/getSignature 
+            AddContent(MainSession.PlatformSesstion, Constants.AppId);
             AddContent(Constants.Mobile, MainSession.UserSession[Constants.Mobile]);
             AddContent("hasRedpack", false);
             AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);

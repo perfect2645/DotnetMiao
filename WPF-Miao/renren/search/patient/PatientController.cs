@@ -19,11 +19,12 @@ namespace renren.search.patient
         {
         }
 
-        public void GetUserInfoAsync()
+        public async void GetUserInfoAsync()
         {
             try
             {
-                Task.Factory.StartNew(() =>
+                await Task.Factory.StartNew(() => GetSignature());
+                await Task.Factory.StartNew(() =>
                 {
                     var isUserGet = GetUser();
                     if (!isUserGet)
@@ -36,6 +37,36 @@ namespace renren.search.patient
             catch(Exception ex)
             {
                 //innerex
+            }
+        }
+
+        private void GetSignature()
+        {
+            var url = "https://www.medic.ren/PM-server/wechatAuthorizationInfo/getSignature";
+
+            var content = new AuthContent(url);
+
+            content.BuildDefaultHeaders(Client);
+
+            try
+            {
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                if (response == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"GetSignature - response == null");
+                    return;
+                }
+
+                var result = response.JsonBody.RootElement;
+                AnalizeGetSign(result);
+            }
+            catch (HttpException ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"GetSignature失败 - {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"GetSignature失败 - {ex.Message} - {ex.StackTrace}");
             }
         }
 
@@ -105,6 +136,23 @@ namespace renren.search.patient
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
+        }
+
+        private void AnalizeGetSign(JsonElement jsonElement)
+        {
+            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+            var code = dicResult["code"].ToInt();
+            var message = dicResult["message"].NotNullString();
+
+            var dataJsonElement = jsonElement.GetProperty("data");
+            var data = JsonAnalysis.JsonToDic(dataJsonElement);
+
+            if (code != 200 || !data.HasItem())
+            {
+                throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
+            }
+            MainSession.PlatformSesstion.AddOrUpdate(data);
+            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存App Sign");
         }
 
         private void AnalizeGetUser(JsonElement jsonElement)

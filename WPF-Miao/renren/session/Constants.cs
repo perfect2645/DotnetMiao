@@ -29,6 +29,7 @@ namespace renren.session
         public const string Mobile = "mobile";
         public const string PublicKey = "publicKey";
         public const string UserId = "userId";
+        public const string AppId = "appId";
 
     }
 }

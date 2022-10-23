@@ -120,6 +120,7 @@ namespace renren.viewmodel
         private void InitStaticData()
         {
             //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            MainSession.PlatformSesstion.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
             Departments = new List<HospitalDept>
             {
                 new RenrenHospital
