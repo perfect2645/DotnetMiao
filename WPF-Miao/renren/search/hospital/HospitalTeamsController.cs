@@ -37,7 +37,7 @@ namespace renren.search.hospital
         {
             var url = "https://www.medic.ren/PM-server/mobteam/getHospitalTeams";
 
-            var content = new SearchContent(url);
+            var content = new HospitalTeamsContent(url);
 
             content.BuildDefaultHeaders(Client);
 
@@ -57,12 +57,12 @@ namespace renren.search.hospital
             }
             catch (HttpException ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"GetUser失败 - {ex.Message}");
+                MainSession.PrintLogEvent.Publish(this, $"GetHospitalTeams失败 - {ex.Message}");
                 return false;
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"GetUser失败 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"GetHospitalTeams失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
         }
@@ -73,15 +73,17 @@ namespace renren.search.hospital
             var code = dicResult["code"].ToInt();
             var message = dicResult["message"].NotNullString();
 
-            var dataJsonElement = jsonElement.GetProperty("data");
+            var dataJsonElement = jsonElement.GetProperty("data").GetProperty("list");
             var dataList = JsonAnalysis.JsonToDicList(dataJsonElement);
-            var data = dataList?.FirstOrDefault();
+
+            var nineJiaTeamId = MainSession.PlatformSesstion[Constants.TeamId].NotNullString();
+            var data = dataList?.FirstOrDefault(x => x.ContainsValue(nineJiaTeamId));
             if (code != 200 || !data.HasItem())
             {
                 throw new HttpException($"code = {code}, message = {message}, data.count = {dataList?.Count}");
             }
             MainSession.AddUserSession(data);
-            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存Patient信息");
+            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存Hospital信息");
         }
     }
 }

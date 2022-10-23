@@ -1,6 +1,5 @@
-﻿using Base.Events;
-using Base.session;
-using renren.viewmodel;
+﻿using Base.session;
+using Base.viewmodel.status;
 using System.Collections.Generic;
 using Utils;
 

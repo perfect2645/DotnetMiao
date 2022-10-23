@@ -75,7 +75,7 @@ namespace renren.search.patient
         {
             var url = "https://www.medic.ren/PM-server/mobuserHospital/getUser";
 
-            var content = new SearchContent(url);
+            var content = new UserContent(url);
 
             content.BuildDefaultHeaders(Client);
 

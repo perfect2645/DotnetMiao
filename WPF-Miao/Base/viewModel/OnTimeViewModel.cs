@@ -1,8 +1,8 @@
 ﻿using Base.session;
+using Base.viewmodel.status;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.ExceptionManager;
-using renren.viewmodel;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -113,7 +113,7 @@ namespace Base.viewModel
             {
                 case MiaoProgress.Init: OnStatusInit(); break;
                 case MiaoProgress.Searching: OnSearching(); break;
-                case MiaoProgress.UserGet: OnUserGet(); break;
+                case MiaoProgress.Searchend: OnSearchend(); break;
             }
         }
 
@@ -160,13 +160,13 @@ namespace Base.viewModel
 
         protected abstract void OnSearchingAsync();
 
-        protected virtual void OnUserGet()
+        protected virtual void OnSearchend()
         {
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    OnUserGetAsync();
+                    OnSearchendAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -179,7 +179,7 @@ namespace Base.viewModel
             });
         }
 
-        protected abstract void OnUserGetAsync();
+        protected abstract void OnSearchendAsync();
 
         #endregion Status Control
     }

@@ -1,5 +1,6 @@
 ﻿using Base.Events;
 using Base.model;
+using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
@@ -10,7 +11,6 @@ using renren.search;
 using renren.session;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -107,7 +107,6 @@ namespace renren.viewmodel
             InitStaticData();
             InitCommands();
 
-
             TestData();
         }
 
@@ -192,7 +191,7 @@ namespace renren.viewmodel
 
         }
 
-        protected override void OnUserGetAsync()
+        protected override void OnSearchendAsync()
         {
 
         }
@@ -278,6 +277,7 @@ namespace renren.viewmodel
             var selectedDept = SelectedDepartment as RenrenHospital;
             MainSession.PlatformSesstion.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSesstion.AddOrUpdate(Constants.UserHospitalId, selectedDept.UserHospitalId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constants.TeamId, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
 

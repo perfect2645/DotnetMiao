@@ -1,5 +1,5 @@
 ﻿using Base.Events;
-using renren.viewmodel;
+using Base.viewmodel.status;
 
 namespace Base.session
 {

@@ -14,6 +14,7 @@ Content-Length: 649
 Connection: keep-alive
 
 {"originUserHospitalId":"2c92808a83597c0c0183c552cfb2585f","isTest":false,"hasPatients":true,"appId":"wx8320e743a5db7bff","mobile":"13940897525","hasRedpack":false,"userHospitalId":"2c92808a83597c0c0183c552cfb2585f","publicKey":"35E40274-4CCF-4F19-BBBC-1933C89CD8CF","hasTemporaryPatient":false,"userId":"2c92808a83597c0c0183c552cfad585e","presigned":true,"hasNewBpData":false,"openId":"oYSgi1AC5pqly_Brb2aLM7mnpLUU","hospitalId":"2c924b1061e108200161e5bae2c031e8","image":"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWYicxW2TxmZQGdq6OOOEHwygYcyD3cTdLLhb2UtnMN6olLtJPZ7pF6weXclDLEvzrmFXJTCiaIj5A/132","nickname":"Fawei","sex":"女","tmCount":0}
+{"originUserHospitalId":"2c92808a83597c0c0183c552cfb2585f","isTest":false,"hasPatients":true,"appId":"wx8320e743a5db7bff","mobile":"13940897525","hasRedpack":false,"userHospitalId":"2c92808a83597c0c0183c552cfb2585f","publicKey":"CK5I1F9BUCUUSTG1\u002BBSOXA==","hasTemporaryPatient":false,"userId":"2c92808a83597c0c0183c552cfad585e","presigned":true,"hasNewBpData":false}
 HTTP/1.1 200 OK
 Server: nginx/1.10.3
 Date: Tue, 11 Oct 2022 14:35:06 GMT

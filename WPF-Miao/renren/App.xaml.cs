@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Container;
 using renren.appointment;
 using renren.search;
+using renren.search.hospital;
 using renren.search.patient;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,6 +31,8 @@ namespace renren
             HttpServiceController.AddTransientService<SearchController>();
             HttpServiceController.AddTransientService<AppointController>();
             HttpServiceController.AddTransientService<PatientController>();
+            HttpServiceController.AddTransientService<HospitalTeamsController>();
+            
 
             HttpServiceController.BuidServiceProvider();
         }

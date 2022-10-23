@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.datetime;
 
-namespace renren.viewmodel
+namespace Base.viewmodel.status
 {
     public enum MiaoProgress
     {
         Init,
         ReadyForSearch,
         Searching,
-        UserGet,
+        Searchend,
         GettingMiao,
         MiaoGet,
         AppointStart,
