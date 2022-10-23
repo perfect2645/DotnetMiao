@@ -49,7 +49,7 @@ namespace Baohe.search.ArrangeWater
                 throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - Result is empty", "empty result");
             }
 
-            var arrangeWaters = AnalizeResult(result);
+            var arrangeWaters = AnalysisResult(result);
 
             if (isPrintLog)
             {
@@ -59,7 +59,7 @@ namespace Baohe.search.ArrangeWater
             return true;
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement)
         {
             var arrangeWater = JsonAnalysis.JsonToDicList(jsonElement);
             var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater(arrangeWater);

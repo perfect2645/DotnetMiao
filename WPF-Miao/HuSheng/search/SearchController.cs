@@ -66,7 +66,7 @@ namespace HuSheng.search
                     return false;
                 }
 
-                return AnalizeResult(response.Body);
+                return AnalysisResult(response.Body);
             }
             catch (HttpException ex)
             {
@@ -80,7 +80,7 @@ namespace HuSheng.search
             }
         }
 
-        private bool AnalizeResult(HtmlDoc body)
+        private bool AnalysisResult(HtmlDoc body)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace HuSheng.search
             }
             catch(Exception ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"AnalizeResult异常 - {ex.Message}");
+                HushengSession.PrintLogEvent.Publish(this, $"AnalysisResult异常 - {ex.Message}");
                 return false;
             }
         }

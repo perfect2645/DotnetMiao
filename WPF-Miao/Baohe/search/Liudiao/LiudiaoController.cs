@@ -43,10 +43,10 @@ namespace Baohe.search.Liudiao
             {
                 throw new HttpException($"{Constant.ProjectName}:Liudiao-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result);
+            AnalysisResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             var result = JsonAnalysis.JsonToDicList(jsonElement);
             BaoheSession.AddUserSession(Constant.Liudiao, result);

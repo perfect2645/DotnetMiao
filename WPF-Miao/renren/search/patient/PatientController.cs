@@ -19,7 +19,7 @@ namespace renren.search.patient
         {
         }
 
-        public async void GetUserInfoAsync()
+        public async Task GetUserInfoAsync()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace renren.search.patient
             }
             catch(Exception ex)
             {
-                //innerex
+                Logging.GLog.Logger.Error(ex);
             }
         }
 
@@ -59,7 +59,7 @@ namespace renren.search.patient
                 }
 
                 var result = response.JsonBody.RootElement;
-                AnalizeGetSign(result);
+                AnalysisGetSign(result);
             }
             catch (HttpException ex)
             {
@@ -89,7 +89,7 @@ namespace renren.search.patient
                 }
 
                 var result = response.JsonBody.RootElement;
-                AnalizeGetUser(result);
+                AnalysisGetUser(result);
 
                 return true;
             }
@@ -123,7 +123,7 @@ namespace renren.search.patient
                 }
 
                 var result = response.JsonBody.RootElement;
-                AnalizeGetPatient(result);
+                AnalysisGetPatient(result);
 
                 return true;
             }
@@ -157,7 +157,7 @@ namespace renren.search.patient
                 }
 
                 var result = response.JsonBody.RootElement;
-                AnalizeGetPatientDetail(result);
+                AnalysisGetPatientDetail(result);
 
                 return true;
             }
@@ -173,7 +173,7 @@ namespace renren.search.patient
             }
         }
 
-        private void AnalizeGetSign(JsonElement jsonElement)
+        private void AnalysisGetSign(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();
@@ -190,7 +190,7 @@ namespace renren.search.patient
             MainSession.PrintLogEvent.Publish(this, dicResult, $"保存App Sign");
         }
 
-        private void AnalizeGetUser(JsonElement jsonElement)
+        private void AnalysisGetUser(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();
@@ -207,7 +207,7 @@ namespace renren.search.patient
             MainSession.PrintLogEvent.Publish(this, dicResult, $"保存用户信息");
         }
 
-        private void AnalizeGetPatient(JsonElement jsonElement)
+        private void AnalysisGetPatient(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();
@@ -224,7 +224,7 @@ namespace renren.search.patient
             MainSession.PrintLogEvent.Publish(this, dicResult, $"保存Patient信息");
         }
 
-        private void AnalizeGetPatientDetail(JsonElement jsonElement)
+        private void AnalysisGetPatientDetail(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();

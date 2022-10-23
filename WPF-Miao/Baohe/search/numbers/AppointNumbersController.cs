@@ -52,7 +52,7 @@ namespace Baohe.search.numbers
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
             }
 
-            var numbers = AnalizeResult(result, arrangeWater);
+            var numbers = AnalysisResult(result, arrangeWater);
 
             if (isPrintLog)
             {
@@ -62,7 +62,7 @@ namespace Baohe.search.numbers
             return true;
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, Dictionary<string, object> arrangeWater)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement, Dictionary<string, object> arrangeWater)
         {
             var numbers = JsonAnalysis.JsonToDicList(jsonElement);
             foreach (var number in numbers)

@@ -30,10 +30,13 @@ namespace renren.search
             appointController.AppointAsync();
         }
 
-        private void Search()
+        private async void Search()
         {
             var patientController = HttpServiceController.GetService<PatientController>();
-            patientController.GetUserInfoAsync();
+            var patientTask = patientController.GetUserInfoAsync();
+
+            var hosptialController = HttpServiceController.GetService<PatientController>();
+            var hospitalTask =  
         }
     }
 }

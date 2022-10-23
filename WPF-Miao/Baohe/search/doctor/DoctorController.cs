@@ -43,10 +43,10 @@ namespace Baohe.search.doctor
             {
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result);
+            AnalysisResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
 

@@ -71,10 +71,10 @@ namespace Baohe.search.user
             {
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result);
+            AnalysisResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             MemberList = JsonAnalysis.JsonToDicList(jsonElement);
 

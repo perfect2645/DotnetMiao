@@ -81,7 +81,7 @@ namespace Jkchegu.search
                     JkSession.PrintLogEvent.Publish(this, $"未查到苗");
                     return false;
                 }
-                AnalizeResult(result);
+                AnalysisResult(result);
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace Jkchegu.search
             return true;
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
 
