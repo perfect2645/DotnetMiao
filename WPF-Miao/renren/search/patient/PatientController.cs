@@ -32,6 +32,7 @@ namespace renren.search.patient
                         return;
                     }
                     GetPatient();
+                    GetPatientDetails();
                 });
             }
             catch(Exception ex)
@@ -138,6 +139,40 @@ namespace renren.search.patient
             }
         }
 
+        public bool GetPatientDetails()
+        {
+            var url = "https://www.medic.ren/PM-server/mobpatient/getPatientDetail";
+
+            var content = new PatientDetailContent(url);
+
+            content.BuildDefaultHeaders(Client);
+
+            try
+            {
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                if (response == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"GetPatientDetails - response == null");
+                    return false;
+                }
+
+                var result = response.JsonBody.RootElement;
+                AnalizeGetPatientDetail(result);
+
+                return true;
+            }
+            catch (HttpException ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"GetPatientDetails失败 - {ex.Message}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"GetPatientDetails失败 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+        }
+
         private void AnalizeGetSign(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
@@ -187,6 +222,23 @@ namespace renren.search.patient
             }
             MainSession.AddUserSession(data);
             MainSession.PrintLogEvent.Publish(this, dicResult, $"保存Patient信息");
+        }
+
+        private void AnalizeGetPatientDetail(JsonElement jsonElement)
+        {
+            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+            var code = dicResult["code"].ToInt();
+            var message = dicResult["message"].NotNullString();
+
+            var dataJsonElement = jsonElement.GetProperty("data");
+            var data = JsonAnalysis.JsonToDic(dataJsonElement);
+
+            if (code != 200 || !data.HasItem())
+            {
+                throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
+            }
+            MainSession.AddUserSession(data);
+            MainSession.PrintLogEvent.Publish(this, dicResult, $"保存用户详细信息");
         }
     }
 }

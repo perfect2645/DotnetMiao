@@ -14,6 +14,7 @@ namespace renren.session
 
         public const string HospitalId = "hospitalId";
 
+        public const string Id = "id";
         public const string PatientId = "patientId";
         public const string ServiceId = "serviceId";
         public const string DateId = "dateId";

@@ -1,0 +1,83 @@
+POST https://www.medic.ren/PM-server/mobpatient/getPatientDetail HTTP/1.1
+Host: www.medic.ren
+medicToken: FBQ+E2N+C9V33NMAQX0FSG==
+Accept: */*
+Authorization: ddtoken
+source: wx
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Origin: https://www.medic.ren
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.28(0x18001c2e) NetType/WIFI Language/zh_CN
+Referer: https://www.medic.ren/app/
+Content-Length: 148
+Connection: keep-alive
+
+{"patientId":"2c92809783bb06fd0183c552f1a74885","userHospitalId":"2c92808a83597c0c0183c552cfb2585f","hospitalId":"2c924b1061e108200161e5bae2c031e8"}
+HTTP/1.1 200 OK
+Server: nginx/1.10.3
+Date: Fri, 21 Oct 2022 07:05:52 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Expires: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Frame-Options: DENY
+Access-Control-Allow-Origin: https://www.medic.ren
+Vary: Origin
+Access-Control-Allow-Credentials: true
+X-Content-Type-Options: nosniff
+X-Application-Context: PM-server:prodLinux:8097
+Content-Length: 1426
+
+{
+  "code" : "200",
+  "message" : "Success",
+  "data" : {
+    "birthday" : "1986-08-16",
+    "allergen" : null,
+    "pastHistory" : null,
+    "presentAddressStreet" : null,
+    "leechdo" : null,
+    "isVerified" : true,
+    "patientId" : null,
+    "hasCreateDocument" : false,
+    "hasServicePackage" : false,
+    "isHypertension" : false,
+    "signPackage" : null,
+    "expectedDate" : null,
+    "hasPreSigned" : false,
+    "signPdf" : null,
+    "isElderly" : false,
+    "doctorUserHospitalId" : null,
+    "isSigning" : "0",
+    "presentAddressCalm" : null,
+    "isVaccination" : false,
+    "signDoctor" : null,
+    "lastMenstruation" : null,
+    "nickname" : null,
+    "presentAddressTown" : null,
+    "id" : "2c92809783bb06fd0183c552f1a74885",
+    "presentAddressRegion" : null,
+    "idNum" : "210302198608163030",
+    "isPregnant" : false,
+    "gestationalAge" : null,
+    "image" : "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWYicxW2TxmZQGdq6OOOEHwygYcyD3cTdLLhb2UtnMN6olLtJPZ7pF6weXclDLEvzrmFXJTCiaIj5A/132",
+    "streetConfine" : "2",
+    "isInfant" : false,
+    "sex" : "男",
+    "mobile" : "13940897525",
+    "readOnly" : false,
+    "presentAddressCity" : null,
+    "isContract" : false,
+    "hasPackages" : [ ],
+    "isDefault" : false,
+    "familyTeamId" : null,
+    "presentAddressProvince" : null,
+    "name" : "崔法威",
+    "isDiabetes" : false,
+    "age" : "36",
+    "signDoctorAvatarUrl" : null
+  }
+}
