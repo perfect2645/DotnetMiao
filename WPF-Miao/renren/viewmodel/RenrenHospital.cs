@@ -9,6 +9,8 @@ namespace renren.viewmodel
     {
         public string UserHospitalId { get; set; }
 
+        public string ServiceId { get; set; }
+
         public override string ToLogString()
         {
             var sb = new StringBuilder();

@@ -129,6 +129,7 @@ namespace renren.viewmodel
                     HospitalName = "广州市黄浦区联和街社区卫生服务中心",
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
                     DepartmentName = "HPV-富春卫生服务站",
+                    ServiceId = "2c9280978201614d01821f73cc5c7da5",
                 },
             };
 

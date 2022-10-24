@@ -11,12 +11,12 @@ namespace renren.session
         public const string MedicToken = "medicToken";
         public const string OpenId = "openId";
         public const string UserHospitalId = "userHospitalId";
+        public const string ServiceId = "serviceId";
 
         public const string HospitalId = "hospitalId";
 
         public const string Id = "id";
         public const string PatientId = "patientId";
-        public const string ServiceId = "serviceId";
         public const string DateId = "dateId";
         public const string TeamId = "teamId";
         public const string BookingDate = "bookingDate";
