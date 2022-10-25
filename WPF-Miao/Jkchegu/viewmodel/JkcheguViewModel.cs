@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 
 namespace Jkchegu.viewmodel
 {
@@ -98,16 +99,23 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            //JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 25, 22, 3, 30));
+            JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddMinutes(1));
 
             DateList = new List<DspVal>
             {
-                new DspVal("2022-10-10"),
-                new DspVal("2022-10-11"),
-                new DspVal("2022-10-12"),
-                new DspVal("2022-10-13"),
-                new DspVal("2022-10-14"),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
             };
+
+            JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
 
             TimeList = new List<DspVal>
             {
@@ -160,7 +168,7 @@ namespace Jkchegu.viewmodel
             {
                 JkSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAsync();
+                //await searchController.SearchByDateAsync();
             }
             catch (HttpException ex)
             {

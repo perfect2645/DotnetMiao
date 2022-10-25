@@ -10,15 +10,13 @@ namespace Jkchegu.session
         public static string Cookie { get; set; }
         public static LogEvents PrintLogEvent { get; set; }
         public static Dictionary<string, object> MiaoSession { get; set; }
+        public static Dictionary<string, object> PlatformSession { get; set; }
 
         static JkSession()
         {
-            ClearMiaoSession();
-        }
-
-        public static void ClearMiaoSession()
-        {
+            PlatformSession = new Dictionary<string, object>();
             MiaoSession = new Dictionary<string, object>();
         }
+
     }
 }

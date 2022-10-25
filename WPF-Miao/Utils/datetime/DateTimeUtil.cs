@@ -53,5 +53,21 @@ namespace Utils.datetime
             var today = DateTime.Today.ToString("yyyy-MM-dd");
             return IsEqualOrGreaterDate(dateStr, today);
         }
+
+        public static string GetDayOfWeek(DayOfWeek dayOfWeek)
+        {
+            var dayToday = (int)DateTime.Today.DayOfWeek;
+            var targetDayCount = (int)dayOfWeek;
+            var targetDay = DateTime.Today.AddDays(-dayToday + targetDayCount);
+            return targetDay.ToString("yyyy-MM-dd");
+        }
+
+        public static string GetDayOfNextWeek(DayOfWeek dayOfWeek)
+        {
+            var dayToday = (int)DateTime.Today.DayOfWeek;
+            var targetDayCount = (int)dayOfWeek + 7;
+            var targetDay = DateTime.Today.AddDays(-dayToday + targetDayCount);
+            return targetDay.ToString("yyyy-MM-dd");
+        }
     }
 }
