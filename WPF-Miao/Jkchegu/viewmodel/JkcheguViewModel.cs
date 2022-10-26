@@ -95,17 +95,25 @@ namespace Jkchegu.viewmodel
             InitStaticData();
             InitCommands();
             JkSession.PrintLogEvent = PrintLogEvent;
+
+            TestData();
+        }
+
+        private void TestData()
+        {
+            Cookie = "JSESSIONID=406FD93FC7423FB3EEF315B5CAA98C79";
+            Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
         }
 
         private void InitStaticData()
         {
             //JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 25, 22, 3, 30));
-            JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddMinutes(1));
+            JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddSeconds(20));
 
             DateList = new List<DspVal>
             {
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
 
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),

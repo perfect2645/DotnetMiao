@@ -28,6 +28,7 @@ namespace Jkchegu
         private void InitController()
         {
             HttpServiceController.AddTransientService<SearchController>();
+            HttpServiceController.AddTransientService<DateCountController>();
             HttpServiceController.AddTransientService<AppointController>(); 
             HttpServiceController.AddTransientService<YzmController>();
 

@@ -34,7 +34,7 @@ namespace Jkchegu.search.yzm
             var timeStamp = DateTimeUtil.GetTimeStamp();
             var url = $"http://app.whkfqws.com/wx-mobile/Vaccination/code.do?t={timeStamp}";
 
-            var content = new SearchContent(url);
+            var content = new DateCountContent(url);
             content.AddHeader("Cookie", JkSession.Cookie);
 
             content.BuildDefaultHeaders(Client);

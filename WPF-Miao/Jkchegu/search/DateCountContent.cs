@@ -4,9 +4,9 @@ using Utils.stringBuilder;
 
 namespace Jkchegu.search
 {
-    internal class SearchContent : HttpStringContent
+    internal class DateCountContent : HttpStringContent
     {
-        public SearchContent(string url) : base(url)
+        public DateCountContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
