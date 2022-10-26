@@ -52,13 +52,15 @@ namespace Base.viewModel
 
         public OnTimeViewModel(LogPanel logPanel) : base(logPanel)
         {
-            AutoRunCommand = new RelayCommand(StartAutoRunTimer, CanAutoRun);
+            AutoRunCommand = new RelayCommand(StartAutoRun, CanAutoRun);
             MainSessionBase.MiaoStatus.Subscribe(OnMiaoStatusUpdate);
         }
 
         #endregion Constructor
 
         #region Ontime Action
+
+        protected abstract void StartAutoRun();
 
         private bool CanAutoRun()
         {
@@ -112,6 +114,7 @@ namespace Base.viewModel
             switch (currentStatus)
             {
                 case MiaoProgress.Init: OnStatusInit(); break;
+                case MiaoProgress.ReadyForSearch: OnReadyForSearch(); break;
                 case MiaoProgress.Searching: OnSearching(); break;
                 case MiaoProgress.Searchend: OnSearchend(); break;
             }
@@ -139,13 +142,13 @@ namespace Base.viewModel
         protected abstract void OnInitAsync();
 
 
-        protected virtual void OnSearching()
+        protected virtual void OnReadyForSearch()
         {
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    OnSearchingAsync();
+                    OnReadyForSearchAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -158,7 +161,7 @@ namespace Base.viewModel
             });
         }
 
-        protected abstract void OnSearchingAsync();
+        protected abstract void OnReadyForSearchAsync();
 
         protected virtual void OnSearchend()
         {
@@ -180,6 +183,27 @@ namespace Base.viewModel
         }
 
         protected abstract void OnSearchendAsync();
+
+        protected virtual void OnSearching()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    OnSearchingAsync();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        protected abstract void OnSearchingAsync();
 
         #endregion Status Control
     }

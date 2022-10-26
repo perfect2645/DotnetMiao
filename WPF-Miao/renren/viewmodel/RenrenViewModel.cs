@@ -187,6 +187,10 @@ namespace renren.viewmodel
 
         }
 
+        protected override void OnReadyForSearchAsync()
+        {
+        }
+
         protected override void OnSearchingAsync()
         {
 
@@ -250,6 +254,12 @@ namespace renren.viewmodel
         #endregion Appoint
 
         #region AutoRun
+
+        protected override void StartAutoRun()
+        {
+            ExecuteSearchAsync();
+            StartAutoRunTimer();
+        }
 
         protected override void AutoRun()
         {
