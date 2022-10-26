@@ -79,7 +79,7 @@ namespace renren.search.miao
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 if (response == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetTeamDetail - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"GetScheduleDetail - response == null");
                     return false;
                 }
 
@@ -90,12 +90,12 @@ namespace renren.search.miao
             }
             catch (HttpException ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"GetTeamDetail失败 - {ex.Message}");
+                MainSession.PrintLogEvent.Publish(this, $"GetScheduleDetail失败 - {ex.Message}");
                 return false;
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"GetTeamDetail失败 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"GetScheduleDetail失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
         }
@@ -134,7 +134,9 @@ namespace renren.search.miao
                 throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
             }
             MainSession.HospitalSession.AddOrUpdate(data);
-            MainSession.PrintLogEvent.Publish(this, data, $"保存Team Detail");
+            //MainSession.PrintLogEvent.Publish(this, data, $"保存GetScheduleDetail");
+
+            MainSession.PrintLogEvent.Publish(this, "查到苗");
         }
     }
 }

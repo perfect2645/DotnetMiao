@@ -13,8 +13,6 @@ namespace renren.search
 {
     internal class SearchController : HttpClientBase
     {
-        private IntervalOnTime SearchInterval { get; set; }
-
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -22,18 +20,9 @@ namespace renren.search
         public async Task SearchAsync()
         {
             await Task.Factory.StartNew(() => Search());
-            //SearchInterval.StopInterval();
-
-            //await Yuyue();
         }
 
-        private async Task Yuyue()
-        {
-            var appointController = HttpServiceController.GetService<AppointController>();
-            appointController.AppointAsync();
-        }
-
-        private async Task Search()
+        private void Search()
         {
             var patientController = HttpServiceController.GetService<PatientController>();
             var patientTask = patientController.GetUserInfoAsync();
@@ -41,7 +30,7 @@ namespace renren.search
             var hosptialController = HttpServiceController.GetService<HospitalTeamsController>();
             var hospitalTask = hosptialController.GetHospitalTeamsAsync();
 
-            await Task.WhenAll(patientTask, hospitalTask);
+            Task.WaitAll(patientTask, hospitalTask);
             MainSession.SetStatus(MiaoProgress.Searchend);
         }
     }

@@ -104,12 +104,12 @@ namespace Jkchegu.viewmodel
         {
             Cookie = "JSESSIONID=406FD93FC7423FB3EEF315B5CAA98C79";
             Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
+            JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddSeconds(20));
         }
 
         private void InitStaticData()
         {
             //JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 25, 22, 3, 30));
-            JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddSeconds(20));
 
             DateList = new List<DspVal>
             {

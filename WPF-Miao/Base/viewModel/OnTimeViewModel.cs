@@ -14,7 +14,7 @@ namespace Base.viewModel
     {
         #region Properties
 
-        private DateTime _startTime = DateTime.Now.AddMinutes(2);
+        private DateTime _startTime = DateTime.Now.AddSeconds(20);
         public DateTime StartTime
         {
             get { return _startTime; }

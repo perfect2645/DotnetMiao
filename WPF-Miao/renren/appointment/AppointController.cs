@@ -14,9 +14,9 @@ namespace renren.appointment
         {
         }
 
-        public void AppointAsync()
+        public async Task AppointAsync()
         {
-            Task.Factory.StartNew(() => Appoint());
+            await Task.Factory.StartNew(() => Appoint());
         }
 
         public void Appoint()

@@ -7,10 +7,13 @@ using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
+using renren.appointment;
 using renren.search;
+using renren.search.miao;
 using renren.session;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -104,8 +107,8 @@ namespace renren.viewmodel
 
         public RenrenViewModel(LogPanel logPanel) : base(logPanel)
         {
-            InitStaticData();
             InitCommands();
+            InitStaticData();
 
             TestData();
         }
@@ -120,6 +123,7 @@ namespace renren.viewmodel
         {
             //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
             MainSession.PlatformSesstion.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
+
             Departments = new List<HospitalDept>
             {
                 new RenrenHospital
@@ -151,13 +155,15 @@ namespace renren.viewmodel
                 new DspVal("10:00-10:30", "DATE5_COUNT"),
                 new DspVal("10:30-11:00", "DATE6_COUNT"),
             };
+
+            SelectedDepartment = Departments.FirstOrDefault();
         }
 
         private void InitCommands()
         {
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            SearchCommand = new RelayCommand(ExecuteSearchAsync);
+            SearchCommand = new RelayCommand(OnSearchClick);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
@@ -205,7 +211,17 @@ namespace renren.viewmodel
 
         #region Search
 
-        private async void ExecuteSearchAsync()
+        private void OnSearchClick()
+        {
+            Task.Factory.StartNew(async () =>
+            {
+                await SearchAsync();
+                var miaoSchedule = HttpServiceController.GetService<ScheduleController>();
+                await miaoSchedule.GetServiceScheduleAsync();
+            });
+        }
+
+        private async Task SearchAsync()
         {
             if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.Init)
             {
@@ -238,8 +254,8 @@ namespace renren.viewmodel
             try
             {
                 MainSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAsync();
+                var appointController = HttpServiceController.GetService<AppointController>();
+                await appointController.AppointAsync();
             }
             catch (HttpException ex)
             {
@@ -257,15 +273,17 @@ namespace renren.viewmodel
 
         protected override void StartAutoRun()
         {
-            ExecuteSearchAsync();
+            SearchAsync();
             StartAutoRunTimer();
         }
 
         protected override void AutoRun()
         {
-            Task.Factory.StartNew(() =>
+            Task.Factory.StartNew(async () =>
             {
                 PrintLogEvent.Publish(this, "开始了");
+                var miaoSchedule = HttpServiceController.GetService<ScheduleController>();
+                await miaoSchedule.GetServiceScheduleAsync();
             });
         }
 
@@ -289,6 +307,7 @@ namespace renren.viewmodel
             MainSession.PlatformSesstion.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSesstion.AddOrUpdate(Constants.UserHospitalId, selectedDept.UserHospitalId);
             MainSession.PlatformSesstion.AddOrUpdate(Constants.TeamId, selectedDept.DepartmentId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constants.ServiceId, selectedDept.ServiceId);
 
             Log(selectedDept.ToLogString());
 
