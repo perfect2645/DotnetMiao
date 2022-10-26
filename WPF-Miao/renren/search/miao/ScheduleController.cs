@@ -34,7 +34,7 @@ namespace renren.search.miao
 
         public bool GetServiceSchedule()
         {
-            var url = "https://www.medic.ren/PM-server/mobteam/getServiceSchedule";
+            var url = "https://www.medic.ren/PM-server/mobserviceTimeDef/getServiceSchedule";
 
             var content = new ScheduleContent(url);
 
