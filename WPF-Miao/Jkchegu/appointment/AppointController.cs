@@ -1,11 +1,12 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
+using Jkchegu.search.yzm;
 using Jkchegu.session;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
-using Utils.datetime;
 
 namespace Jkchegu.appointment
 {
@@ -15,20 +16,40 @@ namespace Jkchegu.appointment
         {
         }
 
-        public void AppointAsync()
+        public void Yuyue(List<Order> orderList)
         {
-            Task.Factory.StartNew(() => Appoint());
+            var result = YuyueAsync(orderList).Result;
         }
 
-        public void Appoint()
+        private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_save.do";
+            foreach (var order in orderList)
+            {
+                order.Yzm = await GetYzmAsync();
+                JkSession.PrintLogEvent.Publish(this, order.ToLogString());
+                var content = new AppointContent(order);
+                await AppointAsync(content);
+            }
 
+            return 0;
+            //await AppointAsync();
+        }
+
+        private async Task<string> GetYzmAsync()
+        {
+            var yzmController = HttpServiceController.GetService<YzmController>();
+            return await yzmController.GetYzmAsync();
+        }
+
+        public async Task AppointAsync(AppointContent content)
+        {
+            await Task.Factory.StartNew(() => Appoint(content));
+        }
+
+        public void Appoint(AppointContent content)
+        {
             try
             {
-                var content = new AppointContent(url);
-                content.AddHeader("Cookie", JkSession.Cookie);
-
                 content.BuildDefaultHeaders(Client);
 
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;

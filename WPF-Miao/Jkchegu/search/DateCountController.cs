@@ -1,13 +1,16 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
+using Jkchegu.appointment;
 using Jkchegu.session;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.number;
 using Utils.stringBuilder;
 using Utils.timerUtil;
 
@@ -104,14 +107,33 @@ namespace Jkchegu.search
             }
 
             var doccustom = jsonElement.GetProperty("doccustom");
-            var allTime = JsonAnalysis.JsonToDic(doccustom);
-            var availableTime = allTime.Where(pair =>
+            var doccustomDic = JsonAnalysis.JsonToDic(doccustom);
+
+            var availableTime = doccustomDic.Where(pair =>
                 pair.Key.StartsWith("DATE", StringComparison.OrdinalIgnoreCase)
-                && pair.Value.NotNullString() != "0").ToList();
-            JkSession.MiaoSession.AddOrUpdate(date, availableTime);
+                && pair.Value.NotNullString() != "0").Select(x => x.Key).ToHashSet();
+            JkSession.PlatformSession.AddOrUpdate(date, availableTime);
 
             JkSession.PrintLogEvent.Publish(this, $"查到苗{date}");
 
+            BuildOrderList(date, doccustomDic, availableTime);
+        }
+
+        private static void BuildOrderList(string date, Dictionary<string, object> doccustomDic, HashSet<string> availableTime)
+        {
+            var orderList = new List<Order>();
+            foreach(var time in availableTime)
+            {
+                orderList.Add(new Order(date, time, doccustomDic));
+            }
+
+            orderList = orderList.DisorderItems();
+
+            var appointEventArgs = new AppointEventArgs
+            {
+                OrderList = orderList
+            };
+            JkSession.AppointEvent.Publish(null, appointEventArgs);
         }
     }
 }

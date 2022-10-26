@@ -24,12 +24,12 @@ namespace Jkchegu.search.yzm
             }
         }
 
-        public async Task GetYzmAsync()
+        public async Task<string> GetYzmAsync()
         {
-            await Task.Factory.StartNew(() => GetYzm());
+            return await Task.Factory.StartNew(() => GetYzm());
         }
 
-        public void GetYzm()
+        public string GetYzm()
         {
             var timeStamp = DateTimeUtil.GetTimeStamp();
             var url = $"http://app.whkfqws.com/wx-mobile/Vaccination/code.do?t={timeStamp}";
@@ -49,10 +49,12 @@ namespace Jkchegu.search.yzm
             if (string.IsNullOrEmpty(yzmResult))
             {
                 JkSession.PrintLogEvent.Publish(this, $"获取验证码 失败");
-                return;
+                return "获取验证码 失败";
             }
             JkSession.PrintLogEvent.Publish(this, $"获取验证码 成功 - {yzmResult}");
             JkSession.MiaoSession.AddOrUpdate("Yzm", yzmResult);
+
+            return yzmResult;
         }
 
         // [StructLayout(LayoutKind.Sequential)]

@@ -11,7 +11,6 @@ using Jkchegu.search.yzm;
 using Jkchegu.session;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -26,7 +25,6 @@ namespace Jkchegu.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
         public ICommand YzmCommand { get; set; }
-        
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -86,6 +84,9 @@ namespace Jkchegu.viewmodel
             }
         }
 
+        private readonly object OrderLock = new object();
+        private Queue<Order> PendingOrders = new Queue<Order>();
+
         #endregion Properties
 
         #region Constructor
@@ -112,8 +113,8 @@ namespace Jkchegu.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
 
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
@@ -142,6 +143,8 @@ namespace Jkchegu.viewmodel
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
+
+            JkSession.AppointEvent.Subscribe(OnAppointment);
         }
 
         #endregion Constructor
@@ -169,6 +172,28 @@ namespace Jkchegu.viewmodel
         #endregion Search
 
         #region Appoint
+
+        private void OnAppointment(object? sender, AppointEventArgs e)
+        {
+            lock (OrderLock)
+            {
+                var orderList = e.OrderList;
+                ConsumeOrdersAsync(orderList);
+            }
+        }
+
+        private void ConsumeOrdersAsync(List<Order> orderList)
+        {
+            try
+            {
+                var appointController = HttpServiceController.GetService<AppointController>();
+                appointController.Yuyue(orderList);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
 
         private async void ExecuteAppointAsync()
         {
