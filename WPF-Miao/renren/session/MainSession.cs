@@ -11,6 +11,7 @@ namespace renren.session
         public static UserSession UserSession { get; private set; }
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
         public static Dictionary<string, object> HospitalSession { get; private set; }
+        public static Dictionary<string, object> MiaoSession { get; private set; }
 
         static MainSession()
         {
@@ -46,6 +47,20 @@ namespace renren.session
         }
 
         #endregion HospitalSession
+
+        #region MiaoSession
+
+        public static void AddMiaoSession(Dictionary<string, object> dicValue)
+        {
+            MiaoSession.AddOrUpdate(dicValue);
+        }
+
+        public static void AddMiaoSession(string key, object value)
+        {
+            MiaoSession.AddOrUpdate(key, value);
+        }
+
+        #endregion MiaoSession
 
         #region MiaoStatus
 

@@ -15,25 +15,11 @@ namespace renren.search.miao
         {
             AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
             AddContent(MainSession.PlatformSesstion, Constants.ServiceId);
-            AddContent("from", GetSundayOfWeek());
-            AddContent("to", GetSaturdayOfWeek());
+            AddContent(MainSession.PlatformSesstion, Constants.ScheduleFrom);
+            AddContent(MainSession.PlatformSesstion, Constants.ScheduleTo);
             AddContent("bookingType", "0");
-            AddContent("bookingToken", MainSession.UserSession[Constants.PublicKey]);
+            AddContent("bookingToken", MainSession.PlatformSesstion[Constants.PublicKey]);
             AddContent(MainSession.PlatformSesstion, Constants.OpenId);
-        }
-
-        private string GetSundayOfWeek()
-        {
-            var dayOfWeek = (int)DateTime.Today.DayOfWeek;
-            var sunday = DateTime.Today.AddDays(-dayOfWeek);
-            return sunday.ToString("yyyy-MM-dd");
-        }
-
-        private string GetSaturdayOfWeek()
-        {
-            var dayOfWeek = (int)DateTime.Today.DayOfWeek;
-            var sunday = DateTime.Today.AddDays(-dayOfWeek + 6);
-            return sunday.ToString("yyyy-MM-dd");
         }
     }
 }

@@ -19,15 +19,21 @@
             <StackPanel Height="400">
                 <TextBox Width="300"
                          Height="30"
-                         Margin="0,20,0,10"
+                         Margin="0,10,0,10"
                          Text="{Binding MedicToken}"
                          materialDesign:HintAssist.Hint="medicToken">
                 </TextBox>
                 <TextBox Width="300"
                          Height="30"
-                         Margin="0,20,0,10"
+                         Margin="0,10,0,10"
                          Text="{Binding OpenId}"
                          materialDesign:HintAssist.Hint="openId">
+                </TextBox>
+                <TextBox Width="300"
+                         Height="30"
+                         Margin="0,10,0,10"
+                         Text="{Binding PublicKey}"
+                         materialDesign:HintAssist.Hint="publicKey">
                 </TextBox>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <ComboBox
@@ -45,14 +51,14 @@
                         SelectedItem="{Binding SelectedTime}"
                         DisplayMemberPath="Display"
                         SelectedValuePath="Value"
-                        Width="auto" Margin="20"/>
+                        Width="auto" Margin="10"/>
                 </StackPanel>
                 <TextBox Width="300"
                          Height="50"
                          IsReadOnly="True"
                          Background="LightGreen"
                          Opacity=".6"
-                         Margin="0,20,0,10"
+                         Margin="0,10,0,10"
                          Text="{Binding Source={StaticResource mainSession}, Path=MiaoStatus.StatusDesc}"
                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
                          materialDesign:HintAssist.Hint="Progress">
@@ -60,7 +66,7 @@
                 <StackPanel Orientation="Horizontal" 
                             VerticalAlignment="Bottom" 
                             Background="Beige"
-                            Height="200" 
+                            Height="100" 
                             Margin="30,0,0,0">
                     <Button Content="查" Margin="0,0,10,0"
                         Command="{Binding SearchCommand}" Width="100">

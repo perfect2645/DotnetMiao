@@ -12,6 +12,8 @@ namespace renren.session
         public const string OpenId = "openId";
         public const string UserHospitalId = "userHospitalId";
         public const string ServiceId = "serviceId";
+        public const string ScheduleFrom = "from";
+        public const string ScheduleTo = "to";
 
         public const string HospitalId = "hospitalId";
 

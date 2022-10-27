@@ -17,6 +17,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace renren.viewmodel
@@ -75,7 +76,7 @@ namespace renren.viewmodel
             }
         }
 
-        private string _medicToken = "CK5I1F9BUCUUSTG1+BSOXA==";
+        private string _medicToken;
         public string MedicToken
         {
             get { return _medicToken; }
@@ -88,7 +89,7 @@ namespace renren.viewmodel
             }
         }
 
-        private string _openId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
+        private string _openId;
         public string OpenId
         {
             get { return _openId; }
@@ -97,6 +98,19 @@ namespace renren.viewmodel
                 _openId = value;
                 MainSession.PlatformSesstion.AddOrUpdate(Constants.OpenId, value);
                 NotifyUI(() => OpenId);
+                CheckInitStatus();
+            }
+        }
+
+        private string _publicKey;
+        public string PublicKey
+        {
+            get { return _publicKey; }
+            set
+            {
+                _publicKey = value;
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.PublicKey, value);
+                NotifyUI(() => PublicKey);
                 CheckInitStatus();
             }
         }
@@ -115,14 +129,27 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "NOLBNDC1POQGEBEA93FS+A==";
+            MedicToken = "ZTDCCPHARTBIRHBZCD+ISA==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
+            PublicKey = "DA1D34AA-82C5-4F8B-AA9F-B025FB214E84";
         }
 
         private void InitStaticData()
         {
             //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
             MainSession.PlatformSesstion.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
+
+            var dayToday = (int)DateTime.Today.DayOfWeek;
+            if (dayToday < 3)
+            {
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfWeek(DayOfWeek.Sunday));
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday));
+            }
+            else
+            {
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday));
+                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday));
+            }
 
             Departments = new List<HospitalDept>
             {
@@ -178,7 +205,7 @@ namespace renren.viewmodel
 
         private void CheckInitStatus()
         {
-            if (StringUtil.NotEmpty(MedicToken, OpenId))
+            if (StringUtil.NotEmpty(MedicToken, OpenId, PublicKey))
             {
                 MainSession.SetStatus(MiaoProgress.ReadyForSearch);
             }

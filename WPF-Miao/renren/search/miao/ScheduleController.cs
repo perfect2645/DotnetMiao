@@ -1,8 +1,10 @@
-﻿using HttpProcessor.Client;
+﻿using Base.viewmodel.status;
+using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using renren.session;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -23,7 +25,11 @@ namespace renren.search.miao
         {
             try
             {
-                await Task.Factory.StartNew(() => GetServiceSchedule());
+                var hasSchedule = await Task.Factory.StartNew(() => GetServiceSchedule());
+                if (!hasSchedule.HasItem())
+                {
+                    return;
+                }
                 await Task.Factory.StartNew(() => GetScheduleDetail());
             }
             catch (Exception ex)
@@ -32,7 +38,7 @@ namespace renren.search.miao
             }
         }
 
-        public bool GetServiceSchedule()
+        public List<Schedule> GetServiceSchedule()
         {
             var url = "https://www.medic.ren/PM-server/mobserviceTimeDef/getServiceSchedule";
 
@@ -46,23 +52,23 @@ namespace renren.search.miao
                 if (response == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule - response == null");
-                    return false;
+                    return null;
                 }
 
                 var result = response.JsonBody.RootElement;
-                AnalysisResult(result);
+                var schedule = AnalysisResult(result);
 
-                return true;
+                return schedule;
             }
             catch (HttpException ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule失败 - {ex.Message}");
-                return false;
+                return null;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule失败 - {ex.Message} - {ex.StackTrace}");
-                return false;
+                return null;
             }
         }
 
@@ -100,24 +106,113 @@ namespace renren.search.miao
             }
         }
 
-        private void AnalysisResult(JsonElement jsonElement)
+        private List<Schedule> AnalysisResult(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();
             var message = dicResult["message"].NotNullString();
-
-            var dataJsonElement = jsonElement.GetProperty("data").GetProperty("list");
-            var dataList = JsonAnalysis.JsonToDicList(dataJsonElement);
-
-            var nineJiaTeamId = MainSession.PlatformSesstion[Constants.TeamId].NotNullString();
-            var data = dataList?.FirstOrDefault(x => x.ContainsValue(nineJiaTeamId));
-            if (code != 200 || !data.HasItem())
+            if (code != 200)
             {
-                throw new HttpException($"code = {code}, message = {message}, data.count = {dataList?.Count}");
+                throw new HttpException($"code = {code}, message = {message}");
             }
 
-            data.AddOrUpdate(Constants.TeamId, data[Constants.Id]);
-            MainSession.AddHospitalSession(data);
+            var dataJsonElement = jsonElement.GetProperty("data");
+            var dataList = JsonAnalysis.JsonToDicList(dataJsonElement);
+
+            var scheduleList = new List<Schedule>();
+            foreach (var data in dataList)
+            {
+                var schedules = CheckBuildSchedule(data);
+                if (schedules.HasItem())
+                {
+                    scheduleList.AddRange(schedules);
+                }
+            }
+
+            return scheduleList;
+
+            if (scheduleList.HasItem())
+            {
+                MainSession.AddMiaoSession("schedule", scheduleList);
+                MainSession.SetStatus(MiaoProgress.MiaoGet);
+            }
+        }
+
+        private List<Schedule> CheckBuildSchedule(Dictionary<string, object> data)
+        {
+            try
+            {
+                var scheduleList = new List<Schedule>();
+
+                var date = data["date"].NotNullString();
+                var serviceStart = data["startTime"].NotNullString();
+                var serviceEnd = data["endTime"].NotNullString();
+
+                var morning = data["morning"].NotNullString().ToDic();
+                var morningSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
+                if (morningSchedule != null)
+                {
+                    scheduleList.Add(morningSchedule);
+                }
+
+                var afternoon = data["afternoon"].NotNullString().ToDic();
+                var afternoonSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
+                if (afternoonSchedule != null)
+                {
+                    scheduleList.Add(afternoonSchedule);
+                }
+
+                var night = data["night"].NotNullString().ToDic();
+                var nightSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
+                if (nightSchedule != null)
+                {
+                    scheduleList.Add(nightSchedule);
+                }
+
+                return scheduleList;
+            }
+            catch(Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"CheckBuildSchedule失败 - {ex.Message} - {ex.StackTrace}");
+                return null;
+            }
+        }
+
+        private Schedule BuildSchedule(Dictionary<string, string> scheduleSource, string date, string serviceStart, string serviceEnd)
+        {
+            if (scheduleSource == null)
+            {
+                return null;
+            }
+
+            var startTime = scheduleSource["startTime"];
+            if (startTime == null)
+            {
+                return null;
+            }
+
+            var endTime = scheduleSource["endTime"];
+            if (endTime == null)
+            {
+                return null;
+            }
+            var open = scheduleSource["open"];
+            if (open != "true")
+            {
+                return null;
+            }
+
+            var full = scheduleSource["full"];
+            if (full != "false")
+            {
+                return null;
+            }
+
+            return new Schedule
+            {
+                StartTime = startTime,
+                EndTime = endTime,
+            };
         }
 
         private void AnalysisTeamDetail(JsonElement jsonElement)

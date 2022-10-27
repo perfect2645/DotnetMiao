@@ -40,6 +40,11 @@ namespace HttpProcessor.Content
                     {
                         httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
                     }
+                    else
+                    {
+                        httpClient.DefaultRequestHeaders.Remove(header.Key);
+                        httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
+                    }
                 }
             }
             catch(Exception ex)

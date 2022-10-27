@@ -1,5 +1,7 @@
 ﻿using renren.common;
 using renren.session;
+using System;
+using Utils.stringBuilder;
 
 namespace renren.search.patient
 {
@@ -7,7 +9,13 @@ namespace renren.search.patient
     {
         public UserContent(string url) : base(url)
         {
+            BuildHeaders();
             BuildContent();
+        }
+
+        private void BuildHeaders()
+        {
+            AddHeader(Constants.MedicToken, MainSession.PlatformSesstion[Constants.PublicKey].NotNullString());
         }
 
         private void BuildContent()
