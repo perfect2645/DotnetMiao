@@ -115,7 +115,7 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "PCTVLYGN4DW13W3H+J4JJW==";
+            MedicToken = "NOLBNDC1POQGEBEA93FS+A==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
         }
 
