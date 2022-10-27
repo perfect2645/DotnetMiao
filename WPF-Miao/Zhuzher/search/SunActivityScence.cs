@@ -21,23 +21,10 @@ namespace Zhuzher.search
 
         private void InitSceneList()
         {
-            AddScene("app-browseweb", 1, "https://uiis.4009515151.com/fg_activity/template?id=2180");
-            //AddScene("app-browseweb", 1, "https://sqmallh5.onewo.com/#/strollZhuzher?source=pulijie");
-            //AddScene("app-browseweb", 1, "https://uiis.4009515151.com/activityTopic/4455?pageMark=lhplzzehd");
-            //AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/rightsCenter?from=pulijie");
-            //AddScene("app-browseweb", 1, "https://uiis.4009515151.com/activityTopic/3061?pageMark=22ndzxsjkm");
-            //AddScene("app-browseweb", 3, "https://pulin.vankeservice.com/weh5/#/pages/index/index?isAssetCard=1");
-            //AddScene("5thzone-convenience-pay", 3);
-            //AddScene("5thzone-mall-pay", 3);
-            //AddScene("5thzone-mall-verification", 5);
-            //AddScene("app-communityclassfinish", 1);
-            //AddScene("puli-booking", 1);
-            //AddScene("5thzone-integral-guessing", 1);
-            //AddScene("app-post", 1);
-            //AddScene("app-postlike-puli", 1);
-            //AddScene("pulin-retaincapital", 1);
-            //AddScene("app-h5share", 1, "https://enterprise.4009515151.com/marketing-pages/puliActivity");
-            //AddScene("app-update", 1);
+            AddScene("5thzone-blackpearl-pay", 3, "https://uiis.4009515151.com/product/153949/projectCode/0?pageMark=zwtgxyy1");
+            AddScene("5thzone-mall-verification", 1, "https://sqmallh5.onewo.com/#/groupBuyDetail?couponId=CI202207251155432956");
+            AddScene("5thzone-blackpearl-pay", 3, "https://uiis.4009515151.com/product/153811/projectCode/0?pageMark=zwtgjctx");
+            AddScene("5thzone-blackpearl-pay", 3, "https://uiis.4009515151.com/product/148678/projectCode/0?pageMark=zwtglpzj6b");
         }
 
         private void AddScene(string code, int time, string? url=null)
