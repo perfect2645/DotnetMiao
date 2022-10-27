@@ -88,6 +88,11 @@ namespace renren.search.miao
                 orderList.AddRange(orders);
             }
 
+            if (!orderList.HasItem())
+            {
+                return null;
+            }
+
             orderList = orderList.DisorderItems();
 
             var appointEventArgs = new AppointEventArgs
@@ -105,9 +110,20 @@ namespace renren.search.miao
             {
                 var orderList = new List<Order>();
 
-                var date = data["date"].NotNullString();
-                var serviceStart = data["startTime"].NotNullString();
-                var serviceEnd = data["endTime"].NotNullString();
+                var open = data["open"].NotNullString().ToBool();
+                var full = data["full"].NotNullString().ToBool();
+                if (open && !full)
+                {
+                    orderList.Add(new Order
+                    {
+                        BookingDate = schedule.Date,
+                        DateId = data["id"].NotNullString(),
+                        StartTime = data["startTime"].NotNullString(),
+                        EndTime = data["endTime"].NotNullString(),
+                        ServiceStartTime = schedule.ServiceStartTime,
+                        ServiceEndTime = schedule.ServiceEndTime
+                    });
+                }
 
                 return orderList;
             }
