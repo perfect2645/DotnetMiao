@@ -9,7 +9,7 @@ namespace Utils.timerUtil
         public System.Timers.Timer IntervalTimer { get; private set; }
         public ActionOnTime OnTimeTimer { get; private set; }
         public Action IntervalAction { get; private set; }
-        public int Interval { get; set; } = 100;
+        public int Interval { get; set; } = 500;
         public string Name { get; private set; }
 
         #endregion Properties

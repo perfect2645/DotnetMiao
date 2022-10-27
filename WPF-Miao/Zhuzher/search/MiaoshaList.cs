@@ -63,17 +63,17 @@ namespace Zhuzher.search
 
         private void TestInitMiaoshaList()
         {
-            AddDuobaoItem(2818, "iPhone 14 Pro", "452", 125);
-            AddMiaoshaItem(2859, 1, "AirPods 3", "466", "2022-09-24 22:11:00");
-            AddMiaoshaItem(2832, 1, "蒙牛圣牧有机奶1箱 3", "466", "2022-09-24 22:12:00");
-            AddMiaoshaItem(2835, 1, "长粒香东北大米5KG", "466", "2022-09-24 22:13:00");
-
-
+            AddMiaoshaItem(3643, 1, "农夫山泉东北大米9斤", "629", "2022-10-28 00:14:00");
+            AddMiaoshaItem(3644, 1, "可爱公仔玩偶", "629", "2022-10-28 00:14:20");
+            AddMiaoshaItem(3645, 1, "blispring冰泉牙膏2支装", "629", "2022-10-28 00:14:03");
         }
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
+            AddDuobaoItem(3619, "友邻市集5元无门槛券", "629");
+            AddMiaoshaItem(3643, 1, "农夫山泉东北大米9斤", "629", "2022-10-28 20:00:00");
+            AddMiaoshaItem(3644, 1, "可爱公仔玩偶", "629", "2022-10-28 20:00:10");
+            AddMiaoshaItem(3645, 1, "blispring冰泉牙膏2支装", "629", "2022-10-28 20:00:03");
             //AddDuobaoItem(2817, "iPhone 14 Pro", "452", 72);
             //AddDuobaoItem(2818, "iPhone 14 Pro", "452", 125);
             //AddMiaoshaItem(2832, 1, "AirPods 3", "466", "2022-09-25 12:00:00");
@@ -90,15 +90,15 @@ namespace Zhuzher.search
             //AddMiaoshaItem(2846, 4, "AirPods 3", "466", "2022-09-25 18:00:00");
             //AddMiaoshaItem(2838, 4, "维达蓝色经典有芯卷纸", "466", "2022-09-25 18:00:00");
             //AddMiaoshaItem(2819, 4, "10元物业券", "466", "2022-09-25 18:00:00");
-            AddMiaoshaItem(2847, 5, "AirPods 3", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2848, 5, "送一个月物业费", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2839, 5, "荣事达亚摩斯304不锈钢小奶锅", "466", "2022-09-25 20:00:00");
+            //AddMiaoshaItem(2847, 5, "AirPods 3", "466", "2022-09-25 20:00:00");
+            //AddMiaoshaItem(2848, 5, "送一个月物业费", "466", "2022-09-25 20:00:00");
+            //AddMiaoshaItem(2839, 5, "荣事达亚摩斯304不锈钢小奶锅", "466", "2022-09-25 20:00:00");
             //AddMiaoshaItem(2851, 5, "20元物业券", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2824, 6, "送1个月物业费", "465", "2022-09-25 20:20:00");
-            AddMiaoshaItem(2849, 7, "AirPods 3", "466", "2022-09-25 22:00:00");
-            AddMiaoshaItem(2850, 7, "送一个月物业费", "466", "2022-09-25 22:00:00");
-            AddMiaoshaItem(2840, 7, "心相印印花厨房纸巾8卷", "466", "2022-09-25 22:00:00");
-            AddMiaoshaItem(2875, 100, "iPhone 14 Pro Max 256G", "476", "2022-09-25 21:00:00");
+            //AddMiaoshaItem(2824, 6, "送1个月物业费", "465", "2022-09-25 20:20:00");
+            //AddMiaoshaItem(2849, 7, "AirPods 3", "466", "2022-09-25 22:00:00");
+            //AddMiaoshaItem(2850, 7, "送一个月物业费", "466", "2022-09-25 22:00:00");
+            //AddMiaoshaItem(2840, 7, "心相印印花厨房纸巾8卷", "466", "2022-09-25 22:00:00");
+            //AddMiaoshaItem(2875, 100, "iPhone 14 Pro Max 256G", "476", "2022-09-25 21:00:00");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
