@@ -129,9 +129,9 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "ZTDCCPHARTBIRHBZCD+ISA==";
+            MedicToken = "AH2PBZZ66RL2B6JRZM3CTA==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "DA1D34AA-82C5-4F8B-AA9F-B025FB214E84";
+            PublicKey = "60DF7793-F89F-4CE4-A3A9-0BCA7FA60123";
         }
 
         private void InitStaticData()
@@ -243,6 +243,10 @@ namespace renren.viewmodel
             Task.Factory.StartNew(async () =>
             {
                 await SearchAsync();
+                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                {
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
+                }
                 var miaoSchedule = HttpServiceController.GetService<ScheduleController>();
                 await miaoSchedule.GetServiceScheduleAsync();
             });
@@ -298,9 +302,9 @@ namespace renren.viewmodel
 
         #region AutoRun
 
-        protected override void StartAutoRun()
+        protected override async void StartAutoRun()
         {
-            SearchAsync();
+            await SearchAsync();
             StartAutoRunTimer();
         }
 
@@ -309,6 +313,10 @@ namespace renren.viewmodel
             Task.Factory.StartNew(async () =>
             {
                 PrintLogEvent.Publish(this, "开始了");
+                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                {
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
+                }
                 var miaoSchedule = HttpServiceController.GetService<ScheduleController>();
                 await miaoSchedule.GetServiceScheduleAsync();
             });

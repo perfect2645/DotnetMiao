@@ -1,36 +1,48 @@
 ﻿using renren.common;
 using renren.session;
+using System;
 
 namespace renren.search.miao
 {
     internal class ScheduleDetailContent : RenrenBaseContent
     {
-        public string Date { get; private set; }
-        public string Half { get; private set; }
-        public string Period { get; private set; }
+        public Schedule Schedule { get; }
 
-        public ScheduleDetailContent(string url) : base(url)
+        public ScheduleDetailContent(string url, Schedule schedule) : base(url)
         {
+            Schedule = schedule;
             BuildContent();
         }
 
         private void BuildContent()
         {
-            AddContent("date", Date);
+            AddContent("date", Schedule.Date);
             AddContent(MainSession.PlatformSesstion, Constants.ServiceId);
             AddContent("dayText", BuildDayText());
-            AddContent("half", Half);
+            AddContent("half", Schedule.Half);
             AddContent("period", 2);
             AddContent("doctorId", MainSession.HospitalSession[Constants.TeamId]);
             AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
             AddContent("bookingType", "0");
-            AddContent("bookingToken", MainSession.UserSession[Constants.PublicKey]);
+            AddContent("bookingToken", MainSession.PlatformSesstion[Constants.PublicKey]);
             AddContent(MainSession.PlatformSesstion, Constants.OpenId);
         }
 
         private string BuildDayText()
         {
-            return "2022年10月13日 下午";
+            var dateDay = Convert.ToDateTime(Schedule.Date).ToString("yyyy年MM月dd日");
+            string halfStr = "上午";
+            switch(Schedule.Half)
+            {
+                case "morning":
+                    halfStr = "上午"; break;
+                case "afternoon":
+                    halfStr = "下午"; break;
+                case "night":
+                    halfStr = "晚上"; break;
+                    default:break;
+            }
+            return $"{dateDay} {halfStr}";
         }
     }
 }

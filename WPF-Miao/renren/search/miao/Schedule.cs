@@ -6,8 +6,11 @@ namespace renren.search.miao
     {
         public bool Id { get; set; }
         public string Date { get; set; }
+        public string Half { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
+        public string ServiceStartTime { get; set; }
+        public string ServiceEndTime { get; set; }
         public bool IsOpen { get; set; }
         public bool IsFull { get; set; }
     }

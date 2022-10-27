@@ -14,6 +14,7 @@ namespace Base.viewmodel.status
         Searchend,
         GettingMiao,
         MiaoGet,
+        MiaoDetailGet,
         AppointStart,
         AppointEnd,
         Error = 400

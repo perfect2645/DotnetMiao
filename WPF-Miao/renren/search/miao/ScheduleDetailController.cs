@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
@@ -15,15 +16,27 @@ namespace renren.search.miao
 {
     internal class ScheduleDetailController : HttpClientBase
     {
+
+        public List<Schedule> ScheduleList { get; private set; }
+
         public ScheduleDetailController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        private bool GetScheduleDetail()
+        public void BulkGetDetailAsync(List<Schedule> scheduleList)
+        {
+            ScheduleList = scheduleList;
+            foreach (var schedule in ScheduleList)
+            {
+                Task.Factory.StartNew(() => GetScheduleDetail(schedule));
+            }
+        }
+
+        private bool GetScheduleDetail(Schedule schedule)
         {
             var url = "https://www.medic.ren/PM-server/mobserviceTimeDef/getServiceScheduleDetail";
 
-            var content = new ScheduleDetailContent(url);
+            var content = new ScheduleDetailContent(url, schedule);
 
             content.BuildDefaultHeaders(Client);
 
@@ -78,11 +91,6 @@ namespace renren.search.miao
 
             return scheduleList;
 
-            if (scheduleList.HasItem())
-            {
-                MainSession.AddMiaoSession("schedule", scheduleList);
-                MainSession.SetStatus(MiaoProgress.MiaoGet);
-            }
         }
 
         private List<Schedule> CheckBuildSchedule(Dictionary<string, object> data)

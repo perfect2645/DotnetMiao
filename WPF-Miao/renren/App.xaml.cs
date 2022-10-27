@@ -33,6 +33,7 @@ namespace renren
             HttpServiceController.AddTransientService<PatientController>();
             HttpServiceController.AddTransientService<HospitalTeamsController>();
             HttpServiceController.AddTransientService<ScheduleController>();
+            HttpServiceController.AddTransientService<ScheduleDetailController>();
             HttpServiceController.AddTransientService<AppointController>();
 
 

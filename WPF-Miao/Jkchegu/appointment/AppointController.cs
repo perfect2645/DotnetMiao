@@ -32,7 +32,6 @@ namespace Jkchegu.appointment
             }
 
             return 0;
-            //await AppointAsync();
         }
 
         private async Task<string> GetYzmAsync()

@@ -18,6 +18,7 @@ namespace renren.session
             PlatformSesstion = new Dictionary<string, object>();
             UserSession = new UserSession("2645");
             HospitalSession = new Dictionary<string, object>();
+            MiaoSession = new Dictionary<string, object>();
         }
 
         #region UserSession
