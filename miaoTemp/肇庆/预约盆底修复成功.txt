@@ -1,0 +1,24 @@
+POST http://www.hys020.com/home/attSave_42CB58972CD44CD9945775814C00CA41_D4BEB657DDCD46F585DB5E7046996B3B_1_1_?regPhase=10%3A30%20-%2011%3A00&wechatid=gh_868741944de3&patBindId=7B28B513877B4258A45949146B98F2D6 HTTP/1.1
+Host: www.hys020.com
+Connection: keep-alive
+Content-Length: 0
+Accept: application/json, text/javascript, */*
+Origin: http://www.hys020.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)
+Cookie: JSESSIONID=38FFA2768D1D09A5638B13C03EC25A44
+Referer: http://www.hys020.com/home/reserveMsgMobile_63AF0B5D02504957A1173AB9B9C231E0_D4BEB657DDCD46F585DB5E7046996B3B_1_0?regPhase=10:30%20-%2011:00&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=iS3Q9CBrbexu5o3vYhWcnGf9Qn0wciu+
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 27 Oct 2022 10:32:19 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.6.40 mod_jk/1.2.42
+Content-Length: 3007
+Vary: User-Agent
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=utf-8
+
+{"amount":0,"att":null,"attId":"D4BEB657DDCD46F585DB5E7046996B3B","attList":null,"attType":1,"bindedList":null,"code":null,"dateList":null,"deptList":null,"doctor":{"adminRole":0,"administrator":0,"amLeft":null,"amTotal":null,"amZb":null,"attId":null,"bindOfficeId":"0","bindOfficeName":"保健科","bindOrgId":"63AF0B5D02504957A1173AB9B9C231E0","bindOrgName":"肇庆市鼎湖区妇幼保健计划生育服务中心","bindStatus":2,"idcardNo":null,"idcardPic1":null,"idcardPic2":null,"introducerId":null,"introducerName":null,"licenseNo":null,"licensePic1":null,"licensePic2":null,"maxReservationDay":0,"onlineReservable":1,"perHourRegcount":1,"pmLeft":null,"pmTotal":null,"pmZb":null,"resPayHint":"","resTimeLen":30,"reservationNumber3":"","reservationNumberAm":"","reservationNumberPm":"","reservePaidAmount":0,"reserveStartOrder":1,"time3Left":null,"time3Total":null,"time3Zb":null,"userAddDate":"2019-03-29T08:58:21","userAddress":null,"userAreacode":"441203","userArrangePermission":1,"userBigLogo":"\/uploads\/doctor\/42CB58972CD44CD9945775814C00CA41\/logo\/20190329101437499.png","userBirthday":null,"userBirthdayYearPublic":0,"userBlogCount":0,"userCity":"肇庆市","userCollectionCount":0,"userCommentsInboxUnread":0,"userCommentsPublic":0,"userCommentsSendUnread":0,"userConfirmed":0,"userContent":"","userCurrentLoginIp":"113.95.194.40","userCurrentLoginTime":"2019-10-11T11:32:37","userCurrentLoginType":null,"userDiagnosable":1,"userDistrict":"","userEmail":null,"userEmailVerify":0,"userFamous":0,"userId":"42CB58972CD44CD9945775814C00CA41","userLastLoginIp":"113.95.194.40","userLastLoginTime":"2019-10-11T11:29:16","userLastLoginType":null,"userLogo":"\/uploads\/doctor\/42CB58972CD44CD9945775814C00CA41\/logo\/thumb_20190329101437499.png","userMyCommentsInboxUnread":0,"userMyCommentsSendUnread":0,"userName":"盆底肌康复治疗","userNo":"516526","userOfficeTel":null,"userOration":1,"userOrder":28,"userPassword":"E7C907996826A515","userPhone":"18948676937","userPhoneVerify":1,"userProvince":"广东省","userPublic":0,"userQq":null,"userRealName":"盆底康复","userRemark":null,"userReplyCount":0,"userReservationPermission":1,"userScore":0,"userSearchPublic":0,"userSex":2,"userSignatureCount":0,"userSpecialties":"盆底功能康复训练","userState":0,"userSysNoticeUnread":0,"userTitle":"盆底康复","userTopicCount":0,"userWebsign":null},"doctorList":null,"endAttDate":null,"last":0,"lastAttDate":null,"numList":null,"officeId":null,"openid":"o1_Liw34_q5dnOFrOCRDK7jQn5E0","org":null,"orgId":null,"orgList":null,"orgReservation":null,"patBindId":"7B28B513877B4258A45949146B98F2D6","patInfo":null,"patientId":"0CFD7F0775184710A5F2745BEB771936","realName":null,"regPhase":"10:30 - 11:00","regReserve":null,"resKeyId":"E9C7BB89A8A44D028E2725E18C7397B5","resultMessage":"success","successMessage":"E9C7BB89A8A44D028E2725E18C7397B5","timestamp":null,"topTab":"yygh","url":null,"userId":"42CB58972CD44CD9945775814C00CA41","wechatid":"gh_868741944de3","weekIndex":0,"wxstatus":1}
