@@ -115,6 +115,8 @@ namespace renren.viewmodel
             }
         }
 
+        private readonly object OrderLock = new object();
+
         #endregion Properties
 
         #region Constructor
@@ -197,6 +199,7 @@ namespace renren.viewmodel
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
 
+            MainSession.AppointEvent.Subscribe(OnAppointment);
         }
 
         #endregion Constructor
@@ -279,6 +282,28 @@ namespace renren.viewmodel
         #endregion Search
 
         #region Appoint
+
+        private void OnAppointment(object? sender, AppointEventArgs e)
+        {
+            lock (OrderLock)
+            {
+                var orderList = e.OrderList;
+                ConsumeOrdersAsync(orderList);
+            }
+        }
+
+        private void ConsumeOrdersAsync(List<Order> orderList)
+        {
+            try
+            {
+                var appointController = HttpServiceController.GetService<AppointController>();
+                appointController.Yuyue(orderList);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
 
         private async void ExecuteAppointAsync()
         {

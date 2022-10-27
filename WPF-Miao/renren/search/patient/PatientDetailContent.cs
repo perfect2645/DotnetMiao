@@ -12,7 +12,7 @@ namespace renren.search.patient
 
         private void BuildContent()
         {
-            AddContent(Constants.PatientId, MainSession.UserSession[Constants.Id]);
+            AddContent(Constants.PatientId, MainSession.UserSession[Constants.PatientId]);
             AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
             AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
         }

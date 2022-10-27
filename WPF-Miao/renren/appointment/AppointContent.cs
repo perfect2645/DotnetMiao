@@ -1,39 +1,39 @@
 ﻿using HttpProcessor.Content;
+using renren.common;
+using renren.session;
 
 namespace renren.appointment
 {
-    internal class AppointContent : HttpStringContent
+    internal class AppointContent : RenrenBaseContent
     {
-        public AppointContent(string url) : base(url)
+        public Order Order { get; private set; }
+
+        public AppointContent(string url, Order order) : base(url)
         {
-            ContentType = "application/x-www-form-urlencoded";
-            BuildHeader();
+            Order = order;
             BuildContent();
-        }
-
-        private void BuildHeader()
-        {
-            AddHeader("Host", "app.whkfqws.com");
-            AddHeader("Connection", "keep-alive");
-            AddHeader("Accept", "*/*");
-            AddHeader("Origin", "http://app.whkfqws.com");
-            AddHeader("X-Requested-With", "XMLHttpRequest");
-            AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            //var etid = MainSession.MiaoSession["Etid"].NotNullString();
-            //AddHeader("Referer", $"http://app.whkfqws.com/wx-mobile/Vaccination/vaccination.do?ETID={etid}");
-
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
-            AddHeader("Accept-Encoding", "gzip, deflate");
         }
 
         private void BuildContent()
         {
-            //AddContent("APPOINTMENT_DATE", MainSession.MiaoSession["Date"]);
-            //AddContent("dateCount", MainSession.MiaoSession["Time"]);
-            //AddContent("ETID", MainSession.MiaoSession["Etid"]);
-            //AddContent("VACCINES_NAME", "18");
-            //AddContent("DOC_CUSTOM_VACCINE_GUID", MainSession.MiaoSession["GUID"]);
-            //AddContent("code", MainSession.MiaoSession["Yzm"]);
+            AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
+            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
+            AddContent(Constants.PatientId, MainSession.UserSession[Constants.PatientId]);
+            AddContent(MainSession.PlatformSesstion, Constants.ServiceId);
+            AddContent("dateId", Order.DateId);
+            AddContent(MainSession.HospitalSession, Constants.TeamId);
+            AddContent("bookingDate", Order.BookingDate);
+            AddContent(Constants.StartTime, Order.StartTime);
+            AddContent(Constants.EndTime, Order.EndTime);
+            AddContent("isAgent", false);
+            AddContent("fee", 0);
+            AddContent(MainSession.PlatformSesstion, Constants.OpenId);
+            AddContent(Constants.ServiceStartTime, Order.ServiceStartTime);
+            AddContent(Constants.ServiceEndTime, Order.ServiceEndTime);
+            AddContent("serviceItem", new string[0]);
+            AddContent("bookingType", "0");
+            AddContent("bookingToken", MainSession.PlatformSesstion[Constants.PublicKey]);
+            AddContent("toFollow", true);
         }
     }
 }

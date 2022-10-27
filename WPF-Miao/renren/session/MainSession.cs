@@ -1,5 +1,6 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
+using renren.appointment;
 using System.Collections.Generic;
 using Utils;
 
@@ -13,12 +14,15 @@ namespace renren.session
         public static Dictionary<string, object> HospitalSession { get; private set; }
         public static Dictionary<string, object> MiaoSession { get; private set; }
 
+        public static AppointEvent AppointEvent { get; }
+
         static MainSession()
         {
             PlatformSesstion = new Dictionary<string, object>();
             UserSession = new UserSession("2645");
             HospitalSession = new Dictionary<string, object>();
             MiaoSession = new Dictionary<string, object>();
+            AppointEvent = new AppointEvent();
         }
 
         #region UserSession

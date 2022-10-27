@@ -2,6 +2,7 @@
 using HttpProcessor.Content;
 using renren.session;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Utils.datetime;
@@ -14,6 +15,11 @@ namespace renren.appointment
         {
         }
 
+        internal void Yuyue(List<Order> orderList)
+        {
+
+        }
+
         public async Task AppointAsync()
         {
             await Task.Factory.StartNew(() => Appoint());
@@ -21,12 +27,11 @@ namespace renren.appointment
 
         public void Appoint()
         {
-            var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_save.do";
+            var url = "https://www.medic.ren/PM-server/mobserviceOrder/addServiceOrder";
 
             try
             {
                 var content = new AppointContent(url);
-                content.AddHeader("Cookie", MainSession.Cookie);
 
                 content.BuildDefaultHeaders(Client);
 
@@ -51,5 +56,6 @@ namespace renren.appointment
             }
 
         }
+
     }
 }

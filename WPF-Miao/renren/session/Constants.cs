@@ -24,9 +24,8 @@ namespace renren.session
         public const string BookingDate = "bookingDate";
         public const string StartTime = "startTime";
         public const string EndTime = "endTime";
-        public const string IsAgent = "isAgent";
-        public const string Fee = "fee";
         public const string ServiceStartTime = "serviceStartTime";
+        public const string ServiceEndTime = "serviceEndTime";
         public const string BookingToken = "bookingToken";
 
         public const string Mobile = "mobile";

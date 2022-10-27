@@ -220,6 +220,8 @@ namespace renren.search.patient
             {
                 throw new HttpException($"code = {code}, message = {message}, data.count = {dataList?.Count}");
             }
+
+            MainSession.AddUserSession(Constants.PatientId, data[Constants.Id]);
             MainSession.AddUserSession(data);
             MainSession.PrintLogEvent.Publish(this, data, $"保存Patient信息");
         }
@@ -237,6 +239,7 @@ namespace renren.search.patient
             {
                 throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
             }
+
             MainSession.AddUserSession(data);
             MainSession.PrintLogEvent.Publish(this, data, $"保存用户详细信息");
         }

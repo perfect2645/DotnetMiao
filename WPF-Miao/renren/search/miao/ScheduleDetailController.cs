@@ -2,6 +2,7 @@
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
+using renren.appointment;
 using renren.session;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.number;
 using Utils.stringBuilder;
 
 namespace renren.search.miao
@@ -50,7 +52,7 @@ namespace renren.search.miao
                 }
 
                 var result = response.JsonBody.RootElement;
-                AnalysisResult(result);
+                AnalysisResult(result, schedule);
 
                 return true;
             }
@@ -66,7 +68,7 @@ namespace renren.search.miao
             }
         }
 
-        private List<Schedule> AnalysisResult(JsonElement jsonElement)
+        private List<Order> AnalysisResult(JsonElement jsonElement, Schedule schedule)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();
@@ -79,95 +81,41 @@ namespace renren.search.miao
             var dataJsonElement = jsonElement.GetProperty("data");
             var dataList = JsonAnalysis.JsonToDicList(dataJsonElement);
 
-            var scheduleList = new List<Schedule>();
+            var orderList = new List<Order>();
             foreach (var data in dataList)
             {
-                var schedules = CheckBuildSchedule(data);
-                if (schedules.HasItem())
-                {
-                    scheduleList.AddRange(schedules);
-                }
+                var orders = BuildOrderList(data, schedule);
+                orderList.AddRange(orders);
             }
 
-            return scheduleList;
+            orderList = orderList.DisorderItems();
 
+            var appointEventArgs = new AppointEventArgs
+            {
+                OrderList = orderList
+            };
+            MainSession.AppointEvent.Publish(null, appointEventArgs);
+
+            return orderList;
         }
 
-        private List<Schedule> CheckBuildSchedule(Dictionary<string, object> data)
+        private List<Order> BuildOrderList(Dictionary<string, object> data, Schedule schedule)
         {
             try
             {
-                var scheduleList = new List<Schedule>();
+                var orderList = new List<Order>();
 
                 var date = data["date"].NotNullString();
                 var serviceStart = data["startTime"].NotNullString();
                 var serviceEnd = data["endTime"].NotNullString();
 
-                var morning = data["morning"].NotNullString().ToDic();
-                var morningSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
-                if (morningSchedule != null)
-                {
-                    scheduleList.Add(morningSchedule);
-                }
-
-                var afternoon = data["afternoon"].NotNullString().ToDic();
-                var afternoonSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
-                if (afternoonSchedule != null)
-                {
-                    scheduleList.Add(afternoonSchedule);
-                }
-
-                var night = data["night"].NotNullString().ToDic();
-                var nightSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
-                if (nightSchedule != null)
-                {
-                    scheduleList.Add(nightSchedule);
-                }
-
-                return scheduleList;
+                return orderList;
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"CheckBuildSchedule失败 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"BuildOrderList失败 - {ex.Message} - {ex.StackTrace}");
                 return null;
             }
-        }
-
-        private Schedule BuildSchedule(Dictionary<string, string> scheduleSource, string date, string serviceStart, string serviceEnd)
-        {
-            if (scheduleSource == null)
-            {
-                return null;
-            }
-
-            var startTime = scheduleSource["startTime"];
-            if (startTime == null)
-            {
-                return null;
-            }
-
-            var endTime = scheduleSource["endTime"];
-            if (endTime == null)
-            {
-                return null;
-            }
-            var open = scheduleSource["open"];
-            if (open != "true")
-            {
-                return null;
-            }
-
-            var full = scheduleSource["full"];
-            if (full != "false")
-            {
-                return null;
-            }
-
-            return new Schedule
-            {
-                StartTime = startTime,
-                EndTime = endTime,
-            };
         }
 
     }
