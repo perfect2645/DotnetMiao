@@ -1,8 +1,15 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
+using HttpProcessor.ExceptionManager;
+using HttpProcessor.HtmlAnalysis;
+using HttpProcessor.Response;
+using hys020.session;
+using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils;
 using Utils.timerUtil;
 
 namespace hys020.search
@@ -18,9 +25,81 @@ namespace hys020.search
             await Task.Factory.StartNew(() => Search());
         }
 
-        private void Search()
+        private bool Search()
         {
+            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=15:01~15:30&appointmentTimeId=2068&configValue=1&schemeId=2158";
 
+            try
+            {
+                HtmlResponse response = SearchHtml(url).Result;
+                if (response == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"Search - response == null");
+                    return false;
+                }
+
+                return AnalysisResult(response.Body);
+            }
+            catch (HttpException ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+        }
+
+        private bool AnalysisResult(HtmlDoc body)
+        {
+            try
+            {
+                var has9 = HasNineJiaFirstDose(body);
+                if (!has9)
+                {
+                    return false;
+                }
+
+                var miaohtml = GetForm(body);
+                MainSession.MiaoSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"AnalysisResult异常 - {ex.Message}");
+                return false;
+            }
+        }
+
+        private HtmlDoc GetForm(HtmlDoc body)
+        {
+            var xpath = "//*[@id=\"saveForm\"]";
+            return body.GetInnerDoc(xpath);
+        }
+
+        private bool HasNineJiaFirstDose(HtmlDoc body)
+        {
+            var vassNameNodes = body.SearchNodes("//*[@class='vassName']/text()");
+            if (vassNameNodes == null)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
+                return false;
+            }
+
+            var vassNames = vassNameNodes.Select(x => x.InnerText);
+            foreach (var name in vassNames)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
+                //if (name.IsNine() && name.IsDoseOne())
+                //{
+                //    return true;
+                //}
+            }
+
+            return false;
         }
     }
 }
