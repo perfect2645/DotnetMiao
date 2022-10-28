@@ -5,16 +5,21 @@ namespace Utils
 {
     public static class DictionaryUtils
     {
+        private static object UpdateLock = new object();
+
         public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dic, TKey key, TValue value) where TKey : notnull
         {
-            dic = dic ?? new Dictionary<TKey, TValue>();
-            if (dic.ContainsKey(key))
+            lock(UpdateLock)
             {
-                dic[key] = value;
-            }
-            else
-            {
-                dic.Add(key, value);
+                dic = dic ?? new Dictionary<TKey, TValue>();
+                if (dic.ContainsKey(key))
+                {
+                    dic[key] = value;
+                }
+                else
+                {
+                    dic.Add(key, value);
+                }
             }
         }
 
@@ -35,14 +40,17 @@ namespace Utils
 
         public static void AddOrUpdate<TKey, TValue>(this Dictionary<TKey, TValue> dic, Dictionary<TKey, TValue> source, TKey key) where TKey : notnull
         {
-            dic = dic ?? new Dictionary<TKey, TValue>();
-            if (dic.ContainsKey(key))
+            lock (UpdateLock)
             {
-                dic[key] = source[key];
-            }
-            else
-            {
-                dic.Add(key, source[key]);
+                dic = dic ?? new Dictionary<TKey, TValue>();
+                if (dic.ContainsKey(key))
+                {
+                    dic[key] = source[key];
+                }
+                else
+                {
+                    dic.Add(key, source[key]);
+                }
             }
         }
 

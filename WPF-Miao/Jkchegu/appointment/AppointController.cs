@@ -80,12 +80,12 @@ namespace Jkchegu.appointment
 
                 JkSession.PrintLogEvent.Publish(this, $"预约完成");
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
-                if (string.IsNullOrEmpty(result))
+                if (string.IsNullOrEmpty(result) || result.Contains("成功"))
                 {
-                    JkSession.PrintLogEvent.Publish(this, $"result 是空白，请查询是否预约成功");
+                    JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
+                    IsSuccess = true;
                 }
 
-                IsSuccess = true;
                 JkSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
             catch(Exception ex)

@@ -34,7 +34,7 @@ namespace Jkchegu.search
         internal void Init(string date, DateTime? startTime)
         {
             Date = date;
-            SearchInterval = new IntervalOnTime(async () => await SearchByDateAsync(date), date, startTime ?? DateTime.Now, 2000);
+            SearchInterval = new IntervalOnTime(async () => await SearchByDateAsync(date), date, startTime ?? DateTime.Now, 200);
         }
 
         public async Task SearchByDateAsync(string date)
