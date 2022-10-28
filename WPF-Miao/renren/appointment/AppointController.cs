@@ -4,35 +4,59 @@ using renren.session;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
-using Utils.datetime;
 
 namespace renren.appointment
 {
     internal class AppointController : HttpClientBase
     {
+        public bool IsSuccess { get; private set; }
         public AppointController(HttpClient httpClient) : base(httpClient)
         {
         }
 
         internal void Yuyue(List<Order> orderList)
         {
-
+            var result  = YuyueAsync(orderList).Result;
         }
 
-        public async Task AppointAsync()
+        private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            await Task.Factory.StartNew(() => Appoint());
+            for (var i = 1; i < 2; i++)
+            {
+                if (IsSuccess)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                    return 1;
+                }
+                foreach (var order in orderList)
+                {
+                    if (IsSuccess)
+                    {
+                        MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                        return 1;
+                    }
+                    MainSession.PrintLogEvent.Publish(this, order.ToLogString());
+                    var content = new AppointContent(order);
+
+                    Thread.Sleep(1000);
+                    await AppointAsync(content);
+                }
+            }
+
+            return 0;
         }
 
-        public void Appoint()
+        public async Task AppointAsync(AppointContent content)
         {
-            var url = "https://www.medic.ren/PM-server/mobserviceOrder/addServiceOrder";
+            await Task.Factory.StartNew(() => Appoint(content));
+        }
 
+        public void Appoint(AppointContent content)
+        {
             try
             {
-                var content = new AppointContent(url);
-
                 content.BuildDefaultHeaders(Client);
 
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
@@ -54,7 +78,6 @@ namespace renren.appointment
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
-
         }
 
     }

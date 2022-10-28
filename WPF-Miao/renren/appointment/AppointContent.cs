@@ -6,9 +6,11 @@ namespace renren.appointment
 {
     internal class AppointContent : RenrenBaseContent
     {
+
+        private const string Url = "https://www.medic.ren/PM-server/mobserviceOrder/addServiceOrder";
         public Order Order { get; private set; }
 
-        public AppointContent(string url, Order order) : base(url)
+        public AppointContent(Order order) : base(Url)
         {
             Order = order;
             BuildContent();
