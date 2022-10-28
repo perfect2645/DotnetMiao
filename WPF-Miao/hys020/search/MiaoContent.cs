@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Content;
+using hys020.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace hys020.search
 {
-    internal class MiaoContent : HttpStringContent
+    internal class MiaoContent : HysBaseContent
     {
         public MiaoContent(string url) : base(url)
         {
@@ -16,7 +17,6 @@ namespace hys020.search
 
         private void BuildHeader()
         {
-            throw new NotImplementedException();
         }
     }
 }
