@@ -14,9 +14,11 @@ namespace Jkchegu.appointment
     {
 
         public bool IsSuccess { get; private set; }
+        public YzmController YzmController { get; private set; }
 
         public AppointController(HttpClient httpClient) : base(httpClient)
         {
+            YzmController = HttpServiceController.GetService<YzmController>();
         }
 
         public void Yuyue(List<Order> orderList)
@@ -52,8 +54,7 @@ namespace Jkchegu.appointment
 
         private async Task<string> GetYzmAsync()
         {
-            var yzmController = HttpServiceController.GetService<YzmController>();
-            return await yzmController.GetYzmAsync();
+            return await YzmController.GetYzmAsync();
         }
 
         public async Task AppointAsync(AppointContent content)

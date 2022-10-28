@@ -20,7 +20,6 @@ namespace Jkchegu.search
     {
         public IntervalOnTime SearchInterval { get; private set; }
 
-
         private readonly object OrderLock = new object();
 
         public string Date { get; private set; }
@@ -96,11 +95,6 @@ namespace Jkchegu.search
             var dateDic = JsonAnalysis.JsonToDicList(pdList);
             var dateList = dateDic.Select(x => x.Values.FirstOrDefault()).ToList();
 
-            if (!JkSession.PlatformSession.ContainsKey("DateList"))
-            {
-                JkSession.PlatformSession.AddOrUpdate("DateList", dateList);
-            }
-
             if (!dateList.Contains(date))
             {
                 return;
@@ -112,7 +106,6 @@ namespace Jkchegu.search
             var availableTime = doccustomDic.Where(pair =>
                 pair.Key.StartsWith("DATE", StringComparison.OrdinalIgnoreCase)
                 && pair.Value.NotNullString() != "0").Select(x => x.Key).ToHashSet();
-            JkSession.PlatformSession.AddOrUpdate(date, availableTime);
 
             JkSession.PrintLogEvent.Publish(this, $"查到苗{date}");
 
