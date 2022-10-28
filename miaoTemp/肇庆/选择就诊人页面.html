@@ -1,0 +1,250 @@
+GET http://www.hys020.com/home/reserveMsgMobile_63AF0B5D02504957A1173AB9B9C231E0_D4BEB657DDCD46F585DB5E7046996B3B_1_0?regPhase=10:30%20-%2011:00&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=iS3Q9CBrbexu5o3vYhWcnGf9Qn0wciu+ HTTP/1.1
+Host: www.hys020.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Cookie: JSESSIONID=38FFA2768D1D09A5638B13C03EC25A44
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 27 Oct 2022 10:32:11 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.6.40 mod_jk/1.2.42
+Vary: Accept-Encoding,User-Agent
+Keep-Alive: timeout=5, max=99
+Connection: Keep-Alive
+Content-Type: text/html;charset=utf-8
+Content-Length: 9166
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+ <!--<![endif]-->
+ <head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link rel="stylesheet" href="/ui/organization/base/css/appointment.css">
+	<link href="/ui/organization/base/css/yyghMobile/yyghMobile.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript" src="/ui/organization/base/js/jquery.js"></script> 
+<script type="text/javascript" src="/ui/organization/base/js/util.js"></script>
+<script src="/ui/organization/base/js/yyghMobile/yygh_mobile.js?v=20210910"></script> 
+<script src="/ui/organization/base/js/wxpay/jweixin-1.0.0.js"></script> 
+<title>肇庆市鼎湖区妇幼保健计划生育服务中心</title>
+<script>
+  $(document).ready(function(){
+		if("notNeedTopay"=="no_patient"){
+			alert("患者信息丢失,请返回重新操作！");
+			location.href="/home/yyghDorMobile?openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&wechatid=gh_868741944de3&userId=42CB58972CD44CD9945775814C00CA41";
+		}else if("notNeedTopay"=="noNumber"){
+			alert("手慢了,已经没有号可预约,请返回选择其他时间段！");
+			location.href="/home/yyghDorMobile?openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&wechatid=gh_868741944de3&userId=42CB58972CD44CD9945775814C00CA41";
+		}
+  });
+  
+  function addPat(){
+    var reg=new RegExp("&","g");  
+    location.href=root+'/www/mobilebusiness/patBindByPhone?patWechat=o1_Liw34_q5dnOFrOCRDK7jQn5E0&patBindId='+$("#txtPatBindId").val()
+        +'&orgId=63AF0B5D02504957A1173AB9B9C231E0&orgWechat=gh_868741944de3&backurl='+window.location.href.replace(reg,"*");
+  }
+  
+$(function(){
+    $('div').click(function() {
+    if ($(this).attr("name")=='divPat'){
+    var keyid=$(this).attr("id");
+    jQuery.ajax({
+        type: "POST",
+          url: root + '/www/mobilebusiness/changePatBind?patWechat=o1_Liw34_q5dnOFrOCRDK7jQn5E0&patBindId='+keyid+'&backurl='+window.location.href,
+          cache: false,
+          async: true,
+          dataType: "json",
+          success: function(json) {
+          if (json.resultMessage=="success"){
+            $("#txtPatBindId").val(keyid);
+            $("div[name='divPat']").css('background-color','white');
+            $("#"+keyid).css('background-color','#1689ff'); 
+          }else{
+            alert('系统错误');}
+          }
+      });
+    }                             
+    });
+}); 
+
+  function btnsubmit(){
+    $(this).attr('disabled',"true");
+        $(this).css("color","gray");
+        //$(this).css("border","none");
+        //执行下单
+        showLoading("加载中...");
+        doSaveAtt('42CB58972CD44CD9945775814C00CA41','D4BEB657DDCD46F585DB5E7046996B3B',1,'63AF0B5D02504957A1173AB9B9C231E0','','gh_868741944de3',$("#txtPatBindId").val());
+  }
+</script>
+<style>
+.main_content
+{
+width:100%;
+text-align:center;
+}
+.list_content
+{
+background-color:ghostwhite;
+position:absolute;
+clear:both;
+text-align:left;
+width:100%;
+left:0px;/*10%*/
+border:1px solid #999;
+border-radius:5px;
+margin:auto;
+height:auto;
+}
+
+.select_tab
+{
+position:absolute;
+left:10%;
+top:60px;
+width:80%;
+height:30px;
+line-height:30px;
+margin:auto;
+margin-bottom: 20px;
+
+}
+body{font-size:16px;}
+.no_pay_tab{float:left;text-align:center;width:49%;border: 1px solid #999;border-radius:5px 0 0 5px;}
+.is_pay_tab{float:left;text-align:center;width:49%;border: 1px solid #999;border-radius:0 5px 5px 0;}
+.tab_select_item{color:white;background-color:dodgerblue;}
+.orderList{font-size:14px;margin-left: 5px;margin:8px;}
+.orderList_first{font-size:16px; font-weight:bold;}
+
+
+.box {
+    background: rgb(255, 255, 255) none repeat scroll 0 0;
+    border: 1px solid rgb(204, 204, 204);
+    display: inline-block;
+    margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 5px;
+    min-height: 150px;
+    position: relative;
+    width:100px;
+}
+.box p {
+    color: #000000;
+    margin: 5px;
+    outline: medium none;
+}
+.box1 {
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(0% 0 , rgb(255, 255, 255), rgb(243, 243, 243) 10%, rgb(255, 255, 255)) repeat scroll 0 0;
+    border-radius: 0 0 6px / 0 0 50px;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.1) inset;
+}
+.box1::before {
+    bottom: 0;
+    box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.1);
+    content: "";
+    height: 100px;
+    position: absolute;
+    right: 0;
+    transform: translate(-35px, -40px) skew(0deg, 32deg) rotate(-25deg);
+    width: 50px;
+    z-index: -1;
+}
+.box1::after {
+    box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.2);
+    content: "";
+    display: inline-block;
+    height: 100px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: rotate(7deg) translate(20px, 25px) skew(20deg);
+    width: 100px;
+    z-index: -1;
+}
+
+</style>
+</head>
+<body>
+<input type='hidden' id='txtOrgId' value='63AF0B5D02504957A1173AB9B9C231E0'/>
+<input type='hidden' id='txtPatBindId' name='txtPatBindId' value='7B28B513877B4258A45949146B98F2D6'/>
+<input type='hidden' id='txtOpenId' value='o1_Liw34_q5dnOFrOCRDK7jQn5E0'/>
+<input type="hidden" id="txtRegPhase" value="10:30 - 11:00" />
+		  <div class=" doctor-detail"> 
+    
+	<div class="header-wrapper result-op" data-click="{&quot;mod&quot;: &quot;content_header&quot;}"> 
+     <header data-fixed="true"> 
+      <div class="header-l OP_LOG_BTN"  onClick='location.href="/home/yyghDorMobile?openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&wechatid=gh_868741944de3&userId=42CB58972CD44CD9945775814C00CA41"'> 
+       <i class="icon-arrow btn-back" style='width:40px;height:40px;background:url(/ui/organization/base/images/return_wite.png) no-repeat center;background-size:25px 25px;'></i> 
+      </div> 
+      <div class="header-m">
+       预约挂号
+      </div>
+	  <div class="header-r" id='myyygh'  style='position: absolute;float:right;top:0px;right:0;'> 
+      </div> 
+     </header> 
+    </div> 
+    <div class="container"> 
+	 <div class="doctor-detail-wrap"> 
+      <div class="detail-avatar-wrap"> 
+       <div class="detail-avatar"> 
+        <img class="avatar" width="50px" height="50px" id='dorLogo' src="/uploads/doctor/42CB58972CD44CD9945775814C00CA41/logo/thumb_20190329101437499.png" alt="盆底康复" /> 
+       </div> 
+      </div> 
+      <div class="info-wrap"> 
+       <div class="info-title"> 
+        <span class="info-name">盆底康复</span> 
+        <span class="info-job">盆底康复</span> 
+       </div> 
+       <div class="info-hospital"> 
+        <span class="info-hos-name">肇庆市鼎湖区妇幼保健计划生育服务中心</span>         <span class="info-depart">保健科</span>       </div> 
+       <div class="info-pos"> 
+        <span title='肇庆市鼎湖区桂城迎春街5号' class="info-pos-text">肇庆市鼎湖区桂城迎春街5号</span> 
+       </div> 
+      </div> 
+     </div> 
+	<div style='margin-top: 5px;height:50px;padding-left: 20px;line-height:50px;font-size:16px;background-color:white;'>预约号： 5</div>
+	<div style='margin-top: 5px;height:50px;padding-left: 20px;line-height:50px;font-size:16px;background-color:white;'>就诊时间： 2022年11月04日</div>
+	<div style='margin-top: 5px;height:50px;padding-left: 20px;line-height:50px;font-size:16px;background-color:white;'>
+	   预约时段：上午  10:30 - 11:00
+	</div>
+    <div style='margin-top: 5px;height:30px;padding-left: 20px;line-height:30px;font-size:16px;background-color:white;'>选择预约人</div>
+	
+    <div>
+            <div id='7B28B513877B4258A45949146B98F2D6' name='divPat' style='text-align:center;border:1px solid #1689ff;float:left;margin-left: 5px;margin-top: 5px;height:30px;width:80px;line-height:30px;font-size:16px;
+         background-color:#1689ff;  ' >
+            赵梦云
+        </div>
+        
+        <div onClick='addPat()' style='font-weight:bold;border-bottom:1px solid #1689ff;color:#1689ff;text-align:center;vertical-align:bottom;float:left;margin-left: 5px;
+        margin-top: 5px;height:30px;width:80px;line-height:40px;font-size:16px;background-color:f0f4f7;'>
+            新增  > >
+        </div>
+    </div>
+
+    <div style='position: fixed;bottom: 0;margin-top: 5px;height:50px;padding-left: 20px;line-height:50px;font-size:16px;width:100%;background-color:white;'>
+		<div style='float:left;width:50%;text-align:left;'>
+			<font style=" font-family:'微软雅黑';font-size:16px;">
+									
+							</font>
+		</div>
+        <div style='float:left;text-align:right;width:40%;height:50px;line-height:50px;'> 
+            <button id="btnsubmit" onClick="btnsubmit()" style='margin-left: 10px;color:white;background-color:#07B8DD;border-color:#07B8DD;border-radius:4px; -webkit-border-radius: 4px;border-bottom-color:#07B8DD;border-right-color:#07B8DD;height:40px;font-size:16px;' >
+                确认预约            </button>
+        </div>
+	</div>
+
+    </div> 
+   </div> 
+   
+</body>
+</html>

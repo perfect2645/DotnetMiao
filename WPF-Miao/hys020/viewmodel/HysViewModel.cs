@@ -76,6 +76,8 @@ namespace hys020.viewmodel
 
         private readonly object OrderLock = new object();
 
+        private SearchController _searchController;
+
         #endregion Properties
 
         #region Constructor
@@ -84,6 +86,12 @@ namespace hys020.viewmodel
         {
             InitCommands();
             InitStaticData();
+            InitControllers();
+        }
+
+        private void InitControllers()
+        {
+            _searchController = HttpServiceController.GetService<SearchController>();
         }
 
         private void InitStaticData()
@@ -153,8 +161,7 @@ namespace hys020.viewmodel
             try
             {
                 MainSession.SetStatus(MiaoProgress.Searching);
-                var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchAsync();
+                await _searchController.SearchAsync();
             }
             catch (HttpException ex)
             {
