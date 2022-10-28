@@ -117,6 +117,8 @@ namespace renren.viewmodel
 
         private readonly object OrderLock = new object();
 
+        private ScheduleController _scheduleController;
+
         #endregion Properties
 
         #region Constructor
@@ -125,6 +127,7 @@ namespace renren.viewmodel
         {
             InitCommands();
             InitStaticData();
+            InitController();
 
             TestData();
         }
@@ -186,6 +189,12 @@ namespace renren.viewmodel
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+
+        }
+
+        private void InitController()
+        {
+            _scheduleController = HttpServiceController.GetService<ScheduleController>();
         }
 
         private void InitCommands()
@@ -342,8 +351,8 @@ namespace renren.viewmodel
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                 }
-                var miaoSchedule = HttpServiceController.GetService<ScheduleController>();
-                await miaoSchedule.GetServiceScheduleAsync();
+
+                await _scheduleController.GetServiceScheduleAsync();
             });
         }
 
