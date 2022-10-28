@@ -1,6 +1,7 @@
 ﻿using Base.Events;
 using Base.model;
 using Base.viewModel;
+using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -11,6 +12,7 @@ using Jkchegu.search.yzm;
 using Jkchegu.session;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -93,8 +95,8 @@ namespace Jkchegu.viewmodel
 
         public JkcheguViewModel(LogPanel logPanel) : base(logPanel)
         {
-            InitStaticData();
             InitCommands();
+            InitStaticData();
             JkSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
@@ -102,7 +104,7 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=406FD93FC7423FB3EEF315B5CAA98C79";
+            Cookie = "JSESSIONID=E040B16E789C34658804DC7E88CAFEC9";
             Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
             JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddSeconds(20));
         }
@@ -113,28 +115,44 @@ namespace Jkchegu.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
             };
 
             JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
 
             TimeList = new List<DspVal>
             {
-                new DspVal("8:00-8:30", "DATE1_COUNT"),
-                new DspVal("8:30-9:00", "DATE2_COUNT"),
-                new DspVal("9:00-9:30", "DATE3_COUNT"),
-                new DspVal("9:30-10:00", "DATE4_COUNT"),
-                new DspVal("10:00-10:30", "DATE5_COUNT"),
-                new DspVal("10:30-11:00", "DATE6_COUNT"),
+                new DspVal("8:30-9:00", "DATE1_COUNT"),
+                new DspVal("9:00-9:30", "DATE2_COUNT"),
+                new DspVal("9:30-10:00", "DATE3_COUNT"),
+                new DspVal("10:00-10:30", "DATE4_COUNT"),
+                new DspVal("10:30-11:00", "DATE5_COUNT"),
             };
+
+            Departments = new List<HospitalDept>
+            {
+                new JkHospital
+                {
+                    HospitalId = "whsjjkfqzyjxmsqwsfwzx",
+                    HospitalName = "新民社区服务站",
+                    DepartmentId = "18",
+                    DepartmentName = "九价宫颈癌疫苗（进口）",
+                },
+                //<option value="24">儿童乙肝疫苗（免费）</option>
+                new JkHospital
+                {
+                    HospitalId = "whsjjkfqzyjxmsqwsfwzx",
+                    HospitalName = "新民社区服务站",
+                    DepartmentId = "24",
+                    DepartmentName = "儿童乙肝疫苗（免费）",
+                },
+            };
+
+            SelectedDepartment = Departments.FirstOrDefault();
         }
 
         private void InitCommands()
@@ -142,9 +160,10 @@ namespace Jkchegu.viewmodel
             SearchCommand = new RelayCommand(ExecuteSearchAsync);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
-            SessionEvents.Instance.Subscribe(LogSession);
 
             JkSession.AppointEvent.Subscribe(OnAppointment);
+
+            SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
 
         #endregion Constructor
@@ -225,13 +244,19 @@ namespace Jkchegu.viewmodel
 
         #endregion 验证码
 
-        #region Session
+        #region Hospital Dept
 
-        private void LogSession(object? sender, SesstionEventArgs args)
+        private void OnSelectedDepartmentChanged()
         {
+            var selectedDept = SelectedDepartment as JkHospital;
+            JkSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            JkSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
 
+            Log(selectedDept.ToLogString());
+
+            //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
         }
 
-        #endregion Session
+        #endregion Hospital Dept
     }
 }

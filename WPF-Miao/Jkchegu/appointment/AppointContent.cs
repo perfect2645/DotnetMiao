@@ -39,7 +39,7 @@ namespace Jkchegu.appointment
             AddContent("APPOINTMENT_DATE", Order.Date);
             AddContent("dateCount", Order.Time);
             AddContent("ETID", JkSession.MiaoSession["Etid"]);
-            AddContent("VACCINES_NAME", "18");
+            AddContent("VACCINES_NAME", JkSession.PlatformSession[Constants.DeptId]);
             AddContent("DOC_CUSTOM_VACCINE_GUID", Order.GUID);
             AddContent("code", Order.Yzm);
         }

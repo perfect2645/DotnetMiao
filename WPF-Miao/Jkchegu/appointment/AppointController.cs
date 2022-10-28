@@ -12,6 +12,9 @@ namespace Jkchegu.appointment
 {
     internal class AppointController : HttpClientBase
     {
+
+        public bool IsSuccess { get; private set; }
+
         public AppointController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -23,12 +26,25 @@ namespace Jkchegu.appointment
 
         private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            foreach (var order in orderList)
+            for(var i = 1; i < 3; i++)
             {
-                order.Yzm = await GetYzmAsync();
-                JkSession.PrintLogEvent.Publish(this, order.ToLogString());
-                var content = new AppointContent(order);
-                await AppointAsync(content);
+                if (IsSuccess)
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                    return 1;
+                }
+                foreach (var order in orderList)
+                {
+                    if (IsSuccess)
+                    {
+                        JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                        return 1;
+                    }
+                    order.Yzm = await GetYzmAsync();
+                    JkSession.PrintLogEvent.Publish(this, order.ToLogString());
+                    var content = new AppointContent(order);
+                    await AppointAsync(content);
+                }
             }
 
             return 0;
@@ -49,6 +65,11 @@ namespace Jkchegu.appointment
         {
             try
             {
+                if (IsSuccess)
+                {
+                    return;
+                }
+
                 content.BuildDefaultHeaders(Client);
 
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
@@ -61,9 +82,10 @@ namespace Jkchegu.appointment
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
                 if (string.IsNullOrEmpty(result))
                 {
-                    JkSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
-                    return;
+                    JkSession.PrintLogEvent.Publish(this, $"result 是空白，请查询是否预约成功");
                 }
+
+                IsSuccess = true;
                 JkSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
             catch(Exception ex)
