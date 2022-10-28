@@ -70,10 +70,8 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddDuobaoItem(3619, "友邻市集5元无门槛券", "629");
             AddMiaoshaItem(3643, 1, "农夫山泉东北大米9斤", "629", "2022-10-28 20:00:00");
-            AddMiaoshaItem(3644, 1, "可爱公仔玩偶", "629", "2022-10-28 20:00:10");
-            AddMiaoshaItem(3645, 1, "blispring冰泉牙膏2支装", "629", "2022-10-28 20:00:03");
+            //AddMiaoshaItem(3644, 1, "可爱公仔玩偶", "629", "2022-10-28 20:00:10");
             //AddDuobaoItem(2817, "iPhone 14 Pro", "452", 72);
             //AddDuobaoItem(2818, "iPhone 14 Pro", "452", 125);
             //AddMiaoshaItem(2832, 1, "AirPods 3", "466", "2022-09-25 12:00:00");
