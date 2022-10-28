@@ -1,7 +1,9 @@
 ﻿using Base.Events;
 using Base.model;
+using Base.session;
 using Base.viewmodel.status;
 using Base.viewModel;
+using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -97,6 +99,28 @@ namespace hys020.viewmodel
         private void InitStaticData()
         {
             //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+
+            //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
+            Departments = new List<HospitalDept>
+            {
+                new HysHospital
+                {
+                    HospitalId = "doctorYyghMobileDate",
+                    HospitalName = "肇庆市鼎湖区",
+                    DepartmentId = "18",
+                    DepartmentName = "九价宫颈癌疫苗（进口）",
+                },
+                //<option value="24">儿童乙肝疫苗（免费）</option>
+                new HysHospital
+                {
+                    HospitalId = "doctorYyghMobileDate",
+                    HospitalName = "肇庆市鼎湖区",
+                    DepartmentId = "42CB58972CD44CD9945775814C00CA41",
+                    DepartmentName = "盆底修复",
+                },
+            };
+
+            SelectedDepartment = Departments.FirstOrDefault();
         }
 
         private void InitCommands()
@@ -241,5 +265,20 @@ namespace hys020.viewmodel
         }
 
         #endregion AutoRun
+
+        #region Hospital Dept
+
+        private void OnSelectedDepartmentChanged()
+        {
+            var selectedDept = SelectedDepartment as HysHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+
+            Log(selectedDept.ToLogString());
+
+            //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
+        }
+
+        #endregion Hospital Dept
     }
 }

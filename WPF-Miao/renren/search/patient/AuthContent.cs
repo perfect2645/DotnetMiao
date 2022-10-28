@@ -13,7 +13,7 @@ namespace renren.search.patient
         private void BuildHeader()
         {
             AddHeader("Host", "www.medic.ren");
-            AddHeader(MainSession.PlatformSesstion, Constants.MedicToken);
+            AddHeader(MainSession.PlatformSession, Constants.MedicToken);
             AddHeader("Accept", "*/*");
             AddHeader("Authorization", "ddtoken");
             AddHeader("source", "wx");
@@ -27,7 +27,7 @@ namespace renren.search.patient
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
+            AddContent(MainSession.PlatformSession, Constants.HospitalId);
             AddContent("url", "https://www.medic.ren/app/");
         }
     }

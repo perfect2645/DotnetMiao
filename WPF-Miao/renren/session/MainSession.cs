@@ -10,7 +10,7 @@ namespace renren.session
     {
         public static string Cookie { get; set; }
         public static UserSession UserSession { get; private set; }
-        public static Dictionary<string, object> PlatformSesstion { get; private set; }
+        public static Dictionary<string, object> PlatformSession { get; private set; }
         public static Dictionary<string, object> HospitalSession { get; private set; }
         public static Dictionary<string, object> MiaoSession { get; private set; }
 
@@ -18,7 +18,7 @@ namespace renren.session
 
         static MainSession()
         {
-            PlatformSesstion = new Dictionary<string, object>();
+            PlatformSession = new Dictionary<string, object>();
             UserSession = new UserSession("2645");
             HospitalSession = new Dictionary<string, object>();
             MiaoSession = new Dictionary<string, object>();

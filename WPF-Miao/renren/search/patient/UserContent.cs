@@ -15,13 +15,13 @@ namespace renren.search.patient
 
         private void BuildHeaders()
         {
-            AddHeader(Constants.MedicToken, MainSession.PlatformSesstion[Constants.PublicKey].NotNullString());
+            AddHeader(Constants.MedicToken, MainSession.PlatformSession[Constants.PublicKey].NotNullString());
         }
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSesstion, Constants.OpenId);
-            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
+            AddContent(MainSession.PlatformSession, Constants.OpenId);
+            AddContent(MainSession.PlatformSession, Constants.HospitalId);
         }
     }
 }

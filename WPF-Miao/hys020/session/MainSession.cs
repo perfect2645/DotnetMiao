@@ -9,14 +9,14 @@ namespace hys020.session
     internal class MainSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
-        public static Dictionary<string, object> PlatformSesstion { get; private set; }
+        public static Dictionary<string, object> PlatformSession { get; private set; }
         public static Dictionary<string, object> MiaoSession { get; private set; }
 
         public static AppointEvent AppointEvent { get; }
 
         static MainSession()
         {
-            PlatformSesstion = new Dictionary<string, object>();
+            PlatformSession = new Dictionary<string, object>();
             MiaoSession = new Dictionary<string, object>();
             AppointEvent = new AppointEvent();
         }

@@ -13,13 +13,13 @@ namespace renren.search.miao
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
-            AddContent(MainSession.PlatformSesstion, Constants.ServiceId);
-            AddContent(MainSession.PlatformSesstion, Constants.ScheduleFrom);
-            AddContent(MainSession.PlatformSesstion, Constants.ScheduleTo);
+            AddContent(MainSession.PlatformSession, Constants.UserHospitalId);
+            AddContent(MainSession.PlatformSession, Constants.ServiceId);
+            AddContent(MainSession.PlatformSession, Constants.ScheduleFrom);
+            AddContent(MainSession.PlatformSession, Constants.ScheduleTo);
             AddContent("bookingType", "0");
-            AddContent("bookingToken", MainSession.PlatformSesstion[Constants.PublicKey]);
-            AddContent(MainSession.PlatformSesstion, Constants.OpenId);
+            AddContent("bookingToken", MainSession.PlatformSession[Constants.PublicKey]);
+            AddContent(MainSession.PlatformSession, Constants.OpenId);
         }
     }
 }

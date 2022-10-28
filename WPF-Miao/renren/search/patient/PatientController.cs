@@ -186,7 +186,7 @@ namespace renren.search.patient
             {
                 throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
             }
-            MainSession.PlatformSesstion.AddOrUpdate(data);
+            MainSession.PlatformSession.AddOrUpdate(data);
             MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");
         }
 

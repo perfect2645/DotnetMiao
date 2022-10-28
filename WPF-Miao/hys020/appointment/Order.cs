@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace hys020.appointment
+﻿namespace hys020.appointment
 {
     public class Order
     {
@@ -9,6 +7,7 @@ namespace hys020.appointment
         public string AttId { get; set; }
         public string TimeRangeEncode { get; set; }
         public string WechatId { get; set; }
+        public string PatBindId { get; set; }
 
         public string OrderUrl 
         { 
@@ -18,7 +17,7 @@ namespace hys020.appointment
         private string BuildUrl()
         {
             var urlHead = "http://www.hys020.com/home/attSave_";
-            var url = $"{urlHead}_{DepartmentId}_{AttId}_1_1_?regPhase={TimeRangeEncode}&wechatid={WechatId}&patBindId=7B28B513877B4258A45949146B98F2D6";
+            var url = $"{urlHead}_{DepartmentId}_{AttId}_1_1_?regPhase={TimeRangeEncode}&wechatid={WechatId}&patBindId={PatBindId}";
             return url;
         }
     }

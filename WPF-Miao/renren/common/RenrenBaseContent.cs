@@ -13,7 +13,7 @@ namespace renren.common
         private void BuildHeader()
         {
             AddHeader("Host", "www.medic.ren");
-            AddHeader(MainSession.PlatformSesstion, Constants.MedicToken);
+            AddHeader(MainSession.PlatformSession, Constants.MedicToken);
             AddHeader("Accept", "*/*");
             AddHeader("Authorization", "ddtoken");
             AddHeader("source", "wx");

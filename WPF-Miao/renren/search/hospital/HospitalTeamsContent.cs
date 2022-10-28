@@ -12,8 +12,8 @@ namespace renren.search.hospital
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
-            AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
+            AddContent(MainSession.PlatformSession, Constants.HospitalId);
+            AddContent(MainSession.PlatformSession, Constants.UserHospitalId);
         }
     }
 }

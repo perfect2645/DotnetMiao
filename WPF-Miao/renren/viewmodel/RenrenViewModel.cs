@@ -83,7 +83,7 @@ namespace renren.viewmodel
             set
             {
                 _medicToken = value;
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.MedicToken, value);
+                MainSession.PlatformSession.AddOrUpdate(Constants.MedicToken, value);
                 NotifyUI(() => MedicToken);
                 CheckInitStatus();
             }
@@ -96,7 +96,7 @@ namespace renren.viewmodel
             set
             {
                 _openId = value;
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.OpenId, value);
+                MainSession.PlatformSession.AddOrUpdate(Constants.OpenId, value);
                 NotifyUI(() => OpenId);
                 CheckInitStatus();
             }
@@ -109,7 +109,7 @@ namespace renren.viewmodel
             set
             {
                 _publicKey = value;
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.PublicKey, value);
+                MainSession.PlatformSession.AddOrUpdate(Constants.PublicKey, value);
                 NotifyUI(() => PublicKey);
                 CheckInitStatus();
             }
@@ -142,18 +142,18 @@ namespace renren.viewmodel
         private void InitStaticData()
         {
             //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
-            MainSession.PlatformSesstion.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
+            MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
 
             var dayToday = (int)DateTime.Today.DayOfWeek;
             if (dayToday < 3)
             {
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfWeek(DayOfWeek.Sunday));
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfWeek(DayOfWeek.Sunday));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday));
             }
             else
             {
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday));
-                MainSession.PlatformSesstion.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday));
             }
 
             Departments = new List<HospitalDept>
@@ -373,10 +373,10 @@ namespace renren.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as RenrenHospital;
-            MainSession.PlatformSesstion.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSesstion.AddOrUpdate(Constants.UserHospitalId, selectedDept.UserHospitalId);
-            MainSession.PlatformSesstion.AddOrUpdate(Constants.TeamId, selectedDept.DepartmentId);
-            MainSession.PlatformSesstion.AddOrUpdate(Constants.ServiceId, selectedDept.ServiceId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserHospitalId, selectedDept.UserHospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.TeamId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.ServiceId, selectedDept.ServiceId);
 
             Log(selectedDept.ToLogString());
 

@@ -14,7 +14,7 @@ namespace renren.search.hospital
         {
             AddContent(MainSession.HospitalSession, Constants.TeamId);
             AddContent("role", 1);
-            AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
+            AddContent(MainSession.PlatformSession, Constants.UserHospitalId);
         }
     }
 }

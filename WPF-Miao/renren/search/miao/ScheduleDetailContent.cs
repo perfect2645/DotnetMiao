@@ -17,15 +17,15 @@ namespace renren.search.miao
         private void BuildContent()
         {
             AddContent("date", Schedule.Date);
-            AddContent(MainSession.PlatformSesstion, Constants.ServiceId);
+            AddContent(MainSession.PlatformSession, Constants.ServiceId);
             AddContent("dayText", BuildDayText());
             AddContent("half", Schedule.Half);
             AddContent("period", 2);
             AddContent("doctorId", MainSession.HospitalSession[Constants.TeamId]);
-            AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
+            AddContent(MainSession.PlatformSession, Constants.UserHospitalId);
             AddContent("bookingType", "0");
-            AddContent("bookingToken", MainSession.PlatformSesstion[Constants.PublicKey]);
-            AddContent(MainSession.PlatformSesstion, Constants.OpenId);
+            AddContent("bookingToken", MainSession.PlatformSession[Constants.PublicKey]);
+            AddContent(MainSession.PlatformSession, Constants.OpenId);
         }
 
         private string BuildDayText()

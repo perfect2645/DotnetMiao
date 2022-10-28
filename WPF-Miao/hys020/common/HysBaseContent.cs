@@ -1,16 +1,12 @@
 ﻿using HttpProcessor.Content;
 using hys020.session;
-using System;
 
-namespace hys020.appointment
+namespace hys020.common
 {
-    internal class AppointContent : HttpStringContent
+    internal class HysBaseContent : HttpStringContent
     {
-        public Order Order { get; private set; }
-
-        public AppointContent(string url, Order order) : base(url)
+        public HysBaseContent(string url) : base(url)
         {
-            Order = order;
             BuildHeader();
         }
 

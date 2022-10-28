@@ -26,7 +26,7 @@ namespace hys020.appointment
 
         public void Appoint(Order order)
         {
-            var url = "https://www.medic.ren/PM-server/mobserviceOrder/addServiceOrder";
+            var url = order.OrderUrl;
 
             try
             {
@@ -53,8 +53,6 @@ namespace hys020.appointment
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
-
         }
-
     }
 }

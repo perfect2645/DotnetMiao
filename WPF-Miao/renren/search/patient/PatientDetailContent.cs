@@ -13,8 +13,8 @@ namespace renren.search.patient
         private void BuildContent()
         {
             AddContent(Constants.PatientId, MainSession.UserSession[Constants.PatientId]);
-            AddContent(MainSession.PlatformSesstion, Constants.UserHospitalId);
-            AddContent(MainSession.PlatformSesstion, Constants.HospitalId);
+            AddContent(MainSession.PlatformSession, Constants.UserHospitalId);
+            AddContent(MainSession.PlatformSession, Constants.HospitalId);
         }
     }
 }

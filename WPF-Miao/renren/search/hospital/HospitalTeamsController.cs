@@ -109,7 +109,7 @@ namespace renren.search.hospital
             var dataJsonElement = jsonElement.GetProperty("data").GetProperty("list");
             var dataList = JsonAnalysis.JsonToDicList(dataJsonElement);
 
-            var nineJiaTeamId = MainSession.PlatformSesstion[Constants.TeamId].NotNullString();
+            var nineJiaTeamId = MainSession.PlatformSession[Constants.TeamId].NotNullString();
             var data = dataList?.FirstOrDefault(x => x.ContainsValue(nineJiaTeamId));
             if (code != 200 || !data.HasItem())
             {
