@@ -320,7 +320,7 @@ namespace renren.viewmodel
             {
                 MainSession.Cookie = Cookie;
                 var appointController = HttpServiceController.GetService<AppointController>();
-                await appointController.AppointAsync();
+                //await appointController.AppointAsync();
             }
             catch (HttpException ex)
             {
