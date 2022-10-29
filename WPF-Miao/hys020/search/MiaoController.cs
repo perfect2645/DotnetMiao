@@ -1,6 +1,7 @@
 ﻿using Base.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
+using HttpProcessor.ExceptionManager;
 using hys020.session;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,9 @@ using System.Security.Policy;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Utils.json;
+using Utils;
+using Utils.stringBuilder;
 
 namespace hys020.search
 {
@@ -53,6 +57,23 @@ namespace hys020.search
             {
                 MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
             }
+        }
+
+        private void AnalysisResult(JsonElement jsonElement)
+        {
+            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+            var code = dicResult["code"].ToInt();
+            var message = dicResult["message"].NotNullString();
+
+            var dataJsonElement = jsonElement.GetProperty("data");
+            var data = JsonAnalysis.JsonToDic(dataJsonElement);
+
+            if (code != 200 || !data.HasItem())
+            {
+                throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
+            }
+            MainSession.PlatformSession.AddOrUpdate(data);
+            MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");
         }
     }
 }
