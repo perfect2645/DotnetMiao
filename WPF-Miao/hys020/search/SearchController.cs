@@ -1,5 +1,4 @@
-﻿using Base.viewmodel.status;
-using HttpProcessor.Client;
+﻿using HttpProcessor.Client;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using HttpProcessor.HtmlAnalysis;
@@ -10,7 +9,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Utils;
-using Utils.timerUtil;
 
 namespace hys020.search
 {
@@ -22,7 +20,8 @@ namespace hys020.search
 
         public async Task SearchAsync()
         {
-            await Task.Factory.StartNew(() => Search());
+            var miaoController = HttpServiceController.GetService<MiaoController>();
+            await miaoController.SearchMiaoAsync();
         }
 
         private bool Search()
