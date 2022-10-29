@@ -1,5 +1,6 @@
 ﻿using Base.session;
 using HttpProcessor.Client;
+using HttpProcessor.Content;
 using hys020.session;
 using System;
 using System.Collections.Generic;
@@ -26,18 +27,17 @@ namespace hys020.search
         private void SearchMiao()
         {
             var deptId = MainSession.PlatformSession[Constants.DeptId];
+            var url = $"http://www.hys020.com/home/doctorYyghMobileDate_{deptId}";
 
-            var content = new DateCountContent(url);
-            content.AddHeader("Cookie", JkSession.Cookie);
+            var content = new MiaoContent(url);
             content.BuildDefaultHeaders(Client);
-            content.AddContent("yyDate", date);
 
             try
             {
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    JkSession.PrintLogEvent.Publish(this, $"Search({date}) - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - response == null");
                     return;
                 }
 
@@ -47,12 +47,11 @@ namespace hys020.search
                 {
                     return;
                 }
-                SearchInterval.StopInterval();
-                AnalysisResult(result, date);
+                AnalysisResult(result);
             }
             catch (Exception ex)
             {
-                JkSession.PrintLogEvent.Publish(this, $"未查到苗{date} - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
             }
         }
     }
