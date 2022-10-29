@@ -9,5 +9,8 @@
         public const string HospitalName = "hospitalName";
         public const string DeptId = "deptId";
         public const string DeptName = "deptName";
+
+        public const string AttId = "attId";
+        public const string OrgId = "orgId";
     }
 }

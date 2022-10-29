@@ -20,8 +20,11 @@ namespace hys020.search
 
         private string BuildEndAttDate()
         {
-            var nextWeekDay = DateTimeUtil.GetDayOfNextWeek(DateTime.Today.DayOfWeek);
-            return nextWeekDay;
+            //var nextWeekDay = DateTimeUtil.GetDayOfNextWeek(DateTime.Today.DayOfWeek);
+            //return nextWeekDay;
+
+            var dayToday = DateTimeUtil.GetDayOfWeek(DateTime.Today.DayOfWeek);
+            return dayToday;
         }
     }
 }

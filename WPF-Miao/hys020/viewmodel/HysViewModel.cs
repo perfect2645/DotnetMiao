@@ -168,13 +168,11 @@ namespace hys020.viewmodel
         {
             Task.Factory.StartNew(async () =>
             {
-                await SearchAsync();
                 if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                 }
-                var miaoSchedule = HttpServiceController.GetService<SearchController>();
-                await miaoSchedule.SearchAsync();
+                await SearchAsync();
             });
         }
 

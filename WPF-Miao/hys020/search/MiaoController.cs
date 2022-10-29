@@ -1,8 +1,10 @@
-﻿using HttpProcessor.Client;
+﻿using Base.viewmodel.status;
+using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using hys020.session;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -41,12 +43,13 @@ namespace hys020.search
                 }
 
                 var result = response.JsonBody.RootElement;
-                var hasMiao = response.JsonBody.RootElement.GetProperty("doccustom");
-                if (hasMiao.ValueKind == JsonValueKind.Null)
+                var attList = response.JsonBody.RootElement.GetProperty("attList");
+                if (attList.ValueKind == JsonValueKind.Null)
                 {
+                    MainSession.PrintLogEvent.Publish(this, $"未查到苗 - attList is null");
                     return;
                 }
-                AnalysisResult(result);
+                AnalysisResult(attList);
             }
             catch (Exception ex)
             {
@@ -56,19 +59,29 @@ namespace hys020.search
 
         private void AnalysisResult(JsonElement jsonElement)
         {
-            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
-            var code = dicResult["code"].ToInt();
-            var message = dicResult["message"].NotNullString();
+            var dicResult = JsonAnalysis.JsonToDicList(jsonElement);
 
-            var dataJsonElement = jsonElement.GetProperty("data");
-            var data = JsonAnalysis.JsonToDic(dataJsonElement);
+            var miaoList = dicResult.Where(x => StringUtil.NotEmpty(x[Constants.AttId].NotNullString(),
+                x[Constants.OrgId].NotNullString())).ToList();
 
-            if (code != 200 || !data.HasItem())
+            if (!miaoList.HasItem())
             {
-                throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
+                MainSession.PrintLogEvent.Publish(this, $"没查到苗");
+                return;
             }
-            MainSession.PlatformSession.AddOrUpdate(data);
-            MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");
+
+            MainSession.MiaoSession.AddOrUpdate("MiaoList", miaoList);
+            MainSession.PrintLogEvent.Publish(this, miaoList, $"查到苗");
+            MainSession.SetStatus(MiaoProgress.MiaoGet);
+            //var dataJsonElement = jsonElement.GetProperty("data");
+            //   var data = JsonAnalysis.JsonToDic(dataJsonElement);
+
+            //   if (code != 200 || !data.HasItem())
+            //   {
+            //       throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
+            //   }
+            //   MainSession.PlatformSession.AddOrUpdate(data);
+            //   MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");   
         }
     }
 }
