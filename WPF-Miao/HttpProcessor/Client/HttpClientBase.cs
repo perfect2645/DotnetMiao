@@ -150,7 +150,7 @@ namespace HttpProcessor.Client
             catch (Exception ex)
             {
                 GLog.Logger.Error("Search Failed", ex);
-                return null;
+                return new HttpDicResponse(ex.Message);
             }
         }
 

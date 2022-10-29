@@ -24,6 +24,11 @@ namespace HttpProcessor.Client
 
         #region Constructor
 
+        public HttpDicResponse(string error)
+        {
+            Message = error;
+        }
+
         public HttpDicResponse(HttpResponseMessage response)
         {
             try

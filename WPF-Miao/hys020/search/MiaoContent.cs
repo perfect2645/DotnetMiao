@@ -1,4 +1,6 @@
-﻿using hys020.common;
+using hys020.common;
+using System;
+using Utils.datetime;
 
 namespace hys020.search
 {
@@ -6,6 +8,20 @@ namespace hys020.search
     {
         public MiaoContent(string url) : base(url)
         {
+            BuildContent();
+        }
+
+        private void BuildContent()
+        {
+            AddContent("endAttDate", BuildEndAttDate());
+            AddContent("last", 8);
+            AddContent("amount", 8);
+        }
+
+        private string BuildEndAttDate()
+        {
+            var nextWeekDay = DateTimeUtil.GetDayOfNextWeek(DateTime.Today.DayOfWeek);
+            return nextWeekDay;
         }
     }
 }

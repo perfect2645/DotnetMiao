@@ -7,6 +7,7 @@ namespace hys020.common
     {
         public HysBaseContent(string url) : base(url)
         {
+            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 

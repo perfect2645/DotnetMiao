@@ -1,18 +1,13 @@
-﻿using Base.session;
-using HttpProcessor.Client;
+﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using hys020.session;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Security.Policy;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Utils.json;
 using Utils;
+using Utils.json;
 using Utils.stringBuilder;
 
 namespace hys020.search
@@ -41,7 +36,7 @@ namespace hys020.search
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - {response.Message}");
                     return;
                 }
 

@@ -1,6 +1,4 @@
-﻿using Base.Events;
-using Base.model;
-using Base.session;
+﻿using Base.model;
 using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
@@ -14,11 +12,9 @@ using hys020.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
-using Utils.stringBuilder;
 
 namespace hys020.viewmodel
 {
@@ -89,6 +85,13 @@ namespace hys020.viewmodel
             InitCommands();
             InitStaticData();
             InitControllers();
+
+            TestData();
+        }
+
+        private void TestData()
+        {
+            Cookie = "JSESSIONID=3404102DBF977C90A4C324EC147C64EC";
         }
 
         private void InitControllers()
@@ -103,13 +106,6 @@ namespace hys020.viewmodel
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
             {
-                new HysHospital
-                {
-                    HospitalId = "doctorYyghMobileDate",
-                    HospitalName = "肇庆市鼎湖区",
-                    DepartmentId = "18",
-                    DepartmentName = "九价宫颈癌疫苗（进口）",
-                },
                 //<option value="24">儿童乙肝疫苗（免费）</option>
                 new HysHospital
                 {
@@ -117,6 +113,13 @@ namespace hys020.viewmodel
                     HospitalName = "肇庆市鼎湖区",
                     DepartmentId = "42CB58972CD44CD9945775814C00CA41",
                     DepartmentName = "盆底修复",
+                },
+                new HysHospital
+                {
+                    HospitalId = "doctorYyghMobileDate",
+                    HospitalName = "肇庆市鼎湖区",
+                    DepartmentId = "18",
+                    DepartmentName = "九价宫颈癌疫苗（进口）",
                 },
             };
 
@@ -129,6 +132,7 @@ namespace hys020.viewmodel
 
             SearchCommand = new RelayCommand(OnSearchClick);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
+            SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
 
             MainSession.AppointEvent.Subscribe(OnAppointment);
         }
@@ -176,6 +180,7 @@ namespace hys020.viewmodel
 
         private async Task SearchAsync()
         {
+            MainSession.Cookie = Cookie;
             if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.Init)
             {
                 PrintLogEvent.Publish(this, "请补全必须的信息");
