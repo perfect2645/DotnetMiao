@@ -1,5 +1,7 @@
 ﻿using Base.session;
 using HttpProcessor.Client;
+using HttpProcessor.Content;
+using HttpProcessor.ExceptionManager;
 using hys020.session;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,9 @@ using System.Security.Policy;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Utils.json;
+using Utils;
+using Utils.stringBuilder;
 
 namespace hys020.search
 {
@@ -26,18 +31,17 @@ namespace hys020.search
         private void SearchMiao()
         {
             var deptId = MainSession.PlatformSession[Constants.DeptId];
+            var url = $"http://www.hys020.com/home/doctorYyghMobileDate_{deptId}";
 
-            var content = new DateCountContent(url);
-            content.AddHeader("Cookie", JkSession.Cookie);
+            var content = new MiaoContent(url);
             content.BuildDefaultHeaders(Client);
-            content.AddContent("yyDate", date);
 
             try
             {
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    JkSession.PrintLogEvent.Publish(this, $"Search({date}) - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - response == null");
                     return;
                 }
 
@@ -47,13 +51,29 @@ namespace hys020.search
                 {
                     return;
                 }
-                SearchInterval.StopInterval();
-                AnalysisResult(result, date);
+                AnalysisResult(result);
             }
             catch (Exception ex)
             {
-                JkSession.PrintLogEvent.Publish(this, $"未查到苗{date} - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
             }
+        }
+
+        private void AnalysisResult(JsonElement jsonElement)
+        {
+            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+            var code = dicResult["code"].ToInt();
+            var message = dicResult["message"].NotNullString();
+
+            var dataJsonElement = jsonElement.GetProperty("data");
+            var data = JsonAnalysis.JsonToDic(dataJsonElement);
+
+            if (code != 200 || !data.HasItem())
+            {
+                throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
+            }
+            MainSession.PlatformSession.AddOrUpdate(data);
+            MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");
         }
     }
 }
