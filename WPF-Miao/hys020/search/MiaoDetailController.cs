@@ -1,14 +1,10 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
-using HttpProcessor.ExceptionManager;
-using HttpProcessor.HtmlAnalysis;
-using HttpProcessor.Response;
 using hys020.appointment;
 using hys020.session;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -108,6 +104,7 @@ namespace hys020.search
                 DepartmentId = departmentId,
                 AttId = miao["regAttId"].NotNullString(),
                 TimeRangeEncode = UnicodeConverter.Encode(time),
+                OrgId = miao["orgId"].NotNullString(),
             };
 
             return order;

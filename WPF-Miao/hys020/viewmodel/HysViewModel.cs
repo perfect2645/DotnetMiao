@@ -13,8 +13,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Input;
 using Utils;
+using Utils.stringBuilder;
 
 namespace hys020.viewmodel
 {
@@ -72,6 +74,18 @@ namespace hys020.viewmodel
             }
         }
 
+        private string _location;
+        public string Location
+        {
+            get { return _location; }
+            set
+            {
+                _location = value;
+                SaveLocation(value);
+                NotifyUI(() => Location);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController;
@@ -92,6 +106,7 @@ namespace hys020.viewmodel
         private void TestData()
         {
             Cookie = "JSESSIONID=3404102DBF977C90A4C324EC147C64EC";
+            Location = "http://www.hys020.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=iS3Q9CBrbezAF/LZ2y4gP1JlxuCYfsu8";
         }
 
         private void InitControllers()
@@ -135,6 +150,12 @@ namespace hys020.viewmodel
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
 
             MainSession.AppointEvent.Subscribe(OnAppointment);
+        }
+
+        private void SaveLocation(string location)
+        {
+            var queryDic = location.UrlToDic();
+            MainSession.PlatformSession.AddOrUpdate(queryDic);
         }
 
         #endregion Constructor

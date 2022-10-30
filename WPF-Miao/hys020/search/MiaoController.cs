@@ -1,8 +1,6 @@
-﻿using Base.session;
-using Base.viewmodel.status;
+﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
-using hys020.appointment;
 using hys020.session;
 using System;
 using System.Collections.Generic;
@@ -12,7 +10,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
-using Utils.number;
 using Utils.stringBuilder;
 
 namespace hys020.search

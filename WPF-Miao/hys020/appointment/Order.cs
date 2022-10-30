@@ -8,6 +8,7 @@
         public string TimeRangeEncode { get; set; }
         public string WechatId { get; set; }
         public string PatBindId { get; set; }
+        public string OrgId { get; set; }
 
         public string OrderUrl 
         { 
