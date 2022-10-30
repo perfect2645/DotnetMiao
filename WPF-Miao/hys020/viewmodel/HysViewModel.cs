@@ -216,11 +216,6 @@ namespace hys020.viewmodel
         private async Task SearchAsync()
         {
             MainSession.Cookie = Cookie;
-            if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.Init)
-            {
-                PrintLogEvent.Publish(this, "请补全必须的信息");
-                return;
-            }
 
             try
             {
@@ -292,7 +287,6 @@ namespace hys020.viewmodel
 
         protected override async void StartAutoRun()
         {
-            await SearchAsync();
             StartAutoRunTimer();
         }
 

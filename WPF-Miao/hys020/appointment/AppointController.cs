@@ -62,20 +62,20 @@ namespace hys020.appointment
             {
                 content.BuildDefaultHeaders(Client);
 
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-                if (response?.Body == null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
-                }
+                //HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                //if (response?.Body == null)
+                //{
+                //    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                //}
 
-                var result = response.JsonBody.RootElement.GetProperty("successMessage").ToString();
-                if (string.IsNullOrEmpty(result))
-                {
-                    return;
-                }
+                //var result = response.JsonBody.RootElement.GetProperty("successMessage").ToString();
+                //if (string.IsNullOrEmpty(result))
+                //{
+                //    return;
+                //}
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
                 MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
-                MainSession.PrintLogEvent.Publish(this, $"预约成功 result:{result}");
+                //MainSession.PrintLogEvent.Publish(this, $"预约成功 result:{result}");
             }
             catch (Exception ex)
             {

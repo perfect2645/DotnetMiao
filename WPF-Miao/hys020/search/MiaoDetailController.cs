@@ -102,12 +102,14 @@ namespace hys020.search
         private Order BuildOrder(Dictionary<string, object> miao, string orgid)
         {
             var time = miao["regPhase"].NotNullString();
+            var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
             var order = new Order()
             {
                 DepartmentId = departmentId,
                 AttId = miao["regAttId"].NotNullString(),
                 TimeRangeEncode = UnicodeConverter.Encode(time),
                 OrgId = orgid,
+                WechatId = wechatId
             };
 
             return order;

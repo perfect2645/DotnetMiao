@@ -28,7 +28,7 @@ namespace hys020.search
                 return;
             }
 
-            MainSession.PrintLogEvent.Publish(this, miaoList, $"查到苗");
+            MainSession.PrintLogEvent.Publish(this, $"查到苗");
             var attIdList = miaoList.Select(x => x[Constants.AttId].NotNullString()).ToList();
             MainSession.SetStatus(MiaoProgress.MiaoGet, attIdList);
         }

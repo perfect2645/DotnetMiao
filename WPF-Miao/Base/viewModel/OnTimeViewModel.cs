@@ -98,7 +98,7 @@ namespace Base.viewModel
 
         protected void StopAutoRunTimer()
         {
-            AutoRunTimer.StopInterval();
+            AutoRunTimer?.StopInterval();
         }
 
         protected abstract void AutoRun();
