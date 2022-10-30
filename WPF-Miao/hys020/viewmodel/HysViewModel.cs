@@ -116,7 +116,7 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            //StartTime = new DateTime(2022, 10, 31, 10, 59, 55);
+            StartTime = new DateTime(2022, 10, 31, 10, 59, 55);
 
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
