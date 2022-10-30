@@ -53,7 +53,10 @@ namespace hys020.search
                     MainSession.PrintLogEvent.Publish(this, $"未查到苗 - numList is null");
                     return;
                 }
-                AnalysisResult(numList);
+                var attnode = response.JsonBody.RootElement.GetProperty("att");
+                var att = JsonAnalysis.JsonToDic(attnode);
+                var orgid = att["orgId"].NotNullString();
+                AnalysisResult(numList, orgid);
             }
             catch (Exception ex)
             {
@@ -62,7 +65,7 @@ namespace hys020.search
         }
 
 
-        private void AnalysisResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement, string orgid)
         {
             var dicResult = JsonAnalysis.JsonToDicList(jsonElement);
 
@@ -78,7 +81,7 @@ namespace hys020.search
 
             foreach (var miao in validMiaoList)
             {
-                var order = BuildOrder(miao);
+                var order = BuildOrder(miao, orgid);
                 if (order != null)
                 {
                     orderList.Add(order);
@@ -96,7 +99,7 @@ namespace hys020.search
 
         }
 
-        private Order BuildOrder(Dictionary<string, object> miao)
+        private Order BuildOrder(Dictionary<string, object> miao, string orgid)
         {
             var time = miao["regPhase"].NotNullString();
             var order = new Order()
@@ -104,7 +107,7 @@ namespace hys020.search
                 DepartmentId = departmentId,
                 AttId = miao["regAttId"].NotNullString(),
                 TimeRangeEncode = UnicodeConverter.Encode(time),
-                OrgId = miao["orgId"].NotNullString(),
+                OrgId = orgid,
             };
 
             return order;

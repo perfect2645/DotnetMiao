@@ -1,9 +1,12 @@
-﻿using HttpProcessor.Client;
+﻿using Base.viewmodel.status;
+using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using hys020.session;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace hys020.appointment
@@ -14,24 +17,49 @@ namespace hys020.appointment
         {
         }
 
-        internal void Yuyue(List<Order> orderList)
+        internal async void Yuyue(List<Order> orderList)
         {
+            var result = YuyueAsync(orderList).Result;
 
         }
 
-        public async Task AppointAsync(Order order)
+        private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            await Task.Factory.StartNew(() => Appoint(order));
+            for (var i = 1; i < 10; i++)
+            {
+                if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointEnd)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                    return 1;
+                }
+                foreach (var order in orderList)
+                {
+                    if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointEnd)
+                    {
+                        MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                        return 1;
+                    }
+                    var preview = HttpServiceController.GetService<PreviewAppointController>();
+                    preview.PreviewAppoint(order);
+                    MainSession.PrintLogEvent.Publish(this, order.ToLogString());
+                    var content = new AppointContent(order);
+                    await AppointAsync(content);
+                    Thread.Sleep(100);
+                }
+            }
+
+            return 0;
         }
 
-        public void Appoint(Order order)
+        public async Task AppointAsync(AppointContent content)
         {
-            var url = order.OrderUrl;
+            await Task.Factory.StartNew(() => Appoint(content));
+        }
 
+        public void Appoint(AppointContent content)
+        {
             try
             {
-                var content = new AppointContent(url, order);
-
                 content.BuildDefaultHeaders(Client);
 
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;

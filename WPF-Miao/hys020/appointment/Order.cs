@@ -1,4 +1,8 @@
-﻿namespace hys020.appointment
+﻿using Base.Events;
+using System;
+using System.Text;
+
+namespace hys020.appointment
 {
     public class Order
     {
@@ -20,6 +24,21 @@
             var urlHead = "http://www.hys020.com/home/attSave_";
             var url = $"{urlHead}_{DepartmentId}_{AttId}_1_1_?regPhase={TimeRangeEncode}&wechatid={WechatId}&patBindId={PatBindId}";
             return url;
+        }
+
+        public string ToLogString()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("******** 开始预约 *********");
+
+            sb.AppendLine($"WechatId - {WechatId}");
+            sb.AppendLine($"Time - {TimeRangeEncode}");
+            sb.AppendLine($"PatBindId - {PatBindId}");
+
+            sb.AppendLine("**************************************");
+
+            return sb.ToString();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Jkchegu.appointment
 
         private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            for(var i = 1; i < 2; i++)
+            for(var i = 1; i < 10; i++)
             {
                 if (IsSuccess)
                 {

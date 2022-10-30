@@ -6,7 +6,7 @@ namespace hys020.appointment
     {
         public Order Order { get; private set; }
 
-        public AppointContent(string url, Order order) : base(url)
+        public AppointContent(Order order) : base(order.OrderUrl)
         {
             Order = order;
         }

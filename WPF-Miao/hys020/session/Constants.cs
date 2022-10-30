@@ -12,6 +12,8 @@
 
         public const string AttId = "attId";
         public const string OrgId = "orgId";
-        public const string Location = "location";
+        public const string WechatId = "wechatid";
+        public const string OpenId = "openid";
+        public const string TimeStamp = "Timestamp";
     }
 }

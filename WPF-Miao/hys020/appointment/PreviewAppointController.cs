@@ -4,11 +4,7 @@ using HttpProcessor.HtmlAnalysis;
 using HttpProcessor.Response;
 using hys020.session;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Utils;
 using Utils.stringBuilder;
 
@@ -22,8 +18,10 @@ namespace hys020.appointment
 
         public bool PreviewAppoint(Order order)
         {
-            var wechatId = MainSession.PlatformSession[Constants.Location].NotNullString();
-            var url = $"http://www.hys020.com/home/reserveMsgMobile_{order.OrgId}_{order.AttId}_1_0?regPhase={order.TimeRangeEncode}&wechatid={wechatId}&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=iS3Q9CBrbexu5o3vYhWcnGf9Qn0wciu+";
+            var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
+            var openId = MainSession.PlatformSession[Constants.OpenId].NotNullString();
+            var timestamp = MainSession.PlatformSession[Constants.TimeStamp].NotNullString();
+            var url = $"http://www.hys020.com/home/reserveMsgMobile_{order.OrgId}_{order.AttId}_1_0?regPhase={order.TimeRangeEncode}&wechatid={wechatId}&openid={openId}&Timestamp={timestamp}";
 
             try
             {
