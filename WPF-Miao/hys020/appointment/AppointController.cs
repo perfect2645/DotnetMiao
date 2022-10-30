@@ -68,14 +68,14 @@ namespace hys020.appointment
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
                 }
 
-                var result = response.JsonBody.RootElement.GetProperty("res").ToString();
+                var result = response.JsonBody.RootElement.GetProperty("successMessage").ToString();
                 if (string.IsNullOrEmpty(result))
                 {
-                    MainSession.SetStatus(MiaoProgress.AppointEnd);
-                    MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
                     return;
                 }
-                MainSession.PrintLogEvent.Publish(this, $"result:{result}");
+                MainSession.SetStatus(MiaoProgress.AppointEnd);
+                MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
+                MainSession.PrintLogEvent.Publish(this, $"预约成功 result:{result}");
             }
             catch (Exception ex)
             {

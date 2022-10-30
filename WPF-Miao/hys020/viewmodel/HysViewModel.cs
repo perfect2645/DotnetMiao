@@ -183,6 +183,7 @@ namespace hys020.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
+            StopAutoRunTimer();
             var attIdList = data as List<string>;
             if (attIdList == null)
             {
@@ -300,7 +301,7 @@ namespace hys020.viewmodel
             Task.Factory.StartNew(async () =>
             {
                 PrintLogEvent.Publish(this, "开始了");
-                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                if (MainSession.MiaoStatus.MiaoProgress < MiaoProgress.GettingMiao)
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                 }
