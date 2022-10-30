@@ -1,4 +1,5 @@
-﻿using HttpProcessor.Client;
+﻿using HtmlAgilityPack;
+using HttpProcessor.Client;
 using HttpProcessor.ExceptionManager;
 using HttpProcessor.HtmlAnalysis;
 using HttpProcessor.Response;
@@ -32,7 +33,7 @@ namespace hys020.appointment
                     return false;
                 }
 
-                return AnalysisResult(response.Body);
+                return AnalysisResult(response.Body, order);
             }
             catch (HttpException ex)
             {
@@ -46,19 +47,12 @@ namespace hys020.appointment
             }
         }
 
-        private bool AnalysisResult(HtmlDoc body)
+        private bool AnalysisResult(HtmlDoc body, Order order)
         {
             try
             {
-                //var has9 = HasNineJiaFirstDose(body);
-                //if (!has9)
-                //{
-                //    return false;
-                //}
-
-                var miaohtml = GetForm(body);
-                MainSession.MiaoSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
-
+                var patBindId = GetPatBindId(body);
+                order.PatBindId = patBindId;
                 return true;
             }
             catch (Exception ex)
@@ -68,10 +62,12 @@ namespace hys020.appointment
             }
         }
 
-        private HtmlDoc GetForm(HtmlDoc body)
+        private string GetPatBindId(HtmlDoc body)
         {
-            var xpath = "//*[@id=\"saveForm\"]";
-            return body.GetInnerDoc(xpath);
+            var xpath = "//*[@id=\"txtPatBindId\"]";
+            var tarNode = body.GetDefaultNode(xpath);
+            var patBindId = body.GetFormValue(tarNode);
+            return patBindId;
         }
     }
 }

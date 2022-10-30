@@ -21,7 +21,7 @@ namespace hys020.appointment
 
         private string BuildUrl()
         {
-            var urlHead = "http://www.hys020.com/home/attSave_";
+            var urlHead = "http://www.hys020.com/home/attSave";
             var url = $"{urlHead}_{DepartmentId}_{AttId}_1_1_?regPhase={TimeRangeEncode}&wechatid={WechatId}&patBindId={PatBindId}";
             return url;
         }

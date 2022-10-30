@@ -63,15 +63,15 @@ namespace hys020.appointment
                 content.BuildDefaultHeaders(Client);
 
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-                if (response == null)
+                if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
+                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"预约完成");
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
                 if (string.IsNullOrEmpty(result))
                 {
+                    MainSession.SetStatus(MiaoProgress.AppointEnd);
                     MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
                     return;
                 }

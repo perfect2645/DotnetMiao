@@ -107,7 +107,7 @@ namespace HttpProcessor.HtmlAnalysis
             return $"{formNodeName}={formNodeValue}";
         }
 
-        private static string GetFormValue(HtmlNode formNode, bool isEncode = false)
+        public string GetFormValue(HtmlNode formNode, bool isEncode = false)
         {
             var formValue = formNode.GetAttributeValue("value", string.Empty);
             if (isEncode)
