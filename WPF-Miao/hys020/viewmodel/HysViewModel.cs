@@ -160,6 +160,21 @@ namespace hys020.viewmodel
 
         }
 
+        protected override void OnMiaoGetAsync(object data)
+        {
+            var attIdList = data as List<string>;
+            if (attIdList == null)
+            {
+                return;
+            }
+
+            foreach(var attId in attIdList)
+            {
+                var miaoDetailController = HttpServiceController.GetService<MiaoDetailController>();
+                miaoDetailController.SearchMiaoDetailAsync(attId);
+            }
+        }
+
         #endregion Status Control
 
         #region Search
@@ -208,8 +223,14 @@ namespace hys020.viewmodel
         {
             lock (OrderLock)
             {
-                var orderList = e.OrderList;
-                ConsumeOrdersAsync(orderList);
+                if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointStart)
+                {
+                    lock (OrderLock)
+                    {
+                        var orderList = e.OrderList;
+                        ConsumeOrdersAsync(orderList);
+                    }
+                }
             }
         }
 

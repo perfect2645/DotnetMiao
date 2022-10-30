@@ -42,6 +42,11 @@ namespace hys020.session
             MiaoStatus.MiaoProgress = miaoProgress;
         }
 
+        public static void SetStatus(MiaoProgress miaoProgress, object data)
+        {
+            MiaoStatus.OnStatusUpdate(miaoProgress, data);
+        }
+
         #endregion MiaoStatus
     }
 }

@@ -28,6 +28,7 @@ namespace hys020
         {
             HttpServiceController.AddTransientService<SearchController>();
             HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<MiaoDetailController>();
             HttpServiceController.AddTransientService<AppointController>();
 
             HttpServiceController.BuidServiceProvider();

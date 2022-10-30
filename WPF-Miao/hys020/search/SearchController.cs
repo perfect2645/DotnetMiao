@@ -21,12 +21,7 @@ namespace hys020.search
         public async Task SearchAsync()
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
-            var miaoList = await miaoController.SearchMiaoAsync();
-            if (!miaoList.HasItem())
-            {
-                return;
-            }
+            await miaoController.SearchMiaoAsync();
         }
-
     }
 }

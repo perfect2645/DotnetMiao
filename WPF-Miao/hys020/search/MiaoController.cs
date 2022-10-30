@@ -23,9 +23,17 @@ namespace hys020.search
         {
         }
 
-        public async Task<List<Dictionary<string, object>>> SearchMiaoAsync()
+        public async Task SearchMiaoAsync()
         {
             var miaoList = await Task.Factory.StartNew(() => SearchMiao());
+            if (!miaoList.HasItem())
+            {
+                return;
+            }
+
+            MainSession.PrintLogEvent.Publish(this, miaoList, $"查到苗");
+            var attIdList = miaoList.Select(x => x[Constants.AttId].NotNullString()).ToList();
+            MainSession.SetStatus(MiaoProgress.MiaoGet, attIdList);
         }
 
         private List<Dictionary<string, object>> SearchMiao()
@@ -73,45 +81,8 @@ namespace hys020.search
                 MainSession.PrintLogEvent.Publish(this, $"没查到苗");
                 return null;
             }
-            MainSession.PrintLogEvent.Publish(this, miaoList, $"查到苗");
-            MainSession.SetStatus(MiaoProgress.MiaoGet);
 
             return miaoList;
-
-
-
-            //var orderList = new List<Order>();
-
-            //foreach(var miao in miaoList)
-            //{
-            //    var order = BuildOrder(miao);
-            //    if (order != null)
-            //    {
-            //        orderList.Add(order);
-            //    }
-            //}
-
-            //orderList = orderList.DisorderItems();
-
-            //var appointEventArgs = new AppointEventArgs
-            //{
-            //    OrderList = orderList
-            //};
-            //MainSession.AppointEvent.Publish(null, appointEventArgs);
-
-        }
-
-        private Order BuildOrder(Dictionary<string, object> miao)
-        {
-            var order = new Order()
-            {
-                DepartmentId = MainSession.PlatformSession[Constants.DeptId].NotNullString(),
-                AttId = miao[Constants.AttId].NotNullString(),
-                
-            }
-
-
-            return order;
         }
     }
 }

@@ -117,8 +117,10 @@ namespace Base.viewModel
                 case MiaoProgress.ReadyForSearch: OnReadyForSearch(); break;
                 case MiaoProgress.Searching: OnSearching(); break;
                 case MiaoProgress.Searchend: OnSearchend(); break;
+                case MiaoProgress.MiaoGet: OnMiaoGet(e); break;
             }
         }
+
 
         protected virtual void OnStatusInit()
         {
@@ -204,6 +206,29 @@ namespace Base.viewModel
         }
 
         protected abstract void OnSearchingAsync();
+
+        private void OnMiaoGet(StatusEventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    OnMiaoGetAsync(e.Data);
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        protected virtual void OnMiaoGetAsync(object data)
+        {
+        }
 
         #endregion Status Control
     }

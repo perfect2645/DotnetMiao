@@ -89,6 +89,19 @@ namespace Base.viewmodel.status
             });
         }
 
+        public void OnStatusUpdate(MiaoProgress newStatus, object data)
+        {
+            MiaoProgress = newStatus;
+            Task.Factory.StartNew(() =>
+            {
+                Publish(this, new StatusEventArgs
+                {
+                    CurrentStatus = MiaoProgress,
+                    Data = data
+                });
+            });
+        }
+
         #endregion Progress Event
 
         #region Print status
@@ -105,6 +118,6 @@ namespace Base.viewmodel.status
     {
         public MiaoProgress OldStatus { get; set; }
         public MiaoProgress CurrentStatus { get; set; }
-        public Dictionary<string, object> Data { get; set; }
+        public object Data { get; set; }
     }
 }
