@@ -19,22 +19,24 @@ namespace hys020.search
     internal class MiaoDetailController : HttpClientBase
     {
         private string departmentId = MainSession.PlatformSession[Constants.DeptId].NotNullString();
+        private string url = $"http://www.hys020.com/home/doctorYyghMobileSectionDate_";
+        private readonly MiaoDetailContent content;
+
 
         public MiaoDetailController(HttpClient httpClient) : base(httpClient)
         {
+            content = new MiaoDetailContent(url);
+            content.BuildDefaultHeaders(Client);
         }
 
-        public void SearchMiaoDetail(string attId)
+        public async void SearchMiaoDetailAsync(string attId)
         {
-            var url = $"http://www.hys020.com/home/doctorYyghMobileSectionDate_{attId}";
-
-            var content = new MiaoDetailContent(url);
-            content.BuildDefaultHeaders(Client);
+            content.RequestUrl = $"{url}{attId}";
 
             try
             {
                 MainSession.PrintLogEvent.Publish(this, $"开始获取苗详细信息");
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HttpDicResponse response = await PostStringAsync(content, ContentType.String);
                 MainSession.PrintLogEvent.Publish(this, $"获取到苗详细信息");
                 if (response?.JsonBody?.RootElement == null)
                 {

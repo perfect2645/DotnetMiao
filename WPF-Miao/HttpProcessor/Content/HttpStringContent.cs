@@ -14,7 +14,7 @@ namespace HttpProcessor.Content
         public Dictionary<string, string> Headers { get; private set; }
         public Dictionary<string, object> Content { get; private set; }
         public string ContentType { get; set; } = "application/json";
-        public string RequestUrl { get; private set; }
+        public string RequestUrl { get; set; }
         public string ContentPrefix { get; set; }
         public string ContentSuffix { get; set; }
         public bool IsEncode { get; set; }
