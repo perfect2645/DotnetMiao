@@ -100,7 +100,7 @@ namespace hys020.viewmodel
             InitStaticData();
             InitControllers();
 
-            TestData();
+            //TestData();
         }
 
         private void TestData()
@@ -116,11 +116,18 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            StartTime = new DateTime(2022, 10, 31, 10, 59, 55);
 
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
             {
+                new HysHospital
+                {
+                    HospitalId = "doctorYyghMobileDate",
+                    HospitalName = "肇庆市鼎湖区",
+                    DepartmentId = "E8A53E4EFFDE46F7B8B15A44230C2524",
+                    DepartmentName = "九价宫颈癌疫苗（进口）",
+                },
                 //<option value="24">儿童乙肝疫苗（免费）</option>
                 new HysHospital
                 {
@@ -128,13 +135,6 @@ namespace hys020.viewmodel
                     HospitalName = "肇庆市鼎湖区",
                     DepartmentId = "42CB58972CD44CD9945775814C00CA41",
                     DepartmentName = "盆底修复",
-                },
-                new HysHospital
-                {
-                    HospitalId = "doctorYyghMobileDate",
-                    HospitalName = "肇庆市鼎湖区",
-                    DepartmentId = "18",
-                    DepartmentName = "九价宫颈癌疫苗（进口）",
                 },
             };
 
@@ -154,6 +154,10 @@ namespace hys020.viewmodel
 
         private void SaveLocation(string location)
         {
+            if (string.IsNullOrEmpty(location))
+            {
+                return;
+            }
             var queryDic = location.UrlToDic();
             MainSession.PlatformSession.AddOrUpdate(queryDic);
         }
@@ -190,7 +194,7 @@ namespace hys020.viewmodel
                 return;
             }
 
-            foreach(var attId in attIdList)
+            foreach (var attId in attIdList)
             {
                 Task.Factory.StartNew(() =>
                 {
