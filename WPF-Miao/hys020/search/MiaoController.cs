@@ -1,15 +1,18 @@
-﻿using Base.viewmodel.status;
+﻿using Base.session;
+using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
-using HttpProcessor.ExceptionManager;
+using hys020.appointment;
 using hys020.session;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.number;
 using Utils.stringBuilder;
 
 namespace hys020.search
@@ -20,12 +23,12 @@ namespace hys020.search
         {
         }
 
-        public async Task SearchMiaoAsync()
+        public async Task<List<Dictionary<string, object>>> SearchMiaoAsync()
         {
-            await Task.Factory.StartNew(() => SearchMiao());
+            var miaoList = await Task.Factory.StartNew(() => SearchMiao());
         }
 
-        private void SearchMiao()
+        private List<Dictionary<string, object>> SearchMiao()
         {
             var deptId = MainSession.PlatformSession[Constants.DeptId];
             var url = $"http://www.hys020.com/home/doctorYyghMobileDate_{deptId}";
@@ -39,7 +42,7 @@ namespace hys020.search
                 if (response?.JsonBody?.RootElement == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - {response.Message}");
-                    return;
+                    return null;
                 }
 
                 var result = response.JsonBody.RootElement;
@@ -47,17 +50,18 @@ namespace hys020.search
                 if (attList.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"未查到苗 - attList is null");
-                    return;
+                    return null;
                 }
-                AnalysisResult(attList);
+                return AnalysisResult(attList);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
+                return null;
             }
         }
 
-        private void AnalysisResult(JsonElement jsonElement)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDicList(jsonElement);
 
@@ -67,21 +71,47 @@ namespace hys020.search
             if (!miaoList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没查到苗");
-                return;
+                return null;
             }
-
-            MainSession.MiaoSession.AddOrUpdate("MiaoList", miaoList);
             MainSession.PrintLogEvent.Publish(this, miaoList, $"查到苗");
             MainSession.SetStatus(MiaoProgress.MiaoGet);
-            //var dataJsonElement = jsonElement.GetProperty("data");
-            //   var data = JsonAnalysis.JsonToDic(dataJsonElement);
 
-            //   if (code != 200 || !data.HasItem())
-            //   {
-            //       throw new HttpException($"code = {code}, message = {message}, data.count = {data?.Count}");
-            //   }
-            //   MainSession.PlatformSession.AddOrUpdate(data);
-            //   MainSession.PrintLogEvent.Publish(this, data, $"保存App Sign");   
+            return miaoList;
+
+
+
+            //var orderList = new List<Order>();
+
+            //foreach(var miao in miaoList)
+            //{
+            //    var order = BuildOrder(miao);
+            //    if (order != null)
+            //    {
+            //        orderList.Add(order);
+            //    }
+            //}
+
+            //orderList = orderList.DisorderItems();
+
+            //var appointEventArgs = new AppointEventArgs
+            //{
+            //    OrderList = orderList
+            //};
+            //MainSession.AppointEvent.Publish(null, appointEventArgs);
+
+        }
+
+        private Order BuildOrder(Dictionary<string, object> miao)
+        {
+            var order = new Order()
+            {
+                DepartmentId = MainSession.PlatformSession[Constants.DeptId].NotNullString(),
+                AttId = miao[Constants.AttId].NotNullString(),
+                
+            }
+
+
+            return order;
         }
     }
 }
