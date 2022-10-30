@@ -192,8 +192,11 @@ namespace hys020.viewmodel
 
             foreach(var attId in attIdList)
             {
-                var miaoDetailController = HttpServiceController.GetService<MiaoDetailController>();
-                miaoDetailController.SearchMiaoDetailAsync(attId);
+                Task.Factory.StartNew(() =>
+                {
+                    var miaoDetailController = HttpServiceController.GetService<MiaoDetailController>();
+                    miaoDetailController.SearchMiaoDetail(attId);
+                });
             }
         }
 

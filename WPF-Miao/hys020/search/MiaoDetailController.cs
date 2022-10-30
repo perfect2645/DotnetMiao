@@ -24,12 +24,6 @@ namespace hys020.search
         {
         }
 
-
-        internal Task SearchMiaoDetailAsync(string attId)
-        {
-            return Task.Factory.StartNew(() => SearchMiaoDetail(attId));
-        }
-
         public void SearchMiaoDetail(string attId)
         {
             var url = $"http://www.hys020.com/home/doctorYyghMobileSectionDate_{attId}";
@@ -39,7 +33,9 @@ namespace hys020.search
 
             try
             {
+                MainSession.PrintLogEvent.Publish(this, $"开始获取苗详细信息");
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                MainSession.PrintLogEvent.Publish(this, $"获取到苗详细信息");
                 if (response?.JsonBody?.RootElement == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - {response.Message}");
@@ -88,15 +84,18 @@ namespace hys020.search
                 }
             }
 
-            orderList = orderList.DisorderItems();
+            //orderList = orderList.DisorderItems();
 
             MainSession.SetStatus(MiaoProgress.AppointStart);
             var appointEventArgs = new AppointEventArgs
             {
                 OrderList = orderList
             };
-            MainSession.AppointEvent.Publish(null, appointEventArgs);
-
+            MainSession.PrintLogEvent.Publish(this, $"开始预备预约");
+            Task.Factory.StartNew(() =>
+            {
+                MainSession.AppointEvent.Publish(null, appointEventArgs);
+            });
         }
 
         private Order BuildOrder(Dictionary<string, object> miao, string orgid)
