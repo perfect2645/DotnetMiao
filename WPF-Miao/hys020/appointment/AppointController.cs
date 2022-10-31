@@ -74,8 +74,7 @@ namespace hys020.appointment
                     return;
                 }
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
-                MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
-                //MainSession.PrintLogEvent.Publish(this, $"预约成功 result:{result}");
+                MainSession.PrintLogEvent.Publish(this, $"预约申请提交成功 result:{result}");
             }
             catch (Exception ex)
             {
