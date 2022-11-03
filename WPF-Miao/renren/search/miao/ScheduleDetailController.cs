@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
@@ -31,6 +32,9 @@ namespace renren.search.miao
             foreach (var schedule in ScheduleList)
             {
                 Task.Factory.StartNew(() => GetScheduleDetail(schedule));
+                schedule.IntervalOnTime.StartIntervalOntime(() => {
+                    Task.Factory.StartNew(() => GetScheduleDetail(schedule));
+                    });
             }
         }
 
@@ -93,6 +97,7 @@ namespace renren.search.miao
                 return null;
             }
 
+            schedule.IntervalOnTime.StopInterval();
             orderList = orderList.DisorderItems();
 
             var appointEventArgs = new AppointEventArgs
@@ -100,6 +105,7 @@ namespace renren.search.miao
                 OrderList = orderList
             };
             MainSession.AppointEvent.Publish(null, appointEventArgs);
+            MainSession.PrintLogEvent.Publish(this, dataList,"查到苗详细信息");
 
             return orderList;
         }

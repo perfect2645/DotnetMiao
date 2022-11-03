@@ -33,6 +33,7 @@ namespace renren.search.miao
                     var schedules = await Task.Factory.StartNew(() => GetServiceSchedule());
                     if (!schedules.HasItem())
                     {
+                        MainSession.PrintLogEvent.Publish(this, $"没查到苗！schedule is empty");
                         return;
                     }
                 }
@@ -142,7 +143,7 @@ namespace renren.search.miao
                 }
 
                 var afternoon = data["afternoon"].NotNullString().ToDic();
-                var afternoonSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
+                var afternoonSchedule = BuildSchedule(afternoon, date, serviceStart, serviceEnd);
                 if (afternoonSchedule != null)
                 {
                     afternoonSchedule.Half = "afternoon";
@@ -150,7 +151,7 @@ namespace renren.search.miao
                 }
 
                 var night = data["night"].NotNullString().ToDic();
-                var nightSchedule = BuildSchedule(morning, date, serviceStart, serviceEnd);
+                var nightSchedule = BuildSchedule(night, date, serviceStart, serviceEnd);
                 if (nightSchedule != null)
                 {
                     nightSchedule.Half = "night";

@@ -134,9 +134,9 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "AH2PBZZ66RL2B6JRZM3CTA==";
+            MedicToken = "JCNGERHN8IFXVA7FHS50/Q==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "60DF7793-F89F-4CE4-A3A9-0BCA7FA60123";
+            PublicKey = "1330336C-0AD3-4D8C-AA05-6E6D2772CD33";
         }
 
         private void InitStaticData()
@@ -145,10 +145,10 @@ namespace renren.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
 
             var dayToday = (int)DateTime.Today.DayOfWeek;
-            if (dayToday < 3)
+            if (dayToday < 6)
             {
-                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfWeek(DayOfWeek.Sunday));
-                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfWeek(DateTime.Today.DayOfWeek));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfWeek(DateTime.Today.DayOfWeek + 1));
             }
             else
             {
@@ -158,6 +158,15 @@ namespace renren.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "儿童入托体检",
+                    ServiceId = "2c9280977a66dc42017a7b17b1f52b5b",
+                },
                 new RenrenHospital
                 {
                     UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
@@ -246,6 +255,11 @@ namespace renren.viewmodel
 
         }
 
+        protected override void OnMiaoGetAsync(object data)
+        {
+            StopAutoRunTimer();
+        }
+
         #endregion Status Control
 
         #region Search
@@ -255,7 +269,7 @@ namespace renren.viewmodel
             Task.Factory.StartNew(async () =>
             {
                 await SearchAsync();
-                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                if (MainSession.MiaoStatus.MiaoProgress < MiaoProgress.GettingMiao)
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                 }

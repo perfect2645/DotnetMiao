@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Utils.timerUtil;
 
 namespace renren.search.miao
 {
@@ -13,5 +15,12 @@ namespace renren.search.miao
         public string ServiceEndTime { get; set; }
         public bool IsOpen { get; set; }
         public bool IsFull { get; set; }
+        public IntervalOnTime IntervalOnTime { get; private set; }
+        public Action SearchDetailAction { get; set; }
+
+        public Schedule()
+        {
+            IntervalOnTime = new IntervalOnTime(SearchDetailAction, StartTime, 500);
+        }
     }
 }

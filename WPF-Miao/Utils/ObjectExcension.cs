@@ -47,7 +47,7 @@ namespace Utils
             return obj;
         }
 
-        public static bool HasItem<T>(this IEnumerable<T> list)
+        public static bool HasItem<T>(this IEnumerable<T>? list)
         {
             if (list == null)
             {
