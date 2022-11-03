@@ -52,9 +52,9 @@ namespace renren.search.patient
             try
             {
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                if (response == null)
+                if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetSignature - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"GetSignature失败 - {response?.Message}");
                     return;
                 }
 

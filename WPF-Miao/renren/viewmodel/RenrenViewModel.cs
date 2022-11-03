@@ -319,8 +319,10 @@ namespace renren.viewmodel
         {
             try
             {
-                var appointController = HttpServiceController.GetService<AppointController>();
-                appointController.Yuyue(orderList);
+                Task.Factory.StartNew(() =>
+                {
+                    Yuyue(orderList);
+                });
             }
             catch (Exception ex)
             {
@@ -328,12 +330,40 @@ namespace renren.viewmodel
             }
         }
 
+        internal void Yuyue(List<Order> orderList)
+        {
+            MainSession.PrintLogEvent.Publish(this, $"开始预约：");
+            if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointEnd)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return;
+            }
+            foreach (var order in orderList)
+            {
+                if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointEnd)
+                {
+                    order.IntervalOnTime.StopInterval();
+                    MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                    return;
+                }
+                MainSession.PrintLogEvent.Publish(this, order.ToLogString());
+                var content = new AppointContent(order);
+
+                var appointController = HttpServiceController.GetService<AppointController>();
+                Task.Factory.StartNew(() => appointController.AppointAsync(content));
+                order.IntervalOnTime.StartIntervalOntime(() =>
+                {
+                    Task.Factory.StartNew(() => appointController.AppointAsync(content));
+                });
+            }
+        }
+
         private async void ExecuteAppointAsync()
         {
             try
             {
-                MainSession.Cookie = Cookie;
-                var appointController = HttpServiceController.GetService<AppointController>();
+                //MainSession.Cookie = Cookie;
+                //var appointController = HttpServiceController.GetService<AppointController>();
                 //await appointController.AppointAsync();
             }
             catch (HttpException ex)

@@ -69,9 +69,9 @@ namespace renren.search.miao
             try
             {
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                if (response == null)
+                if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule失败 - {response?.Message}");
                     return null;
                 }
 

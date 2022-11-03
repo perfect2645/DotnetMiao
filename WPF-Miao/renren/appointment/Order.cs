@@ -15,6 +15,7 @@ namespace renren.appointment
         public string ServiceEndTime { get; set; }
         public IntervalOnTime IntervalOnTime { get; private set; }
         public Action AppointAction { get; set; }
+        public int Count { get; set; }
 
         public Order()
         {
@@ -29,6 +30,7 @@ namespace renren.appointment
 
             sb.AppendLine($"Date - {BookingDate}");
             sb.AppendLine($"Time - {StartTime} - {EndTime}");
+            sb.AppendLine($"尝试次数 - {Count}");
 
             sb.AppendLine("**************************************");
 

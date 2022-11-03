@@ -43,12 +43,11 @@ namespace renren.search.hospital
             try
             {
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                if (response == null)
+                if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetHospitalTeams - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"GetHospitalTeams失败 - {response?.Message}");
                     return false;
                 }
-
                 var result = response.JsonBody.RootElement;
                 AnalysisResult(result);
 

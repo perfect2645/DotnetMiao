@@ -21,36 +21,6 @@ namespace renren.appointment
         {
         }
 
-        internal int Yuyue(List<Order> orderList)
-        {
-            if (IsSuccess)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                return 1;
-            }
-            foreach (var order in orderList)
-            {
-                if (IsSuccess)
-                {
-                    order.IntervalOnTime.StopInterval();
-                    MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                    return 1;
-                }
-                MainSession.PrintLogEvent.Publish(this, order.ToLogString());
-                var content = new AppointContent(order);
-
-                Thread.Sleep(1000);
-
-                Task.Factory.StartNew(() => AppointAsync(content));
-                order.IntervalOnTime.StartIntervalOntime(() =>
-                {
-                    Task.Factory.StartNew(() => AppointAsync(content));
-                });
-            }
-
-            return 0;
-        }
-
         public async Task AppointAsync(AppointContent content)
         {
             await Task.Factory.StartNew(() => Appoint(content));
@@ -61,9 +31,8 @@ namespace renren.appointment
             try
             {
                 content.BuildDefaultHeaders(Client);
-
-                MainSession.PrintLogEvent.Publish(this, $"开始预约：");
-                MainSession.PrintLogEvent.Publish(this, $"{content.Order.ToLogString()}");
+                content.Order.Count++;
+                Log(content.Order.ToLogString());
                 //HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 //if (response == null)
                 //{
@@ -90,6 +59,7 @@ namespace renren.appointment
             }
             order.IntervalOnTime.StopInterval();
             MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
+            MainSession.PrintLogEvent.Publish(this, $"{order.ToLogString()}");
             return true;
         }
     }
