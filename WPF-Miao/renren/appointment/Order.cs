@@ -1,6 +1,7 @@
 ﻿using Base.Events;
 using System;
 using System.Text;
+using Utils.timerUtil;
 
 namespace renren.appointment
 {
@@ -12,6 +13,13 @@ namespace renren.appointment
         public string EndTime { get; set; }
         public string ServiceStartTime { get; set; }
         public string ServiceEndTime { get; set; }
+        public IntervalOnTime IntervalOnTime { get; private set; }
+        public Action AppointAction { get; set; }
+
+        public Order()
+        {
+            IntervalOnTime = new IntervalOnTime(AppointAction, StartTime, 500);
+        }
 
         public string ToLogString()
         {

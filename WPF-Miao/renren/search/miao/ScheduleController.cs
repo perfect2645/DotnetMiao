@@ -121,6 +121,8 @@ namespace renren.search.miao
                 MainSession.SetStatus(MiaoProgress.MiaoGet);
             }
 
+            MainSession.PrintLogEvent.Publish(this, "查到苗基本信息");
+
             return scheduleList;
         }
 

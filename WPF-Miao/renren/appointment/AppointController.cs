@@ -21,12 +21,7 @@ namespace renren.appointment
         {
         }
 
-        internal void Yuyue(List<Order> orderList)
-        {
-            var result  = YuyueAsync(orderList).Result;
-        }
-
-        private async Task<int> YuyueAsync(List<Order> orderList)
+        internal int Yuyue(List<Order> orderList)
         {
             if (IsSuccess)
             {
@@ -37,6 +32,7 @@ namespace renren.appointment
             {
                 if (IsSuccess)
                 {
+                    order.IntervalOnTime.StopInterval();
                     MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
@@ -44,7 +40,12 @@ namespace renren.appointment
                 var content = new AppointContent(order);
 
                 Thread.Sleep(1000);
-                await AppointAsync(content);
+
+                Task.Factory.StartNew(() => AppointAsync(content));
+                order.IntervalOnTime.StartIntervalOntime(() =>
+                {
+                    Task.Factory.StartNew(() => AppointAsync(content));
+                });
             }
 
             return 0;
@@ -70,14 +71,14 @@ namespace renren.appointment
                 //}
 
                 //var result = response.JsonBody.RootElement;
-                //var schedule = AnalysisResult(result);
+                //var schedule = AnalysisResult(result, content.Order);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
         }
-        private bool AnalysisResult(JsonElement jsonElement)
+        private bool AnalysisResult(JsonElement jsonElement, Order order)
         {
             var dicResult = JsonAnalysis.JsonToDic(jsonElement);
             var code = dicResult["code"].ToInt();
@@ -87,7 +88,7 @@ namespace renren.appointment
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{message}");
                 return false;
             }
-
+            order.IntervalOnTime.StopInterval();
             MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
             return true;
         }
