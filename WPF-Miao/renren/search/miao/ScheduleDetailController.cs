@@ -56,9 +56,9 @@ namespace renren.search.miao
                 Log("开始查询ScheduleDetail");
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 Log("查询ScheduleDetail完成");
-                if (response == null)
+                if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetScheduleDetail - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"获取苗详细信息失败 - {response?.Message}");
                     return false;
                 }
 

@@ -64,7 +64,7 @@ namespace renren.appointment
 
                 MainSession.PrintLogEvent.Publish(this, $"开始预约：");
                 MainSession.PrintLogEvent.Publish(this, $"{content.Order.ToLogString()}");
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                //HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 //if (response == null)
                 //{
                 //    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
