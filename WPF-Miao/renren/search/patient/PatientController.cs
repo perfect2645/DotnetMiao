@@ -241,6 +241,7 @@ namespace renren.search.patient
             }
 
             MainSession.AddUserSession(data);
+            MainSession.AddUserSession(Constants.PatientId, data[Constants.Id]);
             MainSession.PrintLogEvent.Publish(this, data, $"保存用户详细信息");
         }
     }

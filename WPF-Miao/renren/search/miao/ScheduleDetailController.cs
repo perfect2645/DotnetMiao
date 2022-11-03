@@ -6,6 +6,7 @@ using renren.appointment;
 using renren.session;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
@@ -29,12 +30,16 @@ namespace renren.search.miao
         public void BulkGetDetailAsync(List<Schedule> scheduleList)
         {
             ScheduleList = scheduleList;
+
+            var defa = ScheduleList.FirstOrDefault();
+            Task.Factory.StartNew(() => GetScheduleDetail(defa));
             foreach (var schedule in ScheduleList)
             {
                 Task.Factory.StartNew(() => GetScheduleDetail(schedule));
-                schedule.IntervalOnTime.StartIntervalOntime(() => {
+                schedule.IntervalOnTime.StartIntervalOntime(() =>
+                {
                     Task.Factory.StartNew(() => GetScheduleDetail(schedule));
-                    });
+                });
             }
         }
 
@@ -102,12 +107,12 @@ namespace renren.search.miao
             schedule.IntervalOnTime.StopInterval();
             orderList = orderList.DisorderItems();
 
+            MainSession.PrintLogEvent.Publish(this, dataList,"查到苗详细信息");
             var appointEventArgs = new AppointEventArgs
             {
                 OrderList = orderList
             };
             MainSession.AppointEvent.Publish(null, appointEventArgs);
-            MainSession.PrintLogEvent.Publish(this, dataList,"查到苗详细信息");
 
             return orderList;
         }

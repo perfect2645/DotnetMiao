@@ -1,11 +1,16 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
+using HttpProcessor.ExceptionManager;
 using renren.session;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Utils;
+using Utils.json;
+using Utils.stringBuilder;
 
 namespace renren.appointment
 {
@@ -23,26 +28,23 @@ namespace renren.appointment
 
         private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            for (var i = 1; i < 2; i++)
+            if (IsSuccess)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return 1;
+            }
+            foreach (var order in orderList)
             {
                 if (IsSuccess)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
-                foreach (var order in orderList)
-                {
-                    if (IsSuccess)
-                    {
-                        MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                        return 1;
-                    }
-                    MainSession.PrintLogEvent.Publish(this, order.ToLogString());
-                    var content = new AppointContent(order);
+                MainSession.PrintLogEvent.Publish(this, order.ToLogString());
+                var content = new AppointContent(order);
 
-                    Thread.Sleep(1000);
-                    await AppointAsync(content);
-                }
+                Thread.Sleep(1000);
+                await AppointAsync(content);
             }
 
             return 0;
@@ -59,26 +61,35 @@ namespace renren.appointment
             {
                 content.BuildDefaultHeaders(Client);
 
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-                if (response == null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
-                }
+                MainSession.PrintLogEvent.Publish(this, $"开始预约：");
+                MainSession.PrintLogEvent.Publish(this, $"{content.Order.ToLogString()}");
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                //if (response == null)
+                //{
+                //    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
+                //}
 
-                MainSession.PrintLogEvent.Publish(this, $"预约完成");
-                var result = response.JsonBody.RootElement.GetProperty("res").ToString();
-                if (string.IsNullOrEmpty(result))
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
-                    return;
-                }
-                MainSession.PrintLogEvent.Publish(this, $"result:{result}");
+                //var result = response.JsonBody.RootElement;
+                //var schedule = AnalysisResult(result);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
         }
+        private bool AnalysisResult(JsonElement jsonElement)
+        {
+            var dicResult = JsonAnalysis.JsonToDic(jsonElement);
+            var code = dicResult["code"].ToInt();
+            var message = dicResult["message"].NotNullString();
+            if (code != 200)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"预约异常{message}");
+                return false;
+            }
 
+            MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
+            return true;
+        }
     }
 }

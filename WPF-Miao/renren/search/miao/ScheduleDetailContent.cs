@@ -20,7 +20,7 @@ namespace renren.search.miao
             AddContent(MainSession.PlatformSession, Constants.ServiceId);
             AddContent("dayText", BuildDayText());
             AddContent("half", Schedule.Half);
-            AddContent("period", 2);
+            AddContent("period", "2");
             AddContent("doctorId", MainSession.HospitalSession[Constants.TeamId]);
             AddContent(MainSession.PlatformSession, Constants.UserHospitalId);
             AddContent("bookingType", "0");
