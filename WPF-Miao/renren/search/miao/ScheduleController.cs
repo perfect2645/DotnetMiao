@@ -99,7 +99,8 @@ namespace renren.search.miao
             var message = dicResult["message"].NotNullString();
             if (code != 200)
             {
-                throw new HttpException($"code = {code}, message = {message}");
+                Log($"code = {code}, message = {message}");
+                return null;
             }
 
             var dataJsonElement = jsonElement.GetProperty("data");

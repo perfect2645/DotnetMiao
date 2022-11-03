@@ -82,9 +82,9 @@ namespace renren.search.patient
             try
             {
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                if (response == null)
+                if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser失败 - {response?.Message}");
                     return false;
                 }
 

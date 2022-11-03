@@ -23,7 +23,12 @@ namespace renren.search.hospital
         {
             try
             {
-                await Task.Factory.StartNew(() => GetHospitalTeams());
+                var isTeamGet = await Task.Factory.StartNew(() => GetHospitalTeams());
+                if (!isTeamGet)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"GetHospitalTeams失败");
+                    return;
+                }
                 await Task.Factory.StartNew(() => GetTeamDetail());
             }
             catch (Exception ex)
