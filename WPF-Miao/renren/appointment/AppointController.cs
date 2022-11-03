@@ -33,14 +33,14 @@ namespace renren.appointment
                 content.BuildDefaultHeaders(Client);
                 content.Order.Count++;
                 Log(content.Order.ToLogString());
-                //HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                //if (response == null)
-                //{
-                //    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
-                //}
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                if (response == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
+                }
 
-                //var result = response.JsonBody.RootElement;
-                //var schedule = AnalysisResult(result, content.Order);
+                var result = response.JsonBody.RootElement;
+                var schedule = AnalysisResult(result, content.Order);
             }
             catch (Exception ex)
             {

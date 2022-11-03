@@ -164,8 +164,8 @@ namespace renren.viewmodel
                     HospitalId = "2c924b1061e108200161e5bae2c031e8",
                     HospitalName = "广州市黄浦区联和街社区卫生服务中心",
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
-                    DepartmentName = "儿童入托体检",
-                    ServiceId = "2c9280977a66dc42017a7b17b1f52b5b",
+                    DepartmentName = "HPV-富春卫生服务站-9价",
+                    ServiceId = "2c9280978201614d01821f73cc5c7da5",
                 },
                 new RenrenHospital
                 {
@@ -173,8 +173,8 @@ namespace renren.viewmodel
                     HospitalId = "2c924b1061e108200161e5bae2c031e8",
                     HospitalName = "广州市黄浦区联和街社区卫生服务中心",
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
-                    DepartmentName = "HPV-富春卫生服务站",
-                    ServiceId = "2c9280978201614d01821f73cc5c7da5",
+                    DepartmentName = "儿童入托体检",
+                    ServiceId = "2c9280977a66dc42017a7b17b1f52b5b",
                 },
             };
 
