@@ -48,7 +48,9 @@ namespace renren.search.miao
 
             try
             {
+                Log("开始查询ScheduleDetail");
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                Log("查询ScheduleDetail完成");
                 if (response == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetScheduleDetail - response == null");

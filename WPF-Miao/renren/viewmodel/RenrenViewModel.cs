@@ -134,9 +134,9 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "JCNGERHN8IFXVA7FHS50/Q==";
+            MedicToken = "SAMF0KHTPSI6VIR4IPRBCQ==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "1330336C-0AD3-4D8C-AA05-6E6D2772CD33";
+            PublicKey = "1B226D48-3175-4C56-B263-BACB9A68B5F9";
         }
 
         private void InitStaticData()

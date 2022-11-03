@@ -155,5 +155,15 @@ namespace HttpProcessor.Client
         }
 
         #endregion Post String
+
+        #region Log
+
+        public void Log(string message)
+        {
+            var threadId = Thread.CurrentThread.ManagedThreadId;
+            Logging.GLog.Logger.Info($"[Thread: {threadId}]{message}");
+        }
+
+        #endregion Log
     }
 }
