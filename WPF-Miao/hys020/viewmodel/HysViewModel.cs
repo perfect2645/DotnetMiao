@@ -13,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Input;
 using Utils;
 using Utils.stringBuilder;
@@ -272,7 +271,7 @@ namespace hys020.viewmodel
             }
         }
 
-        private async void ExecuteAppointAsync()
+        private void ExecuteAppointAsync()
         {
             try
             {
@@ -293,7 +292,7 @@ namespace hys020.viewmodel
 
         #region AutoRun
 
-        protected override async void StartAutoRun()
+        protected override void StartAutoRun()
         {
             StartAutoRunTimer();
         }

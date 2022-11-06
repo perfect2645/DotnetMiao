@@ -76,7 +76,7 @@ namespace Utils.timerUtil
             IntervalTimer.Elapsed += new System.Timers.ElapsedEventHandler(IntervalTimer_Elapsed);
         }
 
-        private void StartIntervalOntime()
+        public void StartIntervalOntime()
         {
             IntervalTimer.Start();
         }
