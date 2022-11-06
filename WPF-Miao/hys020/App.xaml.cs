@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Container;
 using hys020.appointment;
+using hys020.appointment.Yuyue;
 using hys020.search;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,6 +32,7 @@ namespace hys020
             HttpServiceController.AddTransientService<MiaoDetailController>();
             HttpServiceController.AddTransientService<PreviewAppointController>();
             HttpServiceController.AddTransientService<AppointController>();
+            HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();
         }

@@ -1,4 +1,7 @@
-﻿using hys020.appointment.Yuyue;
+﻿using Base.model;
+using HttpProcessor.Container;
+using hys020.appointment;
+using hys020.appointment.Yuyue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +12,7 @@ namespace hys020.session
 {
     public static class AppointSession
     {
-        public static Dictionary<string, YuyueController> YuyueControllerCache { get; set; }
+        internal static Dictionary<YuyueKey, YuyueController> YuyueControllerCache { get; private set; }
 
         static AppointSession()
         {
@@ -18,7 +21,18 @@ namespace hys020.session
 
         public static void Init()
         {
-            YuyueControllerCache = new Dictionary<string, YuyueController>();
+            YuyueControllerCache = new Dictionary<YuyueKey, YuyueController>();
+            var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
+            var timeList = (MainSession.PlatformSession["TimeList"] as List<DspVal>).Select(x => x.Value).ToList();
+            foreach (var date in dateList)
+            {
+                foreach(var time in timeList)
+                {
+                    var key = new YuyueKey(date, time);
+                    var yuyueContr = HttpServiceController.GetService<YuyueController>();
+                    YuyueControllerCache.Add(key, yuyueContr);
+                }
+            }
         }
     }
 }

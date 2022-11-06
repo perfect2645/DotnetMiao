@@ -46,7 +46,7 @@ namespace hys020.search
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao Failed - {response.Message}");
+                    Log($"SearchMiao Failed - {response.Message}");
                     return null;
                 }
 
@@ -54,7 +54,7 @@ namespace hys020.search
                 var attList = response.JsonBody.RootElement.GetProperty("attList");
                 if (attList.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"未查到苗 - attList is null");
+                    Log($"未查到苗 - attList is null");
                     return null;
                 }
                 return AnalysisResult(attList);
@@ -75,7 +75,7 @@ namespace hys020.search
 
             if (!miaoList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"没查到苗");
+                Log($"没查到苗");
                 return null;
             }
 

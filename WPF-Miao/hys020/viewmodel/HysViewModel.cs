@@ -115,7 +115,7 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 10, 31, 10, 59, 55);
+            StartTime = new DateTime(2022, 11, 7, 10, 59, 55);
 
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
@@ -137,7 +137,35 @@ namespace hys020.viewmodel
                 },
             };
 
+            DateList = new List<DspVal>
+            {
+                new DspVal("2022-11-08"),
+                new DspVal("2022-11-09"),
+                new DspVal("2022-11-10"),
+                new DspVal("2022-11-11"),
+            };
+
+            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
+
+            TimeList = new List<DspVal>
+            {
+                new DspVal("08:30 - 09:00"),
+                new DspVal("09:00 - 09:30"),
+                new DspVal("09:30 - 10:00"),
+                new DspVal("10:00 - 10:30"),
+                new DspVal("10:30 - 11:00"),
+                new DspVal("14:30 - 15:00"),
+                new DspVal("15:00 - 15:30"),
+                new DspVal("15:30 - 16:00"),
+                new DspVal("16:00 - 16:30"),
+                new DspVal("16:30 - 17:00"),
+            };
+
+            MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
+
             SelectedDepartment = Departments.FirstOrDefault();
+
+            AppointSession.Init();
         }
 
         private void InitCommands()
@@ -301,10 +329,10 @@ namespace hys020.viewmodel
         {
             Task.Factory.StartNew(async () =>
             {
-                PrintLogEvent.Publish(this, "开始了");
                 if (MainSession.MiaoStatus.MiaoProgress < MiaoProgress.GettingMiao)
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
+                    PrintLogEvent.Publish(this, "开始查苗了");
                 }
                 var miaoSchedule = HttpServiceController.GetService<SearchController>();
                 await miaoSchedule.SearchAsync();
