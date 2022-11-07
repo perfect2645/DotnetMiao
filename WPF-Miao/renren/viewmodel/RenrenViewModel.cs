@@ -19,6 +19,7 @@ using System.Windows.Input;
 using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
+using Utils.timerUtil;
 
 namespace renren.viewmodel
 {
@@ -29,6 +30,8 @@ namespace renren.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
         public ICommand YzmCommand { get; set; }
+
+        private IntervalOnTime _keepConnectionInterval;
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -134,9 +137,9 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "5CEHBHJ96OMDAHSA146NVQ==";
+            MedicToken = "YGPGAVNKMOF4R6SA6VOUKQ==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "A51B253E-04A9-4E2E-8DA3-428BAF1E1F7B";
+            PublicKey = "B1B13B04-AF0E-4407-AF57-30AAA2547A26";
         }
 
         private void InitStaticData()
@@ -218,6 +221,8 @@ namespace renren.viewmodel
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
 
             MainSession.AppointEvent.Subscribe(OnAppointment);
+
+            _keepConnectionInterval = new IntervalOnTime(KeepConnection, "KeepConnection", 60000);
         }
 
         #endregion Constructor
@@ -243,6 +248,7 @@ namespace renren.viewmodel
 
         protected override void OnReadyForSearchAsync()
         {
+
         }
 
         protected override void OnSearchingAsync()
@@ -252,12 +258,13 @@ namespace renren.viewmodel
 
         protected override void OnSearchendAsync()
         {
-
+            _keepConnectionInterval.StartIntervalOntime();
         }
 
         protected override void OnMiaoGetAsync(object data)
         {
             StopAutoRunTimer();
+            _keepConnectionInterval.StopInterval();
         }
 
         #endregion Status Control
@@ -300,6 +307,15 @@ namespace renren.viewmodel
             {
                 Log(ex);
             }
+        }
+
+        private void KeepConnection()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                var keepConnection = HttpServiceController.GetService<ScheduleController>();
+                keepConnection.KeepConnection();
+            });
         }
 
         #endregion Search

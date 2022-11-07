@@ -33,7 +33,8 @@ namespace renren.search.miao
                     var schedules = await Task.Factory.StartNew(() => GetServiceSchedule());
                     if (!schedules.HasItem())
                     {
-                        MainSession.PrintLogEvent.Publish(this, $"没查到苗！schedule is empty");
+                        //MainSession.PrintLogEvent.Publish(this, $"没查到苗！schedule is empty");
+                        Log($"没查到苗！schedule is empty");
                         return;
                     }
                 }
@@ -44,9 +45,8 @@ namespace renren.search.miao
                     {
                         lock (ScheduleLock)
                         {
-                            var detailController = HttpServiceController.GetService<ScheduleDetailController>();
                             var schedules = MainSession.MiaoSession["Schedule"] as List<Schedule>;
-                            detailController.BulkGetDetailAsync(schedules);
+                            BulkGetDetailAsync(schedules);
                         }
                     }
                 }
@@ -55,6 +55,57 @@ namespace renren.search.miao
             catch (Exception ex)
             {
                 Logging.GLog.Logger.Error(ex);
+            }
+        }
+
+        private void BulkGetDetailAsync(List<Schedule> scheduleList)
+        {
+            var defa = scheduleList.FirstOrDefault();
+            Task.Factory.StartNew(() => {
+                var detailController = HttpServiceController.GetService<ScheduleDetailController>();
+                detailController.GetScheduleDetail(defa);
+            });
+            foreach (var schedule in scheduleList)
+            {
+                schedule.IntervalOnTime.StartIntervalOntime(() =>
+                {
+                    Task.Factory.StartNew(() => {
+                        var detailController = HttpServiceController.GetService<ScheduleDetailController>();
+                        detailController.GetScheduleDetail(schedule);
+                    });
+                });
+            }
+        }
+
+        public void KeepConnection()
+        {
+            var url = "https://www.medic.ren/PM-server/mobserviceTimeDef/getServiceSchedule";
+
+            var content = new ScheduleContent(url);
+
+            content.BuildDefaultHeaders(Client);
+
+            try
+            {
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule失败 - {response?.Message}");
+                    return;
+                }
+
+                var result = response.JsonBody.RootElement;
+                var dicResult = JsonAnalysis.JsonToDic(result);
+                var code = dicResult["code"].ToInt();
+                var message = dicResult["message"].NotNullString();
+                if (code != 200)
+                {
+                    Log($"code = {code}, message = {message}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"GetServiceSchedule失败 - {ex.Message} - {ex.StackTrace}");
             }
         }
 

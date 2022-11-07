@@ -34,9 +34,10 @@ namespace renren.appointment
                 content.Order.Count++;
                 Log(content.Order.ToLogString());
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                if (response == null)
+                if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
+                    return;
                 }
 
                 var result = response.JsonBody.RootElement;

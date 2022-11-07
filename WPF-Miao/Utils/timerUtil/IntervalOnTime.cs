@@ -19,6 +19,7 @@ namespace Utils.timerUtil
         public IntervalOnTime(Action action, string name, int interval)
         {
             IntervalAction = action;
+            Interval = interval;
             InitIntervalTimer();
         }
 

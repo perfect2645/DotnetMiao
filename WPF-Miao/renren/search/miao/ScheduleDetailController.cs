@@ -20,30 +20,11 @@ namespace renren.search.miao
 {
     internal class ScheduleDetailController : HttpClientBase
     {
-
-        public List<Schedule> ScheduleList { get; private set; }
-
         public ScheduleDetailController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void BulkGetDetailAsync(List<Schedule> scheduleList)
-        {
-            ScheduleList = scheduleList;
-
-            var defa = ScheduleList.FirstOrDefault();
-            Task.Factory.StartNew(() => GetScheduleDetail(defa));
-            foreach (var schedule in ScheduleList)
-            {
-                Task.Factory.StartNew(() => GetScheduleDetail(schedule));
-                schedule.IntervalOnTime.StartIntervalOntime(() =>
-                {
-                    Task.Factory.StartNew(() => GetScheduleDetail(schedule));
-                });
-            }
-        }
-
-        private bool GetScheduleDetail(Schedule schedule)
+        public bool GetScheduleDetail(Schedule schedule)
         {
             var url = "https://www.medic.ren/PM-server/mobserviceTimeDef/getServiceScheduleDetail";
 
