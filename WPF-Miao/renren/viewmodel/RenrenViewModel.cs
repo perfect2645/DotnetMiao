@@ -129,7 +129,7 @@ namespace renren.viewmodel
             InitStaticData();
             InitController();
 
-            TestData();
+            //TestData();
         }
 
         private void TestData()
@@ -141,7 +141,7 @@ namespace renren.viewmodel
 
         private void InitStaticData()
         {
-            //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 11, 8, 19, 59, 58));
             MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
 
             var dayToday = (int)DateTime.Today.DayOfWeek;
@@ -180,11 +180,11 @@ namespace renren.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal("2022-10-10"),
-                new DspVal("2022-10-11"),
-                new DspVal("2022-10-12"),
-                new DspVal("2022-10-13"),
-                new DspVal("2022-10-14"),
+                new DspVal("2022-11-08"),
+                new DspVal("2022-11-09"),
+                new DspVal("2022-11-10"),
+                new DspVal("2022-11-11"),
+                new DspVal("2022-11-12"),
             };
 
             TimeList = new List<DspVal>
