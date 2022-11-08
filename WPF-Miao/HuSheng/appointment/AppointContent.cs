@@ -39,7 +39,7 @@ namespace HuSheng.appointment
 
         private void BuildContent()
         {
-            HushengSession.PrintLogEvent.Publish(this, "BuildContent --- Start");
+            MainSession.PrintLogEvent.Publish(this, "BuildContent --- Start");
             try
             {
                 BuildBasicContent();
@@ -55,7 +55,7 @@ namespace HuSheng.appointment
             //AddContent("VACCINES_NAME", "18");
             //AddContent("DOC_CUSTOM_VACCINE_GUID", HushengSession.MiaoSession["GUID"]);
             //AddContent("code", HushengSession.MiaoSession["Yzm"]);
-            HushengSession.PrintLogEvent.Publish(this, "BuildContent --- End");
+            MainSession.PrintLogEvent.Publish(this, "BuildContent --- End");
         }
 
         private void BuildBasicContent()

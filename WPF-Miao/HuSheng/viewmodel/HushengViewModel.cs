@@ -1,10 +1,12 @@
 ﻿using Base.Events;
 using Base.model;
+using Base.viewmodel.status;
 using Base.viewModel;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
+using HuSheng.appointment;
 using HuSheng.search;
 using HuSheng.session;
 using System;
@@ -15,14 +17,12 @@ using Utils;
 
 namespace HuSheng.viewmodel
 {
-    internal class HushengViewModel : ViewModelBase
+    internal class HushengViewModel : OnTimeViewModel
     {
         #region Properties
 
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
-        public ICommand AutoCommand { get; set; }
-
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -42,7 +42,6 @@ namespace HuSheng.viewmodel
             set
             {
                 _selectedDate = value;
-                HushengSession.MiaoSession.AddOrUpdate("Date", value.Value);
                 NotifyUI(() => SelectedDate);
             }
         }
@@ -65,22 +64,13 @@ namespace HuSheng.viewmodel
             set
             {
                 _selectedTime = value;
-                HushengSession.MiaoSession.AddOrUpdate("Time", value.Value);
                 NotifyUI(() => SelectedTime);
             }
         }
 
-        private string _etid;
-        public string Etid
-        {
-            get { return _etid; }
-            set
-            {
-                _etid = value;
-                HushengSession.MiaoSession.AddOrUpdate("Etid", value);
-                NotifyUI(() => Etid);
-            }
-        }
+        private readonly object OrderLock = new object();
+
+        private SearchController _searchController;
 
         #endregion Properties
 
@@ -88,14 +78,22 @@ namespace HuSheng.viewmodel
 
         public HushengViewModel(LogPanel logPanel) : base(logPanel)
         {
-            InitStaticData();
             InitCommands();
-            HushengSession.PrintLogEvent = PrintLogEvent;
+            InitStaticData();
+            InitControllers();
+
+            //TestData();
+        }
+
+        private void TestData()
+        {
+            Cookie = "JSESSIONID=3404102DBF977C90A4C324EC147C64EC";
         }
 
         private void InitStaticData()
         {
-            HushengSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            //StartTime = new DateTime(2022, 10, 7, 8, 57, 0);
+            //MainSession.PlatformSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
 
             DateList = new List<DspVal>
             {
@@ -114,23 +112,87 @@ namespace HuSheng.viewmodel
 
         private void InitCommands()
         {
-            SearchCommand = new RelayCommand(ExecuteSearchAsync);
+            MainSession.PrintLogEvent = PrintLogEvent;
+
+            SearchCommand = new RelayCommand(OnSearchClick);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
-            AutoCommand = new AsyncRelayCommand(ExecuteAutoAsync);
-            SessionEvents.Instance.Subscribe(LogSession);
+            SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+
+            MainSession.AppointEvent.Subscribe(OnAppointment);
+        }
+
+        private void InitControllers()
+        {
+            _searchController = HttpServiceController.GetService<SearchController>();
         }
 
         #endregion Constructor
 
+        #region Status Control
+
+        protected override void OnInitAsync()
+        {
+
+        }
+
+        protected override void OnReadyForSearchAsync()
+        {
+        }
+
+        protected override void OnSearchingAsync()
+        {
+
+        }
+
+        protected override void OnSearchendAsync()
+        {
+
+        }
+
+        protected override void OnMiaoGetAsync(object data)
+        {
+            StopAutoRunTimer();
+            var attIdList = data as List<string>;
+            if (attIdList == null)
+            {
+                return;
+            }
+
+            //var miaoDetailController = HttpServiceController.GetService<MiaoDetailController>();
+
+            //foreach (var attId in attIdList)
+            //{
+            //    Task.Factory.StartNew(() =>
+            //    {
+            //        miaoDetailController.SearchMiaoDetailAsync(attId);
+            //    });
+            //}
+        }
+
+        #endregion Status Control
+
         #region Search
 
-        private void ExecuteSearchAsync()
+        private void OnSearchClick()
         {
+            Task.Factory.StartNew(async () =>
+            {
+                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                {
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
+                }
+                await SearchAsync();
+            });
+        }
+
+        private async Task SearchAsync()
+        {
+            MainSession.Cookie = Cookie;
+
             try
             {
-                HushengSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                searchController.SearchAsync();
+                MainSession.SetStatus(MiaoProgress.Searching);
+                //await _searchController.SearchAsync();
             }
             catch (HttpException ex)
             {
@@ -146,13 +208,40 @@ namespace HuSheng.viewmodel
 
         #region Appoint
 
-        private async void ExecuteAppointAsync()
+        private void OnAppointment(object? sender, AppointEventArgs e)
+        {
+            lock (OrderLock)
+            {
+                if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointStart)
+                {
+                    lock (OrderLock)
+                    {
+                        var orderList = e.OrderList;
+                        ConsumeOrdersAsync(orderList);
+                    }
+                }
+            }
+        }
+
+        private void ConsumeOrdersAsync(List<Order> orderList)
         {
             try
             {
-                HushengSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                await searchController.SearchIntervalAsync();
+                var appointController = HttpServiceController.GetService<AppointController>();
+                //appointController.Yuyue(orderList);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteAppointAsync()
+        {
+            try
+            {
+                MainSession.Cookie = Cookie;
+                var appointController = HttpServiceController.GetService<AppointController>();
             }
             catch (HttpException ex)
             {
@@ -166,23 +255,43 @@ namespace HuSheng.viewmodel
 
         #endregion Appoint
 
-        #region 验证码
+        #region AutoRun
 
-        private async Task ExecuteAutoAsync()
+        protected override void StartAutoRun()
         {
-            //var yzmController = HttpServiceController.GetService<YzmController>();
-            //await yzmController.GetYzmAsync();
+            StartAutoRunTimer();
         }
 
-        #endregion 验证码
-
-        #region Session
-
-        private void LogSession(object? sender, SesstionEventArgs args)
+        protected override void AutoRun()
         {
-
+            Task.Factory.StartNew(async () =>
+            {
+                if (MainSession.MiaoStatus.MiaoProgress < MiaoProgress.GettingMiao)
+                {
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
+                    PrintLogEvent.Publish(this, "开始查苗了");
+                }
+                var miaoSchedule = HttpServiceController.GetService<SearchController>();
+                //await miaoSchedule.SearchAsync();
+            });
         }
 
-        #endregion Session
+        #endregion AutoRun
+
+        #region Hospital Dept
+
+        private void OnSelectedDepartmentChanged()
+        {
+            var selectedDept = SelectedDepartment as HysHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+
+            Log(selectedDept.ToLogString());
+
+            //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
+        }
+
+        #endregion Hospital Dept
+
     }
 }

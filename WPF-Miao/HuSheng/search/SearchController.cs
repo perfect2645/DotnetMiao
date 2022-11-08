@@ -22,7 +22,7 @@ namespace HuSheng.search
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
-            var startTime = HushengSession.MiaoSession["StartTime"] as DateTime?;
+            var startTime = MainSession.MiaoSession["StartTime"] as DateTime?;
             SearchInterval = new IntervalOnTime(async () => await SearchIntervalAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
         }
 
@@ -55,14 +55,14 @@ namespace HuSheng.search
 
         private bool Search()
         {
-            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=15:01~15:30&appointmentTimeId=2068&configValue=1&schemeId=2158";
+            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=15:01~15:30&appointmentTimeId=2068&configValue=1&schemeId=2159";
 
             try
             {
                 HtmlResponse response = SearchHtml(url).Result;
                 if (response == null)
                 {
-                    HushengSession.PrintLogEvent.Publish(this, $"Search - response == null");
+                    MainSession.PrintLogEvent.Publish(this, $"Search - response == null");
                     return false;
                 }
 
@@ -70,12 +70,12 @@ namespace HuSheng.search
             }
             catch (HttpException ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
             catch (Exception ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
         }
@@ -91,13 +91,13 @@ namespace HuSheng.search
                 }
 
                 var miaohtml = GetForm(body);
-                HushengSession.MiaoSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
+                MainSession.MiaoSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
 
                 return true;
             }
             catch(Exception ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"AnalysisResult异常 - {ex.Message}");
+                MainSession.PrintLogEvent.Publish(this, $"AnalysisResult异常 - {ex.Message}");
                 return false;
             }
         }
@@ -113,14 +113,14 @@ namespace HuSheng.search
             var vassNameNodes = body.SearchNodes("//*[@class='vassName']/text()");
             if (vassNameNodes == null)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
                 return false;
             }
 
             var vassNames = vassNameNodes.Select(x => x.InnerText);
             foreach (var name in vassNames)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
+                MainSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
                 if (name.IsNine() && name.IsDoseOne())
                 {
                     return true;

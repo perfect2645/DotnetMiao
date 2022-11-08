@@ -26,30 +26,30 @@ namespace HuSheng.appointment
 
             try
             {
-                var formDoc = (HushengSession.MiaoSession[Constants.MiaoHtml] as HtmlDoc)!;
+                var formDoc = (MainSession.MiaoSession[Constants.MiaoHtml] as HtmlDoc)!;
                 var content = new AppointContent(url, formDoc);
-                content.AddHeader("Cookie", HushengSession.Cookie);
+                content.AddHeader("Cookie", MainSession.Cookie);
 
                 content.BuildDefaultHeaders(Client);
 
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response == null)
                 {
-                    HushengSession.PrintLogEvent.Publish(this, $"Appoint response is null");
+                    MainSession.PrintLogEvent.Publish(this, $"Appoint response is null");
                 }
 
-                HushengSession.PrintLogEvent.Publish(this, $"预约完成");
+                MainSession.PrintLogEvent.Publish(this, $"预约完成");
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
                 if (string.IsNullOrEmpty(result))
                 {
-                    HushengSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
+                    MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
                     return;
                 }
-                HushengSession.PrintLogEvent.Publish(this, $"result:{result}");
+                MainSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
             catch (Exception ex)
             {
-                HushengSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
+                MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
 
         }
