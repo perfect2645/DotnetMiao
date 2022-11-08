@@ -132,14 +132,14 @@ namespace renren.viewmodel
             InitStaticData();
             InitController();
 
-            //TestData();
+            TestData();
         }
 
         private void TestData()
         {
-            MedicToken = "YGPGAVNKMOF4R6SA6VOUKQ==";
+            MedicToken = "JFEMPIHETXOWNZA5G1VOLA==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "B1B13B04-AF0E-4407-AF57-30AAA2547A26";
+            PublicKey = "E7B95EB1-5750-4252-93B8-459AB2B45C9D";
         }
 
         private void InitStaticData()
@@ -167,7 +167,7 @@ namespace renren.viewmodel
                     HospitalId = "2c924b1061e108200161e5bae2c031e8",
                     HospitalName = "广州市黄浦区联和街社区卫生服务中心",
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
-                    DepartmentName = "HPV-富春卫生服务站-9价",
+                    DepartmentName = "HPV-富春卫生服务站-9价第一针",
                     ServiceId = "2c9280978201614d01821f73cc5c7da5",
                 },
                 new RenrenHospital
@@ -178,6 +178,15 @@ namespace renren.viewmodel
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
                     DepartmentName = "儿童入托体检",
                     ServiceId = "2c9280977a66dc42017a7b17b1f52b5b",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-4价第一针",
+                    ServiceId = "2c9280977a0d16c4017a13a20ee4113a",
                 },
             };
 
