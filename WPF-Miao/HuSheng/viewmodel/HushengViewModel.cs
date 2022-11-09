@@ -282,7 +282,7 @@ namespace HuSheng.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as HysHospital;
+            var selectedDept = SelectedDepartment as HushengHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
 

@@ -26,7 +26,7 @@ namespace HuSheng.appointment
 
             try
             {
-                var formDoc = (MainSession.MiaoSession[Constants.MiaoHtml] as HtmlDoc)!;
+                var formDoc = (MainSession.PlatformSession[Constants.MiaoHtml] as HtmlDoc)!;
                 var content = new AppointContent(url, formDoc);
                 content.AddHeader("Cookie", MainSession.Cookie);
 

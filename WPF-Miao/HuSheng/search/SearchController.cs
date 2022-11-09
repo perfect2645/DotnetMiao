@@ -22,8 +22,6 @@ namespace HuSheng.search
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
-            var startTime = MainSession.MiaoSession["StartTime"] as DateTime?;
-            SearchInterval = new IntervalOnTime(async () => await SearchIntervalAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
         }
 
         public async void SearchAsync()
@@ -91,7 +89,7 @@ namespace HuSheng.search
                 }
 
                 var miaohtml = GetForm(body);
-                MainSession.MiaoSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
+                MainSession.PlatformSession.AddOrUpdate(Constants.MiaoHtml, miaohtml);
 
                 return true;
             }
