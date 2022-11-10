@@ -1,5 +1,4 @@
-﻿using Base.Events;
-using Base.model;
+﻿using Base.model;
 using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
@@ -8,7 +7,6 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jkchegu.appointment;
 using Jkchegu.search;
-using Jkchegu.search.yzm;
 using Jkchegu.session;
 using System;
 using System.Collections.Generic;
@@ -103,7 +101,7 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            //Cookie = "JSESSIONID=20745158995B109C28B5B97AF021C43F";
+            //Cookie = "JSESSIONID=A228544CF6804542F272475115539CD0";
             //Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
             Cookie = "JSESSIONID=41E0D772413CF7A20DB68C4BD8442539";
             Etid = "030b18b61121492bb4b57b147230aa0d";
@@ -119,7 +117,6 @@ namespace Jkchegu.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
@@ -204,19 +201,22 @@ namespace Jkchegu.viewmodel
 
         protected override void StartAutoRun()
         {
-            try
-            {
-                JkSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
+            Task.Factory.StartNew(()=> {
+                try
+                {
+                    JkSession.Cookie = Cookie;
+                    JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
+                    var searchController = HttpServiceController.GetService<SearchController>();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
         }
 
         protected override void AutoRun()
