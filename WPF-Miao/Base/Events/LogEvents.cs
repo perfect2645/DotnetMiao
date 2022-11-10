@@ -54,6 +54,14 @@ namespace Base.Events
 
     public class LogEventArgs
     {
+        public LogEventArgs()
+        {
+        }
+        public LogEventArgs(string log)
+        {
+            Message = log;
+        }
+
         public string Message { get; set; }
         public Dictionary<string, object> Items { get; set; }
     }

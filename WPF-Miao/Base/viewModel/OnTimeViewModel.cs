@@ -22,10 +22,28 @@ namespace Base.viewModel
             {
                 if (_startTime != value)
                 {
-                    _startTime = value;
+                    CheckSetStartTime(value);
                     NotifyUI(() => StartTime);
+                    PrintLog($"设置开始时间:{_startTime}");
                 }
             }
+        }
+
+        private void CheckSetStartTime(DateTime value)
+        {
+            var now = DateTime.Now;
+            if (value < now)
+            {
+                var year = now.Year;
+                var month = now.Month;
+                var day = now.Day;
+                var hour = value.Hour;
+                var minute = value.Minute;
+                var sec = value.Second;
+                value = new DateTime(year, month, day, hour, minute, sec);
+                value = value.AddDays(1);
+            }
+            _startTime = value;
         }
 
         private int _interval = 200;

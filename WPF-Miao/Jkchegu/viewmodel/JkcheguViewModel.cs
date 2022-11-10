@@ -97,7 +97,7 @@ namespace Jkchegu.viewmodel
             InitStaticData();
             JkSession.PrintLogEvent = PrintLogEvent;
 
-            TestData();
+           // TestData();
         }
 
         private void TestData()
@@ -107,12 +107,14 @@ namespace Jkchegu.viewmodel
             Cookie = "JSESSIONID=41E0D772413CF7A20DB68C4BD8442539";
             Etid = "030b18b61121492bb4b57b147230aa0d";
 
-            JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddSeconds(20));
+            StartTime = DateTime.Now.AddSeconds(20);
+            JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }
 
         private void InitStaticData()
         {
-            //JkSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 25, 22, 3, 30));
+            StartTime = new DateTime(2022, 10, 25, 7, 59, 56);
+            JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
             {

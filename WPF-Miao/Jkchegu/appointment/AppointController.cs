@@ -79,7 +79,6 @@ namespace Jkchegu.appointment
                     JkSession.PrintLogEvent.Publish(this, $"Appoint response is null");
                 }
 
-                JkSession.PrintLogEvent.Publish(this, $"预约完成");
                 var result = response.JsonBody.RootElement.GetProperty("res").ToString();
                 if (string.IsNullOrEmpty(result) || result.Contains("成功"))
                 {

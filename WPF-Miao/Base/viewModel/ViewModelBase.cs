@@ -113,6 +113,12 @@ namespace Base.viewModel
             LogHelper.PrintLog(LogPanel.WriteLogAction, e);
         }
 
+        protected void PrintLog(string log)
+        {
+            var args = new LogEventArgs(log);
+            LogHelper.PrintLog(LogPanel.WriteLogAction, args);
+        }
+
         public void Log(Exception ex)
         {
             if (ex.InnerException != null)
