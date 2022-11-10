@@ -55,7 +55,7 @@ namespace Jkchegu.search
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    JkSession.PrintLogEvent.Publish(this, $"Search({date}) - response == null");
+                    Log($"Search({date}) - response == null");
                     return;
                 }
 

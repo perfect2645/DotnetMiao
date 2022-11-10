@@ -104,8 +104,11 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=E040B16E789C34658804DC7E88CAFEC9";
-            Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
+            //Cookie = "JSESSIONID=20745158995B109C28B5B97AF021C43F";
+            //Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
+            Cookie = "JSESSIONID=41E0D772413CF7A20DB68C4BD8442539";
+            Etid = "030b18b61121492bb4b57b147230aa0d";
+
             JkSession.MiaoSession.AddOrUpdate("StartTime", DateTime.Now.AddSeconds(20));
         }
 
@@ -115,6 +118,7 @@ namespace Jkchegu.viewmodel
 
             DateList = new List<DspVal>
             {
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
@@ -176,7 +180,6 @@ namespace Jkchegu.viewmodel
             {
                 JkSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<SearchController>();
-                //searchController.Search();
             }
             catch (HttpException ex)
             {

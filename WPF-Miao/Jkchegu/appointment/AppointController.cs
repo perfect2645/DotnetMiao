@@ -87,6 +87,12 @@ namespace Jkchegu.appointment
                     IsSuccess = true;
                 }
 
+                if (string.IsNullOrEmpty(result) || result.Contains("存在已有"))
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
+                    IsSuccess = true;
+                }
+
                 JkSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
             catch(Exception ex)
