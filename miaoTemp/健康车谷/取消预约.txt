@@ -1,0 +1,35 @@
+POST http://app.whkfqws.com/wx-mobile/Vaccination/cancelReservation.do HTTP/1.1
+Host: app.whkfqws.com
+Accept: application/json, text/javascript, */*; q=0.01
+X-Requested-With: XMLHttpRequest
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://app.whkfqws.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d36) NetType/4G Language/zh_CN
+Connection: keep-alive
+Referer: http://app.whkfqws.com/wx-mobile/Vaccination/vaccination.do?ETID=030b18b61121492bb4b57b147230aa0d
+Content-Length: 257
+Cookie: JSESSIONID=573C7346A0BB37A74D0C2E8F0D2B5101
+
+GUID=b328f9a1fc6a48c59e79b708d0bc62c6&YYSJ=2022-11-10+18%3A03%3A38.0&DATE_COUNT=10%3A00~10%3A30&VACCINES_NAME=%E5%84%BF%E7%AB%A5%E4%B9%99%E8%82%9D%E7%96%AB%E8%8B%97%EF%BC%88%E5%85%8D%E8%B4%B9%EF%BC%89&DOC_CUSTOM_VACCINA_GUID=cca4077222f6412d8c155bec202400d0GET http://app.whkfqws.com/wx-mobile/Vaccination/vaccinatorInformation.do?flag=update HTTP/1.1
+Host: app.whkfqws.com
+Cookie: JSESSIONID=573C7346A0BB37A74D0C2E8F0D2B5101
+
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Thu, 10 Nov 2022 10:05:44 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Content-Language: zh-CN
+Vary: Accept-Encoding
+Content-Security-Policy: default-src 'self' static4.segway.com 'unsafe-inline' 'unsafe-eval' blob: data: ;
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+Content-Length: 0
+

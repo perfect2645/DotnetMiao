@@ -25,6 +25,7 @@ namespace Jkchegu.viewmodel
         #region Properties
 
         public ICommand SearchCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -97,7 +98,7 @@ namespace Jkchegu.viewmodel
             InitStaticData();
             JkSession.PrintLogEvent = PrintLogEvent;
 
-           // TestData();
+            TestData();
         }
 
         private void TestData()
@@ -162,6 +163,7 @@ namespace Jkchegu.viewmodel
         private void InitCommands()
         {
             //SearchCommand = new RelayCommand(ExecuteSearchAsync);
+            CancelCommand = new RelayCommand(ExecuteCancel);
 
             JkSession.AppointEvent.Subscribe(OnAppointment);
 
@@ -266,6 +268,23 @@ namespace Jkchegu.viewmodel
         }
 
         #endregion Appoint
+
+        #region Cancel
+
+        private async void ExecuteCancel()
+        {
+            try
+            {
+                var appointController = HttpServiceController.GetService<CancelController>();
+                await appointController.CancelAsync();
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Cancel
 
         #region Hospital Dept
 

@@ -50,6 +50,24 @@ namespace CoreControl.DateControl
         public static readonly DependencyProperty CommandNameProperty =
             DependencyProperty.Register("CommandName", typeof(string), ControlType, new PropertyMetadata("启动"));
 
+        public ICommand StopCommand
+        {
+            get { return (ICommand)GetValue(StopCommandProperty); }
+            set { SetValue(StopCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty StopCommandProperty =
+            DependencyProperty.Register("StopCommand", typeof(ICommand), ControlType);
+
+        public string CommandName2
+        {
+            get { return (string)GetValue(CommandName2Property); }
+            set { SetValue(CommandName2Property, value); }
+        }
+
+        public static readonly DependencyProperty CommandName2Property =
+            DependencyProperty.Register("CommandName2", typeof(string), ControlType, new PropertyMetadata("停止"));
+
         #endregion Properties
 
         #region Constructor
