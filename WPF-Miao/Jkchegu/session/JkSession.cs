@@ -6,13 +6,11 @@ using System.Collections.Generic;
 
 namespace Jkchegu.session
 {
-    internal class JkSession : ISessionContainer
+    internal class JkSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
-        public static LogEvents PrintLogEvent { get; set; }
         public static Dictionary<string, object> MiaoSession { get; set; }
         public static Dictionary<string, object> PlatformSession { get; set; }
-
         public static AppointEvent AppointEvent { get; }
 
         static JkSession()

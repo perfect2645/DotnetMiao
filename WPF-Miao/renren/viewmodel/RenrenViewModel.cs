@@ -272,7 +272,7 @@ namespace renren.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopAutoRunTimer();
+            StopIntervalTimer();
             _keepConnectionInterval.StopInterval();
         }
 
@@ -408,7 +408,7 @@ namespace renren.viewmodel
         protected override async void StartAutoRun()
         {
             await SearchAsync();
-            StartAutoRunTimer();
+            StartIntervalTimer();
         }
 
         protected override void AutoRun()

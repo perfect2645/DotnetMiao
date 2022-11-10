@@ -151,7 +151,7 @@ namespace HuSheng.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopAutoRunTimer();
+            StopIntervalTimer();
             var attIdList = data as List<string>;
             if (attIdList == null)
             {
@@ -259,7 +259,7 @@ namespace HuSheng.viewmodel
 
         protected override void StartAutoRun()
         {
-            StartAutoRunTimer();
+            StartIntervalTimer();
         }
 
         protected override void AutoRun()

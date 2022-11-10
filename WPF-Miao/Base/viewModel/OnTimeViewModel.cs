@@ -46,6 +46,8 @@ namespace Base.viewModel
 
         public IntervalOnTime AutoRunTimer { get; private set; }
 
+        public ActionOnTime OnTimeTimer { get; private set; }
+
         #endregion Properties
 
         #region Constructor
@@ -72,7 +74,7 @@ namespace Base.viewModel
             return false;
         }
 
-        protected void StartAutoRunTimer()
+        protected void StartIntervalTimer()
         {
             try
             {
@@ -96,9 +98,41 @@ namespace Base.viewModel
             }
         }
 
-        protected void StopAutoRunTimer()
+        protected void StopIntervalTimer()
         {
             AutoRunTimer?.StopInterval();
+        }
+
+        protected void StartOnTimeTimer()
+        {
+            try
+            {
+                if (OnTimeTimer == null)
+                {
+                    OnTimeTimer = new ActionOnTime("开启定时模式", Interval)
+                    {
+                        TargetAction = AutoRun,
+                        ActionTime = StartTime,
+                    };
+                    return;
+                }
+
+                OnTimeTimer.StartTimer();
+            }
+            catch (Exception ex)
+            {
+                PrintLogEvent.Publish(this, "StartOnTimeTimer Failed");
+                Logging.GLog.Logger.Error(ex);
+            }
+            finally
+            {
+                PrintLogEvent.Publish(this, "开启自动模式");
+            }
+        }
+
+        protected void StopOnTimeTimer()
+        {
+            OnTimeTimer.StopTimer();
         }
 
         protected abstract void AutoRun();

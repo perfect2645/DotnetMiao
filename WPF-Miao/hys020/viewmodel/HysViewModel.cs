@@ -214,7 +214,7 @@ namespace hys020.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopAutoRunTimer();
+            StopIntervalTimer();
             var attIdList = data as List<string>;
             if (attIdList == null)
             {
@@ -322,7 +322,7 @@ namespace hys020.viewmodel
 
         protected override void StartAutoRun()
         {
-            StartAutoRunTimer();
+            StartIntervalTimer();
         }
 
         protected override void AutoRun()

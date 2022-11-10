@@ -20,13 +20,11 @@ using Utils.datetime;
 
 namespace Jkchegu.viewmodel
 {
-    internal class JkcheguViewModel : ViewModelBase
+    internal class JkcheguViewModel : OnTimeViewModel
     {
         #region Properties
 
         public ICommand SearchCommand { get; set; }
-        public ICommand AppointCommand { get; set; }
-        public ICommand YzmCommand { get; set; }
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -161,9 +159,7 @@ namespace Jkchegu.viewmodel
 
         private void InitCommands()
         {
-            SearchCommand = new RelayCommand(ExecuteSearchAsync);
-            AppointCommand = new RelayCommand(ExecuteAppointAsync);
-            YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
+            //SearchCommand = new RelayCommand(ExecuteSearchAsync);
 
             JkSession.AppointEvent.Subscribe(OnAppointment);
 
@@ -172,9 +168,37 @@ namespace Jkchegu.viewmodel
 
         #endregion Constructor
 
-        #region Search
+        #region Status Control
 
-        private void ExecuteSearchAsync()
+        protected override void OnInitAsync()
+        {
+
+        }
+
+        protected override void OnReadyForSearchAsync()
+        {
+        }
+
+        protected override void OnSearchingAsync()
+        {
+
+        }
+
+        protected override void OnSearchendAsync()
+        {
+
+        }
+
+        protected override void OnMiaoGetAsync(object data)
+        {
+        }
+
+        #endregion Status Control
+
+
+        #region AutoRun
+
+        protected override void StartAutoRun()
         {
             try
             {
@@ -191,7 +215,11 @@ namespace Jkchegu.viewmodel
             }
         }
 
-        #endregion Search
+        protected override void AutoRun()
+        {
+        }
+
+        #endregion AutoRun
 
         #region Appoint
 
@@ -236,16 +264,6 @@ namespace Jkchegu.viewmodel
         }
 
         #endregion Appoint
-
-        #region 验证码
-
-        private async Task ExecuteYzmAsync()
-        {
-            var yzmController = HttpServiceController.GetService<YzmController>();
-            await yzmController.GetYzmAsync();
-        }
-
-        #endregion 验证码
 
         #region Hospital Dept
 
