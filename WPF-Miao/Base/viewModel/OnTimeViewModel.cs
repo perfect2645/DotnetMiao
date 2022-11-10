@@ -32,18 +32,18 @@ namespace Base.viewModel
         private void CheckSetStartTime(DateTime value)
         {
             var now = DateTime.Now;
-            if (value < now)
+            var year = now.Year;
+            var month = now.Month;
+            var day = now.Day;
+            var hour = value.Hour;
+            var minute = value.Minute;
+            var sec = value.Second;
+            var targetDate = new DateTime(year, month, day, hour, minute, sec);
+            if (targetDate < now)
             {
-                var year = now.Year;
-                var month = now.Month;
-                var day = now.Day;
-                var hour = value.Hour;
-                var minute = value.Minute;
-                var sec = value.Second;
-                value = new DateTime(year, month, day, hour, minute, sec);
-                value = value.AddDays(1);
+                targetDate = targetDate.AddDays(1);
             }
-            _startTime = value;
+            _startTime = targetDate;
         }
 
         private int _interval = 200;
