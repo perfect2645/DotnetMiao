@@ -1,4 +1,6 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Content;
+using Jkchegu.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace Jkchegu.appointment
 
         public async Task CancelAsync()
         {
-            await Task.Factory.StartNew(() => Appoint());
+            await Task.Factory.StartNew(() => Cancel());
         }
 
         public void Cancel()
@@ -39,13 +41,11 @@ namespace Jkchegu.appointment
                 if (string.IsNullOrEmpty(result) || result.Contains("成功"))
                 {
                     JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
-                    IsSuccess = true;
                 }
 
                 if (string.IsNullOrEmpty(result) || result.Contains("存在已有"))
                 {
                     JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
-                    IsSuccess = true;
                 }
 
                 JkSession.PrintLogEvent.Publish(this, $"result:{result}");
