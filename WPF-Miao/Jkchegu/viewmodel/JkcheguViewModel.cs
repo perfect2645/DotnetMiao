@@ -166,7 +166,7 @@ namespace Jkchegu.viewmodel
 
         private void InitCommands()
         {
-            //SearchCommand = new RelayCommand(ExecuteSearchAsync);
+            SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
             JkSession.AppointEvent.Subscribe(OnAppointment);
@@ -202,7 +202,6 @@ namespace Jkchegu.viewmodel
         }
 
         #endregion Status Control
-
 
         #region AutoRun
 
@@ -256,22 +255,30 @@ namespace Jkchegu.viewmodel
             }
         }
 
-        private async void ExecuteAppointAsync()
+        private void ExecuteManual()
         {
-            try
-            {
-                JkSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                //await searchController.SearchByDateAsync();
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
+            Task.Factory.StartNew(() => {
+                try
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"手动预约{SelectedDate.Display}");
+                    JkSession.Cookie = Cookie;
+                    JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
+                    var dateCountController = HttpServiceController.GetService<DateCountController>();
+                    Task.Factory.StartNew(() =>
+                    {
+                        var result = dateCountController.SearchBydate(SelectedDate.Value);
+                        JkSession.PrintLogEvent.Publish(this, $"{result}");
+                    });
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
         }
 
         #endregion Appoint

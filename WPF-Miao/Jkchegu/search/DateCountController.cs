@@ -41,7 +41,7 @@ namespace Jkchegu.search
             await Task.Factory.StartNew(() => SearchBydate(date));
         }
 
-        public void SearchBydate(string date)
+        public string SearchBydate(string date)
         {
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
@@ -56,21 +56,25 @@ namespace Jkchegu.search
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"Search({date}) - {response?.Message}");
-                    return;
+                    return response?.Message;
                 }
 
                 var result = response.JsonBody.RootElement;
                 var hasMiao = response.JsonBody.RootElement.GetProperty("doccustom");
                 if (hasMiao.ValueKind == JsonValueKind.Null)
                 {
-                    return;
+                    var res = $"没查到苗 {date}";
+                    Log(res);
+                    return res;
                 }
                 SearchInterval.StopInterval();
                 AnalysisResult(result, date);
+                return $"查到苗{date}";
             }
             catch (Exception ex)
             {
                 JkSession.PrintLogEvent.Publish(this, $"未查到苗{date} - {ex.Message} - {ex.StackTrace}");
+                return $"{ex.Message}";
             }
         }
 
