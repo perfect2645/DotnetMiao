@@ -98,7 +98,7 @@ namespace Jkchegu.viewmodel
             InitStaticData();
             JkSession.PrintLogEvent = PrintLogEvent;
 
-            TestData();
+            //TestData();
         }
 
         private void TestData()
@@ -114,7 +114,7 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 10, 25, 7, 59, 56);
+            StartTime = new DateTime(2022, 11, 11, 7, 59, 56);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
