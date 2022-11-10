@@ -36,6 +36,7 @@ namespace Jkchegu.appointment
 
             sb.AppendLine($"Date - {Date}");
             sb.AppendLine($"Time - {Time}");
+            sb.AppendLine($"Guid - {GUID}");
             sb.AppendLine($"Yzm - {Yzm}");
 
             sb.AppendLine("**************************************");
