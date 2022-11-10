@@ -144,6 +144,13 @@ namespace Jkchegu.viewmodel
                     DepartmentId = "18",
                     DepartmentName = "九价宫颈癌疫苗（进口）",
                 },
+                new JkHospital
+                {
+                    HospitalId = "whsjjkfqzyjxmsqwsfwzx",
+                    HospitalName = "新民社区服务站",
+                    DepartmentId = "17",
+                    DepartmentName = "四价宫颈癌疫苗（进口）",
+                },
                 //<option value="24">儿童乙肝疫苗（免费）</option>
                 new JkHospital
                 {
