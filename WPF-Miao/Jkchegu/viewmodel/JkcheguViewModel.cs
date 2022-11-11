@@ -114,10 +114,10 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            //Cookie = "JSESSIONID=A228544CF6804542F272475115539CD0";
-            //Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
-            Cookie = "JSESSIONID=54830514C13378E7CD9F8A7E58426038";
-            Etid = "159817eff84541839aa2d43115a33f42";
+            Cookie = "JSESSIONID=A228544CF6804542F272475115539CD0";
+            Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
+            //Cookie = "JSESSIONID=54830514C13378E7CD9F8A7E58426038";
+            //Etid = "159817eff84541839aa2d43115a33f42";
 
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
