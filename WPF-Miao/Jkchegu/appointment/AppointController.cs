@@ -71,26 +71,26 @@ namespace Jkchegu.appointment
                     return;
                 }
 
-                //content.BuildDefaultHeaders(Client);
+                content.BuildDefaultHeaders(Client);
 
-                //HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-                //if (response == null)
-                //{
-                //    JkSession.PrintLogEvent.Publish(this, $"Appoint response is null");
-                //}
+                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                if (response == null)
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"Appoint response is null");
+                }
 
-                //var result = response.JsonBody.RootElement.GetProperty("res").ToString();
-                //if (string.IsNullOrEmpty(result) || result.Contains("成功"))
-                //{
-                //    JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
-                //    IsSuccess = true;
-                //}
+                var result = response.JsonBody.RootElement.GetProperty("res").ToString();
+                if (string.IsNullOrEmpty(result) || result.Contains("成功"))
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
+                    IsSuccess = true;
+                }
 
-                //if (string.IsNullOrEmpty(result) || result.Contains("存在已有"))
-                //{
-                //    JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
-                //    IsSuccess = true;
-                //}
+                if (string.IsNullOrEmpty(result) || result.Contains("存在已有"))
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
+                    IsSuccess = true;
+                }
 
                 //JkSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
