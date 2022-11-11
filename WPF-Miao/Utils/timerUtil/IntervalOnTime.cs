@@ -16,6 +16,12 @@ namespace Utils.timerUtil
 
         #region Constructor
 
+        public IntervalOnTime(string name, int interval)
+        {
+            Interval = interval;
+            InitIntervalTimer();
+        }
+
         public IntervalOnTime(Action action, string name, int interval)
         {
             IntervalAction = action;

@@ -7,46 +7,53 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils.timerUtil;
 
 namespace Jkchegu.appointment
 {
     internal class AppointController : HttpClientBase
     {
-
+        private IntervalOnTime _intervalOnTime;
         public bool IsSuccess { get; private set; }
         public YzmController YzmController { get; private set; }
+
+        private int loopCount = 0;
 
         public AppointController(HttpClient httpClient) : base(httpClient)
         {
             YzmController = HttpServiceController.GetService<YzmController>();
+            _intervalOnTime = new IntervalOnTime("车谷预约", 2000);
         }
 
         public void Yuyue(List<Order> orderList)
         {
             var result = YuyueAsync(orderList).Result;
+            _intervalOnTime.StartIntervalOntime(() =>
+            {
+                var result = YuyueAsync(orderList).Result;
+            });
         }
 
         private async Task<int> YuyueAsync(List<Order> orderList)
         {
-            for(var i = 1; i < 10; i++)
+            loopCount++;
+            JkSession.PrintLogEvent.Publish(this, $"第{loopCount}次预约循环，orderCount{orderList.Count}");
+            if (IsSuccess)
+            {
+                JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return 1;
+            }
+            foreach (var order in orderList)
             {
                 if (IsSuccess)
                 {
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
-                foreach (var order in orderList)
-                {
-                    if (IsSuccess)
-                    {
-                        JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                        return 1;
-                    }
-                    order.Yzm = await GetYzmAsync();
-                    Log(order.ToLogString());
-                    var content = new AppointContent(order);
-                    await AppointAsync(content);
-                }
+                order.Yzm = await GetYzmAsync();
+                Log(order.ToLogString());
+                var content = new AppointContent(order);
+                await AppointAsync(content);
             }
 
             return 0;
