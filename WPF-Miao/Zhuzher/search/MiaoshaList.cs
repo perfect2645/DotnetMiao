@@ -58,8 +58,8 @@ namespace Zhuzher.search
         public MiaoshaItemList()
         {
             MiaoshaList = new List<MiaoshaItem>();
-            //InitMiaoshaList();
-            TestInitMiaoshaList();
+            InitMiaoshaList();
+            //TestInitMiaoshaList();
         }
 
         private void TestInitMiaoshaList()
@@ -71,8 +71,8 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             AddMiaoshaItem(4956, 1, "SK II全效活肤氨基酸泡沫洁面霜", "943", "2022-11-11 19:59:59");
-            AddMiaoshaItem(5203 , 1, "原生竹浆卫生纸家庭装(28卷)", "943", "2022-11-04 20:00:00");
-            AddMiaoshaItem(5202, 1, "澳雪香水沐浴露1套(2瓶)", "943", "2022-11-04 20:00:01");
+            AddMiaoshaItem(5203 , 1, "原生竹浆卫生纸家庭装(28卷)", "943", "2022-11-11 20:00:00");
+            AddMiaoshaItem(5202, 1, "澳雪香水沐浴露1套(2瓶)", "943", "2022-11-11 20:00:01");
             //AddMiaoshaItem(4322, 1, "小熊电火锅烤涮一体锅", "943", "2022-11-04 20:00:00");
             //AddMiaoshaItem(4893, 1, "德庄老重庆全家福火锅底料4袋", "943", "2022-11-04 20:00:03");
             //AddMiaoshaItem(3644, 1, "可爱公仔玩偶", "629", "2022-10-28 20:00:10");
