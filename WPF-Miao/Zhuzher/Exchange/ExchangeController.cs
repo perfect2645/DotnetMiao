@@ -69,10 +69,8 @@ namespace Zhuzher.Exchange
         }
 
 
-        public void Seckill(MiaoshaItem good)
+        public void Seckill(UserProject user, MiaoshaItem good)
         {
-            var user = UserProjectList.UserProjects.FirstOrDefault();
-
             var isLoot = false;
             if (good.Number > 0)
             {
