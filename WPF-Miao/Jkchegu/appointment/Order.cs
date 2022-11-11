@@ -14,6 +14,11 @@ namespace Jkchegu.appointment
 
         public Dictionary<string, object> Doccustom = new Dictionary<string, object>();
 
+        public Order()
+        {
+
+        }
+
         public Order(string date, string time, Dictionary<string, object> doccustom)
         {
             Date = date;

@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
+using Utils.stringBuilder;
 
 namespace Jkchegu.viewmodel
 {
@@ -80,6 +81,18 @@ namespace Jkchegu.viewmodel
                 _etid = value;
                 JkSession.MiaoSession.AddOrUpdate("Etid", value);
                 NotifyUI(() => Etid);
+            }
+        }
+
+        private string _guid;
+        public string GUID
+        {
+            get { return _guid; }
+            set
+            {
+                _guid = value;
+                JkSession.MiaoSession.AddOrUpdate("GUID", value);
+                NotifyUI(() => GUID);
             }
         }
 
@@ -263,6 +276,14 @@ namespace Jkchegu.viewmodel
                     JkSession.PrintLogEvent.Publish(this, $"手动预约{SelectedDate.Display}");
                     JkSession.Cookie = Cookie;
                     JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
+
+                    if (StringUtil.NotEmpty(SelectedDate?.Value, SelectedTime?.Value))
+                    {
+
+                        DirectlyOrder(SelectedDate.Value, SelectedTime.Value);
+                        return;
+                    }
+
                     var dateCountController = HttpServiceController.GetService<DateCountController>();
                     Task.Factory.StartNew(() =>
                     {
@@ -278,6 +299,16 @@ namespace Jkchegu.viewmodel
                 {
                     Log(ex);
                 }
+            });
+        }
+
+        private void DirectlyOrder(string date, string time)
+        {
+            var dateCountController = HttpServiceController.GetService<DateCountController>();
+            Task.Factory.StartNew(() =>
+            {
+                var result = dateCountController.SearchBydateTime(date, time);
+                JkSession.PrintLogEvent.Publish(this, $"{result}");
             });
         }
 

@@ -78,7 +78,7 @@ namespace Jkchegu.search
             }
         }
 
-        private void AnalysisResult(JsonElement jsonElement, string date)
+        private void AnalysisResult(JsonElement jsonElement, string date, string time = "")
         {
             lock (OrderLock)
             {
@@ -88,12 +88,12 @@ namespace Jkchegu.search
                 }
                 lock (OrderLock)
                 {
-                    SaveMiaoInfo(jsonElement, date);
+                    SaveMiaoInfo(jsonElement, date, time);
                 }
             }
         }
 
-        private void SaveMiaoInfo(JsonElement jsonElement, string date)
+        private void SaveMiaoInfo(JsonElement jsonElement, string date, string time = "")
         {
             var pdList = jsonElement.GetProperty("pdList");
             var dateDic = JsonAnalysis.JsonToDicList(pdList);
@@ -110,6 +110,14 @@ namespace Jkchegu.search
             var availableTime = doccustomDic.Where(pair =>
                 pair.Key.StartsWith("DATE", StringComparison.OrdinalIgnoreCase)
                 && pair.Value.NotNullString() != "0").Select(x => x.Key).ToHashSet();
+
+            if (!string.IsNullOrEmpty(time))
+            {
+                if (availableTime.Contains(time))
+                {
+                    availableTime = availableTime.Where(s => s == time).ToHashSet();
+                }
+            }
 
             JkSession.PrintLogEvent.Publish(this, $"查到苗{date}");
 
@@ -132,5 +140,46 @@ namespace Jkchegu.search
             };
             JkSession.AppointEvent.Publish(null, appointEventArgs);
         }
+
+        #region 手动 / 转号
+
+        internal object SearchBydateTime(string date, string time)
+        {
+            var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
+
+            var content = new DateCountContent(url);
+            content.AddHeader("Cookie", JkSession.Cookie);
+            content.BuildDefaultHeaders(Client);
+            content.AddContent("yyDate", date);
+
+            try
+            {
+                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                if (response?.JsonBody?.RootElement == null)
+                {
+                    Log($"Search({date}) - {response?.Message}");
+                    return response?.Message;
+                }
+
+                var result = response.JsonBody.RootElement;
+                var hasMiao = response.JsonBody.RootElement.GetProperty("doccustom");
+                if (hasMiao.ValueKind == JsonValueKind.Null)
+                {
+                    var res = $"没查到苗 {date}";
+                    Log(res);
+                    return res;
+                }
+                SearchInterval?.StopInterval();
+                AnalysisResult(result, date, time);
+                return $"查到苗{date}";
+            }
+            catch (Exception ex)
+            {
+                JkSession.PrintLogEvent.Publish(this, $"未查到苗{date} - {ex.Message} - {ex.StackTrace}");
+                return $"{ex.Message}";
+            }
+        }
+
+        #endregion 手动 / 转号
     }
 }

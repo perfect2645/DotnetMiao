@@ -22,7 +22,7 @@ namespace Jkchegu.appointment
         public AppointController(HttpClient httpClient) : base(httpClient)
         {
             YzmController = HttpServiceController.GetService<YzmController>();
-            _intervalOnTime = new IntervalOnTime("车谷预约", 2000);
+            _intervalOnTime = new IntervalOnTime("车谷预约", 200);
         }
 
         public void Yuyue(List<Order> orderList)
