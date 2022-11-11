@@ -251,6 +251,12 @@ namespace Jkchegu.viewmodel
             lock (OrderLock)
             {
                 var orderList = e.OrderList;
+                var orderType = e.OrderType;
+                if ("Exchange" == orderType)
+                {
+                    ExchangeOrdersAsync(orderList);
+                    return;
+                }
                 ConsumeOrdersAsync(orderList);
             }
         }
@@ -261,6 +267,19 @@ namespace Jkchegu.viewmodel
             {
                 var appointController = HttpServiceController.GetService<AppointController>();
                 appointController.Yuyue(orderList);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExchangeOrdersAsync(List<Order> orderList)
+        {
+            try
+            {
+                var appointController = HttpServiceController.GetService<AppointController>();
+                appointController.Exchange(orderList);
             }
             catch (Exception ex)
             {

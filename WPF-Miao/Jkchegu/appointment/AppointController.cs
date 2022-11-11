@@ -7,19 +7,24 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils.timerUtil;
 
 namespace Jkchegu.appointment
 {
     internal class AppointController : HttpClientBase
     {
-
+        private IntervalOnTime _intervalOnTime;
+        private int loopCount = 0;
         public bool IsSuccess { get; private set; }
         public YzmController YzmController { get; private set; }
 
         public AppointController(HttpClient httpClient) : base(httpClient)
         {
             YzmController = HttpServiceController.GetService<YzmController>();
+            _intervalOnTime = new IntervalOnTime("车谷预约", 200);
         }
+
+        #region Yuyue
 
         public void Yuyue(List<Order> orderList)
         {
@@ -66,6 +71,7 @@ namespace Jkchegu.appointment
         {
             try
             {
+                JkSession.PrintLogEvent.Publish(this, $"{loopCount}");
                 if (IsSuccess)
                 {
                     return;
@@ -98,7 +104,48 @@ namespace Jkchegu.appointment
             {
                 JkSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
-
         }
+
+        #endregion Yuyue
+
+        #region 转号
+
+        public void Exchange(List<Order> orderList)
+        {
+            var result = ExchangeAsync(orderList).Result;
+            _intervalOnTime.StartIntervalOntime(() =>
+            {
+                var result = ExchangeAsync(orderList).Result;
+            });
+        }
+
+        private async Task<int> ExchangeAsync(List<Order> orderList)
+        {
+            loopCount++;
+            JkSession.PrintLogEvent.Publish(this, $"第{loopCount}次预约循环，orderCount{orderList.Count}");
+            if (IsSuccess)
+            {
+                _intervalOnTime.StopInterval();
+                JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return 1;
+            }
+            foreach (var order in orderList)
+            {
+                if (IsSuccess)
+                {
+                    _intervalOnTime.StopInterval();
+                    JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                    return 1;
+                }
+                order.Yzm = await GetYzmAsync();
+                Log(order.ToLogString());
+                var content = new AppointContent(order);
+                await AppointAsync(content);
+            }
+
+            return 0;
+        }
+
+        #endregion 转号
     }
 }

@@ -25,5 +25,6 @@ namespace Jkchegu.appointment
     public class AppointEventArgs
     {
         public List<Order> OrderList { get; set; }
+        public string OrderType { get; set; }
     }
 }

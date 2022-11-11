@@ -111,15 +111,16 @@ namespace Jkchegu.search
                 pair.Key.StartsWith("DATE", StringComparison.OrdinalIgnoreCase)
                 && pair.Value.NotNullString() != "0").Select(x => x.Key).ToHashSet();
 
+            JkSession.PrintLogEvent.Publish(this, $"查到苗{date}");
+
             if (!string.IsNullOrEmpty(time))
             {
                 if (availableTime.Contains(time))
                 {
                     availableTime = availableTime.Where(s => s == time).ToHashSet();
+                    BuildExchangeList(date, doccustomDic, availableTime);
                 }
             }
-
-            JkSession.PrintLogEvent.Publish(this, $"查到苗{date}");
 
             BuildOrderList(date, doccustomDic, availableTime);
         }
@@ -157,7 +158,7 @@ namespace Jkchegu.search
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    Log($"Search({date}) - {response?.Message}");
+                    Log($"Search({date}-{time}) - {response?.Message}");
                     return response?.Message;
                 }
 
@@ -178,6 +179,24 @@ namespace Jkchegu.search
                 JkSession.PrintLogEvent.Publish(this, $"未查到苗{date} - {ex.Message} - {ex.StackTrace}");
                 return $"{ex.Message}";
             }
+        }
+
+        private static void BuildExchangeList(string date, Dictionary<string, object> doccustomDic, HashSet<string> availableTime)
+        {
+            var orderList = new List<Order>();
+            foreach (var time in availableTime)
+            {
+                orderList.Add(new Order(date, time, doccustomDic));
+            }
+
+            orderList = orderList.DisorderItems();
+
+            var appointEventArgs = new AppointEventArgs
+            {
+                OrderList = orderList,
+                OrderType = "Exchange"
+            };
+            JkSession.AppointEvent.Publish(null, appointEventArgs);
         }
 
         #endregion 手动 / 转号
