@@ -40,6 +40,7 @@ namespace Jkchegu.appointment
             JkSession.PrintLogEvent.Publish(this, $"第{loopCount}次预约循环，orderCount{orderList.Count}");
             if (IsSuccess)
             {
+                _intervalOnTime.StopInterval();
                 JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                 return 1;
             }
@@ -47,6 +48,7 @@ namespace Jkchegu.appointment
             {
                 if (IsSuccess)
                 {
+                    _intervalOnTime.StopInterval();
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
@@ -75,6 +77,7 @@ namespace Jkchegu.appointment
             {
                 if (IsSuccess)
                 {
+                    _intervalOnTime.StopInterval();
                     return;
                 }
 
