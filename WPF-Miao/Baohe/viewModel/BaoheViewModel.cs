@@ -92,6 +92,10 @@ namespace Baohe.viewModel
                 "1039346", "包河区包公街道社区服务中心",
                 "7229969", "九价Hpv"));
 
+            Departments.Add(new Jiankangzhilu("1000031", "包河区包公街道",
+                "1094417", "雨花社区卫生服务中心",
+                "7225728", "九价Hpv"));
+
             InitPlatformSession();
         }
 
