@@ -43,7 +43,7 @@ namespace Jkchegu.appointment
                         return 1;
                     }
                     order.Yzm = await GetYzmAsync();
-                    JkSession.PrintLogEvent.Publish(this, order.ToLogString());
+                    Log(order.ToLogString());
                     var content = new AppointContent(order);
                     await AppointAsync(content);
                 }
@@ -92,7 +92,7 @@ namespace Jkchegu.appointment
                     IsSuccess = true;
                 }
 
-                JkSession.PrintLogEvent.Publish(this, $"result:{result}");
+                //JkSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
             catch(Exception ex)
             {

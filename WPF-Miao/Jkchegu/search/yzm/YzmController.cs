@@ -51,7 +51,7 @@ namespace Jkchegu.search.yzm
                 JkSession.PrintLogEvent.Publish(this, $"获取验证码 失败");
                 return "获取验证码 失败";
             }
-            JkSession.PrintLogEvent.Publish(this, $"获取验证码 成功 - {yzmResult}");
+            Log($"获取验证码 成功 - {yzmResult}");
             JkSession.MiaoSession.AddOrUpdate("Yzm", yzmResult);
 
             return yzmResult;

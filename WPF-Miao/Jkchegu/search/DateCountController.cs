@@ -67,7 +67,7 @@ namespace Jkchegu.search
                     Log(res);
                     return res;
                 }
-                SearchInterval.StopInterval();
+                SearchInterval?.StopInterval();
                 AnalysisResult(result, date);
                 return $"查到苗{date}";
             }
