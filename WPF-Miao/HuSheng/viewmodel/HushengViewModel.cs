@@ -264,15 +264,14 @@ namespace HuSheng.viewmodel
 
         protected override void AutoRun()
         {
-            Task.Factory.StartNew(async () =>
-            {
+            Task.Factory.StartNew(() => {
                 if (MainSession.MiaoStatus.MiaoProgress < MiaoProgress.GettingMiao)
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                     PrintLogEvent.Publish(this, "开始查苗了");
                 }
                 var miaoSchedule = HttpServiceController.GetService<SearchController>();
-                //await miaoSchedule.SearchAsync();
+                return Task.CompletedTask;
             });
         }
 
