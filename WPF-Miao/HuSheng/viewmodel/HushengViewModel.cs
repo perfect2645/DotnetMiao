@@ -141,7 +141,8 @@ namespace HuSheng.viewmodel
 
         protected override void OnSearchingAsync()
         {
-
+            var searchController = HttpServiceController.GetService<SearchController>();
+            searchController.SearchAsync();
         }
 
         protected override void OnSearchendAsync()
@@ -175,14 +176,7 @@ namespace HuSheng.viewmodel
 
         private void OnSearchClick()
         {
-            Task.Factory.StartNew(async () =>
-            {
-                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
-                {
-                    MainSession.SetStatus(MiaoProgress.GettingMiao);
-                }
-                await SearchAsync();
-            });
+            MainSession.SetStatus(MiaoProgress.Searching);
         }
 
         private async Task SearchAsync()
