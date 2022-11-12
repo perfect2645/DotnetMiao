@@ -4,9 +4,9 @@ using Utils.stringBuilder;
 
 namespace HuSheng.search
 {
-    internal class SearchContent : HttpStringContent
+    internal class VaccPlanContent : HttpStringContent
     {
-        public SearchContent(string url) : base(url)
+        public VaccPlanContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";
             BuildHeader();

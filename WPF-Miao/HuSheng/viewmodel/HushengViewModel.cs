@@ -70,7 +70,7 @@ namespace HuSheng.viewmodel
 
         private readonly object OrderLock = new object();
 
-        private SearchController _searchController;
+        private VaccPlanController _searchController;
 
         #endregion Properties
 
@@ -123,7 +123,7 @@ namespace HuSheng.viewmodel
 
         private void InitControllers()
         {
-            _searchController = HttpServiceController.GetService<SearchController>();
+            _searchController = HttpServiceController.GetService<VaccPlanController>();
         }
 
         #endregion Constructor
@@ -141,7 +141,7 @@ namespace HuSheng.viewmodel
 
         protected override void OnSearchingAsync()
         {
-            var searchController = HttpServiceController.GetService<SearchController>();
+            var searchController = HttpServiceController.GetService<VaccPlanController>();
             searchController.SearchAsync();
         }
 
@@ -264,7 +264,7 @@ namespace HuSheng.viewmodel
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                     PrintLogEvent.Publish(this, "开始查苗了");
                 }
-                var miaoSchedule = HttpServiceController.GetService<SearchController>();
+                var miaoSchedule = HttpServiceController.GetService<VaccPlanController>();
                 return Task.CompletedTask;
             });
         }
