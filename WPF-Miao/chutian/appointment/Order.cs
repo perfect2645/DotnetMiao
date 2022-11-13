@@ -6,13 +6,13 @@ namespace chutian.appointment
 {
     public class Order
     {
-        //POST http://www.hys020.com/home/attSave_42CB58972CD44CD9945775814C00CA41_D4BEB657DDCD46F585DB5E7046996B3B_1_1_?regPhase=10%3A30%20-%2011%3A00&wechatid=gh_868741944de3&patBindId=7B28B513877B4258A45949146B98F2D6 HTTP/1.1
-        public string DepartmentId { get; set; }
-        public string AttId { get; set; }
-        public string TimeRangeEncode { get; set; }
-        public string WechatId { get; set; }
-        public string PatBindId { get; set; }
-        public string OrgId { get; set; }
+        public string UserId { get; set; }
+        public string DoctorId { get; set; }
+        public string FamilyId { get; set; }
+        public string ScheduleId { get; set; }
+        public string ParttimeId { get; set; }
+        public string Hospitalid { get; set; }
+        public string MiaoId { get; set; }
 
         public string OrderUrl 
         { 
@@ -21,8 +21,8 @@ namespace chutian.appointment
 
         private string BuildUrl()
         {
-            var urlHead = "http://www.hys020.com/home/attSave";
-            var url = $"{urlHead}_{DepartmentId}_{AttId}_1_1_?regPhase={TimeRangeEncode}&wechatid={WechatId}&patBindId={PatBindId}";
+            var urlHead = "https://ctmingyi.com:18082/api/order/getOrderById";
+            var url = $"{urlHead}/{MiaoId}/{Hospitalid}";
             return url;
         }
 
@@ -32,9 +32,9 @@ namespace chutian.appointment
 
             sb.AppendLine("******** 开始预约 *********");
 
-            sb.AppendLine($"WechatId - {WechatId}");
-            sb.AppendLine($"Time - {TimeRangeEncode}");
-            sb.AppendLine($"PatBindId - {PatBindId}");
+            sb.AppendLine($"UserId - {UserId}");
+            sb.AppendLine($"ScheduleId - {ScheduleId}");
+            sb.AppendLine($"MiaoId - {MiaoId}");
 
             sb.AppendLine("**************************************");
 

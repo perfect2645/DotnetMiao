@@ -99,6 +99,8 @@ namespace chutian.viewmodel
 
         private readonly object OrderLock = new object();
 
+        private SearchController _searchController = new SearchController();
+
         #endregion Properties
 
         #region Constructor
@@ -114,17 +116,15 @@ namespace chutian.viewmodel
 
         private void TestData()
         {
-            //Cookie = "JSESSIONID=A228544CF6804542F272475115539CD0";
-            //Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
-            Cookie = "JSESSIONID=4E4D3E323CDD43315499CD463460240B";
-
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+            UserPhone = "13940897525";
+            _userPassword = "yinhen2645";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 11, 7, 59, 56);
+            StartTime = new DateTime(2022, 11, 16, 7, 59, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             //DateList = new List<DspVal>
@@ -151,25 +151,25 @@ namespace chutian.viewmodel
             {
                 new ChutianHospital
                 {
-                    HospitalId = "whsjjkfqzyjxmsqwsfwzx",
-                    HospitalName = "新民社区服务站",
-                    DepartmentId = "18",
-                    DepartmentName = "九价宫颈癌疫苗（进口）",
+                    HospitalId = "100012",
+                    HospitalName = "武汉市汉阳区妇幼保健院",
+                    DepartmentId = "646202",
+                    DepartmentName = "九价HPV疫苗",
                 },
                 new ChutianHospital
                 {
-                    HospitalId = "whsjjkfqzyjxmsqwsfwzx",
-                    HospitalName = "新民社区服务站",
-                    DepartmentId = "17",
-                    DepartmentName = "四价宫颈癌疫苗（进口）",
+                    HospitalId = "100012",
+                    HospitalName = "武汉市汉阳区妇幼保健院",
+                    DepartmentId = "646191",
+                    DepartmentName = "四价HPV疫苗",
                 },
                 //<option value="24">儿童乙肝疫苗（免费）</option>
                 new ChutianHospital
                 {
-                    HospitalId = "whsjjkfqzyjxmsqwsfwzx",
-                    HospitalName = "新民社区服务站",
-                    DepartmentId = "24",
-                    DepartmentName = "儿童乙肝疫苗（免费）",
+                    HospitalId = "100012",
+                    HospitalName = "武汉市汉阳区妇幼保健院",
+                    DepartmentId = "646441",
+                    DepartmentName = "带状疱疹疫苗",
                 },
             };
 
@@ -178,7 +178,7 @@ namespace chutian.viewmodel
 
         private void InitCommands()
         {
-            LoginCommand = new RelayCommand(ExecuteLogin);
+            LoginCommand = new AsyncRelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
@@ -212,16 +212,22 @@ namespace chutian.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
+            StopIntervalTimer();
         }
 
         #endregion Status Control
 
         #region Login
 
-        private void ExecuteLogin()
+        private async Task ExecuteLogin()
         {
+            if (StringUtil.AnyEmpty(UserPhone, UserPassword))
+            {
+                MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
+                return;
+            }
             var loginController = HttpServiceController.GetService<LoginController>();
-            loginController.LoginAsync(UserPhone, UserPassword);
+            await loginController.LoginAsync(UserPhone, UserPassword);
         }
 
         #endregion Login
@@ -233,9 +239,10 @@ namespace chutian.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    MainSession.Cookie = Cookie;
+                    ExecuteLogin();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-                    var searchController = new SearchController();
+                    StartIntervalTimer();
+                    //var searchController = new SearchController();
                 }
                 catch (HttpException ex)
                 {
@@ -250,6 +257,21 @@ namespace chutian.viewmodel
 
         protected override void AutoRun()
         {
+            Task.Factory.StartNew(() => {
+                try
+                {
+
+                    _searchController.SearchAsync();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
         }
 
         #endregion AutoRun
@@ -299,20 +321,29 @@ namespace chutian.viewmodel
 
         private void ExecuteManual()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"手动预约{SelectedDate.Display}");
-                    MainSession.Cookie = Cookie;
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-
-                    if (StringUtil.NotEmpty(SelectedDate?.Value, SelectedTime?.Value))
+                    if (StringUtil.AnyEmpty(UserPhone, UserPassword))
                     {
-
-                        DirectlyOrder(SelectedDate.Value, SelectedTime.Value);
+                        MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
                         return;
                     }
+                    MainSession.PrintLogEvent.Publish(this, $"手动预约");
+                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
+                    if (MainSession.UserSession.GetString(Constants.UserPhone) != UserPhone)
+                    {
+                        await ExecuteLogin();
+                    }
+
+                    //if (StringUtil.NotEmpty(SelectedDate?.Value, SelectedTime?.Value))
+                    //{
+                    //    DirectlyOrder(SelectedDate.Value, SelectedTime.Value);
+                    //    return;
+                    //}
+
+                    _searchController.SearchAsync();
                     //var dateCountController = HttpServiceController.GetService<DateCountController>();
                     //Task.Factory.StartNew(() =>
                     //{
@@ -366,7 +397,7 @@ namespace chutian.viewmodel
         {
             var selectedDept = SelectedDepartment as ChutianHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
         }

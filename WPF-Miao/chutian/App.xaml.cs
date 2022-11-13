@@ -1,5 +1,6 @@
 ﻿using chutian.appointment.Yuyue;
 using chutian.login;
+using chutian.search;
 using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +29,7 @@ namespace chutian
         {
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<LoginController>();
+            HttpServiceController.AddTransientService<DoctorInfoController>();
 
             HttpServiceController.BuidServiceProvider();
         }

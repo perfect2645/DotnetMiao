@@ -1,0 +1,225 @@
+POST https://ctmingyi.com:18082/api/hospital/doctorInfo HTTP/1.1
+Host: ctmingyi.com:18082
+Connection: keep-alive
+Content-Length: 15
+content-type: application/x-www-form-urlencoded
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d37) NetType/WIFI Language/zh_CN
+Referer: https://servicewechat.com/wx8d28cdcd4357647c/33/page-frame.html
+
+doctorId=646441
+HTTP/1.1 200
+Server: nginx/1.13.7
+Date: Sun, 13 Nov 2022 11:43:45 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 3907
+
+{"msg":"操作成功","code":0,"success":true,"obj":[{"divisionID":23898,"hosCode":" ","keyword":null,"teletOpen":null,"audioOpen":null,"wzCount":null,"teletPrice":null,"audioPrice":null,"audioDura":null,"scheduleList":[{"scheduleid":"a829aca1-2b4a-4ea2-bd49-0aa44eb8aec5","id":"17162925","outpdate":"2022-11-14","timeinterval":"ALL","timeintervalDes":"全天","outptypename":null,"clinicfee":0.0,"discountfee":0.0,"registrationfee":0.0,"reserveflag":1,"hospitalid":"100012","hospitalCode":null,"periodTime":"全天","price":0.0,"reservation":true,"hosName":null,"weken":"星期一","outpatient":"专家门诊","depID":null,"depName":null,"docID":null,"docName":null,"docTitle":null,"list":null,"partTime":false,"yycount":2,"doctorID":646441},{"scheduleid":"f5112ac2-f86c-49f9-b6a7-1fb9d72b814b","id":"17163547","outpdate":"2022-11-15","timeinterval":"ALL","timeintervalDes":"全天","outptypename":null,"clinicfee":0.0,"discountfee":0.0,"registrationfee":0.0,"reserveflag":1,"hospitalid":"100012","hospitalCode":null,"periodTime":"全天","price":0.0,"reservation":true,"hosName":null,"weken":"星期二","outpatient":"专家门诊","depID":null,"depName":null,"docID":null,"docName":null,"docTitle":null,"list":null,"partTime":false,"yycount":1,"doctorID":646441},{"scheduleid":"48035e1e-5d4a-4747-a043-2295bacba5e0","id":"17164163","outpdate":"2022-11-16","timeinterval":"ALL","timeintervalDes":"全天","outptypename":null,"clinicfee":0.0,"discountfee":0.0,"registrationfee":0.0,"reserveflag":1,"hospitalid":"100012","hospitalCode":null,"periodTime":"全天","price":0.0,"reservation":true,"hosName":null,"weken":"星期三","outpatient":"专家门诊","depID":null,"depName":null,"docID":null,"docName":null,"docTitle":null,"list":null,"partTime":false,"yycount":2,"doctorID":646441},{"scheduleid":"a48a3126-7337-4b3d-820d-144df767ba20","id":"17164653","outpdate":"2022-11-17","timeinterval":"ALL","timeintervalDes":"全天","outptypename":null,"clinicfee":0.0,"discountfee":0.0,"registrationfee":0.0,"reserveflag":1,"hospitalid":"100012","hospitalCode":null,"periodTime":"全天","price":0.0,"reservation":true,"hosName":null,"weken":"星期四","outpatient":"专家门诊","depID":null,"depName":null,"docID":null,"docName":null,"docTitle":null,"list":null,"partTime":false,"yycount":1,"doctorID":646441},{"scheduleid":"29ebd375-9b80-454f-9b24-b8f0dfc678fc","id":"17164935","outpdate":"2022-11-18","timeinterval":"ALL","timeintervalDes":"全天","outptypename":null,"clinicfee":0.0,"discountfee":0.0,"registrationfee":0.0,"reserveflag":1,"hospitalid":"100012","hospitalCode":null,"periodTime":"全天","price":0.0,"reservation":true,"hosName":null,"weken":"星期五","outpatient":"专家门诊","depID":null,"depName":null,"docID":null,"docName":null,"docTitle":null,"list":null,"partTime":false,"yycount":2,"doctorID":646441}],"outpdate":null,"description":"<p>温馨提示！</p><p><span style=\"color: rgb(255, 0, 0);\">应疫情防控要求不能跨区，仅限本区居民才能预约就诊，待疫情防控解除后可以正常跨区预约，谢谢您的理解！</span></p>","parentCode":null,"inputCode":"","reservationSum":33,"inquirySum":0,"isAccount":null,"isHold":null,"hospitaCode":"100012","isExpertism":null,"id":646441,"type":0,"verification":0,"code":null,"explain":"1.就诊需携带证件相关要求请仔细阅读挂号须知。\r\n2.就诊请提前15分钟到场，戴好口罩，保持一米排队距离！如需取消预约，请提前一天下午4点以前取消预约。","yycount":null,"hospitalName":"武汉市汉阳区妇幼保健院","province":null,"divisionName":"带状疱疹疫苗","parentID":23312,"imgUrl":"http://img.ctmingyi.com/upload/IMAGE/doctor.png","inquire":null,"hang":1,"duty":null,"job":"医师","attending":"无","hospitalID":54,"divisionCode":"","name":"普通号","goodAt":"无","createTime":"2022-04-12 16:24:12","phone":null,"sex":0,"status":3}]}
+
+
+
+{
+    "msg": "操作成功",
+    "code": 0,
+    "success": true,
+    "obj": [
+        {
+            "divisionID": 23898,
+            "hosCode": " ",
+            "keyword": null,
+            "teletOpen": null,
+            "audioOpen": null,
+            "wzCount": null,
+            "teletPrice": null,
+            "audioPrice": null,
+            "audioDura": null,
+            "scheduleList": [
+                {
+                    "scheduleid": "a829aca1-2b4a-4ea2-bd49-0aa44eb8aec5",
+                    "id": "17162925",
+                    "outpdate": "2022-11-14",
+                    "timeinterval": "ALL",
+                    "timeintervalDes": "全天",
+                    "outptypename": null,
+                    "clinicfee": 0,
+                    "discountfee": 0,
+                    "registrationfee": 0,
+                    "reserveflag": 1,
+                    "hospitalid": "100012",
+                    "hospitalCode": null,
+                    "periodTime": "全天",
+                    "price": 0,
+                    "reservation": true,
+                    "hosName": null,
+                    "weken": "星期一",
+                    "outpatient": "专家门诊",
+                    "depID": null,
+                    "depName": null,
+                    "docID": null,
+                    "docName": null,
+                    "docTitle": null,
+                    "list": null,
+                    "partTime": false,
+                    "yycount": 2,
+                    "doctorID": 646441
+                },
+                {
+                    "scheduleid": "f5112ac2-f86c-49f9-b6a7-1fb9d72b814b",
+                    "id": "17163547",
+                    "outpdate": "2022-11-15",
+                    "timeinterval": "ALL",
+                    "timeintervalDes": "全天",
+                    "outptypename": null,
+                    "clinicfee": 0,
+                    "discountfee": 0,
+                    "registrationfee": 0,
+                    "reserveflag": 1,
+                    "hospitalid": "100012",
+                    "hospitalCode": null,
+                    "periodTime": "全天",
+                    "price": 0,
+                    "reservation": true,
+                    "hosName": null,
+                    "weken": "星期二",
+                    "outpatient": "专家门诊",
+                    "depID": null,
+                    "depName": null,
+                    "docID": null,
+                    "docName": null,
+                    "docTitle": null,
+                    "list": null,
+                    "partTime": false,
+                    "yycount": 1,
+                    "doctorID": 646441
+                },
+                {
+                    "scheduleid": "48035e1e-5d4a-4747-a043-2295bacba5e0",
+                    "id": "17164163",
+                    "outpdate": "2022-11-16",
+                    "timeinterval": "ALL",
+                    "timeintervalDes": "全天",
+                    "outptypename": null,
+                    "clinicfee": 0,
+                    "discountfee": 0,
+                    "registrationfee": 0,
+                    "reserveflag": 1,
+                    "hospitalid": "100012",
+                    "hospitalCode": null,
+                    "periodTime": "全天",
+                    "price": 0,
+                    "reservation": true,
+                    "hosName": null,
+                    "weken": "星期三",
+                    "outpatient": "专家门诊",
+                    "depID": null,
+                    "depName": null,
+                    "docID": null,
+                    "docName": null,
+                    "docTitle": null,
+                    "list": null,
+                    "partTime": false,
+                    "yycount": 2,
+                    "doctorID": 646441
+                },
+                {
+                    "scheduleid": "a48a3126-7337-4b3d-820d-144df767ba20",
+                    "id": "17164653",
+                    "outpdate": "2022-11-17",
+                    "timeinterval": "ALL",
+                    "timeintervalDes": "全天",
+                    "outptypename": null,
+                    "clinicfee": 0,
+                    "discountfee": 0,
+                    "registrationfee": 0,
+                    "reserveflag": 1,
+                    "hospitalid": "100012",
+                    "hospitalCode": null,
+                    "periodTime": "全天",
+                    "price": 0,
+                    "reservation": true,
+                    "hosName": null,
+                    "weken": "星期四",
+                    "outpatient": "专家门诊",
+                    "depID": null,
+                    "depName": null,
+                    "docID": null,
+                    "docName": null,
+                    "docTitle": null,
+                    "list": null,
+                    "partTime": false,
+                    "yycount": 1,
+                    "doctorID": 646441
+                },
+                {
+                    "scheduleid": "29ebd375-9b80-454f-9b24-b8f0dfc678fc",
+                    "id": "17164935",
+                    "outpdate": "2022-11-18",
+                    "timeinterval": "ALL",
+                    "timeintervalDes": "全天",
+                    "outptypename": null,
+                    "clinicfee": 0,
+                    "discountfee": 0,
+                    "registrationfee": 0,
+                    "reserveflag": 1,
+                    "hospitalid": "100012",
+                    "hospitalCode": null,
+                    "periodTime": "全天",
+                    "price": 0,
+                    "reservation": true,
+                    "hosName": null,
+                    "weken": "星期五",
+                    "outpatient": "专家门诊",
+                    "depID": null,
+                    "depName": null,
+                    "docID": null,
+                    "docName": null,
+                    "docTitle": null,
+                    "list": null,
+                    "partTime": false,
+                    "yycount": 2,
+                    "doctorID": 646441
+                }
+            ],
+            "outpdate": null,
+            "description": "<p>温馨提示！</p><p><span style=\"color: rgb(255, 0, 0);\">应疫情防控要求不能跨区，仅限本区居民才能预约就诊，待疫情防控解除后可以正常跨区预约，谢谢您的理解！</span></p>",
+            "parentCode": null,
+            "inputCode": "",
+            "reservationSum": 33,
+            "inquirySum": 0,
+            "isAccount": null,
+            "isHold": null,
+            "hospitaCode": "100012",
+            "isExpertism": null,
+            "id": 646441,
+            "type": 0,
+            "verification": 0,
+            "code": null,
+            "explain": "1.就诊需携带证件相关要求请仔细阅读挂号须知。\r\n2.就诊请提前15分钟到场，戴好口罩，保持一米排队距离！如需取消预约，请提前一天下午4点以前取消预约。",
+            "yycount": null,
+            "hospitalName": "武汉市汉阳区妇幼保健院",
+            "province": null,
+            "divisionName": "带状疱疹疫苗",
+            "parentID": 23312,
+            "imgUrl": "http://img.ctmingyi.com/upload/IMAGE/doctor.png",
+            "inquire": null,
+            "hang": 1,
+            "duty": null,
+            "job": "医师",
+            "attending": "无",
+            "hospitalID": 54,
+            "divisionCode": "",
+            "name": "普通号",
+            "goodAt": "无",
+            "createTime": "2022-04-12 16:24:12",
+            "phone": null,
+            "sex": 0,
+            "status": 3
+        }
+    ]
+}

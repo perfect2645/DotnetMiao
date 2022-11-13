@@ -8,7 +8,7 @@
             {
                 return true;
             }
-            return strs.Any(str => !string.IsNullOrEmpty(str));
+            return strs.Any(str => string.IsNullOrEmpty(str));
         }
 
         public static bool NotEmpty(params string[] strs)

@@ -21,9 +21,9 @@ namespace chutian.login
         {
         }
 
-        public void LoginAsync(string userPhone, string userPassword)
+        public async Task LoginAsync(string userPhone, string userPassword)
         {
-            Task.Factory.StartNew(() => Login(userPhone, userPassword));
+            await Task.Factory.StartNew(() => Login(userPhone, userPassword));
         }
 
         public void Login(string userPhone, string userPassword)
@@ -49,10 +49,7 @@ namespace chutian.login
                     MainSession.SetStatus(MiaoProgress.ReadyForSearch);
                     return;
                 }
-                else
-                {
-                    MainSession.SetStatus(MiaoProgress.Init);
-                }
+                MainSession.SetStatus(MiaoProgress.Init);
             }
             catch (Exception ex)
             {

@@ -7,6 +7,7 @@ namespace chutian.common
     {
         public ChutianBaseContent(string url) : base(url)
         {
+            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 

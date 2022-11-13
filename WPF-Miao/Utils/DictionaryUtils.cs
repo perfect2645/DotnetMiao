@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Linq;
+using System.Text.Json;
 using Utils.json;
 
 namespace Utils
@@ -70,6 +71,34 @@ namespace Utils
             }
 
             return dic.Count > 0;
+        }
+
+        public static string GetString(this Dictionary<string, object> dic, string key)
+        {
+            if (dic == null || key == null)
+            {
+                return null;
+            }
+
+            if (!dic.ContainsKey(key))
+            {
+                return null;
+            }
+            return dic[key].ToString();
+        }
+
+        public static object GetValue(this Dictionary<string, object> dic, string key)
+        {
+            if (dic == null || key == null)
+            {
+                return null;
+            }
+
+            if (!dic.ContainsKey(key))
+            {
+                return null;
+            }
+            return dic[key];
         }
     }
 }
