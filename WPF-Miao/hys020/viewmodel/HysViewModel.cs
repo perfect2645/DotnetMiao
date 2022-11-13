@@ -99,13 +99,15 @@ namespace hys020.viewmodel
             InitStaticData();
             InitControllers();
 
-            //TestData();
+            TestData();
         }
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=3404102DBF977C90A4C324EC147C64EC";
-            Location = "http://www.hys020.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=iS3Q9CBrbezAF/LZ2y4gP1JlxuCYfsu8";
+            Cookie = "JSESSIONID=16117389A032602915BECC7B5F92B755";
+            Location = "http://www.hys020.com/home/yyghDorMobile?userId=42CB58972CD44CD9945775814C00CA41&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=6uDkDCvjSleNbmH+UpvhpLebNHBZWsFI";
+
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitControllers()
@@ -115,7 +117,7 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 7, 10, 59, 55);
+            StartTime = new DateTime(2022, 11, 14, 10, 59, 55);
 
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
