@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace hys020.search
+namespace chutian.search
 {
     internal class SearchController
     {

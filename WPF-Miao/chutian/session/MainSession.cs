@@ -1,13 +1,15 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
+using chutian.appointment;
 using System.Collections.Generic;
 
 namespace chutian.session
 {
-    internal class MainSession : MainSessionBase, ISessionContainer
+    public class MainSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
+        public static Dictionary<string, object> UserSession { get; private set; }
 
         public static AppointEvent AppointEvent { get; }
 

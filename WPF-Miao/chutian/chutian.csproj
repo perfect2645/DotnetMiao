@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="viewmodel\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
