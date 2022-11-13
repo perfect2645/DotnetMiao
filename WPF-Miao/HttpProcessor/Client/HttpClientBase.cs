@@ -81,18 +81,6 @@ namespace HttpProcessor.Client
             }
         }
 
-        public virtual void Search(HttpMessageContent content, Action<HttpDicResponse> callback)
-        {
-            try
-            {
-                Client.Search(content, callback);
-            }
-            catch (Exception ex)
-            {
-                GLog.Logger.Error("Search Failed", ex);
-            }
-        }
-
         public virtual async Task<HtmlResponse> SearchHtml(string url)
         {
             var response = await Client.SearchHtml(url);
@@ -103,29 +91,16 @@ namespace HttpProcessor.Client
 
         #region Get
 
-        public virtual async Task<string> GetStringAsync(HttpStringContent content)
+        public virtual async Task<HttpDicResponse> GetStringAsync(HttpStringContent content)
         {
             try
             {
-                return await Client.GetStringAsync(content.RequestUrl);
+                return await Client.GetJsonAsync(content);
             }
             catch (Exception ex)
             {
-                GLog.Logger.Error("GetStringAsync Failed", ex);
-                return null;
-            }
-        }
-
-        public virtual async Task<Stream> GetStreamAsync(HttpStringContent content)
-        {
-            try
-            {
-                return await Client.GetStreamAsync(content.RequestUrl);
-            }
-            catch (Exception ex)
-            {
-                GLog.Logger.Error("GetStringAsync Failed", ex);
-                return null;
+                GLog.Logger.Error("GetStringAsync", ex);
+                return new HttpDicResponse(ex.Message);
             }
         }
 

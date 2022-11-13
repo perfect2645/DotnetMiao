@@ -3,6 +3,7 @@ using Base.viewModel;
 using Base.viewModel.hospital;
 using chutian.appointment;
 using chutian.appointment.Yuyue;
+using chutian.login;
 using chutian.search;
 using chutian.session;
 using CommunityToolkit.Mvvm.Input;
@@ -22,7 +23,9 @@ namespace chutian.viewmodel
     internal class ChutianViewModel : OnTimeViewModel
     {
         #region Properties
+
         public ICommand SearchCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
         public ICommand YzmCommand { get; set; }
 
@@ -69,6 +72,28 @@ namespace chutian.viewmodel
                 _selectedTime = value;
                 //MainSession.MiaoSession.AddOrUpdate("Time", value.Value);
                 NotifyUI(() => SelectedTime);
+            }
+        }
+
+        private string _userPhone;
+        public string UserPhone
+        {
+            get { return _userPhone; }
+            set
+            {
+                _userPhone = value;
+                NotifyUI(() => UserPhone);
+            }
+        }
+
+        private string _userPassword;
+        public string UserPassword
+        {
+            get { return _userPassword; }
+            set
+            {
+                _userPassword = value;
+                NotifyUI(() => UserPassword);
             }
         }
 
@@ -153,6 +178,7 @@ namespace chutian.viewmodel
 
         private void InitCommands()
         {
+            LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
@@ -189,6 +215,16 @@ namespace chutian.viewmodel
         }
 
         #endregion Status Control
+
+        #region Login
+
+        private void ExecuteLogin()
+        {
+            var loginController = HttpServiceController.GetService<LoginController>();
+            loginController.LoginAsync(UserPhone, UserPassword);
+        }
+
+        #endregion Login
 
         #region AutoRun
 

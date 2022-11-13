@@ -10,20 +10,25 @@
         <session:MainSession x:Key="mainSession" />
     </Page.Resources>
     <basePage:OnTimeConsole x:Name="baseConsole"
+                            IsCookieVisible="Collapsed"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:OnTimeConsole.DynamicArea>
             <StackPanel>
-                <TextBox Width="300" Height="30"
+                <StackPanel Background="Bisque">
+                    <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
-                         Text="{Binding Etid}"
-                        materialDesign:HintAssist.Hint="GUID"/>
-                <!--<TextBox Width="300" Height="30"
-                        Margin="0,20,0,20"
-                        Text="{Binding GUID}"
-                    materialDesign:HintAssist.Hint="GUID">
-                </TextBox>-->
+                         Text="{Binding UserPhone}"
+                        materialDesign:HintAssist.Hint="手机"/>
+                    <TextBox Width="300" Height="30"
+                         Margin="0,20,0,20"
+                         Text="{Binding UserPassword}"
+                        materialDesign:HintAssist.Hint="密码"/>
+                    <Button Content="登录" Margin="0,0,10,0"
+                        Command="{Binding LoginCommand}" Width="100">
+                    </Button>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="100">
                     <ComboBox
                         Style="{StaticResource mui_combobox}"

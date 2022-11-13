@@ -16,6 +16,7 @@ namespace chutian.session
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
+            UserSession = new Dictionary<string, object>();
             AppointEvent = new AppointEvent();
         }
 

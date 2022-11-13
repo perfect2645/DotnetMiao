@@ -73,17 +73,6 @@ namespace HttpProcessor.Request
             }
         }
 
-        public static Task<HttpDicResponse> Search(this HttpClient client, HttpMessageContent content)
-        {
-            return Task.Run(() => client.SearchAsync(content).Result);
-        }
-
-        public static void Search(this HttpClient client, HttpMessageContent content, Action<HttpDicResponse> callback)
-        {
-            var task = client.Search(content);
-            callback(task.Result);
-        }
-
         public static async Task<HtmlResponse> SearchHtml(this HttpClient client, string url)
         {
             try
@@ -101,6 +90,21 @@ namespace HttpProcessor.Request
             {
                 GLog.Logger.Error(ex);
                 return null;
+            }
+        }
+
+        public static async Task<HttpDicResponse> GetJsonAsync(this HttpClient client, HttpStringContent content)
+        {
+            try
+            {
+                var response = await client.GetAsync(content.RequestUrl);
+                response.EnsureSuccessStatusCode();
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, "GetJsonAsync");
             }
         }
 

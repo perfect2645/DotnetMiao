@@ -1,4 +1,5 @@
 ﻿using chutian.appointment.Yuyue;
+using chutian.login;
 using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,7 @@ namespace chutian
         private void InitController()
         {
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<LoginController>();
 
             HttpServiceController.BuidServiceProvider();
         }
