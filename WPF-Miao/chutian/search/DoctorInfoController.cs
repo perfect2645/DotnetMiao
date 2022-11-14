@@ -128,6 +128,7 @@ namespace chutian.search
             {
                 OrderList = orderList
             };
+
             MainSession.ScheduleEvent.Publish(null, scheduleEventArgs);
 
             //foreach (var user in MainSession.UserSession.Users)

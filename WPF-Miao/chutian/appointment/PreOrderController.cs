@@ -11,6 +11,7 @@ namespace chutian.appointment
 {
     internal class PreOrderController : HttpClientBase
     {
+        private int count = 0;
         public PreOrderController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -32,6 +33,12 @@ namespace chutian.appointment
         {
             try
             {
+                count++;
+                if (count % 100 == 1)
+                {
+                    Log($"尝试预约第{count}次");
+                }
+
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
@@ -41,14 +48,12 @@ namespace chutian.appointment
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                var success = root.GetProperty("success").NotNullString().ToBool();
-                var msg = root.GetProperty("msg").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"PreOrder - {msg}");
-                if ("0".Equals(code) && success)
+                if ("0".Equals(code))
                 {
                     var miaoInfo = root.GetProperty("obj");
                     AnalysisResult(miaoInfo, content.Order);
-
+                    var msg = root.GetProperty("msg").NotNullString();
+                    Log($"PreOrder - {msg}");
                     return;
                 }
             }
@@ -64,7 +69,8 @@ namespace chutian.appointment
             {
                 return;
             }
-
+            order.IntervalOnTime?.StopInterval();
+            MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
             order.MiaoId = miaoInfo.GetProperty("id").NotNullString();
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }

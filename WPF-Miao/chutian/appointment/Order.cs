@@ -1,11 +1,13 @@
 ﻿using Base.Events;
 using System;
 using System.Text;
+using Utils.timerUtil;
 
 namespace chutian.appointment
 {
     public class Order
     {
+        public IntervalOnTime IntervalOnTime { get; private set; }
         public string UserId { get; set; }
         public string DoctorId { get; set; }
         public string FamilyId { get; set; }
@@ -19,6 +21,11 @@ namespace chutian.appointment
             get { return BuildUrl(); }
         }
 
+        public Order()
+        {
+            IntervalOnTime = new IntervalOnTime(ScheduleId, 2000);
+        }
+
         private string BuildUrl()
         {
             var urlHead = "https://ctmingyi.com:18082/api/order/getOrderById";
@@ -30,7 +37,7 @@ namespace chutian.appointment
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("******** 开始预约 *********");
+            sb.AppendLine("******** 预约成功 *********");
 
             sb.AppendLine($"UserId - {UserId}");
             sb.AppendLine($"ScheduleId - {ScheduleId}");

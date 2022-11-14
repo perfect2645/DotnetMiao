@@ -290,10 +290,14 @@ namespace chutian.viewmodel
                 var preContent = new PreOrderContent();
                 preOrderController.BuildHeaders(preContent);
 
-                foreach(var schedule in scheduleList)
+                foreach(var order in scheduleList)
                 {
-                    var content = new PreOrderContent(schedule);
+                    var content = new PreOrderContent(order);
                     preOrderController.PreOrderAsync(content);
+                    order.IntervalOnTime.StartIntervalOntime(() =>
+                    {
+                        Task.Factory.StartNew(() => preOrderController.PreOrderAsync(content));
+                    });
                 }
             }
             catch (Exception ex)
