@@ -3,7 +3,6 @@ using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
 using chutian.appointment;
-using chutian.appointment.Yuyue;
 using chutian.login;
 using chutian.search;
 using chutian.session;
@@ -240,10 +239,10 @@ namespace chutian.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
-                    ExecuteLogin();
+                    await ExecuteLogin();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
                     StartIntervalTimer();
                     //var searchController = new SearchController();
@@ -287,8 +286,15 @@ namespace chutian.viewmodel
             var scheduleList = e.OrderList;
             try
             {
-                var appointController = HttpServiceController.GetService<YuyueController>();
-                //appointController.Yuyue(orderList);
+                var preOrderController = HttpServiceController.GetService<PreOrderController>();
+                var preContent = new PreOrderContent();
+                preOrderController.BuildHeaders(preContent);
+
+                foreach(var schedule in scheduleList)
+                {
+                    var content = new PreOrderContent(schedule);
+                    preOrderController.PreOrderAsync(content);
+                }
             }
             catch (Exception ex)
             {

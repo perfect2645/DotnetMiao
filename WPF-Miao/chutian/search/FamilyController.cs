@@ -73,11 +73,6 @@ namespace chutian.search
                 var userId = member.GetString(Constants.UserID);
                 MainSession.UserSession.AddUser(userId, member);
             }
-            //var token = familyInfo.GetProperty("token").NotNullString();
-            //var dicResult = JsonAnalysis.JsonToDic(family);
-            //var userId = dicResult[Constants.UserId].NotNullString();
-            //MainSession.UserSession.AddUser(userId, dicResult);
-            //MainSession.PrintLogEvent.Publish(this, dicResult);
         }
     }
 }

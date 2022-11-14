@@ -110,7 +110,7 @@ namespace chutian.search
             var defaultUser = MainSession.UserSession.Users.FirstOrDefault();
             var userInfo = defaultUser.Value as Dictionary<string, object>;
             var userId = userInfo.GetString(Constants.UserID);
-            var familyId = userInfo.GetString(Constants.FamilyId);
+            var familyId = userInfo.GetString(Constants.FamilyID);
             foreach (var schedule in scheduleList)
             {
                 orderList.Add(new Order
@@ -139,7 +139,7 @@ namespace chutian.search
         private void BuildOrdersForOneUser(Dictionary<string, object> userInfo, List<Order> orderList)
         {
             var userId = userInfo.GetString(Constants.UserID);
-            var familyId = userInfo.GetString(Constants.FamilyId);
+            var familyId = userInfo.GetString(Constants.FamilyID);
             foreach (var order in orderList)
             {
                 order.UserId = userId;

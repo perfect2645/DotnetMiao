@@ -1,4 +1,4 @@
-﻿using chutian.appointment.Yuyue;
+﻿using chutian.appointment;
 using chutian.login;
 using chutian.search;
 using HttpProcessor.Container;
@@ -31,6 +31,7 @@ namespace chutian
             HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<FamilyController>();
             HttpServiceController.AddTransientService<DoctorInfoController>();
+            HttpServiceController.AddTransientService<PreOrderController>();
 
             HttpServiceController.BuidServiceProvider();
         }

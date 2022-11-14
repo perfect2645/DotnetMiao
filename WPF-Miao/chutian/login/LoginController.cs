@@ -69,6 +69,7 @@ namespace chutian.login
             var dicResult = JsonAnalysis.JsonToDic(user);
             dicResult.AddOrUpdate("token", token);
             var userId = dicResult[Constants.UserID].NotNullString();
+            MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
             MainSession.PlatformSession.AddOrUpdate(userId, dicResult);
             MainSession.PrintLogEvent.Publish(this, dicResult);
 

@@ -23,6 +23,33 @@ namespace HttpProcessor.Client
             Client = httpClient;
         }
 
+        #region Header
+
+        public void BuildClientHeaders(HttpStringContent content)
+        {
+            try
+            {
+                foreach (var header in content.Headers)
+                {
+                    if (!Client.DefaultRequestHeaders.Contains(header.Key))
+                    {
+                        Client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                    }
+                    else
+                    {
+                        Client.DefaultRequestHeaders.Remove(header.Key);
+                        Client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new HttpException(ex, "Build HttpClient Header");
+            }
+        }
+
+        #endregion Header
+
         #region Search
 
         public virtual async Task<HttpDicResponse> SearchAsync(HttpMessageContent content)

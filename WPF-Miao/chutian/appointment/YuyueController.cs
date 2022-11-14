@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Utils.timerUtil;
 
-namespace chutian.appointment.Yuyue
+namespace chutian.appointment
 {
     public class YuyueController : HttpClientBase
     {

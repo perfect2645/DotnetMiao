@@ -1,6 +1,6 @@
 ﻿using chutian.common;
 
-namespace chutian.appointment.Yuyue
+namespace chutian.appointment
 {
     internal class YuyueContent : ChutianBaseContent
     {
