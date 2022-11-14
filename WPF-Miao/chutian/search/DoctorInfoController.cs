@@ -103,16 +103,51 @@ namespace chutian.search
         private void BuildOrderList(List<Dictionary<string, object>> scheduleList)
         {
             var orderList = new List<Order>();
+
+            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+
+            var defaultUser = MainSession.UserSession.Users.FirstOrDefault();
+            var userInfo = defaultUser.Value as Dictionary<string, object>;
+            var userId = userInfo.GetString(Constants.UserID);
+            var familyId = userInfo.GetString(Constants.FamilyId);
             foreach (var schedule in scheduleList)
             {
                 orderList.Add(new Order
                 {
-
+                    DoctorId = doctorId,
+                    ScheduleId = schedule.GetString(Constants.Scheduleid),
+                    Hospitalid = hospitalId,
+                    UserId = userId,
+                    FamilyId = familyId,
                 });
             }
 
-            orderList = orderList.DisorderItems();
+            var scheduleEventArgs = new ScheduleEventArgs
+            {
+                OrderList = orderList
+            };
+            MainSession.ScheduleEvent.Publish(null, scheduleEventArgs);
 
+            //foreach (var user in MainSession.UserSession.Users)
+            //{
+            //    var userInfo = user.Value as Dictionary<string, object>;
+            //    BuildOrdersForOneUser(userInfo, orderList);
+            //}
+        }
+
+        private void BuildOrdersForOneUser(Dictionary<string, object> userInfo, List<Order> orderList)
+        {
+            var userId = userInfo.GetString(Constants.UserID);
+            var familyId = userInfo.GetString(Constants.FamilyId);
+            foreach (var order in orderList)
+            {
+                order.UserId = userId;
+                order.FamilyId = familyId;
+            }
+
+
+            orderList = orderList.DisorderItems();
             var appointEventArgs = new AppointEventArgs
             {
                 OrderList = orderList

@@ -9,15 +9,18 @@ namespace chutian.session
     {
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
-        public static Dictionary<string, object> UserSession { get; private set; }
+
+        public static UserSession UserSession { get; private set; }
 
         public static AppointEvent AppointEvent { get; }
+        public static ScheduleEvent ScheduleEvent { get; }
 
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
-            UserSession = new Dictionary<string, object>();
+            UserSession = new UserSession();
             AppointEvent = new AppointEvent();
+            ScheduleEvent = new ScheduleEvent();
         }
 
         #region MiaoStatus

@@ -29,6 +29,7 @@ namespace chutian
         {
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<LoginController>();
+            HttpServiceController.AddTransientService<FamilyController>();
             HttpServiceController.AddTransientService<DoctorInfoController>();
 
             HttpServiceController.BuidServiceProvider();

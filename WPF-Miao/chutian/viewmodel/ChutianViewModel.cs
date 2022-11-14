@@ -1,4 +1,5 @@
 ﻿using Base.model;
+using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
 using chutian.appointment;
@@ -183,6 +184,7 @@ namespace chutian.viewmodel
             CancelCommand = new RelayCommand(ExecuteCancel);
 
             MainSession.AppointEvent.Subscribe(OnAppointment);
+            MainSession.ScheduleEvent.Subscribe(OnSchedule);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
@@ -227,7 +229,9 @@ namespace chutian.viewmodel
                 return;
             }
             var loginController = HttpServiceController.GetService<LoginController>();
-            await loginController.LoginAsync(UserPhone, UserPassword);
+            var userId = await loginController.LoginAsync(UserPhone, UserPassword);
+            var familyController = HttpServiceController.GetService<FamilyController>();
+            await familyController.GetFamilyAsync(userId);
         }
 
         #endregion Login
@@ -275,6 +279,25 @@ namespace chutian.viewmodel
         }
 
         #endregion AutoRun
+
+        #region Schedule
+
+        private void OnSchedule(object? sender, ScheduleEventArgs e)
+        {
+            var scheduleList = e.OrderList;
+            try
+            {
+                var appointController = HttpServiceController.GetService<YuyueController>();
+                //appointController.Yuyue(orderList);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+
+        #endregion Schedule
 
         #region Appoint
 
@@ -332,17 +355,17 @@ namespace chutian.viewmodel
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
-                    if (MainSession.UserSession.GetString(Constants.UserPhone) != UserPhone)
-                    {
-                        await ExecuteLogin();
-                    }
+                    await ExecuteLogin();
 
                     //if (StringUtil.NotEmpty(SelectedDate?.Value, SelectedTime?.Value))
                     //{
                     //    DirectlyOrder(SelectedDate.Value, SelectedTime.Value);
                     //    return;
                     //}
-
+                    if (MainSession.GetStatus() != MiaoProgress.ReadyForSearch)
+                    {
+                        return;
+                    }
                     _searchController.SearchAsync();
                     //var dateCountController = HttpServiceController.GetService<DateCountController>();
                     //Task.Factory.StartNew(() =>

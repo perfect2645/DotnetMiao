@@ -21,12 +21,12 @@ namespace chutian.login
         {
         }
 
-        public async Task LoginAsync(string userPhone, string userPassword)
+        public async Task<string> LoginAsync(string userPhone, string userPassword)
         {
-            await Task.Factory.StartNew(() => Login(userPhone, userPassword));
+            return await Task.Factory.StartNew(() => Login(userPhone, userPassword));
         }
 
-        public void Login(string userPhone, string userPassword)
+        public string Login(string userPhone, string userPassword)
         {
             try
             {
@@ -45,19 +45,20 @@ namespace chutian.login
                 if ("0".Equals(code) && success)
                 {
                     var userInfo = response.JsonBody.RootElement.GetProperty("obj");
-                    SaveUserInfo(userInfo);
-                    MainSession.SetStatus(MiaoProgress.ReadyForSearch);
-                    return;
+                    var userid = SaveUserInfo(userInfo);
+                    return userid;
                 }
                 MainSession.SetStatus(MiaoProgress.Init);
+                return null;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"登录异常{ex.Message}");
+                return null;
             }
         }
 
-        private void SaveUserInfo(JsonElement userInfo)
+        private string SaveUserInfo(JsonElement userInfo)
         {
             var user = userInfo.GetProperty("user");
             if (user.ValueKind == JsonValueKind.Null)
@@ -67,9 +68,11 @@ namespace chutian.login
             var token = userInfo.GetProperty("token").NotNullString();
             var dicResult = JsonAnalysis.JsonToDic(user);
             dicResult.AddOrUpdate("token", token);
-            var userPhone = dicResult[Constants.UserPhone].NotNullString();
-            MainSession.UserSession.AddOrUpdate(userPhone, dicResult);
+            var userId = dicResult[Constants.UserID].NotNullString();
+            MainSession.PlatformSession.AddOrUpdate(userId, dicResult);
             MainSession.PrintLogEvent.Publish(this, dicResult);
+
+            return userId;
         }
     }
 }

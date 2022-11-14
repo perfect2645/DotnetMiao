@@ -10,7 +10,7 @@ namespace chutian.appointment
         public string DoctorId { get; set; }
         public string FamilyId { get; set; }
         public string ScheduleId { get; set; }
-        public string ParttimeId { get; set; }
+        public string ParttimeId { get; set; } = string.Empty;
         public string Hospitalid { get; set; }
         public string MiaoId { get; set; }
 
