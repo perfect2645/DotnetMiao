@@ -107,7 +107,7 @@ namespace hys020.viewmodel
             Cookie = "JSESSIONID=16117389A032602915BECC7B5F92B755";
             Location = "http://www.hys020.com/home/yyghDorMobile?userId=42CB58972CD44CD9945775814C00CA41&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=6uDkDCvjSleNbmH+UpvhpLebNHBZWsFI";
 
-            //StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitControllers()

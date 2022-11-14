@@ -46,6 +46,7 @@ namespace hys020.appointment.Yuyue
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                    return;
                 }
 
                 var result = response.JsonBody.RootElement.GetProperty("successMessage").ToString();
