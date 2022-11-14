@@ -123,6 +123,7 @@ namespace chutian.search
                 });
             }
 
+            orderList = orderList.DisorderItems();
             var scheduleEventArgs = new ScheduleEventArgs
             {
                 OrderList = orderList

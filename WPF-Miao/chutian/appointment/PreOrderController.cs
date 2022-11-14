@@ -47,7 +47,7 @@ namespace chutian.appointment
                 if ("0".Equals(code) && success)
                 {
                     var miaoInfo = root.GetProperty("obj");
-                    AnalysisResult(miaoInfo);
+                    AnalysisResult(miaoInfo, content.Order);
 
                     return;
                 }
@@ -58,8 +58,15 @@ namespace chutian.appointment
             }
         }
 
-        private void AnalysisResult(JsonElement miaoInfo)
+        private void AnalysisResult(JsonElement miaoInfo, Order order)
         {
+            if (miaoInfo.ValueKind == JsonValueKind.Null)
+            {
+                return;
+            }
+
+            order.MiaoId = miaoInfo.GetProperty("id").NotNullString();
+            MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }
     }
 }

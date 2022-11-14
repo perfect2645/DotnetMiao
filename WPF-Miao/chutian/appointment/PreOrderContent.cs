@@ -7,7 +7,7 @@ namespace chutian.appointment
 {
     internal class PreOrderContent : ChutianBaseContent
     {
-        private Order _schedule;
+        public Order Order { get; }
 
         private static readonly string url = "https://ctmingyi.com:18082/api/order/preOrder";
 
@@ -17,7 +17,7 @@ namespace chutian.appointment
         }
         public PreOrderContent(Order schedule) : base(url)
         {
-            _schedule = schedule;
+            Order = schedule;
             BuildHeader();
             BuildContent();
         }
@@ -30,12 +30,12 @@ namespace chutian.appointment
 
         private void BuildContent()
         {
-            AddContent("userId", _schedule.UserId);
-            AddContent("doctorId", _schedule.DoctorId);
-            AddContent("familyId", _schedule.FamilyId);
-            AddContent("scheduleId", _schedule.ScheduleId);
-            AddContent("parttimeId", _schedule.ParttimeId);
-            AddContent("hospitalid", _schedule.Hospitalid);
+            AddContent("userId", Order.UserId);
+            AddContent("doctorId", Order.DoctorId);
+            AddContent("familyId", Order.FamilyId);
+            AddContent("scheduleId", Order.ScheduleId);
+            AddContent("parttimeId", Order.ParttimeId);
+            AddContent("hospitalid", Order.Hospitalid);
         }
     }
 }
