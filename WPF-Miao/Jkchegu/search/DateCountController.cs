@@ -45,7 +45,8 @@ namespace Jkchegu.search
         {
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
-            var content = new DateCountContent(url);
+            var etid = JkSession.DefaultEtid;
+            var content = new DateCountContent(etid, url);
             content.AddHeader("Cookie", JkSession.Cookie);
             content.BuildDefaultHeaders(Client);
             content.AddContent("yyDate", date);
@@ -148,7 +149,7 @@ namespace Jkchegu.search
         {
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
-            var content = new DateCountContent(url);
+            var content = new DateCountContent(JkSession.DefaultEtid, url);
             content.AddHeader("Cookie", JkSession.Cookie);
             content.BuildDefaultHeaders(Client);
             content.AddContent("yyDate", date);

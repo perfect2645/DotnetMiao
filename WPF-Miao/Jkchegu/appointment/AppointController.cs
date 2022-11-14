@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils;
 using Utils.timerUtil;
 
 namespace Jkchegu.appointment
@@ -26,12 +27,12 @@ namespace Jkchegu.appointment
 
         #region Yuyue
 
-        public void Yuyue(List<Order> orderList)
+        public void Yuyue(User user, List<Order> orderList)
         {
-            var result = YuyueAsync(orderList).Result;
+            var result = YuyueAsync(user, orderList).Result;
         }
 
-        private async Task<int> YuyueAsync(List<Order> orderList)
+        private async Task<int> YuyueAsync(User user, List<Order> orderList)
         {
             for (var i = 1; i < 10; i++)
             {
@@ -47,9 +48,9 @@ namespace Jkchegu.appointment
                         JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                         return 1;
                     }
-                    order.Yzm = await GetYzmAsync();
+                    order.Yzm = await GetYzmAsync(user.Etid);
                     Log(order.ToLogString());
-                    var content = new AppointContent(order);
+                    var content = new AppointContent(user.Etid, order);
                     await AppointAsync(content);
                 }
             }
@@ -57,9 +58,9 @@ namespace Jkchegu.appointment
             return 0;
         }
 
-        private async Task<string> GetYzmAsync()
+        private async Task<string> GetYzmAsync(string etid)
         {
-            return await YzmController.GetYzmAsync();
+            return await YzmController.GetYzmAsync(etid);
         }
 
         public async Task AppointAsync(AppointContent content)
@@ -137,9 +138,10 @@ namespace Jkchegu.appointment
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
-                order.Yzm = await GetYzmAsync();
+                var etid = JkSession.PlatformSession.GetString("Etid");
+                order.Yzm = await GetYzmAsync(etid);
                 Log(order.ToLogString());
-                var content = new AppointContent(order);
+                var content = new AppointContent(etid, order);
                 await AppointAsync(content);
             }
 

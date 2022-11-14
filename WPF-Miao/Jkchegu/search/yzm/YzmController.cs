@@ -24,17 +24,17 @@ namespace Jkchegu.search.yzm
             }
         }
 
-        public async Task<string> GetYzmAsync()
+        public async Task<string> GetYzmAsync(string etid)
         {
-            return await Task.Factory.StartNew(() => GetYzm());
+            return await Task.Factory.StartNew(() => GetYzm(etid));
         }
 
-        public string GetYzm()
+        public string GetYzm(string etid)
         {
             var timeStamp = DateTimeUtil.GetTimeStamp();
             var url = $"http://app.whkfqws.com/wx-mobile/Vaccination/code.do?t={timeStamp}";
 
-            var content = new DateCountContent(url);
+            var content = new DateCountContent(etid, url);
             content.AddHeader("Cookie", JkSession.Cookie);
 
             content.BuildDefaultHeaders(Client);

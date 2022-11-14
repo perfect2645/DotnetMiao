@@ -79,7 +79,7 @@ namespace Jkchegu.viewmodel
             set
             {
                 _etid = value;
-                JkSession.MiaoSession.AddOrUpdate("Etid", value);
+                JkSession.PlatformSession.AddOrUpdate("Etid", value);
                 NotifyUI(() => Etid);
             }
         }
@@ -114,10 +114,10 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            //Cookie = "JSESSIONID=A228544CF6804542F272475115539CD0";
+            Cookie = "JSESSIONID=EEFBC95C7051985096E7C0B912B40B53";
             //Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
-            Cookie = "JSESSIONID=4E4D3E323CDD43315499CD463460240B";
-            Etid = "030b18b61121492bb4b57b147230aa0d";
+            //Cookie = "JSESSIONID=4E4D3E323CDD43315499CD463460240B";
+            //Etid = "030b18b61121492bb4b57b147230aa0d";
 
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
@@ -265,8 +265,14 @@ namespace Jkchegu.viewmodel
         {
             try
             {
-                var appointController = HttpServiceController.GetService<AppointController>();
-                appointController.Yuyue(orderList);
+                foreach(var user in JkSession.UserList)
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        var appointController = HttpServiceController.GetService<AppointController>();
+                        appointController.Yuyue(user, orderList);
+                    });
+                }
             }
             catch (Exception ex)
             {
