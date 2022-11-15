@@ -127,6 +127,7 @@ namespace chutian.viewmodel
 
         private void TestData()
         {
+            Interval = 5000;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "13940897525";
