@@ -25,7 +25,7 @@ namespace chutian.appointment
 
         public Order()
         {
-            IntervalOnTime = new IntervalOnTime(ScheduleId, 500);
+            IntervalOnTime = new IntervalOnTime(ScheduleId, 600);
         }
 
         private string BuildUrl()

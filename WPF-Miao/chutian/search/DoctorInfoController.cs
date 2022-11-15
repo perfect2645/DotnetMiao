@@ -105,10 +105,7 @@ namespace chutian.search
             MainSession.PrintLogEvent.Publish(this, $"查到苗- 放{avaliableScheduleList.Count}天");
             MainSession.SetStatus(MiaoProgress.MiaoGet);
 
-            var testorder = avaliableScheduleList.LastOrDefault();
-            var testOrderList = new List<Dictionary<string, object>>();
-            testOrderList.Add(testorder);
-            BuildOrderList(testOrderList);
+            BuildOrderList(avaliableScheduleList);
         }
 
         private void BuildOrderList(List<Dictionary<string, object>> scheduleList)
@@ -155,7 +152,7 @@ namespace chutian.search
                 order.UserName = userName;
                 order.UserPhone = phone;
 
-                Log(order.ToLogString());
+                Log($"build order - {order.ToLogString()}");
                 orderList.Add(order);
             }
 

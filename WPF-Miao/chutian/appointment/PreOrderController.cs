@@ -39,6 +39,7 @@ namespace chutian.appointment
                     Log($"尝试预约第{count}次");
                 }
 
+                Log($"开始预约");
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
@@ -48,13 +49,15 @@ namespace chutian.appointment
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
+                var msg = root.GetProperty("msg").NotNullString();
                 if ("0".Equals(code))
                 {
                     var miaoInfo = root.GetProperty("obj");
                     AnalysisResult(miaoInfo, content.Order);
-                    var msg = root.GetProperty("msg").NotNullString();
-                    Log($"PreOrder - {msg}");
-                    return;
+                }
+                else
+                {
+                    Log($"预约结果 - {msg}");
                 }
             }
             catch (Exception ex)
