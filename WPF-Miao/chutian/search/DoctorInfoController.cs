@@ -95,66 +95,77 @@ namespace chutian.search
                 return;
             }
 
-            MainSession.PrintLogEvent.Publish(this, $"查到苗- 放{scheduleList.Count}天");
+            var avaliableScheduleList = scheduleList.Where(x => x["reservation"].NotNullString().ToBool()).ToList();
+            if (!avaliableScheduleList.HasItem())
+            {
+                //Log($"查到{scheduleList.Count}个schedule, reservation=false但是没有放苗");
+                return;
+            }
+
+            MainSession.PrintLogEvent.Publish(this, $"查到苗- 放{avaliableScheduleList.Count}天");
             MainSession.SetStatus(MiaoProgress.MiaoGet);
-            BuildOrderList(scheduleList);
+
+            var testorder = avaliableScheduleList.LastOrDefault();
+            var testOrderList = new List<Dictionary<string, object>>();
+            testOrderList.Add(testorder);
+            BuildOrderList(testOrderList);
         }
 
         private void BuildOrderList(List<Dictionary<string, object>> scheduleList)
         {
-            var orderList = new List<Order>();
+            var baseOrderList = new List<Order>();
 
             var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
-            var defaultUser = MainSession.UserSession.Users.FirstOrDefault();
-            var userInfo = defaultUser.Value as Dictionary<string, object>;
-            var userId = userInfo.GetString(Constants.UserID);
-            var familyId = userInfo.GetString(Constants.FamilyID);
             foreach (var schedule in scheduleList)
             {
-                orderList.Add(new Order
+                baseOrderList.Add(new Order
                 {
                     DoctorId = doctorId,
                     ScheduleId = schedule.GetString(Constants.Scheduleid),
                     Hospitalid = hospitalId,
-                    UserId = userId,
-                    FamilyId = familyId,
                 });
             }
 
-            orderList = orderList.DisorderItems();
-            var scheduleEventArgs = new ScheduleEventArgs
+            foreach (var user in MainSession.UserSession.Users)
             {
-                OrderList = orderList
-            };
-
-            MainSession.ScheduleEvent.Publish(null, scheduleEventArgs);
-
-            //foreach (var user in MainSession.UserSession.Users)
-            //{
-            //    var userInfo = user.Value as Dictionary<string, object>;
-            //    BuildOrdersForOneUser(userInfo, orderList);
-            //}
+                var userInfo = user.Value as Dictionary<string, object>;
+                BuildOrdersForOneUser(userInfo, baseOrderList);
+            }
         }
 
-        private void BuildOrdersForOneUser(Dictionary<string, object> userInfo, List<Order> orderList)
+        private void BuildOrdersForOneUser(Dictionary<string, object> userInfo, List<Order> baseOrderList)
         {
             var userId = userInfo.GetString(Constants.UserID);
             var familyId = userInfo.GetString(Constants.FamilyID);
-            foreach (var order in orderList)
+            var userName = userInfo.GetString("familyName");
+            var phone = userInfo.GetString("familyPhone");
+
+            var orderList = new List<Order>();
+
+            foreach (var baseOrder in baseOrderList)
             {
+                var order = new Order();
+                order.DoctorId = baseOrder.DoctorId;
+                order.ScheduleId = baseOrder.ScheduleId;
+                order.Hospitalid = baseOrder.Hospitalid;
                 order.UserId = userId;
                 order.FamilyId = familyId;
+                order.UserName = userName;
+                order.UserPhone = phone;
+
+                Log(order.ToLogString());
+                orderList.Add(order);
             }
 
-
             orderList = orderList.DisorderItems();
-            var appointEventArgs = new AppointEventArgs
+
+            var appointEventArgs = new ScheduleEventArgs
             {
                 OrderList = orderList
             };
-            MainSession.AppointEvent.Publish(null, appointEventArgs);
+            MainSession.ScheduleEvent.Publish(null, appointEventArgs);
         }
     }
 }

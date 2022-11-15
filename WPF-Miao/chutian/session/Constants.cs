@@ -14,6 +14,7 @@ namespace chutian.session
 
         public const string UserId = "userId";
         public const string UserID = "userID";
+        public const string FamilyId = "familyId";
         public const string UserPhone = "userPhone";
         public const string DoctorId = "doctorId";
         public const string Scheduleid = "scheduleid";

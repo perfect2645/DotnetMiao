@@ -182,7 +182,7 @@ namespace chutian.viewmodel
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
-            MainSession.AppointEvent.Subscribe(OnAppointment);
+            //MainSession.AppointEvent.Subscribe(OnAppointment);
             MainSession.ScheduleEvent.Subscribe(OnSchedule);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
@@ -263,7 +263,6 @@ namespace chutian.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-
                     _searchController.SearchAsync();
                 }
                 catch (HttpException ex)
@@ -279,18 +278,26 @@ namespace chutian.viewmodel
 
         #endregion AutoRun
 
-        #region Schedule
+        #region Appoint
 
         private void OnSchedule(object? sender, ScheduleEventArgs e)
         {
-            var scheduleList = e.OrderList;
+            lock (OrderLock)
+            {
+                var orderList = e.OrderList;
+                Task.Factory.StartNew(() => OnAppointment(orderList));
+            }
+        }
+
+        private void OnAppointment(List<Order> orderList)
+        {
             try
             {
                 var preOrderController = HttpServiceController.GetService<PreOrderController>();
                 var preContent = new PreOrderContent();
                 preOrderController.BuildHeaders(preContent);
 
-                foreach(var order in scheduleList)
+                foreach (var order in orderList)
                 {
                     var content = new PreOrderContent(order);
                     preOrderController.PreOrderAsync(content);
@@ -299,39 +306,6 @@ namespace chutian.viewmodel
                         Task.Factory.StartNew(() => preOrderController.PreOrderAsync(content));
                     });
                 }
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
-
-        #endregion Schedule
-
-        #region Appoint
-
-        private void OnAppointment(object? sender, AppointEventArgs e)
-        {
-            lock (OrderLock)
-            {
-                var orderList = e.OrderList;
-                var orderType = e.OrderType;
-                if ("Exchange" == orderType)
-                {
-                    ExchangeOrdersAsync(orderList);
-                    return;
-                }
-                ConsumeOrdersAsync(orderList);
-            }
-        }
-
-        private void ConsumeOrdersAsync(List<Order> orderList)
-        {
-            try
-            {
-                var appointController = HttpServiceController.GetService<YuyueController>();
-                //appointController.Yuyue(orderList);
             }
             catch (Exception ex)
             {

@@ -9,6 +9,8 @@ namespace chutian.appointment
     {
         public IntervalOnTime IntervalOnTime { get; private set; }
         public string UserId { get; set; }
+        public string UserName { get; set; }
+        public string UserPhone { get; set; }
         public string DoctorId { get; set; }
         public string FamilyId { get; set; }
         public string ScheduleId { get; set; }
@@ -23,7 +25,7 @@ namespace chutian.appointment
 
         public Order()
         {
-            IntervalOnTime = new IntervalOnTime(ScheduleId, 2000);
+            IntervalOnTime = new IntervalOnTime(ScheduleId, 500);
         }
 
         private string BuildUrl()
@@ -40,6 +42,8 @@ namespace chutian.appointment
             sb.AppendLine("******** 预约成功 *********");
 
             sb.AppendLine($"UserId - {UserId}");
+            sb.AppendLine($"UserName - {UserName}");
+            sb.AppendLine($"UserPhone - {UserPhone}");
             sb.AppendLine($"ScheduleId - {ScheduleId}");
             sb.AppendLine($"MiaoId - {MiaoId}");
 

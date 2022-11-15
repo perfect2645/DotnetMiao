@@ -70,8 +70,8 @@ namespace chutian.search
             var familyMembers = JsonAnalysis.JsonToDicList(familyInfo);
             foreach(var member in familyMembers)
             {
-                var userId = member.GetString(Constants.UserID);
-                MainSession.UserSession.AddUser(userId, member);
+                var familyId = member.GetString(Constants.FamilyID);
+                MainSession.UserSession.AddUser(familyId, member);
             }
         }
     }
