@@ -182,7 +182,7 @@ namespace chutian.viewmodel
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
-            //MainSession.AppointEvent.Subscribe(OnAppointment);
+            MainSession.ReSessionEvent.Subscribe(OnResession);
             MainSession.ScheduleEvent.Subscribe(OnSchedule);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
@@ -410,5 +410,15 @@ namespace chutian.viewmodel
         }
 
         #endregion Hospital Dept
+
+        #region ReSession
+
+        private void OnResession(object? sender, ResessionEventArgs e)
+        {
+            Log("ression invoke");
+            AutoRun();
+        }
+
+        #endregion Resession
     }
 }

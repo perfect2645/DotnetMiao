@@ -43,6 +43,13 @@ namespace chutian.appointment
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
+                    if (response?.Message != null && response.Message.Contains("Response status code does not indicate success: 500 ()."))
+                    {
+                        Log($"登录过期，重新登录{response?.Message}");
+                        content.Order.IntervalOnTime?.StopInterval();
+                        MainSession.ReSessionEvent.Publish(this, new ResessionEventArgs());
+                        return;
+                    }
                     Log($"没查到苗{response?.Message}");
                     return;
                 }

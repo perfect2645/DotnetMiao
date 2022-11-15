@@ -12,14 +12,14 @@ namespace chutian.session
 
         public static UserSession UserSession { get; private set; }
 
-        public static AppointEvent AppointEvent { get; }
+        public static ReSessionEvent ReSessionEvent { get; }
         public static ScheduleEvent ScheduleEvent { get; }
 
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
             UserSession = new UserSession();
-            AppointEvent = new AppointEvent();
+            ReSessionEvent = new ReSessionEvent();
             ScheduleEvent = new ScheduleEvent();
         }
 
