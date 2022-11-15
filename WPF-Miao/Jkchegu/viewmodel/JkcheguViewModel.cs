@@ -11,6 +11,7 @@ using Jkchegu.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -130,11 +131,11 @@ namespace Jkchegu.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
             };
 
             JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
@@ -261,17 +262,23 @@ namespace Jkchegu.viewmodel
             }
         }
 
+        int count = 0;
+
         private void ConsumeOrdersAsync(List<Order> orderList)
         {
             try
             {
-                foreach(var user in JkSession.UserList)
+
+                count++;
+                foreach (var user in JkSession.UserList)
                 {
                     Task.Factory.StartNew(() =>
                     {
-                        var appointController = HttpServiceController.GetService<AppointController>();
-                        appointController.Yuyue(user, orderList);
+                        JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
+                        Thread.Sleep(3000);
                     });
+                    //var appointController = HttpServiceController.GetService<AppointController>();
+                    //appointController.Yuyue(user, orderList);
                 }
             }
             catch (Exception ex)
