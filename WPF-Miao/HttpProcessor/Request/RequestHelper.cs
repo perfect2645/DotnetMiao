@@ -127,13 +127,16 @@ namespace HttpProcessor.Request
             }
         }
 
-        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content)
+        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content, bool ensureSuccess = true)
         {
             try
             {
                 var strContent = content.GetStringContent();
                 var response = await client.PostAsync(content.RequestUrl, strContent);
-                response.EnsureSuccessStatusCode();
+                if (ensureSuccess)
+                {
+                    response.EnsureSuccessStatusCode();
+                }
                 return new HttpDicResponse(response);
             }
             catch (Exception ex)

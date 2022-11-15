@@ -97,6 +97,17 @@ namespace chutian.viewmodel
             }
         }
 
+        private string _scheduleId;
+        public string ScheduleId
+        {
+            get { return _scheduleId; }
+            set
+            {
+                _scheduleId = value;
+                NotifyUI(() => ScheduleId);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController = new SearchController();
@@ -126,26 +137,6 @@ namespace chutian.viewmodel
         {
             StartTime = new DateTime(2022, 11, 16, 7, 59, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-
-            //DateList = new List<DspVal>
-            //{
-            //    new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-            //    new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-            //    new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-            //    new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-            //    new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
-            //};
-
-            //MainSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
-
-            //TimeList = new List<DspVal>
-            //{
-            //    new DspVal("8:30-9:00", "DATE1_COUNT"),
-            //    new DspVal("9:00-9:30", "DATE2_COUNT"),
-            //    new DspVal("9:30-10:00", "DATE3_COUNT"),
-            //    new DspVal("10:00-10:30", "DATE4_COUNT"),
-            //    new DspVal("10:30-11:00", "DATE5_COUNT"),
-            //};
 
             Departments = new List<HospitalDept>
             {
@@ -313,19 +304,6 @@ namespace chutian.viewmodel
             }
         }
 
-        private void ExchangeOrdersAsync(List<Order> orderList)
-        {
-            try
-            {
-                //var appointController = HttpServiceController.GetService<AppointController>();
-                //appointController.Exchange(orderList);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
         private void ExecuteManual()
         {
             Task.Factory.StartNew(async () => {
@@ -341,22 +319,16 @@ namespace chutian.viewmodel
 
                     await ExecuteLogin();
 
-                    //if (StringUtil.NotEmpty(SelectedDate?.Value, SelectedTime?.Value))
-                    //{
-                    //    DirectlyOrder(SelectedDate.Value, SelectedTime.Value);
-                    //    return;
-                    //}
+                    if (StringUtil.NotEmpty(ScheduleId))
+                    {
+                        DirectlyOrder(ScheduleId);
+                        return;
+                    }
                     if (MainSession.GetStatus() != MiaoProgress.ReadyForSearch)
                     {
                         return;
                     }
                     _searchController.SearchAsync();
-                    //var dateCountController = HttpServiceController.GetService<DateCountController>();
-                    //Task.Factory.StartNew(() =>
-                    //{
-                    //    var result = dateCountController.SearchBydate(SelectedDate.Value);
-                    //    MainSession.PrintLogEvent.Publish(this, $"{result}");
-                    //});
                 }
                 catch (HttpException ex)
                 {
@@ -369,14 +341,34 @@ namespace chutian.viewmodel
             });
         }
 
-        private void DirectlyOrder(string date, string time)
+        private void DirectlyOrder(string scheduleId)
         {
-            //var dateCountController = HttpServiceController.GetService<DateCountController>();
-            //Task.Factory.StartNew(() =>
-            //{
-            //    var result = dateCountController.SearchBydateTime(date, time);
-            //    MainSession.PrintLogEvent.Publish(this, $"{result}");
-            //});
+            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var userInfo = MainSession.UserSession.Users.FirstOrDefault(x => 
+                (x.Value as Dictionary<string, object>)?.GetString("isDefault") == "1").Value as Dictionary<string, object>;
+
+            var userId = userInfo.GetString(Constants.UserID);
+            var familyId = userInfo.GetString(Constants.FamilyID);
+            var userName = userInfo.GetString("familyName");
+            var phone = userInfo.GetString("familyPhone");
+
+            var order = new Order();
+            order.ScheduleId = scheduleId;
+            order.DoctorId = doctorId;
+            order.Hospitalid = hospitalId;
+            order.UserId = userId;
+            order.FamilyId = familyId;
+            order.UserName = userName;
+            order.UserPhone = phone;
+
+            var preOrderController = HttpServiceController.GetService<PreOrderController>();
+            var content = new PreOrderContent(order);
+            preOrderController.BuildHeaders(content);
+            Task.Factory.StartNew(() =>
+            {
+                preOrderController.Exchange(content);
+            });
         }
 
         #endregion Appoint

@@ -135,13 +135,15 @@ namespace HttpProcessor.Client
 
         #region Post String
 
-        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, ContentType contentType = ContentType.Json)
+        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, 
+            ContentType contentType = ContentType.Json, 
+            bool ensureSuccess = true)
         {
             try
             {
                 if (contentType == ContentType.String)
                 {
-                    return await Client.PostStringAsync(content);
+                    return await Client.PostStringAsync(content, ensureSuccess);
                 }
                 if (contentType == ContentType.Encode)
                 {

@@ -30,22 +30,11 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="100">
-                    <ComboBox
-                        Style="{StaticResource mui_combobox}"
-                        materialDesign:HintAssist.Hint="选择日期"
-                        ItemsSource="{Binding DateList}"
-                        SelectedItem="{Binding SelectedDate}"
-                        DisplayMemberPath="Display"
-                        SelectedValuePath="Value"
-                        Width="auto" Margin="20"/>
-                    <ComboBox
-                        Style="{StaticResource mui_combobox}"
-                        materialDesign:HintAssist.Hint="选择时间"
-                        ItemsSource="{Binding TimeList}"
-                        SelectedItem="{Binding SelectedTime}"
-                        DisplayMemberPath="Display"
-                        SelectedValuePath="Value"
-                        Width="auto" Margin="20"/>
+                    <TextBox Width="300" Height="30"
+                         Margin="0,20,0,20"
+                             Text="{Binding ScheduleId}"
+                        materialDesign:HintAssist.Hint="转号scheduleId">
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
                     <Button Content="手动预约" Margin="0,0,10,0"
