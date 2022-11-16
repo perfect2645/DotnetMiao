@@ -48,7 +48,12 @@ namespace Jkchegu.session
 
         private static User GetDefaultUser()
         {
-            return UserList.FirstOrDefault();
+            return UserList.FirstOrDefault(u => u.IsActive);
+        }
+
+        public static List<User> ActiveUsers()
+        {
+            return UserList.Where(u => u.IsActive).ToList();
         }
 
         private static string GetDefaultEtid()

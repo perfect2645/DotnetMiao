@@ -251,7 +251,8 @@ namespace Jkchegu.viewmodel
                 var orderType = e.OrderType;
                 if ("Exchange" == orderType)
                 {
-                    ExchangeOrdersAsync(orderList);
+                    var user = JkSession.DefaultUser;
+                    ExchangeOrdersAsync(user, orderList);
                     return;
                 }
                 ConsumeOrdersAsync(orderList);
@@ -266,15 +267,13 @@ namespace Jkchegu.viewmodel
             {
 
                 count++;
-                foreach (var user in JkSession.UserList)
+                foreach (var user in JkSession.ActiveUsers())
                 {
                     Task.Factory.StartNew(() =>
                     {
                         JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
-                        Thread.Sleep(3000);
+                        user.Yuyue(orderList);
                     });
-                    //var appointController = HttpServiceController.GetService<AppointController>();
-                    //appointController.Yuyue(user, orderList);
                 }
             }
             catch (Exception ex)
@@ -283,12 +282,12 @@ namespace Jkchegu.viewmodel
             }
         }
 
-        private void ExchangeOrdersAsync(List<Order> orderList)
+        private void ExchangeOrdersAsync(User user, List<Order> orderList)
         {
             try
             {
                 var appointController = HttpServiceController.GetService<AppointController>();
-                appointController.Exchange(orderList);
+                appointController.Exchange(user, orderList);
             }
             catch (Exception ex)
             {
@@ -349,7 +348,9 @@ namespace Jkchegu.viewmodel
             try
             {
                 var appointController = HttpServiceController.GetService<CancelController>();
-                await appointController.CancelAsync();
+
+                var order = new Order();
+                await appointController.CancelAsync(order);
             }
             catch (Exception ex)
             {

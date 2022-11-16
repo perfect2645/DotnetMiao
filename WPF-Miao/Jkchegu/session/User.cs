@@ -1,9 +1,13 @@
-﻿using System.Text;
+﻿using HttpProcessor.Container;
+using Jkchegu.appointment;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Jkchegu.session
 {
     public class User
     {
+        internal AppointController AppointController { get; }
         public string? Session { get; set; }
         public string Etid { get; set; }
         public string Name { get; set; }
@@ -27,10 +31,13 @@ namespace Jkchegu.session
             }
         }
 
+        private readonly object OrderLock = new object();
+
         public User(string etid, string name)
         {
             Etid = etid;
             Name = name;
+            AppointController = HttpServiceController.GetService<AppointController>();
         }
 
         public string ToLogString()
@@ -46,6 +53,14 @@ namespace Jkchegu.session
             sb.AppendLine("**************************************");
 
             return sb.ToString();
+        }
+
+        public void Yuyue(List<Order> orderList)
+        {
+            lock(OrderLock)
+            {
+                AppointController.Yuyue(this, orderList);
+            }
         }
     }
 }

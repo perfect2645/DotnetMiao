@@ -12,7 +12,9 @@ namespace Jkchegu.appointment
         public string Time { get; set; }
         public string Yzm { get; set; }
         public string GUID { get; set; }
-        public User User { get; set; }
+        public string Name { get; set; }
+        public string Etid { get; set; }
+        public string Session { get; set; }
 
         public Dictionary<string, object> Doccustom = new Dictionary<string, object>();
 
@@ -45,9 +47,9 @@ namespace Jkchegu.appointment
             sb.AppendLine($"Time - {Time}");
             sb.AppendLine($"Guid - {GUID}");
             sb.AppendLine($"Yzm - {Yzm}");
-            sb.AppendLine($"User - {User?.Name}");
-            sb.AppendLine($"Etid - {User?.Etid}");
-            sb.AppendLine($"Session - {User?.Session}");
+            sb.AppendLine($"User - {Name}");
+            sb.AppendLine($"Etid - {Etid}");
+            sb.AppendLine($"Session - {Session}");
 
             sb.AppendLine("**************************************");
 

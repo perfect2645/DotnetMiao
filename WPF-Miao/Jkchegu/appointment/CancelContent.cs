@@ -12,6 +12,7 @@ namespace Jkchegu.appointment
     internal class CancelContent : HttpStringContent
     {
         public Order Order { get; set; }
+        public User User { get; set; }
         public CancelContent(string url, Order order) : base(url)
         {
             Order = order;
@@ -29,12 +30,12 @@ namespace Jkchegu.appointment
             AddHeader("Origin", "http://app.whkfqws.com");
             AddHeader("X-Requested-With", "XMLHttpRequest");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            var etid = JkSession.PlatformSession["Etid"].NotNullString();
+            var etid = User.Etid;
             AddHeader("Referer", $"http://app.whkfqws.com/wx-mobile/Vaccination/vaccination.do?ETID={etid}");
 
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
             AddHeader("Accept-Encoding", "gzip, deflate");
-            AddHeader("Cookie", Order.User.Session);
+            AddHeader("Cookie", User.Session);
         }
 
         private void BuildContent()

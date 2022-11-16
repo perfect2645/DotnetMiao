@@ -10,10 +10,12 @@ namespace Jkchegu.appointment
 
         public Order Order { get; set; }
         public string Etid { get; }
+        public User User { get; }
 
-        public AppointContent(string etid, Order order) : base(Url)
+        public AppointContent(User user, Order order) : base(Url)
         {
-            Etid = etid ?? JkSession.PlatformSession["Etid"].NotNullString();
+            User = user;
+            Etid = user.Etid ?? JkSession.PlatformSession["Etid"].NotNullString();
             Order = order;
             ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
@@ -33,7 +35,7 @@ namespace Jkchegu.appointment
 
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
             AddHeader("Accept-Encoding", "gzip, deflate");
-            AddHeader("Cookie", Order.User.Session);
+            AddHeader("Cookie", User.Session);
         }
 
         private void BuildContent()

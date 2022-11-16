@@ -48,9 +48,9 @@ namespace Jkchegu.appointment
                         JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                         return 1;
                     }
-                    order.Yzm = await GetYzmAsync(user.Etid);
+                    order.Yzm = await GetYzmAsync(user);
                     Log(order.ToLogString());
-                    var content = new AppointContent(user.Etid, order);
+                    var content = new AppointContent(user, order);
                     await AppointAsync(content);
                 }
             }
@@ -58,9 +58,9 @@ namespace Jkchegu.appointment
             return 0;
         }
 
-        private async Task<string> GetYzmAsync(string etid)
+        private async Task<string> GetYzmAsync(User user)
         {
-            return await YzmController.GetYzmAsync(etid);
+            return await YzmController.GetYzmAsync(user);
         }
 
         public async Task AppointAsync(AppointContent content)
@@ -72,7 +72,6 @@ namespace Jkchegu.appointment
         {
             try
             {
-                JkSession.PrintLogEvent.Publish(this, $"{loopCount}");
                 if (IsSuccess)
                 {
                     return;
@@ -99,7 +98,7 @@ namespace Jkchegu.appointment
                     IsSuccess = true;
                 }
 
-                //JkSession.PrintLogEvent.Publish(this, $"result:{result}");
+                JkSession.PrintLogEvent.Publish(this, $"result:{result}");
             }
             catch (Exception ex)
             {
@@ -111,12 +110,12 @@ namespace Jkchegu.appointment
 
         #region 转号
 
-        public void Exchange(List<Order> orderList)
+        public void Exchange(User user, List<Order> orderList)
         {
-            var result = ExchangeAsync(orderList).Result;
+            var result = ExchangeAsync(user, orderList).Result;
             _intervalOnTime.StartIntervalOntime(() =>
             {
-                var result = ExchangeAsync(orderList).Result;
+                var result = ExchangeAsync(user, orderList).Result;
                 if (result == -1)
                 {
                     _intervalOnTime.StopInterval();
@@ -124,7 +123,7 @@ namespace Jkchegu.appointment
             });
         }
 
-        private async Task<int> ExchangeAsync(List<Order> orderList)
+        private async Task<int> ExchangeAsync(User user, List<Order> orderList)
         {
             loopCount++;
             JkSession.PrintLogEvent.Publish(this, $"第{loopCount}次预约循环，orderCount{orderList.Count}");
@@ -148,9 +147,9 @@ namespace Jkchegu.appointment
                     JkSession.PrintLogEvent.Publish(this, $"请填写转入用户Etid");
                     return -1;
                 }
-                order.Yzm = await GetYzmAsync(etid);
+                order.Yzm = await GetYzmAsync(user);
                 Log(order.ToLogString());
-                var content = new AppointContent(etid, order);
+                var content = new AppointContent(user, order);
                 await AppointAsync(content);
             }
 

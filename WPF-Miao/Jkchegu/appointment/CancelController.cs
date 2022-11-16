@@ -16,18 +16,18 @@ namespace Jkchegu.appointment
         {
         }
 
-        public async Task CancelAsync()
+        public async Task CancelAsync(Order order)
         {
-            await Task.Factory.StartNew(() => Cancel());
+            await Task.Factory.StartNew(() => Cancel(order));
         }
 
-        public void Cancel()
+        public void Cancel(Order order)
         {
             try
             {
                 var url = "http://app.whkfqws.com/wx-mobile/Vaccination/cancelReservation.do";
 
-                var content = new CancelContent(url);
+                var content = new CancelContent(url, order);
 
                 content.BuildDefaultHeaders(Client);
 
