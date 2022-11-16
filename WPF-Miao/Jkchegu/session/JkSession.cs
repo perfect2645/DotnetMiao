@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Utils;
+using Utils.stringBuilder;
 
 namespace Jkchegu.session
 {
@@ -24,6 +25,13 @@ namespace Jkchegu.session
             }
         }
 
+        public static User DefaultUser
+        {
+            get
+            {
+                return GetDefaultUser();
+            }
+        }
 
         static JkSession()
         {
@@ -38,6 +46,11 @@ namespace Jkchegu.session
             UserList.Add(new User("2698928a19b640aa820b80e3acab348c", "周依依"));
         }
 
+        private static User GetDefaultUser()
+        {
+            return UserList.FirstOrDefault();
+        }
+
         private static string GetDefaultEtid()
         {
             var sessionEtid = PlatformSession.GetString("Etid");
@@ -47,6 +60,38 @@ namespace Jkchegu.session
             }
             var defaultUser = UserList.FirstOrDefault();
             return defaultUser?.Etid;
+        }
+
+        public static void UpdateSession(string cookie)
+        {
+            foreach(var user in UserList)
+            {
+                user.Session = null;
+            }
+
+            if (string.IsNullOrEmpty(cookie))
+            {
+                PrintLogEvent.Publish(null, $"请设置Session");
+            }
+
+            var sessionList = cookie.SplitToList(";");
+            if (!sessionList.HasItem())
+            {
+                PrintLogEvent.Publish(null, $"解析Session错误");
+                return;
+            }
+
+            for (int i = 0; i < sessionList.Count; i++)
+            {
+                var userCount = UserList.Count;
+                if (i >= userCount)
+                {
+                    PrintLogEvent.Publish(null, $"设置UserSession完成");
+                    return;
+                }
+                UserList[i].Session = sessionList[i];
+                PrintLogEvent.Publish(null, $"{UserList[i].ToLogString()}");
+            }
         }
     }
 }

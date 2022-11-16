@@ -18,12 +18,7 @@
                 <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
                          Text="{Binding Etid}"
-                        materialDesign:HintAssist.Hint="GUID"/>
-                <!--<TextBox Width="300" Height="30"
-                        Margin="0,20,0,20"
-                        Text="{Binding GUID}"
-                    materialDesign:HintAssist.Hint="GUID">
-                </TextBox>-->
+                        materialDesign:HintAssist.Hint="转号用Etid"/>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="100">
                     <ComboBox
                         Style="{StaticResource mui_combobox}"

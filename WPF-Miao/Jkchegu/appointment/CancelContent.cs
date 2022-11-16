@@ -11,8 +11,10 @@ namespace Jkchegu.appointment
 {
     internal class CancelContent : HttpStringContent
     {
-        public CancelContent(string url) : base(url)
+        public Order Order { get; set; }
+        public CancelContent(string url, Order order) : base(url)
         {
+            Order = order;
             ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
             BuildContent();
@@ -32,7 +34,7 @@ namespace Jkchegu.appointment
 
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
             AddHeader("Accept-Encoding", "gzip, deflate");
-            AddHeader("Cookie", JkSession.Cookie);
+            AddHeader("Cookie", Order.User.Session);
         }
 
         private void BuildContent()

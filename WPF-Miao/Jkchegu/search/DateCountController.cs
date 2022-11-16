@@ -47,7 +47,8 @@ namespace Jkchegu.search
 
             var etid = JkSession.DefaultEtid;
             var content = new DateCountContent(etid, url);
-            content.AddHeader("Cookie", JkSession.Cookie);
+            var defaultUser = JkSession.DefaultUser;
+            content.AddHeader("Cookie", defaultUser.Session);
             content.BuildDefaultHeaders(Client);
             content.AddContent("yyDate", date);
 
@@ -150,7 +151,7 @@ namespace Jkchegu.search
             var url = "http://app.whkfqws.com/wx-mobile/Reservations/vaccinavaccina_DateCount.do";
 
             var content = new DateCountContent(JkSession.DefaultEtid, url);
-            content.AddHeader("Cookie", JkSession.Cookie);
+            content.AddHeader("Cookie", JkSession.DefaultUser.Session);
             content.BuildDefaultHeaders(Client);
             content.AddContent("yyDate", date);
 
@@ -173,7 +174,7 @@ namespace Jkchegu.search
                 }
                 SearchInterval?.StopInterval();
                 AnalysisResult(result, date, time);
-                return $"查到苗{date}";
+                return $"SearchBydateTime end - {date}";
             }
             catch (Exception ex)
             {

@@ -21,6 +21,7 @@ namespace Base.viewModel
         public ISessionItem SessionItem { get; private set; }
 
         public Action SelectedDepartmentChanged { get; set; }
+        public Action CookieChanged { get; set; }
 
         public Action<DateTime?> StartTimeChanged { get; set; }
 
@@ -34,6 +35,7 @@ namespace Base.viewModel
             {
                 _cookie = value;
                 NotifyUI(() => Cookie);
+                CookieChanged?.Invoke();
             }
         }
 

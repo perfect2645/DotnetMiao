@@ -115,11 +115,7 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=EEFBC95C7051985096E7C0B912B40B53";
-            //Etid = "7bf4400434ea4e80a6dfb331f6f6a077";
-            //Cookie = "JSESSIONID=4E4D3E323CDD43315499CD463460240B";
-            //Etid = "030b18b61121492bb4b57b147230aa0d";
-
+            Cookie = "JSESSIONID=39D78F5A25E3535594138199ABD21EF5";
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }
@@ -224,7 +220,7 @@ namespace Jkchegu.viewmodel
             Task.Factory.StartNew(()=> {
                 try
                 {
-                    JkSession.Cookie = Cookie;
+                    JkSession.UpdateSession(Cookie);
                     JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
                     var searchController = HttpServiceController.GetService<SearchController>();
                 }
@@ -306,7 +302,7 @@ namespace Jkchegu.viewmodel
                 try
                 {
                     JkSession.PrintLogEvent.Publish(this, $"手动预约{SelectedDate.Display}");
-                    JkSession.Cookie = Cookie;
+                    JkSession.UpdateSession(Cookie);
                     JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
 
                     if (StringUtil.NotEmpty(SelectedDate?.Value, SelectedTime?.Value))
@@ -377,5 +373,13 @@ namespace Jkchegu.viewmodel
         }
 
         #endregion Hospital Dept
+
+        #region Session
+
+        protected override void ReSession()
+        {
+        }
+
+        #endregion Session
     }
 }

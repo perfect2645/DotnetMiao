@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jkchegu.session;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Utils.stringBuilder;
@@ -11,6 +12,7 @@ namespace Jkchegu.appointment
         public string Time { get; set; }
         public string Yzm { get; set; }
         public string GUID { get; set; }
+        public User User { get; set; }
 
         public Dictionary<string, object> Doccustom = new Dictionary<string, object>();
 
@@ -43,6 +45,9 @@ namespace Jkchegu.appointment
             sb.AppendLine($"Time - {Time}");
             sb.AppendLine($"Guid - {GUID}");
             sb.AppendLine($"Yzm - {Yzm}");
+            sb.AppendLine($"User - {User?.Name}");
+            sb.AppendLine($"Etid - {User?.Etid}");
+            sb.AppendLine($"Session - {User?.Session}");
 
             sb.AppendLine("**************************************");
 

@@ -117,6 +117,10 @@ namespace Jkchegu.appointment
             _intervalOnTime.StartIntervalOntime(() =>
             {
                 var result = ExchangeAsync(orderList).Result;
+                if (result == -1)
+                {
+                    _intervalOnTime.StopInterval();
+                }
             });
         }
 
@@ -139,6 +143,11 @@ namespace Jkchegu.appointment
                     return 1;
                 }
                 var etid = JkSession.PlatformSession.GetString("Etid");
+                if (etid == null)
+                {
+                    JkSession.PrintLogEvent.Publish(this, $"请填写转入用户Etid");
+                    return -1;
+                }
                 order.Yzm = await GetYzmAsync(etid);
                 Log(order.ToLogString());
                 var content = new AppointContent(etid, order);
