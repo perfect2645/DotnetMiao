@@ -80,9 +80,7 @@ namespace Jkchegu.appointment
                 }
 
                 content.BuildDefaultHeaders(Client);
-                JkSession.PrintLogEvent.Publish(this, $"开始预约");
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-                JkSession.PrintLogEvent.Publish(this, $"预约结束");
                 if (response == null)
                 {
                     JkSession.PrintLogEvent.Publish(this, $"Appoint response is null");
