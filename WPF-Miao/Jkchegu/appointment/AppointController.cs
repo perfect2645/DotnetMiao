@@ -35,26 +35,29 @@ namespace Jkchegu.appointment
 
         private async Task<int> YuyueAsync(User user, List<Order> orderList)
         {
-            if (IsSuccess)
+            for (var i = 1; i < 5; i++)
             {
-                JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                return 1;
-            }
-            foreach (var order in orderList)
-            {
-                order.Name = user.Name;
-                order.Etid = user.Etid;
-                order.Session = user.Session;
                 if (IsSuccess)
                 {
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
+                foreach (var order in orderList)
+                {
+                    order.Name = user.Name;
+                    order.Etid = user.Etid;
+                    order.Session = user.Session;
+                    if (IsSuccess)
+                    {
+                        JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                        return 1;
+                    }
 
-                order.Yzm = await GetYzmAsync(user);
-                Log(order.ToLogString());
-                var content = new AppointContent(user, order);
-                await AppointAsync(content);
+                    order.Yzm = await GetYzmAsync(user);
+                    Log(order.ToLogString());
+                    var content = new AppointContent(user, order);
+                    await AppointAsync(content);
+                }
             }
 
             return 0;
