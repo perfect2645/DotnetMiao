@@ -251,7 +251,8 @@ namespace Jkchegu.viewmodel
                 var orderType = e.OrderType;
                 if ("Exchange" == orderType)
                 {
-                    var user = JkSession.DefaultUser;
+                    var user = new User(Etid, "转号");
+                    user.Session = Cookie;
                     ExchangeOrdersAsync(user, orderList);
                     return;
                 }

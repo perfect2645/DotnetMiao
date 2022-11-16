@@ -121,6 +121,7 @@ namespace Jkchegu.search
                 {
                     availableTime = availableTime.Where(s => s == time).ToHashSet();
                     BuildExchangeList(date, doccustomDic, availableTime);
+                    return;
                 }
             }
 
