@@ -6,6 +6,7 @@ using Jkchegu.session;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.timerUtil;
@@ -34,25 +35,26 @@ namespace Jkchegu.appointment
 
         private async Task<int> YuyueAsync(User user, List<Order> orderList)
         {
-            for (var i = 1; i < 10; i++)
+            if (IsSuccess)
             {
+                JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return 1;
+            }
+            foreach (var order in orderList)
+            {
+                order.Name = user.Name;
+                order.Etid = user.Etid;
+                order.Session = user.Session;
                 if (IsSuccess)
                 {
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
-                foreach (var order in orderList)
-                {
-                    if (IsSuccess)
-                    {
-                        JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                        return 1;
-                    }
-                    order.Yzm = await GetYzmAsync(user);
-                    Log(order.ToLogString());
-                    var content = new AppointContent(user, order);
-                    await AppointAsync(content);
-                }
+
+                order.Yzm = await GetYzmAsync(user);
+                Log(order.ToLogString());
+                var content = new AppointContent(user, order);
+                await AppointAsync(content);
             }
 
             return 0;
@@ -78,8 +80,9 @@ namespace Jkchegu.appointment
                 }
 
                 content.BuildDefaultHeaders(Client);
-
+                JkSession.PrintLogEvent.Publish(this, $"开始预约");
                 HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                JkSession.PrintLogEvent.Publish(this, $"预约结束");
                 if (response == null)
                 {
                     JkSession.PrintLogEvent.Publish(this, $"Appoint response is null");

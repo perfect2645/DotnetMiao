@@ -265,7 +265,6 @@ namespace Jkchegu.viewmodel
         {
             try
             {
-
                 count++;
                 foreach (var user in JkSession.ActiveUsers())
                 {

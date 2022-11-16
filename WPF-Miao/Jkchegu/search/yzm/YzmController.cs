@@ -43,6 +43,7 @@ namespace Jkchegu.search.yzm
             if (byteYzm == null)
             {
                 JkSession.PrintLogEvent.Publish(this, $"GetYzm 失败");
+                return "获取验证码 失败";
             }
 
             var yzmResult = GetCodeFromOcr(byteYzm!);
