@@ -237,7 +237,7 @@ namespace chutian.viewmodel
                     await ExecuteLogin();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
                     StartIntervalTimer();
-                    //var searchController = new SearchController();
+                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -406,10 +406,15 @@ namespace chutian.viewmodel
 
         #region ReSession
 
-        private void OnResession(object? sender, ResessionEventArgs e)
+        protected override void ReSession()
         {
             Log("ression invoke");
-            AutoRun();
+            Task.Factory.StartNew(() => ExecuteLogin());
+        }
+
+        private void OnResession(object? sender, ResessionEventArgs e)
+        {
+            ReSession();
         }
 
         #endregion Resession

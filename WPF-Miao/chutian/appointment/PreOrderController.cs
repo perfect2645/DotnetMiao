@@ -55,7 +55,6 @@ namespace chutian.appointment
                 if (message.Contains("JWT expired"))
                 {
                     Log($"登录过期，重新登录{response?.Message}");
-                    content.Order.IntervalOnTime?.StopInterval();
                     MainSession.ReSessionEvent.Publish(this, new ResessionEventArgs());
                     return;
                 }

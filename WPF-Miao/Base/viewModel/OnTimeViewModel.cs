@@ -63,6 +63,7 @@ namespace Base.viewModel
         public ICommand AutoRunCommand { get; set; }
 
         public IntervalOnTime AutoRunTimer { get; private set; }
+        public IntervalOnTime ReSessionTimer { get; private set; }
 
         public ActionOnTime OnTimeTimer { get; private set; }
 
@@ -154,8 +155,37 @@ namespace Base.viewModel
         }
 
         protected abstract void AutoRun();
+        protected abstract void ReSession();
 
         #endregion Ontime Action
+
+        #region ReSession
+
+        protected void StartReSessionTimer()
+        {
+            try
+            {
+                if (ReSessionTimer == null)
+                {
+                    ReSessionTimer = new IntervalOnTime(ReSession, "刷新登录信息", StartTime, 600000);
+                    return;
+                }
+
+                ReSessionTimer.StopInterval();
+                ReSessionTimer.ResetTimer(StartTime, 600000);
+            }
+            catch (Exception ex)
+            {
+                PrintLogEvent.Publish(this, "StartReSessionTimer Failed");
+                Logging.GLog.Logger.Error(ex);
+            }
+            finally
+            {
+                PrintLogEvent.Publish(this, "开启刷新登录信息模式");
+            }
+        }
+
+        #endregion Resession
 
         #region Status Control
 
