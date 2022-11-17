@@ -1,6 +1,7 @@
 ﻿using Baohe.constants;
 using Baohe.session;
 using Baohe.verification;
+using Baohe.viewModel.platform;
 using Base.viewModel;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -60,6 +61,11 @@ namespace Baohe.viewModel
 
         public void SetTimer()
         {
+            var dept = BaoheSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
+            if (!dept.HasYzm)
+            {
+                return;
+            }
             var startTime = BaoheSession.GetStartTime();
             startTime = startTime.AddMinutes(-3);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
@@ -70,11 +76,16 @@ namespace Baohe.viewModel
                 TargetAction = ExecuteSendYzmAsync,
                 ActionTime = startTime
             };
+
         }
 
         public void StopTimer()
         {
-            SendYzmTimer?.StopTimer();
+            var dept = BaoheSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
+            if (dept.HasYzm)
+            {
+                SendYzmTimer?.StopTimer();
+            }
         }
 
         private async void ExecuteSendYzmAsync()
