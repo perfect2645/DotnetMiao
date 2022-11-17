@@ -1,0 +1,268 @@
+POST https://chaos.4009515151.com/market/api/activity/play/detail HTTP/1.1
+Host: chaos.4009515151.com
+Origin: https://enterprise.4009515151.com
+Content-Type: application/json
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, application/json
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2022102701 vanke_app_version/5.4.12 X_API_VERSION/20221027 vanke_app/zhuzher vanke_jsbridge_version/5.4.12
+Authorization: Bearer 4bfbf0d1-3379-4733-bea2-585570a388ad
+Referer: https://enterprise.4009515151.com/
+Content-Length: 78
+
+{"activityId":631,"projectCode":"21020002","projectName":"大连假日风景"}
+HTTP/1.1 200
+Date: Thu, 17 Nov 2022 13:18:56 GMT
+Content-Type: application/json
+Connection: keep-alive
+Set-Cookie: acw_tc=784e2c8c16686911362214704e3aa18e8ce7a6a4e2cb77f36d5502498652bd;path=/;HttpOnly;Max-Age=1800
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-SVC: prod-zhuzher-server-market-http
+Content-Length: 7049
+
+{"message":"success","code":200,"result":{"activityId":631,"type":"general","title":"感恩节活动","activityStatus":"todo","ruleUrl":"1","isLimitApp":0,"minVersion":null,"maxVersion":null,"games":[{"activityGameId":1046,"gameId":5,"gameGoods":[{"gameGoodId":31,"activityId":631,"activityGameId":1046,"type":1,"number":1,"goodId":11,"goodName":"华为平板电视55\"","goodType":"0","price":558600,"isShowPrice":1,"smallImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png","image":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/208aad5d-54a2-4981-9e7b-e8524a5e211b.png","chanceNumber":null,"surplusCount":885,"status":null,"lootStatus":0,"progress":null,"totalUserCount":null,"startTime":null,"endTime":null,"goodExchangeStatus":null},{"gameGoodId":32,"activityId":631,"activityGameId":1046,"type":1,"number":2,"goodId":11,"goodName":"华为平板电视55\"","goodType":"0","price":558600,"isShowPrice":1,"smallImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png","image":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/cf7a815a-58da-40bf-a6dc-ad30b09e5f18.png","chanceNumber":null,"surplusCount":950,"status":null,"lootStatus":0,"progress":null,"totalUserCount":null,"startTime":null,"endTime":null,"goodExchangeStatus":null},{"gameGoodId":33,"activityId":631,"activityGameId":1046,"type":1,"number":3,"goodId":11,"goodName":"华为平板电视55\"","goodType":"0","price":558600,"isShowPrice":1,"smallImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png","image":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/0c1a6aa2-d520-4b88-960f-e278e93050bb.png","chanceNumber":null,"surplusCount":972,"status":null,"lootStatus":0,"progress":null,"totalUserCount":null,"startTime":null,"endTime":null,"goodExchangeStatus":null},{"gameGoodId":34,"activityId":631,"activityGameId":1046,"type":1,"number":4,"goodId":11,"goodName":"华为平板电视55\"","goodType":"0","price":558600,"isShowPrice":1,"smallImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png","image":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/191fd7c0-4c1d-4031-be30-43a8d1122d19.png","chanceNumber":null,"surplusCount":587,"status":null,"lootStatus":0,"progress":null,"totalUserCount":null,"startTime":null,"endTime":null,"goodExchangeStatus":null},{"gameGoodId":35,"activityId":631,"activityGameId":1046,"type":0,"number":5,"goodId":null,"goodName":null,"goodType":null,"price":null,"isShowPrice":null,"smallImage":null,"image":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/f4c2a677-4a31-47e7-895a-d8faea510acf.png","chanceNumber":null,"surplusCount":null,"status":null,"lootStatus":0,"progress":null,"totalUserCount":null,"startTime":null,"endTime":null,"goodExchangeStatus":null},{"gameGoodId":36,"activityId":631,"activityGameId":1046,"type":0,"number":6,"goodId":null,"goodName":null,"goodType":null,"price":null,"isShowPrice":null,"smallImage":null,"image":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/8326ccf6-5c32-4b81-bb2b-616fddbf8839.png","chanceNumber":null,"surplusCount":null,"status":null,"lootStatus":0,"progress":null,"totalUserCount":null,"startTime":null,"endTime":null,"goodExchangeStatus":null}],"gameName":"0918中秋国庆活动测试生产验收","gameTitle":"1","gameDesc":"没有备注","gameType":1,"positionCount":6,"backImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/7f581e4f-86a9-4a44-842e-af8550c8c16b.png","pointImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/bb1b0238-1ddb-4f3f-bbae-ab53ca3210e9.png","unpointImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/2bf29265-f8fb-4c7b-8bb1-111727584e15.png","baseImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/17c32964-68a2-4c0a-8911-67325b540e2f.png","borderImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/7647f6c3-1ee3-4873-ab4b-9c9eda642ad1.png","goodBackImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/9bda35a6-bb15-424f-a1d1-a73cfb709b5a.png","fontColor":"#000000","backColor":null,"gameImg":null,"noGameImg":null,"number":3,"chanceName":null,"cardType":1}],"resources":[{"activityResourceId":285,"resourceName":"头图补充1","goType":1,"resourceUrl":"1","resourceImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/c4f1b6f7-fedd-4848-9e4e-6adeeb7fa29c.gif","number":0},{"activityResourceId":286,"resourceName":"头图补充2","goType":1,"resourceUrl":"1","resourceImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/52f9b60f-6e59-46c1-afdc-cb3dd92b9449.jpg","number":1},{"activityResourceId":284,"resourceName":"抽奖标题","goType":1,"resourceUrl":"1","resourceImage":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/2b2edb57-eebd-4791-ae2f-bb5a8dba431d.jpg","number":2}],"teamGoodList":[],"notStartImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/17/6c1479d0-8af9-437e-8246-991172782a17.jpg","introduceImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/b813426e-8397-43e2-b3aa-334e12a968a2.jpg","endImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/223a4423-3ee9-4358-8639-35ef0b121039.jpg","popupImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/8e2b92ea-a0af-48ce-b639-79863f42bbfd.png","ruleBtnImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/f95b5b94-45db-4652-81cf-656b8b9709c9.png","goodBtnImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/72343359-35d1-4232-8842-7b9685c0bab6.png","prizeListBtnImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/6de6e13b-102a-4d77-a2bf-31d3aff89855.png","taskBtnImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/ac4e6394-75a4-4347-8d3e-64f00a6a1fa8.png","recordBackImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/cea8177e-40aa-4155-9d55-0ef8ea9eb7f8.jpg","nameListBackImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/0e7473e1-4dbb-4ff8-a54f-266bcbf98c6a.jpg","prizeBackgroundImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/104e6dc2-a561-4609-979a-9177ef1a7ef2.png","taskBackgroundImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/79dc6c4a-c4e4-4c42-acc6-be8269c15a93.png","baseColor":"#b692ff","subColor":"#b692ff","fontColor":"#b692ff","isShare":0,"shareImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/a8e0fcab-dbda-4d8a-9e46-2c24c01fc13c.png","shareContentImg":"https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/02/f719d5f8-3486-4bbb-ad69-4656b82273a6.jpg","shareTitle":"测试分享助力","shareDesc":"","isShowDirectBtn":0,"directImg":null,"shareBtnType":1,"shareBtnValue":"打开app","teamUserLimit":null,"contributionType":null,"teamEndTime":null,"notJoinBackImg":"","joinBackImg":"","inviteBtnImg":"","inviteShareSmallImg":"","inviteShareImg":"","inviteShareTitle":"","inviteShareDesc":"","isEnd":null,"now":"2022-11-17 21:18:56"}}
+
+{
+    "message": "success",
+    "code": 200,
+    "result": {
+        "activityId": 631,
+        "type": "general",
+        "title": "感恩节活动",
+        "activityStatus": "todo",
+        "ruleUrl": "1",
+        "isLimitApp": 0,
+        "minVersion": null,
+        "maxVersion": null,
+        "games": [
+            {
+                "activityGameId": 1046,
+                "gameId": 5,
+                "gameGoods": [
+                    {
+                        "gameGoodId": 31,
+                        "activityId": 631,
+                        "activityGameId": 1046,
+                        "type": 1,
+                        "number": 1,
+                        "goodId": 11,
+                        "goodName": "华为平板电视55\"",
+                        "goodType": "0",
+                        "price": 558600,
+                        "isShowPrice": 1,
+                        "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png",
+                        "image": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/208aad5d-54a2-4981-9e7b-e8524a5e211b.png",
+                        "chanceNumber": null,
+                        "surplusCount": 885,
+                        "status": null,
+                        "lootStatus": 0,
+                        "progress": null,
+                        "totalUserCount": null,
+                        "startTime": null,
+                        "endTime": null,
+                        "goodExchangeStatus": null
+                    },
+                    {
+                        "gameGoodId": 32,
+                        "activityId": 631,
+                        "activityGameId": 1046,
+                        "type": 1,
+                        "number": 2,
+                        "goodId": 11,
+                        "goodName": "华为平板电视55\"",
+                        "goodType": "0",
+                        "price": 558600,
+                        "isShowPrice": 1,
+                        "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png",
+                        "image": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/cf7a815a-58da-40bf-a6dc-ad30b09e5f18.png",
+                        "chanceNumber": null,
+                        "surplusCount": 950,
+                        "status": null,
+                        "lootStatus": 0,
+                        "progress": null,
+                        "totalUserCount": null,
+                        "startTime": null,
+                        "endTime": null,
+                        "goodExchangeStatus": null
+                    },
+                    {
+                        "gameGoodId": 33,
+                        "activityId": 631,
+                        "activityGameId": 1046,
+                        "type": 1,
+                        "number": 3,
+                        "goodId": 11,
+                        "goodName": "华为平板电视55\"",
+                        "goodType": "0",
+                        "price": 558600,
+                        "isShowPrice": 1,
+                        "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png",
+                        "image": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/0c1a6aa2-d520-4b88-960f-e278e93050bb.png",
+                        "chanceNumber": null,
+                        "surplusCount": 972,
+                        "status": null,
+                        "lootStatus": 0,
+                        "progress": null,
+                        "totalUserCount": null,
+                        "startTime": null,
+                        "endTime": null,
+                        "goodExchangeStatus": null
+                    },
+                    {
+                        "gameGoodId": 34,
+                        "activityId": 631,
+                        "activityGameId": 1046,
+                        "type": 1,
+                        "number": 4,
+                        "goodId": 11,
+                        "goodName": "华为平板电视55\"",
+                        "goodType": "0",
+                        "price": 558600,
+                        "isShowPrice": 1,
+                        "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/17/19cc8d0b-4185-45dd-ba6e-2ec25e06cdeb.png",
+                        "image": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/191fd7c0-4c1d-4031-be30-43a8d1122d19.png",
+                        "chanceNumber": null,
+                        "surplusCount": 587,
+                        "status": null,
+                        "lootStatus": 0,
+                        "progress": null,
+                        "totalUserCount": null,
+                        "startTime": null,
+                        "endTime": null,
+                        "goodExchangeStatus": null
+                    },
+                    {
+                        "gameGoodId": 35,
+                        "activityId": 631,
+                        "activityGameId": 1046,
+                        "type": 0,
+                        "number": 5,
+                        "goodId": null,
+                        "goodName": null,
+                        "goodType": null,
+                        "price": null,
+                        "isShowPrice": null,
+                        "smallImage": null,
+                        "image": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/f4c2a677-4a31-47e7-895a-d8faea510acf.png",
+                        "chanceNumber": null,
+                        "surplusCount": null,
+                        "status": null,
+                        "lootStatus": 0,
+                        "progress": null,
+                        "totalUserCount": null,
+                        "startTime": null,
+                        "endTime": null,
+                        "goodExchangeStatus": null
+                    },
+                    {
+                        "gameGoodId": 36,
+                        "activityId": 631,
+                        "activityGameId": 1046,
+                        "type": 0,
+                        "number": 6,
+                        "goodId": null,
+                        "goodName": null,
+                        "goodType": null,
+                        "price": null,
+                        "isShowPrice": null,
+                        "smallImage": null,
+                        "image": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/8326ccf6-5c32-4b81-bb2b-616fddbf8839.png",
+                        "chanceNumber": null,
+                        "surplusCount": null,
+                        "status": null,
+                        "lootStatus": 0,
+                        "progress": null,
+                        "totalUserCount": null,
+                        "startTime": null,
+                        "endTime": null,
+                        "goodExchangeStatus": null
+                    }
+                ],
+                "gameName": "0918中秋国庆活动测试生产验收",
+                "gameTitle": "1",
+                "gameDesc": "没有备注",
+                "gameType": 1,
+                "positionCount": 6,
+                "backImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/7f581e4f-86a9-4a44-842e-af8550c8c16b.png",
+                "pointImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/bb1b0238-1ddb-4f3f-bbae-ab53ca3210e9.png",
+                "unpointImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/2bf29265-f8fb-4c7b-8bb1-111727584e15.png",
+                "baseImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/17c32964-68a2-4c0a-8911-67325b540e2f.png",
+                "borderImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/7647f6c3-1ee3-4873-ab4b-9c9eda642ad1.png",
+                "goodBackImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2021/09/16/9bda35a6-bb15-424f-a1d1-a73cfb709b5a.png",
+                "fontColor": "#000000",
+                "backColor": null,
+                "gameImg": null,
+                "noGameImg": null,
+                "number": 3,
+                "chanceName": null,
+                "cardType": 1
+            }
+        ],
+        "resources": [
+            {
+                "activityResourceId": 285,
+                "resourceName": "头图补充1",
+                "goType": 1,
+                "resourceUrl": "1",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/c4f1b6f7-fedd-4848-9e4e-6adeeb7fa29c.gif",
+                "number": 0
+            },
+            {
+                "activityResourceId": 286,
+                "resourceName": "头图补充2",
+                "goType": 1,
+                "resourceUrl": "1",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/52f9b60f-6e59-46c1-afdc-cb3dd92b9449.jpg",
+                "number": 1
+            },
+            {
+                "activityResourceId": 284,
+                "resourceName": "抽奖标题",
+                "goType": 1,
+                "resourceUrl": "1",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/2b2edb57-eebd-4791-ae2f-bb5a8dba431d.jpg",
+                "number": 2
+            }
+        ],
+        "teamGoodList": [],
+        "notStartImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/17/6c1479d0-8af9-437e-8246-991172782a17.jpg",
+        "introduceImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/b813426e-8397-43e2-b3aa-334e12a968a2.jpg",
+        "endImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/223a4423-3ee9-4358-8639-35ef0b121039.jpg",
+        "popupImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/8e2b92ea-a0af-48ce-b639-79863f42bbfd.png",
+        "ruleBtnImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/f95b5b94-45db-4652-81cf-656b8b9709c9.png",
+        "goodBtnImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/72343359-35d1-4232-8842-7b9685c0bab6.png",
+        "prizeListBtnImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/6de6e13b-102a-4d77-a2bf-31d3aff89855.png",
+        "taskBtnImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/10/27/ac4e6394-75a4-4347-8d3e-64f00a6a1fa8.png",
+        "recordBackImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/cea8177e-40aa-4155-9d55-0ef8ea9eb7f8.jpg",
+        "nameListBackImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/0e7473e1-4dbb-4ff8-a54f-266bcbf98c6a.jpg",
+        "prizeBackgroundImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/104e6dc2-a561-4609-979a-9177ef1a7ef2.png",
+        "taskBackgroundImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/79dc6c4a-c4e4-4c42-acc6-be8269c15a93.png",
+        "baseColor": "#b692ff",
+        "subColor": "#b692ff",
+        "fontColor": "#b692ff",
+        "isShare": 0,
+        "shareImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/03/a8e0fcab-dbda-4d8a-9e46-2c24c01fc13c.png",
+        "shareContentImg": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/02/f719d5f8-3486-4bbb-ad69-4656b82273a6.jpg",
+        "shareTitle": "测试分享助力",
+        "shareDesc": "",
+        "isShowDirectBtn": 0,
+        "directImg": null,
+        "shareBtnType": 1,
+        "shareBtnValue": "打开app",
+        "teamUserLimit": null,
+        "contributionType": null,
+        "teamEndTime": null,
+        "notJoinBackImg": "",
+        "joinBackImg": "",
+        "inviteBtnImg": "",
+        "inviteShareSmallImg": "",
+        "inviteShareImg": "",
+        "inviteShareTitle": "",
+        "inviteShareDesc": "",
+        "isEnd": null,
+        "now": "2022-11-17 21:18:56"
+    }
+}
