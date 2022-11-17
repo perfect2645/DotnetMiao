@@ -102,7 +102,7 @@ namespace Baohe.appointment
 
 
             DoctorOrder.AddOrUpdate(Constant.LoginId, platformSesstion[Constant.Loginid]);
-            DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
+            DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.PlatformType]);
             //DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
             DoctorOrder.AddOrUpdate("doctorOfficeName", "");
             DoctorOrder.AddOrUpdate("isread", "1");

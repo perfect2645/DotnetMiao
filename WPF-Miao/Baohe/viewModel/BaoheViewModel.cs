@@ -65,6 +65,9 @@ namespace Baohe.viewModel
         private void TestData()
         {
             Cookie = "YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; BaseDoctorUid=0; BaseUserType=0; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJDNTUzQjkyQzU4MDM1QUJDRDBBRUM4QzU5MUNDRDQyQiJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; _YyghSysTrackUUID=17220631711; jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_sid=615CDAD0-4024-4B2F-AC41-6615D0CF3896; jkzlAn_channelid=1000031; jkzlAn_userid=148528129; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_ct=1668694130373";
+
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235355&doctorId=710796524&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
+
             SearchTime = DateTime.Now.AddSeconds(20);
         }
 
@@ -78,10 +81,10 @@ namespace Baohe.viewModel
                 "7225728", "九价Hpv"));
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "109910", "雨花经济开发区社区卫生服务中心",
+                "1099108", "雨花经济开发区社区卫生服务中心",
                 "7235344", "九价Hpv"));
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "109910", "雨花经济开发区社区卫生服务中心",
+                "1099108", "雨花经济开发区社区卫生服务中心",
                 "7235355", "预防接种门诊（测试）"));
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
@@ -188,7 +191,7 @@ namespace Baohe.viewModel
         {
             try
             {
-                BaoheSession.Cookie = SessionItem.Cookie;
+                BaoheSession.Cookie = Cookie;
                 SearchController = HttpServiceController.GetService<SearchController>();
                 ;
                 SetSearchTimers();
@@ -212,7 +215,7 @@ namespace Baohe.viewModel
 
         private void ExecuteAutoRun()
         {
-            BaoheSession.Cookie = SessionItem.Cookie;
+            BaoheSession.Cookie = Cookie;
             Task.Factory.StartNew(async () =>
             {
                 await AutoRunAsync();

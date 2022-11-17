@@ -43,6 +43,15 @@ namespace Base.view
         public static readonly DependencyProperty SelectedHospitalDeptProperty =
             DependencyProperty.Register("SelectedHospitalDept", typeof(HospitalDept), ControlType, new PropertyMetadata(SelectedHospitalDeptChanged));
 
+        public Visibility ShowReferer
+        {
+            get { return (Visibility)GetValue(ShowRefererProperty); }
+            set { SetValue(ShowRefererProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShowRefererProperty =
+            DependencyProperty.Register("ShowReferer", typeof(Visibility), ControlType, new PropertyMetadata(Visibility.Collapsed));
+
         public LogPanel LogPanel
         {
             get { return (LogPanel)GetValue(LogPanelProperty); }

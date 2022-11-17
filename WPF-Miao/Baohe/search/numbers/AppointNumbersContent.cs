@@ -28,7 +28,9 @@ namespace Baohe.search.numbers
         {
             AddContent(Constant.ArrangeId, ArrangeWater["ArrangeID"]);
             AddContent(BaoheSession.PlatformSesstion, Constant.HospitalId);
-            AddContent(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.LoginChannel]);
+            //AddContent(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.LoginChannel]);
+            AddContent("appliedDepartment", "");
+            AddContent(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.PlatformType]);
             AddContent("ClinicCard", "");
         }
 

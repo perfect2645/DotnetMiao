@@ -9,6 +9,7 @@
     <basePage:BaseConsole x:Name="baseConsole"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
+                          ShowReferer="Visible"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel CanVerticallyScroll="True" Background="#eee">

@@ -27,7 +27,7 @@ namespace Baohe.search.ArrangeWater
             }
             Content.Add(Constant.DoctorSn, targetDoctor[Constant.DoctorSn]);
             Content.Add(Constant.HospitalId, BaoheSession.PlatformSesstion[Constant.HospitalId]);
-            Content.Add("channelId", BaoheSession.PlatformSesstion[Constant.LoginChannel]);
+            Content.Add("channelId", BaoheSession.PlatformSesstion[Constant.PlatformType]);
         }
 
         public string BuildReferer()
