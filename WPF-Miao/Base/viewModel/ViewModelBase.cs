@@ -73,19 +73,19 @@ namespace Base.viewModel
             }
         }
 
-        private DateTime? _searchTime = DateTime.Now;
-        public DateTime? SearchTime
+        private DateTime? _startTime = DateTime.Now;
+        public DateTime? StartTime
         {
-            get { return _searchTime; }
+            get { return _startTime; }
             set
             {
-                if (value == _searchTime)
+                if (value == _startTime)
                 {
                     return;
                 }
-                _searchTime = value;
+                _startTime = value;
                 StartTimeChanged?.Invoke(value);
-                NotifyUI(() => SearchTime);
+                NotifyUI(() => StartTime);
             }
         }
 

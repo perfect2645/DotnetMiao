@@ -1,9 +1,7 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
 using Baohe.search;
-using Baohe.search.auth;
 using Baohe.session;
-using Baohe.verification;
 using Baohe.viewModel.platform;
 using Base.Events;
 using Base.viewModel;
@@ -68,12 +66,12 @@ namespace Baohe.viewModel
 
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235355&doctorId=710796524&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
 
-            SearchTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            SearchTime = new DateTime(2022, 11, 18, 7, 59, 58);
+            StartTime = new DateTime(2022, 11, 18, 7, 59, 58);
 
             Departments = new List<HospitalDept>();
             Departments.Add(new Jiankangzhilu("1000031", "包河区包公街道",
