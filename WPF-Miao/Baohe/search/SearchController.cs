@@ -80,9 +80,9 @@ namespace Baohe.search
             AutoRunTimer.Stop();
         }
 
-        internal async Task SearchAllAsync(ISessionItem sessionItem)
+        internal async Task SearchAllAsync()
         {
-            await SearchUserInfo(sessionItem);
+            await SearchUserInfo();
 
             await SearchMiaoInfo();
 
@@ -91,9 +91,9 @@ namespace Baohe.search
 
         #region AutoRun
 
-        internal async Task AutoSearchAsync(ISessionItem sessionItem)
+        internal async Task AutoSearchAsync()
         {
-            await SearchUserInfo(sessionItem);
+            await SearchUserInfo();
 
             //await SearchMiaoInfo();
 
@@ -159,12 +159,12 @@ namespace Baohe.search
             }
         }
 
-        private async Task SearchUserInfo(ISessionItem sessionItem)
+        private async Task SearchUserInfo()
         {
             try
             {
                 var authController = HttpServiceController.GetService<AuthController>();
-                authController.GetCookieAdvance(sessionItem.Cookie);
+                authController.GetCookieAdvance(BaoheSession.Cookie);
 
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync();

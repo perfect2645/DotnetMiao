@@ -195,7 +195,7 @@ namespace Baohe.viewModel
                 SearchController = HttpServiceController.GetService<SearchController>();
                 ;
                 SetSearchTimers();
-                await SearchController.SearchAllAsync(SessionItem);
+                await SearchController.SearchAllAsync();
             }
             catch (HttpException ex)
             {
@@ -226,7 +226,7 @@ namespace Baohe.viewModel
         {
             SearchController = HttpServiceController.GetService<SearchController>();
             SetSearchTimers();
-            await SearchController.AutoSearchAsync(SessionItem);
+            await SearchController.AutoSearchAsync();
         }
 
         #endregion AutoRun
