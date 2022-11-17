@@ -127,7 +127,7 @@ namespace chutian.viewmodel
 
         private void TestData()
         {
-            Interval = 5000;
+            Interval = 800;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "13940897525";
@@ -136,7 +136,7 @@ namespace chutian.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 16, 7, 59, 56);
+            StartTime = new DateTime(2022, 11, 18, 7, 59, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             Departments = new List<HospitalDept>

@@ -54,16 +54,16 @@ namespace chutian.search
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                var success = root.GetProperty("success").NotNullString().ToBool();
                 var msg = root.GetProperty("msg").NotNullString();
                 MainSession.PrintLogEvent.Publish(this, $"{msg}");
-                if ("0".Equals(code) && success)
+                if ("0".Equals(code))
                 {
                     var miaoInfo = root.GetProperty("obj");
                     SaveMiaoInfo(miaoInfo);
                     
                     return;
                 }
+                Log(msg);
 
             }
             catch (Exception ex)
