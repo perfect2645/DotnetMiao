@@ -50,7 +50,7 @@ namespace Baohe.appointment
             AddContent("ghFormCon", GhFormConOrder);
         }
 
-        private void BuildDefaultDoctorOrder()
+        protected virtual void BuildDefaultDoctorOrder()
         {
             DoctorOrder = new Dictionary<string, object>();
 
@@ -131,7 +131,7 @@ namespace Baohe.appointment
             GhFormConOrder.Add(BuildGhFormConItem("1", "isread"));
         }
 
-        private void BuildNumberDoctorOrder()
+        protected virtual void BuildNumberDoctorOrder()
         {
             var water = MiaoInfo["arrangeWater"].Dic();
             DoctorOrder.AddOrUpdate("registerDate", water["registerdate"]);
