@@ -132,6 +132,7 @@ namespace chutian.viewmodel
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "13940897525";
             _userPassword = "yinhen2645";
+            ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
         }
 
         private void InitStaticData()
