@@ -16,6 +16,7 @@ namespace Baohe.viewModel.platform
             HospitalName = hosName;
             DepartmentId = deptId;
             DepartmentName = deptName;
+            HasYzm = true;
         }
 
         public override string ToLogString()
