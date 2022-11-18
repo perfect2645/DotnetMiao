@@ -21,12 +21,14 @@ namespace Zhuzher.search
 
         private void InitSceneList()
         {
-            AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/product/123407/projectCode/0?pageMark=zww8d110408");
-            AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/product/153811/projectCode/0?pageMark=zww8d110407");
-            AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/product/155046/projectCode/0?pageMark=zww8d110410");
+            //AddScene("app-act-invite&view", 3, "1");
+            //AddScene("app-act-help", 1, "1");
+            //AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/activityTopic/4666?pageMark=ptgejhd");
+            //AddScene("app-postlike-puli", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=213");
 
-            //AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/product/151575/projectCode/0?pageMark=zwtgnsssb");
-            //AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/product/154758/projectCode/0?pageMark=zwtgrxyzj");
+            //以下只跑一次
+            AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
+
 
         }
 

@@ -1,0 +1,244 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 3674,
+            "taskId": 420,
+            "taskName": "邀请邻居一起领大礼包",
+            "chanceNumber": 2,
+            "taskDesc": "感恩节",
+            "tips": "转发给邻居领礼包，邀请1人抽奖卡+2，每日上限3人",
+            "detail": [
+                {
+                    "taskDetailId": 421,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1058,
+                    "gameId": 941,
+                    "gameTitle": "抽奖卡",
+                    "limitCount": 2,
+                    "chanceName": "抽奖卡"
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 3675,
+            "taskId": 422,
+            "taskName": "参与感恩节话题讨论",
+            "chanceNumber": 2,
+            "taskDesc": "感恩节",
+            "tips": "在感恩节话题下发帖即可完成，每日1次，每次+2爱心卡",
+            "detail": [
+                {
+                    "taskDetailId": 423,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=213",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1059,
+                    "gameId": 942,
+                    "gameTitle": "爱心卡",
+                    "limitCount": 2,
+                    "chanceName": "爱心卡"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 3676,
+            "taskId": 425,
+            "taskName": "发帖被邻居点赞20次",
+            "chanceNumber": 10,
+            "taskDesc": "感恩节",
+            "tips": "单个帖子被20个邻居点赞认可，每日可以获得1次",
+            "detail": [
+                {
+                    "taskDetailId": 426,
+                    "sceneName": "集赞20个以上",
+                    "sceneCode": "app-postlike-puli",
+                    "sceneDesc": "朴里节使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=213",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1059,
+                    "gameId": 942,
+                    "gameTitle": "爱心卡",
+                    "limitCount": 10,
+                    "chanceName": "爱心卡"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 3677,
+            "taskId": 423,
+            "taskName": "预缴物业费12个月",
+            "chanceNumber": 300,
+            "taskDesc": "感恩节",
+            "tips": "预缴12个月物业费，即可收获爱心卡+100，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 424,
+                    "sceneName": "无托收预缴12个月",
+                    "sceneCode": "doc-prepay12months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1059,
+                    "gameId": 942,
+                    "gameTitle": "爱心卡",
+                    "limitCount": 300,
+                    "chanceName": "爱心卡"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 3678,
+            "taskId": 424,
+            "taskName": "住这儿购物满100元",
+            "chanceNumber": 10,
+            "taskDesc": "感恩节",
+            "tips": "住这儿友邻市集单笔消费100元以上，每日可完成1次",
+            "detail": [
+                {
+                    "taskDetailId": 425,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "",
+                    "url": "https://uiis.4009515151.com/activityTopic/4666?pageMark=ptgejhd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "100"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1059,
+                    "gameId": 942,
+                    "gameTitle": "爱心卡",
+                    "limitCount": 10,
+                    "chanceName": "爱心卡"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 3679,
+            "taskId": 421,
+            "taskName": "收到邻居的大礼包邀请",
+            "chanceNumber": 1,
+            "taskDesc": "感恩节",
+            "tips": "收到邻居邀请点击“开心收下”，百元礼包不能重复领取哦",
+            "detail": [
+                {
+                    "taskDetailId": 422,
+                    "sceneName": "助力成功",
+                    "sceneCode": "app-act-help",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1058,
+                    "gameId": 941,
+                    "gameTitle": "抽奖卡",
+                    "limitCount": 1,
+                    "chanceName": "抽奖卡"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 3680,
+            "taskId": 419,
+            "taskName": "百元大礼包兑换资格",
+            "chanceNumber": 4,
+            "taskDesc": "感恩节",
+            "tips": "进入活动即可领四重百元大礼包！单个礼包仅能领取1次",
+            "detail": [
+                {
+                    "taskDetailId": 420,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1057,
+                    "gameId": 940,
+                    "gameTitle": "兑换卡",
+                    "limitCount": 4,
+                    "chanceName": "兑换卡"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        }
+    ]
+}

@@ -21,6 +21,8 @@ namespace Zhuzher.collectsun
         private readonly SunActivityScenceList ScenceList = new SunActivityScenceList();
         private readonly UserProjectList UserProjectList = new UserProjectList();
 
+        private readonly object _lock = new object();
+
         #endregion Properties
 
         public CollectSunController(HttpClient httpClient) : base(httpClient)
@@ -31,18 +33,22 @@ namespace Zhuzher.collectsun
         {
             foreach(var user in UserProjectList.UserProjects)
             {
+
                 Task.Factory.StartNew(() => CollectSun(user));
             }
         }
 
         public void CollectSun(UserProject user)
         {
-            foreach(var scene in ScenceList.ScenceList)
+            lock(_lock)
             {
-                for(var i =0; i < scene.SceneTimes; i ++)
+                foreach (var scene in ScenceList.ScenceList)
                 {
-                    Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                    Thread.Sleep(2000);
+                    for (var i = 0; i < scene.SceneTimes; i++)
+                    {
+                        Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                        Thread.Sleep(5000);
+                    }
                 }
             }
         }
