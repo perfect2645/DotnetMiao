@@ -1,0 +1,29 @@
+POST https://appoint.yihu.com/appoint/do/registerInfo/register HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 2886
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: _SysTrackUUID=18085024489; jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; jkzlAn_sid=C4D9595F-81BE-4895-8D6E-F33709A7363E; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiU2VjU3RyIjoiNjEyREE0RkEyRjY1REZFOUQ2OENCRjc3NDJBQzg5RUMifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=off6ts0dsj7egTDEnzoc7pz7g_FY; OpenID=off6ts0dsj7egTDEnzoc7pz7g_FY; BaseDoctorUid=0; BaseUserType=0; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJGN0REMDNGQTA0Qzk4NjQ4NUEwMTI2QjFDQkNGRThDRCJ9; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=F9D6CA4CE50341AFA45736D6A76994BB; _YyghSysTrackUUID=18085156352; jkzlAn_channelid=1000031; jkzlAn_userid=142687055; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; JkzlTrade_USER_UUID=5CF5BC73EFDA4A7395CE3FB66D75E2D0; jkzlAn_ct=1668733015991
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=1000031&hospitalId=1099108&deptId=7235364&doctorSn=711230166&arrangeId=164509076&utm_source=0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+doctorRegOrder=%7B%22waterId%22%3A%22756750616%22%2C%22waitingInfor%22%3A%2208%3A00-08%3A30%22%2C%22store%22%3A%22%22%2C%22serialNo%22%3A%2213%22%2C%22memberSn%22%3A%2255665577%22%2C%22memberName%22%3A%22%E9%AB%98%E6%BB%A2%22%2C%22memberPhone%22%3A%2213322243359%22%2C%22memberAddress%22%3A%22%22%2C%22memberBirthday%22%3A%221998-04-29%22%2C%22memberSex%22%3A%222%22%2C%22memberId%22%3A%2255665577%22%2C%22othercard%22%3A%22%22%2C%22guardianmembersn%22%3A%22%22%2C%22identitytype%22%3A%221%22%2C%22memberZhengjianid%22%3A%22500***********4121%22%2C%22memberIdcard%22%3A%22500***********4121%22%2C%22accManageGoodSn%22%3Anull%2C%22birthday%22%3A%221998-04-29%22%2C%22regpaytype%22%3A%22%22%2C%22cliniccard%22%3A%22%22%2C%22applyNo%22%3A%22%22%2C%22mobile%22%3A%2213322243359%22%2C%22doctorSn%22%3A%22711230166%22%2C%22hosDeptId%22%3A%227235364%22%2C%22hosDeptName%22%3A%22%E5%AE%AB%E9%A2%88%E7%99%8C%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%97%A8%E8%AF%8A%EF%BC%88%E9%A6%96%E9%92%88%EF%BC%89%22%2C%22hospitalId%22%3A%221099108%22%2C%22hospitalName%22%3A%22%E9%9B%A8%E8%8A%B1%E7%BB%8F%E6%B5%8E%E5%BC%80%E5%8F%91%E5%8C%BA%E7%A4%BE%E5%8C%BA%E5%8D%AB%E7%94%9F%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83%22%2C%22doctorService_gh%22%3A%222%22%2C%22doctorUid%22%3A%22710796399%22%2C%22doctorName%22%3A%22%E4%B9%9D%E4%BB%B7%E7%96%AB%E8%8B%97%22%2C%22doctorPic%22%3A%22%22%2C%22doctorClinicName%22%3A%22%E5%8C%BB%E5%B8%88%22%2C%22GH_HosProId%22%3A%2210%22%2C%22GH_HosProName%22%3A%22%E6%B1%9F%E8%8B%8F%22%2C%22GH_HosCityId%22%3A%2277%22%2C%22GH_HosCityName%22%3A%22%E5%8D%97%E4%BA%AC%22%2C%22registerDate%22%3A%222022-11-25%22%2C%22timeId%22%3A1%2C%22arrangeId%22%3A164509076%2C%22ghAmount%22%3A0%2C%22securityDeposit%22%3A0%2C%22ghfeeway%22%3A0%2C%22ModeId%22%3A0%2C%22GhFee%22%3A0%2C%22AllFee%22%3A0%2C%22availablenum%22%3A36%2C%22UnOpened%22%3Afalse%2C%22FHTimes%22%3A%2208%3A00%22%2C%22FHDays%22%3A%227%22%2C%22accountSn%22%3A142687055%2C%22cardNumber%22%3A%222072800766%22%2C%22loginId%22%3A%22off6ts0dsj7egTDEnzoc7pz7g_FY%22%2C%22channelId%22%3A%221000031%22%2C%22utm_source%22%3A%220.0.h.1026.bus010.0__0.0.h.1026.bus010.0%22%2C%22doctorOfficeName%22%3A%22%22%7D&ghFormCon=%5B%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22name%22%7D%2C%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22ClinicCard%22%7D%2C%7B%22keyValue%22%3A%22500***********4121%22%2C%22keyName%22%3A%22CardNo%22%7D%2C%7B%22keyValue%22%3A%221998-04-29%22%2C%22keyName%22%3A%22birthday%22%7D%2C%7B%22keyValue%22%3A%222%22%2C%22keyName%22%3A%22sex%22%7D%2C%7B%22keyValue%22%3A%2213322243359%22%2C%22keyName%22%3A%22mobile%22%7D%2C%7B%22keyValue%22%3A%221%22%2C%22keyName%22%3A%22cardtype%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%22%E6%9C%AA%E7%A1%AE%E8%AF%8A%22%2C%22keyName%22%3A%22cmb_diseaseName%22%7D%5D
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 18 Nov 2022 00:57:40 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 224
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Message":"号源已被预约!错误码：-16410004\t号码已经被预约:预约流水号=132286357","ExceptMsg":"号源已被预约!错误码：-16410004\t号码已经被预约:预约流水号=132286357","Code":-16410004}
