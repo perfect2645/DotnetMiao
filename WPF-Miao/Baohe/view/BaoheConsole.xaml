@@ -40,9 +40,7 @@
                     <Button Content="自动查约"
                     Command="{Binding AutoRunCommand}" Width="100" >
                     </Button>
-                    <!--<Button Content="手动验证码"
-                    Command="{Binding VerifyCode.SendYzmCommand}" Width="100" Margin="50, 0">
-                </Button>-->
+
                     <TextBox
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Width="100"
@@ -52,6 +50,11 @@
                       VerticalAlignment="Bottom" />
                     <Button Content="验证"
                         Command="{Binding VerifyCode.VerifyYzmCommand}" Width="100">
+                    </Button>
+                </StackPanel>
+                <StackPanel>
+                    <Button Content="手动验证码" HorizontalAlignment="Left"
+                    Command="{Binding VerifyCode.SendYzmCommand}" Width="100" Margin="50, 0">
                     </Button>
                 </StackPanel>
             </StackPanel>
