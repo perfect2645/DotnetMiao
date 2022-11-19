@@ -7,6 +7,7 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using hys020.appointment;
+using hys020.appointment.Yuyue;
 using hys020.search;
 using hys020.session;
 using System;
@@ -15,6 +16,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace hys020.viewmodel
@@ -99,13 +101,13 @@ namespace hys020.viewmodel
             InitStaticData();
             InitControllers();
 
-            TestData();
+            //TestData();
         }
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=16117389A032602915BECC7B5F92B755";
-            Location = "http://www.hys020.com/home/yyghDorMobile?userId=42CB58972CD44CD9945775814C00CA41&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=6uDkDCvjSleNbmH+UpvhpLebNHBZWsFI";
+            Cookie = "JSESSIONID=4CBBBDB36CAF393A033F3156B009254C";
+            Location = "http://www.hys020.com/home/yyghDorMobile?userId=6334C2A529E1423881ADDA4E3A737076&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=6uDkDCvjSlcr493EbQA7wV6QIOR5Hbgu";
 
             StartTime = DateTime.Now.AddSeconds(20);
         }
@@ -117,7 +119,7 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 14, 10, 59, 55);
+            StartTime = new DateTime(2022, 11, 21, 10, 55, 00);
 
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
@@ -137,14 +139,27 @@ namespace hys020.viewmodel
                     DepartmentId = "42CB58972CD44CD9945775814C00CA41",
                     DepartmentName = "盆底修复",
                 },
+                new HysHospital
+                {
+                    HospitalId = "doctorYyghMobileDate",
+                    HospitalName = "肇庆市鼎湖区",
+                    DepartmentId = "6334C2A529E1423881ADDA4E3A737076",
+                    DepartmentName = "黄针妹",
+                },
             };
 
             DateList = new List<DspVal>
             {
-                new DspVal("2022-11-08"),
-                new DspVal("2022-11-09"),
-                new DspVal("2022-11-10"),
-                new DspVal("2022-11-11"),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -292,8 +307,11 @@ namespace hys020.viewmodel
         {
             try
             {
-                var appointController = HttpServiceController.GetService<AppointController>();
-                appointController.Yuyue(orderList);
+                foreach (var order in orderList)
+                {
+                    var yuyueController = AppointSession.GetController(order.Date, order.Time);
+                    yuyueController.StartInterval(order);
+                }
             }
             catch (Exception ex)
             {
@@ -354,6 +372,10 @@ namespace hys020.viewmodel
             Log(selectedDept.ToLogString());
 
             //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
+        }
+
+        protected override void ReSession()
+        {
         }
 
         #endregion Hospital Dept

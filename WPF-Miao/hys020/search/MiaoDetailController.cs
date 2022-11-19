@@ -86,14 +86,14 @@ namespace hys020.search
                 }
             }
 
-            //orderList = orderList.DisorderItems();
+            orderList = orderList.DisorderItems();
 
             MainSession.SetStatus(MiaoProgress.AppointStart);
             var appointEventArgs = new AppointEventArgs
             {
                 OrderList = orderList
             };
-            MainSession.PrintLogEvent.Publish(this, $"开始预备预约");
+            MainSession.PrintLogEvent.Publish(this, $"查到{orderList.Count}支苗，开始预备预约");
             Task.Factory.StartNew(() =>
             {
                 MainSession.AppointEvent.Publish(null, appointEventArgs);
@@ -102,6 +102,7 @@ namespace hys020.search
 
         private Order BuildOrder(Dictionary<string, object> miao, string orgid)
         {
+            var date = miao["regPatAge"].NotNullString();
             var time = miao["regPhase"].NotNullString();
             var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
             var order = new Order()
@@ -110,7 +111,9 @@ namespace hys020.search
                 AttId = miao["regAttId"].NotNullString(),
                 TimeRangeEncode = UnicodeConverter.Encode(time),
                 OrgId = orgid,
-                WechatId = wechatId
+                WechatId = wechatId,
+                Date = date,
+                Time = time,
             };
 
             return order;

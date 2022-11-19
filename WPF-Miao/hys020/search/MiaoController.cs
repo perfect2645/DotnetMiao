@@ -75,7 +75,7 @@ namespace hys020.search
 
             if (!miaoList.HasItem())
             {
-                Log($"没查到苗");
+                MainSession.PrintLogEvent.Publish(null, $"MiaoController - 没查到苗");
                 return null;
             }
 
