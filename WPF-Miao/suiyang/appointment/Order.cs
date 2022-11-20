@@ -16,7 +16,7 @@ namespace suiyang.appointment
         public string OpenId { get; set; } = "ohcxP58icuLf35ZBbVsSB7mZ2YZ8";
         public string Barcode { get; set; }
         public int Price { get; set; } = 0;
-        public int Priority { get; set; } = 10;
+        public int Priority { get; set; } = 5;
         public int AddressId { get; set; } = 61924;
         public string Identity { get; set; }
         public string Phone { get; set; }
