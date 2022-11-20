@@ -30,3 +30,20 @@ X-Application-Context: application:8899
 Content-Length: 429
 
 {"success":true,"message":null,"data":{"type":"UNDEFINED","btCode":"D","appointDate":"2022-11-25","beginTime":"08:00","endTime":"16:30","openid":"ohcxP58icuLf35ZBbVsSB7mZ2YZ8","barcode":"53fd3eda-3b62-4618-83b8-bb13d91ce290","price":0,"priority":10,"addressId":61924,"identity":"500225199908054760","phone":"13940897525","idName":"周依依","appointId":225490,"appointNo":"221120002","refCode":"560788","btName":"孕产保健"}}
+
+
+{
+    "type": "UNDEFINED",
+    "btCode": "D",
+    "appointDate": "2022-11-25",
+    "beginTime": "08:00",
+    "endTime": "16:30",
+    "openid": "ohcxP58icuLf35ZBbVsSB7mZ2YZ8",
+    "barcode": "53fd3eda-3b62-4618-83b8-bb13d91ce290",
+    "price": 0,
+    "priority": 10,
+    "addressId": 61924,
+    "identity": "500225199908054760",
+    "phone": "13940897525",
+    "idName": "周依依"
+}

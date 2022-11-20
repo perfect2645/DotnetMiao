@@ -13,9 +13,11 @@ using suiyang.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace suiyang.viewmodel
@@ -110,14 +112,13 @@ namespace suiyang.viewmodel
         {
             InitCommands();
             InitStaticData();
-            MainSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
         }
 
         private void TestData()
         {
-            Interval = 800;
+            Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             Auth = "Bearer e5c40e93-c261-40e7-ae47-c61b4c1fe09b";
@@ -127,6 +128,19 @@ namespace suiyang.viewmodel
         {
             StartTime = new DateTime(2022, 11, 21, 7, 59, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+
+
+
+            DateList = new List<DspVal>
+            {
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+            };
+
+            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
             {
@@ -141,12 +155,20 @@ namespace suiyang.viewmodel
                 {
                     HospitalId = "514966",
                     HospitalName = "绥阳县妇幼保健院",
+                    DepartmentId = "G",
+                    DepartmentName = "四价宫颈癌疫苗",
+                },
+                new SuiyangHospital
+                {
+                    HospitalId = "514966",
+                    HospitalName = "绥阳县妇幼保健院",
                     DepartmentId = "D",
                     DepartmentName = "预约分娩",
                 },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+            AppointSession.Init();
         }
 
         private void InitCommands()
@@ -154,7 +176,8 @@ namespace suiyang.viewmodel
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
-            MainSession.AppointEvent.Subscribe(OnSchedule);
+            MainSession.AppointEvent.Subscribe(OnYuyue);
+            MainSession.PrintLogEvent = PrintLogEvent;
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
@@ -193,11 +216,12 @@ namespace suiyang.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-                    StartIntervalTimer();
+                    await _searchController.SearchAsync();
+                    StartOnTimeTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -215,7 +239,7 @@ namespace suiyang.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchAsync();
+                    Yuyue();
                 }
                 catch (HttpException ex)
                 {
@@ -232,7 +256,7 @@ namespace suiyang.viewmodel
 
         #region Appoint
 
-        private void OnSchedule(object? sender, AppointEventArgs e)
+        private void OnYuyue(object? sender, AppointEventArgs e)
         {
             lock (OrderLock)
             {
@@ -245,19 +269,11 @@ namespace suiyang.viewmodel
         {
             try
             {
-                //var preOrderController = HttpServiceController.GetService<PreOrderController>();
-                //var preContent = new PreOrderContent();
-                //preOrderController.BuildHeaders(preContent);
-
-                //foreach (var order in orderList)
-                //{
-                //    var content = new PreOrderContent(order);
-                //    preOrderController.PreOrderAsync(content);
-                //    order.IntervalOnTime.StartIntervalOntime(() =>
-                //    {
-                //        Task.Factory.StartNew(() => preOrderController.PreOrderAsync(content));
-                //    });
-                //}
+                foreach (var order in orderList)
+                {
+                    var yuyueController = AppointSession.GetController(order.AppointDate);
+                    yuyueController.StartInterval(order);
+                }
             }
             catch (Exception ex)
             {
@@ -267,7 +283,7 @@ namespace suiyang.viewmodel
 
         private void ExecuteManual()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
                     if (StringUtil.AnyEmpty(Auth))
@@ -284,7 +300,9 @@ namespace suiyang.viewmodel
                         return;
                     }
 
-                    _searchController.SearchAsync();
+                    await _searchController.SearchAsync();
+
+                    await Task.Factory.StartNew(() => Yuyue());
                 }
                 catch (HttpException ex)
                 {
@@ -294,6 +312,47 @@ namespace suiyang.viewmodel
                 {
                     Log(ex);
                 }
+            });
+        }
+
+        private void Yuyue()
+        {
+            var controllerList = AppointSession.YuyueControllerCache;
+            var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
+            foreach(var pair in DateList)
+            {
+                var date = pair.Value;
+                PublishYuyue(date, userInfo);
+                Thread.Sleep(20);
+            }
+        }
+
+        private void PublishYuyue(string date, Dictionary<string, object> userInfo)
+        {
+            var orderList = new List<Order>();
+
+
+
+            var order = new Order
+            {
+                BtCode = MainSession.PlatformSession.GetString(Constants.DeptId),
+                AppointDate = date,
+                Barcode = MainSession.Auth,
+                AddressId = userInfo.GetString("id").ToInt(),
+                Identity = userInfo.GetString("identity"),
+                Phone = userInfo.GetString("mobile"),
+                IdName = userInfo.GetString("firstName"),
+            };
+
+            orderList.Add(order);
+
+            var appointEventArgs = new AppointEventArgs
+            {
+                OrderList = orderList
+            };
+            Task.Factory.StartNew(() =>
+            {
+                MainSession.AppointEvent.Publish(null, appointEventArgs);
             });
         }
 
@@ -351,8 +410,8 @@ namespace suiyang.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as SuiyangHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            //MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
         }

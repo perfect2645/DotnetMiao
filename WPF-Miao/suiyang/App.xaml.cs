@@ -27,6 +27,7 @@ namespace suiyang
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<GetMiaoController>();
 

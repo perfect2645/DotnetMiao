@@ -7,15 +7,17 @@ namespace suiyang.search
     internal class SearchController
     {
         private GetMiaoController miaoController;
+        private UserController userController;
 
         public SearchController()
         {
-            miaoController = HttpServiceController.GetService<GetMiaoController>();
+            //miaoController = HttpServiceController.GetService<GetMiaoController>();
+            userController = HttpServiceController.GetService<UserController>();
         }
 
-        public void SearchAsync()
+        public async Task SearchAsync()
         {
-            miaoController.GetMiaoAsync();
+            await userController.GetUserAsync();
         }
     }
 }
