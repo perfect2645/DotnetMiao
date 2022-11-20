@@ -120,14 +120,14 @@ namespace suiyang.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             Auth = "Bearer e5c40e93-c261-40e7-ae47-c61b4c1fe09b";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 21, 7, 59, 56);
+            StartTime = new DateTime(2022, 11, 21, 8, 29, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
 
