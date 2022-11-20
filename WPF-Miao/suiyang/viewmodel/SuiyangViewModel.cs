@@ -295,13 +295,13 @@ namespace suiyang.viewmodel
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
-                    if (StringUtil.NotEmpty(ScheduleId))
+                    await _searchController.SearchAsync();
+
+                    if (StringUtil.NotEmpty(SelectedDate.Value))
                     {
-                        DirectlyOrder(ScheduleId);
+                        DirectlyOrder(SelectedDate.Value);
                         return;
                     }
-
-                    await _searchController.SearchAsync();
 
                     await Task.Factory.StartNew(() => Yuyue());
                 }
@@ -358,34 +358,11 @@ namespace suiyang.viewmodel
             });
         }
 
-        private void DirectlyOrder(string scheduleId)
+        private void DirectlyOrder(string date)
         {
-            //var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            //var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            //var userInfo = MainSession.UserSession.Users.FirstOrDefault(x =>
-            //    (x.Value as Dictionary<string, object>)?.GetString("isDefault") == "1").Value as Dictionary<string, object>;
-
-            //var userId = userInfo.GetString(Constants.UserID);
-            //var familyId = userInfo.GetString(Constants.FamilyID);
-            //var userName = userInfo.GetString("familyName");
-            //var phone = userInfo.GetString("familyPhone");
-
-            //var order = new Order();
-            //order.ScheduleId = scheduleId;
-            //order.DoctorId = doctorId;
-            //order.Hospitalid = hospitalId;
-            //order.UserId = userId;
-            //order.FamilyId = familyId;
-            //order.UserName = userName;
-            //order.UserPhone = phone;
-
-            //var preOrderController = HttpServiceController.GetService<PreOrderController>();
-            //var content = new PreOrderContent(order);
-            //preOrderController.BuildHeaders(content);
-            //Task.Factory.StartNew(() =>
-            //{
-            //    preOrderController.Exchange(content);
-            //});
+            var controller = AppointSession.GetController(date);
+            var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
+            PublishYuyue(date, userInfo);
         }
 
         #endregion Appoint
