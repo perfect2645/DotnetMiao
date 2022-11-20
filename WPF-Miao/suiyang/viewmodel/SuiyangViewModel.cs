@@ -327,7 +327,7 @@ namespace suiyang.viewmodel
             {
                 var date = pair.Value;
                 PublishYuyue(date, userInfo);
-                Thread.Sleep(20);
+                Thread.Sleep(60);
             }
         }
 
