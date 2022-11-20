@@ -75,25 +75,15 @@ namespace suiyang.viewmodel
             }
         }
 
-        private string _userPhone;
-        public string UserPhone
+        private string _auth;
+        public string Auth
         {
-            get { return _userPhone; }
+            get { return _auth; }
             set
             {
-                _userPhone = value;
-                NotifyUI(() => UserPhone);
-            }
-        }
-
-        private string _userPassword;
-        public string UserPassword
-        {
-            get { return _userPassword; }
-            set
-            {
-                _userPassword = value;
-                NotifyUI(() => UserPassword);
+                _auth = value;
+                MainSession.Auth = value;
+                NotifyUI(() => Auth);
             }
         }
 
@@ -130,31 +120,29 @@ namespace suiyang.viewmodel
             Interval = 800;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "13940897525";
-            _userPassword = "yinhen2645";
-            ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
+            Auth = "Bearer e5c40e93-c261-40e7-ae47-c61b4c1fe09b";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 18, 7, 59, 56);
+            StartTime = new DateTime(2022, 11, 21, 7, 59, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             Departments = new List<HospitalDept>
             {
                 new SuiyangHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646202",
-                    DepartmentName = "九价HPV疫苗",
+                    HospitalId = "514966",
+                    HospitalName = "绥阳县妇幼保健院",
+                    DepartmentId = "F",
+                    DepartmentName = "九价宫颈癌疫苗",
                 },
                 new SuiyangHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646191",
-                    DepartmentName = "四价HPV疫苗",
+                    HospitalId = "514966",
+                    HospitalName = "绥阳县妇幼保健院",
+                    DepartmentId = "D",
+                    DepartmentName = "预约分娩",
                 },
             };
 
@@ -163,7 +151,6 @@ namespace suiyang.viewmodel
 
         private void InitCommands()
         {
-            LoginCommand = new AsyncRelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
@@ -202,32 +189,15 @@ namespace suiyang.viewmodel
 
         #endregion Status Control
 
-        #region Login
-
-        private async Task ExecuteLogin()
-        {
-            if (StringUtil.AnyEmpty(UserPhone, UserPassword))
-            {
-                MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
-                return;
-            }
-            var loginController = HttpServiceController.GetService<LoginController>();
-            var userId = await loginController.LoginAsync(UserPhone, UserPassword);
-        }
-
-        #endregion Login
-
         #region AutoRun
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
-                    await ExecuteLogin();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
                     StartIntervalTimer();
-                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -297,28 +267,23 @@ namespace suiyang.viewmodel
 
         private void ExecuteManual()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
-                    if (StringUtil.AnyEmpty(UserPhone, UserPassword))
+                    if (StringUtil.AnyEmpty(Auth))
                     {
-                        MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
+                        MainSession.PrintLogEvent.Publish(this, "请填写用户Auth -Bearer");
                         return;
                     }
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-
-                    await ExecuteLogin();
 
                     if (StringUtil.NotEmpty(ScheduleId))
                     {
                         DirectlyOrder(ScheduleId);
                         return;
                     }
-                    if (MainSession.GetStatus() != MiaoProgress.ReadyForSearch)
-                    {
-                        return;
-                    }
+
                     _searchController.SearchAsync();
                 }
                 catch (HttpException ex)
@@ -399,7 +364,6 @@ namespace suiyang.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
-            Task.Factory.StartNew(() => ExecuteLogin());
         }
 
         #endregion Resession

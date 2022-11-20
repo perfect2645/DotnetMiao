@@ -19,15 +19,15 @@
                 <StackPanel Background="Bisque">
                     <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
-                         Text="{Binding UserPhone}"
-                        materialDesign:HintAssist.Hint="手机"/>
-                    <TextBox Width="300" Height="30"
+                         Text="{Binding Auth}"
+                        materialDesign:HintAssist.Hint="Auth - Bearer"/>
+                    <!--<TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
                          Text="{Binding UserPassword}"
-                        materialDesign:HintAssist.Hint="密码"/>
-                    <Button Content="登录" Margin="0,0,10,0"
+                        materialDesign:HintAssist.Hint="密码"/>-->
+                    <!--<Button Content="登录" Margin="0,0,10,0"
                         Command="{Binding LoginCommand}" Width="100">
-                    </Button>
+                    </Button>-->
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="100">
                     <TextBox Width="300" Height="30"

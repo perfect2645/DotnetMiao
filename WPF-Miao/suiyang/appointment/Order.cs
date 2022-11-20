@@ -9,7 +9,7 @@ namespace suiyang.appointment
     {
         public IntervalOnTime IntervalOnTime { get; private set; }
         public string Type { get; set; } = "UNDEFINED";
-        public string BtCode { get; set; } = "D";
+        public string BtCode { get; set; } = "F";
         public string AppointDate { get; set; }
         public string BeginTime { get; set; } = "08:00";
         public string EndTime { get; set; } = "16:30";

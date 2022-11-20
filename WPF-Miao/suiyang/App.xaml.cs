@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Container;
 using suiyang.appointment;
 using suiyang.login;
+using suiyang.search;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -27,7 +28,7 @@ namespace suiyang
         private void InitController()
         {
             HttpServiceController.AddTransientService<YuyueController>();
-            HttpServiceController.AddTransientService<LoginController>();
+            HttpServiceController.AddTransientService<GetMiaoController>();
 
             HttpServiceController.BuidServiceProvider();
         }
