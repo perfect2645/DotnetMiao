@@ -52,7 +52,6 @@ namespace suiyang.appointment
                 
                 content.BuildDefaultHeaders(Client);
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
-                MainSession.SetStatus(MiaoProgress.AppointEnd);
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
