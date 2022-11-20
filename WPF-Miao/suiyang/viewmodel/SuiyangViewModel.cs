@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
+using Utils.number;
 using Utils.stringBuilder;
 
 namespace suiyang.viewmodel
@@ -319,7 +320,10 @@ namespace suiyang.viewmodel
         {
             var controllerList = AppointSession.YuyueControllerCache;
             var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
-            foreach(var pair in DateList)
+
+            var dateList = DateList.DisorderItems();
+
+            foreach (var pair in DateList)
             {
                 var date = pair.Value;
                 PublishYuyue(date, userInfo);
@@ -331,13 +335,11 @@ namespace suiyang.viewmodel
         {
             var orderList = new List<Order>();
 
-
-
             var order = new Order
             {
                 BtCode = MainSession.PlatformSession.GetString(Constants.DeptId),
                 AppointDate = date,
-                Barcode = MainSession.Auth,
+                Barcode = MainSession.Auth.Replace("Bearer ", string.Empty),
                 AddressId = userInfo.GetString("id").ToInt(),
                 Identity = userInfo.GetString("identity"),
                 Phone = userInfo.GetString("mobile"),

@@ -47,3 +47,20 @@ Content-Length: 429
     "phone": "13940897525",
     "idName": "周依依"
 }
+
+
+
+{
+    "type": "UNDEFINED",
+    "btCode": "F",
+    "appointDate": "2022-11-21",
+    "beginTime": "08:00",
+    "endTime": "16:30",
+    "openid": "ohcxP58icuLf35ZBbVsSB7mZ2YZ8",
+    "barcode": "e5c40e93-c261-40e7-ae47-c61b4c1fe09b",
+    "price": 0,
+    "priority": 10,
+    "addressId": 61924,
+    "identity": "13940897525",
+    "idName": "周依依"
+}

@@ -90,5 +90,48 @@ namespace Utils
             byte[] hash = mac.ComputeHash(Encoding.UTF8.GetBytes(srouce));
             return hash;
         }
+
+        public static string ToUnicode(this string normalStr, bool isIgnoreSpace = true, bool isUpperCaseU = false)
+        {
+            if (string.IsNullOrEmpty(normalStr))
+            {
+                return string.Empty;
+            }
+
+            StringBuilder strResult = new StringBuilder();
+
+            void func(int index)
+            {
+                if (isUpperCaseU)
+                {
+                    strResult.Append("\\U");
+                }
+                else
+                {
+                    strResult.Append("\\u");
+                }
+                strResult.Append(((int)normalStr[index]).ToString("x").PadLeft(4, '0'));
+            }
+
+            for (int i = 0; i < normalStr.Length; i++)
+            {
+                if (isIgnoreSpace)
+                {
+                    if (normalStr[i] == ' ')
+                    {
+                        strResult.Append(" ");
+                    }
+                    else
+                    {
+                        func(i);
+                    }
+                }
+                else
+                {
+                    func(i);
+                }
+            }
+            return strResult.ToString();
+        }
     }
 }

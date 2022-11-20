@@ -5,6 +5,7 @@ using suiyang.session;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils.stringBuilder;
 using Utils.timerUtil;
 
 namespace suiyang.appointment
@@ -23,6 +24,7 @@ namespace suiyang.appointment
 
         public void StartInterval(Order order)
         {
+            //YuyueAsync(order);
             IntervalOnTime.StartIntervalOntime(() => YuyueAsync(order));
         }
 
@@ -38,7 +40,7 @@ namespace suiyang.appointment
             Yuyue(content);
         }
 
-        private void Yuyue(YuyueContent content)
+        internal void Yuyue(YuyueContent content)
         {
             try
             {
@@ -47,21 +49,25 @@ namespace suiyang.appointment
                     IntervalOnTime.StopInterval();
                     return;
                 }
+                
                 content.BuildDefaultHeaders(Client);
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                    return;
                 }
 
-                var result = response.JsonBody.RootElement.GetProperty("successMessage").ToString();
-                if (string.IsNullOrEmpty(result))
+                var success = response.JsonBody.RootElement.GetProperty("success").NotNullString().ToBool();
+                var message = response.JsonBody.RootElement.GetProperty("message").NotNullString();
+                if (!success)
                 {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{message}");
                     return;
                 }
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
-                MainSession.PrintLogEvent.Publish(this, $"预约申请提交成功 result:{result}");
-                MainSession.PrintLogEvent.Publish(null, $"预约申请提交成功 {content.Order.ToLogString()}");
+                MainSession.PrintLogEvent.Publish(this, $"预约结果:{message}");
+                MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
             }
             catch (Exception ex)
             {

@@ -31,7 +31,7 @@ namespace suiyang.appointment
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("******** 预约成功 *********");
+            sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"身份证 - {Identity}");
             sb.AppendLine($"姓名 - {IdName}");

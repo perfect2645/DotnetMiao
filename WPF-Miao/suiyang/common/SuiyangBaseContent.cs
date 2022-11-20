@@ -12,7 +12,7 @@ namespace suiyang.common
             BuildHeader();
         }
 
-        private void BuildHeader()
+        protected virtual void BuildHeader()
         {
             AddHeader("Host", "www.jxy-tech.com");
             AddHeader("Connection", "keep-alive");
