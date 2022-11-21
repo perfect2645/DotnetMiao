@@ -13,6 +13,8 @@ namespace suiyang.session
     {
         public static string Auth { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
+        public static AppointSession AppointSession { get; }
+        internal static SearchSession SearchSession { get; }
 
         public static AppointEvent AppointEvent { get; }
 
@@ -20,6 +22,8 @@ namespace suiyang.session
         {
             PlatformSession = new Dictionary<string, object>();
             AppointEvent = new AppointEvent();
+            AppointSession = new AppointSession();
+            SearchSession = new SearchSession();
         }
 
         #region MiaoStatus

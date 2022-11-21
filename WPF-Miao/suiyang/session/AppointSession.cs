@@ -1,4 +1,6 @@
 ﻿using Base.model;
+using Base.session;
+using HttpProcessor.Client;
 using HttpProcessor.Container;
 using suiyang.appointment;
 using System;
@@ -9,48 +11,14 @@ using Utils;
 
 namespace suiyang.session
 {
-    public static class AppointSession
+    public class AppointSession : ControllerSession<YuyueController>
     {
-        internal static ConcurrentDictionary<string, YuyueController> YuyueControllerCache { get; private set; }
-
-        static AppointSession()
+        public AppointSession() : base()
         {
-
-        }
-
-        public static void Init()
-        {
-            YuyueControllerCache = new ConcurrentDictionary<string, YuyueController>();
             var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
             foreach (var date in dateList)
             {
                 AddController(date);
-            }
-        }
-
-        private static YuyueController AddController(string date)
-        {
-            var yuyueContr = HttpServiceController.GetService<YuyueController>();
-            YuyueControllerCache.AddOrUpdate(date, yuyueContr);
-
-            return yuyueContr;
-        }
-
-        public static YuyueController GetController(string date)
-        {
-            try
-            {
-                if (!YuyueControllerCache.ContainsKey(date))
-                {
-                    return AddController(date);
-                }
- 
-                return YuyueControllerCache[date];
-            }
-            catch(Exception ex)
-            {
-                Logging.GLog.Logger.Error(ex);
-                return null;
             }
         }
     }

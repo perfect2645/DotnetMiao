@@ -169,7 +169,6 @@ namespace suiyang.viewmodel
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
-            AppointSession.Init();
         }
 
         private void InitCommands()
@@ -272,7 +271,7 @@ namespace suiyang.viewmodel
             {
                 foreach (var order in orderList)
                 {
-                    var yuyueController = AppointSession.GetController(order.AppointDate);
+                    var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
                     yuyueController.StartInterval(order);
                 }
             }
@@ -318,7 +317,7 @@ namespace suiyang.viewmodel
 
         private void Yuyue()
         {
-            var controllerList = AppointSession.YuyueControllerCache;
+            var controllerList = MainSession.AppointSession.ControllerCache;
             var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
 
             var dateList = DateList.DisorderItems();
@@ -360,7 +359,7 @@ namespace suiyang.viewmodel
 
         private void DirectlyOrder(string date)
         {
-            var controller = AppointSession.GetController(date);
+            var controller = MainSession.AppointSession.GetController(date);
             var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
             PublishYuyue(date, userInfo);
         }
