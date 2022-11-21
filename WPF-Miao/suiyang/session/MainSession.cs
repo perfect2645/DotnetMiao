@@ -14,14 +14,11 @@ namespace suiyang.session
         public static string Auth { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
 
-        public static UserSession UserSession { get; private set; }
-
         public static AppointEvent AppointEvent { get; }
 
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
-            UserSession = new UserSession();
             AppointEvent = new AppointEvent();
         }
 
