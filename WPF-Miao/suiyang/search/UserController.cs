@@ -40,6 +40,7 @@ namespace suiyang.search
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetMiao - {response?.Message},请检查参数");
+                    return;
                 }
                 var success = response.JsonBody.RootElement.GetProperty("success").NotNullString().ToBool();
                 if (success)

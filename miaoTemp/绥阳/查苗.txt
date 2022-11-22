@@ -1,20 +1,20 @@
-GET http://www.jxy-tech.com/api/v1/locations/1/canbeappointed/businesses/F/availableDates?_dc=1668931245941 HTTP/1.1
+GET http://www.jxy-tech.com/api/v1/locations/1/canbeappointed/businesses/D/availableTimeRanges?_dc=1669124106734&date=2022-11-24 HTTP/1.1
 Host: www.jxy-tech.com
 Connection: keep-alive
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
 X-Requested-With: XMLHttpRequest
-Authorization: Bearer e5c40e93-c261-40e7-ae47-c61b4c1fe09b
+Authorization: Bearer 01fbf81f-bff6-4754-b930-a63ee282fef1
 Content-Type: application/json
 Accept: */*
-Cookie: JSESSIONID=BE4F15E33894619C7ED9A223EAEBB4F1
-Referer: http://www.jxy-tech.com/booking/companies/514966/?v=1
+Cookie: JSESSIONID=018CDA20FF1800EB603AC035F6D70C5D
+Referer: http://www.jxy-tech.com/booking/companies/514966/?v=1.0
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
 
 HTTP/1.1 200
 Server: nginx/1.16.1
-Date: Sun, 20 Nov 2022 08:00:46 GMT
+Date: Tue, 22 Nov 2022 13:35:06 GMT
 Content-Type: application/json;charset=UTF-8
 Connection: keep-alive
 X-Content-Type-Options: nosniff
@@ -23,8 +23,8 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Set-Cookie: JSESSIONID=EF96574355026BF324EEAE9FF20CE295; Path=/; HttpOnly
+Set-Cookie: JSESSIONID=CC3E1EACC1FDB9700BA76E57678549ED; Path=/; HttpOnly
 X-Application-Context: application:8899
-Content-Length: 538
+Content-Length: 176
 
-{"success":true,"message":null,"data":[{"date":"2022-11-20","dayOfWeek":1,"rest":false,"appointedQty":0,"availableQty":0},{"date":"2022-11-21","dayOfWeek":2,"rest":false,"appointedQty":0,"availableQty":0},{"date":"2022-11-22","dayOfWeek":3,"rest":false,"appointedQty":0,"availableQty":0},{"date":"2022-11-23","dayOfWeek":4,"rest":false,"appointedQty":0,"availableQty":0},{"date":"2022-11-24","dayOfWeek":5,"rest":false,"appointedQty":0,"availableQty":0},{"date":"2022-11-25","dayOfWeek":6,"rest":false,"appointedQty":0,"availableQty":0}]}
+{"success":true,"message":null,"data":[{"dayOfWeek":5,"description":"08:00~16:30","beginTime":"08:00","endTime":"16:30","max":20,"appointedQty":0,"availableQty":20,"price":0}]}

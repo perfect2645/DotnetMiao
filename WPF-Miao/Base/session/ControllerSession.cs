@@ -17,10 +17,10 @@ namespace Base.session
 
         protected Client AddController(string key)
         {
-            var yuyueContr = HttpServiceController.GetService<Client>();
-            ControllerCache.AddOrUpdate(key, yuyueContr);
+            var controller = HttpServiceController.GetService<Client>();
+            ControllerCache.AddOrUpdate(key, controller);
 
-            return yuyueContr;
+            return controller;
         }
 
         public Client GetController(string key)

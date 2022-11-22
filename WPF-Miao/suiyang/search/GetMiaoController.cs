@@ -21,10 +21,22 @@ namespace suiyang.search
     internal class GetMiaoController : HttpClientBase
     {
         public IntervalOnTime IntervalOnTime { get; private set; }
-        public string Date { get; set; }
+        public string Date { get; private set; }
+        public SuiyangBaseContent Content { get; private set; }
         public GetMiaoController(HttpClient httpClient) : base(httpClient)
         {
             IntervalOnTime = new IntervalOnTime(GetMiao, Date, 200);
+        }
+
+        internal void BuildContent(string date)
+        {
+            Date = date;
+            var dc = DateTimeUtil.GetTimeStamp();
+            var dept = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var url = $"http://www.jxy-tech.com/api/v1/locations/1/canbeappointed/businesses/{dept}/availableTimeRanges?_dc={dc}&date={Date}";
+            var content = new SuiyangBaseContent(url);
+            
+            Content = content;
         }
 
         public void GetMiaoAsync()
@@ -37,12 +49,7 @@ namespace suiyang.search
         {
             try
             {
-                var dept = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var dc = DateTimeUtil.GetTimeStamp();
-                var url = $"http://www.jxy-tech.com/api/v1/locations/1/canbeappointed/businesses/{dept}/availableDates?_dc={dc}";
-                var content = new SuiyangBaseContent(url);
-                content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = GetStringAsync(Content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetMiao - {response?.Message},请检查参数");
@@ -52,7 +59,6 @@ namespace suiyang.search
                 {
                     var data = response.JsonBody.RootElement.GetProperty("data");
                     SaveMiaoInfo(data);
-                    MainSession.SetStatus(MiaoProgress.ReadyForSearch);
                     return;
                 }
                 MainSession.SetStatus(MiaoProgress.Init);
@@ -68,39 +74,63 @@ namespace suiyang.search
         private void SaveMiaoInfo(JsonElement data)
         {
             var scheduleList = JsonAnalysis.JsonToDicList(data);
+            if (!scheduleList.HasItem())
+            {
+                Log("scheduleList is empty, 没查到苗");
+            }
+
+            var orderList = new List<Order>();
+
             foreach (var schedule in scheduleList)
             {
                 var availableQty = schedule.GetString("availableQty").ToInt();
+                var beginTime = schedule.GetString("beginTime");
+                var endTime = schedule.GetString("endTime");
+
                 if (availableQty > 0)
                 {
                     IntervalOnTime.StopInterval();
-                    PublishMiaoGet(Date);
+                    var order = BuildOrder(beginTime, endTime);
+                    orderList.Add(order);
                     MainSession.PrintLogEvent.Publish(null, $"查到苗，date={Date}");
                 }
+
+                if (!orderList.HasItem())
+                {
+                    MainSession.PrintLogEvent.Publish(null, $"没苗了，现在在捡漏， date={Date}");
+                    return;
+                }
+
+                var appointEventArgs = new AppointEventArgs
+                {
+                    OrderList = orderList
+                };
+                MainSession.PrintLogEvent.Publish(this, $"查到{orderList.Count}支苗，开始预备预约");
+                Task.Factory.StartNew(() =>
+                {
+                    MainSession.AppointEvent.Publish(null, appointEventArgs);
+                });
             }
         }
 
-        private void PublishMiaoGet(string date)
+        private Order BuildOrder(string beginTime, string endTime)
         {
             var orderList = new List<Order>();
-
+            var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
             var order = new Order
             {
                 BtCode = MainSession.PlatformSession.GetString(Constants.DeptId),
-                AppointDate = date,
-                Barcode = MainSession.Auth,
-
+                AppointDate = Date,
+                BeginTime = beginTime,
+                EndTime = endTime,
+                Barcode = MainSession.Auth.Replace("Bearer ", string.Empty),
+                AddressId = userInfo.GetString("id").ToInt(),
+                Identity = userInfo.GetString("identity"),
+                Phone = userInfo.GetString("mobile"),
+                IdName = userInfo.GetString("firstName"),
             };
 
-            var appointEventArgs = new AppointEventArgs
-            {
-                OrderList = orderList
-            };
-            MainSession.PrintLogEvent.Publish(this, $"查到{orderList.Count}支苗，开始预备预约");
-            Task.Factory.StartNew(() =>
-            {
-                MainSession.AppointEvent.Publish(null, appointEventArgs);
-            });
+            return order;
         }
     }
 }

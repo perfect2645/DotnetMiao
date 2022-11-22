@@ -120,9 +120,9 @@ namespace suiyang.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            Auth = "Bearer e5c40e93-c261-40e7-ae47-c61b4c1fe09b";
+            Auth = "Bearer 01fbf81f-bff6-4754-b930-a63ee282fef1";
         }
 
         private void InitStaticData()
@@ -130,14 +130,12 @@ namespace suiyang.viewmodel
             StartTime = new DateTime(2022, 11, 21, 8, 29, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
-
-
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
             };
 
@@ -169,6 +167,7 @@ namespace suiyang.viewmodel
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+            MainSession.InitSession();
         }
 
         private void InitCommands()
@@ -220,7 +219,7 @@ namespace suiyang.viewmodel
                 try
                 {
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-                    await _searchController.SearchAsync();
+                    await _searchController.GetUserAsync();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -239,7 +238,8 @@ namespace suiyang.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Yuyue();
+                    _searchController.GetMiaoAsync();
+                    //Yuyue();
                 }
                 catch (HttpException ex)
                 {
@@ -294,15 +294,15 @@ namespace suiyang.viewmodel
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
-                    await _searchController.SearchAsync();
+                    await _searchController.GetUserAsync();
 
-                    if (StringUtil.NotEmpty(SelectedDate.Value))
+                    if (StringUtil.NotEmpty(SelectedDate?.Value))
                     {
                         DirectlyOrder(SelectedDate.Value);
                         return;
                     }
 
-                    await Task.Factory.StartNew(() => Yuyue());
+                    _searchController.GetMiaoAsync();
                 }
                 catch (HttpException ex)
                 {
