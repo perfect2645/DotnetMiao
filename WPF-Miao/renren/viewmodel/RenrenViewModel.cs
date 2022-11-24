@@ -144,7 +144,7 @@ namespace renren.viewmodel
 
         private void InitStaticData()
         {
-            MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 11, 8, 19, 59, 58));
+            MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 11, 24, 19, 58, 58));
             MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
 
             var dayToday = (int)DateTime.Today.DayOfWeek;
