@@ -176,6 +176,24 @@ namespace renren.viewmodel
                     HospitalId = "2c924b1061e108200161e5bae2c031e8",
                     HospitalName = "广州市黄浦区联和街社区卫生服务中心",
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第二针",
+                    ServiceId = "2c9280978201614d01821f7594977e2b",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第三针",
+                    ServiceId = "2c9280978201614d01821f7635e87e4f",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
                     DepartmentName = "儿童入托体检",
                     ServiceId = "2c9280977a66dc42017a7b17b1f52b5b",
                 },
@@ -459,6 +477,10 @@ namespace renren.viewmodel
         private void LogSession(object? sender, SesstionEventArgs args)
         {
 
+        }
+
+        protected override void ReSession()
+        {
         }
 
         #endregion Session
