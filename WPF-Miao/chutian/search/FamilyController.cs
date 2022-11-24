@@ -72,6 +72,7 @@ namespace chutian.search
             {
                 var familyId = member.GetString(Constants.FamilyID);
                 MainSession.UserSession.AddUser(familyId, member);
+                MainSession.PrintLogEvent.Publish(this, member);
             }
         }
     }
