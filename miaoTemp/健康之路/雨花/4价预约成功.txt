@@ -1,0 +1,121 @@
+POST https://appoint.yihu.com/appoint/do/registerInfo/register HTTP/1.1
+Host: appoint.yihu.com
+Accept: application/json, text/javascript, */*; q=0.01
+X-Requested-With: XMLHttpRequest
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: https://appoint.yihu.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d35) NetType/2G Language/zh_CN
+Connection: keep-alive
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=1000031&hospitalId=1094417&deptId=7225728&doctorSn=711170863&arrangeId=164017825&utm_source=0.0.h.1026.bus010.0
+Content-Length: 2726
+Cookie: jkzlAn_ct=1667804113760; jkzlAn_c=-1; jkzlAn_channelid=1000031; jkzlAn_p=-1; jkzlAn_userid=148528129; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=AFBD8CE8656A455D8403E0A64257547B; YiHu_UserJosn=eyJBY2NvdW50U24iOjE0ODUyODEyOSwiTG9naW5JZCI6Im9mZjZ0czFMcUdobVFoTk9jZ0pvd3g0a1BSV00iLCJPcmdVc2VyVHlwZSI6IiIsIk9yZ1NlY1N0ciI6IiIsIlNlY1N0ciI6IkM1NTNCOTJDNTgwMzVBQkNEMEFFQzhDNTkxQ0NENDJCIiwiVXNlck5hbWUiOiIiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIk9yZ0lkIjoiIiwiUCI6IlVDIn0%3d; LoginChannel=1000031; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; TOKEN_061087051BF2C9383B28E3496F6BF447=52D4EBA4CA674622B24DA9784FB6259F; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; logintype=62; jkzlAn_sid=A42ECD74-5442-4EF4-A94B-FD4AD22DECC9; _YyghSysTrackUUID=07144254325; jkzlAn_uuid=E0E6AADD-B17A-4722-81CC-596075D58E2B; TOKEN_C79F7A667F554EC0670BCC7373E3AAA3=F09E4F555FA24850A24528E7A74CD2EC
+
+doctorRegOrder=%7B%22waterId%22%3A%22752811624%22%2C%22waitingInfor%22%3A%2208%3A00-10%3A00%22%2C%22store%22%3A%22%22%2C%22serialNo%22%3A%2237%22%2C%22memberSn%22%3A%2254985240%22%2C%22memberName%22%3A%22%E5%88%98%E6%8C%AF%E5%AE%87%22%2C%22memberPhone%22%3A%2213940897525%22%2C%22memberAddress%22%3A%22%E4%B8%9C%E5%9F%8E%E7%99%BD%E4%BA%91%E5%B1%B1%22%2C%22memberBirthday%22%3A%222000-03-10%22%2C%22memberSex%22%3A%222%22%2C%22memberId%22%3A%2254985240%22%2C%22othercard%22%3A%22%22%2C%22guardianmembersn%22%3A%22%22%2C%22identitytype%22%3A%221%22%2C%22memberZhengjianid%22%3A%22110***********5689%22%2C%22memberIdcard%22%3A%22110***********5689%22%2C%22accManageGoodSn%22%3Anull%2C%22regpaytype%22%3A%22%22%2C%22cliniccard%22%3A%22%22%2C%22applyNo%22%3A%22%22%2C%22mobile%22%3A%2213940897525%22%2C%22doctorSn%22%3A%22711170863%22%2C%22hosDeptId%22%3A%227225728%22%2C%22hosDeptName%22%3A%22%E5%AE%AB%E9%A2%88%E7%99%8C%E7%96%AB%E8%8B%97%E9%A2%84%E7%BA%A6%EF%BC%88%E9%A6%96%E9%92%88%EF%BC%89%22%2C%22hospitalId%22%3A%221094417%22%2C%22hospitalName%22%3A%22%E9%9B%A8%E8%8A%B1%E7%A4%BE%E5%8C%BA%E5%8D%AB%E7%94%9F%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83%22%2C%22doctorService_gh%22%3A%222%22%2C%22doctorUid%22%3A%22710782307%22%2C%22doctorName%22%3A%22%E5%9B%9B%E4%BB%B7%E5%AE%AB%E9%A2%88%E7%99%8C%E7%96%AB%E8%8B%97%22%2C%22doctorPic%22%3A%22%22%2C%22doctorClinicName%22%3A%22%E5%8C%BB%E5%B8%88%22%2C%22GH_HosProId%22%3A%2210%22%2C%22GH_HosProName%22%3A%22%E6%B1%9F%E8%8B%8F%22%2C%22GH_HosCityId%22%3A%2277%22%2C%22GH_HosCityName%22%3A%22%E5%8D%97%E4%BA%AC%22%2C%22registerDate%22%3A%222022-11-11%22%2C%22timeId%22%3A1%2C%22arrangeId%22%3A164017825%2C%22ghAmount%22%3A0%2C%22securityDeposit%22%3A0%2C%22ghfeeway%22%3A0%2C%22ModeId%22%3A0%2C%22GhFee%22%3A0%2C%22AllFee%22%3A0%2C%22availablenum%22%3A19%2C%22UnOpened%22%3Afalse%2C%22FHTimes%22%3A%2208%3A00%22%2C%22FHDays%22%3A%224%22%2C%22accountSn%22%3A148528129%2C%22cardNumber%22%3A%222078631533%22%2C%22loginId%22%3A%22off6ts1LqGhmQhNOcgJowx4kPRWM%22%2C%22channelId%22%3A%221000031%22%2C%22utm_source%22%3A%220.0.h.1026.bus010.0__0.0.h.1026.bus010.0%22%2C%22doctorOfficeName%22%3A%22%22%7D&ghFormCon=%5B%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22name%22%7D%2C%7B%22keyValue%22%3A%22110***********5689%22%2C%22keyName%22%3A%22CardNo%22%7D%2C%7B%22keyValue%22%3A%222%22%2C%22keyName%22%3A%22sex%22%7D%2C%7B%22keyValue%22%3A%2213940897525%22%2C%22keyName%22%3A%22mobile%22%7D%2C%7B%22keyValue%22%3A%221%22%2C%22keyName%22%3A%22cardtype%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%22%E6%9C%AA%E7%A1%AE%E8%AF%8A%22%2C%22keyName%22%3A%22cmb_diseaseName%22%7D%5D
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 07 Nov 2022 06:55:21 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 114
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":10000,"Message":"成功","Orderid":"16211372557654","Haspay":true,"Payvaliditytime":"2022-11-07 15:03:26"}
+
+
+doctorRegOrder=
+{
+    "waterId": "752811624",
+    "waitingInfor": "08:00-10:00",
+    "store": "",
+    "serialNo": "37",
+    "memberSn": "54985240",
+    "memberName": "刘振宇",
+    "memberPhone": "13940897525",
+    "memberAddress": "东城白云山",
+    "memberBirthday": "2000-03-10",
+    "memberSex": "2",
+    "memberId": "54985240",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "110***********5689",
+    "memberIdcard": "110***********5689",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "13940897525",
+    "doctorSn": "711170863",
+    "hosDeptId": "7225728",
+    "hosDeptName": "宫颈癌疫苗预约（首针）",
+    "hospitalId": "1094417",
+    "hospitalName": "雨花社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710782307",
+    "doctorName": "四价宫颈癌疫苗",
+    "doctorPic": "",
+    "doctorClinicName": "医师",
+    "GH_HosProId": "10",
+    "GH_HosProName": "江苏",
+    "GH_HosCityId": "77",
+    "GH_HosCityName": "南京",
+    "registerDate": "2022-11-11",
+    "timeId": 1,
+    "arrangeId": 164017825,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 19,
+    "UnOpened": false,
+    "FHTimes": "08:00",
+    "FHDays": "4",
+    "accountSn": 148528129,
+    "cardNumber": "2078631533",
+    "loginId": "off6ts1LqGhmQhNOcgJowx4kPRWM",
+    "channelId": "1000031",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+&ghFormCon=
+[
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "110***********5689",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "13940897525",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]
+

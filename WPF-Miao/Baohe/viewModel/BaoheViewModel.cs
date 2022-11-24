@@ -74,7 +74,7 @@ namespace Baohe.viewModel
             StartTime = new DateTime(2022, 11, 18, 7, 59, 58);
 
             Departments = new List<HospitalDept>();
-            Departments.Add(new Jiankangzhilu("1000031", "包河区包公街道",
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
                 "7225728", "九价Hpv"));
 
