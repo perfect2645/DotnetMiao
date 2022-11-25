@@ -76,7 +76,19 @@ namespace Baohe.viewModel
             Departments = new List<HospitalDept>();
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
-                "7225728", "九价Hpv"));
+                "7225728", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711170881"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1094417", "雨花社区卫生服务中心",
+                "7225728", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711170863"
+            });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
@@ -247,6 +259,7 @@ namespace Baohe.viewModel
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.Department, selectedDept);
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorSn, selectedDept.DoctorSn);
 
             Log(selectedDept.ToLogString());
 
