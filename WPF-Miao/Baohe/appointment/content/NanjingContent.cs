@@ -10,6 +10,18 @@ namespace Baohe.appointment
     {
         public NanjingContent(Dictionary<string, object> memberInfo) : base(memberInfo)
         {
+            BuildHeader();
+            BuildContent();
+        }
+
+        private void BuildHeader()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BuildContent()
+        {
+            throw new NotImplementedException();
         }
     }
 }
