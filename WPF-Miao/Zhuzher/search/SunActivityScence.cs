@@ -21,13 +21,13 @@ namespace Zhuzher.search
 
         private void InitSceneList()
         {
-            AddScene("app-act-invite&view", 3, "1");
-            AddScene("app-act-help", 1, "1");
+            //AddScene("app-act-invite&view", 3, "1");
+            //AddScene("app-act-help", 1, "1");
             //AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/activityTopic/4666?pageMark=ptgejhd");
             //AddScene("app-postlike-puli", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=213");
 
             //以下只跑一次
-            //AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
+            AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
 
 
         }
