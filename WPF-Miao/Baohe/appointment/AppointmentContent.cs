@@ -17,14 +17,12 @@ namespace Baohe.appointment
 
         public Dictionary<string, object> MiaoInfo { get; set; }
 
-        private Dictionary<string, object> DoctorOrder { get; set; }
-        private List<Dictionary<string, object>> GhFormConOrder { get; set; }
+        public Dictionary<string, object> DoctorOrder { get; set; }
+        public List<Dictionary<string, object>> GhFormConOrder { get; set; }
 
-        public AppointmentContent(Dictionary<string, object> memberInfo) : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
+        public AppointmentContent() : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
         {
-            MemberInfo = memberInfo;
             ContentType = "application/x-www-form-urlencoded";
-            InitContent();
         }
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
@@ -33,6 +31,13 @@ namespace Baohe.appointment
         }
 
         #region Content
+
+        public void InitContent(Dictionary<string, object> memberInfo)
+        {
+            MemberInfo = memberInfo;
+            BuildDefaultDoctorOrder();
+            BuildDefaultGhFormCon();
+        }
 
         private void InitContent()
         {
@@ -97,9 +102,9 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("ModeId", 0);
             DoctorOrder.AddOrUpdate("GhFee", 0);
             DoctorOrder.AddOrUpdate("AllFee", 0);
+            DoctorOrder.AddOrUpdate("store", "");
 
             DoctorOrder.AddOrUpdate("UnOpened", false);
-
 
             DoctorOrder.AddOrUpdate(Constant.LoginId, platformSesstion[Constant.Loginid]);
             DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.PlatformType]);
@@ -144,7 +149,7 @@ namespace Baohe.appointment
 
             DoctorOrder.AddOrUpdate(Constant.WaterId, MiaoInfo["NumberSN"].ToString()!.ToLong());
             DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"第{MiaoInfo["SerialNo"]}号 {MiaoInfo["CommendScope"]}");
-            DoctorOrder.AddOrUpdate("store", "");
+
             DoctorOrder.AddOrUpdate("serialNo", MiaoInfo["SerialNo"]);
             DoctorOrder.AddOrUpdate(Constant.DoctorSn, MiaoInfo["DoctorSN"]);
             DoctorOrder.AddOrUpdate("arrangeId", MiaoInfo["ArrangeID"].ToString()!.ToLong());

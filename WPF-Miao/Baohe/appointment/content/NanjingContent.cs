@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Baohe.constants;
+using Utils;
 
 namespace Baohe.appointment
 {
     internal class NanjingContent : AppointmentContent
     {
-        public NanjingContent(Dictionary<string, object> memberInfo) : base(memberInfo)
+        public NanjingContent() : base()
         {
-            BuildHeader();
-            BuildContent();
+
         }
 
-        private void BuildHeader()
+        protected override void BuildDefaultDoctorOrder()
         {
-            throw new NotImplementedException();
+            base.BuildDefaultDoctorOrder();
+            DoctorOrder.AddOrUpdate("GH_HosProId", "10");
+            DoctorOrder.AddOrUpdate("GH_HosProName", "江苏");
+            DoctorOrder.AddOrUpdate("GH_HosCityId", "77");
+            DoctorOrder.AddOrUpdate("GH_HosCityName", "南京");
         }
 
-        private void BuildContent()
+        protected override void BuildNumberDoctorOrder()
         {
-            throw new NotImplementedException();
+            base.BuildNumberDoctorOrder();
+            DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"{MiaoInfo["CommendScope"]}");
         }
     }
 }

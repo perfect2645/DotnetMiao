@@ -1,7 +1,9 @@
-﻿using Baohe.constants;
+﻿using Baohe.appointment.content;
+using Baohe.constants;
 using Baohe.session;
 using System.Collections;
 using System.Collections.Generic;
+using Utils;
 using Utils.datetime;
 using Utils.number;
 using Utils.stringBuilder;
@@ -51,7 +53,7 @@ namespace Baohe.appointment
 
         public void InitContent()
         {
-            Content = new AppointmentContent(MemberInfo);
+            Content = ContentMapper.GetContent(BaoheSession.PlatformSesstion.GetString(Constant.HospitalId));
         }
 
         public void FillContent(session.MiaoSession miaoSession)
