@@ -29,14 +29,14 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/18/8f87a23b-2833-4eec-af0b-0b32dd891223.jpg",
                         "image": null,
                         "chanceNumber": 1,
-                        "surplusCount": 0,
+                        "surplusCount": 100,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
                         "totalUserCount": null,
-                        "startTime": "2022-11-25 20:00:00",
-                        "endTime": "2022-11-26 00:00:00",
-                        "goodExchangeStatus": 2
+                        "startTime": "2022-11-27 20:00:00",
+                        "endTime": "2022-11-28 00:00:00",
+                        "goodExchangeStatus": 0
                     },
                     {
                         "gameGoodId": 5303,
@@ -52,7 +52,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/18/2e602ef1-32c4-4f3b-b4d6-ca424b738b45.jpg",
                         "image": null,
                         "chanceNumber": 1,
-                        "surplusCount": 39283,
+                        "surplusCount": 38697,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -75,7 +75,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/18/710e2fa2-dcad-4d1e-b4ac-b63c572411f4.jpg",
                         "image": null,
                         "chanceNumber": 1,
-                        "surplusCount": 44687,
+                        "surplusCount": 44438,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -98,7 +98,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/18/d99b53ec-58f2-4b96-9c61-1aa4c9fd169c.jpg",
                         "image": null,
                         "chanceNumber": 1,
-                        "surplusCount": 2106,
+                        "surplusCount": 2003,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -307,7 +307,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/24/215495d7-64c0-42a7-adf5-1bfe3a95c2f3.jpg",
                         "image": null,
                         "chanceNumber": 279,
-                        "surplusCount": 1,
+                        "surplusCount": 5,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -330,7 +330,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/24/b276271e-2470-4363-81d8-6015f2e27ee2.jpg",
                         "image": null,
                         "chanceNumber": 99,
-                        "surplusCount": 1,
+                        "surplusCount": 5,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -353,7 +353,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/24/61478ee8-0bc2-4c56-8f73-7d81142ef53c.jpg",
                         "image": null,
                         "chanceNumber": 99,
-                        "surplusCount": 1,
+                        "surplusCount": 5,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -376,7 +376,7 @@
                         "smallImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/24/639044c6-9a73-426e-a2f9-57d3263b986f.jpg",
                         "image": null,
                         "chanceNumber": 149,
-                        "surplusCount": 1,
+                        "surplusCount": 5,
                         "status": null,
                         "lootStatus": 0,
                         "progress": null,
@@ -436,7 +436,7 @@
                 "resourceName": "引流预缴",
                 "goType": 1,
                 "resourceUrl": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
-                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/18/b6a2a606-d367-4a90-9a4b-c7f46138b38d.jpg",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/1debdfee-99b6-43f1-87cf-2ac6702b5269.jpg",
                 "number": 6
             },
             {
@@ -465,11 +465,59 @@
             },
             {
                 "activityResourceId": 313,
-                "resourceName": "引流话题",
+                "resourceName": "引流话题+感恩节",
+                "goType": 1,
+                "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=213",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/5880f40e-75e6-4572-86aa-a0f00a0c1ecd.jpg",
+                "number": 10
+            },
+            {
+                "activityResourceId": 349,
+                "resourceName": "引流话题+感恩节",
+                "goType": 1,
+                "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=213",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/a61db303-95e1-4c76-be63-fed7a5a15f95.jpg",
+                "number": 11
+            },
+            {
+                "activityResourceId": 350,
+                "resourceName": "引流话题+平衡",
                 "goType": 1,
                 "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=214",
-                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/22/c4959eec-ddb3-437b-bb44-3aba1bfc7e44.jpg",
-                "number": 10
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/e49b53c8-0720-4d9d-a614-96cd8012a91f.jpg",
+                "number": 12
+            },
+            {
+                "activityResourceId": 351,
+                "resourceName": "引流话题+带娃",
+                "goType": 1,
+                "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=216",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/b719091f-17a2-45a6-a28b-94c6fb916d3f.jpg",
+                "number": 13
+            },
+            {
+                "activityResourceId": 352,
+                "resourceName": "引流话题+做饭",
+                "goType": 1,
+                "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=220",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/e33da999-9c75-400a-be16-68c284f63274.jpg",
+                "number": 14
+            },
+            {
+                "activityResourceId": 353,
+                "resourceName": "引流话题+世界杯",
+                "goType": 1,
+                "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=211",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/56797c03-7b1f-473e-b0fa-ad8793d40751.jpg",
+                "number": 15
+            },
+            {
+                "activityResourceId": 354,
+                "resourceName": "引流话题",
+                "goType": 1,
+                "resourceUrl": "https://enterprise.4009515151.com/marketing-pages/forum/portal",
+                "resourceImage": "https://vanke-app.oss-cn-shenzhen.aliyuncs.com/2022/11/27/2ede711c-20cf-4690-bcbe-6652624e1e78.jpg",
+                "number": 16
             }
         ],
         "teamGoodList": [],
@@ -508,6 +556,6 @@
         "inviteShareTitle": "",
         "inviteShareDesc": "",
         "isEnd": null,
-        "now": "2022-11-26 15:35:57"
+        "now": "2022-11-27 15:32:24"
     }
 }
