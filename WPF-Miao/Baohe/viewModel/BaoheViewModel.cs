@@ -96,6 +96,14 @@ namespace Baohe.viewModel
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
                 "7235355", "预防接种门诊（测试）"));
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1092338", "板桥社区卫生服务中心",
+                "7234217", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "710795068"
+            });
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
             //"7229244", "四价Hpv"));
