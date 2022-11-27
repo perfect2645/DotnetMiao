@@ -46,7 +46,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hys020", "hys020\hys020.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chutian", "chutian\chutian.csproj", "{C221553E-18CA-4803-B4BE-73EDB0A7BE48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "suiyang", "suiyang\suiyang.csproj", "{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "suiyang", "suiyang\suiyang.csproj", "{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Searcher", "Searcher", "{C21060C7-6C99-4E0E-AA3C-FB815A110731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
