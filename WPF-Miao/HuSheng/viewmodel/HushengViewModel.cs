@@ -284,6 +284,10 @@ namespace HuSheng.viewmodel
             //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
         }
 
+        protected override void ReSession()
+        {
+        }
+
         #endregion Hospital Dept
 
     }
