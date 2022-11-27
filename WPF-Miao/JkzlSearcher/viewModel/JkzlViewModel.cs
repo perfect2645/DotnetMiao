@@ -1,10 +1,10 @@
 ﻿using Base.viewModel;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
+using HttpProcessor.ExceptionManager;
+using JkzlSearcher.search;
+using JkzlSearcher.session;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -17,11 +17,16 @@ namespace JkzlSearcher.viewModel
 
         public ICommand SearchCommand { get; set; }
 
+        private SearchController _searchController;
+
         #endregion Properties
 
         public JkzlViewModel(LogPanel logPanel) : base(logPanel)
         {
             SearchCommand = new RelayCommand(ExecuteSearch);
+            _searchController = new SearchController();
+            MainSession.PrintLogEvent = PrintLogEvent;
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         #region Status Control
@@ -50,24 +55,55 @@ namespace JkzlSearcher.viewModel
             StopIntervalTimer();
         }
 
-        protected override void StartAutoRun()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void AutoRun()
-        {
-            throw new NotImplementedException();
-        }
-
         protected override void ReSession()
         {
         }
 
         #endregion Status Control
 
+        #region AutoRun
+
+        protected override void StartAutoRun()
+        {
+            Task.Factory.StartNew(() => {
+                try
+                {
+                    StartIntervalTimer();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        protected override void AutoRun()
+        {
+            Task.Factory.StartNew(() => {
+                try
+                {
+                    _searchController.SearchByHospitalId();
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+        }
+
+        #endregion AutoRun
+
         private void ExecuteSearch()
         {
+            _searchController.SearchByHospitalId();
         }
     }
 }
