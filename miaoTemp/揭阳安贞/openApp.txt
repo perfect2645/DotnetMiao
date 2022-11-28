@@ -1,0 +1,27 @@
+GET http://wx1936.cnhis.cc/wx/jump/commonDecode.htm?url=L3d4Y29tbW9uL3dlYi8jL2FwcG9pbnRtZW50LWRlcGFydG1lbnQ1&code=063ITRFa1H8TkE0eeQIa1t60x01ITRFl&state= HTTP/1.1
+Host: wx1936.cnhis.cc
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: SESSION=ZTUxNTdlMDctNjVjZC00ZmI1LWFmMWEtNGU0MmJhYTk3NzYz
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 302 Found
+Server: nginx
+Date: Mon, 28 Nov 2022 13:57:50 GMT
+Content-Length: 0
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Headers: *
+Location: http://wx1936.cnhis.cc/wxcommon/web/#/appointment-department?orgName=%25E6%258F%25AD%25E9%2598%25B3%25E5%25AE%2589%25E7%259C%259F%25E5%25A6%2587%25E4%25BA%25A7%25E5%258C%25BB%25E9%2599%25A2&userType=TX
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.cnhis.com:* https://*.cnhis.cc:* https://*.qq.com:*; connect-src 'self' wss://*.qq.com:* https://*.qq.com:* https://*.cnhis.com:* https://*.cnhis.cc:* https://*.map.gtimg.com:*
+
