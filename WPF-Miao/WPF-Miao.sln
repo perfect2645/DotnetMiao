@@ -46,7 +46,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hys020", "hys020\hys020.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chutian", "chutian\chutian.csproj", "{C221553E-18CA-4803-B4BE-73EDB0A7BE48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "suiyang", "suiyang\suiyang.csproj", "{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "suiyang", "suiyang\suiyang.csproj", "{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Searcher", "Searcher", "{C21060C7-6C99-4E0E-AA3C-FB815A110731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JkzlSearcher", "JkzlSearcher\JkzlSearcher.csproj", "{52956767-626E-40FA-8C31-DBFF2EEA6D15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +134,10 @@ Global
 		{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52956767-626E-40FA-8C31-DBFF2EEA6D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52956767-626E-40FA-8C31-DBFF2EEA6D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52956767-626E-40FA-8C31-DBFF2EEA6D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52956767-626E-40FA-8C31-DBFF2EEA6D15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +155,7 @@ Global
 		{7575A268-C803-4655-A9EC-5C86A7CF9AC3} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
 		{C221553E-18CA-4803-B4BE-73EDB0A7BE48} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
 		{C74EF4DD-C9E7-4C16-A055-918FF6CB43F6} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
+		{52956767-626E-40FA-8C31-DBFF2EEA6D15} = {C21060C7-6C99-4E0E-AA3C-FB815A110731}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FC287EB-182A-4A4F-82F9-E99E0CCAEFE2}

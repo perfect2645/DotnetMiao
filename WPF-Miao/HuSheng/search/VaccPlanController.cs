@@ -19,7 +19,6 @@ namespace HuSheng.search
     internal class VaccPlanController : HttpClientBase
     {
         private IntervalOnTime SearchInterval { get; set; }
-        private bool isGetMiao = false;
 
         public VaccPlanController(HttpClient httpClient) : base(httpClient)
         {
@@ -29,9 +28,10 @@ namespace HuSheng.search
         {
             try
             {
-                isGetMiao = await Task.Factory.StartNew(() => Search());
-                if (!isGetMiao)
+                var isGetMiao = await Task.Factory.StartNew(() => Search());
+                if (isGetMiao)
                 {
+                    MainSession.SetStatus(MiaoProgress.MiaoGet);
                     return;
                 }
             }
@@ -43,20 +43,13 @@ namespace HuSheng.search
 
         public async Task SearchIntervalAsync()
         {
-            isGetMiao = await Task.Factory.StartNew(() => Search());
+            var isGetMiao = await Task.Factory.StartNew(() => Search());
             if (!isGetMiao)
             {
                 return;
             }
             SearchInterval.StopInterval();
-
-            //await Yuyue();
-        }
-
-        private async Task Yuyue()
-        {
-            var appointController = HttpServiceController.GetService<AppointController>();
-            appointController.AppointAsync();
+            MainSession.SetStatus(MiaoProgress.MiaoGet);
         }
 
         private bool Search()
@@ -64,7 +57,7 @@ namespace HuSheng.search
             //var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=15:01~15:30&appointmentTimeId=2068&configValue=1&schemeId=2159";
 
 
-            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-11-14&appointmentTime=08:00~08:30&appointmentTimeId=2057&configValue=1&schemeId=2159";
+            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-11-08&appointmentTime=08:00~08:30&appointmentTimeId=2057&configValue=1&schemeId=2159";
 
             try
             {

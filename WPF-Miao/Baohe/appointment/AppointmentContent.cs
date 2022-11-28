@@ -17,14 +17,12 @@ namespace Baohe.appointment
 
         public Dictionary<string, object> MiaoInfo { get; set; }
 
-        private Dictionary<string, object> DoctorOrder { get; set; }
-        private List<Dictionary<string, object>> GhFormConOrder { get; set; }
+        public Dictionary<string, object> DoctorOrder { get; set; }
+        public List<Dictionary<string, object>> GhFormConOrder { get; set; }
 
-        public AppointmentContent(Dictionary<string, object> memberInfo) : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
+        public AppointmentContent() : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
         {
-            MemberInfo = memberInfo;
             ContentType = "application/x-www-form-urlencoded";
-            InitContent();
         }
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
@@ -34,11 +32,17 @@ namespace Baohe.appointment
 
         #region Content
 
+        public void InitContent(Dictionary<string, object> memberInfo)
+        {
+            MemberInfo = memberInfo;
+            BuildDefaultDoctorOrder();
+            BuildDefaultGhFormCon();
+        }
+
         private void InitContent()
         {
             BuildDefaultDoctorOrder();
             BuildDefaultGhFormCon();
-
         }
 
         public void FillContent()
@@ -97,9 +101,9 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("ModeId", 0);
             DoctorOrder.AddOrUpdate("GhFee", 0);
             DoctorOrder.AddOrUpdate("AllFee", 0);
+            DoctorOrder.AddOrUpdate("store", "");
 
             DoctorOrder.AddOrUpdate("UnOpened", false);
-
 
             DoctorOrder.AddOrUpdate(Constant.LoginId, platformSesstion[Constant.Loginid]);
             DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.PlatformType]);
@@ -113,22 +117,18 @@ namespace Baohe.appointment
             }
         }
 
-        private void BuildDefaultGhFormCon()
+        protected virtual void BuildDefaultGhFormCon()
         {
             GhFormConOrder = new List<Dictionary<string, object>>();
-            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Familyaddress"], "familyaddress"));
             //ghFormCon.AddOrUpdate(BuildGhFormConItem(member["Cname"], "name"));
             GhFormConOrder.Add(BuildGhFormConItem("", "name"));
-            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Cliniccard"], "ClinicCard"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Idcard"], "CardNo"));
-            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Birthday"], "birthday"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Sex"], "sex"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Phone"], "mobile"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Identitytype"], "cardtype"));
             GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
             GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
             GhFormConOrder.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));
-            GhFormConOrder.Add(BuildGhFormConItem("1", "isread"));
         }
 
         protected virtual void BuildNumberDoctorOrder()
@@ -141,10 +141,8 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("availablenum", water["availablenum"].ToString()!.ToLong());
             DoctorOrder.AddOrUpdate("FHTimes", water["FHTimes"]);
             DoctorOrder.AddOrUpdate("FHDays", water["FHDays"]);
-
             DoctorOrder.AddOrUpdate(Constant.WaterId, MiaoInfo["NumberSN"].ToString()!.ToLong());
             DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"第{MiaoInfo["SerialNo"]}号 {MiaoInfo["CommendScope"]}");
-            DoctorOrder.AddOrUpdate("store", "");
             DoctorOrder.AddOrUpdate("serialNo", MiaoInfo["SerialNo"]);
             DoctorOrder.AddOrUpdate(Constant.DoctorSn, MiaoInfo["DoctorSN"]);
             DoctorOrder.AddOrUpdate("arrangeId", MiaoInfo["ArrangeID"].ToString()!.ToLong());
@@ -155,7 +153,7 @@ namespace Baohe.appointment
 
         }
 
-        private Dictionary<string, object> BuildGhFormConItem(object keyValue, string keyName)
+        protected Dictionary<string, object> BuildGhFormConItem(object keyValue, string keyName)
         {
             return new Dictionary<string, object>
             {

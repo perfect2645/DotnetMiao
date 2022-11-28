@@ -137,14 +137,15 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "JFEMPIHETXOWNZA5G1VOLA==";
+            MedicToken = "Z+5XEH+S4UGHYSCAUGPCGQ==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "E7B95EB1-5750-4252-93B8-459AB2B45C9D";
+            PublicKey = "312B3F07-B1ED-4161-847E-FFA19D93ADC7";
         }
 
         private void InitStaticData()
         {
-            MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 11, 8, 19, 59, 58));
+            StartTime = new DateTime(2022, 11, 24, 19, 59, 58);
+            MainSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
             MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
 
             var dayToday = (int)DateTime.Today.DayOfWeek;
@@ -169,6 +170,24 @@ namespace renren.viewmodel
                     DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
                     DepartmentName = "HPV-富春卫生服务站-9价第一针",
                     ServiceId = "2c9280978201614d01821f73cc5c7da5",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第二针",
+                    ServiceId = "2c9280978201614d01821f7594977e2b",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第三针",
+                    ServiceId = "2c9280978201614d01821f7635e87e4f",
                 },
                 new RenrenHospital
                 {
@@ -459,6 +478,10 @@ namespace renren.viewmodel
         private void LogSession(object? sender, SesstionEventArgs args)
         {
 
+        }
+
+        protected override void ReSession()
+        {
         }
 
         #endregion Session

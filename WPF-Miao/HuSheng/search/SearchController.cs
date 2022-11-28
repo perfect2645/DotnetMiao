@@ -21,7 +21,7 @@ namespace HuSheng.search
             {
                 var date = preSetDate.Value;
                 var dateController = HttpServiceController.GetService<SelectDateController>();
-                dateController.Init(date, startTime);
+                //dateController.Init(date, startTime);
 
                 MainSession.PrintLogEvent.Publish(this, $"初始化查询：{date}");
 

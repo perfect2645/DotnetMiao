@@ -74,9 +74,21 @@ namespace Baohe.viewModel
             StartTime = new DateTime(2022, 11, 18, 7, 59, 58);
 
             Departments = new List<HospitalDept>();
-            Departments.Add(new Jiankangzhilu("1000031", "包河区包公街道",
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
-                "7225728", "九价Hpv"));
+                "7225728", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711170881"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1094417", "雨花社区卫生服务中心",
+                "7225728", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711170863"
+            });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
@@ -84,6 +96,14 @@ namespace Baohe.viewModel
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
                 "7235355", "预防接种门诊（测试）"));
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1092338", "板桥社区卫生服务中心",
+                "7234217", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "710795068"
+            });
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
             //"7229244", "四价Hpv"));
@@ -247,6 +267,7 @@ namespace Baohe.viewModel
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
             BaoheSession.PlatformSesstion.AddOrUpdate(Constant.Department, selectedDept);
+            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorSn, selectedDept.DoctorSn);
 
             Log(selectedDept.ToLogString());
 
