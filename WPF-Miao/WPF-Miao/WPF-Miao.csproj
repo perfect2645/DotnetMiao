@@ -17,13 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Platform\DianYiTong\Services\**" />
-    <EmbeddedResource Remove="Platform\DianYiTong\Services\**" />
-    <None Remove="Platform\DianYiTong\Services\**" />
-    <Page Remove="Platform\DianYiTong\Services\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
@@ -42,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Platform\DianYiTong\backup\View\ViewModel\" />
     <Folder Include="Platform\shanxi\Session\" />
   </ItemGroup>
 
