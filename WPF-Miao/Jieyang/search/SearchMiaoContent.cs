@@ -3,9 +3,9 @@ using jieyang.session;
 
 namespace jieyang.search
 {
-    internal class DoctorInfoContent : jieyangBaseContent
+    internal class SearchMiaoContent : jieyangBaseContent
     {
-        public DoctorInfoContent(string url) : base(url)
+        public SearchMiaoContent(string url) : base(url)
         {
             BuildContent();
         }

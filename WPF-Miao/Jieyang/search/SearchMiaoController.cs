@@ -1,8 +1,8 @@
 ﻿using Base.viewmodel.status;
-using jieyang.appointment;
-using jieyang.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
+using jieyang.appointment;
+using jieyang.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,74 +10,84 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
+using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
 
 namespace jieyang.search
 {
-    internal class DoctorInfoController : HttpClientBase
+    internal class SearchMiaoController : HttpClientBase
     {
-        public DoctorInfoController(HttpClient httpClient) : base(httpClient)
+        public bool IsMiaoGet { get; set; }
+        public SearchMiaoContent SearchMiaoContent { get; private set; }
+
+        public SearchMiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchMiaoAsync()
+        public void BuildContent(string timeRange)
         {
-            if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
+            var employeeId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var date = DateTimeUtil.GetTomorrow();
+            var timeType = UnicodeConverter.Encode(timeRange, true);
+
+            var urlTemplate = $"http://wx1936.cnhis.cc/wx/dept/scheduleDoctorRange.htm?employeeId={employeeId}&deptId={deptId}&date={date}&timeType={timeType}&newVersion=true";
+
+            SearchMiaoContent = new SearchMiaoContent(urlTemplate);
+            SearchMiaoContent.BuildDefaultHeaders(Client);
+        }
+
+        public async Task<bool> SearchMiaoAsync()
+        {
+            if (IsMiaoGet)
             {
-                return;
+                return true;
             }
-            Task.Factory.StartNew(() => SearchMiao());
+            return await Task.Factory.StartNew(() => SearchMiao());
         }
 
-        private void SearchMiao()
+        private bool SearchMiao()
         {
-            var url = "https://ctmingyi.com:18082/api/hospital/doctorInfo";
-
-            var content = new DoctorInfoContent(url);
-            content.BuildDefaultHeaders(Client);
 
             try
             {
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-                if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
+                HttpDicResponse response = GetStringAsync(SearchMiaoContent).Result;
+                if (IsMiaoGet)
                 {
-                    return;
+                    return true;
                 }
 
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"没查到苗{response?.Message}");
-                    return;
+                    return false;
                 }
 
                 var root = response.JsonBody.RootElement;
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"{msg}");
-                if ("0".Equals(code))
+                var result = root.GetProperty("result").NotNullString();
+                MainSession.PrintLogEvent.Publish(this, $"{result}");
+                if ("Success".Equals(result))
                 {
                     var miaoInfo = root.GetProperty("obj");
-                    SaveMiaoInfo(miaoInfo);
-                    
-                    return;
+                    return SaveMiaoInfo(miaoInfo);
                 }
-                Log(msg);
-
+                return false;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
+                return false;
             }
         }
 
-        private void SaveMiaoInfo(JsonElement miaoElement)
+        private bool SaveMiaoInfo(JsonElement miaoElement)
         {
             if (miaoElement.ValueKind == JsonValueKind.Null)
             {
                 Log($"未查到苗miaoInfo is null");
-                return;
+                return false;
             }
 
             var defaultMiao = miaoElement.EnumerateArray().FirstOrDefault();
@@ -85,27 +95,31 @@ namespace jieyang.search
             if (scheduleElement.ValueKind == JsonValueKind.Null)
             {
                 Log($"没开始放苗scheduleElement is null");
-                return;
+                return false; ;
             }
 
             var scheduleList = JsonAnalysis.JsonToDicList(scheduleElement);
             if (scheduleList == null)
             {
                 Log($"没开始放苗scheduleList is null");
-                return;
+                return false; ;
             }
 
             var avaliableScheduleList = scheduleList.Where(x => x["reservation"].NotNullString().ToBool()).ToList();
             if (!avaliableScheduleList.HasItem())
             {
                 //Log($"查到{scheduleList.Count}个schedule, reservation=false但是没有放苗");
-                return;
+                return false;
             }
 
             MainSession.PrintLogEvent.Publish(this, $"查到苗- 放{avaliableScheduleList.Count}天");
             MainSession.SetStatus(MiaoProgress.MiaoGet);
 
             BuildOrderList(avaliableScheduleList);
+
+
+            IsMiaoGet = true;
+            return true;
         }
 
         private void BuildOrderList(List<Dictionary<string, object>> scheduleList)

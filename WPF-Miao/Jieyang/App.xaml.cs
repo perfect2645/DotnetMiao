@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Container;
 using jieyang.appointment;
+using jieyang.search;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -25,6 +26,7 @@ namespace jieyang
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<SearchMiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();

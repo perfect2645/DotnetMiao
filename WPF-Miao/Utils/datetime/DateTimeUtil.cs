@@ -69,5 +69,12 @@ namespace Utils.datetime
             var targetDay = DateTime.Today.AddDays(-dayToday + targetDayCount);
             return targetDay.ToString("yyyy-MM-dd");
         }
+
+        public static string GetTomorrow()
+        {
+            var today = DateTime.Today;
+            var tomro = today.AddDays(1).ToString("yyyy-MM-dd");
+            return tomro;
+        }
     }
 }

@@ -2,13 +2,12 @@
 using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
+using CommunityToolkit.Mvvm.Input;
+using CoreControl.LogConsole;
+using HttpProcessor.ExceptionManager;
 using jieyang.appointment;
 using jieyang.search;
 using jieyang.session;
-using CommunityToolkit.Mvvm.Input;
-using CoreControl.LogConsole;
-using HttpProcessor.Container;
-using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,7 @@ using Utils.stringBuilder;
 
 namespace jieyang.viewmodel
 {
-    internal class jieyangViewModel : OnTimeViewModel
+    internal class JieyangViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -108,13 +107,13 @@ namespace jieyang.viewmodel
 
         private readonly object OrderLock = new object();
 
-        private SearchController _searchController = new SearchController();
+        private SearchController _searchController;
 
         #endregion Properties
 
         #region Constructor
 
-        public jieyangViewModel(LogPanel logPanel) : base(logPanel)
+        public JieyangViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -125,12 +124,11 @@ namespace jieyang.viewmodel
 
         private void TestData()
         {
-            Interval = 800;
+            Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "13940897525";
             _userPassword = "yinhen2645";
-            //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
         }
 
         private void InitStaticData()
@@ -142,29 +140,36 @@ namespace jieyang.viewmodel
             {
                 new JieyangHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646202",
-                    DepartmentName = "九价HPV疫苗",
+                    HospitalId = "wx1936.cnhis.cc",
+                    HospitalName = "揭阳安真妇产医院",
+                    DepartmentId = "5220066",
+                    DepartmentName = "产科",
+                    DoctorId = "16825177",
+                    DoctorName = "吴桂黔"
                 },
                 new JieyangHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646191",
-                    DepartmentName = "四价HPV疫苗",
+                    HospitalId = "wx1936.cnhis.cc",
+                    HospitalName = "揭阳安真妇产医院",
+                    DepartmentId = "5241221",
+                    DepartmentName = "预防接种门诊",
+                    DoctorId = "17543348",
+                    DoctorName = "九价HPV疫苗"
                 },
-                //<option value="24">儿童乙肝疫苗（免费）</option>
                 new JieyangHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646441",
-                    DepartmentName = "带状疱疹疫苗",
+                    HospitalId = "wx1936.cnhis.cc",
+                    HospitalName = "揭阳安真妇产医院",
+                    DepartmentId = "5241221",
+                    DepartmentName = "预防接种门诊",
+                    DoctorId = "17760660",
+                    DoctorName = "四价HPV疫苗"
                 },
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+            _searchController = new SearchController();
         }
 
         private void InitCommands()
@@ -316,10 +321,7 @@ namespace jieyang.viewmodel
                         DirectlyOrder(ScheduleId);
                         return;
                     }
-                    if (MainSession.GetStatus() != MiaoProgress.ReadyForSearch)
-                    {
-                        return;
-                    }
+
                     _searchController.SearchAsync();
                 }
                 catch (HttpException ex)
@@ -387,8 +389,8 @@ namespace jieyang.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as JieyangHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
 
             Log(selectedDept.ToLogString());
         }
