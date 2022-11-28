@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using JkzlSearcher.session;
@@ -59,6 +60,8 @@ namespace JkzlSearcher.search
                 return;
             }
             MainSession.PrintLogEvent.Publish(this, doctorDept);
+
+            var hospitalController = HttpServiceController.GetService<HospitalController>();
         }
     }
 }
