@@ -129,8 +129,11 @@ namespace jieyang.viewmodel
             Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "13940897525";
-            _userPassword = "yinhen2645";
+            MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093302DB4B95DBD16940ED0F486A0792CE2CEC89C9E9B01F046E50BD612F74C4C56");
+            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=N2NhOWI5ZGEtM2I1MC00NTZlLWJhMDUtMWYxMmNlN2RmMTQw");
+
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
         }
 
         private void InitStaticData()
@@ -142,6 +145,8 @@ namespace jieyang.viewmodel
             {
                 new DspVal(DateTimeUtil.GetTomorrow()),
             };
+
+            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
             {
@@ -178,6 +183,7 @@ namespace jieyang.viewmodel
 
             SelectedDepartment = Departments.FirstOrDefault();
             _searchController = new SearchController();
+            MainSession.InitSession();
         }
 
         private void InitCommands()
@@ -238,8 +244,8 @@ namespace jieyang.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    await ExecuteLogin();
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+                    //await _searchController.SearchAsync();
+                    StartOnTimeTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -257,7 +263,7 @@ namespace jieyang.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchAsync();
+                    _searchController.GetMiaoAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -290,7 +296,7 @@ namespace jieyang.viewmodel
                 foreach (var order in orderList)
                 {
                     var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
-                    //yuyueController.StartInterval(order);
+                    yuyueController.StartInterval(order);
                 }
             }
             catch (Exception ex)
@@ -304,11 +310,11 @@ namespace jieyang.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    if (StringUtil.AnyEmpty(UserPhone, UserPassword))
-                    {
-                        MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
-                        return;
-                    }
+                    //if (StringUtil.AnyEmpty(UserPhone, UserPassword))
+                    //{
+                    //    MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
+                    //    return;
+                    //}
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
@@ -320,7 +326,7 @@ namespace jieyang.viewmodel
                         return;
                     }
 
-                    _searchController.SearchAsync();
+                    _searchController.GetMiaoAsync();
                 }
                 catch (HttpException ex)
                 {

@@ -3,7 +3,7 @@ using jieyang.session;
 
 namespace jieyang.search
 {
-    internal class SearchMiaoContent : jieyangBaseContent
+    internal class SearchMiaoContent : JieyangBaseContent
     {
         public SearchMiaoContent(string url) : base(url)
         {

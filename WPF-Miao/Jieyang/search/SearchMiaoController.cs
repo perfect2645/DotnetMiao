@@ -140,7 +140,7 @@ namespace jieyang.search
                     AppointAmount = amount,
                     AppointDate = Date,
                     TimeRange = schedule.GetString("timeRangeShow"),
-                    ScheduleId = schedule.GetString(Constants.Scheduleid),
+                    ScheduleId = schedule.GetString(Constants.ScheduleId),
                     Bco01 = schedule.GetString("bco01"),
                 });
             }
@@ -174,11 +174,6 @@ namespace jieyang.search
                 var order = new Order();
                 order.DoctorId = baseOrder.DoctorId;
                 order.ScheduleId = baseOrder.ScheduleId;
-                //order.Hospitalid = baseOrder.Hospitalid;
-                //order.UserId = userId;
-                //order.FamilyId = familyId;
-                //order.UserName = userName;
-                //order.UserPhone = phone;
 
                 Log($"build order - {order.ToLogString()}");
                 orderList.Add(order);

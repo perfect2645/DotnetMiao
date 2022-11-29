@@ -18,10 +18,14 @@ namespace jieyang.session
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
-            AppointSession = new AppointSession();
             UserSession = new UserSession();
             ReSessionEvent = new ReSessionEvent();
             OrderEvent = new OrderEvent();
+        }
+
+        public static void InitSession()
+        {
+            AppointSession = new AppointSession();
         }
 
         #region MiaoStatus

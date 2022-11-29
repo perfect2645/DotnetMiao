@@ -1,10 +1,10 @@
 ﻿using Base.viewmodel.status;
-using jieyang.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
+using jieyang.session;
 using System;
 using System.Net.Http;
-using System.Threading.Tasks;
+using Utils.stringBuilder;
 using Utils.timerUtil;
 
 namespace jieyang.appointment
@@ -18,45 +18,56 @@ namespace jieyang.appointment
 
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
-            IntervalOnTime = new IntervalOnTime(YuyueAsync, Key, 100);
+            IntervalOnTime = new IntervalOnTime(Key, 300);
         }
 
-        public void StartInterval()
+        public void StartInterval(Order order)
         {
-            IntervalOnTime.StartIntervalOntime();
+            //YuyueAsync(order);
+            IntervalOnTime.StartIntervalOntime(() => YuyueAsync(order));
         }
 
-        public void YuyueAsync()
+        public void YuyueAsync(Order order)
         {
             if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
             {
                 IntervalOnTime.StopInterval();
                 return;
             }
-            Task.Factory.StartNew(() => Yuyue());
+            MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
+            var content = new YuyueContent(order);
+            Yuyue(content);
         }
 
-        private void Yuyue()
+        internal void Yuyue(YuyueContent content)
         {
             try
             {
-                Content.BuildDefaultHeaders(Client);
-
-                HttpDicResponse response = PostStringAsync(Content, ContentType.String).Result;
-                if (response?.Body == null)
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
-                }
-
-                var result = response.JsonBody.RootElement.GetProperty("successMessage").ToString();
-                if (string.IsNullOrEmpty(result))
-                {
-                    Log(result);
+                    IntervalOnTime.StopInterval();
                     return;
                 }
+
+                content.BuildDefaultHeaders(Client);
+                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                if (response?.JsonBody?.RootElement == null)
+                {
+                    Log($"预约失败：{response?.Message}");
+                    return;
+                }
+
+                var root = response.JsonBody.RootElement;
+                var result = root.GetProperty("result").NotNullString();
+                MainSession.PrintLogEvent.Publish(this, $"{result}");
+                var msg = root.GetProperty("resultMsg").NotNullString();
+                if (!"Success".Equals(result))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                }
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
-                MainSession.PrintLogEvent.Publish(this, $"预约申请提交成功 result:{result}");
-                IntervalOnTime.StopInterval();
+                MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
+                MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
             }
             catch (Exception ex)
             {

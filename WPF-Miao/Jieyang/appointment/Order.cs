@@ -32,7 +32,7 @@ namespace jieyang.appointment
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("******** 预约成功 *********");
+            sb.AppendLine("******** 开始预约 *********");
 
             sb.AppendLine($"CustomerId - {CustomerId}");
             sb.AppendLine($"CustomerName - {CustomerName}");

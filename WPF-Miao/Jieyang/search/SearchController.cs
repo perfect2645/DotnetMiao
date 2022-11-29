@@ -25,15 +25,15 @@ namespace jieyang.search
             AfternoonInterval = new IntervalOnTime(SearchAfternoon, "下午", 200);
         }
 
-        public async Task SearchAsync()
+        public void GetMiaoAsync()
         {
-            var isMiaoGet = await _morningController.SearchMiaoAsync();
-            if (isMiaoGet)
-            {
+            //var isMiaoGet = await _morningController.SearchMiaoAsync();
+            //if (isMiaoGet)
+            //{
 
-            }
-            //MorningInterval.StartIntervalOntime();
-            //AfternoonInterval.StartIntervalOntime();
+            //}
+            MorningInterval.StartIntervalOntime();
+            AfternoonInterval.StartIntervalOntime();
         }
 
         private async void SearchMorningAsync()

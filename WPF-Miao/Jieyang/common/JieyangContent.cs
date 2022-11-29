@@ -1,16 +1,17 @@
 ﻿using HttpProcessor.Content;
 using jieyang.session;
+using Utils;
 
 namespace jieyang.common
 {
-    internal class jieyangBaseContent : HttpStringContent
+    internal class JieyangBaseContent : HttpStringContent
     {
-        public jieyangBaseContent(string url) : base(url)
+        public JieyangBaseContent(string url) : base(url)
         {
             BuildHeader();
         }
 
-        private void BuildHeader()
+        protected virtual void BuildHeader()
         {
             AddHeader("Host", "wx1936.cnhis.cc");
             AddHeader("Connection", "keep-alive");
@@ -18,11 +19,11 @@ namespace jieyang.common
             AddHeader("openId", "");
             AddHeader("userType", "TX");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            AddHeader("token", "E8F0F87646FAEFE62B54A807B04E8093714741CDBB08E107D7B52BE9B6C5F5DBB81F0534394ECDCD3645ED1111F8DE11");
-            AddHeader("Cookie", "SESSION=ZTUxNTdlMDctNjVjZC00ZmI1LWFmMWEtNGU0MmJhYTk3NzYz");
+            AddHeader("token", MainSession.PlatformSession.GetString("token"));
+            AddHeader("Cookie", MainSession.PlatformSession.GetString("Cookie"));
             AddHeader("Referer", "http://wx1936.cnhis.cc/wxcommon/web/");
             AddHeader("Accept-Encoding", "gzip, deflate");
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+            AddHeader("Accept-Language", "zh-CN,zh-Hans;q=0.9");
         }
     }
 }

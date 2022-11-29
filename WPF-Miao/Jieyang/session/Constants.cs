@@ -15,7 +15,7 @@ namespace jieyang.session
         public const string UserId = "customerId";
         public const string UserName = "customerName";
         public const string UserPhone = "userPhone";
-        public const string Scheduleid = "scheduleid";
+        public const string ScheduleId = "scheduleId";
         public const string AppointAmount = "appointAmount";
         public const string Token = "token";
     }
