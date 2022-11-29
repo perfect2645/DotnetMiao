@@ -70,8 +70,8 @@ namespace jieyang.search
                 MainSession.PrintLogEvent.Publish(this, $"{result}");
                 if ("Success".Equals(result))
                 {
-                    var miaoInfo = root.GetProperty("obj");
-                    return SaveMiaoInfo(miaoInfo);
+                    var miaoList = root.GetProperty("list");
+                    return SaveMiaoInfo(miaoList);
                 }
                 return false;
             }
@@ -90,35 +90,26 @@ namespace jieyang.search
                 return false;
             }
 
-            var defaultMiao = miaoElement.EnumerateArray().FirstOrDefault();
-            var scheduleElement = defaultMiao.GetProperty("scheduleList");
-            if (scheduleElement.ValueKind == JsonValueKind.Null)
-            {
-                Log($"没开始放苗scheduleElement is null");
-                return false; ;
-            }
-
-            var scheduleList = JsonAnalysis.JsonToDicList(scheduleElement);
+            var scheduleList = JsonAnalysis.JsonToDicList(miaoElement);
             if (scheduleList == null)
             {
                 Log($"没开始放苗scheduleList is null");
                 return false; ;
             }
 
-            var avaliableScheduleList = scheduleList.Where(x => x["reservation"].NotNullString().ToBool()).ToList();
+            var avaliableScheduleList = scheduleList.Where(x => x["count"].NotNullString().ToInt() > 0).ToList();
             if (!avaliableScheduleList.HasItem())
             {
-                //Log($"查到{scheduleList.Count}个schedule, reservation=false但是没有放苗");
+                Log($"查到{scheduleList.Count}个苗,但是没有可用苗");
                 return false;
             }
 
             MainSession.PrintLogEvent.Publish(this, $"查到苗- 放{avaliableScheduleList.Count}天");
-            MainSession.SetStatus(MiaoProgress.MiaoGet);
+            IsMiaoGet = true;
 
             BuildOrderList(avaliableScheduleList);
 
 
-            IsMiaoGet = true;
             return true;
         }
 
@@ -127,7 +118,7 @@ namespace jieyang.search
             var baseOrderList = new List<Order>();
 
             var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 
             foreach (var schedule in scheduleList)
             {

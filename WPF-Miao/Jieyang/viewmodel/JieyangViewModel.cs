@@ -390,7 +390,10 @@ namespace jieyang.viewmodel
         {
             var selectedDept = SelectedDepartment as JieyangHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
 
             Log(selectedDept.ToLogString());
         }

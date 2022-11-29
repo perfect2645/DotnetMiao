@@ -8,31 +8,24 @@ namespace jieyang.appointment
     public class Order
     {
         public IntervalOnTime IntervalOnTime { get; private set; }
-        public string UserId { get; set; }
-        public string UserName { get; set; }
-        public string UserPhone { get; set; }
+        public string Regtype { get; set; }
+        public string Type { get; set; } = "reg";
+        public string DeptId { get; set; }
+        public string DeptName { get; set; }
         public string DoctorId { get; set; }
-        public string FamilyId { get; set; }
+        public string DoctorName { get; set; }
+        public string OrgName { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerId { get; set; }
+        public string AppointAmount { get; set; }
+        public string AppointDate { get; set; }
+        public string TimeRange { get; set; }
         public string ScheduleId { get; set; }
-        public string ParttimeId { get; set; } = string.Empty;
-        public string Hospitalid { get; set; }
-        public string MiaoId { get; set; }
-
-        public string OrderUrl 
-        { 
-            get { return BuildUrl(); }
-        }
+        public string Bco01 { get; set; }
 
         public Order()
         {
             IntervalOnTime = new IntervalOnTime(ScheduleId, 600);
-        }
-
-        private string BuildUrl()
-        {
-            var urlHead = "https://ctmingyi.com:18082/api/order/getOrderById";
-            var url = $"{urlHead}/{MiaoId}/{Hospitalid}";
-            return url;
         }
 
         public string ToLogString()
@@ -41,11 +34,13 @@ namespace jieyang.appointment
 
             sb.AppendLine("******** 预约成功 *********");
 
-            sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"UserName - {UserName}");
-            sb.AppendLine($"UserPhone - {UserPhone}");
+            sb.AppendLine($"CustomerId - {CustomerId}");
+            sb.AppendLine($"CustomerName - {CustomerName}");
+            sb.AppendLine($"DoctorName - {DoctorName}");
+            sb.AppendLine($"AppointDate - {AppointDate}");
+            sb.AppendLine($"TimeRange - {TimeRange}");
             sb.AppendLine($"ScheduleId - {ScheduleId}");
-            sb.AppendLine($"MiaoId - {MiaoId}");
+            sb.AppendLine($"Bco01 - {Bco01}");
 
             sb.AppendLine("**************************************");
 

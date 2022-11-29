@@ -12,5 +12,7 @@ namespace Base.session
         public const string HospitalName = "hospitalName";
         public const string DeptId = "deptId";
         public const string DeptName = "deptName";
+        public const string DoctorName = "doctorName";
+        public const string DoctorId = "doctorId";
     }
 }
