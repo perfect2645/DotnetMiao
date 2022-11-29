@@ -7,6 +7,7 @@ namespace jieyang.viewmodel
     {
         public string DoctorId { get; set; }
         public string DoctorName { get; set; }
+        public string AppointAmount { get; set; } = "0";
         public override string ToLogString()
         {
             var sb = new StringBuilder();

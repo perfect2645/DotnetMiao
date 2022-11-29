@@ -30,3 +30,56 @@ Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inl
 Content-Length: 740
 
 {"code":null,"result":"Success","resultMsg":"","list":[{"isClose":1,"registerTypeOriginalId":"12","registerTypeId":9904,"timeRangeShow":"14:30-15:00","count":1,"sign":1,"totalSurplusText":"(0/1)","bco01":"3434","scheduleId":10577817,"timeRange":"14:30-15:00","isShow":1},{"isClose":1,"registerTypeOriginalId":"12","registerTypeId":9904,"timeRangeShow":"16:00-16:30","count":1,"sign":1,"totalSurplusText":"(0/1)","bco01":"3437","scheduleId":10577817,"timeRange":"16:00-16:30","isShow":1}],"map":{"dateText":"2022-12-03 周六","timeInterval":["上午","下午"],"feeText":"23.0元"},"obj":null,"total":0,"pageSize":0,"currentPage":0,"totalPage":0,"recordsTotal":0,"recordsFiltered":0,"rows":null,"tmpList":null,"data":null,"tableField":null}
+
+{
+    "code": null,
+    "result": "Success",
+    "resultMsg": "",
+    "list": [
+        {
+            "isClose": 1,
+            "registerTypeOriginalId": "12",
+            "registerTypeId": 9904,
+            "timeRangeShow": "14:30-15:00",
+            "count": 1,
+            "sign": 1,
+            "totalSurplusText": "(0/1)",
+            "bco01": "3434",
+            "scheduleId": 10577817,
+            "timeRange": "14:30-15:00",
+            "isShow": 1
+        },
+        {
+            "isClose": 1,
+            "registerTypeOriginalId": "12",
+            "registerTypeId": 9904,
+            "timeRangeShow": "16:00-16:30",
+            "count": 1,
+            "sign": 1,
+            "totalSurplusText": "(0/1)",
+            "bco01": "3437",
+            "scheduleId": 10577817,
+            "timeRange": "16:00-16:30",
+            "isShow": 1
+        }
+    ],
+    "map": {
+        "dateText": "2022-12-03 周六",
+        "timeInterval": [
+            "上午",
+            "下午"
+        ],
+        "feeText": "23.0元"
+    },
+    "obj": null,
+    "total": 0,
+    "pageSize": 0,
+    "currentPage": 0,
+    "totalPage": 0,
+    "recordsTotal": 0,
+    "recordsFiltered": 0,
+    "rows": null,
+    "tmpList": null,
+    "data": null,
+    "tableField": null
+}

@@ -4,6 +4,7 @@ using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
+using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using jieyang.appointment;
 using jieyang.search;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace jieyang.viewmodel
@@ -136,6 +138,11 @@ namespace jieyang.viewmodel
             StartTime = new DateTime(2022, 11, 25, 8, 50, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
+            DateList = new List<DspVal>
+            {
+                new DspVal(DateTimeUtil.GetTomorrow()),
+            };
+
             Departments = new List<HospitalDept>
             {
                 new JieyangHospital
@@ -145,7 +152,8 @@ namespace jieyang.viewmodel
                     DepartmentId = "5220066",
                     DepartmentName = "产科",
                     DoctorId = "16825177",
-                    DoctorName = "吴桂黔"
+                    DoctorName = "吴桂黔",
+                    AppointAmount = "23",
                 },
                 new JieyangHospital
                 {
@@ -232,8 +240,6 @@ namespace jieyang.viewmodel
                 {
                     await ExecuteLogin();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-                    StartIntervalTimer();
-                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -281,19 +287,11 @@ namespace jieyang.viewmodel
         {
             try
             {
-                //var preOrderController = HttpServiceController.GetService<PreOrderController>();
-                //var preContent = new PreOrderContent();
-                //preOrderController.BuildHeaders(preContent);
-
-                //foreach (var order in orderList)
-                //{
-                //    var content = new PreOrderContent(order);
-                //    preOrderController.PreOrderAsync(content);
-                //    order.IntervalOnTime.StartIntervalOntime(() =>
-                //    {
-                //        Task.Factory.StartNew(() => preOrderController.PreOrderAsync(content));
-                //    });
-                //}
+                foreach (var order in orderList)
+                {
+                    var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
+                    //yuyueController.StartInterval(order);
+                }
             }
             catch (Exception ex)
             {
@@ -342,19 +340,18 @@ namespace jieyang.viewmodel
             var userInfo = MainSession.UserSession.Users.FirstOrDefault(x => 
                 (x.Value as Dictionary<string, object>)?.GetString("isDefault") == "1").Value as Dictionary<string, object>;
 
-            var userId = userInfo.GetString(Constants.UserID);
-            var familyId = userInfo.GetString(Constants.FamilyID);
+            var userId = userInfo.GetString(Constants.UserId);
             var userName = userInfo.GetString("familyName");
             var phone = userInfo.GetString("familyPhone");
 
             var order = new Order();
             order.ScheduleId = scheduleId;
             order.DoctorId = doctorId;
-            order.Hospitalid = hospitalId;
-            order.UserId = userId;
-            order.FamilyId = familyId;
-            order.UserName = userName;
-            order.UserPhone = phone;
+            //order.Hospitalid = hospitalId;
+            //order.UserId = userId;
+            //order.FamilyId = familyId;
+            //order.UserName = userName;
+            //order.UserPhone = phone;
 
             //var preOrderController = HttpServiceController.GetService<PreOrderController>();
             //var content = new PreOrderContent(order);
@@ -394,6 +391,7 @@ namespace jieyang.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.AppointAmount, selectedDept.AppointAmount);
 
             Log(selectedDept.ToLogString());
         }

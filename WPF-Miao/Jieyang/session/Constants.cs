@@ -12,12 +12,11 @@ namespace jieyang.session
         public const string OpenId = "openid";
         public const string TimeStamp = "Timestamp";
 
-        public const string UserId = "userId";
-        public const string UserID = "userID";
-        public const string FamilyId = "familyId";
+        public const string UserId = "customerId";
+        public const string UserName = "customerName";
         public const string UserPhone = "userPhone";
         public const string Scheduleid = "scheduleid";
-        public const string FamilyID = "familyID";
+        public const string AppointAmount = "appointAmount";
         public const string Token = "token";
     }
 }

@@ -15,8 +15,8 @@ namespace jieyang.appointment
         public string DoctorId { get; set; }
         public string DoctorName { get; set; }
         public string OrgName { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerId { get; set; }
+        public string CustomerName { get; set; } = "赵梦云";
+        public string CustomerId { get; set; } = "78083792";
         public string AppointAmount { get; set; }
         public string AppointDate { get; set; }
         public string TimeRange { get; set; }

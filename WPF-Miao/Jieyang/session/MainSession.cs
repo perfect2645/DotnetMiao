@@ -11,13 +11,14 @@ namespace jieyang.session
         public static Dictionary<string, object> PlatformSession { get; private set; }
 
         public static UserSession UserSession { get; private set; }
-
+        public static AppointSession AppointSession { get; private set; }
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
 
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
+            AppointSession = new AppointSession();
             UserSession = new UserSession();
             ReSessionEvent = new ReSessionEvent();
             OrderEvent = new OrderEvent();

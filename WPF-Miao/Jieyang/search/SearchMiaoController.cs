@@ -20,6 +20,7 @@ namespace jieyang.search
     internal class SearchMiaoController : HttpClientBase
     {
         public bool IsMiaoGet { get; set; }
+        public string Date { get; private set; }
         public SearchMiaoContent SearchMiaoContent { get; private set; }
 
         public SearchMiaoController(HttpClient httpClient) : base(httpClient)
@@ -30,10 +31,10 @@ namespace jieyang.search
         {
             var employeeId = MainSession.PlatformSession.GetString(Constants.DoctorId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var date = DateTimeUtil.GetTomorrow();
+            Date = DateTimeUtil.GetTomorrow();
             var timeType = UnicodeConverter.Encode(timeRange, true);
 
-            var urlTemplate = $"http://wx1936.cnhis.cc/wx/dept/scheduleDoctorRange.htm?employeeId={employeeId}&deptId={deptId}&date={date}&timeType={timeType}&newVersion=true";
+            var urlTemplate = $"http://wx1936.cnhis.cc/wx/dept/scheduleDoctorRange.htm?employeeId={employeeId}&deptId={deptId}&date={Date}&timeType={timeType}&newVersion=true";
 
             SearchMiaoContent = new SearchMiaoContent(urlTemplate);
             SearchMiaoContent.BuildDefaultHeaders(Client);
@@ -118,29 +119,51 @@ namespace jieyang.search
             var baseOrderList = new List<Order>();
 
             var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
+            var userName = MainSession.PlatformSession.GetString(Constants.UserName);
+            var userId = MainSession.PlatformSession.GetString(Constants.UserId);
+            var amount = MainSession.PlatformSession.GetString(Constants.AppointAmount);
 
             foreach (var schedule in scheduleList)
             {
                 baseOrderList.Add(new Order
                 {
+                    Regtype = schedule.GetString("registerTypeOriginalId"),
+                    DeptId = deptId,
+                    DeptName = deptName,
                     DoctorId = doctorId,
+                    DoctorName = doctorName,
+                    OrgName = hosName,
+                    AppointAmount = amount,
+                    AppointDate = Date,
+                    TimeRange = schedule.GetString("timeRangeShow"),
                     ScheduleId = schedule.GetString(Constants.Scheduleid),
-                    Hospitalid = hospitalId,
+                    Bco01 = schedule.GetString("bco01"),
                 });
             }
 
-            foreach (var user in MainSession.UserSession.Users)
+            baseOrderList = baseOrderList.DisorderItems();
+
+            var appointEventArgs = new OrderEventArgs
             {
-                var userInfo = user.Value as Dictionary<string, object>;
-                BuildOrdersForOneUser(userInfo, baseOrderList);
-            }
+                OrderList = baseOrderList
+            };
+            MainSession.OrderEvent.Publish(null, appointEventArgs);
+
+
+            //foreach (var user in MainSession.UserSession.Users)
+            //{
+            //    var userInfo = user.Value as Dictionary<string, object>;
+            //    BuildOrdersForOneUser(userInfo, baseOrderList);
+            //}
         }
 
         private void BuildOrdersForOneUser(Dictionary<string, object> userInfo, List<Order> baseOrderList)
         {
-            var userId = userInfo.GetString(Constants.UserID);
-            var familyId = userInfo.GetString(Constants.FamilyID);
+            var userId = userInfo.GetString(Constants.UserId);
             var userName = userInfo.GetString("familyName");
             var phone = userInfo.GetString("familyPhone");
 
@@ -151,11 +174,11 @@ namespace jieyang.search
                 var order = new Order();
                 order.DoctorId = baseOrder.DoctorId;
                 order.ScheduleId = baseOrder.ScheduleId;
-                order.Hospitalid = baseOrder.Hospitalid;
-                order.UserId = userId;
-                order.FamilyId = familyId;
-                order.UserName = userName;
-                order.UserPhone = phone;
+                //order.Hospitalid = baseOrder.Hospitalid;
+                //order.UserId = userId;
+                //order.FamilyId = familyId;
+                //order.UserName = userName;
+                //order.UserPhone = phone;
 
                 Log($"build order - {order.ToLogString()}");
                 orderList.Add(order);

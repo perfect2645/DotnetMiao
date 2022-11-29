@@ -37,4 +37,23 @@ Content-Length: 1667
 
 
 
-regtype=12&type=reg&deptId=5220066&deptName=产科&doctorId=16825177&doctorName=吴桂黔&orgName=揭阳安真妇产医院&customerName=赵梦云&customerId=78083792&appointAmount=23&appointDate=2022-12-03&timeRange=16:00-16:30&remark=&newVersion=true&insuranceReg=0&medicalCardId=&childMedicalCardId=&scheduleId=10577817&insurancePromotion=false&bco01=3437
+regtype=12&
+type=reg&
+deptId=5220066&
+deptName=产科&
+doctorId=16825177&
+doctorName=吴桂黔&
+orgName=揭阳安真妇产医院&
+customerName=赵梦云&
+customerId=78083792&
+appointAmount=23&
+appointDate=2022-12-03&
+timeRange=16:00-16:30&
+remark=&
+newVersion=true&
+insuranceReg=0&
+medicalCardId=&
+childMedicalCardId=&
+scheduleId=10577817&
+insurancePromotion=false&
+bco01=3437

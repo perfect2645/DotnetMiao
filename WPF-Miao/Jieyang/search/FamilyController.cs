@@ -70,8 +70,6 @@ namespace jieyang.search
             var familyMembers = JsonAnalysis.JsonToDicList(familyInfo);
             foreach(var member in familyMembers)
             {
-                var familyId = member.GetString(Constants.FamilyID);
-                MainSession.UserSession.AddUser(familyId, member);
                 MainSession.PrintLogEvent.Publish(this, member);
             }
         }

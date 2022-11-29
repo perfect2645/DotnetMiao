@@ -1,10 +1,10 @@
 ﻿using Base.model;
 using Base.session;
-using suiyang.appointment;
+using jieyang.appointment;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace suiyang.session
+namespace jieyang.session
 {
     public class AppointSession : ControllerSession<YuyueController>
     {
