@@ -39,7 +39,7 @@ namespace chutian.appointment
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("******** 预约成功 *********");
+            sb.AppendLine("******** 尝试预约 *********");
 
             sb.AppendLine($"UserId - {UserId}");
             sb.AppendLine($"UserName - {UserName}");
