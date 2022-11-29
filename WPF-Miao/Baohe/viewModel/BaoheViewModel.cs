@@ -74,6 +74,11 @@ namespace Baohe.viewModel
             StartTime = new DateTime(2022, 11, 18, 7, 59, 58);
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
+                "1039346", "包河区包公街道社区服务中心",
+                "7229969", "九价Hpv"));
+
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
                 "7225728", "九价Hpv")
@@ -128,9 +133,7 @@ namespace Baohe.viewModel
             //            "1040231", "蜀山区南岗镇卫生院",
             //            "7215685", "(测试)国产二价"));
 
-            //        Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-            //            "1039346", "包河区包公街道社区服务中心",
-            //            "7229969", "九价Hpv"));
+
 
             InitPlatformSession();
         }
