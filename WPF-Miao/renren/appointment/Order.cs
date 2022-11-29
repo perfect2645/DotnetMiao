@@ -19,7 +19,7 @@ namespace renren.appointment
 
         public Order()
         {
-            IntervalOnTime = new IntervalOnTime(AppointAction, StartTime, 500);
+            IntervalOnTime = new IntervalOnTime(AppointAction, StartTime, 800);
         }
 
         public string ToLogString()
