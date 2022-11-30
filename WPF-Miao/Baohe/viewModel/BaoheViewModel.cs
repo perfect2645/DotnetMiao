@@ -62,7 +62,7 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; BaseDoctorUid=0; BaseUserType=0; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJDNTUzQjkyQzU4MDM1QUJDRDBBRUM4QzU5MUNDRDQyQiJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; _YyghSysTrackUUID=17220631711; jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_sid=615CDAD0-4024-4B2F-AC41-6615D0CF3896; jkzlAn_channelid=1000031; jkzlAn_userid=148528129; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_ct=1668694130373";
+            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=142687055; YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBhSkFnRkd6cS1LM2xmdXZBVVNqSFlvIiwiU2VjU3RyIjoiQURDODNDMjhCNkYzNEI0OUJEMDA1RTkwNTk2NDRBMjEifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=oA3ZA0aJAgFGzq-K3lfuvAUSjHYo; OpenID=oA3ZA0aJAgFGzq-K3lfuvAUSjHYo; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000393; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvQTNaQTBhSkFnRkd6cS1LM2xmdXZBVVNqSFlvIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJCQzYwQkJGNTdBQzNBQkMxQkI3M0U4MzNEQ0QxQTVENyJ9; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=AC8A09CD823648AA97F6984D2EFA972F; _YyghSysTrackUUID=30181348433; jkzlAn_refercode=; jkzlAn_sid=F5C159F6-3F61-43AB-8FFA-D88533A85839; jkzlAn_channelid=9000393; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1669803264963";
 
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235355&doctorId=710796524&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
 
@@ -71,7 +71,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 18, 7, 59, 58);
+            StartTime = new DateTime(2022, 11, 30, 19, 59, 58);
 
             Departments = new List<HospitalDept>();
 

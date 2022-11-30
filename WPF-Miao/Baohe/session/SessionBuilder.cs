@@ -25,7 +25,7 @@ namespace Baohe.session
             && x["availablenum"].NotNullString().ToLong() > 0
                 && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
 
-            return availableWater;
+            return availableWater ?? new List<Dictionary<string, object>>();
         }
 
         public static List<Dictionary<string, object>> GetAvailableArrangeWater(List<Dictionary<string, object>> originalWaters)

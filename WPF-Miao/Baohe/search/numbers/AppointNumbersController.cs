@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.number;
 
 namespace Baohe.search.numbers
 {
@@ -30,8 +31,13 @@ namespace Baohe.search.numbers
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
 
             var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
-            //TODO 选取所有的water
-            var arrangeWater = arrangeWaterList.LastOrDefault()!;
+
+            var index = 0;
+            if (arrangeWaterList.Count > 0)
+            {
+                index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+            }
+            var arrangeWater = arrangeWaterList[index]!;
 
             var content = new AppointNumbersContent(url, arrangeWater);
             content.AddHeader("Cookie", BaoheSession.Cookie);
