@@ -13,6 +13,7 @@ namespace Baohe.appointment.content
         {
             base.BuildDefaultDoctorOrder();
             DoctorOrder.AddOrUpdate("birthday", MemberInfo["Birthday"]);
+            DoctorOrder.AddOrUpdate("timeId", 2);
         }
         protected override void BuildDefaultGhFormCon()
         {
