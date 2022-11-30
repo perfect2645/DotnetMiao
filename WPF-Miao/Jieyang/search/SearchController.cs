@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Container;
+using System;
 using System.Threading.Tasks;
 using Utils.timerUtil;
 
@@ -23,6 +24,14 @@ namespace jieyang.search
 
             MorningInterval = new IntervalOnTime(SearchMorningAsync, "上午", 200);
             AfternoonInterval = new IntervalOnTime(SearchAfternoon, "下午", 200);
+
+            GetUserInfo();
+        }
+
+        private void GetUserInfo()
+        {
+            var userController = HttpServiceController.GetService<UserController>();
+            userController.GetUserAsync();
         }
 
         public void GetMiaoAsync()

@@ -3,7 +3,7 @@ using Utils;
 
 namespace jieyang.appointment
 {
-    internal class YuyueContent : JieyangBaseContent
+    internal class YuyueContent : JieyangContent
     {
         private static string url = "http://wx1936.cnhis.cc/wx/user/appointment/reg.htm";
         public Order Order { get; }

@@ -38,7 +38,7 @@ namespace jieyang.search
             try
             {
                 var url = $"https://ctmingyi.com:18082/api/family/getFamilyPage?userID={userId}";
-                var content = new JieyangBaseContent(url);
+                var content = new JieyangContent(url);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

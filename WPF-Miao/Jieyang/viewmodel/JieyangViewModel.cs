@@ -132,8 +132,8 @@ namespace jieyang.viewmodel
             MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093302DB4B95DBD16940ED0F486A0792CE2CEC89C9E9B01F046E50BD612F74C4C56");
             MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=YTgyZTcxODYtNDUyMi00Yjc4LWIwMWMtMWI4M2Q5NjQ0MWNi");
 
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
+            //MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
+            //MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
         }
 
         private void InitStaticData()
@@ -243,7 +243,6 @@ namespace jieyang.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //await _searchController.SearchAsync();
                     _searchController = new SearchController();
                     StartIntervalTimer();
                 }

@@ -1,0 +1,32 @@
+GET http://wx1936.cnhis.cc/wx/user/patient/v1/list.htm?searchCriteria=&patientMark=1%7C2%7C1,2 HTTP/1.1
+Host: wx1936.cnhis.cc
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+openId: 
+userType: TX
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+token: E8F0F87646FAEFE62B54A807B04E8093AD92843717D751942399B2777C1CC78A125379D5E6435C2DD50806C2E431C2F2
+Cookie: SESSION=MGM5N2Q2NzAtMzcyMy00M2RmLTk1NjEtNGVhZmQ2YzA4ZjQx
+Referer: http://wx1936.cnhis.cc/wxcommon/web/?router=home
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 30 Nov 2022 14:50:19 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Headers: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.cnhis.com:* https://*.cnhis.cc:* https://*.qq.com:*; connect-src 'self' wss://*.qq.com:* https://*.qq.com:* https://*.cnhis.com:* https://*.cnhis.cc:* https://*.map.gtimg.com:*
+Content-Length: 1388
+
+{"code":null,"result":"Success","resultMsg":"","list":[],"map":{"defaultPatientId":78083792,"list":[{"orderBy":null,"descOrAsc":null,"createdDate":1669501627000,"createdBy":null,"updatedDate":1669814534093,"updatedBy":null,"customerId":78083792,"level":null,"no":"342224199905251625","name":"赵梦云","password":null,"idCard":"342224199905251625","phone":null,"mobile":"13940897525","email":null,"remark":"绑定就诊人不存在，创建并发卡","status":null,"parentId":null,"originalId":"83087","orgId":6246,"areaId":null,"patientId":null,"source":2,"iptno":null,"optno":"MZ052913","levelId":null,"archivesId":null,"mediumId":0,"originalCustomerId":"35863","phrName":null,"phrIdCard":null,"flag":1,"cardType":"1","jsonField":"{\"age\": 23, \"sex\": 2, \"flag\": \"1\", \"name\": \"赵梦云\", \"type\": \"门诊\", \"mobile\": \"13940897525\", \"id_card\": \"342224199905251625\", \"orgName\": \"揭阳安真妇产医院\", \"birthday\": \"1999-05-25\", \"self_mobile\": \"1\"}","birthday":927561600000,"sex":2,"companyName":null,"introducer":null,"infoSource":"{\"add_source\": 1}","idCardAes":null,"isEhCard":false,"chooseOptNo":"1","patientMark":"","gender":"女","map":null}],"isGroup":false,"bindPatientLimitNum":0},"obj":null,"total":0,"pageSize":0,"currentPage":0,"totalPage":0,"recordsTotal":0,"recordsFiltered":0,"rows":null,"tmpList":null,"data":null,"tableField":null}

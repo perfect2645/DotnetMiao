@@ -26,6 +26,7 @@ namespace jieyang
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<SearchMiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
 

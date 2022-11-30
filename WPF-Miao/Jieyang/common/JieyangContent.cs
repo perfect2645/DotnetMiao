@@ -4,9 +4,9 @@ using Utils;
 
 namespace jieyang.common
 {
-    internal class JieyangBaseContent : HttpStringContent
+    internal class JieyangContent : HttpStringContent
     {
-        public JieyangBaseContent(string url) : base(url)
+        public JieyangContent(string url) : base(url)
         {
             BuildHeader();
         }
