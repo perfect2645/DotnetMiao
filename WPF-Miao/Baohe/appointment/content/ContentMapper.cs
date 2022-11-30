@@ -9,6 +9,7 @@ namespace Baohe.appointment.content
 
         static ContentMapper()
         {
+            ContentDic = new Dictionary<string, Type>();
             ContentDic.Add("1094417", typeof(NanjingContent)); // 雨花社区卫生服务中心
         }
 

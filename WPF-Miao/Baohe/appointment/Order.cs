@@ -44,7 +44,6 @@ namespace Baohe.appointment
             OrderStatusEvent.OrderStatusChangedEvent += OrderStatusEvent_OrderStatusChangedEvent;
 
             InitContent();
-
         }
 
         #endregion Constructor
@@ -54,6 +53,7 @@ namespace Baohe.appointment
         public void InitContent()
         {
             Content = ContentMapper.GetContent(BaoheSession.PlatformSesstion.GetString(Constant.HospitalId));
+            Content.InitContent(MemberInfo);
         }
 
         public void FillContent(session.MiaoSession miaoSession)
