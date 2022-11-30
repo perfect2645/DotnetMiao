@@ -11,6 +11,7 @@ namespace Baohe.appointment.content
         {
             ContentDic = new Dictionary<string, Type>();
             ContentDic.Add("1094417", typeof(NanjingContent)); // 雨花社区卫生服务中心
+            ContentDic.Add("1039346", typeof(BaoheContent)); // 包河区包公街道社区服务中心
         }
 
         public static AppointmentContent GetContent(string hospitalId)

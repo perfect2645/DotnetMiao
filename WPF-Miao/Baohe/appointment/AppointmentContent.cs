@@ -78,7 +78,7 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("cliniccard", MemberInfo["Cliniccard"]);
             DoctorOrder.AddOrUpdate("applyNo", "");
             DoctorOrder.AddOrUpdate("mobile", MemberInfo["Phone"]);
-            DoctorOrder.AddOrUpdate(Constant.accountSn, MemberInfo[Constant.Accountsn]);
+            DoctorOrder.AddOrUpdate(Constant.accountSn, MemberInfo.GetString(Constant.Accountsn).ToInt());
             DoctorOrder.AddOrUpdate("cardNumber", BaoheSession.UserSession["cardNumber"]);
 
             DoctorOrder.AddOrUpdate("hosDeptId", platformSesstion[Constant.DeptId]);
@@ -107,7 +107,7 @@ namespace Baohe.appointment
 
             DoctorOrder.AddOrUpdate(Constant.LoginId, platformSesstion[Constant.Loginid]);
             DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.PlatformType]);
-            //DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
+            //DoctorOrder.AddOrUpdate("utm_source", "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0");//.0.h.1026.bus010.0
             DoctorOrder.AddOrUpdate("doctorOfficeName", "");
             DoctorOrder.AddOrUpdate("isread", "1");
 
