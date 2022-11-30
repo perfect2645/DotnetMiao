@@ -245,7 +245,7 @@ namespace jieyang.viewmodel
                 {
                     //await _searchController.SearchAsync();
                     _searchController = new SearchController();
-                    StartOnTimeTimer();
+                    StartIntervalTimer();
                 }
                 catch (HttpException ex)
                 {

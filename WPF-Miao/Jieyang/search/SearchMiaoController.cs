@@ -110,7 +110,7 @@ namespace jieyang.search
 
             BuildOrderList(avaliableScheduleList);
 
-
+            MainSession.SetStatus(MiaoProgress.MiaoGet);
             return true;
         }
 
