@@ -130,7 +130,7 @@ namespace jieyang.viewmodel
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093302DB4B95DBD16940ED0F486A0792CE2CEC89C9E9B01F046E50BD612F74C4C56");
-            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=N2NhOWI5ZGEtM2I1MC00NTZlLWJhMDUtMWYxMmNlN2RmMTQw");
+            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=YTgyZTcxODYtNDUyMi00Yjc4LWIwMWMtMWI4M2Q5NjQ0MWNi");
 
             MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
@@ -154,16 +154,6 @@ namespace jieyang.viewmodel
                 {
                     HospitalId = "wx1936.cnhis.cc",
                     HospitalName = "揭阳安真妇产医院",
-                    DepartmentId = "5220066",
-                    DepartmentName = "产科",
-                    DoctorId = "16825177",
-                    DoctorName = "吴桂黔",
-                    AppointAmount = "23",
-                },
-                new JieyangHospital
-                {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
                     DepartmentId = "5241221",
                     DepartmentName = "预防接种门诊",
                     DoctorId = "17543348",
@@ -178,7 +168,16 @@ namespace jieyang.viewmodel
                     DoctorId = "17760660",
                     DoctorName = "四价HPV疫苗"
                 },
-
+                new JieyangHospital
+                {
+                    HospitalId = "wx1936.cnhis.cc",
+                    HospitalName = "揭阳安真妇产医院",
+                    DepartmentId = "5220066",
+                    DepartmentName = "产科",
+                    DoctorId = "16825177",
+                    DoctorName = "吴桂黔",
+                    AppointAmount = "23",
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -241,10 +240,11 @@ namespace jieyang.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
                     //await _searchController.SearchAsync();
+                    _searchController = new SearchController();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -315,6 +315,7 @@ namespace jieyang.viewmodel
                     //    MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
                     //    return;
                     //}
+                    _searchController = new SearchController();
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
