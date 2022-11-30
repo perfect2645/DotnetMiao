@@ -62,7 +62,7 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=142687055; YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBhSkFnRkd6cS1LM2xmdXZBVVNqSFlvIiwiU2VjU3RyIjoiQURDODNDMjhCNkYzNEI0OUJEMDA1RTkwNTk2NDRBMjEifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=oA3ZA0aJAgFGzq-K3lfuvAUSjHYo; OpenID=oA3ZA0aJAgFGzq-K3lfuvAUSjHYo; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000393; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvQTNaQTBhSkFnRkd6cS1LM2xmdXZBVVNqSFlvIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJCQzYwQkJGNTdBQzNBQkMxQkI3M0U4MzNEQ0QxQTVENyJ9; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=AC8A09CD823648AA97F6984D2EFA972F; _YyghSysTrackUUID=30181348433; jkzlAn_refercode=; jkzlAn_sid=F5C159F6-3F61-43AB-8FFA-D88533A85839; jkzlAn_channelid=9000393; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1669803264963";
+            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=148528129; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; _YyghSysTrackUUID=30155941796; YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiU2VjU3RyIjoiMjE0MzJFOUE4MzRENzM3REYyMzczRkQ3MUI5RDQ0MDYifQ%3D%3D; loginid=oA3ZA0cFHRTawO843XTJZpQaBhI8; OpenID=oA3ZA0cFHRTawO843XTJZpQaBhI8; LoginChannel=9000393; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI2QUM0OTRBNUI0OTJDQjE1MUIyRUQwQzM3NENFQTJCQSJ9; jkzlAn_refercode=; jkzlAn_sid=CA093DA8-2862-42A9-97AF-626070D91FD4; jkzlAn_channelid=9000393; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1669804746209";
 
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235355&doctorId=710796524&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
 
@@ -86,6 +86,7 @@ namespace Baohe.viewModel
                 "7230344", "带疱疹病毒")
             {
                 DoctorSn = "711202108",
+                HasYzm = false
             });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",

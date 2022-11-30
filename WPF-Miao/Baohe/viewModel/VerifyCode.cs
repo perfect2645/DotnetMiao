@@ -67,7 +67,7 @@ namespace Baohe.viewModel
                 return;
             }
             var startTime = BaoheSession.GetStartTime();
-            startTime = startTime.AddMinutes(-3);
+            startTime = startTime.AddMinutes(-5);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
 
 
