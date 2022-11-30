@@ -1,9 +1,11 @@
-﻿using chutian.session;
+﻿using Base.viewmodel.status;
+using chutian.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using System;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils.stringBuilder;
 
@@ -34,6 +36,7 @@ namespace chutian.appointment
             try
             {
                 count++;
+
                 if (count % 100 == 1)
                 {
                     Log($"尝试预约第{count}次");
@@ -92,6 +95,7 @@ namespace chutian.appointment
                 return;
             }
             order.IntervalOnTime?.StopInterval();
+            MainSession.SetStatus(MiaoProgress.AppointEnd);
             MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
             order.MiaoId = miaoInfo.GetProperty("id").NotNullString();
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());

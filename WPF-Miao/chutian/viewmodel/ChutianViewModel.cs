@@ -130,8 +130,8 @@ namespace chutian.viewmodel
             Interval = 800;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "17050685132";
-            _userPassword = "123456";
+            UserPhone = "13940897525";
+            _userPassword = "yinhen2645";
             //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
         }
 
@@ -273,6 +273,7 @@ namespace chutian.viewmodel
 
         #region Appoint
 
+        int cnt = 0;
         private void OnSchedule(object? sender, ScheduleEventArgs e)
         {
             lock (OrderLock)
@@ -290,6 +291,26 @@ namespace chutian.viewmodel
                 var preContent = new PreOrderContent();
                 preOrderController.BuildHeaders(preContent);
 
+                for(int i = 0; i < 10; i ++)
+                {
+                    foreach (var order in orderList)
+                    {
+                        lock (OrderLock)
+                        {
+                            if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                            {
+                                return;
+                            }
+                            lock (OrderLock)
+                            {
+                                var content = new PreOrderContent(order);
+                                preOrderController.PreOrder(content);
+                            }
+                        }
+                    }
+                }
+
+                /* 防止一个人约到多个号，不能用异步
                 foreach (var order in orderList)
                 {
                     var content = new PreOrderContent(order);
@@ -299,6 +320,7 @@ namespace chutian.viewmodel
                         Task.Factory.StartNew(() => preOrderController.PreOrderAsync(content));
                     });
                 }
+                */
             }
             catch (Exception ex)
             {
