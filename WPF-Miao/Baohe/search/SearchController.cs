@@ -1,11 +1,12 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
 using Baohe.search.ArrangeWater;
-using Baohe.search.auth;
+using Baohe.search.cookie;
 using Baohe.search.doctor;
 using Baohe.search.numbers;
 using Baohe.search.user;
 using Baohe.session;
+using Baohe.verification;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
@@ -143,6 +144,7 @@ namespace Baohe.search
             {
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
                 var isNumbersGet = await appointNumbers.GetNumbersAsync();
+
                 BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
                 lock (OrderLock)
                 {
@@ -163,7 +165,7 @@ namespace Baohe.search
         {
             try
             {
-                var authController = HttpServiceController.GetService<AuthController>();
+                var authController = HttpServiceController.GetService<CookieController>();
                 authController.GetCookieAdvance(BaoheSession.Cookie);
 
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
@@ -174,6 +176,8 @@ namespace Baohe.search
 
                 //var liudiao = HttpServiceController.GetService<LiudiaoController>();
                 //await liudiao.LiudiaoAsync(sessionItem);
+                var authContr = HttpServiceController.GetService<AuthController>();
+                await authContr.CheckAuthAsync();
 
                 BuildMemberOrder(userInfoContr.MemberList);
             }

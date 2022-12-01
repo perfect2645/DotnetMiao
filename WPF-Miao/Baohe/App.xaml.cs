@@ -1,7 +1,7 @@
 ﻿using Baohe.appointment;
 using Baohe.search;
 using Baohe.search.ArrangeWater;
-using Baohe.search.auth;
+using Baohe.search.cookie;
 using Baohe.search.doctor;
 using Baohe.search.Liudiao;
 using Baohe.search.numbers;
@@ -37,6 +37,7 @@ namespace Baohe
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<CookieController>();
             HttpServiceController.AddTransientService<AuthController>();
             HttpServiceController.AddTransientService<UserInfoController>();
             HttpServiceController.AddTransientService<DoctorController>();
