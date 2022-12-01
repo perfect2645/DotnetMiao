@@ -130,14 +130,14 @@ namespace chutian.viewmodel
             Interval = 800;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "13940897525";
-            _userPassword = "yinhen2645";
+            UserPhone = "17198008619";
+            _userPassword = "123456";
             //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 30, 8, 50, 56);
+            StartTime = new DateTime(2022, 12, 2, 8, 58, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             Departments = new List<HospitalDept>

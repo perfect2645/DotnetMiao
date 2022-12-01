@@ -95,9 +95,12 @@ namespace chutian.appointment
                 return;
             }
             order.IntervalOnTime?.StopInterval();
-            MainSession.SetStatus(MiaoProgress.AppointEnd);
             MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
             order.MiaoId = miaoInfo.GetProperty("id").NotNullString();
+            if (!string.IsNullOrEmpty(order.MiaoId))
+            {
+                MainSession.SetStatus(MiaoProgress.AppointEnd);
+            }
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }
 
