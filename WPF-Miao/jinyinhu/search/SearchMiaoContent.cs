@@ -12,7 +12,6 @@ namespace jinyinhu.search
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSession, Constants.DoctorId);
         }
     }
 }

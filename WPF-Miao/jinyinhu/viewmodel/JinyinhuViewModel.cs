@@ -172,8 +172,8 @@ namespace jinyinhu.viewmodel
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
-            _searchController = new SearchController();
             MainSession.InitSession();
+            _searchController = new SearchController();
         }
 
         private void InitCommands()
@@ -285,7 +285,8 @@ namespace jinyinhu.viewmodel
             {
                 foreach (var order in orderList)
                 {
-                    var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
+                    var key = $"{order.ReservationDate}{order.ReservationTime}";
+                    var yuyueController = MainSession.AppointSession.GetController(key);
                     yuyueController.StartInterval(order);
                 }
             }
@@ -342,8 +343,6 @@ namespace jinyinhu.viewmodel
             var phone = userInfo.GetString("familyPhone");
 
             var order = new Order();
-            order.ScheduleId = scheduleId;
-            order.DoctorId = doctorId;
             //order.Hospitalid = hospitalId;
             //order.UserId = userId;
             //order.FamilyId = familyId;
@@ -385,10 +384,7 @@ namespace jinyinhu.viewmodel
             var selectedDept = SelectedDepartment as JinyinhuHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.AppointAmount, selectedDept.AppointAmount);
 
             Log(selectedDept.ToLogString());
         }

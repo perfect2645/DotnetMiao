@@ -1,0 +1,69 @@
+GET http://101.34.141.250:9653/api/front/sgUser/getUserByTpye/9 HTTP/1.1
+Host: 101.34.141.250:9653
+Connection: keep-alive
+Origin: http://yy.test.shinegosoft.com.cn
+Authori-zation: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzA1MDMzMzAsInVzZXJuYW1lIjoib1BDbHM1aDJNV1pXTHU4YXh0MFFfOXlMRk5IOCJ9.EOjcfyMmhv4pnyQdSq6BqQVYxijIU7Ya_BaxVmghcPU
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json
+Accept: */*
+Referer: http://yy.test.shinegosoft.com.cn/mobile/pages/inoculation_appointment/inoculation_appointment?id=9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 01 Dec 2022 13:31:05 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+Content-Length: 665
+
+{"code":200,"message":"操作成功","data":{"list":[{"id":5040,"userType":1,"documentType":0,"userName":"周瑠夏","concealTests":"16,0,7,11","company":"0","physicalAddress":"辽宁省大连市甘井子区红旗西路104号","sex":"2","birthday":null,"address":"翡翠公园","region":"湖北省,武汉市,东西湖区,金银湖街道","weight":"55","diabetes":0,"pulmonary":0,"heart":0,"hypertension":0,"height":"165","projectInfo":null,"age":23,"guardian":null,"wxId":"oPCls5h2MWZWLu8axt0Q_9yLFNH8","documentNumber":"342224199905251625","telephone":"13940897525","createTime":"2022-11-27 06:39:14","updateTime":"2022-12-01 20:46:51","isFlag":0}],"shouMing":""}}
+
+{
+    "code": 200,
+    "message": "操作成功",
+    "data": {
+        "list": [
+            {
+                "id": 5040,
+                "userType": 1,
+                "documentType": 0,
+                "userName": "周瑠夏",
+                "concealTests": "16,0,7,11",
+                "company": "0",
+                "physicalAddress": "辽宁省大连市甘井子区红旗西路104号",
+                "sex": "2",
+                "birthday": null,
+                "address": "翡翠公园",
+                "region": "湖北省,武汉市,东西湖区,金银湖街道",
+                "weight": "55",
+                "diabetes": 0,
+                "pulmonary": 0,
+                "heart": 0,
+                "hypertension": 0,
+                "height": "165",
+                "projectInfo": null,
+                "age": 23,
+                "guardian": null,
+                "wxId": "oPCls5h2MWZWLu8axt0Q_9yLFNH8",
+                "documentNumber": "342224199905251625",
+                "telephone": "13940897525",
+                "createTime": "2022-11-27 06:39:14",
+                "updateTime": "2022-12-01 20:46:51",
+                "isFlag": 0
+            }
+        ],
+        "shouMing": ""
+    }
+}

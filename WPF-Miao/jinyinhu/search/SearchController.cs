@@ -1,29 +1,38 @@
-﻿using HttpProcessor.Container;
-using System;
-using System.Threading.Tasks;
-using Utils.timerUtil;
+﻿using Base.model;
+using HttpProcessor.Container;
+using jinyinhu.session;
+using System.Collections.Generic;
+using Utils;
 
 namespace jinyinhu.search
 {
     internal class SearchController
-    {
-
-        private SearchMiaoController _morningController;
-        private SearchMiaoController _afternoonController;
-
-        private IntervalOnTime MorningInterval;
-        private IntervalOnTime AfternoonInterval;
+    { 
+        private Dictionary<string, SearchMiaoController> _controllerList;
 
         public SearchController()
         {
-            _morningController = HttpServiceController.GetService<SearchMiaoController>();
-            _morningController.BuildContent("上午");
+            _controllerList = new Dictionary<string, SearchMiaoController>();
 
-            _afternoonController = HttpServiceController.GetService<SearchMiaoController>();
-            _afternoonController.BuildContent("下午");
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+            if (!dateList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, "DateList Is empty, 请设置预约日期");
+                return;
+            }
 
-            MorningInterval = new IntervalOnTime(SearchMorningAsync, "上午", 200);
-            AfternoonInterval = new IntervalOnTime(SearchAfternoon, "下午", 200);
+            foreach(var date in dateList)
+            {
+                var skey = $"{date.Value}{Constants.ShangWu}";
+                var shangwuController = MainSession.SearchSession.GetController(skey);
+                shangwuController.BuildContent(date.Value, Constants.ShangWu);
+                _controllerList.Add(skey, shangwuController);
+
+                var xkey = $"{date.Value}{Constants.XiaWu}";
+                var afternoonController = MainSession.SearchSession.GetController(xkey);
+                afternoonController.BuildContent(date.Value, Constants.XiaWu);
+                _controllerList.Add(xkey, afternoonController);
+            }
 
             GetUserInfo();
         }
@@ -36,30 +45,9 @@ namespace jinyinhu.search
 
         public void GetMiaoAsync()
         {
-            //var isMiaoGet = await _morningController.SearchMiaoAsync();
-            //if (isMiaoGet)
-            //{
-
-            //}
-            MorningInterval.StartIntervalOntime();
-            AfternoonInterval.StartIntervalOntime();
-        }
-
-        private async void SearchMorningAsync()
-        {
-            var isMiaoGet = await _morningController.SearchMiaoAsync();
-            if (isMiaoGet)
+            foreach(var controller in _controllerList)
             {
-                MorningInterval.StopInterval();
-            }
-        }
-
-        private async void SearchAfternoon()
-        {
-            var isMiaoGet = await _afternoonController.SearchMiaoAsync();
-            if (isMiaoGet)
-            {
-                AfternoonInterval.StopInterval();
+                controller.Value.SearchInterval.StartIntervalOntime();
             }
         }
     }

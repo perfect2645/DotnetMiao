@@ -12,6 +12,7 @@ namespace jinyinhu.session
 
         public static UserSession UserSession { get; private set; }
         public static AppointSession AppointSession { get; private set; }
+        public static SearchSession SearchSession { get; private set; }
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
 
@@ -25,6 +26,7 @@ namespace jinyinhu.session
 
         public static void InitSession()
         {
+            SearchSession = new SearchSession();
             AppointSession = new AppointSession();
         }
 

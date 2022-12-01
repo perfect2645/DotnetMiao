@@ -4,7 +4,8 @@ namespace jinyinhu.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string MiaoHtml = "MiaoHtml";
+        public const string ShangWu = "ShangWu";
+        public const string XiaWu = "XiaWu";
 
         public const string AttId = "attId";
         public const string OrgId = "orgId";

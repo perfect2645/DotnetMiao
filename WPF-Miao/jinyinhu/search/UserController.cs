@@ -29,7 +29,8 @@ namespace jinyinhu.search
         {
             try
             {
-                var url = "http://wx1936.cnhis.cc/wx/user/patient/v1/list.htm?searchCriteria=&patientMark=1%7C2%7C1,2";
+                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+                var url = $"http://101.34.141.250:9653/api/front/sgUser/getUserByTpye/{deptId}";
                 var content = new JinyinhuContent(url);
                 content.BuildDefaultHeaders(Client);
                 HttpDicResponse response = GetStringAsync(content).Result;

@@ -14,39 +14,40 @@ using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
+using Utils.timerUtil;
 
 namespace jinyinhu.search
 {
-    internal class SearchMiaoController : HttpClientBase
+    public class SearchMiaoController : HttpClientBase
     {
         public bool IsMiaoGet { get; set; }
         public string Date { get; private set; }
-        public SearchMiaoContent SearchMiaoContent { get; private set; }
+        internal SearchMiaoContent SearchMiaoContent { get; private set; }
+        public IntervalOnTime SearchInterval;
 
         public SearchMiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void BuildContent(string timeRange)
+        public void BuildContent(string date, string timeRange)
         {
-            var employeeId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            Date = date;
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            Date = DateTimeUtil.GetTomorrow();
-            var timeType = UnicodeConverter.Encode(timeRange, true);
-
-            var urlTemplate = $"http://wx1936.cnhis.cc/wx/dept/scheduleDoctorRange.htm?employeeId={employeeId}&deptId={deptId}&date={Date}&timeType={timeType}&newVersion=true";
+            var urlTemplate = $"http://101.34.141.250:9653/api/front/classification/get{timeRange}?day={Date}&type=1&yeWuId={deptId}";
 
             SearchMiaoContent = new SearchMiaoContent(urlTemplate);
             SearchMiaoContent.BuildDefaultHeaders(Client);
+
+            SearchInterval = new IntervalOnTime(SearchMiaoAsync, $"{Date}{timeRange}", 300);
         }
 
-        public async Task<bool> SearchMiaoAsync()
+        public async void SearchMiaoAsync()
         {
             if (IsMiaoGet)
             {
-                return true;
+                SearchInterval.StopInterval();
             }
-            return await Task.Factory.StartNew(() => SearchMiao());
+            await Task.Factory.StartNew(() => SearchMiao());
         }
 
         private bool SearchMiao()
@@ -131,17 +132,17 @@ namespace jinyinhu.search
             {
                 baseOrderList.Add(new Order
                 {
-                    Regtype = schedule.GetString("registerTypeOriginalId"),
-                    DeptId = deptId,
-                    DeptName = deptName,
-                    DoctorId = doctorId,
-                    DoctorName = doctorName,
-                    OrgName = hosName,
-                    AppointAmount = amount,
-                    AppointDate = Date,
-                    TimeRange = schedule.GetString("timeRangeShow"),
-                    ScheduleId = schedule.GetString(Constants.ScheduleId),
-                    Bco01 = schedule.GetString("bco01"),
+                    //Regtype = schedule.GetString("registerTypeOriginalId"),
+                    //DeptId = deptId,
+                    //DeptName = deptName,
+                    //DoctorId = doctorId,
+                    //DoctorName = doctorName,
+                    //OrgName = hosName,
+                    //AppointAmount = amount,
+                    //AppointDate = Date,
+                    //TimeRange = schedule.GetString("timeRangeShow"),
+                    //ScheduleId = schedule.GetString(Constants.ScheduleId),
+                    //Bco01 = schedule.GetString("bco01"),
                 });
             }
 
@@ -172,8 +173,7 @@ namespace jinyinhu.search
             foreach (var baseOrder in baseOrderList)
             {
                 var order = new Order();
-                order.DoctorId = baseOrder.DoctorId;
-                order.ScheduleId = baseOrder.ScheduleId;
+
 
                 Log($"build order - {order.ToLogString()}");
                 orderList.Add(order);

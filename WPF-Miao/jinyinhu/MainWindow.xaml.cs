@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using jinyinhu.viewmodel;
+using System;
+using System.Windows;
 
 namespace jinyinhu
 {
@@ -10,6 +12,14 @@ namespace jinyinhu
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                DataContext = new JinyinhuViewModel(mainConsole.baseConsole.LogPanel);
+            }
+            catch (Exception ex)
+            {
+                Logging.GLog.Logger.Error(ex);
+            }
         }
     }
 }
