@@ -1,12 +1,11 @@
 ﻿<Window x:Class="jinyinhu.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:jinyinhu"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:view="clr-namespace:jinyinhu.view"
+        Title="金银湖街家庭医生服务平台" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:JinyinhuConsole x:Name="mainConsole">
 
-    </Grid>
+    </view:JinyinhuConsole>
 </Window>

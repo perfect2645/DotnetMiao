@@ -15,4 +15,17 @@
     <ProjectReference Include="..\Utils\Utils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="view\JinyinhuConsole.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="view\JinyinhuConsole.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
