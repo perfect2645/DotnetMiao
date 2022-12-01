@@ -50,7 +50,7 @@ namespace jinyinhu.appointment
                 }
 
                 content.BuildDefaultHeaders(Client);
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"预约失败：{response?.Message}");

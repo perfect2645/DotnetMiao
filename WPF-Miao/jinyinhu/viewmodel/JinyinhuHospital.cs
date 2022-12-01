@@ -5,13 +5,10 @@ namespace jinyinhu.viewmodel
 {
     internal class JinyinhuHospital : HospitalDept
     {
-        public string DoctorId { get; set; }
-        public string DoctorName { get; set; }
-        public string AppointAmount { get; set; } = "0";
 
         public new string Display
         {
-            get { return $"{DepartmentName}-{DoctorName}"; }
+            get { return $"{DepartmentId}-{DepartmentName}"; }
         }
         public override string ToLogString()
         {
@@ -20,7 +17,6 @@ namespace jinyinhu.viewmodel
             sb.AppendLine("********揭阳安贞-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {DepartmentName}");
             sb.AppendLine($"DepartmentId - {DepartmentId}");
-            sb.AppendLine($"Doctor - {DoctorName}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

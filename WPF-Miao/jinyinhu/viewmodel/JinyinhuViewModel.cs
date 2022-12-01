@@ -127,19 +127,17 @@ namespace jinyinhu.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(20);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093302DB4B95DBD16940ED0F486A0792CE2CEC89C9E9B01F046E50BD612F74C4C56");
-            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=YTgyZTcxODYtNDUyMi00Yjc4LWIwMWMtMWI4M2Q5NjQ0MWNi");
 
-            //MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
-            //MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
+            MainSession.PlatformSession.AddOrUpdate("Authori-zation", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzA1MDMzMzAsInVzZXJuYW1lIjoib1BDbHM1aDJNV1pXTHU4YXh0MFFfOXlMRk5IOCJ9.EOjcfyMmhv4pnyQdSq6BqQVYxijIU7Ya_BaxVmghcPU");
+
+            StartTime = DateTime.Now.AddSeconds(20);
+            MainSession.StartTime = StartTime;
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 11, 25, 8, 50, 56);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+            MainSession.StartTime = StartTime;
 
             DateList = new List<DspVal>
             {
@@ -152,31 +150,24 @@ namespace jinyinhu.viewmodel
             {
                 new JinyinhuHospital
                 {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
-                    DepartmentId = "5241221",
-                    DepartmentName = "预防接种门诊",
-                    DoctorId = "17543348",
-                    DoctorName = "九价HPV疫苗"
+                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalName = "金银湖街家庭医生服务平台",
+                    DepartmentId = "9",
+                    DepartmentName = "成人疫苗",
                 },
                 new JinyinhuHospital
                 {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
-                    DepartmentId = "5241221",
-                    DepartmentName = "预防接种门诊",
-                    DoctorId = "17760660",
-                    DoctorName = "四价HPV疫苗"
+                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalName = "金银湖街家庭医生服务平台",
+                    DepartmentId = "9",
+                    DepartmentName = "成人疫苗",
                 },
                 new JinyinhuHospital
                 {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
-                    DepartmentId = "5220066",
-                    DepartmentName = "产科",
-                    DoctorId = "16825177",
-                    DoctorName = "吴桂黔",
-                    AppointAmount = "23",
+                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalName = "金银湖街家庭医生服务平台",
+                    DepartmentId = "9",
+                    DepartmentName = "成人疫苗",
                 },
             };
 
