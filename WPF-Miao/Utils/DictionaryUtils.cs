@@ -86,6 +86,11 @@ namespace Utils
             {
                 return null;
             }
+
+            if (dic[key] == null)
+            {
+                return null;
+            }
             return dic[key].ToString();
         }
 
