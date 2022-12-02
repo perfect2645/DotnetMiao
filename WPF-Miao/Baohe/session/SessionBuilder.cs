@@ -3,6 +3,7 @@ using Base.viewModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
 
@@ -41,14 +42,33 @@ namespace Baohe.session
         {
             var result = BaoheSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
 
-            return result?.FirstOrDefault();
+            return result?.LastOrDefault();
         }
 
         public static Dictionary<string, object> GetDefaultDoctor()
         {
-            var result = BaoheSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
+            var doctorList = BaoheSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
 
-            return result?.FirstOrDefault();
+            var targetDoctor = doctorList?.FirstOrDefault(d => IsTargetDoctor(d));
+
+            return targetDoctor ?? doctorList?.FirstOrDefault();
+        }
+
+        public static bool IsTargetDoctor(Dictionary<string, object> doctor)
+        {
+            var doctorSn = doctor.GetString(Constant.DoctorSn);
+            if (string.IsNullOrEmpty(doctorSn))
+            {
+                return false;
+            }
+
+            var sessionDoctorSn = BaoheSession.PlatformSesstion.GetString(Constant.DoctorSn);
+            if (doctorSn.Equals(sessionDoctorSn))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

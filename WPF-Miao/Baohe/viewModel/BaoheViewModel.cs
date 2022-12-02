@@ -62,11 +62,11 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=148528129; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJDNTUzQjkyQzU4MDM1QUJDRDBBRUM4QzU5MUNDRDQyQiJ9; jkzlAn_channelid=1000031; _YyghSysTrackUUID=02094528208; jkzlAn_refercode=; jkzlAn_sid=783E6EBE-E933-4360-AD2B-AE6AE71FED40; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1669945534946";
+            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; jkzlAn_p=-1; jkzlAn_c=-1; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=AC8A09CD823648AA97F6984D2EFA972F; jkzlAn_userid=142687055; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiU2VjU3RyIjoiNjEyREE0RkEyRjY1REZFOUQ2OENCRjc3NDJBQzg5RUMifQ%3D%3D; loginid=off6ts0dsj7egTDEnzoc7pz7g_FY; OpenID=off6ts0dsj7egTDEnzoc7pz7g_FY; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJGN0REMDNGQTA0Qzk4NjQ4NUEwMTI2QjFDQkNGRThDRCJ9; _YyghSysTrackUUID=02112805700; jkzlAn_refercode=; jkzlAn_sid=5569D899-BBD4-4237-9AD7-BC4E41FF88CB; jkzlAn_channelid=1000031; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1669951699392";
 
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
 
-            StartTime = DateTime.Now.AddMinutes(1);
+            StartTime = DateTime.Now.AddMinutes(3);
         }
 
         private void InitStaticData()

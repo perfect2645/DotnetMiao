@@ -15,7 +15,7 @@ namespace Baohe.search.user
     internal class UserInfoController : HttpClientBase
     {
 
-        public List<Dictionary<string, object>> MemberList { get; private set; }
+        //public List<Dictionary<string, object>> MemberList { get; private set; }
 
         public UserInfoController(HttpClient httpClient) : base(httpClient)
         {
@@ -76,11 +76,11 @@ namespace Baohe.search.user
 
         private void AnalysisResult(JsonElement jsonElement)
         {
-            MemberList = JsonAnalysis.JsonToDicList(jsonElement);
+            var memberList = JsonAnalysis.JsonToDicList(jsonElement);
 
-            BaoheSession.AddUserSession(Constant.MemberList, MemberList);
+            BaoheSession.AddUserSession(Constant.MemberList, memberList);
 
-            BaoheSession.PrintLogEvent.Publish(this, MemberList, "user details");
+            BaoheSession.PrintLogEvent.Publish(this, memberList, "user details");
         }
     }
 }

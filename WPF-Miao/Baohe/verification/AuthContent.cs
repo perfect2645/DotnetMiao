@@ -20,9 +20,9 @@ namespace Baohe.verification
 
         private void BuildContent()
         {
-            var userDetail = BaoheSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
-            var userName = userDetail[0].GetString("Cname");
-            var memberSn = userDetail[0].GetString("Memberid");
+            var userDetail = SessionBuilder.GetDefaultMember();
+            var userName = userDetail.GetString("Cname");
+            var memberSn = userDetail.GetString("Memberid");
             AddContent("name", UnicodeConverter.Encode(userName, true));
             AddContent("memberSn", memberSn);
         }

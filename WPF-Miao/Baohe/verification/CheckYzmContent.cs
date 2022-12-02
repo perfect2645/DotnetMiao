@@ -23,8 +23,8 @@ namespace Baohe.verification
         {
             var accountSn = BaoheSession.UserSession[Constant.accountSn].NotNullString();
 
-            var userDetail = BaoheSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
-            Tel = userDetail[0][Constant.Phone].NotNullString();
+            var userDetail = SessionBuilder.GetDefaultMember();
+            Tel = userDetail[Constant.Phone].NotNullString();
 
             Content.Add("tel", Tel);
             Content.Add("yzmCode", Yzm);

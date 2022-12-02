@@ -179,7 +179,8 @@ namespace Baohe.search
                 var authContr = HttpServiceController.GetService<AuthController>();
                 await authContr.CheckAuthAsync();
 
-                BuildMemberOrder(userInfoContr.MemberList);
+                var defaultMember = SessionBuilder.GetDefaultMember();
+                BuildMemberOrder(defaultMember);
             }
             catch (HttpException ex)
             {
@@ -193,22 +194,19 @@ namespace Baohe.search
             }
         }
 
-        private void BuildMemberOrder(List<Dictionary<string, object>> memberList)
+        private void BuildMemberOrder(Dictionary<string, object> defaultMember)
         {
-            if (!memberList.HasItem())
+            if (!defaultMember.HasItem())
             {
                 return;
             }
 
             BaoheSession.OrderSession.Clear();
 
-            foreach (var member in memberList)
+            for(var i = 0; i < 5; i++)
             {
-                for(var i = 0; i < 5; i++)
-                {
-                    var order = new Order(member, i);
-                    BaoheSession.OrderSession.AddOrder(order);
-                }
+                var order = new Order(defaultMember, i);
+                BaoheSession.OrderSession.AddOrder(order);
             }
         }
 
