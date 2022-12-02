@@ -129,8 +129,8 @@ namespace jieyang.viewmodel
             Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093302DB4B95DBD16940ED0F486A0792CE2CEC89C9E9B01F046E50BD612F74C4C56");
-            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=YTgyZTcxODYtNDUyMi00Yjc4LWIwMWMtMWI4M2Q5NjQ0MWNi");
+            MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093EA6A1AB4B615E91B85521DE5C1B095D0CEC89C9E9B01F046E50BD612F74C4C56");
+            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=MjIyMTU2YWYtN2Q5NC00NzAxLTlhN2UtZDI4MTY5MDMyZmIw");
 
             //MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
             //MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
