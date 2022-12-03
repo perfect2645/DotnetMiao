@@ -70,13 +70,9 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(5313, 1, "鲁花一级压榨花生油5L", "1059", "2022-11-27 20:00:00");
-            AddMiaoshaItem(5314, 1, "荣事达水润负离子吹风机", "1059", "2022-11-27 20:00:00");
-            AddMiaoshaItem(5312, 2, "美的智能按摩足浴盆", "1059", "2022-11-27 20:00:00");
-            //AddMiaoshaItem(5302, 1, "百元大礼包 · 亲邻礼", "1057", "2022-11-18 20:00:00");
-
-            //AddMiaoshaItem(2836, 2, "蒙牛圣牧有机奶1箱", "466", "2022-09-25 14:00:00");
-
+            AddMiaoshaItem(5720, 1, "青岛啤酒原浆5L一桶", "1059", "2022-12-03 20:00:00");
+            AddMiaoshaItem(5721, 1, "2022卡塔尔世界杯吉祥物拉伊卜", "1059", "2022-12-03 20:00:00");
+            AddMiaoshaItem(5722, 1, "圣牧有机牛奶1箱", "1059", "2022-12-03 20:00:00");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
