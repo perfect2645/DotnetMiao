@@ -25,6 +25,7 @@ namespace Zhuzher.viewmodel
         public ICommand CollectSunCommand { get; set; }
         public ICommand ExchangeCommand { get; set; }
         public ICommand SeckillCommand { get; set; }
+        public ICommand JoinTeamCommand { get; set; }
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -34,6 +35,18 @@ namespace Zhuzher.viewmodel
             {
                 _miaoshaList = value;
                 NotifyUI(() => MiaoshaList);
+            }
+        }
+
+        private string _activityId;
+        public string ActivityId
+        {
+            get { return _activityId; }
+            set
+            {
+                _activityId = value;
+                ZhuzherSession.ActivityId = value;
+                NotifyUI(() => ActivityId);
             }
         }
 
@@ -52,6 +65,9 @@ namespace Zhuzher.viewmodel
         {
             var mslist = new MiaoshaItemList();
             MiaoshaList = mslist.MiaoshaList;
+
+            ActivityId = "631";
+            ZhuzherSession.InviteCode = "ADA2PV";
         }
 
         private void InitCommands()
@@ -59,6 +75,7 @@ namespace Zhuzher.viewmodel
             CollectSunCommand = new RelayCommand(ExecuteCollectSunAsync, CanExecuteCollectSun);
             ExchangeCommand = new RelayCommand(ExecuteExchange);
             SeckillCommand = new RelayCommand(ExecuteSeckill);
+            JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -135,6 +152,28 @@ namespace Zhuzher.viewmodel
         }
 
         #endregion Seckill
+
+        #region JoinTeam
+
+        private void ExecuteJoinTeam()
+        {
+            try
+            {
+                ZhuzherSession.Cookie = Cookie;
+                var joinTeamController = HttpServiceController.GetService<JoinTeamController>();
+                joinTeamController.JoinTeamAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion
 
         #region Session
 

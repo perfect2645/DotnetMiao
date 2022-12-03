@@ -35,11 +35,11 @@ namespace Zhuzher.search
             //在世界杯话题下发帖即可完成，每日1次，每次+2金币 "limitCount": 2,
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=224");
 
-            //无托收预缴12个月，即可收获金币+300，每日1次
-            AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
+            ////无托收预缴12个月，即可收获金币+300，每日1次
+            //AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
 
-            //托收且预缴12个月，即可收获金币+300，每日1次
-            AddScene("doc-withhold&prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
+            ////托收且预缴12个月，即可收获金币+300，每日1次
+            //AddScene("doc-withhold&prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
 
             //无托收预缴24个月，即可收获金币+600，每日1次
             AddScene("doc-prepay24months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");

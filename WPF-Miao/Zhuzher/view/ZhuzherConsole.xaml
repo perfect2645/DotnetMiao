@@ -37,9 +37,21 @@
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel>
+                <StackPanel Orientation="Horizontal" Height="50">
+                    <TextBox Width="100"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding ActivityId}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="ActivityId">
+                    </TextBox>
+                    <Button Content="加入队伍" Margin="0,0,10,0"
+                        Command="{Binding JoinTeamCommand}" Width="100">
+                    </Button>
+                </StackPanel>
                 <ListView VerticalAlignment="Top" 
                           Margin="20" 
-                          Height="400"
+                          Height="300"
                           BorderBrush="Pink"
                           BorderThickness="1"
                           ItemsSource="{Binding MiaoshaList}"
