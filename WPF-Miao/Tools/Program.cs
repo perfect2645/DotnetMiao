@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text;
 using Tools.Converter;
+using Tools.Decode;
 using Tools.Encode;
 using Tools.Stringtest;
 
@@ -16,5 +17,8 @@ var result  = converter.UrlDecode("doctorRegOrder=%7B%22memberSn%22%3A%225393789
 var de = converter.UrlDecode(@"name=%E5%88%98%E4%BA%91&memberSn=54193649", Encoding.UTF8);
 
 var en = converter.UrlEncode(de);
+
+var cs7 = new PKCS7();
+var cs7result = cs7.DeCodeNormal("HTx7Z8VfeugcBEpzgw7zD1pbdRJQPbjzxdWbAXgrOVoXDM0eeI0YP6Unv0m86uZbQi5x/AnFATDU8+ytCnck3RdfzEZeJyk4YE8rh2dywIEjlLgAIUTfIHQXBPHy4HJw+ub1u8M8Rrbbyog3h+ki3u5LXe2NHcEjljAqHIjy9iAgt0Td1kwuUPMjMG4pbnNTKHEVHbn0cunOuBSdE8Qj69d3CTkWs73E/1SeCFbpIyTUE4JOtP75WepKgTWqppIM6ULvA6PnXx2C5YEpUegFdzYaOIDL+cy+dau0bKrT7Gp8zdh/kfUOQlnpe+XqwzX+L1A1sN2tFsa5tm/jX0onibEGMzkmjBhdnvE3Rlsi65zvR9b0Bs/RMEkmD5c7eISiBPBXNgRdgBROXqqBVqhP2kCqrnnKY0VcYRulk89y9tvvTZBamxWMtze1s0cjYpRT");
 
 Console.ReadLine();

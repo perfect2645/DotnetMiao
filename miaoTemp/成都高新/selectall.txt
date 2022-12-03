@@ -1,0 +1,85 @@
+POST https://ymglfw.care4u.cn/npApii/comminfo/selectAll HTTP/1.1
+Host: ymglfw.care4u.cn
+Connection: keep-alive
+Content-Length: 2
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAxNjE1MDgxNzksInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAwNzUxMDgxNzl9In0.4DvKZg0M4GHus3jSJ7PyFKQcyAYBzZN2RZ1o44rv6Wo
+Referer: https://servicewechat.com/wx4293c7bbe5d3df87/8/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Sat, 03 Dec 2022 13:45:06 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 1432
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+HTx7Z8VfeugcBEpzgw7zD6Ka+EyfnulB/DJcyMftwOD57mhiu1+Om7XcWYSngYjARank7uCW8o0kbAzmResOL7qlZqU0wz+YmAlpOkSm7rveEvH4ZdOGdf22sIeaCkgjGaYOWzAxy8GxSHTXCWEGMNhuuwdvlmMrUC1A72/fuje6sFRMvi+RFB919YXIC1XxYMz8If4+hE7sdxp+B9gzpRDatBswutkdZAgqLJMJ/CphmbQfjMcq2gcS/zbLIAl5HreaZWqdTdlDyIbnT6UzdrT5j8Ywm/WlVml8rTXEDaF9u3xwGUaJE05BNlnM9SMx/cPYz9eMXKX7idiVFjfRgoReTNyD6vDhubN6imisT/8VvWzL/xHYmGc2Zuu3/rLwaptt7pok73WOTQgPR7iR8Mq9+QbuBtYPhpGqmJfsF/+j9t18XY+NTOTqfLw/y2n6N/u3ouCOlE5qf5+m+6Dj4BmZqpc8RQBK5lkcDdRwYcj1L09z9hjwnp5pK5eHsiRBYoIcKgBYRzwXoay4vvA9C6Yn+gyptTRB0cziQ/uqZYW8NyQmJ5A4pHkg9wYKPj9lNRg1OynFIzCSfuJZ6ZKh5peqJKkrkG6rcqKpQc7+J2k4ORGx5x6fqmSWQHWzvGs8y3JboppwwH0peTYQFcG23pXtwjSRSr7wNUUQQ1lmTDVm0q7v5VhjnJA0VAf9DLKh6UWRDGBHMfkQBEIubAohZw3GzWIdwjXNIDtc97gyuBKMu/B1OWyGULox7+Evap4FuhdTCVDICDtNPN8uj7wkc/h+n7RiJm45lusvWQMqYZ1nnE1Vm9RIZFtK+EK88MOZvCZKdb4sb/owMQJG4CA+m97lpL0VhNgzO5s2IKs5M8vL1/qQFvSQRgA5vN4KF9AETDrXfbyFnjmiKX/KiUk2sEvi1MFrJiNHY7546YW614RpW7BMzqEh4zSH3Iz7flP/nmszWCn8F3SHGNgd0RyCLzU57AFtvL2jr874EpZjrtQ0aq9BUyJ2KR23ZbbuXUoavcSzGp3bx3T1VsNDrxOAFZSrrGIvuEA6qOTmt+SmOBmJpkWorhEt23NnojUHviYbtyUpoUWgv02UNjQS0e1ttO/qQRMh6YtildP//ibNQOpCiMC0nwxEjYFy9fyRW7pEo9UiuZGD3nK1U1sSuoWIs3fkqTk35DgtYrKfE7UV/rAbCgAxjZwnxXABlCfCwSLZ0zgrQb+jnfGaVR7HueybV2GXGhNioDzbTMCH1iFpClDYjvgG2ThbIQhDDlg5l0ftdQhF+IkYYO9ErHVqTYocChXY4Y5qahDMRx9BaZWB/O3oWwGbwIBl5gkJhsIFXIzbqbY6ggt8T5XkOvCojsd5SxbX6zmgAZ9bIFHwDghYWZ3VYrgZ+xqa1C4bWoie3zvWzngotoHze+KBlWhQh8nmug==
+
+
+{
+    "code": 1,
+    "value": [
+        {
+            "updateUserName": null,
+            "nextCommList": null,
+            "imgPath": null,
+            "tpList": null,
+            "countyysl": null,
+            "kc": null,
+            "jzsl": null,
+            "flid": null,
+            "flmc": null,
+            "jjyyzt": 0,
+            "disparkId": null,
+            "listDispark": null,
+            "yhsj": null,
+            "sl": null,
+            "djrs": null,
+            "yhzt": null,
+            "vaccineId": null,
+            "id": "4",
+            "jgdm": "12510109450812372N",
+            "jgmc": "成都高新区中和社区卫生服务中心",
+            "jjlx": "1",
+            "jglb": "B100",
+            "jgfl": "1",
+            "jgxz": "1",
+            "jgjb": "1",
+            "jgdc": "9",
+            "jgqy": "510109004000",
+            "jgxxdz": "中和大道三段56号",
+            "fwsj": "每周一至周五(上午09:00-11:00，下午14:00-16:00)",
+            "fwdx": "1",
+            "frdb": "贾朝勇",
+            "frzjlx": "1",
+            "frzjhm": "51012219760704013",
+            "zyxkzh": "45081237251010711B1001",
+            "xkzjzrq": "Sep 13, 2020 12:00:00 AM",
+            "zlkm": "11",
+            "yyzt": "1",
+            "jj": "无",
+            "tp": "[ihealth/org_pic/2019/6/zhonghe.jpg]",
+            "jgbm": "中和社区",
+            "jingd": "104.090360",
+            "weid": "30.549430",
+            "pxzd": 4,
+            "sjjg": "3",
+            "zt": 1,
+            "cjsj": null,
+            "cjr": null,
+            "xgsj": "Jul 22, 2022 5:47:11 PM",
+            "xgr": "e8811ed5-5911-424f-afa0-0dfb6c33d614",
+            "jgcommid": "10",
+            "remark": null,
+            "aid": "wx76a669dd80397963",
+            "yhKfzt": 0
+        }
+    ],
+    "msg": "查询成功",
+    "count": null
+}
