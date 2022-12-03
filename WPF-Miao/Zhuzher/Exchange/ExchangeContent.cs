@@ -1,5 +1,7 @@
 ﻿using HttpProcessor.Content;
 using Utils.datetime;
+using Utils.stringBuilder;
+using Zhuzher.session;
 
 namespace Zhuzher.Exchange
 {
@@ -26,7 +28,7 @@ namespace Zhuzher.Exchange
 
         private void BuildContent()
         {
-            AddContent("activityId", 631);
+            AddContent("activityId", ZhuzherSession.ActivityId.ToInt());
         }
     }
 }

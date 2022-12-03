@@ -1,11 +1,10 @@
-﻿using HttpProcessor.Container;
+﻿using gaoxin.appointment;
+using gaoxin.search;
+using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
-using Zhuzher.collectsun;
-using Zhuzher.Exchange;
-using Zhuzher.miaosha;
 
-namespace Zhuzher
+namespace gaoxin
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -27,10 +26,9 @@ namespace Zhuzher
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<CollectSunController>();
-            HttpServiceController.AddTransientService<JoinTeamController>();
-            HttpServiceController.AddTransientService<ExchangeController>();
-            HttpServiceController.AddTransientService<SeckillController>();
+            HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<SearchMiaoController>();
+            HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();
         }
