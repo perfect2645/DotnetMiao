@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Container;
+using JkzlSearcher.auth;
 using JkzlSearcher.search.user;
 using JkzlSearcher.session;
 using System;
@@ -21,12 +22,13 @@ namespace JkzlSearcher.search
             _deptController.GetHosDeptAsync(hospitalId);
         }
 
-        internal void CheckAuth()
+        internal async void CheckAuthAsync()
         {
             var userController = HttpServiceController.GetService<UserInfoController>();
-            userController.GetUserInfoAsync();
+            await userController.GetUserInfoAsync();
 
-
+            var authController = HttpServiceController.GetService<DoctorAuthController>();
+            await authController.GetAutholicyAsync();
         }
     }
 }

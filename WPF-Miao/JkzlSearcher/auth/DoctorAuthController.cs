@@ -14,49 +14,46 @@ namespace JkzlSearcher.auth
 {
     internal class DoctorAuthController : HttpClientBase
     {
-        public HosDeptContent HosDeptContent { get; set; }
         public DoctorAuthController(HttpClient httpClient) : base(httpClient)
         {
-            HosDeptContent = new HosDeptContent();
-            HosDeptContent.BuildDefaultHeaders(Client);
         }
 
-        public Task GetHosDeptAsync(string hospitalId)
+        public Task GetAutholicyAsync()
         {
             return Task.Factory.StartNew(() =>
             {
-                HosDeptContent.SetHospitalId(hospitalId);
-                GetHosDept(hospitalId);
+                GetAutholicy();
             });
         }
 
-        private void GetHosDept(string hospitalId)
+        private void GetAutholicy()
         {
+            var content = new DoctorAuthContent();
+            content.BuildDefaultHeaders(Client);
 
-            Log($"start GetHosDept, hospitalId = {hospitalId}");
-            HttpDicResponse response = PostStringAsync(HosDeptContent, ContentType.String).Result;
+            HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
             var code = response.Body.FirstOrDefault(x => x.Key == Constants.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                Log($"{Constants.ProjectName}:{response.Body["Message"]}, hospitalId = {hospitalId}");
+                Log($"{Constants.ProjectName}:{response.Body["Message"]}");
                 return;
             }
 
             var result = response.JsonBody.RootElement.GetProperty("Result");
             if (result.ValueKind == JsonValueKind.Null)
             {
-                Log($"Null Result, hospitalId = {hospitalId}");
+                Log($"Null Result");
                 return;
             }
-            AnalysisResult(result, hospitalId);
+            AnalysisResult(result);
         }
 
-        private void AnalysisResult(JsonElement jsonElement, string hospitalId)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
             if (!doctorDept.HasItem())
             {
-                Log($"Empty Result, hospitalId = {hospitalId}");
+                Log($"Empty doctorDept");
                 return;
             }
             MainSession.PrintLogEvent.Publish(this, doctorDept);

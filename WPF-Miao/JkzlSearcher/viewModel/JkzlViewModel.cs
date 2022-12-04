@@ -172,7 +172,7 @@ namespace JkzlSearcher.viewModel
         {
             Task.Factory.StartNew(() =>
             {
-                _searchController.CheckAuth();
+                _searchController.CheckAuthAsync();
             });
         }
 
