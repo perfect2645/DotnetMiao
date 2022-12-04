@@ -7,7 +7,6 @@ namespace gaoxin.search
 {
     internal class SearchController
     {
-
         private SearchMiaoController _morningController;
         private SearchMiaoController _afternoonController;
 
@@ -25,11 +24,15 @@ namespace gaoxin.search
             MorningInterval = new IntervalOnTime(SearchMorningAsync, "上午", 200);
             AfternoonInterval = new IntervalOnTime(SearchAfternoon, "下午", 200);
 
-            GetUserInfo();
+            GetUserInfoAsync();
         }
 
-        private void GetUserInfo()
+        private async void GetUserInfoAsync()
         {
+            var tokenController = HttpServiceController.GetService<AppletTokenController>();
+            var tokenContent = new AppletTokenContent("https://ymglfw.care4u.cn/npApii/auth/getAppletToken");
+            await tokenController.ProcessAsync(tokenContent);
+
             var userController = HttpServiceController.GetService<UserController>();
             userController.GetUserAsync();
         }
