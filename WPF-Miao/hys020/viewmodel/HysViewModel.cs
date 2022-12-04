@@ -12,8 +12,10 @@ using hys020.search;
 using hys020.session;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
@@ -28,6 +30,7 @@ namespace hys020.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand AppointCommand { get; set; }
         public ICommand YzmCommand { get; set; }
+        public ICommand StartAppCommand { get; set; }
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -87,6 +90,17 @@ namespace hys020.viewmodel
             }
         }
 
+        private int _processCount = 5;
+        public int ProcessCount
+        {
+            get { return _processCount; }
+            set
+            {
+                _processCount = value;
+                NotifyUI(() => ProcessCount);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController;
@@ -119,7 +133,16 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 21, 10, 55, 00);
+            StartTime = new DateTime(2022, 12, 5, 10, 56, 00);
+
+            if (Application.Current.Properties.Contains("Cookie"))
+            {
+                Cookie = Application.Current.Properties["Cookie"].ToString();
+            }
+            if (Application.Current.Properties.Contains("Cookie"))
+            {
+                Location = Application.Current.Properties["Location"].ToString();
+            }
 
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
@@ -191,6 +214,7 @@ namespace hys020.viewmodel
 
             SearchCommand = new RelayCommand(OnSearchClick);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
+            StartAppCommand = new RelayCommand(StartApp);
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
 
             MainSession.AppointEvent.Subscribe(OnAppointment);
@@ -379,5 +403,33 @@ namespace hys020.viewmodel
         }
 
         #endregion Hospital Dept
+
+
+        #region Copy / Start new App
+        private void StartApp()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    var processInfo = new ProcessStartInfo();
+                    processInfo.FileName = "hys020.exe";
+                    processInfo.ArgumentList.Add(Cookie);
+                    processInfo.ArgumentList.Add(Location);
+
+                    for (int i = 0; i < ProcessCount; i++)
+                    {
+                        var p = Process.Start(processInfo);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+
+        }
+
+        #endregion Copy / Start new App
     }
 }

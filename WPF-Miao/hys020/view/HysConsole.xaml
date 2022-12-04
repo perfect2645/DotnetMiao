@@ -65,6 +65,15 @@
                     <Button Content="手动" Margin="0,0,10,0"
                         Command="{Binding SearchCommand}" Width="100">
                     </Button>
+                    <Button Content="再启动" Margin="10,0,10,0"
+                        Command="{Binding StartAppCommand}" Width="100">
+                    </Button>
+                    <TextBox Width="50"
+                         Height="30"
+                         Margin="10,0,0,0"
+                         Text="{Binding ProcessCount}"
+                         materialDesign:HintAssist.Hint="再启动数">
+                    </TextBox>
                 </StackPanel>
             </StackPanel>
         </basePage:OnTimeConsole.DynamicArea>
