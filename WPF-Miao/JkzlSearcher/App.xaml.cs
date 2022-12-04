@@ -1,5 +1,7 @@
 ﻿using HttpProcessor.Container;
+using JkzlSearcher.auth;
 using JkzlSearcher.search;
+using JkzlSearcher.search.user;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -30,6 +32,8 @@ namespace JkzlSearcher
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<UserInfoController>();
+            HttpServiceController.AddTransientService<DoctorAuthController>();
             HttpServiceController.AddTransientService<HosDeptController>();
             HttpServiceController.AddTransientService<HospitalController>();
 

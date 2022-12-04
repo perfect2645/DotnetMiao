@@ -1,5 +1,8 @@
 ﻿using HttpProcessor.Container;
+using JkzlSearcher.search.user;
 using JkzlSearcher.session;
+using System;
+using System.Threading.Tasks;
 
 namespace JkzlSearcher.search
 {
@@ -16,6 +19,14 @@ namespace JkzlSearcher.search
         {
             var hospitalId = MainSession.GetNextHospitalId();
             _deptController.GetHosDeptAsync(hospitalId);
+        }
+
+        internal void CheckAuth()
+        {
+            var userController = HttpServiceController.GetService<UserInfoController>();
+            userController.GetUserInfoAsync();
+
+
         }
     }
 }

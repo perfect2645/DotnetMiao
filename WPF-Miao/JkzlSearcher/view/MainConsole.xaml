@@ -21,8 +21,8 @@
                          Margin="0,20,0,20"
                          Text="{Binding UserPassword}"
                         materialDesign:HintAssist.Hint="密码"/>
-                    <Button Content="登录" Margin="0,0,10,0"
-                        Command="{Binding LoginCommand}" Width="100">
+                    <Button Content="查询预约规则" Margin="0,0,10,0"
+                        Command="{Binding ChekAuthCommand}" Width="100">
                     </Button>
                 </StackPanel>
 
