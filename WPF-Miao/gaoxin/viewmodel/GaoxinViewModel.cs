@@ -98,14 +98,15 @@ namespace gaoxin.viewmodel
             }
         }
 
-        private string _scheduleId;
-        public string ScheduleId
+        private string _disparkId;
+        public string DisparkId
         {
-            get { return _scheduleId; }
+            get { return _disparkId; }
             set
             {
-                _scheduleId = value;
-                NotifyUI(() => ScheduleId);
+                _disparkId = value;
+                MainSession.DisparkId = value;
+                NotifyUI(() => DisparkId);
             }
         }
 
@@ -139,6 +140,8 @@ namespace gaoxin.viewmodel
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 11, 25, 8, 50, 56);
+
+            DisparkId = "b64b468d8131681e4c9dd271d573eb79";
 
             DateList = new List<DspVal>
             {
@@ -275,8 +278,8 @@ namespace gaoxin.viewmodel
             {
                 foreach (var order in orderList)
                 {
-                    var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
-                    yuyueController.StartInterval(order);
+                    //var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
+                    //yuyueController.StartInterval(order);
                 }
             }
             catch (Exception ex)
@@ -290,23 +293,7 @@ namespace gaoxin.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    //if (StringUtil.AnyEmpty(UserPhone, UserPassword))
-                    //{
-                    //    MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
-                    //    return;
-                    //}
-                    _searchController = new SearchController();
-                    MainSession.PrintLogEvent.Publish(this, $"手动预约");
 
-                    await ExecuteLogin();
-
-                    if (StringUtil.NotEmpty(ScheduleId))
-                    {
-                        DirectlyOrder(ScheduleId);
-                        return;
-                    }
-
-                    _searchController.GetMiaoAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -331,21 +318,6 @@ namespace gaoxin.viewmodel
             var phone = userInfo.GetString("familyPhone");
 
             var order = new Order();
-            order.ScheduleId = scheduleId;
-            order.DoctorId = doctorId;
-            //order.Hospitalid = hospitalId;
-            //order.UserId = userId;
-            //order.FamilyId = familyId;
-            //order.UserName = userName;
-            //order.UserPhone = phone;
-
-            //var preOrderController = HttpServiceController.GetService<PreOrderController>();
-            //var content = new PreOrderContent(order);
-            //preOrderController.BuildHeaders(content);
-            //Task.Factory.StartNew(() =>
-            //{
-            //    preOrderController.Exchange(content);
-            //});
         }
 
         #endregion Appoint

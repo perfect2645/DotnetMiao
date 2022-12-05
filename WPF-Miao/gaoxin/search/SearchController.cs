@@ -33,7 +33,7 @@ namespace gaoxin.search
             await tokenController.ProcessAsync(tokenContent);
 
             var userController = HttpServiceController.GetService<UserController>();
-            var userContent = new UserContent("https://ymglfw.care4u.cn/npApii/auth/getUserById");
+            var userContent = new UserContent("https://ymglfw.care4u.cn/npApii/vaccineDisPark/selectInfo");
             userController.BuildClientHeaders(tokenContent);
             await userController.ProcessAsync(userContent);
         }

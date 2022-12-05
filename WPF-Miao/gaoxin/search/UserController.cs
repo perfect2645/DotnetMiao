@@ -35,8 +35,23 @@ namespace gaoxin.search
 
         private void SaveUser(JsonElement resultValue)
         {
-            var userInfo = JsonAnalysis.JsonToDic(resultValue);
-            MainSession.PlatformSession.AddOrUpdate("userInfo", userInfo);
+            var slVaccineDispark = resultValue.GetProperty("slVaccineDispark");
+            var vaccineId = slVaccineDispark.GetProperty("id").NotNullString();
+            MainSession.PlatformSession.AddOrUpdate("yyymid", vaccineId);
+
+            var vaccinePrice = slVaccineDispark.GetProperty("price").GetDouble();
+            MainSession.PlatformSession.AddOrUpdate("yyjg", vaccinePrice);
+
+            var slVaccineSlUserinfos = resultValue.GetProperty("slVaccineSlUserinfos");
+            var userList = JsonAnalysis.JsonToDicList(slVaccineSlUserinfos);
+
+            var targetUser = userList.LastOrDefault();
+            var userId = targetUser.GetString("id");
+            var userName = targetUser.GetString("xingm");
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, userId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserName, userName);
+
+            MainSession.PrintLogEvent.Publish(this, targetUser);
         }
     }
 }

@@ -19,3 +19,22 @@ Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 
 HTx7Z8VfeugcBEpzgw7zD1pbdRJQPbjzxdWbAXgrOVoXDM0eeI0YP6Unv0m86uZbQi5x/AnFATDU8+ytCnck3RdfzEZeJyk4YE8rh2dywIEjlLgAIUTfIHQXBPHy4HJw+ub1u8M8Rrbbyog3h+ki3u5LXe2NHcEjljAqHIjy9iAgt0Td1kwuUPMjMG4pbnNTKHEVHbn0cunOuBSdE8Qj69d3CTkWs73E/1SeCFbpIyTUE4JOtP75WepKgTWqppIM6ULvA6PnXx2C5YEpUegFdzYaOIDL+cy+dau0bKrT7Gp8zdh/kfUOQlnpe+XqwzX+L1A1sN2tFsa5tm/jX0onibEGMzkmjBhdnvE3Rlsi65zvR9b0Bs/RMEkmD5c7eISiBPBXNgRdgBROXqqBVqhP2kCqrnnKY0VcYRulk89y9tvvTZBamxWMtze1s0cjYpRT
+
+
+{
+    "code": 1,
+    "value": {
+        "id": "ee529d07-102d-4899-a233-dad0cf07c967",
+        "xingm": "高宇",
+        "xingb": 1,
+        "chusrq": "Apr 27, 1989 12:00:00 AM",
+        "zhengjlx": 1,
+        "zhengjhm": "2310*************3919",
+        "benrdh": "133****3359",
+        "guanljg": "0",
+        "zhuangt": 0,
+        "toux": "wechat/wechatHeadImg/2020/3/645cdb4d-dfe1-43fa-8198-5c10d4116540.jpg"
+    },
+    "msg": "成功",
+    "count": null
+}

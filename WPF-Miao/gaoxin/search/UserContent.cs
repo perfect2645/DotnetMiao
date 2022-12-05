@@ -13,7 +13,7 @@ namespace gaoxin.search
 
         private void BuildContent()
         {
-            AddContent("userId", MainSession.PlatformSession.GetString(Constants.UserId));
+            AddContent("disparkId", MainSession.DisparkId);
         }
     }
 }

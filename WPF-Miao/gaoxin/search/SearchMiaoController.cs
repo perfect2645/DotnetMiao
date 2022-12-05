@@ -130,15 +130,7 @@ namespace gaoxin.search
             {
                 baseOrderList.Add(new Order
                 {
-                    Regtype = schedule.GetString("registerTypeOriginalId"),
-                    DeptId = deptId,
-                    DeptName = deptName,
-                    DoctorId = doctorId,
-                    DoctorName = doctorName,
-                    OrgName = hosName,
-                    AppointDate = Date,
-                    TimeRange = schedule.GetString("timeRangeShow"),
-                    Bco01 = schedule.GetString("bco01"),
+
                 });
             }
 
@@ -169,8 +161,7 @@ namespace gaoxin.search
             foreach (var baseOrder in baseOrderList)
             {
                 var order = new Order();
-                order.DoctorId = baseOrder.DoctorId;
-                order.ScheduleId = baseOrder.ScheduleId;
+
 
                 Log($"build order - {order.ToLogString()}");
                 orderList.Add(order);

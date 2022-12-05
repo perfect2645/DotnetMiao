@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace gaoxin.session
 {
-    public class AppointSession : ControllerSession<YuyueController>
+    internal class AppointSession : ControllerSession<YuyueController>
     {
         public AppointSession() : base()
         {
