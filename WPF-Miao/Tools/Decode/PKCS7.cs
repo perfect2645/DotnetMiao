@@ -9,7 +9,7 @@ namespace Tools.Decode
 {
     internal class PKCS7
     {
-        public string DeCodeNormal(string data)
+        public string DeCodePkcs7(string data)
         {
             try
             {

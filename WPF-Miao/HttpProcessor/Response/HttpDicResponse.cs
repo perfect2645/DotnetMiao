@@ -20,6 +20,8 @@ namespace HttpProcessor.Client
 
         public JsonDocument JsonBody { get; private set; }
 
+        public Func<string, string> DecodeAction { get; set; }
+
         #endregion Properties
 
         #region Constructor
@@ -27,6 +29,20 @@ namespace HttpProcessor.Client
         public HttpDicResponse(string error)
         {
             Message = error;
+        }
+
+        public HttpDicResponse(HttpResponseMessage response, Func<string, string> decodeAction)
+        {
+            DecodeAction = decodeAction;
+            try
+            {
+                BuildHeaders(response.Headers);
+                BuildBody(response.Content);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+            }
         }
 
         public HttpDicResponse(HttpResponseMessage response)
@@ -58,6 +74,8 @@ namespace HttpProcessor.Client
             {
                 contentStr = content.ReadAsStringAsync().Result;
             }
+
+            contentStr = DecodeAction?.Invoke(contentStr) ?? contentStr;
 
             var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
 

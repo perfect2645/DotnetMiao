@@ -30,7 +30,7 @@ namespace gaoxin.search
             try
             {
                 var url = "http://wx1936.cnhis.cc/wx/user/patient/v1/list.htm?searchCriteria=&patientMark=1%7C2%7C1,2";
-                var content = new GaoxinContent(url);
+                var content = new GaoxinContent(url, "获取用户信息");
                 content.BuildDefaultHeaders(Client);
                 HttpDicResponse response = GetStringAsync(content).Result;
                 if (response?.JsonBody?.RootElement == null)

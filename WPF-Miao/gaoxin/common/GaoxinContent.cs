@@ -21,7 +21,7 @@ namespace gaoxin.common
             AddHeader("openId", "");
             AddHeader("userType", "TX");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            AddHeader("token", MainSession.PlatformSession.GetString("token"));
+            AddHeader("token", MainSession.Token);
             AddHeader("Referer", "https://servicewechat.com/wx4293c7bbe5d3df87/8/page-frame.html");
             AddHeader("Accept-Encoding", "gzip, deflate");
         }

@@ -23,14 +23,13 @@ namespace gaoxin.search
 
             MorningInterval = new IntervalOnTime(SearchMorningAsync, "上午", 200);
             AfternoonInterval = new IntervalOnTime(SearchAfternoon, "下午", 200);
-
-            GetUserInfoAsync();
         }
 
-        private async void GetUserInfoAsync()
+        public async Task GetUserInfoAsync()
         {
             var tokenController = HttpServiceController.GetService<AppletTokenController>();
             var tokenContent = new AppletTokenContent("https://ymglfw.care4u.cn/npApii/auth/getAppletToken");
+            tokenController.BuildClientHeaders(tokenContent);
             await tokenController.ProcessAsync(tokenContent);
 
             var userController = HttpServiceController.GetService<UserController>();

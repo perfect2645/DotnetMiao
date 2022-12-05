@@ -74,25 +74,27 @@ namespace gaoxin.viewmodel
             }
         }
 
-        private string _userPhone;
-        public string UserPhone
+        private string _token;
+        public string Token
         {
-            get { return _userPhone; }
+            get { return _token; }
             set
             {
-                _userPhone = value;
-                NotifyUI(() => UserPhone);
+                _token = value;
+                MainSession.Token = value;
+                NotifyUI(() => Token);
             }
         }
 
-        private string _userPassword;
-        public string UserPassword
+        private string _code;
+        public string Code
         {
-            get { return _userPassword; }
+            get { return _code; }
             set
             {
-                _userPassword = value;
-                NotifyUI(() => UserPassword);
+                _code = value;
+                MainSession.Code = value;
+                NotifyUI(() => Code);
             }
         }
 
@@ -128,18 +130,15 @@ namespace gaoxin.viewmodel
         {
             Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093EA6A1AB4B615E91B85521DE5C1B095D0CEC89C9E9B01F046E50BD612F74C4C56");
-            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=MjIyMTU2YWYtN2Q5NC00NzAxLTlhN2UtZDI4MTY5MDMyZmIw");
 
-            //MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
-            //MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
+            Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAzMTY0NTg5NTcsInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAyMzAwNTg5NTd9In0.mHIsU7ekJiUGZ--Bx7QJ2xeXTCf32zuoVMS_GxX9PWM";
+
+            Code = "081sQzFa1QUGmE0SZPIa1zJLJQ1sQzF0";
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 11, 25, 8, 50, 56);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
             {
@@ -231,7 +230,7 @@ namespace gaoxin.viewmodel
 
         private async Task ExecuteLogin()
         {
-
+            await _searchController.GetUserInfoAsync();
         }
 
         #endregion Login
@@ -240,10 +239,11 @@ namespace gaoxin.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
                     _searchController = new SearchController();
+                    await _searchController.GetUserInfoAsync();
                     StartIntervalTimer();
                 }
                 catch (HttpException ex)
@@ -316,7 +316,6 @@ namespace gaoxin.viewmodel
                     //}
                     _searchController = new SearchController();
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
                     await ExecuteLogin();
 

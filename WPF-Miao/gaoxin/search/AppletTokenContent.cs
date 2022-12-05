@@ -12,7 +12,7 @@ namespace gaoxin.search
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSession, "code");
+            AddContent("code", MainSession.Code);
         }
     }
 }

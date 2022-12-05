@@ -7,7 +7,7 @@ namespace gaoxin.appointment
     {
         private static string url = "http://wx1936.cnhis.cc/wx/user/appointment/reg.htm";
         public Order Order { get; }
-        public YuyueContent(Order order) : base(url)
+        public YuyueContent(Order order) : base(url, "预约")
         {
             ContentType = "application/x-www-form-urlencoded";
             Order = order;

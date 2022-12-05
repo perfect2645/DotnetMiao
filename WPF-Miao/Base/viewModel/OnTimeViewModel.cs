@@ -44,6 +44,7 @@ namespace Base.viewModel
                 targetDate = targetDate.AddDays(1);
             }
             _startTime = targetDate;
+            MainSessionBase.StartTime = _startTime;
         }
 
         private int _interval = 200;

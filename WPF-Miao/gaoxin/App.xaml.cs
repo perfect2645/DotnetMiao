@@ -26,6 +26,7 @@ namespace gaoxin
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<AppletTokenController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<SearchMiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();

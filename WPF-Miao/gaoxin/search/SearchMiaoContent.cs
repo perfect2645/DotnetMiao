@@ -5,7 +5,7 @@ namespace gaoxin.search
 {
     internal class SearchMiaoContent : GaoxinContent
     {
-        public SearchMiaoContent(string url) : base(url)
+        public SearchMiaoContent(string url) : base(url, "SearchMiao")
         {
             BuildContent();
         }

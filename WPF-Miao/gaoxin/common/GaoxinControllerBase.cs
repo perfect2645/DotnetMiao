@@ -4,13 +4,14 @@ using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Utils;
 using Utils.stringBuilder;
 
 namespace gaoxin.common
 {
     internal class GaoxinControllerBase : HttpClientBase
     {
-        public Action ProcessAction { get; set; }
+        public Action<GaoxinContent> ProcessAction { get; set; }
         public string Description { get; private set; }
 
         public GaoxinControllerBase(HttpClient httpClient) : base(httpClient)
@@ -27,21 +28,7 @@ namespace gaoxin.common
         {
             try
             {
-                HttpDicResponse response = GetStringAsync(content).Result;
-                if (response?.JsonBody?.RootElement == null)
-                {
-                    Log($"{Description}失败{response?.Message}");
-                    return;
-                }
-
-                var root = response.JsonBody.RootElement;
-                var result = root.GetProperty("result").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"{Description}-{result}");
-                if ("Success".Equals(result))
-                {
-                    var data = root.GetProperty("map");
-                    HandleResult(data);
-                }
+                ProcessAction?.Invoke(content);
             }
             catch (Exception ex)
             {
@@ -49,9 +36,37 @@ namespace gaoxin.common
             }
         }
 
+        protected JsonElement CheckGetResultValue(HttpDicResponse response)
+        {
+            var nullElement = new JsonElement();
+            if (response?.JsonBody?.RootElement == null)
+            {
+                Log($"{Description}失败{response?.Message}");
+                return nullElement;
+            }
+
+            var root = response.JsonBody.RootElement;
+            var result = root.GetProperty("value");
+            return result;
+        }
+
         protected virtual void HandleResult(JsonElement data)
         {
+            try
+            {
 
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        protected string Decode(string content)
+        {
+            var result = Encryptor.DeCodePkcs7(content);
+
+            return result;
         }
     }
 }

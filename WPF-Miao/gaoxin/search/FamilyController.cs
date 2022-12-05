@@ -38,7 +38,7 @@ namespace gaoxin.search
             try
             {
                 var url = $"https://ctmingyi.com:18082/api/family/getFamilyPage?userID={userId}";
-                var content = new GaoxinContent(url);
+                var content = new GaoxinContent(url, "获取用户成员");
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

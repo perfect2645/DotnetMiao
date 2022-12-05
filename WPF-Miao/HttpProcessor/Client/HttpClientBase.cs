@@ -158,6 +158,23 @@ namespace HttpProcessor.Client
             }
         }
 
+        public virtual async Task<HttpDicResponse> PostStringDecodeAsync(HttpStringContent content,
+            Func<string, string> decodeAction,
+            ContentType contentType = ContentType.Json)
+        {
+            try
+            {
+                var response = await Client.PostAsync(content.RequestUrl, content.GetJsonContent());
+                response.EnsureSuccessStatusCode();
+                return new HttpDicResponse(response, decodeAction);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return new HttpDicResponse(ex.Message);
+            }
+        }
+
         #endregion Post String
 
         #region Log
