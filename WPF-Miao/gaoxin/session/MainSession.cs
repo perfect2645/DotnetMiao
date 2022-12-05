@@ -7,8 +7,10 @@ namespace gaoxin.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {
+        public static int Interval { get; set; }
         public static string Cookie { get; set; }
         public static string Token { get; set; }
+        public static string OrderToken { get; set; }
         public static string Code { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
 

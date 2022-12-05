@@ -1,4 +1,5 @@
 ﻿using Base.Events;
+using gaoxin.session;
 using System;
 using System.Text;
 using Utils.timerUtil;
@@ -8,24 +9,22 @@ namespace gaoxin.appointment
     public class Order
     {
         public IntervalOnTime IntervalOnTime { get; private set; }
-        public string Regtype { get; set; }
-        public string Type { get; set; } = "reg";
-        public string DeptId { get; set; }
-        public string DeptName { get; set; }
-        public string DoctorId { get; set; }
-        public string DoctorName { get; set; }
-        public string OrgName { get; set; }
-        public string CustomerName { get; set; } = "赵梦云";
-        public string CustomerId { get; set; } = "78083792";
-        public string AppointAmount { get; set; }
-        public string AppointDate { get; set; }
-        public string TimeRange { get; set; }
-        public string ScheduleId { get; set; }
-        public string Bco01 { get; set; }
+        public string daid { get; set; }
+        public string yysj { get; set; }
+        public string yysjd { get; set; }
+        public string yyymid { get; set; }
+        public string disparkId { get; set; }
+        public string yyjg { get; set; }
+        public string jgid { get; set; }
+        public string jgcommid { get; set; }
 
         public Order()
         {
-            IntervalOnTime = new IntervalOnTime(ScheduleId, 600);
+            if (MainSession.Interval < 50)
+            {
+                MainSession.Interval = 200;
+            }
+            IntervalOnTime = new IntervalOnTime(daid, MainSession.Interval);
         }
 
         public string ToLogString()
@@ -34,13 +33,14 @@ namespace gaoxin.appointment
 
             sb.AppendLine("******** 开始预约 *********");
 
-            sb.AppendLine($"CustomerId - {CustomerId}");
-            sb.AppendLine($"CustomerName - {CustomerName}");
-            sb.AppendLine($"DoctorName - {DoctorName}");
-            sb.AppendLine($"AppointDate - {AppointDate}");
-            sb.AppendLine($"TimeRange - {TimeRange}");
-            sb.AppendLine($"ScheduleId - {ScheduleId}");
-            sb.AppendLine($"Bco01 - {Bco01}");
+            sb.AppendLine($"UserId - {daid}");
+            sb.AppendLine($"Date - {yysj}");
+            sb.AppendLine($"Time - {yysjd}");
+            sb.AppendLine($"yyymid - {yyymid}");
+            sb.AppendLine($"disparkId - {disparkId}");
+            sb.AppendLine($"yyjg - {yyjg}");
+            sb.AppendLine($"jgid - {jgid}");
+            sb.AppendLine($"jgcommid - {jgcommid}");
 
             sb.AppendLine("**************************************");
 

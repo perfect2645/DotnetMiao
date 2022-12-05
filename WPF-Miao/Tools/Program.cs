@@ -19,6 +19,6 @@ var de = converter.UrlDecode(@"name=%E5%88%98%E4%BA%91&memberSn=54193649", Encod
 var en = converter.UrlEncode(de);
 
 var cs7 = new PKCS7();
-var cs7result = cs7.DeCodePkcs7("7idXCfiNnDImJLrg1wxq86636WUl7nlhqoUqR6dYWaiYlzMzeVQ5vUjocvMixY1L3TTDA+wSelTVGQNkKAqjYQ\u003d\u003d");
+var cs7result = cs7.DeCodePkcs7("Bx/g8KJZD/WNbXN42z9F4AvJYhIf1anHjjDUVCITS1zVEFxkWStmGmy4iCQy7VinmqPGCzgAndSHNuyKC8ipzWRPAAMQBsRPW8M3LLBe/AeX5yGHIqaDKvPIImwB5oSxx32yg5PmHyO/YeW2GHDBdwWlD0nHMLj3dKmglWWfx0j/bBB4eL3m09yrMOplBuiDSFet8zOAjIUf/4BrapBDO5vBwZB4RBr0asmoWAJRuR9LtS4jfWUdS4nlKYm0kWgoKzMsTivZUR7nJVJUJVwvE9Xosqo7ps5UCddBrrYFiWO/Hy8IPjsBg53OKYAkuZvM7WaKYumDGZdOH4cBLdBaW8uVq+FlhSCZvGZmAbqd2W1X/OC+D1to+oTEFrAQg/sW6FFfYt+bSxg+PsC8Sjwcazv6pZbFXBwv+npkT8zJAgocesDOCwY+8swbom4jiHc4d9bzWFYMjo+KeGePzjSFosq5OxHnEhJKCeKrtvhjzxTNvAbs2hzfuoDoIJ5YdPEAGvWCq8HklgELsKTTVTbOnZm7vdeb6hDVBhdB8PVhk56BQL4aVovNDjhsaOR5ONVB4ITn11xpwgUBY1brTfIHwQfImPDYv4Y2x5q24wcySHdqftiPdz5KtS2k8GsKFaPhSiZPvjo9dWJhzFjF+Ba5AzrnP9RF6n/n6x6RuSK/v9o=");
 
 Console.ReadLine();
