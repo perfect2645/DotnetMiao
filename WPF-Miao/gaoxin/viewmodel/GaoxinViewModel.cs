@@ -151,31 +151,12 @@ namespace gaoxin.viewmodel
             {
                 new GaoxinHospital
                 {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
+                    HospitalId = "12510109450812372N",
+                    HospitalName = "成都高新区中和社区卫生服务中心",
                     DepartmentId = "5241221",
                     DepartmentName = "预防接种门诊",
                     DoctorId = "17543348",
                     DoctorName = "九价HPV疫苗"
-                },
-                new GaoxinHospital
-                {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
-                    DepartmentId = "5241221",
-                    DepartmentName = "预防接种门诊",
-                    DoctorId = "17760660",
-                    DoctorName = "四价HPV疫苗"
-                },
-                new GaoxinHospital
-                {
-                    HospitalId = "wx1936.cnhis.cc",
-                    HospitalName = "揭阳安真妇产医院",
-                    DepartmentId = "5220066",
-                    DepartmentName = "产科",
-                    DoctorId = "16825177",
-                    DoctorName = "吴桂黔",
-                    AppointAmount = "23",
                 },
             };
 
@@ -396,7 +377,6 @@ namespace gaoxin.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.AppointAmount, selectedDept.AppointAmount);
 
             Log(selectedDept.ToLogString());
         }

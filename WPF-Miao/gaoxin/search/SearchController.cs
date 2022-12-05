@@ -33,7 +33,9 @@ namespace gaoxin.search
             await tokenController.ProcessAsync(tokenContent);
 
             var userController = HttpServiceController.GetService<UserController>();
-            userController.GetUserAsync();
+            var userContent = new UserContent("https://ymglfw.care4u.cn/npApii/auth/getUserById");
+            userController.BuildClientHeaders(tokenContent);
+            await userController.ProcessAsync(userContent);
         }
 
         public void GetMiaoAsync()

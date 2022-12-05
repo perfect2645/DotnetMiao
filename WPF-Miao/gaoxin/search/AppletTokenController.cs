@@ -33,6 +33,8 @@ namespace gaoxin.search
         {
             var wechatUserElement = resultValue.GetProperty("wechatUser");
             var wechatUser = JsonAnalysis.JsonToDic(wechatUserElement);
+            var userId = wechatUser.GetString(Constants.UserId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, userId);
             MainSession.PlatformSession.AddOrUpdate("wechatUser", wechatUser);
         }
     }

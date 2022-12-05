@@ -1,0 +1,74 @@
+POST https://ymglfw.care4u.cn/npApii/slVaccineDispark/selectVaccineInfo HTTP/1.1
+Host: ymglfw.care4u.cn
+Connection: keep-alive
+Content-Length: 94
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAzMzAzMjkwNjEsInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAyNDM5MjkwNjF9In0.sgQmHtMpkIPqkQdafSJ5RXnmU4SCh7Jco2X1nJgBLQ4
+Referer: https://servicewechat.com/wx4293c7bbe5d3df87/8/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"disparkId":"b64b468d8131681e4c9dd271d573eb79","yhid":"d63bc79d-b0b4-49d6-bd14-7901949a4bc5"}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Mon, 05 Dec 2022 12:39:07 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 2816
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+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
+
+{
+    "code": 1,
+    "value": {
+        "slVaccineDispark": {
+            "id": "b64b468d8131681e4c9dd271d573eb79",
+            "commId": "4",
+            "pointId": null,
+            "vaccineId": "ce473da6ccffbb410891d5d6e289381c",
+            "vaccineCount": 160,
+            "vaccineDoCount": 0,
+            "vaccineResidueCount": 160,
+            "disparkTime": "Dec 7, 2022 9:00:00 AM",
+            "kfsl": 160,
+            "version": 1,
+            "zt": 0,
+            "createTime": "Dec 5, 2022 2:20:36 PM",
+            "createUser": "bf4e0ce6-1d55-4619-bdde-5211b3af6658",
+            "qmmc": "中和抢苗12.7"
+        },
+        "vaccineInfo": {
+            "id": "ce473da6ccffbb410891d5d6e289381c",
+            "classifyId": null,
+            "name": "九价HPV疫苗（进口）",
+            "preventDisease": "预防人乳头瘤病毒（HPV）感染引起的宫颈癌",
+            "vaccinationSite": "上臂三角肌肌内注射",
+            "manufacturers": "默沙东集团",
+            "specification": "0.5mL/支",
+            "vaccineDescribe": "人乳头瘤病毒(HPV)高危亚型感染是宫颈癌的主要病因，99.8%的宫颈癌可检测出人类乳头瘤病毒DNA阳性。九价人乳头瘤病毒吸附疫苗，简称9价HPV疫苗。适用于HPV16、18、31、33、45、52、58引起的宫颈癌，宫颈上皮内瘤病变，CIN2/3级、以及宫颈原位腺癌(AIS);宫颈上皮内瘤变(CIN)1级。亦可预防低危型HPV6、11型感染引起的生殖器疣等。",
+            "ingredient": "维生素，氨基酸，矿物盐，和化学成分确定的发酵培养基的碳水化合物。",
+            "subjects": "适用于16-26岁女性",
+            "threads": 3,
+            "vaccineProcedure": "第0、2、6个月各接种1剂（0.5ml），共3剂",
+            "announcements": "对本品的活性成份或任何辅料成份有超敏反应者禁用；注射本品或者9价HPV疫苗后有超敏反应症状者，不应再次接种本品。",
+            "adverseReaction": "接种后可出现全身或局部不良反应，常见为发热、恶心、头晕、疲乏、肌痛、头痛，及接种部位疼痛、红斑、肿胀。其余不良反应请参见疫苗说明书。可遵医嘱处理。",
+            "isFree": 1,
+            "price": 1318,
+            "zt": 0,
+            "hint": "该疫苗接种前不要吃辛辣的食物，因吃清淡一些的食物。",
+            "sex": 2,
+            "ageMin": 16,
+            "ageMax": 26.5,
+            "createTime": "May 7, 2021 12:00:00 AM",
+            "createUser": "12",
+            "updateTime": null,
+            "updateUser": null,
+            "lx": 1
+        },
+        "click": 1
+    },
+    "msg": "查询成功",
+    "count": null
+}

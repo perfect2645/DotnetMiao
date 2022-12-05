@@ -125,7 +125,6 @@ namespace gaoxin.search
             var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var userName = MainSession.PlatformSession.GetString(Constants.UserName);
             var userId = MainSession.PlatformSession.GetString(Constants.UserId);
-            var amount = MainSession.PlatformSession.GetString(Constants.AppointAmount);
 
             foreach (var schedule in scheduleList)
             {
@@ -137,10 +136,8 @@ namespace gaoxin.search
                     DoctorId = doctorId,
                     DoctorName = doctorName,
                     OrgName = hosName,
-                    AppointAmount = amount,
                     AppointDate = Date,
                     TimeRange = schedule.GetString("timeRangeShow"),
-                    ScheduleId = schedule.GetString(Constants.ScheduleId),
                     Bco01 = schedule.GetString("bco01"),
                 });
             }

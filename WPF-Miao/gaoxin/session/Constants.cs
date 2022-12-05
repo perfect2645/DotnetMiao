@@ -6,17 +6,12 @@ namespace gaoxin.session
     {
         public const string MiaoHtml = "MiaoHtml";
 
-        public const string AttId = "attId";
-        public const string OrgId = "orgId";
         public const string WechatId = "wechatid";
         public const string OpenId = "openid";
         public const string TimeStamp = "Timestamp";
 
-        public const string UserId = "customerId";
-        public const string UserName = "customerName";
-        public const string UserPhone = "userPhone";
-        public const string ScheduleId = "scheduleId";
-        public const string AppointAmount = "appointAmount";
+        public const string UserId = "userId";
+        public const string UserName = "userName";
         public const string Token = "token";
     }
 }

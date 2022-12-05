@@ -1,0 +1,103 @@
+POST https://ymglfw.care4u.cn/npApii/vaccineDisPark/selectInfo HTTP/1.1
+Host: ymglfw.care4u.cn
+Connection: keep-alive
+Content-Length: 48
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAzMzAzMjkwNjEsInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAyNDM5MjkwNjF9In0.sgQmHtMpkIPqkQdafSJ5RXnmU4SCh7Jco2X1nJgBLQ4
+Referer: https://servicewechat.com/wx4293c7bbe5d3df87/8/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"disparkId":"b64b468d8131681e4c9dd271d573eb79"}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Mon, 05 Dec 2022 12:38:54 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 3544
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+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
+
+
+{
+    "code": 1,
+    "value": {
+        "slVaccineDispark": {
+            "id": "ce473da6ccffbb410891d5d6e289381c",
+            "classifyId": null,
+            "name": "九价HPV疫苗（进口）",
+            "preventDisease": "预防人乳头瘤病毒（HPV）感染引起的宫颈癌",
+            "vaccinationSite": "上臂三角肌肌内注射",
+            "manufacturers": "默沙东集团",
+            "specification": "0.5mL/支",
+            "vaccineDescribe": "人乳头瘤病毒(HPV)高危亚型感染是宫颈癌的主要病因，99.8%的宫颈癌可检测出人类乳头瘤病毒DNA阳性。九价人乳头瘤病毒吸附疫苗，简称9价HPV疫苗。适用于HPV16、18、31、33、45、52、58引起的宫颈癌，宫颈上皮内瘤病变，CIN2/3级、以及宫颈原位腺癌(AIS);宫颈上皮内瘤变(CIN)1级。亦可预防低危型HPV6、11型感染引起的生殖器疣等。",
+            "ingredient": "维生素，氨基酸，矿物盐，和化学成分确定的发酵培养基的碳水化合物。",
+            "subjects": "适用于16-26岁女性",
+            "threads": 3,
+            "vaccineProcedure": "第0、2、6个月各接种1剂（0.5ml），共3剂",
+            "announcements": "对本品的活性成份或任何辅料成份有超敏反应者禁用；注射本品或者9价HPV疫苗后有超敏反应症状者，不应再次接种本品。",
+            "adverseReaction": "接种后可出现全身或局部不良反应，常见为发热、恶心、头晕、疲乏、肌痛、头痛，及接种部位疼痛、红斑、肿胀。其余不良反应请参见疫苗说明书。可遵医嘱处理。",
+            "isFree": 1,
+            "price": 1318,
+            "zt": 0,
+            "hint": "该疫苗接种前不要吃辛辣的食物，因吃清淡一些的食物。",
+            "sex": 2,
+            "ageMin": 16,
+            "ageMax": 26.5,
+            "createTime": "May 7, 2021 12:00:00 AM",
+            "createUser": "12",
+            "updateTime": null,
+            "updateUser": null,
+            "lx": 1
+        },
+        "slVaccineSlUserinfos": [
+            {
+                "id": "ee529d07-102d-4899-a233-dad0cf07c967",
+                "xingm": "高宇",
+                "xingb": 1,
+                "guanljg": null,
+                "chusrq": "Apr 27, 1989 12:00:00 AM",
+                "xinxwz": 0,
+                "age": 33.67,
+                "standard": 0,
+                "msg": "该用户性别不满足该疫苗的预约要求",
+                "zhengjhm": "231083198904273919",
+                "zhengjlx": 1,
+                "xianzzbuc": null,
+                "benrdh": "13322243359",
+                "ismr": 1
+            },
+            {
+                "id": "d63bc79d-b0b4-49d6-bd14-7901949a4bc5",
+                "xingm": "周瑠夏",
+                "xingb": 2,
+                "guanljg": "675bcb93-c92f-4149-ac1c-036e7dc3185b",
+                "chusrq": "May 21, 1999 12:00:00 AM",
+                "xinxwz": 0,
+                "age": 23.58,
+                "standard": 1,
+                "msg": null,
+                "zhengjhm": "544366199905212024",
+                "zhengjlx": 1,
+                "xianzzbuc": null,
+                "benrdh": "13940897525",
+                "ismr": 0
+            }
+        ],
+        "listTime": [
+            {
+                "id": "25ead162f21856cd053c13930506aff1",
+                "disparkId": "b64b468d8131681e4c9dd271d573eb79",
+                "inoculateTime": "Dec 10, 2022 12:00:00 AM",
+                "inoculateTimeQuantum": "[{\"time\":[\"08:30\",\"16:20\"]}]",
+                "zt": 0,
+                "createTime": "Dec 5, 2022 2:20:36 PM",
+                "createUser": "bf4e0ce6-1d55-4619-bdde-5211b3af6658"
+            }
+        ]
+    },
+    "msg": "查询成功",
+    "count": null
+}
