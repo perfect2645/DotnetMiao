@@ -110,6 +110,18 @@ namespace gaoxin.viewmodel
             }
         }
 
+        private string _orderToken;
+        public string OrderToken
+        {
+            get { return _orderToken; }
+            set
+            {
+                _orderToken = value;
+                MainSession.OrderToken = value;
+                NotifyUI(() => OrderToken);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController;
@@ -135,17 +147,19 @@ namespace gaoxin.viewmodel
             Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAzMTY0NTg5NTcsInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAyMzAwNTg5NTd9In0.mHIsU7ekJiUGZ--Bx7QJ2xeXTCf32zuoVMS_GxX9PWM";
 
             Code = "081sQzFa1QUGmE0SZPIa1zJLJQ1sQzF0";
+
+            OrderToken = "Bx/g8KJZD/WNbXN42z9F4AvJYhIf1anHjjDUVCITS1zVEFxkWStmGmy4iCQy7VinmqPGCzgAndSHNuyKC8ipzWRPAAMQBsRPW8M3LLBe/AeX5yGHIqaDKvPIImwB5oSxx32yg5PmHyO/YeW2GHDBdwWlD0nHMLj3dKmglWWfx0j/bBB4eL3m09yrMOplBuiDSFet8zOAjIUf/4BrapBDO5vBwZB4RBr0asmoWAJRuR9LtS4jfWUdS4nlKYm0kWgoKzMsTivZUR7nJVJUJVwvE9Xosqo7ps5UCddBrrYFiWO/Hy8IPjsBg53OKYAkuZvM7WaKYumDGZdOH4cBLdBaW8uVq+FlhSCZvGZmAbqd2W1X/OC+D1to+oTEFrAQg/sW6FFfYt+bSxg+PsC8Sjwcazv6pZbFXBwv+npkT8zJAgocesDOCwY+8swbom4jiHc4d9bzWFYMjo+KeGePzjSFosq5OxHnEhJKCeKrtvhjzxTNvAbs2hzfuoDoIJ5YdPEAGvWCq8HklgELsKTTVTbOnZm7vdeb6hDVBhdB8PVhk56BQL4aVovNDjhsaOR5ONVB4ITn11xpwgUBY1brTfIHwQfImPDYv4Y2x5q24wcySHdqftiPdz5KtS2k8GsKFaPhumG9nEbhVAz7rummuXgeuuvfrAQx8/jdZaLLgiczWBQ=";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 25, 8, 50, 56);
+            StartTime = new DateTime(2022, 12, 7, 8, 59, 58);
 
             DisparkId = "b64b468d8131681e4c9dd271d573eb79";
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetTomorrow()),
+                new DspVal(DateTime.Today.ToString("yyyy-MM-dd")),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -156,10 +170,8 @@ namespace gaoxin.viewmodel
                 {
                     HospitalId = "12510109450812372N",
                     HospitalName = "成都高新区中和社区卫生服务中心",
-                    DepartmentId = "5241221",
-                    DepartmentName = "预防接种门诊",
-                    DoctorId = "17543348",
-                    DoctorName = "九价HPV疫苗"
+                    DepartmentId = DisparkId,
+                    DepartmentName = "九价HPV疫苗",
                 },
             };
 
@@ -246,7 +258,6 @@ namespace gaoxin.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.GetMiaoAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -346,8 +357,6 @@ namespace gaoxin.viewmodel
             var selectedDept = SelectedDepartment as GaoxinHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
 
             Log(selectedDept.ToLogString());

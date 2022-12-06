@@ -1,28 +1,18 @@
-﻿using HttpProcessor.Container;
+﻿using gaoxin.appointment;
+using gaoxin.session;
+using HttpProcessor.Container;
 using System;
 using System.Threading.Tasks;
+using Utils;
 using Utils.timerUtil;
 
 namespace gaoxin.search
 {
     internal class SearchController
     {
-        private SearchMiaoController _morningController;
-        private SearchMiaoController _afternoonController;
-
-        private IntervalOnTime MorningInterval;
-        private IntervalOnTime AfternoonInterval;
-
         public SearchController()
         {
-            _morningController = HttpServiceController.GetService<SearchMiaoController>();
-            _morningController.BuildContent("上午");
 
-            _afternoonController = HttpServiceController.GetService<SearchMiaoController>();
-            _afternoonController.BuildContent("下午");
-
-            MorningInterval = new IntervalOnTime(SearchMorningAsync, "上午", 200);
-            AfternoonInterval = new IntervalOnTime(SearchAfternoon, "下午", 200);
         }
 
         public async Task GetUserInfoAsync()
@@ -36,35 +26,24 @@ namespace gaoxin.search
             var userContent = new UserContent("https://ymglfw.care4u.cn/npApii/vaccineDisPark/selectInfo");
             userController.BuildClientHeaders(tokenContent);
             await userController.ProcessAsync(userContent);
+
+            BuildOrder();
         }
 
-        public void GetMiaoAsync()
+        private void BuildOrder()
         {
-            //var isMiaoGet = await _morningController.SearchMiaoAsync();
-            //if (isMiaoGet)
-            //{
-
-            //}
-            MorningInterval.StartIntervalOntime();
-            AfternoonInterval.StartIntervalOntime();
-        }
-
-        private async void SearchMorningAsync()
-        {
-            var isMiaoGet = await _morningController.SearchMiaoAsync();
-            if (isMiaoGet)
+            var order = new Order()
             {
-                MorningInterval.StopInterval();
-            }
-        }
-
-        private async void SearchAfternoon()
-        {
-            var isMiaoGet = await _afternoonController.SearchMiaoAsync();
-            if (isMiaoGet)
-            {
-                AfternoonInterval.StopInterval();
-            }
+                daid = MainSession.PlatformSession.GetString(Constants.UserId),
+                UserName = MainSession.PlatformSession.GetString(Constants.UserName),
+                disparkId = MainSession.DisparkId,
+                jgcommid = "10",
+                jgid = "4",
+                yyjg = MainSession.PlatformSession.GetString("yyjg").ToInt(),
+                yysj = "2022-12-10",
+                yysjd = "08:30-16:20",
+                yyymid = MainSession.PlatformSession.GetString("yyymid"),
+            };
         }
     }
 }
