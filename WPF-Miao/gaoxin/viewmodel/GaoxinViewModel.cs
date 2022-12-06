@@ -134,9 +134,6 @@ namespace gaoxin.viewmodel
 
         private void TestData()
         {
-            StartTime = DateTime.Now.AddSeconds(20);
-
-
             StopVaccineOrderTimer = new ActionOnTime("Stop Vaccin Order")
             {
                 TargetAction = StopVaccineOrder,
@@ -146,7 +143,7 @@ namespace gaoxin.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 7, 8, 59, 58);
+            StartTime = new DateTime(2022, 12, 7, 8, 59, 55);
 
             DisparkId = "b64b468d8131681e4c9dd271d573eb79";
 
