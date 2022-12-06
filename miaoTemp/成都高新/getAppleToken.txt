@@ -49,3 +49,33 @@ HTx7Z8VfeugcBEpzgw7zD7/5LGgXc5y1U2AL+y0KJXVzbK3JfXk4AthniG3c5ln4ernk9wEPIME/Om99
     "msg": "获取成功",
     "count": null
 }
+
+{
+    "code": 1,
+    "value": {
+        "wechatUser": {
+            "id": "4a99fd145039412f8b31d1f770225002",
+            "openid": "o6CnG4mc5lVPBj40Xzlby-1VpFDo",
+            "unionid": null,
+            "nickName": "Fawei",
+            "sex": 0,
+            "headPortrait": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIQ4BWN91jUfmd1dmyfuVoRkjevLWgYib17zYeQ5dycChCvXfCfKwRLV8JfyWEkokp1UaqFkhia9Qdw/132",
+            "appletId": "1",
+            "userId": "ee529d07-102d-4899-a233-dad0cf07c967",
+            "doctorId": "0",
+            "defalutOrgId": "4",
+            "defalutGroupId": "0",
+            "signIn": 1,
+            "logout": 0,
+            "createTime": "Oct 18, 2022 3:28:39 PM",
+            "updateTime": "Oct 18, 2022 3:33:19 PM",
+            "registerTime": "Oct 18, 2022 3:33:19 PM",
+            "logoutTime": null
+        },
+        "authState": 1,
+        "commonId": "10",
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAzODcxNjQwNDYsInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAzMDA3NjQwNDZ9In0.EZs4AAcxT2MCnPl_QHSapVFEcZnlmzrBni0aRPWBEkc"
+    },
+    "msg": "获取成功",
+    "count": null
+}

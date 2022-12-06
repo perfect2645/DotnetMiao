@@ -24,7 +24,7 @@ namespace Zhuzher.search
             // 首次进入活动，金币+5，并额外获得5个夺宝机会
             //AddScene("app-startapp", 1, "1");
             // 最多10次 组队邀请好友，好友成功加入队伍，则算完成
-            AddScene("app-act-invite&jointeam", 1, "1"); 
+            AddScene("app-act-invite&jointeam", 1, "1");
 
             //住这儿友邻市集单笔消费100元以上，每日可完成1次
             //AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/activityTopic/4666?pageMark=ptgejhd");
@@ -38,7 +38,7 @@ namespace Zhuzher.search
             ////无托收预缴12个月，即可收获金币+300，每日1次
             //AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
 
-            ////托收且预缴12个月，即可收获金币+300，每日1次
+            //托收且预缴12个月，即可收获金币+300，每日1次
             //AddScene("doc-withhold&prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
 
             //无托收预缴24个月，即可收获金币+600，每日1次
