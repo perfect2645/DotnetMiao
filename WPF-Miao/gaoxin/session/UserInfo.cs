@@ -13,5 +13,6 @@ namespace gaoxin.session
         public string daid { get; set; }
         public string UserName { get; set; }
         public string OrderToken { get; set; }
+        public string Token { get; set; }
     }
 }

@@ -1,28 +1,26 @@
-﻿using HttpProcessor.Client;
+﻿using gaoxin.appointment;
+using gaoxin.common;
+using gaoxin.session;
+using HttpProcessor.Client;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using gaoxin.common;
-using gaoxin.session;
-using Utils.stringBuilder;
 using System.Text.Json;
 using Utils;
 using Utils.json;
-using gaoxin.appointment;
+using Utils.stringBuilder;
 
 namespace gaoxin.search
 {
-    internal class UserController : GaoxinControllerBase
+    internal class VaccineController : GaoxinControllerBase
     {
-        public UserController(HttpClient httpClient) : base(httpClient)
+        public VaccineController(HttpClient httpClient) : base(httpClient)
         {
-            ProcessAction = new Action<GaoxinContent>(GetUser);
+            ProcessAction = new Action<GaoxinContent>(GetVaccine);
         }
 
-        private void GetUser(GaoxinContent content)
+        private void GetVaccine(GaoxinContent content)
         {
             HttpDicResponse response = PostStringDecodeAsync(content, Decode).Result;
             var resultValue = CheckGetResultValue(response);
@@ -44,10 +42,10 @@ namespace gaoxin.search
                 return;
             }
 
-            SaveUser(resultValue, content.LoginInfo);
+            SaveVaccine(resultValue, content.LoginInfo);
         }
 
-        private void SaveUser(JsonElement resultValue, GaoxinLogin loginInfo)
+        private void SaveVaccine(JsonElement resultValue, GaoxinLogin loginInfo)
         {
 
             var slVaccineDispark = resultValue.GetProperty("slVaccineDispark");
@@ -66,7 +64,6 @@ namespace gaoxin.search
             userInfo.daid = userId;
             userInfo.UserName = userName;
             userInfo.OrderToken = loginInfo.OrderToken;
-            userInfo.Token = loginInfo.Token;
 
             MainSession.UserDic.AddOrUpdate(userId, userInfo);
             BuildOrder(userInfo);

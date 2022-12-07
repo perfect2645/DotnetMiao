@@ -17,7 +17,7 @@ namespace gaoxin.appointment
         protected override void BuildHeader()
         {
             base.BuildHeader();
-            AddHeader("token", MainSession.OrderToken);
+            AddHeader("token", Order.OrderToken);
         }
 
         private void BuildContent()

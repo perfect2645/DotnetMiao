@@ -17,12 +17,9 @@ namespace hys020.appointment
         {
         }
 
-#pragma warning disable CS1998 // 此异步方法缺少 "await" 运算符，将以同步方式运行。请考虑使用 "await" 运算符等待非阻止的 API 调用，或者使用 "await Task.Run(...)" 在后台线程上执行占用大量 CPU 的工作。
-        internal async void Yuyue(List<Order> orderList)
-#pragma warning restore CS1998 // 此异步方法缺少 "await" 运算符，将以同步方式运行。请考虑使用 "await" 运算符等待非阻止的 API 调用，或者使用 "await Task.Run(...)" 在后台线程上执行占用大量 CPU 的工作。
+        internal void Yuyue(List<Order> orderList)
         {
             var result = YuyueAsync(orderList).Result;
-
         }
 
         private async Task<int> YuyueAsync(List<Order> orderList)

@@ -1,23 +1,22 @@
 ﻿using Base.model;
-using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
-using HttpProcessor.Container;
-using HttpProcessor.ExceptionManager;
 using gaoxin.appointment;
 using gaoxin.search;
 using gaoxin.session;
+using HttpProcessor.Container;
+using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
-using Utils.datetime;
-using Utils.stringBuilder;
 using Utils.file;
+using Utils.stringBuilder;
+using Utils.timerUtil;
 
 namespace gaoxin.viewmodel
 {
@@ -28,6 +27,8 @@ namespace gaoxin.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+
+        private IntervalOnTime VaccineOrderInterval;
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -82,7 +83,6 @@ namespace gaoxin.viewmodel
             set
             {
                 _token = value;
-                MainSession.Token = value;
                 NotifyUI(() => Token);
             }
         }
@@ -106,7 +106,6 @@ namespace gaoxin.viewmodel
             set
             {
                 _orderToken = value;
-                MainSession.OrderToken = value;
                 NotifyUI(() => OrderToken);
             }
         }
@@ -115,12 +114,15 @@ namespace gaoxin.viewmodel
 
         private SearchController _searchController;
 
+        private List<GaoxinLogin> _gaoxinLogins = new List<GaoxinLogin>();
+
         #endregion Properties
 
         #region Constructor
 
         public GaoxinViewModel(LogPanel logPanel) : base(logPanel)
         {
+            Interval = 200;
             InitCommands();
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
@@ -131,7 +133,6 @@ namespace gaoxin.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
         }
 
@@ -171,9 +172,10 @@ namespace gaoxin.viewmodel
             CancelCommand = new RelayCommand(ExecuteCancel);
 
             MainSession.ReSessionEvent.Subscribe(OnResession);
-            MainSession.OrderEvent.Subscribe(OnOrder);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+
+            VaccineOrderInterval = new IntervalOnTime("Vaccin Order", Interval);
         }
 
         #endregion Constructor
@@ -206,8 +208,6 @@ namespace gaoxin.viewmodel
 
         #region Login
 
-        private List<GaoxinLogin> _gaoxinLogins = new List<GaoxinLogin>();
-
         private void LoginFromConfig()
         {
             if (StringUtil.AnyEmpty(DisparkId))
@@ -224,6 +224,8 @@ namespace gaoxin.viewmodel
                     await _searchController.GetUserInfoAsync(gaoxinLogin);
                 });
             }
+
+            StartAutoRun();
         }
 
         private void ExecuteLogin()
@@ -260,7 +262,7 @@ namespace gaoxin.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
                     StartOnTimeTimer();
@@ -281,8 +283,18 @@ namespace gaoxin.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //var order = MainSession.Order;
+                    var orderList = MainSession.OrderDic.Values.ToList();
+                    foreach(var order in orderList)
+                    {
+                        var yuyueController = HttpServiceController.GetService<YuyueController>();
+                        var yuyueContent = new YuyueContent(order);
+                        yuyueController.StartInterval(yuyueContent);
+                    }
 
+                    Task.Factory.StartNew(() =>
+                    {
+                        VaccineOrderInterval.StartIntervalOntime(BuildVaccineOrder);
+                    });
                 }
                 catch (HttpException ex)
                 {
@@ -295,34 +307,37 @@ namespace gaoxin.viewmodel
             });
         }
 
-        #endregion AutoRun
-
-        #region Appoint
-
-        private void OnOrder(object? sender, OrderEventArgs e)
-        {
-            lock (OrderLock)
-            {
-                var orderList = e.OrderList;
-                Task.Factory.StartNew(() => OnAppointment(orderList));
-            }
-        }
-
-        private void OnAppointment(List<Order> orderList)
+        private void BuildVaccineOrder()
         {
             try
             {
-                foreach (var order in orderList)
+                var userList = MainSession.UserDic.Values.ToList();
+                foreach(var user in userList)
                 {
-                    //var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
-                    //yuyueController.StartInterval(order);
+                    Task.Factory.StartNew(() => BuildVaccineOrderForOneUser(user));
                 }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
             }
             catch (Exception ex)
             {
                 Log(ex);
             }
         }
+
+        private async void BuildVaccineOrderForOneUser(UserInfo user)
+        {
+            var vaccineController = HttpServiceController.GetService<VaccineController>();
+            var vaccineContent = new VaccineContent(user);
+            vaccineController.BuildClientHeaders(vaccineContent);
+            await vaccineController.ProcessAsync(vaccineContent);
+        }
+
+        #endregion AutoRun
+
+        #region Appoint
 
         private void ExecuteManual()
         {
@@ -344,8 +359,6 @@ namespace gaoxin.viewmodel
 
         private void DirectlyOrder(string scheduleId)
         {
-
-
 
             var order = new Order();
         }

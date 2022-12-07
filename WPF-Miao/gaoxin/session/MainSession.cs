@@ -10,9 +10,6 @@ namespace gaoxin.session
     {
         public static int Interval { get; set; }
         public static string Cookie { get; set; }
-        public static string Token { get; set; }
-        public static string OrderToken { get; set; }
-        public static string Code { get; set; }
         public static string DisparkId { get; set; }
         internal static ConcurrentDictionary<string, UserInfo> UserDic { get; set; } 
         internal static ConcurrentDictionary<string, Order> OrderDic { get; set; }
