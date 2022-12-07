@@ -341,14 +341,14 @@ namespace gaoxin.viewmodel
             var vaccineController = HttpServiceController.GetService<VaccineController>();
             var vaccineContent = new VaccineContent(user);
             vaccineController.BuildClientHeaders(vaccineContent);
-            await vaccineController.ProcessAsync(vaccineContent);
+            await vaccineController.ProcessAsyncTask(vaccineContent);
             var order = vaccineController.OrderResult;
 
             if (order != null)
             {
                 var yuyueController = HttpServiceController.GetService<YuyueController>();
                 var yuyueContent = new YuyueContent(order);
-                yuyueController.Yuyue(yuyueContent);
+                yuyueController.YuyueAsync(yuyueContent);
             }
         }
 

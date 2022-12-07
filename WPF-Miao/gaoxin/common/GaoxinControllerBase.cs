@@ -12,13 +12,20 @@ namespace gaoxin.common
     internal class GaoxinControllerBase : HttpClientBase
     {
         public Action<GaoxinContent> ProcessAction { get; set; }
+        public Action<Task<GaoxinContent>> ProcessAsyncAction { get; set; }
         public string Description { get; private set; }
 
         public GaoxinControllerBase(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public async Task ProcessAsync(GaoxinContent content)
+        public async Task ProcessAsyncTask(GaoxinContent content)
+        {
+            Description = content.Description;
+            await Task.Factory.StartNew(() => Process(content));
+        }
+
+        public async void ProcessAsync(GaoxinContent content)
         {
             Description = content.Description;
             await Task.Factory.StartNew(() => Process(content));
@@ -28,7 +35,7 @@ namespace gaoxin.common
         {
             try
             {
-                ProcessAction?.Invoke(content);
+                Task.Run(() => ProcessAction?.Invoke(content));
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ using HttpProcessor.Client;
 using System;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Utils.stringBuilder;
 using Utils.timerUtil;
 
@@ -15,16 +16,16 @@ namespace gaoxin.appointment
         public bool IsSuccess { get; set; }
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
-            ProcessAction = new Action<GaoxinContent>(Yuyue);
+            ProcessAction = new Action<GaoxinContent>(YuyueAsync);
             IntervalOnTime = new IntervalOnTime("yuyue", 300);
         }
 
         public void StartInterval(YuyueContent content)
         {
-            IntervalOnTime.StartIntervalOntime(async () => await ProcessAsync(content));
+            IntervalOnTime.StartIntervalOntime(() => ProcessAsync(content));
         }
 
-        public void Yuyue(GaoxinContent content)
+        public async void YuyueAsync(GaoxinContent content)
         {
             if (IsSuccess)
             {
@@ -37,7 +38,7 @@ namespace gaoxin.appointment
                 Log(orderMsg);
             }
 
-            HttpDicResponse response = PostStringDecodeAsync(content, Decode).Result;
+            HttpDicResponse response = await PostStringDecodeAsync(content, Decode);
             var resultValue = CheckGetResultValue(response);
             if (resultValue.ValueKind == JsonValueKind.Null)
             {

@@ -25,7 +25,7 @@ namespace gaoxin.search
             var userController = HttpServiceController.GetService<UserController>();
             var userContent = new UserContent(loginInfo);
             userController.BuildClientHeaders(userContent);
-            await userController.ProcessAsync(userContent);
+            await userController.ProcessAsyncTask(userContent);
         }
     }
 }
