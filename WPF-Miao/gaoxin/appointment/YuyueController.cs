@@ -34,7 +34,7 @@ namespace gaoxin.appointment
             if (order != null)
             {
                 var orderMsg = order.ToLogString();
-                MainSession.PrintLogEvent.Publish(this, orderMsg);
+                Log(orderMsg);
             }
 
             HttpDicResponse response = PostStringDecodeAsync(content, Decode).Result;
@@ -57,12 +57,13 @@ namespace gaoxin.appointment
                 return;
             }
 
-            IsSuccess = true;
-            CheckYuyueResult(resultValue);
+            CheckYuyueResult(resultValue, order);
         }
 
-        private void CheckYuyueResult(JsonElement resultValue)
+        private void CheckYuyueResult(JsonElement resultValue, Order order)
         {
+            MainSession.PrintLogEvent.Publish(this, "预约完成，请查看预约结果");
+            MainSession.PrintLogEvent.Publish(this, $"{order.ToLogString()}");
             IsSuccess = true;
         }
     }
