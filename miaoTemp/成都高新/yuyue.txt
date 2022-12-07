@@ -1,0 +1,35 @@
+POST https://ymglfw.care4u.cn/npApii/slVaccineDispark/addUserVaccine HTTP/1.1
+Host: ymglfw.care4u.cn
+Connection: keep-alive
+Content-Length: 219
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8
+token: Bx/g8KJZD/WNbXN42z9F4AvJYhIf1anHjjDUVCITS1zVEFxkWStmGmy4iCQy7VinmqPGCzgAndSHNuyKC8ipzWRPAAMQBsRPW8M3LLBe/AeX5yGHIqaDKvPIImwB5oSxx32yg5PmHyO/YeW2GHDBdwWlD0nHMLj3dKmglWWfx0j/bBB4eL3m09yrMOplBuiDSFet8zOAjIUf/4BrapBDO5vBwZB4RBr0asmoWAJRuR9LtS4jfWUdS4nlKYm0kWgoKzMsTivZUR7nJVJUJVwvE9Xosqo7ps5UCddBrrYFiWO/Hy8IPjsBg53OKYAkuZvM7WaKYumDGZdOH4cBLdBaW8uVq+FlhSCZvGZmAbqd2W1X/OC+D1to+oTEFrAQg/sW6FFfYt+bSxg+PsC8Sjwcazv6pZbFXBwv+npkT8zJAgocesDOCwY+8swbom4jiHc4d9bzWFYMjo+KeGePzjSFosq5OxHnEhJKCeKrtvhjzxTNvAbs2hzfuoDoIJ5YdPEAGvWCq8HklgELsKTTVTbOnZm7vdeb6hDVBhdB8PVhk56BQL4aVovNDjhsaOR5ONVB4ITn11xpwgUBY1brTfIHwQfImPDYv4Y2x5q24wcySHdqftiPdz5KtS2k8GsKFaPhumG9nEbhVAz7rummuXgeuuvfrAQx8/jdZaLLgiczWBQ=
+Referer: https://servicewechat.com/wx4293c7bbe5d3df87/8/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"daid":"d63bc79d-b0b4-49d6-bd14-7901949a4bc5","yysj":"2022-12-10","yysjd":"08:30-16:20","yyymid":"ce473da6ccffbb410891d5d6e289381c","disparkId":"b64b468d8131681e4c9dd271d573eb79","yyjg":1318,"jgid":"4","jgcommid":"10"}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Mon, 05 Dec 2022 13:35:07 GMT
+Content-Type: application/json;charset=UTF-8
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 100
+
+"7idXCfiNnDImJLrg1wxq86636WUl7nlhqoUqR6dYWaiYlzMzeVQ5vUjocvMixY1L3TTDA+wSelTVGQNkKAqjYQ\u003d\u003d"
+
+{
+    "daid": "d63bc79d-b0b4-49d6-bd14-7901949a4bc5",
+    "yysj": "2022-12-10",
+    "yysjd": "08:30-16:20",
+    "yyymid": "ce473da6ccffbb410891d5d6e289381c",
+    "disparkId": "b64b468d8131681e4c9dd271d573eb79",
+    "yyjg": 1318,
+    "jgid": "4",
+    "jgcommid": "10"
+}
+
+
+{"code":0,"msg":"该疫苗已预约完，请下次再预约"}
