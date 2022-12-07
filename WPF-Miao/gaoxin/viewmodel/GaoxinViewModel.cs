@@ -224,6 +224,10 @@ namespace gaoxin.viewmodel
 
             foreach(var gaoxinLogin in _gaoxinLogins)
             {
+                if (string.IsNullOrEmpty(gaoxinLogin.Token))
+                {
+                    gaoxinLogin.Token = gaoxinLogin.OrderToken;
+                }
                 Task.Factory.StartNew(async () =>
                 {
                     await _searchController.GetUserInfoAsync(gaoxinLogin);
