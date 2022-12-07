@@ -143,7 +143,7 @@ namespace gaoxin.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 7, 8, 59, 55);
+            StartTime = new DateTime(2022, 12, 7, 8, 59, 50);
 
             DisparkId = "b64b468d8131681e4c9dd271d573eb79";
 
