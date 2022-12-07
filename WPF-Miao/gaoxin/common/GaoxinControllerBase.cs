@@ -46,6 +46,17 @@ namespace gaoxin.common
             }
 
             var root = response.JsonBody.RootElement;
+            var code = root.GetProperty("code").NotNullString();
+            if (code != "1")
+            {
+                JsonElement msg;
+                root.TryGetProperty("msg", out msg);
+                if (msg.ValueKind != JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(null, msg.NotNullString());
+                    return msg;
+                }
+            }
             var result = root.GetProperty("value");
             return result;
         }

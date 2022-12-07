@@ -1,6 +1,7 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
 using gaoxin.appointment;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace gaoxin.session
@@ -13,9 +14,9 @@ namespace gaoxin.session
         public static string OrderToken { get; set; }
         public static string Code { get; set; }
         public static string DisparkId { get; set; }
+        internal static ConcurrentDictionary<string, UserInfo> UserDic { get; set; } 
+        internal static ConcurrentDictionary<string, Order> OrderDic { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
-
-        public static UserSession UserSession { get; private set; }
         internal static AppointSession AppointSession { get; private set; }
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
@@ -23,9 +24,10 @@ namespace gaoxin.session
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
-            UserSession = new UserSession();
             ReSessionEvent = new ReSessionEvent();
             OrderEvent = new OrderEvent();
+            OrderDic = new ConcurrentDictionary<string, Order>();
+            UserDic = new ConcurrentDictionary<string, UserInfo>();
         }
 
         public static void InitSession()

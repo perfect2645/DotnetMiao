@@ -6,7 +6,8 @@ namespace gaoxin.search
 {
     internal class UserContent : GaoxinContent
     {
-        public UserContent(string url) : base(url, "获取user")
+        private const string url = "https://ymglfw.care4u.cn/npApii/vaccineDisPark/selectInfo";
+        public UserContent(GaoxinLogin loginInfo) : base(url, "获取user", loginInfo)
         {
             BuildContent();
         }

@@ -18,6 +18,7 @@ namespace gaoxin.appointment
         public int yyjg { get; set; }
         public string jgid { get; set; }
         public string jgcommid { get; set; }
+        public string OrderToken { get; set; }
 
         public Order()
         {

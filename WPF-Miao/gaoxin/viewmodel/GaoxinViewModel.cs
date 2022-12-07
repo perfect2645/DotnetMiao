@@ -17,6 +17,7 @@ using System.Windows.Input;
 using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
+using Utils.file;
 
 namespace gaoxin.viewmodel
 {
@@ -86,18 +87,6 @@ namespace gaoxin.viewmodel
             }
         }
 
-        private string _code;
-        public string Code
-        {
-            get { return _code; }
-            set
-            {
-                _code = value;
-                MainSession.Code = value;
-                NotifyUI(() => Code);
-            }
-        }
-
         private string _disparkId;
         public string DisparkId
         {
@@ -137,18 +126,13 @@ namespace gaoxin.viewmodel
             MainSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
+            LoginFromConfig();
         }
 
         private void TestData()
         {
             Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
-
-            Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAzMTY0NTg5NTcsInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAyMzAwNTg5NTd9In0.mHIsU7ekJiUGZ--Bx7QJ2xeXTCf32zuoVMS_GxX9PWM";
-
-            Code = "081sQzFa1QUGmE0SZPIa1zJLJQ1sQzF0";
-
-            OrderToken = "Bx/g8KJZD/WNbXN42z9F4AvJYhIf1anHjjDUVCITS1zVEFxkWStmGmy4iCQy7VinmqPGCzgAndSHNuyKC8ipzWRPAAMQBsRPW8M3LLBe/AeX5yGHIqaDKvPIImwB5oSxx32yg5PmHyO/YeW2GHDBdwWlD0nHMLj3dKmglWWfx0j/bBB4eL3m09yrMOplBuiDSFet8zOAjIUf/4BrapBDO5vBwZB4RBr0asmoWAJRuR9LtS4jfWUdS4nlKYm0kWgoKzMsTivZUR7nJVJUJVwvE9Xosqo7ps5UCddBrrYFiWO/Hy8IPjsBg53OKYAkuZvM7WaKYumDGZdOH4cBLdBaW8uVq+FlhSCZvGZmAbqd2W1X/OC+D1to+oTEFrAQg/sW6FFfYt+bSxg+PsC8Sjwcazv6pZbFXBwv+npkT8zJAgocesDOCwY+8swbom4jiHc4d9bzWFYMjo+KeGePzjSFosq5OxHnEhJKCeKrtvhjzxTNvAbs2hzfuoDoIJ5YdPEAGvWCq8HklgELsKTTVTbOnZm7vdeb6hDVBhdB8PVhk56BQL4aVovNDjhsaOR5ONVB4ITn11xpwgUBY1brTfIHwQfImPDYv4Y2x5q24wcySHdqftiPdz5KtS2k8GsKFaPhumG9nEbhVAz7rummuXgeuuvfrAQx8/jdZaLLgiczWBQ=";
         }
 
         private void InitStaticData()
@@ -182,7 +166,7 @@ namespace gaoxin.viewmodel
 
         private void InitCommands()
         {
-            LoginCommand = new AsyncRelayCommand(ExecuteLogin);
+            LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
@@ -198,7 +182,6 @@ namespace gaoxin.viewmodel
 
         protected override void OnInitAsync()
         {
-
         }
 
         protected override void OnReadyForSearchAsync()
@@ -217,16 +200,58 @@ namespace gaoxin.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopIntervalTimer();
         }
 
         #endregion Status Control
 
         #region Login
 
-        private async Task ExecuteLogin()
+        private List<GaoxinLogin> _gaoxinLogins = new List<GaoxinLogin>();
+
+        private void LoginFromConfig()
         {
-            await _searchController.GetUserInfoAsync();
+            if (StringUtil.AnyEmpty(DisparkId))
+            {
+                Log("请检查DisparkId参数");
+                return;
+            }
+            _gaoxinLogins = FileReader.DeserializeFile<List<GaoxinLogin>>("Login.json");
+
+            foreach(var gaoxinLogin in _gaoxinLogins)
+            {
+                Task.Factory.StartNew(async () =>
+                {
+                    await _searchController.GetUserInfoAsync(gaoxinLogin);
+                });
+            }
+        }
+
+        private void ExecuteLogin()
+        {
+            if (StringUtil.AnyEmpty(Token, OrderToken, DisparkId))
+            {
+                Log("请检查参数");
+                return;
+            }
+
+            var loginData = new GaoxinLogin()
+            {
+                OrderToken = OrderToken,
+                Token = Token,
+            };
+
+            Task.Factory.StartNew(async () =>
+            {
+                await _searchController.GetUserInfoAsync(loginData);
+            });
+
+            ClearLoginData();
+        }
+
+        private void ClearLoginData()
+        {
+            Token = string.Empty;
+            OrderToken = string.Empty;
         }
 
         #endregion Login
@@ -238,9 +263,7 @@ namespace gaoxin.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    _searchController = new SearchController();
-                    await _searchController.GetUserInfoAsync();
-                    StartIntervalTimer();
+                    StartOnTimeTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -258,6 +281,8 @@ namespace gaoxin.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
+                    //var order = MainSession.Order;
+
                 }
                 catch (HttpException ex)
                 {
@@ -319,14 +344,8 @@ namespace gaoxin.viewmodel
 
         private void DirectlyOrder(string scheduleId)
         {
-            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var userInfo = MainSession.UserSession.Users.FirstOrDefault(x => 
-                (x.Value as Dictionary<string, object>)?.GetString("isDefault") == "1").Value as Dictionary<string, object>;
 
-            var userId = userInfo.GetString(Constants.UserId);
-            var userName = userInfo.GetString("familyName");
-            var phone = userInfo.GetString("familyPhone");
+
 
             var order = new Order();
         }

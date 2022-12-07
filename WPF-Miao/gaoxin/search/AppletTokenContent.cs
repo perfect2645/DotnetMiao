@@ -5,7 +5,7 @@ namespace gaoxin.search
 {
     internal class AppletTokenContent : GaoxinContent
     {
-        public AppletTokenContent(string url) : base(url, "获取token")
+        public AppletTokenContent(string url, GaoxinLogin login) : base(url, "获取token", login)
         {
             BuildContent();
         }

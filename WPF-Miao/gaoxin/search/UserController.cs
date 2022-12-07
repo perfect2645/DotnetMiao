@@ -11,6 +11,7 @@ using Utils.stringBuilder;
 using System.Text.Json;
 using Utils;
 using Utils.json;
+using gaoxin.appointment;
 
 namespace gaoxin.search
 {
@@ -30,28 +31,65 @@ namespace gaoxin.search
                 return;
             }
 
-            SaveUser(resultValue);
+            if (resultValue.ValueKind == JsonValueKind.Undefined)
+            {
+                return;
+            }
+
+            if (resultValue.ValueKind == JsonValueKind.String)
+            {
+                var result = resultValue.NotNullString();
+                var message = $"{result} - Token: {content.LoginInfo.Token}";
+                MainSession.PrintLogEvent.Publish(this, message);
+                return;
+            }
+
+            SaveUser(resultValue, content.LoginInfo);
         }
 
-        private void SaveUser(JsonElement resultValue)
+        private void SaveUser(JsonElement resultValue, GaoxinLogin loginInfo)
         {
+
             var slVaccineDispark = resultValue.GetProperty("slVaccineDispark");
             var vaccineId = slVaccineDispark.GetProperty("id").NotNullString();
-            MainSession.PlatformSession.AddOrUpdate("yyymid", vaccineId);
-
             var vaccinePrice = slVaccineDispark.GetProperty("price").GetDouble();
-            MainSession.PlatformSession.AddOrUpdate("yyjg", vaccinePrice);
 
             var slVaccineSlUserinfos = resultValue.GetProperty("slVaccineSlUserinfos");
             var userList = JsonAnalysis.JsonToDicList(slVaccineSlUserinfos);
-
             var targetUser = userList.LastOrDefault();
             var userId = targetUser.GetString("id");
             var userName = targetUser.GetString("xingm");
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, userId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserName, userName);
+
+            var userInfo = new UserInfo();
+            userInfo.yyymid = vaccineId;
+            userInfo.yyjg = (int)vaccinePrice;
+            userInfo.daid = userId;
+            userInfo.UserName = userName;
+            userInfo.OrderToken = loginInfo.OrderToken;
+
+            MainSession.UserDic.AddOrUpdate(userId, userInfo);
+            BuildOrder(userInfo);
 
             MainSession.PrintLogEvent.Publish(this, targetUser);
+        }
+
+        private void BuildOrder(UserInfo userInfo)
+        {
+            var order = new Order()
+            {
+                daid = userInfo.daid,
+                UserName = userInfo.UserName,
+                disparkId = MainSession.DisparkId,
+                jgcommid = "10",
+                jgid = "4",
+                yyjg = userInfo.yyjg,
+                yysj = "2022-12-10",
+                yysjd = "08:30-16:20",
+                yyymid = userInfo.yyymid,
+                OrderToken = userInfo.OrderToken
+            };
+
+            MainSession.OrderDic.AddOrUpdate(userInfo.daid, order);
         }
     }
 }

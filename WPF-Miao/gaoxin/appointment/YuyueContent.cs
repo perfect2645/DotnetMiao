@@ -8,7 +8,7 @@ namespace gaoxin.appointment
     {
         private static string url = "https://ymglfw.care4u.cn/npApii/slVaccineDispark/addUserVaccine";
         public Order Order { get; }
-        public YuyueContent(Order order) : base(url, "预约")
+        public YuyueContent(Order order) : base(url, "预约", null)
         {
             Order = order;
             BuildContent();
