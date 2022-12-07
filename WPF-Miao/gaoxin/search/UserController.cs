@@ -84,8 +84,6 @@ namespace gaoxin.search
                 jgcommid = "10",
                 jgid = "4",
                 yyjg = userInfo.yyjg,
-                yysj = "2022-12-10",
-                yysjd = "08:30-16:20",
                 yyymid = userInfo.yyymid,
                 OrderToken = userInfo.OrderToken
             };

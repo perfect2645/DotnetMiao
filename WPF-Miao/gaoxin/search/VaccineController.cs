@@ -3,26 +3,28 @@ using gaoxin.common;
 using gaoxin.session;
 using HttpProcessor.Client;
 using System;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using Utils;
-using Utils.json;
 using Utils.stringBuilder;
 
 namespace gaoxin.search
 {
     internal class VaccineController : GaoxinControllerBase
     {
+        public Order OrderResult { get; private set; }
         public VaccineController(HttpClient httpClient) : base(httpClient)
         {
-            ProcessAction = new Action<GaoxinContent>(GetVaccine);
+            ProcessAction = new Action<GaoxinContent>(GetVaccineOrder);
         }
 
-        private void GetVaccine(GaoxinContent content)
+        private void GetVaccineOrder(GaoxinContent content)
         {
-            HttpDicResponse response = PostStringDecodeAsync(content, Decode).Result;
+            var vaccineContent = content as VaccineContent;
+            if (vaccineContent == null)
+            {
+                return;
+            }
+            HttpDicResponse response = PostStringDecodeAsync(vaccineContent, Decode).Result;
             var resultValue = CheckGetResultValue(response);
             if (resultValue.ValueKind == JsonValueKind.Null)
             {
@@ -37,57 +39,35 @@ namespace gaoxin.search
             if (resultValue.ValueKind == JsonValueKind.String)
             {
                 var result = resultValue.NotNullString();
-                var message = $"{result} - Token: {content.LoginInfo.Token}";
+                var message = $"{result} - Token: {vaccineContent.UserInfo.Token}";
                 MainSession.PrintLogEvent.Publish(this, message);
                 return;
             }
 
-            SaveVaccine(resultValue, content.LoginInfo);
+            SaveVaccine(resultValue, vaccineContent.UserInfo);
         }
 
-        private void SaveVaccine(JsonElement resultValue, GaoxinLogin loginInfo)
+        private void SaveVaccine(JsonElement resultValue, UserInfo userInfo)
         {
-
             var slVaccineDispark = resultValue.GetProperty("slVaccineDispark");
-            var vaccineId = slVaccineDispark.GetProperty("id").NotNullString();
-            var vaccinePrice = slVaccineDispark.GetProperty("price").GetDouble();
+            var commId = slVaccineDispark.GetProperty("commId").NotNullString();
 
-            var slVaccineSlUserinfos = resultValue.GetProperty("slVaccineSlUserinfos");
-            var userList = JsonAnalysis.JsonToDicList(slVaccineSlUserinfos);
-            var targetUser = userList.LastOrDefault();
-            var userId = targetUser.GetString("id");
-            var userName = targetUser.GetString("xingm");
+            var vaccineInfo = resultValue.GetProperty("vaccineInfo");
+            var vaccineId = vaccineInfo.GetProperty("id").NotNullString();
+            var vaccinePrice = vaccineInfo.GetProperty("price").GetDouble();
 
-            var userInfo = new UserInfo();
-            userInfo.yyymid = vaccineId;
-            userInfo.yyjg = (int)vaccinePrice;
-            userInfo.daid = userId;
-            userInfo.UserName = userName;
-            userInfo.OrderToken = loginInfo.OrderToken;
-
-            MainSession.UserDic.AddOrUpdate(userId, userInfo);
-            BuildOrder(userInfo);
-
-            MainSession.PrintLogEvent.Publish(this, targetUser);
-        }
-
-        private void BuildOrder(UserInfo userInfo)
-        {
             var order = new Order()
             {
                 daid = userInfo.daid,
-                UserName = userInfo.UserName,
                 disparkId = MainSession.DisparkId,
                 jgcommid = "10",
-                jgid = "4",
-                yyjg = userInfo.yyjg,
-                yysj = "2022-12-10",
-                yysjd = "08:30-16:20",
-                yyymid = userInfo.yyymid,
-                OrderToken = userInfo.OrderToken
+                jgid = commId,
+                UserName = userInfo.UserName,
+                yyjg = (int)vaccinePrice,
+                yyymid = vaccineId,
             };
 
-            MainSession.OrderDic.AddOrUpdate(userInfo.daid, order);
+            OrderResult = order;
         }
     }
 }

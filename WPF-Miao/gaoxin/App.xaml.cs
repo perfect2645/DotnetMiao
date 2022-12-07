@@ -27,6 +27,7 @@ namespace gaoxin
         private void InitController()
         {
             HttpServiceController.AddTransientService<AppletTokenController>();
+            HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<YuyueController>();
 

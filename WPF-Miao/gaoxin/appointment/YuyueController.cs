@@ -24,7 +24,7 @@ namespace gaoxin.appointment
             IntervalOnTime.StartIntervalOntime(async () => await ProcessAsync(content));
         }
 
-        private void Yuyue(GaoxinContent content)
+        public void Yuyue(GaoxinContent content)
         {
             if (IsSuccess)
             {

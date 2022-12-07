@@ -10,10 +10,11 @@ namespace gaoxin.search
         public VaccineContent(UserInfo userInfo) : base(url, "查苗", null)
         {
             UserInfo = userInfo;
+            BuildHeaderPlus();
+            BuildContent();
         }
-        protected override void BuildHeader()
+        private void BuildHeaderPlus()
         {
-            base.BuildHeader();
             AddHeader("token", UserInfo.Token);
         }
 

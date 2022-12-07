@@ -29,6 +29,7 @@ namespace gaoxin.viewmodel
         public ICommand CancelCommand { get; set; }
 
         private IntervalOnTime VaccineOrderInterval;
+        private ActionOnTime StopVaccineOrderTimer;
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -134,6 +135,13 @@ namespace gaoxin.viewmodel
         private void TestData()
         {
             StartTime = DateTime.Now.AddSeconds(20);
+
+
+            StopVaccineOrderTimer = new ActionOnTime("Stop Vaccin Order")
+            {
+                TargetAction = StopVaccineOrder,
+                ActionTime = StartTime.AddMinutes(5)
+            };
         }
 
         private void InitStaticData()
@@ -333,6 +341,19 @@ namespace gaoxin.viewmodel
             var vaccineContent = new VaccineContent(user);
             vaccineController.BuildClientHeaders(vaccineContent);
             await vaccineController.ProcessAsync(vaccineContent);
+            var order = vaccineController.OrderResult;
+
+            if (order != null)
+            {
+                var yuyueController = HttpServiceController.GetService<YuyueController>();
+                var yuyueContent = new YuyueContent(order);
+                yuyueController.Yuyue(yuyueContent);
+            }
+        }
+
+        private void StopVaccineOrder()
+        {
+            VaccineOrderInterval?.StopInterval();
         }
 
         #endregion AutoRun

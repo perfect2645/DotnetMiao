@@ -11,12 +11,12 @@ namespace gaoxin.appointment
         public YuyueContent(Order order) : base(url, "预约", null)
         {
             Order = order;
+            BuildHeaderPlus();
             BuildContent();
         }
 
-        protected override void BuildHeader()
+        private void BuildHeaderPlus()
         {
-            base.BuildHeader();
             AddHeader("token", Order.OrderToken);
         }
 

@@ -11,8 +11,8 @@ namespace gaoxin.appointment
         public IntervalOnTime IntervalOnTime { get; private set; }
         public string daid { get; set; }
         public string UserName { get; set; }
-        public string yysj { get; set; }
-        public string yysjd { get; set; }
+        public string yysj { get; set; } = "2022-12-10";
+        public string yysjd { get; set; } = "08:30-16:20";
         public string yyymid { get; set; }
         public string disparkId { get; set; }
         public int yyjg { get; set; }
