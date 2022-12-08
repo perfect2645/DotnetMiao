@@ -24,13 +24,17 @@ namespace JkzlSearcher.viewModel
 
         private SearchController _searchController;
 
+        public JkzlGridViewModel GridViewModel { get; set; }
+
         #endregion Properties
+
+        #region Constructor
 
         public JkzlViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
-
+            InitGridViewModel();
             TestData();
         }
 
@@ -77,6 +81,13 @@ namespace JkzlSearcher.viewModel
             MainSession.PrintLogEvent = PrintLogEvent;
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
+
+        private void InitGridViewModel()
+        {
+            GridViewModel = new JkzlGridViewModel();
+        }
+
+        #endregion Constructor
 
         #region Status Control
 
