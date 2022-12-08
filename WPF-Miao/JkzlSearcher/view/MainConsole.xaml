@@ -5,37 +5,42 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Title="健康之路查询"
       x:Name="ChutianPage">
-    <basePage:OnTimeConsole x:Name="baseConsole"
+    <TabControl TabStripPlacement="Top">
+        <TabItem Header="Console">
+            <basePage:OnTimeConsole x:Name="baseConsole"
                             IsCookieVisible="Collapsed"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
-        <basePage:OnTimeConsole.DynamicArea>
-            <StackPanel>
-                <StackPanel Background="Bisque">
-                    <TextBox Width="300" Height="30"
+                <basePage:OnTimeConsole.DynamicArea>
+                    <StackPanel>
+                        <StackPanel Background="Bisque">
+                            <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
                          Text="{Binding UserPhone}"
                         materialDesign:HintAssist.Hint="手机"/>
-                    <TextBox Width="300" Height="30"
+                            <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
                          Text="{Binding UserPassword}"
                         materialDesign:HintAssist.Hint="密码"/>
-                    <Button Content="查询预约规则" Margin="0,0,10,0"
+                            <Button Content="查询预约规则" Margin="0,0,10,0"
                         Command="{Binding ChekAuthCommand}" Width="100">
-                    </Button>
-                </StackPanel>
+                            </Button>
+                        </StackPanel>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
-                    <Button Content="开始查询" Margin="0,0,10,0"
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
+                            <Button Content="开始查询" Margin="0,0,10,0"
                     Command="{Binding SearchCommand}" Width="100">
-                    </Button>
-                </StackPanel>
-                <TextBox Width="300" Height="30"
+                            </Button>
+                        </StackPanel>
+                        <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
                         materialDesign:HintAssist.Hint="备注">
-                </TextBox>
-            </StackPanel>
-        </basePage:OnTimeConsole.DynamicArea>
-    </basePage:OnTimeConsole>
+                        </TextBox>
+                    </StackPanel>
+                </basePage:OnTimeConsole.DynamicArea>
+            </basePage:OnTimeConsole>
+        </TabItem>
+        <TabItem Header="Grid" />
+    </TabControl>
 </Page>
