@@ -62,6 +62,7 @@ namespace JkzlSearcher.search
             MainSession.PrintLogEvent.Publish(this, doctorDept);
 
             var hospitalController = HttpServiceController.GetService<HospitalController>();
+            hospitalController.GetHospitalByIdAsync(hospitalId);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace JkzlSearcher.viewModel
         private void TestData()
         {
             StartTime = DateTime.Now.AddSeconds(10);
-            Cookie = "YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; BaseDoctorUid=0; BaseUserType=0; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJDNTUzQjkyQzU4MDM1QUJDRDBBRUM4QzU5MUNDRDQyQiJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=46870C40778143138D8DB7F18F652E0A; _YyghSysTrackUUID=04181256212; jkzlAn_uuid=C7FAC527-D8E3-4D62-A29C-885A74DB792A; jkzlAn_refercode=; jkzlAn_sid=A8D4AED1-67E8-40DD-B320-2CC3B69D81B8; jkzlAn_channelid=1000031; jkzlAn_userid=148528129; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1670148785836";
+            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_c=-1; jkzlAn_p=-1; jkzlAn_userid=148528129; jkzlAn_channelid=1000031; jkzlAn_ct=1669951588228; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D;;";
 
             MainSession.Cookie = Cookie;
         }
