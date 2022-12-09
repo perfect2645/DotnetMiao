@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="output\JkzlHospital.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="output\JkzlHospital.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
