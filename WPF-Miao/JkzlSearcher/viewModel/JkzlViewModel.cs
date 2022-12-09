@@ -5,6 +5,7 @@ using CoreControl.LogConsole;
 using HttpProcessor.ExceptionManager;
 using JkzlSearcher.search;
 using JkzlSearcher.session;
+using Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,9 +42,11 @@ namespace JkzlSearcher.viewModel
         private void TestData()
         {
             StartTime = DateTime.Now.AddSeconds(10);
-            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_c=-1; jkzlAn_p=-1; jkzlAn_userid=148528129; jkzlAn_channelid=1000031; jkzlAn_ct=1669951588228; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D;;";
+            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_c=-1; jkzlAn_p=-1; jkzlAn_userid=148528129; jkzlAn_channelid=1000031; jkzlAn_ct=1669951588228; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D;";
 
             MainSession.Cookie = Cookie;
+
+            NLogger.Debug("666345");
         }
 
         private void InitStaticData()
