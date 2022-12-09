@@ -3,6 +3,7 @@ using HttpProcessor.Container;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using JkzlSearcher.session;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -21,48 +22,48 @@ namespace JkzlSearcher.search
             HosDeptContent.BuildDefaultHeaders(Client);
         }
 
-        public Task GetHosDeptAsync(string hospitalId)
+        public async Task<List<Dictionary<string, object>>> GetHosDeptAsync(string hospitalId)
         {
-            return Task.Factory.StartNew(() => 
+            return await Task.Factory.StartNew(() => 
             {
                 HosDeptContent.SetHospitalId(hospitalId);
-                GetHosDept(hospitalId);
+                return GetHosDept(hospitalId);
             });
         }
 
-        private void GetHosDept(string hospitalId)
+        private List<Dictionary<string, object>> GetHosDept(string hospitalId)
         {
-            
             Log($"start GetHosDept, hospitalId = {hospitalId}");
+            var depts = new List<Dictionary<string, object>>();
+
             HttpDicResponse response = PostStringAsync(HosDeptContent, ContentType.String).Result;
             var code = response.Body.FirstOrDefault(x => x.Key == Constants.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
                 Log($"{Constants.ProjectName}:{response.Body["Message"]}, hospitalId = {hospitalId}");
-                return;
+                return depts;
             }
 
             var result = response.JsonBody.RootElement.GetProperty("Result");
             if (result.ValueKind == JsonValueKind.Null)
             {
                 Log($"Null Result, hospitalId = {hospitalId}");
-                return;
+                return depts;
             }
-            AnalysisResult(result, hospitalId);
+            return AnalysisResult(result, hospitalId);
         }
 
-        private void AnalysisResult(JsonElement jsonElement, string hospitalId)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement, string hospitalId)
         {
-            var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
-            if (!doctorDept.HasItem())
+            var depts = new List<Dictionary<string, object>>();
+            depts = JsonAnalysis.JsonToDicList(jsonElement);
+            if (!depts.HasItem())
             {
-                Log($"Empty Result, hospitalId = {hospitalId}");
-                return;
+                return depts;
             }
-            MainSession.PrintLogEvent.Publish(this, doctorDept);
+            MainSession.PrintLogEvent.Publish(this, depts);
 
-            var hospitalController = HttpServiceController.GetService<HospitalController>();
-            hospitalController.GetHospitalByIdAsync(hospitalId);
+            return depts;
         }
     }
 }

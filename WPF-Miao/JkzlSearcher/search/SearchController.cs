@@ -3,7 +3,9 @@ using JkzlSearcher.auth;
 using JkzlSearcher.search.user;
 using JkzlSearcher.session;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Utils;
 
 namespace JkzlSearcher.search
 {
@@ -16,10 +18,36 @@ namespace JkzlSearcher.search
             _deptController = HttpServiceController.GetService<HosDeptController>();
         }
 
-        public void SearchByHospitalId()
+        public void SearchByHospitalIdAsync()
+        {
+            Task.Factory.StartNew(async () =>
+            {
+                await SearchByHospitalId();
+            });
+        }
+
+        public async Task SearchByHospitalId()
         {
             var hospitalId = MainSession.GetNextHospitalId();
-            _deptController.GetHosDeptAsync(hospitalId);
+            var depts = await _deptController.GetHosDeptAsync(hospitalId);
+            if (!depts.HasItem())
+            {
+                return;
+            }
+
+            var hospitalController = HttpServiceController.GetService<HospitalController>();
+            var hospital = await hospitalController.GetHospitalByIdAsync(hospitalId);
+            if (!hospital.HasItem())
+            {
+                return;
+            }
+
+            SaveHospital(depts, hospital);
+        }
+
+        private void SaveHospital(List<Dictionary<string, object>> depts, Dictionary<string, object> hospital)
+        {
+
         }
 
         internal async void CheckAuthAsync()

@@ -164,7 +164,7 @@ namespace JkzlSearcher.viewModel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchByHospitalId();
+                    _searchController.SearchByHospitalIdAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -193,7 +193,7 @@ namespace JkzlSearcher.viewModel
 
         private void ExecuteSearch()
         {
-            _searchController.SearchByHospitalId();
+            _searchController.SearchByHospitalIdAsync();
         }
     }
 }

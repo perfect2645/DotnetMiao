@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
 using JkzlSearcher.session;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -16,15 +17,15 @@ namespace JkzlSearcher.search
         {
         }
 
-        public Task GetHospitalByIdAsync(string hospitalId)
+        public async Task<Dictionary<string, object>> GetHospitalByIdAsync(string hospitalId)
         {
-            return Task.Factory.StartNew(() =>
+            return await Task.Factory.StartNew(() =>
             {
-                GetHospitalById(hospitalId);
+                return GetHospitalById(hospitalId);
             });
         }
 
-        private void GetHospitalById(string hospitalId)
+        private Dictionary<string, object> GetHospitalById(string hospitalId)
         {
             var content = new HospitalContent(hospitalId);
             Log($"start HospitalById, hospitalId = {hospitalId}");
@@ -33,27 +34,29 @@ namespace JkzlSearcher.search
             if (code == null || code != "10000")
             {
                 Log($"{Constants.ProjectName}:{response.Body["Message"]}, hospitalId = {hospitalId}");
-                return;
+                return null;
             }
 
             var result = response.JsonBody.RootElement;
             if (result.ValueKind == JsonValueKind.Null)
             {
                 Log($"Null Result, hospitalId = {hospitalId}");
-                return;
+                return null;
             }
-            AnalysisResult(result, hospitalId);
+            return AnalysisResult(result, hospitalId);
         }
 
-        private void AnalysisResult(JsonElement jsonElement, string hospitalId)
+        private Dictionary<string, object> AnalysisResult(JsonElement jsonElement, string hospitalId)
         {
             var hospital = JsonAnalysis.JsonToDic(jsonElement);
             if (!hospital.HasItem())
             {
                 Log($"Empty Result, hospitalId = {hospitalId}");
-                return;
+                return null;
             }
             MainSession.PrintLogEvent.Publish(this, hospital);
+
+            return hospital;
         }
     }
 }
