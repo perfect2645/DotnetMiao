@@ -70,6 +70,12 @@ namespace Utils.datetime
             return targetDay.ToString("yyyy-MM-dd");
         }
 
+        public static string GetToday()
+        {
+            var today = DateTime.Today;
+            return today.ToString("yyyy-MM-dd");
+        }
+
         public static string GetTomorrow()
         {
             var today = DateTime.Today;
