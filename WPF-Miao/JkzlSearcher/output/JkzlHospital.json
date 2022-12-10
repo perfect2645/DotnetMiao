@@ -1,450 +1,18 @@
 ﻿{
-  "HospitalId": "1000086",
-  "HospitalName": "吉林省脑科医院",
-  "Province": "吉林",
-  "City": "四平",
-  "Address": "吉林省四平市中央西路98号",
-  "Departments": {
-    "7184497": {
-      "DeptId": "7184497",
-      "DeptName": "高压氧舱",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000133",
-  "HospitalName": "沈阳市铁西区中心医院",
-  "Province": "辽宁",
-  "City": "沈阳",
-  "Address": "辽宁省沈阳市",
-  "Departments": {
-    "88535": {
-      "DeptId": "88535",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "88537": {
-      "DeptId": "88537",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "88543": {
-      "DeptId": "88543",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "88540": {
-      "DeptId": "88540",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "88544": {
-      "DeptId": "88544",
-      "DeptName": "眼科",
-      "Doctors": null
-    },
-    "7073910": {
-      "DeptId": "7073910",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "7073925": {
-      "DeptId": "7073925",
-      "DeptName": "心电图",
-      "Doctors": null
-    },
-    "88545": {
-      "DeptId": "88545",
-      "DeptName": "针灸科",
-      "Doctors": null
-    },
-    "88542": {
-      "DeptId": "88542",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "88541": {
-      "DeptId": "88541",
-      "DeptName": "外科",
-      "Doctors": null
-    },
-    "88539": {
-      "DeptId": "88539",
-      "DeptName": "内科",
-      "Doctors": null
-    },
-    "88538": {
-      "DeptId": "88538",
-      "DeptName": "急诊科",
-      "Doctors": null
-    },
-    "88536": {
-      "DeptId": "88536",
-      "DeptName": "超声诊断科",
-      "Doctors": null
-    }
-  }
-},
-{
   "HospitalId": "1000204",
   "HospitalName": "浙江萧山医院",
   "Province": "浙江",
   "City": "杭州",
   "Address": "无",
   "Departments": {
-    "88733": {
-      "DeptId": "88733",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "88734": {
-      "DeptId": "88734",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "7077925": {
-      "DeptId": "7077925",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "88732": {
-      "DeptId": "88732",
-      "DeptName": "外科",
-      "Doctors": null
-    },
-    "88731": {
-      "DeptId": "88731",
-      "DeptName": "肿瘤外科",
-      "Doctors": null
-    },
-    "88730": {
-      "DeptId": "88730",
-      "DeptName": "肿瘤内科",
-      "Doctors": null
-    },
-    "88729": {
-      "DeptId": "88729",
-      "DeptName": "细胞治疗康复中心",
-      "Doctors": null
-    },
-    "88728": {
-      "DeptId": "88728",
-      "DeptName": "心理咨询",
-      "Doctors": null
-    },
-    "88727": {
-      "DeptId": "88727",
-      "DeptName": "精神科",
-      "Doctors": null
-    },
-    "88726": {
-      "DeptId": "88726",
-      "DeptName": "失眠门诊",
-      "Doctors": null
-    },
-    "88725": {
-      "DeptId": "88725",
-      "DeptName": "理疗科",
-      "Doctors": null
-    },
-    "7077931": {
-      "DeptId": "7077931",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "7077935": {
-      "DeptId": "7077935",
-      "DeptName": "康复科",
-      "Doctors": null
-    },
-    "7077942": {
-      "DeptId": "7077942",
-      "DeptName": "泌尿外科",
-      "Doctors": null
-    },
     "7077943": {
       "DeptId": "7077943",
       "DeptName": "男科",
       "Doctors": null
     },
-    "7077946": {
-      "DeptId": "7077946",
-      "DeptName": "烧伤整形医疗美容科",
-      "Doctors": null
-    },
-    "7077988": {
-      "DeptId": "7077988",
-      "DeptName": "风湿免疫肾病科",
-      "Doctors": null
-    },
-    "7078032": {
-      "DeptId": "7078032",
-      "DeptName": "中医肿瘤科",
-      "Doctors": null
-    },
     "7078871": {
       "DeptId": "7078871",
       "DeptName": "全科医疗科",
-      "Doctors": null
-    },
-    "7078876": {
-      "DeptId": "7078876",
-      "DeptName": "呼吸内科",
-      "Doctors": null
-    },
-    "7078906": {
-      "DeptId": "7078906",
-      "DeptName": "血管外科",
-      "Doctors": null
-    },
-    "7078957": {
-      "DeptId": "7078957",
-      "DeptName": "神经外科",
-      "Doctors": null
-    },
-    "7079412": {
-      "DeptId": "7079412",
-      "DeptName": "血液内科",
-      "Doctors": null
-    },
-    "7079861": {
-      "DeptId": "7079861",
-      "DeptName": "心血管内科",
-      "Doctors": null
-    },
-    "7079885": {
-      "DeptId": "7079885",
-      "DeptName": "普外科",
-      "Doctors": null
-    },
-    "7079890": {
-      "DeptId": "7079890",
-      "DeptName": "疼痛科",
-      "Doctors": null
-    },
-    "7079897": {
-      "DeptId": "7079897",
-      "DeptName": "肿瘤放疗",
-      "Doctors": null
-    },
-    "7079915": {
-      "DeptId": "7079915",
-      "DeptName": "医学影像中心",
-      "Doctors": null
-    },
-    "7086964": {
-      "DeptId": "7086964",
-      "DeptName": "针灸科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000217",
-  "HospitalName": "楚雄州人民医院",
-  "Province": "云南",
-  "City": "楚雄",
-  "Address": "云南省楚雄市鹿城南路318号",
-  "Departments": {
-    "7186846": {
-      "DeptId": "7186846",
-      "DeptName": "消化内科",
-      "Doctors": null
-    },
-    "7186819": {
-      "DeptId": "7186819",
-      "DeptName": "麻醉科",
-      "Doctors": null
-    },
-    "7186836": {
-      "DeptId": "7186836",
-      "DeptName": "泌尿外科",
-      "Doctors": null
-    },
-    "7186820": {
-      "DeptId": "7186820",
-      "DeptName": "老年病科",
-      "Doctors": null
-    },
-    "7186837": {
-      "DeptId": "7186837",
-      "DeptName": "康复医学科",
-      "Doctors": null
-    },
-    "7186841": {
-      "DeptId": "7186841",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "7186842": {
-      "DeptId": "7186842",
-      "DeptName": "普外科",
-      "Doctors": null
-    },
-    "7186838": {
-      "DeptId": "7186838",
-      "DeptName": "新生儿科",
-      "Doctors": null
-    },
-    "7186839": {
-      "DeptId": "7186839",
-      "DeptName": "血液科",
-      "Doctors": null
-    },
-    "7186843": {
-      "DeptId": "7186843",
-      "DeptName": "神经外科",
-      "Doctors": null
-    },
-    "7186844": {
-      "DeptId": "7186844",
-      "DeptName": "眼科",
-      "Doctors": null
-    },
-    "7186845": {
-      "DeptId": "7186845",
-      "DeptName": "病理科",
-      "Doctors": null
-    },
-    "7186826": {
-      "DeptId": "7186826",
-      "DeptName": "超声医学科",
-      "Doctors": null
-    },
-    "7186827": {
-      "DeptId": "7186827",
-      "DeptName": "胸心外科",
-      "Doctors": null
-    },
-    "7186828": {
-      "DeptId": "7186828",
-      "DeptName": "放射科",
-      "Doctors": null
-    },
-    "7186829": {
-      "DeptId": "7186829",
-      "DeptName": "乳腺外科",
-      "Doctors": null
-    },
-    "7186830": {
-      "DeptId": "7186830",
-      "DeptName": "神经内科",
-      "Doctors": null
-    },
-    "7186840": {
-      "DeptId": "7186840",
-      "DeptName": "内分泌科",
-      "Doctors": null
-    },
-    "7186847": {
-      "DeptId": "7186847",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "7186848": {
-      "DeptId": "7186848",
-      "DeptName": "运动医学科脊柱外科",
-      "Doctors": null
-    },
-    "7186849": {
-      "DeptId": "7186849",
-      "DeptName": "精神科",
-      "Doctors": null
-    },
-    "7186850": {
-      "DeptId": "7186850",
-      "DeptName": "急诊科",
-      "Doctors": null
-    },
-    "7186851": {
-      "DeptId": "7186851",
-      "DeptName": "呼吸内科",
-      "Doctors": null
-    },
-    "7186861": {
-      "DeptId": "7186861",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "7186862": {
-      "DeptId": "7186862",
-      "DeptName": "干部内科",
-      "Doctors": null
-    },
-    "7186871": {
-      "DeptId": "7186871",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7186852": {
-      "DeptId": "7186852",
-      "DeptName": "中医、风湿免疫科",
-      "Doctors": null
-    },
-    "7186872": {
-      "DeptId": "7186872",
-      "DeptName": "肿瘤科",
-      "Doctors": null
-    },
-    "7186853": {
-      "DeptId": "7186853",
-      "DeptName": "重症医学科",
-      "Doctors": null
-    },
-    "7186873": {
-      "DeptId": "7186873",
-      "DeptName": "产科",
-      "Doctors": null
-    },
-    "7186863": {
-      "DeptId": "7186863",
-      "DeptName": "药剂科",
-      "Doctors": null
-    },
-    "7186874": {
-      "DeptId": "7186874",
-      "DeptName": "感染性疾病科",
-      "Doctors": null
-    },
-    "7186864": {
-      "DeptId": "7186864",
-      "DeptName": "血管外科",
-      "Doctors": null
-    },
-    "7186854": {
-      "DeptId": "7186854",
-      "DeptName": "肝胆外科",
-      "Doctors": null
-    },
-    "7186855": {
-      "DeptId": "7186855",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "7186856": {
-      "DeptId": "7186856",
-      "DeptName": "心内科",
-      "Doctors": null
-    },
-    "7186857": {
-      "DeptId": "7186857",
-      "DeptName": "骨科",
-      "Doctors": null
-    },
-    "7186875": {
-      "DeptId": "7186875",
-      "DeptName": "检验科",
-      "Doctors": null
-    },
-    "7186865": {
-      "DeptId": "7186865",
-      "DeptName": "肾病内科",
-      "Doctors": null
-    },
-    "7186858": {
-      "DeptId": "7186858",
-      "DeptName": "生殖医学科",
       "Doctors": null
     }
   }
@@ -456,26 +24,6 @@
   "City": "昆明",
   "Address": "云南省昆明市西山区人民西路343号",
   "Departments": {
-    "88739": {
-      "DeptId": "88739",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "7239657": {
-      "DeptId": "7239657",
-      "DeptName": "白癜风专科",
-      "Doctors": null
-    },
-    "7239663": {
-      "DeptId": "7239663",
-      "DeptName": "白癜风",
-      "Doctors": null
-    },
-    "7239636": {
-      "DeptId": "7239636",
-      "DeptName": "白班",
-      "Doctors": null
-    },
     "7239550": {
       "DeptId": "7239550",
       "DeptName": "青春痘科",
@@ -510,11 +58,6 @@
   "City": "成都",
   "Address": "四川省成都市金牛区一环路西三段13号",
   "Departments": {
-    "7209009": {
-      "DeptId": "7209009",
-      "DeptName": "特邀专家门诊(妇科)",
-      "Doctors": null
-    },
     "7200997": {
       "DeptId": "7200997",
       "DeptName": "特邀专家门诊（男科）",
@@ -530,21 +73,6 @@
       "DeptName": "不孕不育（男性）",
       "Doctors": null
     },
-    "7200996": {
-      "DeptId": "7200996",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "7209022": {
-      "DeptId": "7209022",
-      "DeptName": "外科",
-      "Doctors": null
-    },
-    "7200995": {
-      "DeptId": "7200995",
-      "DeptName": "复发性流产与保胎",
-      "Doctors": null
-    },
     "7200998": {
       "DeptId": "7200998",
       "DeptName": "青少年生殖发育门诊",
@@ -553,11 +81,6 @@
     "7208976": {
       "DeptId": "7208976",
       "DeptName": "计划生育门诊",
-      "Doctors": null
-    },
-    "7108922": {
-      "DeptId": "7108922",
-      "DeptName": "中医科",
       "Doctors": null
     }
   }
@@ -569,39 +92,14 @@
   "City": "成都",
   "Address": "成都市青羊区鼓楼北四街99号（草市街和平电影院背后",
   "Departments": {
-    "88814": {
-      "DeptId": "88814",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
     "88818": {
       "DeptId": "88818",
       "DeptName": "生殖健康科",
       "Doctors": null
     },
-    "88817": {
-      "DeptId": "88817",
-      "DeptName": "皮肤病",
-      "Doctors": null
-    },
-    "88815": {
-      "DeptId": "88815",
-      "DeptName": "康复科",
-      "Doctors": null
-    },
-    "88813": {
-      "DeptId": "88813",
-      "DeptName": "妇产科",
-      "Doctors": null
-    },
     "88812": {
       "DeptId": "88812",
       "DeptName": "介入治疗科",
-      "Doctors": null
-    },
-    "88811": {
-      "DeptId": "88811",
-      "DeptName": "检验科",
       "Doctors": null
     }
   }
@@ -613,11 +111,6 @@
   "City": "青岛市",
   "Address": "山东省青岛市四方区抚顺路9号",
   "Departments": {
-    "88830": {
-      "DeptId": "88830",
-      "DeptName": "内科",
-      "Doctors": null
-    },
     "88829": {
       "DeptId": "88829",
       "DeptName": "肝病区",
@@ -632,69 +125,9 @@
   "City": "西宁",
   "Address": "青海省西宁市城东区共和路15号",
   "Departments": {
-    "7010680": {
-      "DeptId": "7010680",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "7010683": {
-      "DeptId": "7010683",
-      "DeptName": "神经内科",
-      "Doctors": null
-    },
-    "7010681": {
-      "DeptId": "7010681",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "7010678": {
-      "DeptId": "7010678",
-      "DeptName": "眼科",
-      "Doctors": null
-    },
-    "7010673": {
-      "DeptId": "7010673",
-      "DeptName": "小儿内科",
-      "Doctors": null
-    },
-    "7010674": {
-      "DeptId": "7010674",
-      "DeptName": "小儿外科",
-      "Doctors": null
-    },
     "7010675": {
       "DeptId": "7010675",
       "DeptName": "小儿急救",
-      "Doctors": null
-    },
-    "7010676": {
-      "DeptId": "7010676",
-      "DeptName": "妇产科",
-      "Doctors": null
-    },
-    "7010679": {
-      "DeptId": "7010679",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "7010682": {
-      "DeptId": "7010682",
-      "DeptName": "血液科",
-      "Doctors": null
-    },
-    "7010685": {
-      "DeptId": "7010685",
-      "DeptName": "感染科",
-      "Doctors": null
-    },
-    "7041641": {
-      "DeptId": "7041641",
-      "DeptName": "肾病科",
-      "Doctors": null
-    },
-    "7041645": {
-      "DeptId": "7041645",
-      "DeptName": "新生儿科",
       "Doctors": null
     },
     "7041646": {
@@ -702,44 +135,9 @@
       "DeptName": "呼吸科",
       "Doctors": null
     },
-    "7041839": {
-      "DeptId": "7041839",
-      "DeptName": "内科门诊",
-      "Doctors": null
-    },
-    "7047971": {
-      "DeptId": "7047971",
-      "DeptName": "乳腺科",
-      "Doctors": null
-    },
     "7070615": {
       "DeptId": "7070615",
       "DeptName": "儿保科",
-      "Doctors": null
-    },
-    "7070701": {
-      "DeptId": "7070701",
-      "DeptName": "检验科",
-      "Doctors": null
-    },
-    "7070702": {
-      "DeptId": "7070702",
-      "DeptName": "放射科",
-      "Doctors": null
-    },
-    "7070703": {
-      "DeptId": "7070703",
-      "DeptName": "药剂科",
-      "Doctors": null
-    },
-    "7157704": {
-      "DeptId": "7157704",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "7224382": {
-      "DeptId": "7224382",
-      "DeptName": "内分泌科",
       "Doctors": null
     }
   }
@@ -754,54 +152,6 @@
     "7140041": {
       "DeptId": "7140041",
       "DeptName": "体检科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000313",
-  "HospitalName": "太和县医院",
-  "Province": "辽宁",
-  "City": "锦州",
-  "Address": "辽宁省锦州市凌河区中央大街",
-  "Departments": {
-    "88899": {
-      "DeptId": "88899",
-      "DeptName": "感染科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000367",
-  "HospitalName": "新会市中医院",
-  "Province": "广东",
-  "City": "江门",
-  "Address": "广东省江门市新会区南宁街14号",
-  "Departments": {
-    "88995": {
-      "DeptId": "88995",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "89001": {
-      "DeptId": "89001",
-      "DeptName": "骨伤科",
-      "Doctors": null
-    },
-    "88998": {
-      "DeptId": "88998",
-      "DeptName": "外科",
-      "Doctors": null
-    },
-    "88997": {
-      "DeptId": "88997",
-      "DeptName": "内科",
-      "Doctors": null
-    },
-    "88996": {
-      "DeptId": "88996",
-      "DeptName": "急诊科",
       "Doctors": null
     }
   }
@@ -827,74 +177,9 @@
   "City": "深圳",
   "Address": "广东省深圳市龙岗区晨光路1号",
   "Departments": {
-    "89071": {
-      "DeptId": "89071",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "89059": {
-      "DeptId": "89059",
-      "DeptName": "影像科",
-      "Doctors": null
-    },
-    "89072": {
-      "DeptId": "89072",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "89070": {
-      "DeptId": "89070",
-      "DeptName": "五官科",
-      "Doctors": null
-    },
-    "89068": {
-      "DeptId": "89068",
-      "DeptName": "泌尿碎石科",
-      "Doctors": null
-    },
-    "89067": {
-      "DeptId": "89067",
-      "DeptName": "外科",
-      "Doctors": null
-    },
-    "89066": {
-      "DeptId": "89066",
-      "DeptName": "疼痛专科",
-      "Doctors": null
-    },
-    "89065": {
-      "DeptId": "89065",
-      "DeptName": "皮肤性病",
-      "Doctors": null
-    },
-    "89064": {
-      "DeptId": "89064",
-      "DeptName": "内科",
-      "Doctors": null
-    },
-    "89063": {
-      "DeptId": "89063",
-      "DeptName": "康复医学科",
-      "Doctors": null
-    },
     "89062": {
       "DeptId": "89062",
       "DeptName": "中毒、急救",
-      "Doctors": null
-    },
-    "89061": {
-      "DeptId": "89061",
-      "DeptName": "妇产科",
-      "Doctors": null
-    },
-    "89060": {
-      "DeptId": "89060",
-      "DeptName": "麻醉科",
-      "Doctors": null
-    },
-    "89058": {
-      "DeptId": "89058",
-      "DeptName": "儿科",
       "Doctors": null
     }
   }
@@ -906,44 +191,9 @@
   "City": "安顺",
   "Address": "安顺市虹山湖路22号",
   "Departments": {
-    "7098292": {
-      "DeptId": "7098292",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7098565": {
-      "DeptId": "7098565",
-      "DeptName": "产科",
-      "Doctors": null
-    },
-    "7103645": {
-      "DeptId": "7103645",
-      "DeptName": "骨科",
-      "Doctors": null
-    },
-    "7103784": {
-      "DeptId": "7103784",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "7109893": {
-      "DeptId": "7109893",
-      "DeptName": "内科",
-      "Doctors": null
-    },
-    "7109894": {
-      "DeptId": "7109894",
-      "DeptName": "外科",
-      "Doctors": null
-    },
     "7207224": {
       "DeptId": "7207224",
       "DeptName": "发热门诊",
-      "Doctors": null
-    },
-    "7207280": {
-      "DeptId": "7207280",
-      "DeptName": "心理科",
       "Doctors": null
     }
   }
@@ -955,33 +205,9 @@
   "City": "铜仁",
   "Address": "铜仁市碧江区解放路87号",
   "Departments": {
-    "7095565": {
-      "DeptId": "7095565",
-      "DeptName": "神经内科",
-      "Doctors": null
-    },
-    "7216884": {
-      "DeptId": "7216884",
-      "DeptName": "消化内科",
-      "Doctors": null
-    },
     "7221257": {
       "DeptId": "7221257",
       "DeptName": "儿童保健科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000463",
-  "HospitalName": "哈尔滨骨伤科医院",
-  "Province": "黑龙江",
-  "City": "哈尔滨",
-  "Address": "哈尔滨市南岗区西大直街214号",
-  "Departments": {
-    "89208": {
-      "DeptId": "89208",
-      "DeptName": "整形美容科",
       "Doctors": null
     }
   }
@@ -998,163 +224,14 @@
       "DeptName": "门诊部",
       "Doctors": null
     },
-    "7060414": {
-      "DeptId": "7060414",
-      "DeptName": "肾脏内科",
-      "Doctors": null
-    },
-    "7060415": {
-      "DeptId": "7060415",
-      "DeptName": "呼吸内科",
-      "Doctors": null
-    },
-    "7060417": {
-      "DeptId": "7060417",
-      "DeptName": "消化内科",
-      "Doctors": null
-    },
-    "7060432": {
-      "DeptId": "7060432",
-      "DeptName": "感染科",
-      "Doctors": null
-    },
-    "7060433": {
-      "DeptId": "7060433",
-      "DeptName": "肿瘤科",
-      "Doctors": null
-    },
-    "7060435": {
-      "DeptId": "7060435",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7060436": {
-      "DeptId": "7060436",
-      "DeptName": "心胸外科",
-      "Doctors": null
-    },
-    "7060447": {
-      "DeptId": "7060447",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "7060448": {
-      "DeptId": "7060448",
-      "DeptName": "产科",
-      "Doctors": null
-    },
     "7060451": {
       "DeptId": "7060451",
       "DeptName": "肛肠科",
       "Doctors": null
     },
-    "7060453": {
-      "DeptId": "7060453",
-      "DeptName": "普通外科",
-      "Doctors": null
-    },
-    "7060457": {
-      "DeptId": "7060457",
-      "DeptName": "神经外科",
-      "Doctors": null
-    },
-    "7060459": {
-      "DeptId": "7060459",
-      "DeptName": "关节骨病门诊",
-      "Doctors": null
-    },
-    "7060464": {
-      "DeptId": "7060464",
-      "DeptName": "脊柱手外门诊",
-      "Doctors": null
-    },
     "7060468": {
       "DeptId": "7060468",
       "DeptName": "四肢微创门诊",
-      "Doctors": null
-    },
-    "7060476": {
-      "DeptId": "7060476",
-      "DeptName": "眼科",
-      "Doctors": null
-    },
-    "7060478": {
-      "DeptId": "7060478",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "7060482": {
-      "DeptId": "7060482",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "7060483": {
-      "DeptId": "7060483",
-      "DeptName": "中医内科",
-      "Doctors": null
-    },
-    "7060485": {
-      "DeptId": "7060485",
-      "DeptName": "老年病科",
-      "Doctors": null
-    },
-    "7060488": {
-      "DeptId": "7060488",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "7060663": {
-      "DeptId": "7060663",
-      "DeptName": "心血管内科",
-      "Doctors": null
-    },
-    "7060671": {
-      "DeptId": "7060671",
-      "DeptName": "神经血液内科内分泌科",
-      "Doctors": null
-    },
-    "7060769": {
-      "DeptId": "7060769",
-      "DeptName": "泌尿外科",
-      "Doctors": null
-    },
-    "7061311": {
-      "DeptId": "7061311",
-      "DeptName": "康复科疼痛专科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000490",
-  "HospitalName": "武警山东省总队医院",
-  "Province": "山东",
-  "City": "济南",
-  "Address": "山东省济南市历下区浆水泉路12-8号",
-  "Departments": {
-    "89278": {
-      "DeptId": "89278",
-      "DeptName": "肿瘤生物治疗中心",
-      "Doctors": null
-    },
-    "89277": {
-      "DeptId": "89277",
-      "DeptName": "泌尿外科",
-      "Doctors": null
-    },
-    "7072680": {
-      "DeptId": "7072680",
-      "DeptName": "普外科",
-      "Doctors": null
-    },
-    "7073623": {
-      "DeptId": "7073623",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7084664": {
-      "DeptId": "7084664",
-      "DeptName": "内分泌科",
       "Doctors": null
     }
   }
@@ -1176,34 +253,14 @@
       "DeptName": "肝病消化科",
       "Doctors": null
     },
-    "7029443": {
-      "DeptId": "7029443",
-      "DeptName": "感染性疾病科",
-      "Doctors": null
-    },
     "7047187": {
       "DeptId": "7047187",
       "DeptName": "慢性肝病科",
       "Doctors": null
     },
-    "7047188": {
-      "DeptId": "7047188",
-      "DeptName": "急诊科",
-      "Doctors": null
-    },
     "7047190": {
       "DeptId": "7047190",
       "DeptName": "肝病呼吸科",
-      "Doctors": null
-    },
-    "7048425": {
-      "DeptId": "7048425",
-      "DeptName": "妇产一科",
-      "Doctors": null
-    },
-    "7048427": {
-      "DeptId": "7048427",
-      "DeptName": "麻醉科",
       "Doctors": null
     }
   }
@@ -1215,19 +272,9 @@
   "City": "哈尔滨",
   "Address": "哈尔滨市平房区尾健街3号",
   "Departments": {
-    "7186431": {
-      "DeptId": "7186431",
-      "DeptName": "疼痛科",
-      "Doctors": null
-    },
     "7186422": {
       "DeptId": "7186422",
       "DeptName": "性病科",
-      "Doctors": null
-    },
-    "7186418": {
-      "DeptId": "7186418",
-      "DeptName": "康复科",
       "Doctors": null
     }
   }
@@ -1263,21 +310,6 @@
   "City": "南京",
   "Address": "江苏省南京市玄武区富贵巷10号",
   "Departments": {
-    "89304": {
-      "DeptId": "89304",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "89309": {
-      "DeptId": "89309",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "89310": {
-      "DeptId": "89310",
-      "DeptName": "肿瘤科",
-      "Doctors": null
-    },
     "89307": {
       "DeptId": "89307",
       "DeptName": "激光专科",
@@ -1286,11 +318,6 @@
     "89306": {
       "DeptId": "89306",
       "DeptName": "哮喘专科",
-      "Doctors": null
-    },
-    "89305": {
-      "DeptId": "89305",
-      "DeptName": "内科",
       "Doctors": null
     }
   }
@@ -1302,94 +329,9 @@
   "City": "深圳",
   "Address": "广东省深圳市罗湖区松园路167",
   "Departments": {
-    "89313": {
-      "DeptId": "89313",
-      "DeptName": "产科",
-      "Doctors": null
-    },
-    "89315": {
-      "DeptId": "89315",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "89320": {
-      "DeptId": "89320",
-      "DeptName": "呼吸内科",
-      "Doctors": null
-    },
-    "89332": {
-      "DeptId": "89332",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "89326": {
-      "DeptId": "89326",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "89323": {
-      "DeptId": "89323",
-      "DeptName": "消化内科",
-      "Doctors": null
-    },
-    "89333": {
-      "DeptId": "89333",
-      "DeptName": "眼科",
-      "Doctors": null
-    },
-    "89338": {
-      "DeptId": "89338",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "89336": {
-      "DeptId": "89336",
-      "DeptName": "生活美容馆",
-      "Doctors": null
-    },
-    "89335": {
-      "DeptId": "89335",
-      "DeptName": "整形美容科",
-      "Doctors": null
-    },
-    "89334": {
-      "DeptId": "89334",
-      "DeptName": "激光美容科",
-      "Doctors": null
-    },
-    "89331": {
-      "DeptId": "89331",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "89330": {
-      "DeptId": "89330",
-      "DeptName": "乳腺外科",
-      "Doctors": null
-    },
-    "89329": {
-      "DeptId": "89329",
-      "DeptName": "泌尿外科",
-      "Doctors": null
-    },
-    "89327": {
-      "DeptId": "89327",
-      "DeptName": "外科",
-      "Doctors": null
-    },
     "89325": {
       "DeptId": "89325",
       "DeptName": "男科",
-      "Doctors": null
-    },
-    "89324": {
-      "DeptId": "89324",
-      "DeptName": "心脑血管内科",
-      "Doctors": null
-    },
-    "89321": {
-      "DeptId": "89321",
-      "DeptName": "内分泌专科",
       "Doctors": null
     },
     "89318": {
@@ -1407,11 +349,6 @@
       "DeptName": "孕妇学校",
       "Doctors": null
     },
-    "89312": {
-      "DeptId": "89312",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
     "89311": {
       "DeptId": "89311",
       "DeptName": "体检科",
@@ -1426,29 +363,9 @@
   "City": "成都",
   "Address": "四川省成都市青羊区青华路51号(杜甫草堂旁)",
   "Departments": {
-    "7200603": {
-      "DeptId": "7200603",
-      "DeptName": "耳鼻喉甲状腺专家门诊",
-      "Doctors": null
-    },
-    "7207052": {
-      "DeptId": "7207052",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "7200988": {
-      "DeptId": "7200988",
-      "DeptName": "耳鼻喉头颈外科",
-      "Doctors": null
-    },
     "7218188": {
       "DeptId": "7218188",
       "DeptName": "耳部专病门诊",
-      "Doctors": null
-    },
-    "7238555": {
-      "DeptId": "7238555",
-      "DeptName": "义诊-耳鼻喉",
       "Doctors": null
     }
   }
@@ -1460,54 +377,9 @@
   "City": "石家庄",
   "Address": "河北省石家庄新石北路385号",
   "Departments": {
-    "89368": {
-      "DeptId": "89368",
-      "DeptName": "病理科",
-      "Doctors": null
-    },
-    "89369": {
-      "DeptId": "89369",
-      "DeptName": "放射科",
-      "Doctors": null
-    },
-    "89372": {
-      "DeptId": "89372",
-      "DeptName": "妇科",
-      "Doctors": null
-    },
-    "89401": {
-      "DeptId": "89401",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "89391": {
-      "DeptId": "89391",
-      "DeptName": "消化内科",
-      "Doctors": null
-    },
     "7089057": {
       "DeptId": "7089057",
       "DeptName": "中西医结合科",
-      "Doctors": null
-    },
-    "7089112": {
-      "DeptId": "7089112",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7089421": {
-      "DeptId": "7089421",
-      "DeptName": "肾病科",
-      "Doctors": null
-    },
-    "7090101": {
-      "DeptId": "7090101",
-      "DeptName": "妇产科",
-      "Doctors": null
-    },
-    "7090114": {
-      "DeptId": "7090114",
-      "DeptName": "神经外科",
       "Doctors": null
     },
     "7090160": {
@@ -1515,24 +387,9 @@
       "DeptName": "肌肉萎缩科",
       "Doctors": null
     },
-    "7090563": {
-      "DeptId": "7090563",
-      "DeptName": "康复科",
-      "Doctors": null
-    },
     "7236402": {
       "DeptId": "7236402",
       "DeptName": "肺病科",
-      "Doctors": null
-    },
-    "89405": {
-      "DeptId": "89405",
-      "DeptName": "肿瘤科",
-      "Doctors": null
-    },
-    "89404": {
-      "DeptId": "89404",
-      "DeptName": "针灸理疗科",
       "Doctors": null
     },
     "89403": {
@@ -1540,64 +397,14 @@
       "DeptName": "进行性肌营养不良症研究室",
       "Doctors": null
     },
-    "89402": {
-      "DeptId": "89402",
-      "DeptName": "眼底病治疗中心",
-      "Doctors": null
-    },
-    "89400": {
-      "DeptId": "89400",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
     "89397": {
       "DeptId": "89397",
       "DeptName": "脊髓疾病研究室",
       "Doctors": null
     },
-    "89396": {
-      "DeptId": "89396",
-      "DeptName": "骨病科",
-      "Doctors": null
-    },
-    "89395": {
-      "DeptId": "89395",
-      "DeptName": "外科",
-      "Doctors": null
-    },
-    "89393": {
-      "DeptId": "89393",
-      "DeptName": "心内科",
-      "Doctors": null
-    },
-    "89390": {
-      "DeptId": "89390",
-      "DeptName": "肾病特色专科",
-      "Doctors": null
-    },
     "89388": {
       "DeptId": "89388",
       "DeptName": "神经疾病科",
-      "Doctors": null
-    },
-    "89387": {
-      "DeptId": "89387",
-      "DeptName": "脑内科",
-      "Doctors": null
-    },
-    "89386": {
-      "DeptId": "89386",
-      "DeptName": "重症肌无力中心",
-      "Doctors": null
-    },
-    "89385": {
-      "DeptId": "89385",
-      "DeptName": "肌萎缩中心",
-      "Doctors": null
-    },
-    "89383": {
-      "DeptId": "89383",
-      "DeptName": "糖尿病治疗中心",
       "Doctors": null
     },
     "89377": {
@@ -1610,31 +417,6 @@
       "DeptName": "风湿免疫专科",
       "Doctors": null
     },
-    "89375": {
-      "DeptId": "89375",
-      "DeptName": "直性脊柱炎特色专科",
-      "Doctors": null
-    },
-    "89374": {
-      "DeptId": "89374",
-      "DeptName": "心理科",
-      "Doctors": null
-    },
-    "89373": {
-      "DeptId": "89373",
-      "DeptName": "急诊科",
-      "Doctors": null
-    },
-    "89371": {
-      "DeptId": "89371",
-      "DeptName": "麻醉科",
-      "Doctors": null
-    },
-    "89370": {
-      "DeptId": "89370",
-      "DeptName": "检验科",
-      "Doctors": null
-    },
     "89367": {
       "DeptId": "89367",
       "DeptName": "肌电图室",
@@ -1643,34 +425,6 @@
     "89366": {
       "DeptId": "89366",
       "DeptName": "功能科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000622",
-  "HospitalName": "河北友爱医院",
-  "Province": "河北",
-  "City": "石家庄",
-  "Address": "河北省石家庄市槐中路415号",
-  "Departments": {
-    "89407": {
-      "DeptId": "89407",
-      "DeptName": "肾内科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000660",
-  "HospitalName": "承德市口腔医院",
-  "Province": "河北",
-  "City": "承德",
-  "Address": "河北省承德市双桥区南营子大街15号",
-  "Departments": {
-    "89410": {
-      "DeptId": "89410",
-      "DeptName": "口腔综合科",
       "Doctors": null
     }
   }
@@ -1705,30 +459,6 @@
   }
 },
 {
-  "HospitalId": "1000904",
-  "HospitalName": "衡水市第二人民医院",
-  "Province": "河北",
-  "City": "衡水",
-  "Address": "河北省衡水市桃城区永兴东路",
-  "Departments": {
-    "7216184": {
-      "DeptId": "7216184",
-      "DeptName": "呼吸内科",
-      "Doctors": null
-    },
-    "7216363": {
-      "DeptId": "7216363",
-      "DeptName": "小儿内科",
-      "Doctors": null
-    },
-    "89411": {
-      "DeptId": "89411",
-      "DeptName": "心理科",
-      "Doctors": null
-    }
-  }
-},
-{
   "HospitalId": "1000984",
   "HospitalName": "邢台县中医院",
   "Province": "河北",
@@ -1749,34 +479,9 @@
   "City": "长治",
   "Address": "长治东路102号",
   "Departments": {
-    "7057808": {
-      "DeptId": "7057808",
-      "DeptName": "普外科",
-      "Doctors": null
-    },
     "7057866": {
       "DeptId": "7057866",
       "DeptName": "功能科",
-      "Doctors": null
-    },
-    "7057906": {
-      "DeptId": "7057906",
-      "DeptName": "妇产科",
-      "Doctors": null
-    },
-    "7057909": {
-      "DeptId": "7057909",
-      "DeptName": "检验科",
-      "Doctors": null
-    },
-    "7057921": {
-      "DeptId": "7057921",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "7057922": {
-      "DeptId": "7057922",
-      "DeptName": "内科",
       "Doctors": null
     },
     "7057923": {
@@ -1788,26 +493,6 @@
       "DeptId": "7057924",
       "DeptName": "预防保健科",
       "Doctors": null
-    },
-    "7057925": {
-      "DeptId": "7057925",
-      "DeptName": "五官科",
-      "Doctors": null
-    },
-    "7058022": {
-      "DeptId": "7058022",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7058027": {
-      "DeptId": "7058027",
-      "DeptName": "急诊科",
-      "Doctors": null
-    },
-    "7058223": {
-      "DeptId": "7058223",
-      "DeptName": "医学影像科",
-      "Doctors": null
     }
   }
 },
@@ -1818,39 +503,9 @@
   "City": "临汾",
   "Address": "侯马市浍滨街1号",
   "Departments": {
-    "7050670": {
-      "DeptId": "7050670",
-      "DeptName": "内科",
-      "Doctors": null
-    },
-    "7051101": {
-      "DeptId": "7051101",
-      "DeptName": "外科专家门诊",
-      "Doctors": null
-    },
     "7051102": {
       "DeptId": "7051102",
       "DeptName": "呼吸科",
-      "Doctors": null
-    },
-    "7051103": {
-      "DeptId": "7051103",
-      "DeptName": "消化内分泌科",
-      "Doctors": null
-    },
-    "7051104": {
-      "DeptId": "7051104",
-      "DeptName": "感染科",
-      "Doctors": null
-    },
-    "7051105": {
-      "DeptId": "7051105",
-      "DeptName": "风湿血液肾病科",
-      "Doctors": null
-    },
-    "7051106": {
-      "DeptId": "7051106",
-      "DeptName": "骨科",
       "Doctors": null
     },
     "7051107": {
@@ -1858,134 +513,14 @@
       "DeptName": "烧伤整形科",
       "Doctors": null
     },
-    "7051108": {
-      "DeptId": "7051108",
-      "DeptName": "胸外泌尿科",
-      "Doctors": null
-    },
-    "7051109": {
-      "DeptId": "7051109",
-      "DeptName": "口腔科",
-      "Doctors": null
-    },
-    "7051110": {
-      "DeptId": "7051110",
-      "DeptName": "康复医学科",
-      "Doctors": null
-    },
-    "7051111": {
-      "DeptId": "7051111",
-      "DeptName": "心内科",
-      "Doctors": null
-    },
-    "7051112": {
-      "DeptId": "7051112",
-      "DeptName": "神经内科",
-      "Doctors": null
-    },
-    "7051113": {
-      "DeptId": "7051113",
-      "DeptName": "肿瘤科一",
-      "Doctors": null
-    },
-    "7051114": {
-      "DeptId": "7051114",
-      "DeptName": "肿瘤科二",
-      "Doctors": null
-    },
-    "7051115": {
-      "DeptId": "7051115",
-      "DeptName": "妇产科",
-      "Doctors": null
-    },
-    "7051116": {
-      "DeptId": "7051116",
-      "DeptName": "普外科",
-      "Doctors": null
-    },
-    "7051117": {
-      "DeptId": "7051117",
-      "DeptName": "神经外科",
-      "Doctors": null
-    },
-    "7051118": {
-      "DeptId": "7051118",
-      "DeptName": "眼科",
-      "Doctors": null
-    },
-    "7051119": {
-      "DeptId": "7051119",
-      "DeptName": "耳鼻喉科",
-      "Doctors": null
-    },
-    "7051120": {
-      "DeptId": "7051120",
-      "DeptName": "核医学科",
-      "Doctors": null
-    },
-    "7051121": {
-      "DeptId": "7051121",
-      "DeptName": "儿科",
-      "Doctors": null
-    },
-    "7051122": {
-      "DeptId": "7051122",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "7051123": {
-      "DeptId": "7051123",
-      "DeptName": "中医妇科",
-      "Doctors": null
-    },
-    "7051124": {
-      "DeptId": "7051124",
-      "DeptName": "中医内科",
-      "Doctors": null
-    },
     "7051125": {
       "DeptId": "7051125",
       "DeptName": "方便门诊",
       "Doctors": null
     },
-    "7051126": {
-      "DeptId": "7051126",
-      "DeptName": "皮肤科",
-      "Doctors": null
-    },
-    "7051127": {
-      "DeptId": "7051127",
-      "DeptName": "急诊科",
-      "Doctors": null
-    },
-    "7051128": {
-      "DeptId": "7051128",
-      "DeptName": "针灸科",
-      "Doctors": null
-    },
     "7051129": {
       "DeptId": "7051129",
       "DeptName": "按摩科",
-      "Doctors": null
-    },
-    "7051130": {
-      "DeptId": "7051130",
-      "DeptName": "理疗科",
-      "Doctors": null
-    },
-    "7051131": {
-      "DeptId": "7051131",
-      "DeptName": "产科",
-      "Doctors": null
-    },
-    "7051132": {
-      "DeptId": "7051132",
-      "DeptName": "沁尿外科",
-      "Doctors": null
-    },
-    "7051133": {
-      "DeptId": "7051133",
-      "DeptName": "妇科",
       "Doctors": null
     },
     "7051134": {
@@ -1996,74 +531,6 @@
     "7072197": {
       "DeptId": "7072197",
       "DeptName": "门诊",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1001277",
-  "HospitalName": "临县人民医院",
-  "Province": "山西",
-  "City": "吕梁",
-  "Address": "临县城内新建街",
-  "Departments": {
-    "7156198": {
-      "DeptId": "7156198",
-      "DeptName": "心内科",
-      "Doctors": null
-    },
-    "7156199": {
-      "DeptId": "7156199",
-      "DeptName": "神经内科",
-      "Doctors": null
-    },
-    "7156200": {
-      "DeptId": "7156200",
-      "DeptName": "中医科",
-      "Doctors": null
-    },
-    "7157754": {
-      "DeptId": "7157754",
-      "DeptName": "中医综合科",
-      "Doctors": null
-    },
-    "89432": {
-      "DeptId": "89432",
-      "DeptName": "内科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1001385",
-  "HospitalName": "中国人民解放军五四一总医院",
-  "Province": "山西",
-  "City": "运城",
-  "Address": "山西省闻喜县东镇",
-  "Departments": {
-    "7138845": {
-      "DeptId": "7138845",
-      "DeptName": "心内科",
-      "Doctors": null
-    },
-    "7138846": {
-      "DeptId": "7138846",
-      "DeptName": "神经内科",
-      "Doctors": null
-    },
-    "7138847": {
-      "DeptId": "7138847",
-      "DeptName": "普外科",
-      "Doctors": null
-    },
-    "7138848": {
-      "DeptId": "7138848",
-      "DeptName": "内分泌科",
-      "Doctors": null
-    },
-    "7162145": {
-      "DeptId": "7162145",
-      "DeptName": "内科",
       "Doctors": null
     }
   }
