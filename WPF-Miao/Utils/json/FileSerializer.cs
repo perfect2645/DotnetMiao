@@ -17,5 +17,19 @@ namespace Utils.json
                 return null;
             }
         }
+
+        public static string Serialize<T>(T obj) where T : class
+        {
+            try
+            {
+                var json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                return json;
+            }
+            catch (Exception ex)
+            {
+                Logging.GLog.Logger.Error(ex);
+                return null;
+            }
+        }
     }
 }

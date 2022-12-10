@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Container;
 using JkzlSearcher.auth;
+using JkzlSearcher.output;
 using JkzlSearcher.search.user;
 using JkzlSearcher.session;
 using System;
@@ -47,7 +48,9 @@ namespace JkzlSearcher.search
 
         private void SaveHospital(List<Dictionary<string, object>> depts, Dictionary<string, object> hospital)
         {
-
+            var outputController = new OutputController(depts, hospital);
+            var jsonHospital = outputController.ToHospitalJsoin();
+            outputController.SaveHospital(jsonHospital);
         }
 
         internal async void CheckAuthAsync()

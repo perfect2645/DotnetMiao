@@ -26,5 +26,10 @@ namespace JkzlSearcher.session
                 return CurrentHospitalId.ToString();
             }
         }
+
+        public static void SaveHospital(string hosJson)
+        {
+            OutputLogger.Info(hosJson);
+        }
     }
 }

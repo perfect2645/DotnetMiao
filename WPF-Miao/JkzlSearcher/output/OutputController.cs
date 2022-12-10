@@ -1,12 +1,75 @@
-﻿using System;
+﻿using JkzlSearcher.model;
+using JkzlSearcher.session;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Utils;
+using Utils.json;
+using Utils.stringBuilder;
 
 namespace JkzlSearcher.output
 {
     internal class OutputController
     {
+        public List<Dictionary<string, object>> DepartmentInput { get; set; }
+        public Dictionary<string, object> HospitalInput { get; set; }
+
+        public OutputController(List<Dictionary<string, object>> depts, Dictionary<string, object> hospital)
+        {
+            DepartmentInput = depts;
+            HospitalInput = hospital;
+        }
+
+        public string ToHospitalJsoin()
+        {
+            try
+            {
+                var hospital = BuildHospital();
+                var json = FileSerializer.Serialize(hospital);
+
+                return json;
+            }
+            catch(Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
+                return string.Empty;
+            }
+        }
+
+        private Hospital BuildHospital()
+        {
+            var hosId = HospitalInput.GetString(Constants.HospitalId);
+            var hosName = HospitalInput.GetString(Constants.HosName);
+            var hospital = new Hospital(hosId, hosName)
+            {
+                City = HospitalInput.GetString("cityName"),
+                Province = HospitalInput.GetString("provinceName"),
+                Address = HospitalInput.GetString("address"),
+            };
+
+            var depts = new Dictionary<string, Department>();
+            foreach (var departmentIn in DepartmentInput)
+            {
+                var deptId = departmentIn.GetString(Constants.HosDeptId);
+                var deptName = departmentIn.GetString(Constants.DeptName);
+                var department = new Department(deptId, deptName);
+                depts.Add(deptId, department);
+            }
+
+            hospital.Departments = depts;
+
+            return hospital;
+        }
+
+        public void SaveHospital(string hosJson)
+        {
+            try
+            {
+                MainSession.SaveHospital(hosJson);
+            }
+            catch(Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
+            }
+        }
     }
 }
