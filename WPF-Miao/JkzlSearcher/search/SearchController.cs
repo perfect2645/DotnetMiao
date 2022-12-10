@@ -50,6 +50,10 @@ namespace JkzlSearcher.search
         {
             var outputController = new OutputController(depts, hospital);
             var jsonHospital = outputController.ToHospitalJsoin();
+            if (string.IsNullOrEmpty(jsonHospital))
+            {
+                return;
+            }
             outputController.SaveHospital(jsonHospital);
         }
 
