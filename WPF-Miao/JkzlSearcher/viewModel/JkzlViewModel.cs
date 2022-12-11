@@ -48,6 +48,8 @@ namespace JkzlSearcher.viewModel
             Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_c=-1; jkzlAn_p=-1; jkzlAn_userid=148528129; jkzlAn_channelid=1000031; jkzlAn_ct=1669951588228; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D;";
 
             MainSession.Cookie = Cookie;
+
+            Interval = 500;
         }
 
         private void InitStaticData()
