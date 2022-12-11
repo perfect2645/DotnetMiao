@@ -129,8 +129,8 @@ namespace jieyang.viewmodel
             Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            MainSession.PlatformSession.AddOrUpdate("token", "E8F0F87646FAEFE62B54A807B04E8093EA6A1AB4B615E91B85521DE5C1B095D0CEC89C9E9B01F046E50BD612F74C4C56");
-            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=MjIyMTU2YWYtN2Q5NC00NzAxLTlhN2UtZDI4MTY5MDMyZmIw");
+            MainSession.PlatformSession.AddOrUpdate("token", "454BC6F6B027FA5B0ABBDDD76BE715BF85D8A9CC62F1E86EDFFE4A8B90917933EBD77781BED81676C1C7E854AD158D2B");
+            MainSession.PlatformSession.AddOrUpdate("Cookie", "SESSION=OWFiYmYwMzItM2U2Ni00NDE0LTg1MzEtMGNmYjZhMDhhZGFj");
 
             //MainSession.PlatformSession.AddOrUpdate(Constants.UserId, "78083792");
             //MainSession.PlatformSession.AddOrUpdate(Constants.UserName, "赵梦云");
@@ -138,7 +138,7 @@ namespace jieyang.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 25, 8, 50, 56);
+            StartTime = new DateTime(2022, 12, 11, 8, 59, 56);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
