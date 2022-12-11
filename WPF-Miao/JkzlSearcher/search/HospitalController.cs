@@ -1,4 +1,5 @@
-﻿using HttpProcessor.Client;
+﻿using Base.viewmodel.status;
+using HttpProcessor.Client;
 using HttpProcessor.Content;
 using JkzlSearcher.session;
 using System.Collections.Generic;
@@ -33,7 +34,12 @@ namespace JkzlSearcher.search
             var code = response.Body.FirstOrDefault(x => x.Key == Constants.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                Log($"{Constants.ProjectName}:{response.Body["Message"]}, hospitalId = {hospitalId}");
+                var msg = response.Body.GetString("Message");
+                Log($"{Constants.ProjectName}:{msg}, hospitalId = {hospitalId}");
+                if (!string.IsNullOrEmpty(msg) && msg.Contains("频繁"))
+                {
+                    MainSession.SetStatus(MiaoProgress.Searchend);
+                }
                 return null;
             }
 

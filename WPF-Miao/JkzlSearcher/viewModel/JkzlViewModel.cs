@@ -1,4 +1,5 @@
-﻿using Base.viewModel;
+﻿using Base.viewmodel.status;
+using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.timerUtil;
 
 namespace JkzlSearcher.viewModel
 {
@@ -100,6 +102,7 @@ namespace JkzlSearcher.viewModel
 
         protected override void OnReadyForSearchAsync()
         {
+            StartIntervalTimer();
         }
 
         protected override void OnSearchingAsync()
@@ -109,12 +112,18 @@ namespace JkzlSearcher.viewModel
 
         protected override void OnSearchendAsync()
         {
-
+            StopIntervalTimer();
+            var resumeTImer = new ActionOnTime("resume search", 1000*60*3)
+            {
+                TargetAction = () =>
+                {
+                    MainSession.SetStatus(MiaoProgress.ReadyForSearch);
+                }
+            };
         }
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopIntervalTimer();
         }
 
         protected override void ReSession()
@@ -146,7 +155,7 @@ namespace JkzlSearcher.viewModel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    StartIntervalTimer();
+                    MainSession.SetStatus(MiaoProgress.ReadyForSearch);
                 }
                 catch (HttpException ex)
                 {
