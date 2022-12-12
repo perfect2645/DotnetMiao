@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Utils;
 
 namespace Base.viewModel
@@ -26,6 +27,8 @@ namespace Base.viewModel
         public Action<DateTime?> StartTimeChanged { get; set; }
 
         public LogEvents PrintLogEvent { get; set; }
+
+        public UpdateUiEvent UpdateUiEvent { get; set; }
 
         private string _cookie;
         public string Cookie
@@ -99,6 +102,9 @@ namespace Base.viewModel
             SessionItem = ContainerBase.ServiceProvider?.GetService<ISessionItem>();
             PrintLogEvent = new LogEvents();
             PrintLogEvent.Subscribe(PrintLog);
+
+            UpdateUiEvent = new UpdateUiEvent();
+            UpdateUiEvent.Subscribe(OnUpdateUI);
         }
 
         #endregion Constructor
@@ -154,5 +160,21 @@ namespace Base.viewModel
         }
 
         #endregion Log
+
+        #region Update UI
+
+        private void OnUpdateUI(object? sender, UiEventArgs e)
+        {
+            Dispatcher.CurrentDispatcher.BeginInvoke(() =>
+            {
+                UpdateUI(e);
+            });
+        }
+
+        protected virtual void UpdateUI(UiEventArgs e)
+        {
+        }
+
+        #endregion Update UI
     }
 }

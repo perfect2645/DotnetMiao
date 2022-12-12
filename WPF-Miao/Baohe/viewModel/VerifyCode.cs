@@ -45,6 +45,17 @@ namespace Baohe.viewModel
             }
         }
 
+        private string phone;
+        public string Phone
+        {
+            get { return phone; }
+            set
+            {
+                phone = value;
+                NotifyUI(() => Phone);
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -106,7 +117,7 @@ namespace Baohe.viewModel
                 Log(ex);
             }
         }
-        private async void ExecuteVerifyYzmAsync()
+        public async void ExecuteVerifyYzmAsync()
         {
             try
             {

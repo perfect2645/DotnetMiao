@@ -17,6 +17,8 @@ namespace Baohe.session
 
         public static LogEvents PrintLogEvent { get; set; }
 
+        public static UpdateUiEvent UpdateUiEvent { get; set; }
+
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
@@ -78,5 +80,19 @@ namespace Baohe.session
 
             return 0;
         }
+
+        #region UpdateUI
+
+        public static void UpdateUI(string filed, object value)
+        {
+            var updateUiArgs = new UiEventArgs
+            {
+                Field = filed,
+                Value = value
+            };
+            UpdateUiEvent.Publish(null, updateUiArgs);
+        }
+
+        #endregion UpdateUI
     }
 }

@@ -7,6 +7,7 @@ using Baohe.search.numbers;
 using Baohe.search.user;
 using Baohe.session;
 using Baohe.verification;
+using Base.Events;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
@@ -171,6 +172,10 @@ namespace Baohe.search
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync();
 
+                var defaultMember = SessionBuilder.GetDefaultMember();
+                var phone = defaultMember.GetString(Constant.Phone);
+                BaoheSession.UpdateUI("phone", phone);
+
                 var doctorContr = HttpServiceController.GetService<DoctorController>();
                 await doctorContr.GetDoctorListAsync();
 
@@ -179,7 +184,6 @@ namespace Baohe.search
                 var authContr = HttpServiceController.GetService<AuthController>();
                 await authContr.CheckAuthAsync();
 
-                var defaultMember = SessionBuilder.GetDefaultMember();
                 BuildMemberOrder(defaultMember);
             }
             catch (HttpException ex)

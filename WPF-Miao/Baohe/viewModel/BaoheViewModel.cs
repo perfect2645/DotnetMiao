@@ -56,7 +56,7 @@ namespace Baohe.viewModel
             InitStaticData();
             VerifyCode = new VerifyCode(logPanel);
             BaoheSession.PrintLogEvent = PrintLogEvent;
-
+            BaoheSession.UpdateUiEvent = UpdateUiEvent;
 
             TestData();
         }
@@ -312,6 +312,27 @@ namespace Baohe.viewModel
         }
 
         #endregion Start Time
+
+        #region Update UI
+
+        protected override void UpdateUI(UiEventArgs e)
+        {
+            var field = e.Field;
+            if ("yzm".Equals(field, StringComparison.OrdinalIgnoreCase))
+            {
+                VerifyCode.Yzm = e.Value.NotNullString();
+                VerifyCode.ExecuteVerifyYzmAsync();
+                return;
+            }
+
+            if ("phone".Equals(field, StringComparison.OrdinalIgnoreCase))
+            {
+                VerifyCode.Phone = e.Value.NotNullString();
+                return;
+            }
+        }
+
+        #endregion Update UI
 
     }
 }

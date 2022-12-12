@@ -53,9 +53,21 @@
                     </Button>
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="手动验证码" HorizontalAlignment="Left"
-                    Command="{Binding VerifyCode.SendYzmCommand}" Width="100" Margin="50, 0">
+                    <Button Content="手动发验证码" HorizontalAlignment="Left"
+                        Command="{Binding VerifyCode.SendYzmCommand}" Width="120" Margin="50, 10">
                     </Button>
+                    <TextBox
+                        Width="120"
+                        IsReadOnly="True"
+                      materialDesign:HintAssist.Hint="手机号"
+                      Text="{Binding VerifyCode.Phone}"
+                      Margin="8 0 0 20"
+                      VerticalAlignment="Bottom" />
+                    <TextBox
+                        Width="300"
+                      materialDesign:HintAssist.Hint="备注"
+                      Margin="8 0 0 0"
+                      VerticalAlignment="Bottom" />
                 </StackPanel>
             </StackPanel>
 
