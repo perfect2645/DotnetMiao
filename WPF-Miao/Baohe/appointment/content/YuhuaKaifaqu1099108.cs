@@ -17,7 +17,6 @@ namespace Baohe.appointment.content
             DoctorOrder.AddOrUpdate("GH_HosCityId", "77");
             DoctorOrder.AddOrUpdate("GH_HosCityName", "南京");
             DoctorOrder.AddOrUpdate("birthday", MemberInfo["Birthday"]);
-            DoctorOrder.AddOrUpdate("timeId", 1);
         }
         protected override void BuildDefaultGhFormCon()
         {

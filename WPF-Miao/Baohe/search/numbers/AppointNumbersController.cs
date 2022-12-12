@@ -75,6 +75,8 @@ namespace Baohe.search.numbers
             {
                 number.AddOrUpdate("arrangeWater", arrangeWater);
             }
+
+            numbers = numbers.DisorderItems();
             BaoheSession.AddMiaoSession(Constant.Numbers, numbers);
 
             return numbers;

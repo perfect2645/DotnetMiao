@@ -92,9 +92,6 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("GH_HosProName", "安徽");
             DoctorOrder.AddOrUpdate("GH_HosCityId", "101");
             DoctorOrder.AddOrUpdate("GH_HosCityName", "合肥");
-
-            DoctorOrder.AddOrUpdate("timeId", 1);
-
             DoctorOrder.AddOrUpdate("ghAmount", 0);
             DoctorOrder.AddOrUpdate("securityDeposit", 0);
             DoctorOrder.AddOrUpdate("ghfeeway", 0);
@@ -146,6 +143,7 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("serialNo", MiaoInfo["SerialNo"]);
             DoctorOrder.AddOrUpdate(Constant.DoctorSn, MiaoInfo["DoctorSN"]);
             DoctorOrder.AddOrUpdate("arrangeId", MiaoInfo["ArrangeID"].ToString()!.ToLong());
+            DoctorOrder.AddOrUpdate("timeId", water["timeid"]);
         }
 
         private void BuildNumberGhFormCon()

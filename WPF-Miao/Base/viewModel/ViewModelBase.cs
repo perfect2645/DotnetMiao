@@ -165,10 +165,7 @@ namespace Base.viewModel
 
         private void OnUpdateUI(object? sender, UiEventArgs e)
         {
-            Dispatcher.CurrentDispatcher.BeginInvoke(() =>
-            {
-                UpdateUI(e);
-            });
+            UpdateUI(e);
         }
 
         protected virtual void UpdateUI(UiEventArgs e)

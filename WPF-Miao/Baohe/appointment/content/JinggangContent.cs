@@ -26,9 +26,6 @@ namespace Baohe.appointment.content
         protected override void BuildNumberDoctorOrder()
         {
             base.BuildNumberDoctorOrder();
-
-            var timeId = NumberUtil.IntRandom(1, 2);
-            DoctorOrder.AddOrUpdate("timeId", timeId);
         }
     }
 }

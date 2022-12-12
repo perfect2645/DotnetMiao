@@ -63,7 +63,7 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "";
+            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=142687055; YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBWSEdFd0NOZlIyNW9hTHB4SmZleEIwIiwiU2VjU3RyIjoiODgyQkJGNjAwQUMzQTA3NjlCREFENzAwMTU5QjQyRkYifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=o8e_80VHGEwCNfR25oaLpxJfexB0; OpenID=o8e_80VHGEwCNfR25oaLpxJfexB0; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9001026; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvOGVfODBWSEdFd0NOZlIyNW9hTHB4SmZleEIwIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI0Njg0MjU1QkI0NzZEMjY3MDVGMDBGRkNFNEI2NEZENCJ9; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=93B3A249264C4D43A4E4658E5112965F; _YyghSysTrackUUID=12120854600; jkzlAn_channelid=9001026; jkzlAn_refercode=; jkzlAn_sid=8E93A9E1-F4EB-4696-9B72-7DAD7B8297FD; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1670840784202";
 
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7229195&doctorId=710786668&hospitalInternal=1&showMultiDept=0&platformType=9001026&exConsult=&consultHosId=1047063&utm_source=0.0.h.1026.bus010.0";
 

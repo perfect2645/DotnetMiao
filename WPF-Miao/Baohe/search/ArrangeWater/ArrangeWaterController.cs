@@ -56,7 +56,7 @@ namespace Baohe.search.ArrangeWater
                 BaoheSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
             }
 
-            return true;
+            return arrangeWaters.HasItem();
         }
 
         private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement)
@@ -66,7 +66,8 @@ namespace Baohe.search.ArrangeWater
 
             if (!arrangeWaterList.HasItem())
             {
-                throw new HttpException($"{Constant.ProjectName}:查苗成功-没有可用苗", "no water");
+                BaoheSession.PrintLogEvent.Publish(this, $"{Constant.ProjectName}:查苗成功-没有可用苗");
+                return null;
             }
 
             BaoheSession.AddMiaoSession(Constant.ArrangeWater, arrangeWaterList);

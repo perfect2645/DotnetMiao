@@ -31,7 +31,7 @@ namespace Baohe.appointment
             {
                 try
                 {
-                    Appointment(sender, e);
+                    //Appointment(sender, e);
                 }
                 catch (HttpException ex)
                 {
