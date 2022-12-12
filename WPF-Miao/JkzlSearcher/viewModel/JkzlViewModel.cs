@@ -45,7 +45,7 @@ namespace JkzlSearcher.viewModel
         private void TestData()
         {
             StartTime = DateTime.Now.AddSeconds(10);
-            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_c=-1; jkzlAn_p=-1; jkzlAn_userid=148528129; jkzlAn_channelid=1000031; jkzlAn_ct=1669951588228; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D;";
+            Cookie = "jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=148528129; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=38092D2512E94B60A9F335AA4EFAA384; _YyghSysTrackUUID=11230235083; YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBWQVQ1NzNVNk1JWG51X1VkWVdiZ3BrIiwiU2VjU3RyIjoiMEZCNTEzQzU1MTZGODEyNDUxOTI4MUIxRkJEMjU0RUMifQ%3D%3D; loginid=o8e_80VAT573U6MIXnu_UdYWbgpk; OpenID=o8e_80VAT573U6MIXnu_UdYWbgpk; LoginChannel=9001026; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvOGVfODBWQVQ1NzNVNk1JWG51X1VkWVdiZ3BrIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJCQkY2NkQzM0FDMTNFNjAzMkM5QUFCMERCRkM0NjIyQiJ9; jkzlAn_sid=C11EC5CD-534F-4D9D-AC93-AEB673AF2439; jkzlAn_channelid=9001026; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1670824884988";
 
             MainSession.Cookie = Cookie;
 
@@ -56,6 +56,13 @@ namespace JkzlSearcher.viewModel
         {
             _searchController = new SearchController();
             Departments = new List<HospitalDept>();
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山井岗镇社区卫生服务中心",
+                "7229195", "九价Hpv")
+                        {
+                            DoctorSn = "711188793"
+                        }
+            );
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
                 "7225728", "九价Hpv")
@@ -68,13 +75,6 @@ namespace JkzlSearcher.viewModel
                 "7229969", "九价Hpv")
             {
                 DoctorSn = "711199332",
-            });
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7230344", "带疱疹病毒")
-            {
-                DoctorSn = "711202108",
-                HasYzm = false
             });
 
             SelectedDepartment = Departments.FirstOrDefault();
