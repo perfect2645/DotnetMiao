@@ -86,6 +86,14 @@ namespace Baohe.viewModel
 
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山井岗镇社区卫生服务中心",
+                "7229244", "四价Hpv")
+                {
+                    DoctorSn = "711188785"
+                }
+            );
+
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山井岗镇社区卫生服务中心",
                 "7209050", "(测试)儿童保健科"));
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
