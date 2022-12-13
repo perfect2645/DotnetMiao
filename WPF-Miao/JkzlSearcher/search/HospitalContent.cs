@@ -14,7 +14,6 @@ namespace JkzlSearcher.search
         public HospitalContent(string hosId) : base(Url)
         {
             HospitalId = hosId;
-            ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 

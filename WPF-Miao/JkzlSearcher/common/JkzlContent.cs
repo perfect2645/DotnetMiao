@@ -11,6 +11,7 @@ namespace JkzlSearcher.common
     {
         public JkzlContent(string url) : base(url)
         {
+            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 
