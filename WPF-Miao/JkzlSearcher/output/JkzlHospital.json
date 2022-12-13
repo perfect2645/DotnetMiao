@@ -1,18 +1,4 @@
 ﻿{
-  "HospitalId": "1000204",
-  "HospitalName": "浙江萧山医院",
-  "Province": "浙江",
-  "City": "杭州",
-  "Address": "无",
-  "Departments": {
-    "7078871": {
-      "DeptId": "7078871",
-      "DeptName": "全科医疗科",
-      "Doctors": null
-    }
-  }
-},
-{
   "HospitalId": "1000372",
   "HospitalName": "惠阳区妇幼保健院",
   "Province": "广东",
@@ -27,45 +13,12 @@
   }
 },
 {
-  "HospitalId": "1000485",
-  "HospitalName": "中国人民解放军第163医院",
-  "Province": "湖南",
-  "City": "长沙",
-  "Address": "开福区洪山桥1号",
-  "Departments": {
-    "7005018": {
-      "DeptId": "7005018",
-      "DeptName": "门诊部",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1000617",
-  "HospitalName": "河北医科大学附属以岭医院",
-  "Province": "河北",
-  "City": "石家庄",
-  "Address": "河北省石家庄新石北路385号",
-  "Departments": {
-    "89376": {
-      "DeptId": "89376",
-      "DeptName": "风湿免疫专科",
-      "Doctors": null
-    }
-  }
-},
-{
   "HospitalId": "1001151",
   "HospitalName": "山西长治淮海医院",
   "Province": "山西",
   "City": "长治",
   "Address": "长治东路102号",
   "Departments": {
-    "7057923": {
-      "DeptId": "7057923",
-      "DeptName": "药学科",
-      "Doctors": null
-    },
     "7057924": {
       "DeptId": "7057924",
       "DeptName": "预防保健科",
@@ -74,15 +27,155 @@
   }
 },
 {
-  "HospitalId": "1001194",
-  "HospitalName": "侯马市人民医院",
-  "Province": "山西",
-  "City": "临汾",
-  "Address": "侯马市浍滨街1号",
+  "HospitalId": "1002441",
+  "HospitalName": "涟水县人民医院",
+  "Province": "江苏",
+  "City": "淮安",
+  "Address": "江苏省淮安市涟水县健康路46号",
   "Departments": {
-    "7072197": {
-      "DeptId": "7072197",
-      "DeptName": "门诊",
+    "7165186": {
+      "DeptId": "7165186",
+      "DeptName": "其他",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1002514",
+  "HospitalName": "泰州市海陵中医院",
+  "Province": "江苏",
+  "City": "泰州",
+  "Address": "江苏省泰州市海陵区吴州北路199号",
+  "Departments": {
+    "89944": {
+      "DeptId": "89944",
+      "DeptName": "防保科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1002772",
+  "HospitalName": "青田县中医院",
+  "Province": "浙江",
+  "City": "丽水",
+  "Address": "浙江省丽水市青田县",
+  "Departments": {
+    "90284": {
+      "DeptId": "90284",
+      "DeptName": "东门社区服务站",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004438",
+  "HospitalName": "南方医科大学北滘医院",
+  "Province": "广东",
+  "City": "佛山",
+  "Address": "广东省佛山市顺德区X519(三荷线)",
+  "Departments": {
+    "91018": {
+      "DeptId": "91018",
+      "DeptName": "预防保健科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004453",
+  "HospitalName": "佛山市南海区西樵人民医院",
+  "Province": "广东",
+  "City": "佛山",
+  "Address": "广东省佛山市南海区S113(樵金中路)",
+  "Departments": {
+    "91037": {
+      "DeptId": "91037",
+      "DeptName": "预防保健科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004482",
+  "HospitalName": "广宁县人民医院",
+  "Province": "广东",
+  "City": "肇庆",
+  "Address": "广东省肇庆市广宁县人民路17",
+  "Departments": {
+    "91215": {
+      "DeptId": "91215",
+      "DeptName": "保健科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004621",
+  "HospitalName": "东莞市石排医院",
+  "Province": "广东",
+  "City": "东莞",
+  "Address": "广东东莞辖区",
+  "Departments": {
+    "91707": {
+      "DeptId": "91707",
+      "DeptName": "防保科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004623",
+  "HospitalName": "东莞市大朗医院",
+  "Province": "广东",
+  "City": "东莞",
+  "Address": "广东东莞辖区",
+  "Departments": {
+    "91756": {
+      "DeptId": "91756",
+      "DeptName": "防保科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004662",
+  "HospitalName": "揭阳市妇幼保健院",
+  "Province": "广东",
+  "City": "揭阳",
+  "Address": "广东省揭阳市榕城区建阳路",
+  "Departments": {
+    "91855": {
+      "DeptId": "91855",
+      "DeptName": "保健科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1004935",
+  "HospitalName": "崇州市人民医院",
+  "Province": "四川",
+  "City": "成都",
+  "Address": "四川省成都市崇州市永康东路",
+  "Departments": {
+    "92257": {
+      "DeptId": "92257",
+      "DeptName": "预防保健科",
+      "Doctors": null
+    }
+  }
+},
+{
+  "HospitalId": "1006254",
+  "HospitalName": "长治市人民医院",
+  "Province": "山西",
+  "City": "长治",
+  "Address": "山西省长治市城区长兴中路502号",
+  "Departments": {
+    "7037912": {
+      "DeptId": "7037912",
+      "DeptName": "预防保健科",
       "Doctors": null
     }
   }
