@@ -5,6 +5,7 @@ using JkzlSearcher.search.user;
 using JkzlSearcher.session;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Utils;
 
@@ -43,35 +44,30 @@ namespace JkzlSearcher.search
                 return;
             }
 
-            foreach (var dept in depts)
+            var outputController = BuildOutputController(depts, hospital);
+            if (!outputController.HasDepartments())
+            {
+                return;
+            }
+
+            foreach (var dept in outputController.Hospital.Departments)
             {
                 var doctorController = HttpServiceController.GetService<DoctorController>();
-                var doctors = await doctorController.GetDoctorListAsync(hospitalId, de);
+                var doctors = await doctorController.GetDoctorListAsync(hospitalId, dept.Key);
                 if (!doctors.HasItem())
                 {
                     continue;
                 }
-                AddDoctors(dept, doctors);
+                outputController.AddDoctors(doctors);
             }
 
-            SaveHospital(depts, hospital);
+            outputController.ToHospitalJsoin();
         }
 
-        private void AddDoctors(Dictionary<string, object> dept, List<Dictionary<string, object>> doctors)
-        {
-            dept.AddOrUpdate("doctors", doctors);
-        }
-
-        private void SaveHospital(List<Dictionary<string, object>> depts, 
+        private OutputController BuildOutputController(List<Dictionary<string, object>> depts, 
             Dictionary<string, object> hospital)
         {
-            var outputController = new OutputController(depts, hospital);
-            var jsonHospital = outputController.ToHospitalJsoin();
-            if (string.IsNullOrEmpty(jsonHospital))
-            {
-                return;
-            }
-            outputController.SaveHospital(jsonHospital);
+            return new OutputController(depts, hospital);
         }
 
         internal async void CheckAuthAsync()

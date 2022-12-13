@@ -14,6 +14,7 @@ namespace JkzlSearcher.model
         {
             DeptId = deptId;
             DeptName = deptName;
+            Doctors = new Dictionary<string, Doctor>();
         }
     }
 }

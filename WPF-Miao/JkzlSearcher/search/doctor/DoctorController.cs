@@ -47,7 +47,7 @@ namespace JkzlSearcher.search
                 return null;
             }
 
-            var result = response.JsonBody.RootElement;
+            var result = response.JsonBody.RootElement.GetProperty("Result");
             if (result.ValueKind == JsonValueKind.Null)
             {
                 Log($"Null Result, hospitalId = {hosId} , departmentId = {deptId}");
@@ -58,15 +58,20 @@ namespace JkzlSearcher.search
 
         private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement, string hosId, string deptId)
         {
-            var hospital = JsonAnalysis.JsonToDicList(jsonElement);
-            if (!hospital.HasItem())
+            var doctors = JsonAnalysis.JsonToDicList(jsonElement);
+            if (!doctors.HasItem())
             {
                 Log($"Empty Result, hospitalId = {hosId} , departmentId = {deptId}");
                 return null;
             }
-            MainSession.PrintLogEvent.Publish(this, hospital);
 
-            return hospital;
+            foreach(var doctor in doctors)
+            {
+                doctor.AddOrUpdate("deptId", deptId);
+            }
+            MainSession.PrintLogEvent.Publish(this, doctors);
+
+            return doctors;
         }
     }
 }
