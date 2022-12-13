@@ -11,7 +11,7 @@ namespace JkzlSearcher.search
 {
     internal class DoctorContent : JkzlContent
     {
-        private const string Url = "https://appoint.yihu.com/appoint/do/doctor/getDocListByDeptId";
+        private const string Url = "https://appoint.yihu.com/appoint/do/doctor/getDeptDoctorList";
 
         public string DeptId { get; set; }
         public string HospitalId { get; set; }

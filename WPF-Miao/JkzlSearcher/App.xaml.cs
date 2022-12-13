@@ -36,6 +36,7 @@ namespace JkzlSearcher
             HttpServiceController.AddTransientService<DoctorAuthController>();
             HttpServiceController.AddTransientService<HosDeptController>();
             HttpServiceController.AddTransientService<HospitalController>();
+            HttpServiceController.AddTransientService<DoctorController>();
 
             HttpServiceController.BuidServiceProvider();
         }

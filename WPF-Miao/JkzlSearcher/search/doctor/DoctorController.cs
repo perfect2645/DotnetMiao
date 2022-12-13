@@ -1,11 +1,16 @@
-﻿using HttpProcessor.Client;
+﻿using Base.viewmodel.status;
+using HttpProcessor.Client;
+using HttpProcessor.Content;
 using JkzlSearcher.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Utils;
+using Utils.json;
 
 namespace JkzlSearcher.search
 {
@@ -15,38 +20,53 @@ namespace JkzlSearcher.search
         {
         }
 
-        public Task GetDoctorListAsync(string hosId, string deptId)
+        public async Task<List<Dictionary<string, object>>> GetDoctorListAsync(string hosId, string deptId)
         {
-            return Task.Factory.StartNew(() => GetDoctorList(hosId, deptId));
+            return await Task.Factory.StartNew(() =>
+            {
+                return GetDoctorList(hosId, deptId);
+            });
         }
 
-        private void GetDoctorList(string hosId, string deptId)
+        private List<Dictionary<string, object>> GetDoctorList(string hosId, string deptId)
         {
             var content = new DoctorContent(deptId, hosId);
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            var code = response.Body?.FirstOrDefault(x => x.Key == Constants.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - {response.Body["Message"]}", "bad response");
+                var msg = response.Body.GetString("Message");
+                Log($"{Constants.ProjectName}:{msg}, hospitalId = {hosId} , departmentId = {deptId}");
+                if (!string.IsNullOrEmpty(msg) && msg.Contains("频繁"))
+                {
+                    MainSession.CurrentHospitalId -= 1;
+                    MainSession.SetStatus(MiaoProgress.Searchend);
+                }
+                return null;
             }
 
-            var result = response.JsonBody.RootElement.GetProperty("Result");
+            var result = response.JsonBody.RootElement;
             if (result.ValueKind == JsonValueKind.Null)
             {
-                throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
+                Log($"Null Result, hospitalId = {hosId} , departmentId = {deptId}");
+                return null;
             }
-            AnalysisResult(result);
+            return AnalysisResult(result, hosId, deptId);
         }
 
-        private void AnalysisResult(JsonElement jsonElement)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement, string hosId, string deptId)
         {
-            var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
+            var hospital = JsonAnalysis.JsonToDicList(jsonElement);
+            if (!hospital.HasItem())
+            {
+                Log($"Empty Result, hospitalId = {hosId} , departmentId = {deptId}");
+                return null;
+            }
+            MainSession.PrintLogEvent.Publish(this, hospital);
 
-            BaoheSession.AddMiaoSession(Constant.DoctorList, doctorDept);
-
-            BaoheSession.PrintLogEvent.Publish(this, doctorDept, "DoctorList");
+            return hospital;
         }
     }
 }

@@ -38,6 +38,7 @@ namespace JkzlSearcher.search
                 Log($"{Constants.ProjectName}:{msg}, hospitalId = {hospitalId}");
                 if (!string.IsNullOrEmpty(msg) && msg.Contains("频繁"))
                 {
+                    MainSession.CurrentHospitalId -= 1;
                     MainSession.SetStatus(MiaoProgress.Searchend);
                 }
                 return null;

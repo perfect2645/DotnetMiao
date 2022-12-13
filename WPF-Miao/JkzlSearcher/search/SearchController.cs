@@ -43,10 +43,27 @@ namespace JkzlSearcher.search
                 return;
             }
 
+            foreach (var dept in depts)
+            {
+                var doctorController = HttpServiceController.GetService<DoctorController>();
+                var doctors = await doctorController.GetDoctorListAsync(hospitalId, de);
+                if (!doctors.HasItem())
+                {
+                    continue;
+                }
+                AddDoctors(dept, doctors);
+            }
+
             SaveHospital(depts, hospital);
         }
 
-        private void SaveHospital(List<Dictionary<string, object>> depts, Dictionary<string, object> hospital)
+        private void AddDoctors(Dictionary<string, object> dept, List<Dictionary<string, object>> doctors)
+        {
+            dept.AddOrUpdate("doctors", doctors);
+        }
+
+        private void SaveHospital(List<Dictionary<string, object>> depts, 
+            Dictionary<string, object> hospital)
         {
             var outputController = new OutputController(depts, hospital);
             var jsonHospital = outputController.ToHospitalJsoin();
