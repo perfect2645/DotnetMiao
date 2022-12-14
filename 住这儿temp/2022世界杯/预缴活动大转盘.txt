@@ -1,0 +1,26 @@
+POST https://chaos.4009515151.com/market/api/activity/play HTTP/1.1
+Host: chaos.4009515151.com
+Origin: https://enterprise.4009515151.com
+Content-Type: application/json
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, application/json
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2022112901 vanke_app_version/5.4.26 X_API_VERSION/20221129 vanke_app/zhuzher vanke_jsbridge_version/5.4.26
+Authorization: Bearer f4df9196-345f-4d9a-9284-2a57735a7f32
+Referer: https://enterprise.4009515151.com/
+Content-Length: 100
+
+{"activityGameId":1171,"activityId":726,"projectCode":"21020002","projectName":"大连假日风景"}
+HTTP/1.1 200
+Date: Wed, 14 Dec 2022 12:55:06 GMT
+Content-Type: application/json
+Connection: keep-alive
+Set-Cookie: acw_tc=784e2c9916710225069424432e5a2fa6ef084596c6beb169493baf3968abc0;path=/;HttpOnly;Max-Age=1800
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-SVC: prod-zhuzher-server-market-http
+Content-Length: 126
+
+{"message":"success","code":200,"result":{"activityId":726,"number":6,"type":0,"goodName":null,"moreUrl":"","chanceNumber":0}}

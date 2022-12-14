@@ -1,0 +1,312 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 4036,
+            "taskId": 449,
+            "taskName": "邀请邻居助力直接抽",
+            "chanceNumber": 1,
+            "taskDesc": "预缴活动",
+            "tips": "邀请1位家人或邻居助力即可参与抽奖，仅限3次",
+            "detail": [
+                {
+                    "taskDetailId": 450,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4029,
+            "taskId": 53,
+            "taskName": "托收且预缴12个月",
+            "chanceNumber": 2,
+            "taskDesc": "",
+            "tips": "预缴12个月并且开通物业费自动托收功能",
+            "detail": [
+                {
+                    "taskDetailId": 53,
+                    "sceneName": "托收且预缴12个月",
+                    "sceneCode": "doc-withhold&prepay12months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 2,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4030,
+            "taskId": 49,
+            "taskName": "无托收预缴12个月",
+            "chanceNumber": 2,
+            "taskDesc": "",
+            "tips": "预缴12个月",
+            "detail": [
+                {
+                    "taskDetailId": 49,
+                    "sceneName": "无托收预缴12个月",
+                    "sceneCode": "doc-prepay12months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 2,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4031,
+            "taskId": 54,
+            "taskName": "托收且预缴24个月",
+            "chanceNumber": 3,
+            "taskDesc": "",
+            "tips": "预缴24个月并且开通物业费自动托收功能",
+            "detail": [
+                {
+                    "taskDetailId": 54,
+                    "sceneName": "托收且预缴24个月",
+                    "sceneCode": "doc-withhold&prepay24months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 3,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4032,
+            "taskId": 50,
+            "taskName": "无托收预缴24个月",
+            "chanceNumber": 3,
+            "taskDesc": "",
+            "tips": "预缴24个月",
+            "detail": [
+                {
+                    "taskDetailId": 50,
+                    "sceneName": "无托收预缴24个月",
+                    "sceneCode": "doc-prepay24months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 3,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4033,
+            "taskId": 55,
+            "taskName": "托收且预缴36个月",
+            "chanceNumber": 5,
+            "taskDesc": "",
+            "tips": "预缴36个月并且开通物业费自动托收功能",
+            "detail": [
+                {
+                    "taskDetailId": 55,
+                    "sceneName": "托收且预缴36个月",
+                    "sceneCode": "doc-withhold&prepay36months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 5,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4034,
+            "taskId": 51,
+            "taskName": "无托收预缴36个月",
+            "chanceNumber": 5,
+            "taskDesc": "",
+            "tips": "预缴36个月",
+            "detail": [
+                {
+                    "taskDetailId": 51,
+                    "sceneName": "无托收预缴36个月",
+                    "sceneCode": "doc-prepay36months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 5,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4037,
+            "taskId": 450,
+            "taskName": "帮助邻居助力直接抽",
+            "chanceNumber": 1,
+            "taskDesc": "预缴活动",
+            "tips": "帮家人或邻居助力可获得1次抽奖机会，活动期间仅限1次",
+            "detail": [
+                {
+                    "taskDetailId": 451,
+                    "sceneName": "助力成功",
+                    "sceneCode": "app-act-help",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4035,
+            "taskId": 448,
+            "taskName": "首次参与活动直接抽",
+            "chanceNumber": 1,
+            "taskDesc": "预缴",
+            "tips": "首次进入预缴活动，可直接抽奖1次，仅限1次！",
+            "detail": [
+                {
+                    "taskDetailId": 449,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1171,
+                    "gameId": 1036,
+                    "gameTitle": "大转盘抽奖机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        }
+    ]
+}
