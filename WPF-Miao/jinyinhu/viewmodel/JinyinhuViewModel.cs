@@ -135,6 +135,7 @@ namespace jinyinhu.viewmodel
             DateList = new List<DspVal>
             {
                 new DspVal(DateTimeUtil.GetTomorrow()),
+                new DspVal(DateTimeUtil.GetTargetDate(2)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -145,8 +146,8 @@ namespace jinyinhu.viewmodel
                 {
                     HospitalId = "http://yy.test.shinegosoft.com.cn",
                     HospitalName = "金银湖街家庭医生服务平台",
-                    DepartmentId = "9",
-                    DepartmentName = "成人疫苗",
+                    DepartmentId = "18",
+                    DepartmentName = "九价",
                 },
                 new JinyinhuHospital
                 {
@@ -215,8 +216,7 @@ namespace jinyinhu.viewmodel
 
         private async Task ExecuteLogin()
         {
-            var userController = HttpServiceController.GetService<UserController>();
-            await userController.GetUserAsync();
+            await _searchController.GetUserInfo();
         }
 
         #endregion Login
@@ -225,10 +225,11 @@ namespace jinyinhu.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
                     _searchController = new SearchController();
+                    await _searchController.GetUserInfo();
                     StartIntervalTimer();
                 }
                 catch (HttpException ex)
@@ -277,11 +278,18 @@ namespace jinyinhu.viewmodel
         {
             try
             {
-                foreach (var order in orderList)
+                for (int i = 0; i < 10; i ++)
                 {
-                    var key = $"{order.ReservationDate}{order.ReservationTime}";
-                    var yuyueController = MainSession.AppointSession.GetController(key);
-                    yuyueController.StartInterval(order);
+                    foreach (var order in orderList)
+                    {
+                        if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                        {
+                            return;
+                        }
+                        var key = $"{order.ReservationDate}{order.ReservationTime}";
+                        var yuyueController = MainSession.AppointSession.GetController(key);
+                        yuyueController.YuyueAsync(order);
+                    }
                 }
             }
             catch (Exception ex)
@@ -295,12 +303,12 @@ namespace jinyinhu.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    //if (StringUtil.AnyEmpty(UserPhone, UserPassword))
-                    //{
-                    //    MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
-                    //    return;
-                    //}
                     _searchController = new SearchController();
+                    if (StringUtil.AnyEmpty(Auth))
+                    {
+                        MainSession.PrintLogEvent.Publish(this, "请填写Auth");
+                        return;
+                    }
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 

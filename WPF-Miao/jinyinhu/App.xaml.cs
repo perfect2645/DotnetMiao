@@ -26,9 +26,11 @@ namespace jinyinhu
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<SearchMiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<SubmitOrderController>();
 
             HttpServiceController.BuidServiceProvider();
         }

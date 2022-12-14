@@ -11,6 +11,7 @@ namespace jinyinhu.appointment
         public string TimeId { get; set; }
         public string ReservationDate { get; set; }
         public string UserId { get; set; }
+        public string UserName { get; set; }
         public string YeWuId { get; set; }
         public string ReservationTime { get; set; }
         public string AppointmentType { get; set; }

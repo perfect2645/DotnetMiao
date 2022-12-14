@@ -1,6 +1,5 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
-using HttpProcessor.Content;
 using jinyinhu.appointment;
 using jinyinhu.session;
 using System;
@@ -10,7 +9,6 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
-using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
@@ -29,16 +27,16 @@ namespace jinyinhu.search
         {
         }
 
-        public void BuildContent(string date, string timeRange)
+        public void BuildContent(string date)
         {
             Date = date;
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var urlTemplate = $"http://101.34.141.250:9653/api/front/classification/get{timeRange}?day={Date}&type=1&yeWuId={deptId}";
+            var urlTemplate = $"http://101.34.141.250:9653/api/front/classification/tree?day={date}&type=1&yeWuId={deptId}";
 
             SearchMiaoContent = new SearchMiaoContent(urlTemplate);
             SearchMiaoContent.BuildDefaultHeaders(Client);
 
-            SearchInterval = new IntervalOnTime(SearchMiaoAsync, $"{Date}{timeRange}", 300);
+            SearchInterval = new IntervalOnTime(SearchMiaoAsync, $"{Date}", 300);
         }
 
         public async void SearchMiaoAsync()
@@ -58,24 +56,31 @@ namespace jinyinhu.search
                 HttpDicResponse response = GetStringAsync(SearchMiaoContent).Result;
                 if (IsMiaoGet)
                 {
+                    SearchInterval.StopInterval();
                     return true;
                 }
 
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    Log($"没查到苗{response?.Message}");
+                    Log($"获取miao失败{response?.Message}");
                     return false;
                 }
 
                 var root = response.JsonBody.RootElement;
-                var result = root.GetProperty("result").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"{result}");
-                if ("Success".Equals(result))
+                var code = root.GetProperty("code").NotNullString();
+                var message = root.GetProperty("message").NotNullString();
+                if (!"200".Equals(code) || !message.Contains("成功"))
                 {
-                    var miaoList = root.GetProperty("list");
-                    return SaveMiaoInfo(miaoList);
+                    MainSession.PrintLogEvent.Publish(this, $"获取miao失败:code={code}, message={message}");
+                    return false;
                 }
-                return false;
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取miao失败:code={code}, message={message}");
+                    return false;
+                }
+                return SaveMiaoInfo(data);
             }
             catch (Exception ex)
             {
@@ -99,14 +104,13 @@ namespace jinyinhu.search
                 return false; ;
             }
 
-            var avaliableScheduleList = scheduleList.Where(x => x["count"].NotNullString().ToInt() > 0).ToList();
+            var avaliableScheduleList = scheduleList.Where(x => x["appointmentNum"].NotNullString().ToInt() > 0).ToList();
             if (!avaliableScheduleList.HasItem())
             {
                 Log($"查到{scheduleList.Count}个苗,但是没有可用苗");
                 return false;
             }
 
-            MainSession.PrintLogEvent.Publish(this, $"查到苗- 放{avaliableScheduleList.Count}天");
             IsMiaoGet = true;
 
             BuildOrderList(avaliableScheduleList);
@@ -119,30 +123,25 @@ namespace jinyinhu.search
         {
             var baseOrderList = new List<Order>();
 
-            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var userName = MainSession.PlatformSession.GetString(Constants.UserName);
             var userId = MainSession.PlatformSession.GetString(Constants.UserId);
-            var amount = MainSession.PlatformSession.GetString(Constants.AppointAmount);
 
             foreach (var schedule in scheduleList)
             {
+                var startTime = schedule.GetString("startTime");
+                var endTime = schedule.GetString("endTime");
+                var timeRange = $"{startTime}-{endTime}";
                 baseOrderList.Add(new Order
                 {
-                    //Regtype = schedule.GetString("registerTypeOriginalId"),
-                    //DeptId = deptId,
-                    //DeptName = deptName,
-                    //DoctorId = doctorId,
-                    //DoctorName = doctorName,
-                    //OrgName = hosName,
-                    //AppointAmount = amount,
-                    //AppointDate = Date,
-                    //TimeRange = schedule.GetString("timeRangeShow"),
-                    //ScheduleId = schedule.GetString(Constants.ScheduleId),
-                    //Bco01 = schedule.GetString("bco01"),
+                    UserId = userId,
+                    UserName = userName,
+                    AppointmentType = deptName,
+                    ReservationDate = Date,
+                    TimeId = schedule.GetString("id"),
+                    YeWuId = deptId,
+                    ReservationTime = timeRange,
                 });
             }
 
@@ -151,39 +150,6 @@ namespace jinyinhu.search
             var appointEventArgs = new OrderEventArgs
             {
                 OrderList = baseOrderList
-            };
-            MainSession.OrderEvent.Publish(null, appointEventArgs);
-
-
-            //foreach (var user in MainSession.UserSession.Users)
-            //{
-            //    var userInfo = user.Value as Dictionary<string, object>;
-            //    BuildOrdersForOneUser(userInfo, baseOrderList);
-            //}
-        }
-
-        private void BuildOrdersForOneUser(Dictionary<string, object> userInfo, List<Order> baseOrderList)
-        {
-            var userId = userInfo.GetString(Constants.UserId);
-            var userName = userInfo.GetString("familyName");
-            var phone = userInfo.GetString("familyPhone");
-
-            var orderList = new List<Order>();
-
-            foreach (var baseOrder in baseOrderList)
-            {
-                var order = new Order();
-
-
-                Log($"build order - {order.ToLogString()}");
-                orderList.Add(order);
-            }
-
-            orderList = orderList.DisorderItems();
-
-            var appointEventArgs = new OrderEventArgs
-            {
-                OrderList = orderList
             };
             MainSession.OrderEvent.Publish(null, appointEventArgs);
         }

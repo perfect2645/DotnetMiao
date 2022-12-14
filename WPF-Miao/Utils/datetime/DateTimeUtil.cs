@@ -82,5 +82,39 @@ namespace Utils.datetime
             var tomro = today.AddDays(1).ToString("yyyy-MM-dd");
             return tomro;
         }
+
+        public static string GetTargetDate(int day)
+        {
+            var today = DateTime.Today;
+            var targetDay = today.AddDays(day).ToString("yyyy-MM-dd");
+            return targetDay;
+        }
+
+        public static List<string> GetDateRange(string startDateStr, string endDateStr)
+        {
+            var startDate = Convert.ToDateTime(startDateStr);
+            var endDate = Convert.ToDateTime(endDateStr);
+
+            if (startDate < DateTime.Today)
+            {
+                startDate = DateTime.Today;
+            }
+
+            if (startDate > endDate)
+            {
+                return new List<string>();
+            }
+
+            var result = new List<string>();
+
+            while(startDate <= endDate)
+            {
+                result.Add(startDate.ToString());
+
+                startDate = startDate.AddDays(1);
+            }
+
+            return result;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using HttpProcessor.Container;
 using jinyinhu.session;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utils;
 
 namespace jinyinhu.search
@@ -25,20 +26,20 @@ namespace jinyinhu.search
             {
                 var skey = $"{date.Value}{Constants.ShangWu}";
                 var shangwuController = MainSession.SearchSession.GetController(skey);
-                shangwuController.BuildContent(date.Value, Constants.ShangWu);
+                shangwuController.BuildContent(date.Value);
                 _controllerList.Add(skey, shangwuController);
 
-                var xkey = $"{date.Value}{Constants.XiaWu}";
-                var afternoonController = MainSession.SearchSession.GetController(xkey);
-                afternoonController.BuildContent(date.Value, Constants.XiaWu);
-                _controllerList.Add(xkey, afternoonController);
+                //var xkey = $"{date.Value}{Constants.XiaWu}";
+                //var afternoonController = MainSession.SearchSession.GetController(xkey);
+                //afternoonController.BuildContent(date.Value, Constants.XiaWu);
+                //_controllerList.Add(xkey, afternoonController);
             }
         }
 
-        public void GetUserInfo()
+        public async Task GetUserInfo()
         {
             var userController = HttpServiceController.GetService<UserController>();
-            userController.GetUserAsync();
+            await userController.GetUserAsync();
         }
 
         public void GetMiaoAsync()
