@@ -10,7 +10,7 @@ namespace JkzlSearcher.session
     {
         public static string Cookie { get; set; }
         public static Logger OutputLogger { get; private set; }
-        public static int CurrentHospitalId { get; set; } = 1006254;
+        public static int CurrentHospitalId { get; set; } = 1011750;
         private static readonly object _hospitalIdLock = new object();
         public static Dictionary<string, object> PlatformSession { get; private set; }
         static MainSession()
@@ -70,10 +70,11 @@ namespace JkzlSearcher.session
             "老年", "病理", "乳腺", "脊柱", "重症", "产", "药", "检验", "消化",
             "医学", "白", "五官", "男", "痘", "银屑", "牛皮", "孕", "育", "牙",
             "介", "肝", "呼吸", "体检", "急救", "肛", "肠", "微创", "中西", "湿",
-            "性病", "激光", "哮喘", "失眠", "传染", "肌", "肺", "生殖", "热",
-            "方便", "伤", "摩", "镜", "功能", "手", "足", "磁", "包", "超",
+            "性病", "激光", "哮喘", "失眠", "传染", "肌", "肺", "生殖", "热", "未",
+            "方便", "伤", "摩", "镜", "功能", "手", "足", "磁", "包", "超", "酸",
             "胆", "石", "护理", "椎","干诊", "全科", "风", "循环", "镶", "营养",
-            "镇", "CT", "放疗", "ICU", "脉", "疤", "水疗", "特检", "整", "技", "移植"
+            "镇", "CT", "放疗", "ICU", "脉", "疤", "水疗", "特检", "整", "技", "移植",
+            "综合", "结核"
         };
 
         #endregion Valid Department
