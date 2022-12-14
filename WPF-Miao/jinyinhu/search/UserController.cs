@@ -11,6 +11,7 @@ using Utils.stringBuilder;
 using System.Text.Json;
 using Utils;
 using Utils.json;
+using Base.viewmodel.status;
 
 namespace jinyinhu.search
 {
@@ -41,13 +42,20 @@ namespace jinyinhu.search
                 }
 
                 var root = response.JsonBody.RootElement;
-                var result = root.GetProperty("result").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息-{result}");
-                if ("Success".Equals(result))
+                var code = root.GetProperty("code").NotNullString();
+                var message = root.GetProperty("message").NotNullString();
+                if (!"200".Equals(code) || !message.Contains("成功"))
                 {
-                    var userMap = root.GetProperty("map");
-                    SaveUserInfo(userMap);
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}, message={message}");
+                    return;
                 }
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}, message={message}");
+                    return;
+                }
+                SaveUserInfo(data);
             }
             catch (Exception ex)
             {
@@ -55,26 +63,23 @@ namespace jinyinhu.search
             }
         }
 
-        private void SaveUserInfo(JsonElement userMap)
+        private void SaveUserInfo(JsonElement data)
         {
-            var defaultUserId = userMap.GetProperty("defaultPatientId").NotNullString();
-            if (string.IsNullOrEmpty(defaultUserId))
-            {
-                MainSession.PrintLogEvent.Publish(this, $"默认用户Id为空，请检查注册信息");
-                return;
-            }
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
-
-            var userListElement = userMap.GetProperty("list");
+            var userListElement = data.GetProperty("list");
             var userList = JsonAnalysis.JsonToDicList(userListElement);
             if (!userList.HasItem())
             {
-                Log($"用户列表为空，请检查注册信息");
+                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: userList为空");
                 return;
             }
 
-            var defaultUserName = userList.FirstOrDefault().GetString("name");
+            var defaultUser = userList.FirstOrDefault();
+
+            var defaultUserId = defaultUser.GetString("id");
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
+            var defaultUserName = defaultUser.GetString("name");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
+            MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
         }
     }
 }

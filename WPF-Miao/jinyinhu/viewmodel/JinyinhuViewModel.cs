@@ -80,8 +80,12 @@ namespace jinyinhu.viewmodel
             get { return _auth; }
             set
             {
-                _auth = value;
-                NotifyUI(() => Auth);
+                if (value != _auth)
+                {
+                    _auth = value;
+                    MainSession.PlatformSession.AddOrUpdate(Constants.Authorization, value);
+                    NotifyUI(() => Auth);
+                }
             }
         }
 
@@ -117,7 +121,7 @@ namespace jinyinhu.viewmodel
         {
             Interval = 200;
 
-            MainSession.PlatformSession.AddOrUpdate("Authori-zation", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzA1MDMzMzAsInVzZXJuYW1lIjoib1BDbHM1aDJNV1pXTHU4YXh0MFFfOXlMRk5IOCJ9.EOjcfyMmhv4pnyQdSq6BqQVYxijIU7Ya_BaxVmghcPU");
+            Auth = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE2MTE5NzUsInVzZXJuYW1lIjoib1BDbHM1aDJNV1pXTHU4YXh0MFFfOXlMRk5IOCJ9.XvFuDxjsN9WpcWjo8CSvDVkqSyhb0mD4g7f5xiZ4j9s";
 
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.StartTime = StartTime;
