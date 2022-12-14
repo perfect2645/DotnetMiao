@@ -10,7 +10,7 @@ namespace JkzlSearcher.session
     {
         public static string Cookie { get; set; }
         public static Logger OutputLogger { get; private set; }
-        public static int CurrentHospitalId { get; set; } = 1011750;
+        public static int CurrentHospitalId { get; set; } = 1015685;
         private static readonly object _hospitalIdLock = new object();
         public static Dictionary<string, object> PlatformSession { get; private set; }
         static MainSession()
@@ -65,7 +65,7 @@ namespace JkzlSearcher.session
         {
             "外", "内", "儿", "妇科", "口腔", "皮肤", "眼", "血", "病", "症","神经",
             "耳喉","鼻","喉", "中医", "心", "针灸", "影像", "麻醉", "放射", "骨",
-            "急诊", "诊断", "康复", "肾", "瘤", "疼痛", "氧", "胃", "门诊", "视",
+            "急诊", "诊断", "康复", "肾", "瘤", "痛", "氧", "胃", "门诊", "视",
             "咨询", "精神", "理疗", "泌尿", "美容", "感染", "脑","乳房", "拿", "腹",
             "老年", "病理", "乳腺", "脊柱", "重症", "产", "药", "检验", "消化",
             "医学", "白", "五官", "男", "痘", "银屑", "牛皮", "孕", "育", "牙",
@@ -74,7 +74,7 @@ namespace JkzlSearcher.session
             "方便", "伤", "摩", "镜", "功能", "手", "足", "磁", "包", "超", "酸",
             "胆", "石", "护理", "椎","干诊", "全科", "风", "循环", "镶", "营养",
             "镇", "CT", "放疗", "ICU", "脉", "疤", "水疗", "特检", "整", "技", "移植",
-            "综合", "结核"
+            "综合", "结核",
         };
 
         #endregion Valid Department

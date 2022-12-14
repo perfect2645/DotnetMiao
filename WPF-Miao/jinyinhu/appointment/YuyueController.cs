@@ -58,15 +58,17 @@ namespace jinyinhu.appointment
                 }
 
                 var root = response.JsonBody.RootElement;
-                var result = root.GetProperty("result").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"{result}");
-                var msg = root.GetProperty("resultMsg").NotNullString();
-                if (!"Success".Equals(result))
+                var code = root.GetProperty("code").NotNullString();
+                var message = root.GetProperty("message").NotNullString();
+                if (!"200".Equals(code)|| !"预约成功".Equals(message))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"code={code}, message={message}");
+                    return;
                 }
+
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
-                MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
+                var data = root.GetProperty("data").NotNullString();
+                MainSession.PrintLogEvent.Publish(this, $"预约结果:code={code}, message={message}, data ={data}");
                 MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
             }
             catch (Exception ex)

@@ -14,7 +14,7 @@ namespace jinyinhu.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********揭阳安贞-选择医院科室*********");
+            sb.AppendLine("********武汉金银湖社区-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {DepartmentName}");
             sb.AppendLine($"DepartmentId - {DepartmentId}");
             sb.AppendLine("**************************************");

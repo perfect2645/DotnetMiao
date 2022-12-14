@@ -5,7 +5,7 @@ namespace jinyinhu.appointment
 {
     internal class YuyueContent : JinyinhuContent
     {
-        private static string url = "http://wx1936.cnhis.cc/wx/user/appointment/reg.htm";
+        private static string url = "http://101.34.141.250:9653/api/front/appointment/save";
         public Order Order { get; }
         public YuyueContent(Order order) : base(url)
         {

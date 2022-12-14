@@ -74,25 +74,14 @@ namespace jinyinhu.viewmodel
             }
         }
 
-        private string _userPhone;
-        public string UserPhone
+        private string _auth;
+        public string Auth
         {
-            get { return _userPhone; }
+            get { return _auth; }
             set
             {
-                _userPhone = value;
-                NotifyUI(() => UserPhone);
-            }
-        }
-
-        private string _userPassword;
-        public string UserPassword
-        {
-            get { return _userPassword; }
-            set
-            {
-                _userPassword = value;
-                NotifyUI(() => UserPassword);
+                _auth = value;
+                NotifyUI(() => Auth);
             }
         }
 
