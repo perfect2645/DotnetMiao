@@ -77,9 +77,11 @@ namespace jinyinhu.search
 
             var defaultUserId = defaultUser.GetString("id");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
-            var defaultUserName = defaultUser.GetString("name");
+            var defaultUserName = defaultUser.GetString("userName");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
             MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
+
+            MainSession.PrintLogEvent.Publish(this, userList);
         }
     }
 }

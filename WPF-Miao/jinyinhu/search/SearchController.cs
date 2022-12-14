@@ -33,11 +33,9 @@ namespace jinyinhu.search
                 afternoonController.BuildContent(date.Value, Constants.XiaWu);
                 _controllerList.Add(xkey, afternoonController);
             }
-
-            GetUserInfo();
         }
 
-        private void GetUserInfo()
+        public void GetUserInfo()
         {
             var userController = HttpServiceController.GetService<UserController>();
             userController.GetUserAsync();
