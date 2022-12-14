@@ -211,7 +211,8 @@ namespace jinyinhu.viewmodel
 
         private async Task ExecuteLogin()
         {
-
+            var userController = HttpServiceController.GetService<UserController>();
+            await userController.GetUserAsync();
         }
 
         #endregion Login

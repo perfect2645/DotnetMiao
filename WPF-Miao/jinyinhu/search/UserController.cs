@@ -20,9 +20,9 @@ namespace jinyinhu.search
         {
         }
 
-        public void GetUserAsync()
+        public async Task GetUserAsync()
         {
-            Task.Factory.StartNew(() => GetUser());
+            await Task.Factory.StartNew(() => GetUser());
         }
 
         private void GetUser()
