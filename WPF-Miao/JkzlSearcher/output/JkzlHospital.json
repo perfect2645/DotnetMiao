@@ -1,102 +1,4 @@
 ﻿{
-  "HospitalId": "1000372",
-  "HospitalName": "惠阳区妇幼保健院",
-  "Province": "广东",
-  "City": "惠州",
-  "Address": "广东省惠州市惠城区五四路14号",
-  "Departments": {
-    "7110972": {
-      "DeptId": "7110972",
-      "DeptName": "预约挂号",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1001151",
-  "HospitalName": "山西长治淮海医院",
-  "Province": "山西",
-  "City": "长治",
-  "Address": "长治东路102号",
-  "Departments": {
-    "7057924": {
-      "DeptId": "7057924",
-      "DeptName": "预防保健科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1002441",
-  "HospitalName": "涟水县人民医院",
-  "Province": "江苏",
-  "City": "淮安",
-  "Address": "江苏省淮安市涟水县健康路46号",
-  "Departments": {
-    "7165186": {
-      "DeptId": "7165186",
-      "DeptName": "其他",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1002514",
-  "HospitalName": "泰州市海陵中医院",
-  "Province": "江苏",
-  "City": "泰州",
-  "Address": "江苏省泰州市海陵区吴州北路199号",
-  "Departments": {
-    "89944": {
-      "DeptId": "89944",
-      "DeptName": "防保科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1002772",
-  "HospitalName": "青田县中医院",
-  "Province": "浙江",
-  "City": "丽水",
-  "Address": "浙江省丽水市青田县",
-  "Departments": {
-    "90284": {
-      "DeptId": "90284",
-      "DeptName": "东门社区服务站",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1004438",
-  "HospitalName": "南方医科大学北滘医院",
-  "Province": "广东",
-  "City": "佛山",
-  "Address": "广东省佛山市顺德区X519(三荷线)",
-  "Departments": {
-    "91018": {
-      "DeptId": "91018",
-      "DeptName": "预防保健科",
-      "Doctors": null
-    }
-  }
-},
-{
-  "HospitalId": "1004453",
-  "HospitalName": "佛山市南海区西樵人民医院",
-  "Province": "广东",
-  "City": "佛山",
-  "Address": "广东省佛山市南海区S113(樵金中路)",
-  "Departments": {
-    "91037": {
-      "DeptId": "91037",
-      "DeptName": "预防保健科",
-      "Doctors": null
-    }
-  }
-},
-{
   "HospitalId": "1004482",
   "HospitalName": "广宁县人民医院",
   "Province": "广东",
@@ -106,7 +8,12 @@
     "91215": {
       "DeptId": "91215",
       "DeptName": "保健科",
-      "Doctors": null
+      "Doctors": {
+        "411249": {
+          "DoctorId": "411249",
+          "DoctorName": "陈樵年"
+        }
+      }
     }
   }
 },
@@ -120,7 +27,20 @@
     "91707": {
       "DeptId": "91707",
       "DeptName": "防保科",
-      "Doctors": null
+      "Doctors": {
+        "411599": {
+          "DoctorId": "411599",
+          "DoctorName": "陈浩田"
+        },
+        "411600": {
+          "DoctorId": "411600",
+          "DoctorName": "刘述话"
+        },
+        "411601": {
+          "DoctorId": "411601",
+          "DoctorName": "唐建林"
+        }
+      }
     }
   }
 },
@@ -134,7 +54,12 @@
     "91756": {
       "DeptId": "91756",
       "DeptName": "防保科",
-      "Doctors": null
+      "Doctors": {
+        "411670": {
+          "DoctorId": "411670",
+          "DoctorName": "皮世昌"
+        }
+      }
     }
   }
 },
@@ -148,7 +73,12 @@
     "91855": {
       "DeptId": "91855",
       "DeptName": "保健科",
-      "Doctors": null
+      "Doctors": {
+        "411802": {
+          "DoctorId": "411802",
+          "DoctorName": "郑世銮"
+        }
+      }
     }
   }
 },
@@ -162,7 +92,12 @@
     "92257": {
       "DeptId": "92257",
       "DeptName": "预防保健科",
-      "Doctors": null
+      "Doctors": {
+        "412242": {
+          "DoctorId": "412242",
+          "DoctorName": "林俊英"
+        }
+      }
     }
   }
 },
@@ -176,7 +111,101 @@
     "7037912": {
       "DeptId": "7037912",
       "DeptName": "预防保健科",
-      "Doctors": null
+      "Doctors": {
+        "710121094": {
+          "DoctorId": "710121094",
+          "DoctorName": "琚长青"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1006359",
+  "HospitalName": "晋城市妇幼保健院",
+  "Province": "山西",
+  "City": "晋城",
+  "Address": "山西省晋城市凤台西街2753号",
+  "Departments": {
+    "7047745": {
+      "DeptId": "7047745",
+      "DeptName": "妇保科",
+      "Doctors": {}
+    },
+    "7047750": {
+      "DeptId": "7047750",
+      "DeptName": "综合科",
+      "Doctors": {
+        "710175482": {
+          "DoctorId": "710175482",
+          "DoctorName": "李雁青"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1006453",
+  "HospitalName": "包头市蒙医中医医院",
+  "Province": "内蒙古",
+  "City": "包头",
+  "Address": "包头市东河区工业路157号（东河院）包头市滨河新区万水泉南路（滨河院）",
+  "Departments": {
+    "7040212": {
+      "DeptId": "7040212",
+      "DeptName": "蒙医疗术科",
+      "Doctors": {
+        "710129864": {
+          "DoctorId": "710129864",
+          "DoctorName": "让斯仁"
+        },
+        "710129863": {
+          "DoctorId": "710129863",
+          "DoctorName": "萨仁其其格"
+        },
+        "710129881": {
+          "DoctorId": "710129881",
+          "DoctorName": "乌敦高娃"
+        },
+        "710741091": {
+          "DoctorId": "710741091",
+          "DoctorName": "陈吉平"
+        },
+        "710489085": {
+          "DoctorId": "710489085",
+          "DoctorName": "包阿民"
+        }
+      }
+    },
+    "7165999": {
+      "DeptId": "7165999",
+      "DeptName": "风湿免疫科",
+      "Doctors": {
+        "710633566": {
+          "DoctorId": "710633566",
+          "DoctorName": "杨荣"
+        },
+        "710740622": {
+          "DoctorId": "710740622",
+          "DoctorName": "李伟明"
+        },
+        "710740499": {
+          "DoctorId": "710740499",
+          "DoctorName": "郭佳裕"
+        },
+        "710740507": {
+          "DoctorId": "710740507",
+          "DoctorName": "代莉娜"
+        },
+        "710740631": {
+          "DoctorId": "710740631",
+          "DoctorName": "宫慧萍"
+        },
+        "710131355": {
+          "DoctorId": "710131355",
+          "DoctorName": "马虹"
+        }
+      }
     }
   }
 },

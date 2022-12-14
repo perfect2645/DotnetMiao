@@ -61,7 +61,7 @@ namespace JkzlSearcher.search
                 outputController.AddDoctors(doctors);
             }
 
-            outputController.ToHospitalJsoin();
+            outputController.SaveHospital();
         }
 
         private OutputController BuildOutputController(List<Dictionary<string, object>> depts, 

@@ -10,7 +10,7 @@ namespace JkzlSearcher.session
     {
         public static string Cookie { get; set; }
         public static Logger OutputLogger { get; private set; }
-        public static int CurrentHospitalId { get; set; } = 1002440;
+        public static int CurrentHospitalId { get; set; } = 1006254;
         private static readonly object _hospitalIdLock = new object();
         public static Dictionary<string, object> PlatformSession { get; private set; }
         static MainSession()
@@ -57,8 +57,8 @@ namespace JkzlSearcher.session
 
         internal static HashSet<string> ValidDepartments = new HashSet<string>
         {
-            "社区", "站", "疫", "宫颈", "HP", "Hp", "hp", "首针", "预防",
-            "妇幼"
+            "社区", "站", "疫苗", "宫颈", "HP", "Hp", "hp", "首针", "预防",
+            "妇幼", "预约", "挂号"
         };
 
         internal static HashSet<string> InvalidDepartments = new HashSet<string>

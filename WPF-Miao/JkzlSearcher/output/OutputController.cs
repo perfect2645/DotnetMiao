@@ -108,7 +108,7 @@ namespace JkzlSearcher.output
             return !MainSession.InvalidDepartments.Any(x => deptName.Contains(x));
         }
 
-        public void SaveHospital(string hosJson)
+        public void SaveHospital()
         {
             try
             {
@@ -117,7 +117,7 @@ namespace JkzlSearcher.output
                 {
                     return;
                 }
-                MainSession.SaveHospital(hosJson);
+                MainSession.SaveHospital(jsonHospital);
             }
             catch(Exception ex)
             {
