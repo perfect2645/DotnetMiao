@@ -18,17 +18,17 @@ namespace JkzlSearcher.auth
         {
         }
 
-        public Task GetAutholicyAsync()
+        public Task GetAutholicyAsync(string hospitalId, string deptId, string doctorSn)
         {
             return Task.Factory.StartNew(() =>
             {
-                GetAutholicy();
+                GetAutholicy(hospitalId, deptId, doctorSn);
             });
         }
 
-        private void GetAutholicy()
+        private void GetAutholicy(string hospitalId, string deptId, string doctorSn)
         {
-            var content = new DoctorAuthContent();
+            var content = new DoctorAuthContent(hospitalId, deptId, doctorSn);
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
@@ -50,15 +50,13 @@ namespace JkzlSearcher.auth
 
         private void AnalysisResult(JsonElement jsonElement)
         {
-            var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
-            if (!doctorDept.HasItem())
+            var auth = JsonAnalysis.JsonToDic(jsonElement);
+            if (!auth.HasItem())
             {
-                Log($"Empty doctorDept");
+                Log($"Empty auth");
                 return;
             }
-            MainSession.PrintLogEvent.Publish(this, doctorDept);
-
-            var hospitalController = HttpServiceController.GetService<HospitalController>();
+            MainSession.PrintLogEvent.Publish(this, auth);
         }
     }
 }

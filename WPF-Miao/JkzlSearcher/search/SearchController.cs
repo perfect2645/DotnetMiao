@@ -70,13 +70,13 @@ namespace JkzlSearcher.search
             return new OutputController(depts, hospital);
         }
 
-        internal async void CheckAuthAsync()
+        internal async void CheckAuthAsync(string hospitalId, string deptId, string doctorSn)
         {
             var userController = HttpServiceController.GetService<UserInfoController>();
             await userController.GetUserInfoAsync();
 
             var authController = HttpServiceController.GetService<DoctorAuthController>();
-            await authController.GetAutholicyAsync();
+            await authController.GetAutholicyAsync(hospitalId, deptId, doctorSn);
         }
     }
 }

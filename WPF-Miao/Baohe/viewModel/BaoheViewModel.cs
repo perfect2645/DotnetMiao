@@ -83,6 +83,12 @@ namespace Baohe.viewModel
             });
             Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
                 "1039346", "包河区包公街道社区服务中心",
+                "7230002", "四价Hpv")
+            {
+                DoctorSn = "711199340",
+            });
+            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
+                "1039346", "包河区包公街道社区服务中心",
                 "7230344", "带疱疹病毒")
             {
                 DoctorSn = "711202108",

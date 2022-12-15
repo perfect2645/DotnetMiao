@@ -1,24 +1,31 @@
 ﻿using JkzlSearcher.common;
 using JkzlSearcher.session;
 using Utils;
-using Utils.datetime;
 
 namespace JkzlSearcher.auth
 {
     internal class DoctorAuthContent : JkzlContent
     {
         private const string Url = "https://appoint.yihu.com/appoint/do/registerAuth/queryAuthOnoff_v2";
-        public DoctorAuthContent() : base(Url)
+
+        private readonly string HospitalId;
+        private readonly string DeptId;
+        private readonly string DoctorSn;
+
+        public DoctorAuthContent(string hospitalId, string deptId, string doctorSn) : base(Url)
         {
+            HospitalId = hospitalId;
+            DeptId = deptId;
+            DoctorSn = doctorSn;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSession, Constants.HospitalId);
-            AddContent(MainSession.PlatformSession, Constants.DeptId);
-            AddContent(MainSession.PlatformSession, Constants.DoctorSn);
+            AddContent(Constants.HospitalId, HospitalId);
+            AddContent(Constants.DeptId, DeptId);
+            AddContent(Constants.DoctorSn, DoctorSn);
 
             var defaultMember = SessionBuilder.GetDefaultMember();
             AddContent(Constants.MemberSn, defaultMember.GetString("Membersn"));

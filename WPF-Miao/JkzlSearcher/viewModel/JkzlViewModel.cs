@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.stringBuilder;
 using Utils.timerUtil;
 
 namespace JkzlSearcher.viewModel
@@ -29,6 +30,39 @@ namespace JkzlSearcher.viewModel
         private SearchController _searchController;
 
         public JkzlGridViewModel GridViewModel { get; set; }
+
+        private string _hospitalId;
+        public string HospitalId
+        {
+            get { return _hospitalId; }
+            set
+            {
+                _hospitalId = value;
+                NotifyUI(() => HospitalId);
+            }
+        }
+
+        private string _deptId;
+        public string DeptId
+        {
+            get { return _deptId; }
+            set
+            {
+                _deptId = value;
+                NotifyUI(() => DeptId);
+            }
+        }
+
+        private string _doctorSn;
+        public string DoctorSn
+        {
+            get { return _doctorSn; }
+            set
+            {
+                _doctorSn = value;
+                NotifyUI(() => DoctorSn);
+            }
+        }
 
         #endregion Properties
 
@@ -194,9 +228,15 @@ namespace JkzlSearcher.viewModel
 
         private void ExecuteChekAuth()
         {
+            if (StringUtil.AnyEmpty(HospitalId, DeptId, DoctorSn))
+            {
+                PrintLog("请填写HospitalId, DeptId, DoctorSn");
+                return;
+            }
+
             Task.Factory.StartNew(() =>
             {
-                _searchController.CheckAuthAsync();
+                _searchController.CheckAuthAsync(HospitalId, DeptId, DoctorSn);
             });
         }
 
