@@ -18,8 +18,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreControl", "CoreControl\CoreControl.csproj", "{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explore", "..\..\Explore\Explore.csproj", "{0840E8BF-9ECA-402A-8F50-FE28378DC368}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{34204EE6-86FF-4500-B973-A9BF4272CAD3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dian", "Dian\Dian.csproj", "{54885459-C14E-43BE-90A5-0EB716F7743B}"
@@ -64,8 +62,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gaoxin", "gaoxin\gaoxin.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reveiver", "Communication\Reveiver.csproj", "{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendApp", "C:\Users\崔法威\Desktop\SendApp\SendApp.csproj", "{8FF7ABA6-5FD8-47BF-8619-A97FF586897E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,10 +88,6 @@ Global
 		{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E8C5AFE-B374-4B2B-A80C-7F3369AFC412}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0840E8BF-9ECA-402A-8F50-FE28378DC368}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54885459-C14E-43BE-90A5-0EB716F7743B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54885459-C14E-43BE-90A5-0EB716F7743B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54885459-C14E-43BE-90A5-0EB716F7743B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -164,10 +156,6 @@ Global
 		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8FF7ABA6-5FD8-47BF-8619-A97FF586897E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FF7ABA6-5FD8-47BF-8619-A97FF586897E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FF7ABA6-5FD8-47BF-8619-A97FF586897E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FF7ABA6-5FD8-47BF-8619-A97FF586897E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
