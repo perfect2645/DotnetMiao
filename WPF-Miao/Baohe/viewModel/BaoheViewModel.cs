@@ -71,7 +71,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 15, 19, 59, 59);
+            StartTime = new DateTime(2022, 12, 15, 20, 30, 59);
 
             Departments = new List<HospitalDept>();
 
