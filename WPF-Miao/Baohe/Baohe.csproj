@@ -10,11 +10,13 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
+    <ProjectReference Include="..\Communication\Communication.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />

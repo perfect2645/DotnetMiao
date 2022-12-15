@@ -60,7 +60,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jinyinhu", "jinyinhu\jinyin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "chengdu", "chengdu", "{4A60CF99-9DBA-4960-BCAE-BA43E646F012}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gaoxin", "gaoxin\gaoxin.csproj", "{BACB5426-FA1A-4680-B707-0DE0C0C0F021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gaoxin", "gaoxin\gaoxin.csproj", "{BACB5426-FA1A-4680-B707-0DE0C0C0F021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communication", "Communication\Communication.csproj", "{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +158,10 @@ Global
 		{BACB5426-FA1A-4680-B707-0DE0C0C0F021}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BACB5426-FA1A-4680-B707-0DE0C0C0F021}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BACB5426-FA1A-4680-B707-0DE0C0C0F021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DCE1000-1F60-4ED5-A22B-AFC22C00D778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

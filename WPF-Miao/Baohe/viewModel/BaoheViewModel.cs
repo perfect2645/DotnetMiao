@@ -6,6 +6,7 @@ using Baohe.viewModel.platform;
 using Base.Events;
 using Base.viewModel;
 using Base.viewModel.hospital;
+using Communication.SignalRClient;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;

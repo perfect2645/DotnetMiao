@@ -3,6 +3,7 @@ using Baohe.session;
 using Baohe.verification;
 using Baohe.viewModel.platform;
 using Base.viewModel;
+using Communication.SignalRClient;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
@@ -56,6 +57,8 @@ namespace Baohe.viewModel
             }
         }
 
+        private YzmReceiver YzmReceiver;
+
         #endregion Properties
 
         #region Constructor
@@ -64,6 +67,7 @@ namespace Baohe.viewModel
         {
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
             VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
+            YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
         }
 
         #endregion Properties
@@ -135,5 +139,22 @@ namespace Baohe.viewModel
         }
 
         #endregion 验证码
+
+        #region 接收验证码
+
+        private void ReceiveRemoteYzm(string phone, string yzm)
+        {
+            try
+            {
+                Yzm = yzm;
+                BaoheSession.PrintLogEvent.Publish(this, $"{phone}:{yzm}");
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion 接收验证码
     }
 }
