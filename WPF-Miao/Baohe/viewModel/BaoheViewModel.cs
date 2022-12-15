@@ -63,17 +63,32 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "jkzlAn_uuid=732AD1F0-E8A1-41D6-9712-B7974A4EA54A; jkzlAn_userid=148528129; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiU2VjU3RyIjoiMjE0MzJFOUE4MzRENzM3REYyMzczRkQ3MUI5RDQ0MDYifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=oA3ZA0cFHRTawO843XTJZpQaBhI8; OpenID=oA3ZA0cFHRTawO843XTJZpQaBhI8; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000393; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI2QUM0OTRBNUI0OTJDQjE1MUIyRUQwQzM3NENFQTJCQSJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=38092D2512E94B60A9F335AA4EFAA384; _YyghSysTrackUUID=15143303120; jkzlAn_refercode=; jkzlAn_sid=34F6EA1E-B0D6-4AF4-9287-1C2C8F5498D4; jkzlAn_channelid=9000393; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1671086029365";
+            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=ACA7D2A8D4694162AD9F1C5E0F3A05A2; _YyghSysTrackUUID=15200200455; jkzlAn_userid=142687055; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiU2VjU3RyIjoiNjEyREE0RkEyRjY1REZFOUQ2OENCRjc3NDJBQzg5RUMifQ%3D%3D; loginid=off6ts0dsj7egTDEnzoc7pz7g_FY; OpenID=off6ts0dsj7egTDEnzoc7pz7g_FY; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJGN0REMDNGQTA0Qzk4NjQ4NUEwMTI2QjFDQkNGRThDRCJ9; jkzlAn_refercode=; jkzlAn_sid=C6B670F8-57FB-4152-86C7-73B25F5FD178; jkzlAn_channelid=1000031; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1671111256531";
 
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7229969&doctorId=710788135&hospitalInternal=1&showMultiDept=0&platformType=9000393&exConsult=&consultHosId=1039346&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
 
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 15, 20, 30, 59);
+            StartTime = new DateTime(2022, 12, 16, 7, 59, 59);
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1099108", "雨花经济开发区社区卫生服务中心",
+                "7235364", "九价Hpv")
+            {
+                DoctorSn = "711230166"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1099108", "雨花经济开发区社区卫生服务中心",
+                "7235355", "预防接种门诊（测试）")
+            {
+                DoctorSn = "711230106",
+                HasYzm = false
+            });
 
             Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
                 "1039346", "包河区包公街道社区服务中心",
@@ -133,16 +148,6 @@ namespace Baohe.viewModel
                 HasYzm = false,
                 DoctorSn = "711170863"
             });
-
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1099108", "雨花经济开发区社区卫生服务中心",
-                "7235364", "九价Hpv")
-            {
-                DoctorSn = "711230166"
-            });
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1099108", "雨花经济开发区社区卫生服务中心",
-                "7235355", "预防接种门诊（测试）"));
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1092338", "板桥社区卫生服务中心",
