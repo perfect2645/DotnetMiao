@@ -3,7 +3,7 @@ using Baohe.session;
 using Baohe.verification;
 using Baohe.viewModel.platform;
 using Base.viewModel;
-using Communication.SignalRClient;
+using Receiver.SignalRClient;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
@@ -146,8 +146,13 @@ namespace Baohe.viewModel
         {
             try
             {
-                Yzm = yzm;
-                BaoheSession.PrintLogEvent.Publish(this, $"{phone}:{yzm}");
+                if(Phone == phone)
+                {
+                    Yzm = yzm;
+                    BaoheSession.PrintLogEvent.Publish(this, $"接收到验证码 - 手机号:{phone}:验证码:{yzm}");
+                    return;
+                }
+                Log($"Bypass其他手机验证码 - 手机号:{phone}:验证码:{yzm}");
             }
             catch (Exception ex)
             {

@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
-    <ProjectReference Include="..\Communication\Communication.csproj" />
+    <ProjectReference Include="..\Communication\Reveiver.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />

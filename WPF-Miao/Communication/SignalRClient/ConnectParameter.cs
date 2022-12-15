@@ -1,4 +1,4 @@
-﻿namespace Communication.SignalRClient
+﻿namespace Receiver.SignalRClient
 {
     internal class ConnectParameter
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 
-namespace Communication.SignalRClient
+namespace Receiver.SignalRClient
 {
     public class YzmReceiver
     {
