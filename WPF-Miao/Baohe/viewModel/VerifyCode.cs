@@ -76,9 +76,11 @@ namespace Baohe.viewModel
 
         public void SetTimer()
         {
+            BaoheSession.IsYzmChecked = false;
             var dept = BaoheSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
             if (!dept.HasYzm)
             {
+                BaoheSession.IsYzmChecked = true;
                 return;
             }
             var startTime = BaoheSession.GetStartTime();

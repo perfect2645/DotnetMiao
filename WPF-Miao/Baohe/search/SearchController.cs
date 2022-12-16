@@ -149,7 +149,7 @@ namespace Baohe.search
                 BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
                 lock (OrderLock)
                 {
-                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet)
+                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && BaoheSession.IsYzmChecked)
                     {
                         SearchStatus = SearchStatus.NumbersGet;
 

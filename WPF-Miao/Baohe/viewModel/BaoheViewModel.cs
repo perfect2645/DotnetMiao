@@ -63,10 +63,9 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_74ECC05B9A8A9F247BE6CAEE69DEFB08=ACA7D2A8D4694162AD9F1C5E0F3A05A2; _YyghSysTrackUUID=15200200455; jkzlAn_userid=142687055; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiU2VjU3RyIjoiNjEyREE0RkEyRjY1REZFOUQ2OENCRjc3NDJBQzg5RUMifQ%3D%3D; loginid=off6ts0dsj7egTDEnzoc7pz7g_FY; OpenID=off6ts0dsj7egTDEnzoc7pz7g_FY; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDI2ODcwNTUiLCJDYXJkTnVtYmVyIjoiMjA3MjgwMDc2NiIsIkxvZ2luSWQiOiJvZmY2dHMwZHNqN2VnVERFbnpvYzdwejdnX0ZZIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJGN0REMDNGQTA0Qzk4NjQ4NUEwMTI2QjFDQkNGRThDRCJ9; jkzlAn_refercode=; jkzlAn_sid=C6B670F8-57FB-4152-86C7-73B25F5FD178; jkzlAn_channelid=1000031; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1671111256531";
+            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMwZFZaRWRadGJqZGppT1FBaFpuUVIwIiwiU2VjU3RyIjoiNDNGNTY4NkVBNUVGQjQwQjUzRkE1OTlGNTZBQ0JFMjMifQ%3D%3D; logintype=62; loginid=off6ts0dVZEdZtbjdjiOQAhZnQR0; OpenID=off6ts0dVZEdZtbjdjiOQAhZnQR0; LoginChannel=1000031; TOKEN_64EE5E159F480EFBF3D478ED129BE688=413AC2CFAC884EA6A7AFC3EA5D764B1F; jkzlAn_sid=DF6D5676-BA19-4473-A99E-25AE58F1F568; jkzlAn_channelid=1000031; jkzlAn_userid=152468919; jkzlAn_p=-1; jkzlAn_c=-1; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTI0Njg5MTkiLCJDYXJkTnVtYmVyIjoiMjA4MjU1ODQ4OCIsIkxvZ2luSWQiOiJvZmY2dHMwZFZaRWRadGJqZGppT1FBaFpuUVIwIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI1NkZBMDM3QjgzMzAzNjM2Qzk4RTYzMzNCQkM5OTUzRCJ9; _YyghSysTrackUUID=16000707162; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1671120437882";
 
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
-
         }
 
         private void InitStaticData()

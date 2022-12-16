@@ -19,6 +19,8 @@ namespace Baohe.session
 
         public static UpdateUiEvent UpdateUiEvent { get; set; }
 
+        public static bool IsYzmChecked { get; set; }
+
         static BaoheSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();

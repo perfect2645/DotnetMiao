@@ -61,6 +61,7 @@ namespace Baohe.verification
             }
 
             BaoheSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}");
+            BaoheSession.IsYzmChecked = true;
         }
     }
 }
