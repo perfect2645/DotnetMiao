@@ -1841,3 +1841,276 @@
     }
   }
 },
+{
+  "HospitalId": "1017028",
+  "HospitalName": "银川市第一人民医院",
+  "Province": "宁夏",
+  "City": "银川",
+  "Address": "银川市城区利群西街2号",
+  "Departments": {
+    "7136917": {
+      "DeptId": "7136917",
+      "DeptName": "新针科",
+      "Doctors": {
+        "710400210": {
+          "DoctorId": "710400210",
+          "DoctorName": "尹海荣"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1018834",
+  "HospitalName": "黑龙江省牡丹江林业中心医院",
+  "Province": "黑龙江",
+  "City": "牡丹江",
+  "Address": "黑龙江牡丹江市爱民区新华路50号",
+  "Departments": {
+    "7132716": {
+      "DeptId": "7132716",
+      "DeptName": "导诊科",
+      "Doctors": {}
+    }
+  }
+},
+{
+  "HospitalId": "1018862",
+  "HospitalName": "牡丹江神经精神病医院",
+  "Province": "黑龙江",
+  "City": "牡丹江",
+  "Address": "无",
+  "Departments": {
+    "7091565": {
+      "DeptId": "7091565",
+      "DeptName": "防治科",
+      "Doctors": {
+        "710351746": {
+          "DoctorId": "710351746",
+          "DoctorName": "于宝德"
+        },
+        "710351755": {
+          "DoctorId": "710351755",
+          "DoctorName": "陆金凤"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1018958",
+  "HospitalName": "鹤岗矿务局总医院",
+  "Province": "黑龙江",
+  "City": "鹤岗",
+  "Address": "黑龙江省鹤岗市向阳区六马路1号",
+  "Departments": {
+    "7186441": {
+      "DeptId": "7186441",
+      "DeptName": "普一科",
+      "Doctors": {
+        "710691871": {
+          "DoctorId": "710691871",
+          "DoctorName": "韩松涛"
+        }
+      }
+    },
+    "7186442": {
+      "DeptId": "7186442",
+      "DeptName": "普二科",
+      "Doctors": {
+        "710691863": {
+          "DoctorId": "710691863",
+          "DoctorName": "陆显峰"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1018988",
+  "HospitalName": "黑龙江省口腔病防治院",
+  "Province": "黑龙江",
+  "City": "哈尔滨",
+  "Address": "哈尔滨市南岗区一曼街121号",
+  "Departments": {
+    "7062100": {
+      "DeptId": "7062100",
+      "DeptName": "VIP诊室",
+      "Doctors": {
+        "710239970": {
+          "DoctorId": "710239970",
+          "DoctorName": "鲍莉"
+        },
+        "710239975": {
+          "DoctorId": "710239975",
+          "DoctorName": "崔丽华"
+        }
+      }
+    },
+    "7064239": {
+      "DeptId": "7064239",
+      "DeptName": "口腔预防科",
+      "Doctors": {
+        "710250990": {
+          "DoctorId": "710250990",
+          "DoctorName": "闫翠翠"
+        },
+        "710251275": {
+          "DoctorId": "710251275",
+          "DoctorName": "张广龙"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1018991",
+  "HospitalName": "黑龙江省妇幼保健院",
+  "Province": "黑龙江",
+  "City": "哈尔滨",
+  "Address": "南岗区大成街26号",
+  "Departments": {
+    "7010771": {
+      "DeptId": "7010771",
+      "DeptName": "妇保科",
+      "Doctors": {
+        "710027671": {
+          "DoctorId": "710027671",
+          "DoctorName": "刘敏英"
+        },
+        "710027672": {
+          "DoctorId": "710027672",
+          "DoctorName": "姜丽红"
+        },
+        "710027673": {
+          "DoctorId": "710027673",
+          "DoctorName": "林晶"
+        },
+        "710027674": {
+          "DoctorId": "710027674",
+          "DoctorName": "董春波"
+        },
+        "710027675": {
+          "DoctorId": "710027675",
+          "DoctorName": "李晶"
+        },
+        "710027676": {
+          "DoctorId": "710027676",
+          "DoctorName": "张学颖"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1019211",
+  "HospitalName": "中国人民解放军第三七一医院",
+  "Province": "河南",
+  "City": "新乡",
+  "Address": "河南省新乡市文化街210号",
+  "Departments": {
+    "7057643": {
+      "DeptId": "7057643",
+      "DeptName": "特诊科",
+      "Doctors": {
+        "710227440": {
+          "DoctorId": "710227440",
+          "DoctorName": "孔学军"
+        },
+        "710389206": {
+          "DoctorId": "710389206",
+          "DoctorName": "代玉洁"
+        },
+        "710389214": {
+          "DoctorId": "710389214",
+          "DoctorName": "常利娜"
+        },
+        "710389216": {
+          "DoctorId": "710389216",
+          "DoctorName": "郭科"
+        },
+        "710389207": {
+          "DoctorId": "710389207",
+          "DoctorName": "晋俊平"
+        },
+        "710389208": {
+          "DoctorId": "710389208",
+          "DoctorName": "闵莉"
+        },
+        "710389209": {
+          "DoctorId": "710389209",
+          "DoctorName": "齐凤娇"
+        },
+        "710389217": {
+          "DoctorId": "710389217",
+          "DoctorName": "孙淑娟"
+        },
+        "710389189": {
+          "DoctorId": "710389189",
+          "DoctorName": "张庆芹"
+        },
+        "710389218": {
+          "DoctorId": "710389218",
+          "DoctorName": "赵艳方"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1021001",
+  "HospitalName": "衡阳市协合口腔医院",
+  "Province": "湖南",
+  "City": "衡阳",
+  "Address": "湖南省衡阳市石鼓区船山路31号",
+  "Departments": {
+    "117305": {
+      "DeptId": "117305",
+      "DeptName": "口腔预防科",
+      "Doctors": {
+        "420025": {
+          "DoctorId": "420025",
+          "DoctorName": "黄薇"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1021003",
+  "HospitalName": "成都润禾皮肤病专科医院",
+  "Province": "四川",
+  "City": "成都",
+  "Address": "成都市科华北路32号 ",
+  "Departments": {
+    "7237640": {
+      "DeptId": "7237640",
+      "DeptName": "hpv感染",
+      "Doctors": {
+        "710798840": {
+          "DoctorId": "710798840",
+          "DoctorName": "郑水德"
+        }
+      }
+    }
+  }
+},
+{
+  "HospitalId": "1021077",
+  "HospitalName": "北京市昌平区中西医结合医院",
+  "Province": "北京",
+  "City": "昌平",
+  "Address": "北京市昌平区黄平路219号 ",
+  "Departments": {
+    "7194271": {
+      "DeptId": "7194271",
+      "DeptName": "国医馆普通号",
+      "Doctors": {
+        "710704248": {
+          "DoctorId": "710704248",
+          "DoctorName": "国医馆普通号专家"
+        }
+      }
+    }
+  }
+},
