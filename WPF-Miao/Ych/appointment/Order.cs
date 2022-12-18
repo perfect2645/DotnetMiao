@@ -1,25 +1,29 @@
-﻿using Base.Events;
-using System;
-using System.Text;
+﻿using System.Text;
 using Utils.timerUtil;
 
 namespace Ych.appointment
 {
     public class Order
     {
-        public IntervalOnTime IntervalOnTime { get; private set; }
-        public string TimeId { get; set; }
-        public string ReservationDate { get; set; }
-        public string UserId { get; set; }
-        public string UserName { get; set; }
-        public string YeWuId { get; set; }
-        public string ReservationTime { get; set; }
+        public string DepartmentCode { get; set; }
+        public string DoctorCode { get; set; }
         public string AppointmentType { get; set; }
+        public string scheduleDate { get; set; }
+        public string TimeFlag { get; set; }
+        public string BeginTimeEncode { get; set; }
+        public string EndTimeEncode { get; set; }
+        public string ScheduleDetailId { get; set; }
+        public string RegFee { get; set; }
+        public string PatientCode { get; set; }
+        public string PatientType { get; set; } = "1";
+        public string PatientMedicalCardType { get; set; } = "1";
+        public string PatientNameEncode { get; set; }
+        public string PatientMobile { get; set; }
+        public string PatientIdentityCardNumber { get; set; }
 
 
         public Order()
         {
-            IntervalOnTime = new IntervalOnTime(TimeId, 600);
         }
 
         public string ToLogString()
