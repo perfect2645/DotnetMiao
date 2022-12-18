@@ -1,0 +1,23 @@
+POST http://www.szychrmyy.com/wechatclient/api/auth/appointment/confirmAppointment HTTP/1.1
+Host: www.szychrmyy.com
+Connection: keep-alive
+Content-Length: 492
+Accept: application/json, text/plain, */*
+Origin: http://www.szychrmyy.com
+openId: oSpLZsv5cKfTiMnUWDqkuEh_zOGM
+X-Access-Token: e90770a107724c8ba1fb42eb25b88190
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded
+Cookie: JSESSIONID=A92762E9E0082765A090574F509E718A
+Referer: http://www.szychrmyy.com/wechatclient/?openId=oSpLZsv5cKfTiMnUWDqkuEh_zOGM
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+departmentCode=15&doctorCode=AAAA-1&appointmentType=2&scheduleDate=2022-12-20&timeFlag=1&beginTime=08%253A40&endTime=08%253A45&scheduleDetailId=10&regFee=10&patientCode=2314632&patientType=1&patientMedicalCardType=1&patientMedicalCardNumber=&patientName=%25E5%2591%25A8%25E7%2591%25A0%25E5%25A4%258F&patientMobile=13940897525&outOrderNumber=&patientIdentityCardType=1&patientIdentityCardNumber=612426199806235426&outpatientTpye=1&timestamp=1671373490086&sign=738fe3e4fb231a54faf59f4cb90bac52&
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=UTF-8
+Date: Sun, 18 Dec 2022 14:24:50 GMT
+Content-Length: 192
+
+{"code":1,"data":{"hisOrderNumber":"2732","serialNumber":"10","clinicLocation":"","clinicDescription":"","regFee":"10.00","endPayTime":"2022-12-20 08:45:00","success":true},"message":"成功"}
