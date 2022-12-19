@@ -119,7 +119,7 @@ namespace suiyang.viewmodel
 
         private void TestData()
         {
-            Interval = 1000;
+            Interval = 300;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             Auth = "Bearer 2805b851-3357-4c59-abbc-b51867149dcb";
@@ -133,10 +133,17 @@ namespace suiyang.viewmodel
             DateList = new List<DspVal>
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
