@@ -5,7 +5,7 @@ namespace Ych.appointment
 {
     internal class YuyueContent : YchContent
     {
-        private static string url = "http://101.34.141.250:9653/api/front/appointment/save";
+        private static string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/confirmAppointment";
         public Order Order { get; }
         public YuyueContent(Order order) : base(url)
         {

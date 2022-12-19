@@ -145,23 +145,9 @@ namespace Ych.viewmodel
                 new YchHospital
                 {
                     HospitalId = "http://yy.test.shinegosoft.com.cn",
-                    HospitalName = "金银湖街家庭医生服务平台",
-                    DepartmentId = "18",
+                    HospitalName = "苏州市相城区阳澄湖人民医院",
+                    DepartmentId = "1213",
                     DepartmentName = "九价",
-                },
-                new YchHospital
-                {
-                    HospitalId = "http://yy.test.shinegosoft.com.cn",
-                    HospitalName = "金银湖街家庭医生服务平台",
-                    DepartmentId = "9",
-                    DepartmentName = "成人疫苗",
-                },
-                new YchHospital
-                {
-                    HospitalId = "http://yy.test.shinegosoft.com.cn",
-                    HospitalName = "金银湖街家庭医生服务平台",
-                    DepartmentId = "9",
-                    DepartmentName = "成人疫苗",
                 },
             };
 

@@ -8,6 +8,7 @@ namespace Ych.session
     public class MainSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
+        public static string OpenId { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
 
         public static UserSession UserSession { get; private set; }
