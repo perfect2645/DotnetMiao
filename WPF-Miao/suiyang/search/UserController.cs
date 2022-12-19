@@ -33,13 +33,13 @@ namespace suiyang.search
             {
                 var dept = MainSession.PlatformSession.GetString(Constants.DeptId);
                 var dc = DateTimeUtil.GetTimeStamp();
-                var url = $"http://www.jxy-tech.com/api/v1/myAddresss/default?_dc={dc}";
+                var url = $"http://www.jxy-tech.com/api/v1/myAddresss?_dc={dc}&includeItems=true&page=1&limit=10";
                 var content = new SuiyangBaseContent(url);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetMiao - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return;
                 }
                 var success = response.JsonBody.RootElement.GetProperty("success").NotNullString().ToBool();
@@ -56,14 +56,14 @@ namespace suiyang.search
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"GetFamily异常{ex.Message}");
+                MainSession.PrintLogEvent.Publish(this, $"GetUser异常{ex.Message}");
             }
         }
 
         private void SaveMiaoInfo(JsonElement data)
         {
-            var userInfo = JsonAnalysis.JsonToDic(data);
-            MainSession.PlatformSession.AddOrUpdate("userInfo", userInfo);
+            var userList = JsonAnalysis.JsonToDicList(data);
+            MainSession.PlatformSession.AddOrUpdate("userList", userList);
             //var scheduleList = JsonAnalysis.JsonToDicList(data);
             //foreach (var schedule in scheduleList)
             //{

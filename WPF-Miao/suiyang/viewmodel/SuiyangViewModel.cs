@@ -119,10 +119,10 @@ namespace suiyang.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
+            Interval = 1000;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            Auth = "Bearer 01fbf81f-bff6-4754-b930-a63ee282fef1";
+            Auth = "Bearer 2805b851-3357-4c59-abbc-b51867149dcb";
         }
 
         private void InitStaticData()
@@ -161,8 +161,8 @@ namespace suiyang.viewmodel
                 {
                     HospitalId = "514966",
                     HospitalName = "绥阳县妇幼保健院",
-                    DepartmentId = "D",
-                    DepartmentName = "预约分娩",
+                    DepartmentId = "W",
+                    DepartmentName = "妇科病普查",
                 },
             };
 

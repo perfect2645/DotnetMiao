@@ -90,8 +90,8 @@ namespace suiyang.search
                 if (availableQty > 0)
                 {
                     IntervalOnTime.StopInterval();
-                    var order = BuildOrder(beginTime, endTime);
-                    orderList.Add(order);
+                    var orderPerSchedule = BuildOrders(beginTime, endTime);
+                    orderList.AddRange(orderPerSchedule);
                     MainSession.PrintLogEvent.Publish(null, $"查到苗，date={Date}");
                 }
 
@@ -113,24 +113,30 @@ namespace suiyang.search
             }
         }
 
-        private Order BuildOrder(string beginTime, string endTime)
+        private List<Order> BuildOrders(string beginTime, string endTime)
         {
             var orderList = new List<Order>();
-            var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
-            var order = new Order
+            var userList = MainSession.PlatformSession["userList"] as List<Dictionary<string, object>>;
+            foreach(var userInfo in userList)
             {
-                BtCode = MainSession.PlatformSession.GetString(Constants.DeptId),
-                AppointDate = Date,
-                BeginTime = beginTime,
-                EndTime = endTime,
-                Barcode = MainSession.Auth.Replace("Bearer ", string.Empty),
-                AddressId = userInfo.GetString("id").ToInt(),
-                Identity = userInfo.GetString("identity"),
-                Phone = userInfo.GetString("mobile"),
-                IdName = userInfo.GetString("firstName"),
-            };
+                var order = new Order
+                {
+                    BtCode = MainSession.PlatformSession.GetString(Constants.DeptId),
+                    AppointDate = Date,
+                    BeginTime = beginTime,
+                    EndTime = endTime,
+                    Barcode = MainSession.Auth.Replace("Bearer ", string.Empty),
+                    AddressId = userInfo.GetString("id").ToInt(),
+                    Identity = userInfo.GetString("identity"),
+                    Phone = userInfo.GetString("mobile"),
+                    IdName = userInfo.GetString("firstName"),
+                };
 
-            return order;
+                orderList.Add(order);
+            }
+
+
+            return orderList;
         }
     }
 }
