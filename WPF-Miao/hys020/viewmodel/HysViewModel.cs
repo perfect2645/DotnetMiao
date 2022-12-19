@@ -115,15 +115,15 @@ namespace hys020.viewmodel
             InitStaticData();
             InitControllers();
 
-            //TestData();
+            TestData();
         }
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=4CBBBDB36CAF393A033F3156B009254C";
-            Location = "http://www.hys020.com/home/yyghDorMobile?userId=6334C2A529E1423881ADDA4E3A737076&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=6uDkDCvjSlcr493EbQA7wV6QIOR5Hbgu";
+            Cookie = "JSESSIONID=1C45E2B16593B435963276DBF65CE99E";
+            Location = "http://www.hys020.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=1tclc4SgvKiCId8FY8vdHd1pqq7GzFeM";
 
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitControllers()
@@ -133,7 +133,7 @@ namespace hys020.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 5, 10, 56, 00);
+            StartTime = new DateTime(2022, 12, 19, 10, 59, 50);
 
             if (Application.Current.Properties.Contains("Cookie"))
             {
@@ -173,16 +173,16 @@ namespace hys020.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
