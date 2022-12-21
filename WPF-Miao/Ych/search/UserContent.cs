@@ -5,7 +5,9 @@ namespace Ych.search
 {
     internal class UserContent : YchContent
     {
-        public UserContent(string url) : base(url)
+        private const string url = $"http://www.szychrmyy.com/wechatclient/api/user/listFamily";
+
+        public UserContent() : base(url)
         {
             BuildContent();
         }

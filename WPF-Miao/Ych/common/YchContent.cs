@@ -1,4 +1,8 @@
 ﻿using HttpProcessor.Content;
+using System;
+using System.Linq;
+using Utils;
+using Utils.stringBuilder;
 using Ych.session;
 
 namespace Ych.common
@@ -23,6 +27,25 @@ namespace Ych.common
             AddHeader("Referer", $"http://www.szychrmyy.com/wechatclient/?openId={MainSession.OpenId}");
             AddHeader("Accept-Encoding", "gzip, deflate");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+        }
+
+
+        protected string GetContentsMD5()
+        {
+            try
+            {
+                var contentValues = Content.Values.Select(x => x.NotNullString()).ToArray();
+                var contentValuesString = string.Join(string.Empty, contentValues);
+
+                var contentsMD5 = Encryptor.ToMD5String(contentValuesString).ToLower();
+
+                return contentsMD5;
+            }
+            catch(Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
+                return String.Empty;
+            }
         }
     }
 }

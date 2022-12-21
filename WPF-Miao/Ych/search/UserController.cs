@@ -27,8 +27,7 @@ namespace Ych.search
         {
             try
             {
-                var url = $"http://www.szychrmyy.com/wechatclient/api/user/listFamily";
-                var content = new UserContent(url);
+                var content = new UserContent();
                 content.BuildDefaultHeaders(Client);
                 HttpDicResponse response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)

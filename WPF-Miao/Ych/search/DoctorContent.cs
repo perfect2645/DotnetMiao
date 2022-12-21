@@ -4,17 +4,12 @@ using Ych.session;
 
 namespace Ych.search
 {
-    internal class SearchMiaoContent : YchContent
+    internal class DoctorContent : YchContent
     {
         private const string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/listNumber";
 
-        public string TimeFlag { get; set; }
-
-        public string Date { get; private set; }
-        public SearchMiaoContent(string date, string timeFlag) : base(url)
+        public DoctorContent() : base(url)
         {
-            Date = date;
-            TimeFlag = timeFlag;
             BuildContent();
         }
 
@@ -22,9 +17,7 @@ namespace Ych.search
         {
             AddContent(MainSession.PlatformSession, Constants.DeptId);
             AddContent(MainSession.PlatformSession, Constants.DoctorId);
-            AddContent("schedulingDate", Date);
             AddContent(MainSession.PlatformSession, Constants.DoctorType);
-            AddContent(Constants.TimeFlag, TimeFlag);
             AddContent("outpatientTpye", "1");
 
             var timestamp = DateTimeUtil.GetTimeStamp();

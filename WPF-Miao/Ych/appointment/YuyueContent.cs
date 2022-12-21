@@ -46,9 +46,7 @@ namespace Ych.appointment
             var timestamp = DateTimeUtil.GetTimeStamp();
             AddContent("timestamp", timestamp);
 
-            var contentValues = Content.Values.Select(x => x.NotNullString()).ToArray();
-            var contentValuesString = string.Join(string.Empty, contentValues);
-            AddContent("sign", Encryptor.ToMD5String(contentValuesString).ToLower());
+            AddContent("sign", GetContentsMD5());
         }
     }
 }

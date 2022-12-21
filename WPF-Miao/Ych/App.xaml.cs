@@ -31,7 +31,7 @@ namespace Ych
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<DateController>();
+            HttpServiceController.AddTransientService<DoctorController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<SearchMiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
