@@ -24,10 +24,10 @@ namespace Ych.search
 
             foreach(var date in dateList)
             {
-                var skey = $"{date.Value}{Constants.ShangWu}";
-                var shangwuController = MainSession.SearchSession.GetController(skey);
-                shangwuController.BuildContent(date.Value);
-                _controllerList.Add(skey, shangwuController);
+                var skey = $"{date.Value}";
+                var searchMiaoController = MainSession.SearchSession.GetController(skey);
+                searchMiaoController.BuildContent(date.Value);
+                _controllerList.Add(skey, searchMiaoController);
 
                 //var xkey = $"{date.Value}{Constants.XiaWu}";
                 //var afternoonController = MainSession.SearchSession.GetController(xkey);

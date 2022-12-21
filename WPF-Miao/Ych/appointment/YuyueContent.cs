@@ -1,5 +1,8 @@
 ﻿using Ych.common;
 using Utils;
+using Utils.datetime;
+using System.Linq;
+using Utils.stringBuilder;
 
 namespace Ych.appointment
 {
@@ -20,12 +23,32 @@ namespace Ych.appointment
 
         private void BuildContent()
         {
-            AddContent("timeId", Order.TimeId);
-            AddContent("reservationDate", Order.ReservationDate);
-            AddContent("userId", Order.UserId);
-            AddContent("yeWuId", Order.YeWuId);
-            AddContent("reservationTime", Order.ReservationTime);
+            AddContent("departmentCode", Order.DepartmentCode);
+            AddContent("doctorCode", Order.DoctorCode);
             AddContent("appointmentType", Order.AppointmentType);
+            AddContent("scheduleDate", Order.ScheduleDate);
+            AddContent("timeFlag", Order.TimeFlag);
+            AddContent("beginTime", Order.BeginTimeEncode);
+            AddContent("endTime", Order.EndTimeEncode);
+            AddContent("scheduleDetailId", Order.ScheduleDetailId);
+            AddContent("regFee", Order.RegFee);
+            AddContent("patientCode", Order.PatientCode);
+            AddContent("patientType", Order.PatientType);
+            AddContent("patientMedicalCardType", Order.PatientMedicalCardType);
+            AddContent("patientMedicalCardNumber", Order.PatientIdentityCardNumber);
+            AddContent("patientName", Order.PatientNameEncode);
+            AddContent("patientMobile", Order.PatientMobile);
+            AddContent("outOrderNumber", string.Empty);
+            AddContent("patientIdentityCardType", 1);
+            AddContent("patientIdentityCardNumber", Order.PatientIdentityCardNumber);
+            AddContent("outpatientTpye", 1);
+
+            var timestamp = DateTimeUtil.GetTimeStamp();
+            AddContent("timestamp", timestamp);
+
+            var contentValues = Content.Values.Select(x => x.NotNullString()).ToArray();
+            var contentValuesString = string.Join(string.Empty, contentValues);
+            AddContent("sign", Encryptor.ToMD5String(contentValuesString).ToLower());
         }
     }
 }

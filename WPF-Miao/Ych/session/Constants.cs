@@ -11,7 +11,7 @@ namespace Ych.session
         public const string AttId = "attId";
         public const string OrgId = "orgId";
         public const string WechatId = "wechatid";
-        public const string OpenId = "openid";
+        public const string OpenId = "openId";
         public const string TimeStamp = "Timestamp";
 
         public const string UserId = "customerId";

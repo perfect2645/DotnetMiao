@@ -30,10 +30,8 @@ namespace Ych.search
         public void BuildContent(string date)
         {
             Date = date;
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var urlTemplate = $"http://101.34.141.250:9653/api/front/classification/tree?day={date}&type=1&yeWuId={deptId}";
 
-            SearchMiaoContent = new SearchMiaoContent(urlTemplate);
+            SearchMiaoContent = new SearchMiaoContent(date);
             SearchMiaoContent.BuildDefaultHeaders(Client);
 
             SearchInterval = new IntervalOnTime(SearchMiaoAsync, $"{Date}", 300);
@@ -53,7 +51,7 @@ namespace Ych.search
 
             try
             {
-                HttpDicResponse response = GetStringAsync(SearchMiaoContent).Result;
+                HttpDicResponse response = PostStringAsync(SearchMiaoContent, HttpProcessor.Content.ContentType.String).Result;
                 if (IsMiaoGet)
                 {
                     SearchInterval.StopInterval();
@@ -135,13 +133,13 @@ namespace Ych.search
                 var timeRange = $"{startTime}-{endTime}";
                 baseOrderList.Add(new Order
                 {
-                    UserId = userId,
-                    UserName = userName,
-                    AppointmentType = deptName,
-                    ReservationDate = Date,
-                    TimeId = schedule.GetString("id"),
-                    YeWuId = deptId,
-                    ReservationTime = timeRange,
+                    //UserId = userId,
+                    //UserName = userName,
+                    //AppointmentType = deptName,
+                    //ReservationDate = Date,
+                    //TimeId = schedule.GetString("id"),
+                    //YeWuId = deptId,
+                    //ReservationTime = timeRange,
                 });
             }
 

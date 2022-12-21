@@ -74,17 +74,17 @@ namespace Ych.viewmodel
             }
         }
 
-        private string _auth;
-        public string Auth
+        private string _openId;
+        public string OpenId
         {
-            get { return _auth; }
+            get { return _openId; }
             set
             {
-                if (value != _auth)
+                if (value != _openId)
                 {
-                    _auth = value;
-                    MainSession.PlatformSession.AddOrUpdate(Constants.Authorization, value);
-                    NotifyUI(() => Auth);
+                    _openId = value;
+                    MainSession.OpenId = value;
+                    NotifyUI(() => OpenId);
                 }
             }
         }
@@ -121,10 +121,9 @@ namespace Ych.viewmodel
         {
             Interval = 200;
 
-            Auth = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE2MTE5NzUsInVzZXJuYW1lIjoib1BDbHM1aDJNV1pXTHU4YXh0MFFfOXlMRk5IOCJ9.XvFuDxjsN9WpcWjo8CSvDVkqSyhb0mD4g7f5xiZ4j9s";
+            OpenId = "oSpLZsv5cKfTiMnUWDqkuEh_zOGM&=";
 
             StartTime = DateTime.Now.AddSeconds(20);
-            MainSession.StartTime = StartTime;
         }
 
         private void InitStaticData()
@@ -272,9 +271,9 @@ namespace Ych.viewmodel
                         {
                             return;
                         }
-                        var key = $"{order.ReservationDate}{order.ReservationTime}";
-                        var yuyueController = MainSession.AppointSession.GetController(key);
-                        yuyueController.YuyueAsync(order);
+                        //var key = $"{order.ReservationDate}{order.ReservationTime}";
+                        //var yuyueController = MainSession.AppointSession.GetController(key);
+                        //yuyueController.YuyueAsync(order);
                     }
                 }
             }
@@ -290,7 +289,7 @@ namespace Ych.viewmodel
                 try
                 {
                     _searchController = new SearchController();
-                    if (StringUtil.AnyEmpty(Auth))
+                    if (StringUtil.AnyEmpty(OpenId))
                     {
                         MainSession.PrintLogEvent.Publish(this, "请填写Auth");
                         return;

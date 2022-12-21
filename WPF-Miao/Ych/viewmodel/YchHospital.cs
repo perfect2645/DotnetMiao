@@ -14,7 +14,7 @@ namespace Ych.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********武汉金银湖社区-选择医院科室*********");
+            sb.AppendLine("********苏州市相城区阳澄湖人民医院-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {DepartmentName}");
             sb.AppendLine($"DepartmentId - {DepartmentId}");
             sb.AppendLine("**************************************");

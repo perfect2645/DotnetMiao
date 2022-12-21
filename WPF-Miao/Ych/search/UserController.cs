@@ -1,17 +1,14 @@
 ﻿using HttpProcessor.Client;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using Ych.common;
-using Ych.session;
-using Utils.stringBuilder;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Utils;
 using Utils.json;
-using Base.viewmodel.status;
+using Utils.stringBuilder;
+using Ych.session;
 
 namespace Ych.search
 {
@@ -30,11 +27,10 @@ namespace Ych.search
         {
             try
             {
-                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var url = $"http://101.34.141.250:9653/api/front/sgUser/getUserByTpye/{deptId}";
-                var content = new YchContent(url);
+                var url = $"http://www.szychrmyy.com/wechatclient/api/user/listFamily";
+                var content = new UserContent(url);
                 content.BuildDefaultHeaders(Client);
-                HttpDicResponse response = GetStringAsync(content).Result;
+                HttpDicResponse response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"获取用户信息失败{response?.Message}");

@@ -51,7 +51,7 @@ namespace Ych.appointment
                 }
 
                 content.BuildDefaultHeaders(Client);
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"预约失败：{response?.Message}");
