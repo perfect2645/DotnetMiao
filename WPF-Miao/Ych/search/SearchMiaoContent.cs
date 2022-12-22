@@ -9,22 +9,25 @@ namespace Ych.search
     {
         private const string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/listNumber";
 
-        public string TimeFlag { get; set; }
-
+        public string TimeFlag { get; private set; }
         public string Date { get; private set; }
-        public SearchMiaoContent(string date, string timeFlag) : base(url)
+        public string DoctorId { get; private set; }
+        public string DoctorType { get; private set; }
+        public SearchMiaoContent(string date, string timeFlag, string doctorId, string doctorType) : base(url)
         {
             Date = date;
             TimeFlag = timeFlag;
+            DoctorId = doctorId;
+            DoctorType = doctorType;
             BuildContent();
         }
 
         private void BuildContent()
         {
             AddContent("departmentCode", MainSession.PlatformSession.GetString(Constants.DeptId));
-            AddContent(MainSession.PlatformSession, Constants.DoctorId);
+            AddContent("doctorCode", DoctorId);
             AddContent("schedulingDate", Date);
-            AddContent(MainSession.PlatformSession, Constants.DoctorType);
+            AddContent(Constants.DoctorType, DoctorType);
             AddContent(Constants.TimeFlag, TimeFlag);
             AddContent("outpatientTpye", "1");
 

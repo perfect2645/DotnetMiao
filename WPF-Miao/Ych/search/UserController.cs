@@ -38,16 +38,15 @@ namespace Ych.search
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                var message = root.GetProperty("message").NotNullString();
-                if (!"200".Equals(code) || !message.Contains("成功"))
+                if (!"1".Equals(code))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}");
                     return;
                 }
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}");
                     return;
                 }
                 SaveUserInfo(data);
@@ -60,8 +59,7 @@ namespace Ych.search
 
         private void SaveUserInfo(JsonElement data)
         {
-            var userListElement = data.GetProperty("list");
-            var userList = JsonAnalysis.JsonToDicList(userListElement);
+            var userList = JsonAnalysis.JsonToDicList(data);
             if (!userList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: userList为空");
@@ -70,9 +68,9 @@ namespace Ych.search
 
             var defaultUser = userList.FirstOrDefault();
 
-            var defaultUserId = defaultUser.GetString("id");
+            var defaultUserId = defaultUser.GetString("patientcode");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
-            var defaultUserName = defaultUser.GetString("userName");
+            var defaultUserName = defaultUser.GetString("patientName");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
             MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
 

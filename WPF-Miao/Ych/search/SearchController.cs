@@ -9,11 +9,12 @@ namespace Ych.search
 {
     internal class SearchController
     {
-        private Dictionary<string, DoctorController> _doctorControllerList;
+        private readonly Dictionary<string, DoctorController> _doctorControllerList;
         private Dictionary<string, SearchMiaoController> _miaoControllerList;
 
         public SearchController()
         {
+            _doctorControllerList = new Dictionary<string, DoctorController>();
             _miaoControllerList = new Dictionary<string, SearchMiaoController>();
 
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
@@ -29,15 +30,15 @@ namespace Ych.search
                 docController.BuildContent(date.Value);
                 _doctorControllerList.Add(date.Value, docController);
 
-                var skey = $"{date.Value}|1";
-                var morningController = MainSession.SearchSession.GetController(skey);
-                morningController.BuildContent(date.Value, "1");
-                _miaoControllerList.Add(skey, morningController);
+                //var skey = $"{date.Value}|1";
+                //var morningController = MainSession.SearchSession.GetController(skey);
+                //morningController.BuildContent(date.Value, "1");
+                //_miaoControllerList.Add(skey, morningController);
 
-                var xkey = $"{date.Value}|2";
-                var afternoonController = MainSession.SearchSession.GetController(xkey);
-                afternoonController.BuildContent(date.Value, "2");
-                _miaoControllerList.Add(xkey, afternoonController);
+                //var xkey = $"{date.Value}|2";
+                //var afternoonController = MainSession.SearchSession.GetController(xkey);
+                //afternoonController.BuildContent(date.Value, "2");
+                //_miaoControllerList.Add(xkey, afternoonController);
             }
         }
 
