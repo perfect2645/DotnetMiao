@@ -21,14 +21,14 @@ namespace Zhuzher.search
 
         private void InitSceneList()
         {
-            AddScene("app-act-invite&view", 3, "1");
-            AddScene("app-act-help", 1, "1");
-            //AddScene("doc-withhold&prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
+            //AddScene("app-act-invite&view", 3, "1");
+            //AddScene("app-act-help", 1, "1");
+            AddScene("doc-withhold&prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
             //AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
             //AddScene("doc-prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
             //AddScene("doc-withhold&prepay24months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
             //AddScene("doc-withhold&prepay36months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");
-            AddScene("app-startapp", 1, "1");
+            //AddScene("app-startapp", 1, "1");
             // 首次进入活动，金币+5，并额外获得5个夺宝机会
             // 最多10次 组队邀请好友，好友成功加入队伍，则算完成
             //AddScene("app-act-invite&jointeam", 1, "1");

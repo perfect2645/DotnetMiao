@@ -141,19 +141,20 @@ namespace Ych.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new YchHospital
-                {
-                    HospitalId = "http://yy.test.shinegosoft.com.cn",
-                    HospitalName = "苏州市相城区阳澄湖人民医院",
-                    DepartmentId = "15",
-                    DepartmentName = "预防保健科",
-                },
+
                 new YchHospital
                 {
                     HospitalId = "http://yy.test.shinegosoft.com.cn",
                     HospitalName = "苏州市相城区阳澄湖人民医院",
                     DepartmentId = "1213",
                     DepartmentName = "九价",
+                },
+                new YchHospital
+                {
+                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalName = "苏州市相城区阳澄湖人民医院",
+                    DepartmentId = "15",
+                    DepartmentName = "预防保健科",
                 },
             };
 
@@ -240,7 +241,7 @@ namespace Ych.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.GetMiaoAsync();
+                    _searchController.GetDoctorInfo();
                 }
                 catch (HttpException ex)
                 {
@@ -270,6 +271,10 @@ namespace Ych.viewmodel
         {
             try
             {
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                {
+                    return;
+                }
                 for (int i = 0; i < 10; i ++)
                 {
                     foreach (var order in orderList)
@@ -278,9 +283,9 @@ namespace Ych.viewmodel
                         {
                             return;
                         }
-                        //var key = $"{order.ReservationDate}{order.ReservationTime}";
-                        //var yuyueController = MainSession.AppointSession.GetController(key);
-                        //yuyueController.YuyueAsync(order);
+                        var key = $"{order.ScheduleDate}";
+                        var yuyueController = MainSession.AppointSession.GetController(key);
+                        yuyueController.YuyueAsync(order);
                     }
                 }
             }

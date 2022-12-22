@@ -13,6 +13,7 @@ using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
 using Utils.timerUtil;
+using Utils.datetime;
 
 namespace Ych.search
 {
@@ -122,15 +123,15 @@ namespace Ych.search
 
             foreach (var schedule in scheduleList)
             {
-                var startTime = schedule.GetString("beginTime");
-                var endTime = schedule.GetString("endTime");
+                var startTime = DateTimeUtil.GetDateTime(schedule.GetString("beginTime"), "HH-mm");
+                var endTime = DateTimeUtil.GetDateTime(schedule.GetString("endTime"), "HH-mm");
                 var timeRange = $"{startTime}-{endTime}";
                 baseOrderList.Add(new Order
                 {
                     BeginTime = startTime,
-                    BeginTimeEncode = UnicodeConverter.Encode(startTime),
+                    BeginTimeEncode = YchEncode(startTime),
                     EndTime = endTime,
-                    EndTimeEncode = UnicodeConverter.Encode(endTime),
+                    EndTimeEncode = YchEncode(endTime),
                     DepartmentCode = deptId,
                     DepartmentName = deptName,
                     DoctorCode = SearchMiaoContent.DoctorId,
@@ -138,7 +139,7 @@ namespace Ych.search
                     PatientIdentityCardNumber = userInfo.GetString("idcard"),
                     PatientMobile = userInfo.GetString("mobile"),
                     PatientName = userName,
-                    PatientNameEncode = UnicodeConverter.Encode(userName),
+                    PatientNameEncode = YchEncode(userName),
                     RegFee = MainSession.PlatformSession.GetString("regFee"),
                     ScheduleDate = Date,
                     ScheduleDetailId = schedule.GetString("serialNumber"),
@@ -152,6 +153,17 @@ namespace Ych.search
                 OrderList = baseOrderList
             };
             MainSession.OrderEvent.Publish(null, appointEventArgs);
+        }
+
+
+        private string YchEncode(string str)
+        {
+            var encodeStr = UnicodeConverter.Encode(str, true);
+
+            var ychEncode = encodeStr.Replace("-", "%3A");
+            ychEncode = ychEncode.Replace("%", "%25");
+
+            return ychEncode;
         }
     }
 }

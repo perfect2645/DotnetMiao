@@ -61,7 +61,7 @@ namespace Ych.appointment
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
                 var message = root.GetProperty("message").NotNullString();
-                if (!"200".Equals(code))
+                if (!"1".Equals(code))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败 code={code}, message={message}");
                     return;
@@ -69,18 +69,12 @@ namespace Ych.appointment
                 var data = root.GetProperty("data").NotNullString();
                 if (string.IsNullOrEmpty(data))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败 code={code},data={data}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败 code={code}, message={message}");
                     return;
                 }
 
-                var submitController = HttpServiceController.GetService<SubmitOrderController>();
-                var orderId = submitController.SubmitOrder(data);
-                if (string.IsNullOrEmpty(orderId))
-                {
-                    return;
-                }
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
-                MainSession.PrintLogEvent.Publish(this, $"预约结果:code={code}, message={message}, data ={data}");
+                MainSession.PrintLogEvent.Publish(this, $"预约结果:code={code}, message={message}");
                 MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
             }
             catch (Exception ex)

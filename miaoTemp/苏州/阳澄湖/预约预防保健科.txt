@@ -14,6 +14,8 @@ Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
 departmentCode=15&doctorCode=AAAA-1&appointmentType=2&scheduleDate=2022-12-20&timeFlag=1&beginTime=08%253A40&endTime=08%253A45&scheduleDetailId=10&regFee=10&patientCode=2314632&patientType=1&patientMedicalCardType=1&patientMedicalCardNumber=&patientName=%25E5%2591%25A8%25E7%2591%25A0%25E5%25A4%258F&patientMobile=13940897525&outOrderNumber=&patientIdentityCardType=1&patientIdentityCardNumber=612426199806235426&outpatientTpye=1&timestamp=1671373490086&sign=738fe3e4fb231a54faf59f4cb90bac52&
+
+departmentCode=15&doctorCode=AAAA-1&appointmentType=2&scheduleDate=2022-12-27&timeFlag=1&beginTime=08-22&endTime=08-27&scheduleDetailId=6&regFee=10.0&patientCode=2314632&patientType=1&patientMedicalCardType=1&patientMedicalCardNumber=612426199806235426&patientName=%e5%91%a8%e7%91%a0%e5%a4%8f&patientMobile=13940897525&outOrderNumber=&patientIdentityCardType=1&patientIdentityCardNumber=612426199806235426&outpatientTpye=1&timestamp=1671684281779&sign=ec4af7c1a72e35c194db398055b86073
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
 Content-Type: application/json;charset=UTF-8

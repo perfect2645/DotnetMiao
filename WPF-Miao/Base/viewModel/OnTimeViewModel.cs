@@ -152,7 +152,7 @@ namespace Base.viewModel
 
         protected void StopOnTimeTimer()
         {
-            OnTimeTimer.StopTimer();
+            OnTimeTimer?.StopTimer();
         }
 
         protected abstract void AutoRun();

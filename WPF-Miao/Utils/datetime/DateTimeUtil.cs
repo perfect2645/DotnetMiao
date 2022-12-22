@@ -116,5 +116,13 @@ namespace Utils.datetime
 
             return result;
         }
+
+
+        public static string GetDateTime(string dateStr, string format)
+        {
+            var date = Convert.ToDateTime(dateStr);
+
+            return date.ToString(format);
+        }
     }
 }
