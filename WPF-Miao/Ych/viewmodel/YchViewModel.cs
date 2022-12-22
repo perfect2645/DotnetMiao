@@ -134,7 +134,7 @@ namespace Ych.viewmodel
             DateList = new List<DspVal>
             {
                 new DspVal(DateTimeUtil.GetTomorrow()),
-                new DspVal(DateTimeUtil.GetTargetDate(2)),
+                //new DspVal(DateTimeUtil.GetTargetDate(2)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -192,7 +192,7 @@ namespace Ych.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopIntervalTimer();
+            StopOnTimeTimer();
         }
 
         #endregion Status Control
@@ -215,7 +215,7 @@ namespace Ych.viewmodel
                 {
                     _searchController = new SearchController();
                     await _searchController.GetUserInfo();
-                    StartIntervalTimer();
+                    StartOnTimeTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -305,7 +305,7 @@ namespace Ych.viewmodel
                         return;
                     }
 
-                    _searchController.GetMiaoAsync();
+                    _searchController.GetDoctorInfo();
                 }
                 catch (HttpException ex)
                 {

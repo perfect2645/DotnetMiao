@@ -8,12 +8,13 @@ using Utils;
 namespace Ych.search
 {
     internal class SearchController
-    { 
-        private Dictionary<string, SearchMiaoController> _controllerList;
+    {
+        private Dictionary<string, DoctorController> _doctorControllerList;
+        private Dictionary<string, SearchMiaoController> _miaoControllerList;
 
         public SearchController()
         {
-            _controllerList = new Dictionary<string, SearchMiaoController>();
+            _miaoControllerList = new Dictionary<string, SearchMiaoController>();
 
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
             if (!dateList.HasItem())
@@ -24,15 +25,19 @@ namespace Ych.search
 
             foreach(var date in dateList)
             {
+                var docController = MainSession.DoctorSession.GetController(date.Value);
+                docController.BuildContent(date.Value);
+                _doctorControllerList.Add(date.Value, docController);
+
                 var skey = $"{date.Value}|1";
                 var morningController = MainSession.SearchSession.GetController(skey);
                 morningController.BuildContent(date.Value, "1");
-                _controllerList.Add(skey, morningController);
+                _miaoControllerList.Add(skey, morningController);
 
                 var xkey = $"{date.Value}|2";
                 var afternoonController = MainSession.SearchSession.GetController(xkey);
                 afternoonController.BuildContent(date.Value, "2");
-                _controllerList.Add(xkey, afternoonController);
+                _miaoControllerList.Add(xkey, afternoonController);
             }
         }
 
@@ -42,15 +47,17 @@ namespace Ych.search
             await userController.GetUserAsync();
         }
 
-        public async Task GetDoctorInfo()
+        public void GetDoctorInfo()
         {
-            var doctorController = HttpServiceController.GetService<DoctorController>();
-            await doctorController.GetDoctorAsync();
+            foreach (var controller in _doctorControllerList)
+            {
+                controller.Value.SearchInterval.StartIntervalOntime();
+            }
         }
 
         public void GetMiaoAsync()
         {
-            foreach(var controller in _controllerList)
+            foreach(var controller in _miaoControllerList)
             {
                 controller.Value.SearchInterval.StartIntervalOntime();
             }

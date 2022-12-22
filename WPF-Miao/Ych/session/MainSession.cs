@@ -12,6 +12,7 @@ namespace Ych.session
         public static Dictionary<string, object> PlatformSession { get; private set; }
 
         public static UserSession UserSession { get; private set; }
+        internal static DoctorSession DoctorSession { get; private set; }
         public static AppointSession AppointSession { get; private set; }
         public static SearchSession SearchSession { get; private set; }
         public static ReSessionEvent ReSessionEvent { get; }
@@ -27,6 +28,7 @@ namespace Ych.session
 
         public static void InitSession()
         {
+            DoctorSession = new DoctorSession();
             SearchSession = new SearchSession();
             AppointSession = new AppointSession();
         }
