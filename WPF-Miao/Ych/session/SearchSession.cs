@@ -13,7 +13,8 @@ namespace Ych.session
             var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
             foreach (var date in dateList)
             {
-                AddController($"{date}");
+                AddController($"{date}|1"); // 上午
+                AddController($"{date}|2"); // 下午
             }
         }
     }

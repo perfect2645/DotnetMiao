@@ -24,15 +24,15 @@ namespace Ych.search
 
             foreach(var date in dateList)
             {
-                var skey = $"{date.Value}";
-                var searchMiaoController = MainSession.SearchSession.GetController(skey);
-                searchMiaoController.BuildContent(date.Value);
-                _controllerList.Add(skey, searchMiaoController);
+                var skey = $"{date.Value}|1";
+                var morningController = MainSession.SearchSession.GetController(skey);
+                morningController.BuildContent(date.Value, "1");
+                _controllerList.Add(skey, morningController);
 
-                //var xkey = $"{date.Value}{Constants.XiaWu}";
-                //var afternoonController = MainSession.SearchSession.GetController(xkey);
-                //afternoonController.BuildContent(date.Value, Constants.XiaWu);
-                //_controllerList.Add(xkey, afternoonController);
+                var xkey = $"{date.Value}|2";
+                var afternoonController = MainSession.SearchSession.GetController(xkey);
+                afternoonController.BuildContent(date.Value, "2");
+                _controllerList.Add(xkey, afternoonController);
             }
         }
 
@@ -40,6 +40,12 @@ namespace Ych.search
         {
             var userController = HttpServiceController.GetService<UserController>();
             await userController.GetUserAsync();
+        }
+
+        public async Task GetDoctorInfo()
+        {
+            var doctorController = HttpServiceController.GetService<DoctorController>();
+            await doctorController.GetDoctorAsync();
         }
 
         public void GetMiaoAsync()

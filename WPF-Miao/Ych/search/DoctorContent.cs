@@ -1,4 +1,5 @@
-﻿using Utils.datetime;
+﻿using Utils;
+using Utils.datetime;
 using Ych.common;
 using Ych.session;
 
@@ -6,18 +7,20 @@ namespace Ych.search
 {
     internal class DoctorContent : YchContent
     {
-        private const string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/listNumber";
+        private const string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/listDoctor";
 
-        public DoctorContent() : base(url)
+        public string Date { get; set; }
+
+        public DoctorContent(string date) : base(url)
         {
+            Date = date;
             BuildContent();
         }
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSession, Constants.DeptId);
-            AddContent(MainSession.PlatformSession, Constants.DoctorId);
-            AddContent(MainSession.PlatformSession, Constants.DoctorType);
+            AddContent("departmentCode", MainSession.PlatformSession.GetString(Constants.DeptId));
+            AddContent("scheduleDate", Date);
             AddContent("outpatientTpye", "1");
 
             var timestamp = DateTimeUtil.GetTimeStamp();

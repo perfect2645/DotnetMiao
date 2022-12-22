@@ -21,3 +21,25 @@ Date: Sun, 18 Dec 2022 14:24:14 GMT
 Content-Length: 287
 
 {"code":1,"data":[{"departmentCode":"15","departmentName":"预防保健科","doctorCode":"AAAA-1","doctorName":"普通号(上午)","doctorSex":"9","doctorResume":"","doctorGoodAt":"","sourceState":"1","doctorJob":"","doctorLevel":"医生","regFee":10.0,"doctorType":2,"doctorImage":""}]}
+
+
+{
+    "code": 1,
+    "data": [
+        {
+            "departmentCode": "15",
+            "departmentName": "预防保健科",
+            "doctorCode": "AAAA-1",
+            "doctorName": "普通号(上午)",
+            "doctorSex": "9",
+            "doctorResume": "",
+            "doctorGoodAt": "",
+            "sourceState": "1",
+            "doctorJob": "",
+            "doctorLevel": "医生",
+            "regFee": 10,
+            "doctorType": 2,
+            "doctorImage": ""
+        }
+    ]
+}

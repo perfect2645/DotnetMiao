@@ -27,11 +27,11 @@ namespace Ych.search
         {
         }
 
-        public void BuildContent(string date)
+        public void BuildContent(string date, string timeFlag)
         {
             Date = date;
 
-            SearchMiaoContent = new SearchMiaoContent(date);
+            SearchMiaoContent = new SearchMiaoContent(date, timeFlag);
             SearchMiaoContent.BuildDefaultHeaders(Client);
 
             SearchInterval = new IntervalOnTime(SearchMiaoAsync, $"{Date}", 300);

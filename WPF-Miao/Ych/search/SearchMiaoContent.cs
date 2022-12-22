@@ -1,4 +1,5 @@
-﻿using Utils.datetime;
+﻿using Utils;
+using Utils.datetime;
 using Ych.common;
 using Ych.session;
 
@@ -20,7 +21,7 @@ namespace Ych.search
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSession, Constants.DeptId);
+            AddContent("departmentCode", MainSession.PlatformSession.GetString(Constants.DeptId));
             AddContent(MainSession.PlatformSession, Constants.DoctorId);
             AddContent("schedulingDate", Date);
             AddContent(MainSession.PlatformSession, Constants.DoctorType);
