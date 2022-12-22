@@ -66,16 +66,15 @@ namespace Ych.search
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                var message = root.GetProperty("message").NotNullString();
-                if (!"200".Equals(code) || !message.Contains("成功"))
+                if (!"1".Equals(code))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取miao失败:code={code}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取miao失败:code={code}");
                     return false;
                 }
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取miao失败:code={code}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取miao失败:code={code}");
                     return false;
                 }
                 return SaveMiaoInfo(data);
@@ -89,20 +88,14 @@ namespace Ych.search
 
         private bool SaveMiaoInfo(JsonElement miaoElement)
         {
-            if (miaoElement.ValueKind == JsonValueKind.Null)
-            {
-                Log($"未查到苗miaoInfo is null");
-                return false;
-            }
-
             var scheduleList = JsonAnalysis.JsonToDicList(miaoElement);
             if (scheduleList == null)
             {
-                Log($"没开始放苗scheduleList is null");
+                Log($"没开始放苗data is empty");
                 return false; ;
             }
 
-            var avaliableScheduleList = scheduleList.Where(x => x["appointmentNum"].NotNullString().ToInt() > 0).ToList();
+            var avaliableScheduleList = scheduleList.Where(x => x["leftNumber"].NotNullString().ToInt() > 0).ToList();
             if (!avaliableScheduleList.HasItem())
             {
                 Log($"查到{scheduleList.Count}个苗,但是没有可用苗");
@@ -125,24 +118,33 @@ namespace Ych.search
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
             var userName = MainSession.PlatformSession.GetString(Constants.UserName);
             var userId = MainSession.PlatformSession.GetString(Constants.UserId);
+            var userInfo = MainSession.PlatformSession["user"] as Dictionary<string, object>;
 
             foreach (var schedule in scheduleList)
             {
-                var startTime = schedule.GetString("startTime");
+                var startTime = schedule.GetString("beginTime");
                 var endTime = schedule.GetString("endTime");
                 var timeRange = $"{startTime}-{endTime}";
                 baseOrderList.Add(new Order
                 {
-                    //UserId = userId,
-                    //UserName = userName,
-                    //AppointmentType = deptName,
-                    //ReservationDate = Date,
-                    //TimeId = schedule.GetString("id"),
-                    //YeWuId = deptId,
-                    //ReservationTime = timeRange,
+                    BeginTime = startTime,
+                    BeginTimeEncode = UnicodeConverter.Encode(startTime),
+                    EndTime = endTime,
+                    EndTimeEncode = UnicodeConverter.Encode(endTime),
+                    DepartmentCode = deptId,
+                    DepartmentName = deptName,
+                    DoctorCode = SearchMiaoContent.DoctorId,
+                    PatientCode = userId,
+                    PatientIdentityCardNumber = userInfo.GetString("idcard"),
+                    PatientMobile = userInfo.GetString("mobile"),
+                    PatientName = userName,
+                    PatientNameEncode = UnicodeConverter.Encode(userName),
+                    RegFee = MainSession.PlatformSession.GetString("regFee"),
+                    ScheduleDate = Date,
+                    ScheduleDetailId = schedule.GetString("serialNumber"),
+                    TimeFlag = SearchMiaoContent.TimeFlag
                 });
             }
-
             baseOrderList = baseOrderList.DisorderItems();
 
             var appointEventArgs = new OrderEventArgs

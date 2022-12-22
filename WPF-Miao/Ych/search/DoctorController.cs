@@ -1,5 +1,6 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
+using HttpProcessor.Container;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace Ych.search
         public string Date { get; private set; }
         internal DoctorContent DoctorContent { get; private set; }
         public IntervalOnTime SearchInterval;
+
+        private readonly object _lock = new object();
 
         public DoctorController(HttpClient httpClient) : base(httpClient)
         {
@@ -66,19 +69,18 @@ namespace Ych.search
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                var message = root.GetProperty("message").NotNullString();
-                if (!"200".Equals(code) || !message.Contains("成功"))
+                if (!"1".Equals(code))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取医生失败:code={code}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取医生失败:code={code}");
                     return false;
                 }
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取医生失败:code={code}, message={message}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取医生失败:code={code}");
                     return false;
                 }
-                return SaveMiaoInfo(data);
+                return SaveDoctorInfo(data);
             }
             catch (Exception ex)
             {
@@ -87,69 +89,65 @@ namespace Ych.search
             }
         }
 
-        private bool SaveMiaoInfo(JsonElement miaoElement)
+        private bool SaveDoctorInfo(JsonElement data)
         {
-            if (miaoElement.ValueKind == JsonValueKind.Null)
+            var doctorList = JsonAnalysis.JsonToDicList(data);
+            if (!doctorList.HasItem())
             {
-                Log($"未查到医生");
-                return false;
-            }
-
-            var scheduleList = JsonAnalysis.JsonToDicList(miaoElement);
-            if (scheduleList == null)
-            {
-                Log($"没开始放苗scheduleList is null");
+                Log($"没查到医生信息");
                 return false; ;
             }
 
-            var avaliableScheduleList = scheduleList.Where(x => x["appointmentNum"].NotNullString().ToInt() > 0).ToList();
-            if (!avaliableScheduleList.HasItem())
+
+            lock(_lock)
             {
-                Log($"查到{scheduleList.Count}个苗,但是没有可用苗");
-                return false;
+                if (!IsDoctorGet)
+                {
+                    lock (_lock)
+                    {
+                        BuildSearchMiaoController(doctorList);
+                    }
+                }
             }
 
             IsDoctorGet = true;
 
-            BuildOrderList(avaliableScheduleList);
-
-            MainSession.SetStatus(MiaoProgress.MiaoGet);
             return true;
         }
 
-        private void BuildOrderList(List<Dictionary<string, object>> scheduleList)
+        private void BuildSearchMiaoController(List<Dictionary<string, object>> doctorList)
         {
-            var baseOrderList = new List<Order>();
+            IsDoctorGet = true;
 
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var userName = MainSession.PlatformSession.GetString(Constants.UserName);
-            var userId = MainSession.PlatformSession.GetString(Constants.UserId);
+            MainSession.PlatformSession.AddOrUpdate(Date, doctorList);
 
-            foreach (var schedule in scheduleList)
+            foreach(var doctor in doctorList)
             {
-                var startTime = schedule.GetString("startTime");
-                var endTime = schedule.GetString("endTime");
-                var timeRange = $"{startTime}-{endTime}";
-                baseOrderList.Add(new Order
+                var docCode = doctor.GetString("doctorCode");
+                var docName = doctor.GetString("doctorName");
+                if (string.IsNullOrEmpty(docName))
                 {
-                    //UserId = userId,
-                    //UserName = userName,
-                    //AppointmentType = deptName,
-                    //ReservationDate = Date,
-                    //TimeId = schedule.GetString("id"),
-                    //YeWuId = deptId,
-                    //ReservationTime = timeRange,
-                });
+                    docName = "普通号(上午)";
+                }
+
+                var timeFlag = "1";
+                if (docName.Contains("下午"))
+                {
+                    timeFlag = "2";
+                }
+
+                var docType = doctor.GetString("doctorType");
+                var regFee = doctor.GetString("regFee");
+                MainSession.PlatformSession.AddOrUpdate("regFee", regFee);
+
+                var searchMiaoController = MainSession.SearchSession.GetController($"{docCode}|{timeFlag}");
+                if (searchMiaoController == null)
+                {
+                    searchMiaoController = HttpServiceController.GetService<SearchMiaoController>();
+                }
+                searchMiaoController.BuildContent(Date, timeFlag, docCode, docType);
+                searchMiaoController.SearchInterval.StartIntervalOntime();
             }
-
-            baseOrderList = baseOrderList.DisorderItems();
-
-            var appointEventArgs = new OrderEventArgs
-            {
-                OrderList = baseOrderList
-            };
-            MainSession.OrderEvent.Publish(null, appointEventArgs);
         }
     }
 }

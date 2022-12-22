@@ -133,7 +133,7 @@ namespace Ych.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetTomorrow()),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetTargetDate(2)),
             };
 
@@ -141,6 +141,13 @@ namespace Ych.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                new YchHospital
+                {
+                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalName = "苏州市相城区阳澄湖人民医院",
+                    DepartmentId = "15",
+                    DepartmentName = "预防保健科",
+                },
                 new YchHospital
                 {
                     HospitalId = "http://yy.test.shinegosoft.com.cn",

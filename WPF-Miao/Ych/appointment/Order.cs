@@ -8,7 +8,7 @@ namespace Ych.appointment
         public string DepartmentCode { get; set; }
         public string DepartmentName { get; set; }
         public string DoctorCode { get; set; }
-        public string AppointmentType { get; set; }
+        public string AppointmentType { get; set; } = "2";
         public string ScheduleDate { get; set; }
         public string TimeFlag { get; set; }
         public string BeginTime { get; set; }

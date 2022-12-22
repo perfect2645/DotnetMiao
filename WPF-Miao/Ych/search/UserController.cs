@@ -70,7 +70,7 @@ namespace Ych.search
 
             var defaultUserId = defaultUser.GetString("patientcode");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
-            var defaultUserName = defaultUser.GetString("patientName");
+            var defaultUserName = defaultUser.GetString("realname");
             MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
             MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
 
