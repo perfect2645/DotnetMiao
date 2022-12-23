@@ -1,6 +1,5 @@
 ﻿using HttpProcessor.Container;
 using Jingyang.appointment;
-using Jingyang.login;
 using Jingyang.search;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +29,6 @@ namespace Jingyang
             HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<YuyueController>();
-            HttpServiceController.AddTransientService<GetMiaoController>();
 
             HttpServiceController.BuidServiceProvider();
         }
