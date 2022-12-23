@@ -11,10 +11,11 @@ namespace Jingyang.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {
-        public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
         public static AppointSession AppointSession { get; private set; }
-        internal static SearchSession SearchSession { get; private set; }
+        internal static List<string> TimeIdList { get; set; }
+        internal static List<JingyangLogin> Users { get; set; }
+        internal static List<Order> Orders { get; set; }
 
         public static AppointEvent AppointEvent { get; }
 
@@ -22,13 +23,14 @@ namespace Jingyang.session
         {
             PlatformSession = new Dictionary<string, object>();
             AppointEvent = new AppointEvent();
-
+            Users = new List<JingyangLogin>();
+            Orders = new List<Order>();
+            TimeIdList = new List<string>();
         }
         
         public static void InitSession()
         {
             AppointSession = new AppointSession();
-            SearchSession = new SearchSession();
         }
 
         #region MiaoStatus

@@ -1,8 +1,6 @@
-﻿using Base.model;
-using Base.session;
+﻿using Base.session;
 using Jingyang.appointment;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Jingyang.session
 {
@@ -10,10 +8,14 @@ namespace Jingyang.session
     {
         public AppointSession() : base()
         {
-            var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
-            foreach (var date in dateList)
+            var dateList = MainSession.TimeIdList;
+            var userList = MainSession.Users;
+            foreach(var user in userList)
             {
-                AddController(date);
+                foreach (var date in dateList)
+                {
+                    AddController($"{user.Fid}|{date}");
+                }
             }
         }
     }

@@ -1,26 +1,20 @@
 ﻿using Base.model;
-using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
-using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jingyang.appointment;
-using Jingyang.login;
 using Jingyang.search;
 using Jingyang.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
-using Utils.datetime;
-using Utils.number;
+using Utils.file;
 using Utils.stringBuilder;
-using Utils.timerUtil;
 
 namespace Jingyang.viewmodel
 {
@@ -31,9 +25,6 @@ namespace Jingyang.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-
-        private IntervalOnTime VaccineOrderInterval;
-        private ActionOnTime StopVaccineOrderTimer;
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -81,11 +72,33 @@ namespace Jingyang.viewmodel
             }
         }
 
+        private string _userId;
+        public string UserId
+        {
+            get { return _userId; }
+            set
+            {
+                _userId = value;
+                NotifyUI(() => UserId);
+            }
+        }
+
+        private string _fid;
+        public string Fid
+        {
+            get { return _fid; }
+            set
+            {
+                _fid = value;
+                NotifyUI(() => Fid);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController;
 
-        private List<GaoxinLogin> _gaoxinLogins = new List<GaoxinLogin>();
+        private List<JingyangLogin> _gaoxinLogins = new List<JingyangLogin>();
 
         #endregion Properties
 
@@ -104,18 +117,12 @@ namespace Jingyang.viewmodel
 
         private void TestData()
         {
-            StopVaccineOrderTimer = new ActionOnTime("Stop Vaccin Order")
-            {
-                TargetAction = StopVaccineOrder,
-                ActionTime = StartTime.AddMinutes(5)
-            };
+
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 12, 7, 8, 59, 50);
-
-            DisparkId = "b64b468d8131681e4c9dd271d573eb79";
 
             DateList = new List<DspVal>
             {
@@ -126,18 +133,24 @@ namespace Jingyang.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new GaoxinHospital
+                new JingyangHospital
                 {
-                    HospitalId = "12510109450812372N",
-                    HospitalName = "成都高新区中和社区卫生服务中心",
-                    DepartmentId = DisparkId,
+                    HospitalId = "cnfw.mailiku.com",
+                    HospitalName = "德阳旌阳区城南社区",
                     DepartmentName = "九价HPV疫苗",
+                    TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
+                },
+                new JingyangHospital
+                {
+                    HospitalId = "cnfw.mailiku.com",
+                    HospitalName = "德阳旌阳区城南社区",
+                    DepartmentName = "四价HPV疫苗",
+                    TimeIdList = new List<string> { "2012", "2017", "2022", "2027", "2032" }
                 },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
             _searchController = new SearchController();
-            MainSession.InitSession();
         }
 
         private void InitCommands()
@@ -146,11 +159,7 @@ namespace Jingyang.viewmodel
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
-            MainSession.ReSessionEvent.Subscribe(OnResession);
-
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
-
-            VaccineOrderInterval = new IntervalOnTime("Vaccin Order", Interval);
         }
 
         #endregion Constructor
@@ -185,54 +194,51 @@ namespace Jingyang.viewmodel
 
         private void LoginFromConfig()
         {
-            if (StringUtil.AnyEmpty(DisparkId))
-            {
-                Log("请检查DisparkId参数");
-                return;
-            }
-            _gaoxinLogins = FileReader.DeserializeFile<List<GaoxinLogin>>("Login.json");
+            _gaoxinLogins = FileReader.DeserializeFile<List<JingyangLogin>>("Login.json");
+
+            MainSession.Users = _gaoxinLogins;
 
             foreach (var gaoxinLogin in _gaoxinLogins)
             {
-                if (string.IsNullOrEmpty(gaoxinLogin.Token))
-                {
-                    gaoxinLogin.Token = gaoxinLogin.OrderToken;
-                }
-                Task.Factory.StartNew(async () =>
-                {
-                    await _searchController.GetUserInfoAsync(gaoxinLogin);
-                });
+                //Task.Factory.StartNew(async () =>
+                //{
+                //    await _searchController.GetUserInfoAsync(gaoxinLogin);
+                //});
             }
 
+            MainSession.InitSession();
             StartAutoRun();
         }
 
         private void ExecuteLogin()
         {
-            if (StringUtil.AnyEmpty(Token, OrderToken, DisparkId))
+            if (StringUtil.AnyEmpty(UserId, Fid))
             {
                 Log("请检查参数");
                 return;
             }
 
-            var loginData = new GaoxinLogin()
+            var loginData = new JingyangLogin()
             {
-                OrderToken = OrderToken,
-                Token = Token,
+                UserId = UserId,
+                Fid = Fid,
+                Yid = Fid,
+                Cookie = Cookie,
             };
 
-            Task.Factory.StartNew(async () =>
-            {
-                await _searchController.GetUserInfoAsync(loginData);
-            });
+            //Task.Factory.StartNew(async () =>
+            //{
+            //    await _searchController.GetUserInfoAsync(loginData);
+            //});
 
             ClearLoginData();
         }
 
         private void ClearLoginData()
         {
-            Token = string.Empty;
-            OrderToken = string.Empty;
+            Cookie = string.Empty;
+            UserId = string.Empty;
+            Fid = string.Empty;
         }
 
         #endregion Login
@@ -244,6 +250,7 @@ namespace Jingyang.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
+                    BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -257,23 +264,46 @@ namespace Jingyang.viewmodel
             });
         }
 
+        private void BuildOrders()
+        {
+            MainSession.Orders = new List<Order>();
+            foreach(var user in _gaoxinLogins)
+            {
+                var timeId = user.TimeId;
+                if (!string.IsNullOrEmpty(timeId))
+                {
+                    Order order = BuildOneOrder(user, timeId);
+                    MainSession.Orders.Add(order);
+                    continue;
+                }
+
+                foreach(var time in MainSession.TimeIdList)
+                {
+                    Order order = BuildOneOrder(user, time);
+                    MainSession.Orders.Add(order);
+                }
+            }
+        }
+
+        private Order BuildOneOrder(JingyangLogin user, string timeId)
+        {
+            return new Order
+            {
+                Cookie = user.Cookie,
+                UserId = user.UserId,
+                Fid = user.Fid,
+                Yid = user.Fid,
+                TimeId = timeId,
+                UserName = user.UserName ?? user.Fid
+            };
+        }
+
         protected override void AutoRun()
         {
             Task.Factory.StartNew(() => {
                 try
                 {
-                    var orderList = MainSession.OrderDic.Values.ToList();
-                    foreach (var order in orderList)
-                    {
-                        var yuyueController = HttpServiceController.GetService<YuyueController>();
-                        var yuyueContent = new YuyueContent(order);
-                        yuyueController.StartInterval(yuyueContent);
-                    }
-
-                    Task.Factory.StartNew(() =>
-                    {
-                        VaccineOrderInterval.StartIntervalOntime(BuildVaccineOrder);
-                    });
+                    Appoint();
                 }
                 catch (HttpException ex)
                 {
@@ -284,47 +314,6 @@ namespace Jingyang.viewmodel
                     Log(ex);
                 }
             });
-        }
-
-        private void BuildVaccineOrder()
-        {
-            try
-            {
-                var userList = MainSession.UserDic.Values.ToList();
-                foreach (var user in userList)
-                {
-                    Task.Factory.StartNew(() => BuildVaccineOrderForOneUser(user));
-                }
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
-        private async void BuildVaccineOrderForOneUser(UserInfo user)
-        {
-            var vaccineController = HttpServiceController.GetService<VaccineController>();
-            var vaccineContent = new VaccineContent(user);
-            vaccineController.BuildClientHeaders(vaccineContent);
-            await vaccineController.ProcessAsyncTask(vaccineContent);
-            var order = vaccineController.OrderResult;
-
-            if (order != null)
-            {
-                var yuyueController = HttpServiceController.GetService<YuyueController>();
-                var yuyueContent = new YuyueContent(order);
-                yuyueController.YuyueAsync(yuyueContent);
-            }
-        }
-
-        private void StopVaccineOrder()
-        {
-            VaccineOrderInterval?.StopInterval();
         }
 
         #endregion AutoRun
@@ -333,10 +322,10 @@ namespace Jingyang.viewmodel
 
         private void ExecuteManual()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
-
+                    Appoint();
                 }
                 catch (HttpException ex)
                 {
@@ -347,6 +336,28 @@ namespace Jingyang.viewmodel
                     Log(ex);
                 }
             });
+        }
+
+        private void Appoint()
+        {
+            foreach (var order in MainSession.Orders)
+            {
+                try
+                {
+                    var fid = order.Fid;
+                    var time = order.TimeId;
+                    var appointController = MainSession.AppointSession.GetController($"{fid}|{time}");
+                    appointController.YuyueAsync(order);
+                }
+                catch (HttpException ex)
+                {
+                    Log(ex);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            }
         }
 
         private void DirectlyOrder(string scheduleId)
@@ -378,10 +389,10 @@ namespace Jingyang.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as GaoxinHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            var selectedDept = SelectedDepartment as JingyangHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
+            MainSession.TimeIdList = selectedDept.TimeIdList;
 
             Log(selectedDept.ToLogString());
         }
@@ -393,12 +404,6 @@ namespace Jingyang.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
-            Task.Factory.StartNew(() => ExecuteLogin());
-        }
-
-        private void OnResession(object? sender, ResessionEventArgs e)
-        {
-            ReSession();
         }
 
         #endregion Resession

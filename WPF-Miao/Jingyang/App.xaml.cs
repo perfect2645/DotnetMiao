@@ -27,6 +27,7 @@ namespace Jingyang
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<GetMiaoController>();

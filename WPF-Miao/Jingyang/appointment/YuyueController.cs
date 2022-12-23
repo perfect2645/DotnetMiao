@@ -1,38 +1,31 @@
-﻿using Base.viewmodel.status;
-using HttpProcessor.Client;
+﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
 using Jingyang.session;
 using System;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Utils.stringBuilder;
-using Utils.timerUtil;
 
 namespace Jingyang.appointment
 {
     public class YuyueController : HttpClientBase
     {
-        public IntervalOnTime IntervalOnTime { get; set; }
+        public bool IsSuccess { get; set; }
         internal YuyueContent Content { get; set; }
 
         public string Key { get; set; }
 
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
-            IntervalOnTime = new IntervalOnTime(Key, 300);
         }
 
         public void StartInterval(Order order)
         {
-            //YuyueAsync(order);
-            IntervalOnTime.StartIntervalOntime(() => YuyueAsync(order));
         }
 
         public void YuyueAsync(Order order)
         {
-            if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+            if (IsSuccess)
             {
-                IntervalOnTime.StopInterval();
                 return;
             }
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
@@ -44,9 +37,8 @@ namespace Jingyang.appointment
         {
             try
             {
-                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                if (IsSuccess)
                 {
-                    IntervalOnTime.StopInterval();
                     return;
                 }
                 
@@ -65,7 +57,7 @@ namespace Jingyang.appointment
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:{message}");
                     return;
                 }
-                MainSession.SetStatus(MiaoProgress.AppointEnd);
+                IsSuccess = true;
                 MainSession.PrintLogEvent.Publish(this, $"预约结果:{message}");
                 MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
             }

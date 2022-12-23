@@ -12,8 +12,9 @@ namespace Jingyang.appointment
         public string TimeId { get; set; }
         public string Fid { get; set; }
         public string Yid { get; set; }
-        public string Relation { get; set; }
+        public string Relation { get; set; } = "1";
         public string Token { get; set; }
+        public string Cookie { get; set; }
 
         public string ToLogString()
         {
