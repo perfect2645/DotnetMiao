@@ -20,9 +20,8 @@ namespace Jingyang.common
             AddHeader("Origin", "http://cnfw.mailiku.com");
             AddHeader("X-Requested-With", "XMLHttpRequest");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            AddHeader("Cookie", MainSession.Auth);
-            //Cookie ？ noneed
-            AddHeader("Referer", "http://www.jxy-tech.com/booking/companies/514966/?v=1");
+            AddHeader("Cookie", MainSession.Cookie);
+            AddHeader("Referer", "http://cnfw.mailiku.com/index/index/show/id/8.html");
             AddHeader("Accept-Encoding", "gzip, deflate");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }

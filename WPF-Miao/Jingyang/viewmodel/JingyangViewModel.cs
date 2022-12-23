@@ -20,6 +20,7 @@ using Utils;
 using Utils.datetime;
 using Utils.number;
 using Utils.stringBuilder;
+using Utils.timerUtil;
 
 namespace Jingyang.viewmodel
 {
@@ -30,7 +31,9 @@ namespace Jingyang.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-        public ICommand YzmCommand { get; set; }
+
+        private IntervalOnTime VaccineOrderInterval;
+        private ActionOnTime StopVaccineOrderTimer;
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -78,32 +81,11 @@ namespace Jingyang.viewmodel
             }
         }
 
-        private string _auth;
-        public string Auth
-        {
-            get { return _auth; }
-            set
-            {
-                _auth = value;
-                MainSession.Auth = value;
-                NotifyUI(() => Auth);
-            }
-        }
-
-        private string _scheduleId;
-        public string ScheduleId
-        {
-            get { return _scheduleId; }
-            set
-            {
-                _scheduleId = value;
-                NotifyUI(() => ScheduleId);
-            }
-        }
-
         private readonly object OrderLock = new object();
 
-        private SearchController _searchController = new SearchController();
+        private SearchController _searchController;
+
+        private List<GaoxinLogin> _gaoxinLogins = new List<GaoxinLogin>();
 
         #endregion Properties
 
@@ -111,81 +93,64 @@ namespace Jingyang.viewmodel
 
         public JingyangViewModel(LogPanel logPanel) : base(logPanel)
         {
+            Interval = 200;
             InitCommands();
             InitStaticData();
+            MainSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
+            LoginFromConfig();
         }
 
         private void TestData()
         {
-            Interval = 300;
-            StartTime = DateTime.Now.AddSeconds(20);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            Auth = "Bearer 2805b851-3357-4c59-abbc-b51867149dcb";
+            StopVaccineOrderTimer = new ActionOnTime("Stop Vaccin Order")
+            {
+                TargetAction = StopVaccineOrder,
+                ActionTime = StartTime.AddMinutes(5)
+            };
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 21, 8, 29, 56);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+            StartTime = new DateTime(2022, 12, 7, 8, 59, 50);
+
+            DisparkId = "b64b468d8131681e4c9dd271d573eb79";
 
             DateList = new List<DspVal>
             {
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
+                new DspVal(DateTime.Today.ToString("yyyy-MM-dd")),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
             {
-                new JingyangHospital
+                new GaoxinHospital
                 {
-                    HospitalId = "514966",
-                    HospitalName = "绥阳县妇幼保健院",
-                    DepartmentId = "F",
-                    DepartmentName = "九价宫颈癌疫苗",
-                },
-                new JingyangHospital
-                {
-                    HospitalId = "514966",
-                    HospitalName = "绥阳县妇幼保健院",
-                    DepartmentId = "G",
-                    DepartmentName = "四价宫颈癌疫苗",
-                },
-                new JingyangHospital
-                {
-                    HospitalId = "514966",
-                    HospitalName = "绥阳县妇幼保健院",
-                    DepartmentId = "W",
-                    DepartmentName = "妇科病普查",
+                    HospitalId = "12510109450812372N",
+                    HospitalName = "成都高新区中和社区卫生服务中心",
+                    DepartmentId = DisparkId,
+                    DepartmentName = "九价HPV疫苗",
                 },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+            _searchController = new SearchController();
             MainSession.InitSession();
         }
 
         private void InitCommands()
         {
+            LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
 
-            MainSession.AppointEvent.Subscribe(OnYuyue);
-            MainSession.PrintLogEvent = PrintLogEvent;
+            MainSession.ReSessionEvent.Subscribe(OnResession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+
+            VaccineOrderInterval = new IntervalOnTime("Vaccin Order", Interval);
         }
 
         #endregion Constructor
@@ -194,7 +159,6 @@ namespace Jingyang.viewmodel
 
         protected override void OnInitAsync()
         {
-
         }
 
         protected override void OnReadyForSearchAsync()
@@ -213,20 +177,73 @@ namespace Jingyang.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
-            StopIntervalTimer();
         }
 
         #endregion Status Control
+
+        #region Login
+
+        private void LoginFromConfig()
+        {
+            if (StringUtil.AnyEmpty(DisparkId))
+            {
+                Log("请检查DisparkId参数");
+                return;
+            }
+            _gaoxinLogins = FileReader.DeserializeFile<List<GaoxinLogin>>("Login.json");
+
+            foreach (var gaoxinLogin in _gaoxinLogins)
+            {
+                if (string.IsNullOrEmpty(gaoxinLogin.Token))
+                {
+                    gaoxinLogin.Token = gaoxinLogin.OrderToken;
+                }
+                Task.Factory.StartNew(async () =>
+                {
+                    await _searchController.GetUserInfoAsync(gaoxinLogin);
+                });
+            }
+
+            StartAutoRun();
+        }
+
+        private void ExecuteLogin()
+        {
+            if (StringUtil.AnyEmpty(Token, OrderToken, DisparkId))
+            {
+                Log("请检查参数");
+                return;
+            }
+
+            var loginData = new GaoxinLogin()
+            {
+                OrderToken = OrderToken,
+                Token = Token,
+            };
+
+            Task.Factory.StartNew(async () =>
+            {
+                await _searchController.GetUserInfoAsync(loginData);
+            });
+
+            ClearLoginData();
+        }
+
+        private void ClearLoginData()
+        {
+            Token = string.Empty;
+            OrderToken = string.Empty;
+        }
+
+        #endregion Login
 
         #region AutoRun
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-                    await _searchController.GetUserAsync();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -245,8 +262,18 @@ namespace Jingyang.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.GetMiaoAsync();
-                    //Yuyue();
+                    var orderList = MainSession.OrderDic.Values.ToList();
+                    foreach (var order in orderList)
+                    {
+                        var yuyueController = HttpServiceController.GetService<YuyueController>();
+                        var yuyueContent = new YuyueContent(order);
+                        yuyueController.StartInterval(yuyueContent);
+                    }
+
+                    Task.Factory.StartNew(() =>
+                    {
+                        VaccineOrderInterval.StartIntervalOntime(BuildVaccineOrder);
+                    });
                 }
                 catch (HttpException ex)
                 {
@@ -259,28 +286,19 @@ namespace Jingyang.viewmodel
             });
         }
 
-        #endregion AutoRun
-
-        #region Appoint
-
-        private void OnYuyue(object? sender, AppointEventArgs e)
-        {
-            lock (OrderLock)
-            {
-                var orderList = e.OrderList;
-                Task.Factory.StartNew(() => OnAppointment(orderList));
-            }
-        }
-
-        private void OnAppointment(List<Order> orderList)
+        private void BuildVaccineOrder()
         {
             try
             {
-                foreach (var order in orderList)
+                var userList = MainSession.UserDic.Values.ToList();
+                foreach (var user in userList)
                 {
-                    var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
-                    yuyueController.StartInterval(order);
+                    Task.Factory.StartNew(() => BuildVaccineOrderForOneUser(user));
                 }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
             }
             catch (Exception ex)
             {
@@ -288,28 +306,37 @@ namespace Jingyang.viewmodel
             }
         }
 
+        private async void BuildVaccineOrderForOneUser(UserInfo user)
+        {
+            var vaccineController = HttpServiceController.GetService<VaccineController>();
+            var vaccineContent = new VaccineContent(user);
+            vaccineController.BuildClientHeaders(vaccineContent);
+            await vaccineController.ProcessAsyncTask(vaccineContent);
+            var order = vaccineController.OrderResult;
+
+            if (order != null)
+            {
+                var yuyueController = HttpServiceController.GetService<YuyueController>();
+                var yuyueContent = new YuyueContent(order);
+                yuyueController.YuyueAsync(yuyueContent);
+            }
+        }
+
+        private void StopVaccineOrder()
+        {
+            VaccineOrderInterval?.StopInterval();
+        }
+
+        #endregion AutoRun
+
+        #region Appoint
+
         private void ExecuteManual()
         {
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    if (StringUtil.AnyEmpty(Auth))
-                    {
-                        MainSession.PrintLogEvent.Publish(this, "请填写用户Auth -Bearer");
-                        return;
-                    }
-                    MainSession.PrintLogEvent.Publish(this, $"手动预约");
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
-                    await _searchController.GetUserAsync();
-
-                    if (StringUtil.NotEmpty(SelectedDate?.Value))
-                    {
-                        DirectlyOrder(SelectedDate.Value);
-                        return;
-                    }
-
-                    _searchController.GetMiaoAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -322,53 +349,10 @@ namespace Jingyang.viewmodel
             });
         }
 
-        private void Yuyue()
+        private void DirectlyOrder(string scheduleId)
         {
-            var controllerList = MainSession.AppointSession.ControllerCache;
-            var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
 
-            var dateList = DateList.DisorderItems();
-
-            foreach (var pair in DateList)
-            {
-                var date = pair.Value;
-                PublishYuyue(date, userInfo);
-                Thread.Sleep(60);
-            }
-        }
-
-        private void PublishYuyue(string date, Dictionary<string, object> userInfo)
-        {
-            var orderList = new List<Order>();
-
-            var order = new Order
-            {
-                BtCode = MainSession.PlatformSession.GetString(Constants.DeptId),
-                AppointDate = date,
-                Barcode = MainSession.Auth.Replace("Bearer ", string.Empty),
-                AddressId = userInfo.GetString("id").ToInt(),
-                Identity = userInfo.GetString("identity"),
-                Phone = userInfo.GetString("mobile"),
-                IdName = userInfo.GetString("firstName"),
-            };
-
-            orderList.Add(order);
-
-            var appointEventArgs = new AppointEventArgs
-            {
-                OrderList = orderList
-            };
-            Task.Factory.StartNew(() =>
-            {
-                MainSession.AppointEvent.Publish(null, appointEventArgs);
-            });
-        }
-
-        private void DirectlyOrder(string date)
-        {
-            var controller = MainSession.AppointSession.GetController(date);
-            var userInfo = MainSession.PlatformSession["userInfo"] as Dictionary<string, object>;
-            PublishYuyue(date, userInfo);
+            var order = new Order();
         }
 
         #endregion Appoint
@@ -394,9 +378,10 @@ namespace Jingyang.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as JingyangHospital;
+            var selectedDept = SelectedDepartment as GaoxinHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
 
             Log(selectedDept.ToLogString());
         }
@@ -408,6 +393,12 @@ namespace Jingyang.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
+            Task.Factory.StartNew(() => ExecuteLogin());
+        }
+
+        private void OnResession(object? sender, ResessionEventArgs e)
+        {
+            ReSession();
         }
 
         #endregion Resession
