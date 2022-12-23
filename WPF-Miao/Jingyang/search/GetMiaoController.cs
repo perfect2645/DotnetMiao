@@ -22,7 +22,7 @@ namespace Jingyang.search
     {
         public IntervalOnTime IntervalOnTime { get; private set; }
         public string Date { get; private set; }
-        public JingyangBaseContent Content { get; private set; }
+        public JingyangContent Content { get; private set; }
         public GetMiaoController(HttpClient httpClient) : base(httpClient)
         {
             IntervalOnTime = new IntervalOnTime(GetMiao, Date, 200);
@@ -34,7 +34,7 @@ namespace Jingyang.search
             var dc = DateTimeUtil.GetTimeStamp();
             var dept = MainSession.PlatformSession.GetString(Constants.DeptId);
             var url = $"http://www.jxy-tech.com/api/v1/locations/1/canbeappointed/businesses/{dept}/availableTimeRanges?_dc={dc}&date={Date}";
-            var content = new JingyangBaseContent(url);
+            var content = new JingyangContent(url);
             
             Content = content;
         }

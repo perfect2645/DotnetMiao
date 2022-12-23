@@ -34,7 +34,7 @@ namespace Jingyang.search
                 var dept = MainSession.PlatformSession.GetString(Constants.DeptId);
                 var dc = DateTimeUtil.GetTimeStamp();
                 var url = $"http://www.jxy-tech.com/api/v1/myAddresss?_dc={dc}&includeItems=true&page=1&limit=10";
-                var content = new JingyangBaseContent(url);
+                var content = new JingyangContent(url);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

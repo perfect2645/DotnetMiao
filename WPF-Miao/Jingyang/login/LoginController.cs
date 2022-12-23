@@ -28,7 +28,7 @@ namespace Jingyang.login
             try
             {
                 var url = $"https://ctmingyi.com:18082/api/user/checkLogin?phone={userPhone}&password={userPassword}&imei=&isDoctor=false";
-                var content = new JingyangBaseContent(url);
+                var content = new JingyangContent(url);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

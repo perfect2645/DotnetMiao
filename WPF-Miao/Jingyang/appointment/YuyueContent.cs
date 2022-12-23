@@ -8,7 +8,7 @@ namespace Jingyang.appointment
 {
     internal class YuyueContent : HttpStringContent
     {
-        private static string url = "http://www.jxy-tech.com/api/v1/locations/1/appoints";
+        private static string url = "http://cnfw.mailiku.com/index/api/order.html";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url)
         {

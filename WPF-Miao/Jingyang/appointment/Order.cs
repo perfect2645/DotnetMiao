@@ -7,25 +7,13 @@ namespace Jingyang.appointment
 {
     public class Order
     {
-        public IntervalOnTime IntervalOnTime { get; private set; }
-        public string Type { get; set; } = "UNDEFINED";
-        public string BtCode { get; set; } = "F";
-        public string AppointDate { get; set; }
-        public string BeginTime { get; set; } = "08:00";
-        public string EndTime { get; set; } = "16:30";
-        public string OpenId { get; set; } = "ohcxP58icuLf35ZBbVsSB7mZ2YZ8";
-        public string Barcode { get; set; }
-        public int Price { get; set; } = 0;
-        public int Priority { get; set; } = 5;
-        public int AddressId { get; set; } = 61924;
-        public string Identity { get; set; }
-        public string Phone { get; set; }
-        public string IdName { get; set; }
-
-        public Order()
-        {
-            IntervalOnTime = new IntervalOnTime(Barcode, 600);
-        }
+        public string UserId { get; set; }
+        public string UserName { get; set; }
+        public string TimeId { get; set; }
+        public string Fid { get; set; }
+        public string Yid { get; set; }
+        public string Relation { get; set; }
+        public string Token { get; set; }
 
         public string ToLogString()
         {
@@ -33,13 +21,12 @@ namespace Jingyang.appointment
 
             sb.AppendLine("******** 预约详情 *********");
 
-            sb.AppendLine($"身份证 - {Identity}");
-            sb.AppendLine($"姓名 - {IdName}");
-            sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"Barcode - {Barcode}");
-            sb.AppendLine($"AppointDate - {AppointDate}");
-            sb.AppendLine($"Time - {BeginTime}-{EndTime}");
-
+            sb.AppendLine($"姓名 - {UserName}");
+            sb.AppendLine($"UserId - {UserId}");
+            sb.AppendLine($"TimeId - {TimeId}");
+            sb.AppendLine($"Fid - {Fid}");
+            sb.AppendLine($"Yid - {Yid}");
+            sb.AppendLine($"Token - {Token}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();
