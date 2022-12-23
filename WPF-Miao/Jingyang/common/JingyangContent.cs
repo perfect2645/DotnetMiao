@@ -10,7 +10,8 @@ namespace Jingyang.common
         public string Cookie { get; private set; }
         public JingyangContent(string url, string cookie) : base(url)
         {
-            ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+            ContentType = "application/x-www-form-urlencoded";
+            Cookie = cookie;
             BuildHeader();
         }
 

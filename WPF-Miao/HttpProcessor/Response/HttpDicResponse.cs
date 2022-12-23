@@ -16,6 +16,8 @@ namespace HttpProcessor.Client
 
         public string Message { get; private set; }
 
+        public string ContentStr { get; private set; }
+
         public Dictionary<string, object> Body { get; private set; }
 
         public JsonDocument JsonBody { get; private set; }
@@ -77,11 +79,18 @@ namespace HttpProcessor.Client
 
             contentStr = DecodeAction?.Invoke(contentStr) ?? contentStr;
 
-            var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
-
-            Body = contentDic ?? new Dictionary<string, object>();
-
+            ContentStr = contentStr;
             JsonBody = JsonDocument.Parse(contentStr);
+
+            try
+            {
+                var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
+                Body = contentDic ?? new Dictionary<string, object>();
+            }
+            catch
+            {
+
+            }
         }
 
         private string BuildBodyFromGzip(HttpContent httpContent)

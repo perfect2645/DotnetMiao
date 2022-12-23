@@ -12,10 +12,7 @@ namespace Jingyang.session
             var userList = MainSession.Users;
             foreach(var user in userList)
             {
-                foreach (var date in dateList)
-                {
-                    AddController($"{user.Fid}|{date}");
-                }
+                AddController($"{user.Cookie}");
             }
         }
     }

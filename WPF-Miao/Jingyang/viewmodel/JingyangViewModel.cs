@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.file;
+using Utils.number;
 using Utils.stringBuilder;
 
 namespace Jingyang.viewmodel
@@ -117,7 +118,7 @@ namespace Jingyang.viewmodel
 
         private void TestData()
         {
-
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
@@ -198,14 +199,6 @@ namespace Jingyang.viewmodel
 
             MainSession.Users = _gaoxinLogins;
 
-            foreach (var gaoxinLogin in _gaoxinLogins)
-            {
-                //Task.Factory.StartNew(async () =>
-                //{
-                //    await _searchController.GetUserInfoAsync(gaoxinLogin);
-                //});
-            }
-
             MainSession.InitSession();
             StartAutoRun();
         }
@@ -226,10 +219,7 @@ namespace Jingyang.viewmodel
                 Cookie = Cookie,
             };
 
-            //Task.Factory.StartNew(async () =>
-            //{
-            //    await _searchController.GetUserInfoAsync(loginData);
-            //});
+            _gaoxinLogins.Add(loginData);
 
             ClearLoginData();
         }
@@ -266,22 +256,27 @@ namespace Jingyang.viewmodel
 
         private void BuildOrders()
         {
-            MainSession.Orders = new List<Order>();
+            MainSession.Orders = new Dictionary<string, List<Order>>();
             foreach(var user in _gaoxinLogins)
             {
+                var cookie = user.Cookie;
                 var timeId = user.TimeId;
                 if (!string.IsNullOrEmpty(timeId))
                 {
                     Order order = BuildOneOrder(user, timeId);
-                    MainSession.Orders.Add(order);
+                    MainSession.Orders.AddOrUpdate(cookie, new List<Order> { order });
                     continue;
                 }
 
-                foreach(var time in MainSession.TimeIdList)
+                var orderList = new List<Order>();
+                foreach (var time in MainSession.TimeIdList)
                 {
                     Order order = BuildOneOrder(user, time);
-                    MainSession.Orders.Add(order);
+                    orderList.Add(order);
                 }
+
+                orderList = orderList.DisorderItems();
+                MainSession.Orders.AddOrUpdate(cookie, orderList);
             }
         }
 
@@ -342,21 +337,38 @@ namespace Jingyang.viewmodel
         {
             foreach (var order in MainSession.Orders)
             {
-                try
+                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
+            }
+        }
+
+        private void StartOneOrder(string cookie, List<Order> orders)
+        {
+            try
+            {
+                var appointController = MainSession.AppointSession.GetController(cookie);
+
+                bool isSuccess = false;
+                while (!isSuccess)
                 {
-                    var fid = order.Fid;
-                    var time = order.TimeId;
-                    var appointController = MainSession.AppointSession.GetController($"{fid}|{time}");
-                    appointController.YuyueAsync(order);
+                    foreach(var order in orders)
+                    {
+                        isSuccess = appointController.YuyueAsync(order);
+                        if (isSuccess)
+                        {
+                            PrintLog("预约成功");
+                            PrintLog(order.ToLogString());
+                            break;
+                        }
+                    }
                 }
-                catch (HttpException ex)
-                {
-                    Log(ex);
-                }
-                catch (Exception ex)
-                {
-                    Log(ex);
-                }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
             }
         }
 

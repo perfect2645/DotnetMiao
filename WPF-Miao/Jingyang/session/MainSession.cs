@@ -15,7 +15,7 @@ namespace Jingyang.session
         public static AppointSession AppointSession { get; private set; }
         internal static List<string> TimeIdList { get; set; }
         internal static List<JingyangLogin> Users { get; set; }
-        internal static List<Order> Orders { get; set; }
+        internal static Dictionary<string, List<Order>> Orders { get; set; }
 
         public static AppointEvent AppointEvent { get; }
 
@@ -24,7 +24,7 @@ namespace Jingyang.session
             PlatformSession = new Dictionary<string, object>();
             AppointEvent = new AppointEvent();
             Users = new List<JingyangLogin>();
-            Orders = new List<Order>();
+            Orders = new Dictionary<string, List<Order>>();
             TimeIdList = new List<string>();
         }
         
