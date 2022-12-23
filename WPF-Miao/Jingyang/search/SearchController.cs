@@ -7,11 +7,8 @@ namespace Jingyang.search
 {
     internal class SearchController
     {
-        private UserController userController;
         public SearchController()
         {
-            //miaoController = HttpServiceController.GetService<GetMiaoController>();
-            userController = HttpServiceController.GetService<UserController>();
         }
     }
 }
