@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>项目详情</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/static/modules/order/css/sm.min.css">
+    <link rel="stylesheet" href="/static/modules/order/css/sm-extend.min.css">
+    <link rel="stylesheet" href="/static/modules/order/css/maili.css">
+    <script src="/static/modules/order/layer_mobile/layer.js"></script>
+    <style>
+        .cbz-main{ padding: 10px; }
+        .cbz-title{ font-size: 16px;text-align: center; }
+        .cbz-intent{ text-indent: 2em;  }
+        .list-block{ margin:.75rem 0 }
+        .cbz .date_box img{ transform:rotate(90deg);transform-origin: center center;transition: all 0.1s; }
+        .date_box{ width: 100%;height: 60px;line-height: 60px;position: relative;padding-left: 10px; }
+        .date_box img{ width: 20px;height: 20px;position: absolute;top:20px;right: 10px; }
+        .people{ width: 100%;height: 60px;line-height: 60px;position: relative;padding-left: 10px;color: #fff;text-align: center;letter-spacing: 0.3rem; }
+        .time_box{ display: none; }
+        .cbz .time_box{ display: block!important;position: relative;z-index: 9999;padding: 5px 10px; }
+        .cbz .time_box li{ background:#fff!important;  }
+        .text1{ color: #999;font-size: 12px; }
+        .text2{ color: #fff;font-size: 12px; }
+        .have-num{ background: #6dd4ce!important; }
+        .have-num .date_box{color: #fff;}
+        .captcha{ width:33%;height: 45px;float: left; }
+        .captcha img{ width: 100%;height: 100%;border-radius: 4px; }
+        .captcha-input-box{ width: 65%;height: 45px;float: left;margin-left: 2%; }
+        .captcha-input{ width: 100%;height: 100%;padding-left: 10px;border: 1px solid #5bcbc5;border-radius: 4px; }
+    </style>
+</head>
+<body>
+<div class="page-group listml">
+    <div class="page page-current">
+
+        <div class="content">
+            <!--内容-->
+            <div class="wbanner">
+                <header class="bar bar-nav">
+                    <a class="icon icon-left pull-left" href="javascript:history.back(-1)"></a>
+                    <h1 class="title">项目详情</h1>
+                </header>
+            </div>
+            <div class="card firstcard">
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <div style="font-size: 0.85rem;font-weight: 500;color: #3d4145">九价HPV疫苗（16-26岁、进口）</div>
+                        <div style="margin-top: 0.5rem;">接种针数：3针</div>
+                        <div style="margin-top: 0.5rem;">开放时间：2021-09-15 - 2026-01-16</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">详细介绍</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <div style="height: 4rem;overflow: hidden;">
+                            <p>疫苗费用：1318元/针</p><p>注射剂次：3针</p><p>您好，预约宫颈癌疫苗前请注意：</p><p>1、已满18岁的可以自己预约，在预约的时候，预约人填自己，接种人填自己，然后点击提交即可。</p><p>2、未满18岁的需要家长进行预约，在预约前，家长需要点击页面右下角“我的”按钮，然后在页面右上角点击齿轮符号添加家庭成员，将孩子的信息添加。随后进入预约页面，在在预约的时候，预约人填自己，接种人填孩子，然后点击提交即可。</p><p><br/></p>                        </div>
+                        <div style="text-align: right;"><span onclick="showMore()">查看详情 ></span></div>
+                    </div>
+                </div>
+            </div>
+                        <div class="card">
+                <div class="item-content padding">
+                    <a id="order_people" class="open-popup" data-popup=".popup-order" style="color: #0a8ddf;">—— 点击选择预约人 ——</a>
+                </div>
+            </div>
+                        <div class="card">
+                <div class="item-content padding">
+                    <a id="family_show" class="open-popup" data-popup=".popup-family" style="color: #0a8ddf;">—— 点击选择接种人 ——</a>
+                </div>
+            </div>
+                        <div class="card">
+                <div class="item-content padding">
+                    <a id="family_relation" class="open-popup" data-popup=".popup-relation" style="color: #0a8ddf;">—— 点击选择预约人与接种人关系 ——</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="item-content padding">
+                    <a id="time_show" class="open-popup" data-popup=".popup-about" style="color: #0a8ddf;">—— 点击选择接种预约时段 ——</a>
+                </div>
+            </div>
+<!--            <div class="card">-->
+<!--                <div class="item-content padding">-->
+<!--                    <div class="captcha"><img src="/captcha.html" alt="" id="verify_img"></div>-->
+<!--                    <div class="captcha-input-box"><input class="captcha-input" type="text" id="captcha" placeholder="请输入验证码" /></div>-->
+<!--                    <div style="clear: both;"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="card" style="border-left: none;">-->
+<!--                <div class="card-content">-->
+<!--                    <div class="card-content-inner" style="padding: 0.5rem">-->
+<!--                        <div><span style="color: red;">注意：</span>如果接种针数大于1针，预约第1针接种时段后，剩余针数的接种时段由系统分配</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="content-block">
+                <div class="row">
+                                        <div class="col-100"><a href="#" class="button button-big button-fill" onclick="submit()">提交</a></div>
+                                    </div>
+            </div>
+            <!--内容-->
+        </div>
+        <!--foot-->
+<!--        <nav class="bar bar-tab">-->
+<!--            <a class="tab-item external active" href="/">-->
+<!--                <span class="tab-label">首页</span>-->
+<!--            </a>-->
+<!--            <a class="tab-item external" href="/index/index/my.html">-->
+<!--                <span class="tab-label">我的</span>-->
+<!--            </a>-->
+<!--        </nav>-->
+        <!--foot-->
+    </div>
+</div>
+
+
+<div class="popup popup-about">
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-right close-popup">关闭</a>
+        <h1 class="title">接种时段选择</h1>
+    </header>
+    <div class="content">
+        <div class="content-inner">
+            <div style="color: red;margin: 0.75rem;font-size: 0.75rem;">预约请注意：<br>1. 请按照预约时间段前来注射。<br>2. 每日最后一个时间段的预约为清理已经预约未注射的疫苗，所以最后一个时间段预约不能保证疫苗的注射。<br>特别提醒：4价、9价宫颈癌疫苗注射需带上本人的旌阳区户口本或旌阳区居住证，否则不予接种。</div>
+            <div class="list-block media-list inset">
+                <ul>
+                                    </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="popup popup-family">
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-right close-popup">关闭</a>
+        <h1 class="title">接种人选择</h1>
+    </header>
+    <div class="content">
+        <div class="content-inner">
+
+            <div class="list-block media-list inset">
+                <ul>
+                                        <li class="have-num family-people" data-fid="46295" data-name="周瑠夏">
+                        <div class="people close-popup">周瑠夏</div>
+                    </li>
+                                    </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="popup popup-order">
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-right close-popup">关闭</a>
+        <h1 class="title">预约人选择</h1>
+    </header>
+    <div class="content">
+        <div class="content-inner">
+
+            <div class="list-block media-list inset">
+                <ul>
+                                        <li class="have-num family-order" data-fid="46295" data-name="周瑠夏">
+                        <div class="people close-popup">周瑠夏</div>
+                    </li>
+                                    </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="popup popup-relation">
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-right close-popup">关闭</a>
+        <h1 class="title">预约人与接种人关系选择</h1>
+    </header>
+    <div class="content">
+        <div class="content-inner">
+            <div class="list-block media-list inset">
+                <ul>
+                    <li class="have-num family-relation" data-fid="1" data-name="本人">
+                        <div class="people close-popup">本人</div>
+                    </li>
+                    <li class="have-num family-relation" data-fid="2" data-name="法定监护人">
+                        <div class="people close-popup">法定监护人（子女、父母）</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src='/static/modules/order/js/jquery.min.js'></script>
+<script src='/static/modules/order/js/sm.js'></script>
+<script src='/static/modules/order/js/sm-extend.js'></script>
+<script>
+    $(function(){
+        layer.open({
+            type: 1,
+            content: '<div class="cbz-main"><div class="cbz-title">门诊(住院)患者疫情期间特别告知书</div><div class="cbz-content"><p>尊敬的患者及家属:</p><p class="cbz-intent">您好!鉴于目前我国多地发生了传染性强的新型冠状病毒肺炎疫情，为了防止疫情扩散，最大限度地保障患者、医务人员及其家属乃至全社会人民群众的安全，请您确认以下内容。如隐瞒事实，造成疫情扩散情况发生，您将承担相应责任，谢谢您的合作!</p><p>您或您的家属:</p><p>1. 1月内是否有与疑似或确诊新型冠状病毒感染患者接触史。（否）</p><p>2.1月内是否接触过来自重点疫区或其他有本地病例持续传播地区的发热、咳嗽等症状的患者。（否）</p><p>3.1月内是否有重点疫区或其他有本地病例持续传播地区的旅行史或居住史。（否）</p><p>4.1月内是否与重点疫区或其他有本地病例持续传播地区返乡人员接触史。（否）</p><p>5.您在来院前1月内是否有发热或咳暾等呼吸道症状。（否）</p><p>6.是否具有聚集性发病情况。（否）</p><p class="cbz-intent">您在门诊(住院)期间，您家属中如有上述流行病学病史、疑似新型冠状病毒肺炎患者、确诊新型冠状病毒肺炎居家隔离者，不能进入医院和病房!按照取消探视的要求，医务人员每天会主动打电话告知一般情况，有特殊情况我们随时会主动打电话告知病情。谢谢支持!</p><p class="cbz-intent">特别说明:根据《传染病防治法》、《治安管理处罚法》 、最高人民法院、最高人民检察院有关司法解释，如果您隐瞒上述情况，或者拒绝隔离，可能会面临治安拘留、罚款，直至追究危害公共安全罪的法律责任。</p><p style="color:red;">预约人与接种人有对告知书承诺的责任。</p><p style="color:red;">预约人（监护人）对未成年人的承诺承担法律后果。</p><p>我已经知晓并确认上述内容,并确保所提供的内容属实。</p></div></div>',
+            anim: 'up',
+            style: 'position:absolute; bottom:0; left:0; width: 100%; height: 100%; border:none;overflow:scroll;',
+            btn:['我承诺','不承诺'],
+            yes:function(){
+                //layer.closeAll();
+                layer.open({
+	                content: '1、本次疫苗限旌阳区居民接种，现场接种时请带上户口本或者身份证或者居住证。四价疫苗接种年龄9-45岁，九价疫苗接种年龄16-26岁。（未成年人请由家长代为预约）<br>2、（含）14天内没有接种过其他疫苗。<br>3、身体健康，需满足接种条件。<br>4、近一个月没有去过高中风险地区，行程码合格。<br>5、实名预约，实名接种，仅限本人，请勿转让。<br>6、接种时间为上午9点到11点20，下午2点到5点20。请于当天内按以上时段前来，否则系统会自动逾期作废哦。第二、三针按照系统排定的时间自行到我中心接种，可根据自己情况稍微延迟（不能提前）。',
+	                btn: ['是', '否'],
+	                yes:function(){
+	                    layer.closeAll();
+	                },
+	                no:function(){
+	                    window.location.href="/";
+	                }
+	            });
+            },
+            no:function(){
+                window.location.href="/";
+            }
+        });
+    })
+</script>
+<script>
+    let id = '';
+    let fid = '';
+    let yid = '';
+    let relation = '';
+    token = "11c842ce9a0cd5039aff7f46657d01a0";
+    $(".date_box").click(function (){
+        if( $(this).parent().hasClass('cbz') ){
+            $(this).parent().removeClass('cbz');
+        }else{
+            $(".date_choose").removeClass('cbz');
+            $(this).parent().addClass('cbz');
+        }
+    });
+    $(".time_choose").click(function (){
+        if( $(this).data('num') > 0 ){
+            id = $(this).data('id');
+            let html = $(this).data('date')+'（'+$(this).data('time')+'）';
+            $("#time_show").html(html);
+        }
+
+    });
+
+    $(".family-people").click(function (){
+        fid = $(this).data('fid');
+        let html = $(this).data('name');
+        $("#family_show").html(html);
+    });
+
+    $(".family-order").click(function (){
+        yid = $(this).data('fid');
+        let html = $(this).data('name');
+        $("#order_people").html(html);
+    });
+
+    $(".family-relation").click(function (){
+        relation = $(this).data('fid');
+        let html = $(this).data('name');
+        $("#family_relation").html(html);
+    });
+
+    function submit(){
+        let data = {"user_id":"79293","time_id":id,"fid":fid,"yid":yid,"relation":relation,"__token__":token};
+        layer.open({
+            content: '1、本次疫苗限旌阳区居民接种，现场接种时请带上户口本或者身份证或者居住证。<br>2、（含）14天内没有接种过其他疫苗。<br>3、身体健康，需满足接种条件。<br>4、近一个月没有去过高中风险地区，行程码合格。<br>5、实名预约，实名接种，仅限本人，请勿转让。<br>6、本次接种第一针仅限2022年1月18日上午9点到11点20，下午2点到5点20。请按以上时段前来，否则系统会自动逾期作废哦。（第二、三针按照系统排定的时间自行到我中心接种，可根据自己情况稍微延迟）',
+            btn: ['是','否'],
+            yes:function(){
+                layer.closeAll();
+                var num = randomNum(3,6)*1000;
+                layer.open({
+			        type: 1,
+			        style: "width: 200px;border-radius:3px;padding: 15px 0;font-size:16px;",
+			        content: '<div style="text-align: center;">为您疯狂抢苗中 <img src="/static/modules/order/images/loading-0.gif" alt="" height="12"></div>',
+			    })
+			    setTimeout(function(){
+			    	$.post("/index/api/order.html",data,function (res){
+			            if( res.code === 1 ){
+			            	layer.closeAll();
+			                $.toast(res.msg,1000);
+			                setTimeout(function (){
+			                    window.location.href = "/index/index/my.html";
+			                },1000);
+			            }else{
+			            	layer.closeAll();
+			                //$("#verify_img").click();
+			                $.toast(res.msg,1000);
+			                getToken();
+			            }
+			            
+			        });
+			    },num)
+            },
+            no:function(){
+                window.location.href="/";
+            }
+        });
+        
+    }
+
+    function randomNum(minNum,maxNum){ 
+	    switch(arguments.length){ 
+	        case 1: 
+	            return parseInt(Math.random()*minNum+1,10); 
+	        break; 
+	        case 2: 
+	            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+	        break; 
+	            default: 
+	                return 0; 
+	            break; 
+	    } 
+	}
+
+    // function submit(){
+    //     let data = {"user_id":"79293","time_id":id,"fid":fid,"yid":yid,"relation":relation,"__token__":"11c842ce9a0cd5039aff7f46657d01a0"};
+    //     $.post("/index/api/order.html",data,function (res){
+    //         if( res.code === 1 ){
+    //             $.toast(res.msg,1000);
+    //             setTimeout(function (){
+    //                 window.location.href = "/index/index/my.html";
+    //             },1000);
+    //         }else{
+    //             $("#verify_img").click();
+    //             $.toast(res.msg,1000);
+    //         }
+    //         getToken();
+    //         //console.log(token);
+    //     });
+    // }
+
+    function getToken(){
+        $.get("/index/api/getToken.html",function (res){
+            token = res;
+        })
+    }
+    // function submit(){
+    //     let data = {"user_id":"79293","time_id":id,"fid":fid,"captcha":$("#captcha").val()};
+    //     $.post("/index/api/order.html",data,function (res){
+    //         if( res.code === 1 ){
+    //             $.toast(res.msg,1000);
+    //             setTimeout(function (){
+    //                 window.location.href = "/index/index/my.html";
+    //             },1000);
+    //         }else{
+    //             $("#verify_img").click();
+    //             $.toast(res.msg,1000);
+    //         }
+    //     })
+    // }
+    // $("#verify_img").click(function() {
+    //     var verifyimg = $("#verify_img").attr("src");
+    //     $("#verify_img").attr("src", verifyimg.replace(/\?.*$/, '') + '?' + Math.random());
+    // });
+
+    function showMore(){
+        let html = '<div style="padding: 0 0.5rem;height: 100vh;overflow-y: auto;"><div><p>疫苗费用：1318元/针</p><p>注射剂次：3针</p><p>您好，预约宫颈癌疫苗前请注意：</p><p>1、已满18岁的可以自己预约，在预约的时候，预约人填自己，接种人填自己，然后点击提交即可。</p><p>2、未满18岁的需要家长进行预约，在预约前，家长需要点击页面右下角“我的”按钮，然后在页面右上角点击齿轮符号添加家庭成员，将孩子的信息添加。随后进入预约页面，在在预约的时候，预约人填自己，接种人填孩子，然后点击提交即可。</p><p><br/></p></div><div class="listml" style="padding-bottom: 2rem;"><a href="#" class="button button-big button-fill" onclick="layer.closeAll()">关闭</a></div></div>';
+        layer.open({
+            type: 1,
+            content: html,
+            anim: 'up',
+            style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
+        })
+    }
+</script>
+</body>
+</html>
