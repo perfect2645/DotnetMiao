@@ -38,4 +38,6 @@
     </Page>
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties output_4jkzlhospital_1json__JsonSchema="https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema" /></VisualStudio></ProjectExtensions>
+
 </Project>

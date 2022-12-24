@@ -105,7 +105,9 @@ namespace JkzlSearcher.output
             {
                 return true;
             }
-            return !MainSession.InvalidDepartments.Any(x => deptName.Contains(x));
+
+            return false;
+            //return !MainSession.InvalidDepartments.Any(x => deptName.Contains(x));
         }
 
         public void SaveHospital()
