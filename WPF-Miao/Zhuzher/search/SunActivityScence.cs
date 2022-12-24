@@ -34,7 +34,7 @@ namespace Zhuzher.search
             //AddScene("app-act-invite&jointeam", 1, "1");
 
             //住这儿友邻市集单笔消费100元以上，每日可完成1次
-            AddScene("5thzone-blackpearl-pay", 1, "https://uiis.4009515151.com/activityTopic/4666?pageMark=ptgejhd");
+            AddScene("5thzone-blackpearl-pay", 5, "https://uiis.4009515151.com/activityTopic/4666?pageMark=ptgejhd");
 
             //优惠下单购买油烟机清洗服务！每日可完成1次任务 "limitCount": 16,
             //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=zzesjbyyjdp&goodsId=6617274");
