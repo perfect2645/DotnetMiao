@@ -1,0 +1,31 @@
+POST https://wxgzh.fckyy.org.cn/api/hosservice/Appointment/SaveReServerInfo HTTP/1.1
+Host: wxgzh.fckyy.org.cn
+Origin: https://wxgzh.fckyy.org.cn
+Content-Type: application/json;charset=utf-8
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoib2JZUU90N3FwcS1wY2JXN0lKektRYXRVSVMxSSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkZhd2VpIiwiX1RpbWVTdGFtcF8iOiIxMi8yNC8yMDIyIDY6MDI6NDEgUE0iLCJuYmYiOjE2NzE4NzYxNjEsImV4cCI6MTY3MTk4NDE2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMzMiIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMzIifQ.9oabCCWM-3aXP4zLJvviBjQtS92Joqe0yl2S_20kXdk
+Referer: https://wxgzh.fckyy.org.cn/appointment/subsequent
+Content-Length: 1149
+
+{"encryKey":"9232298adcc85af97f8780482b74d98c89883617c5a9a6fda4a04dc5bed9e767","data":"cc50ba6fa38b66769d1f667b4eb81e18f469c75e95444d4d376231600d3fd4493a2bc6f0ba7bc7a5aba54ee6b4fa0e751adcc3e435a95514f1b37b91046680fc8626ee5cee784280a4eb498c8c706188553d57b1000870496564040dcb1b6221335f7daf85a6af5b5033e545c4bfe7fe0d5f933c3de293c1babf48932a1a56ea4c18b639d67fb631a7ad10afd2acacaf78400daddeea29c8d168034ceccd412c8f303e77253fabc02374c7cc934d4e135b228f8630fdf48438b74f135708ac00edbe089995ae5cdab143084509a86196f3c3a4d2f13ba73c83ab876c0691ff23d29322dc68546a35e282f7cdd71aacef04ac341134c8854440bdd99619aa9ea5a407b0ef6b3f9bf998fc7de02c767d3a362420005661358140611f6a6a25728e4102d58f61cc710236e8dcbc08222b5e013222badcb8553cfd6494bf21466ebb7bd8372e3485b282582ec1c02a8096d25c3a214f0fe4540b75dc59a0f6928c612f1aa7004dcd450261cfec9783f83a9fb4d882cbd095b29256e68ac75480353c80abbefdca79326b02935fe37b3781af7ed11a19fbf9933521a1ba48cc295961a6c1146e44d241e22e95b7a50daa5979b72410b7f2f9230b756722a4f3618a0d1b9e53ddcaed5790d3602a79213152d6d477f6724b2310d9a0c6c420d647a3bc","sign":"8a1615c4e1b597f50efc55153916e3e4182e152040c270f48a1d5deb33679d78","timestamp":1671876424000}
+HTTP/1.1 200 OK
+Date: Sat, 24 Dec 2022 10:07:05 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 91
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: default-src 'self' wxgzh.fckyy.org.cn 'unsafe-inline' 'unsafe-eval' blob: data: ;
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+X-Request-Id: e663e58d294c951892f2ed991f155593
+Server: WAF
+
+{"code":200,"message":"预约成功","data":[{"billNo":12921753,"message":"保存成功"}]}

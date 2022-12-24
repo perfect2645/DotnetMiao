@@ -1,0 +1,31 @@
+POST https://wxgzh.fckyy.org.cn/api/hosservice/WeChat/GetUserInfo HTTP/1.1
+Host: wxgzh.fckyy.org.cn
+Origin: https://wxgzh.fckyy.org.cn
+Content-Type: application/json;charset=utf-8
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoib2JZUU90N3FwcS1wY2JXN0lKektRYXRVSVMxSSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkZhd2VpIiwiX1RpbWVTdGFtcF8iOiIxMi8yNC8yMDIyIDY6MDI6NDEgUE0iLCJuYmYiOjE2NzE4NzYxNjEsImV4cCI6MTY3MTk4NDE2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMzMiIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMzIifQ.9oabCCWM-3aXP4zLJvviBjQtS92Joqe0yl2S_20kXdk
+Referer: https://wxgzh.fckyy.org.cn/home
+Content-Length: 317
+
+{"encryKey":"57383bacaa5dc0751c68f10aebbce55e9075f92721c14e8265b889c1ce8c3733","data":"61e85bbd2cfaecd9010b12fe5bb880f94d8feca9269006f5e36b33f1e4670836a14bb816bf72d0852c639d912810a3c004ee02891813f5553c3fad1b5d8cd32c","sign":"0e6b95d5c647371be38611093b965418a0c36c05bc8571fd542faf3ec01f4dad","timestamp":1671876161000}
+HTTP/1.1 200 OK
+Date: Sat, 24 Dec 2022 10:02:40 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 894
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: default-src 'self' wxgzh.fckyy.org.cn 'unsafe-inline' 'unsafe-eval' blob: data: ;
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+X-Request-Id: 98e7a993dd9b592d81bb67606eecc95c
+Server: WAF
+
+{"code":200,"message":"查询成功","data":[{"name":"桂子艺","sex":2,"brithday":"2002-12-20T00:00:00","identityType":1,"identityNum":"F1E60867726ED3725537D04C7782A2DDE88DB5F9FF6A062B88D6539224CCD7E7","phone":"13940897525","address":"湖北省武汉市翡翠华庭","email":"","isCertification":1,"status":1,"openId":"obYQOt7qpq-pcbW7IJzKQatUIS1I","createTime":"2022-12-24T13:56:37.023","updateTime":null,"birthDayStr":"20021220","age":"20岁","wechat_CardInfos":[{"cardType":3,"cardNum":"04660165090563034195","hisPatientId":"103678130","createTime":"2022-12-24T14:27:40.75","upateTime":null,"status":1,"patientInfoId":"0abc95cf-7e71-e95d-ae99-3a0854e13efe","mobile":null,"isMedical":null,"isChild":null,"medicalCode":null,"cityCode":null,"isNeedVaild":true,"openId":"obYQOt7qpq-pcbW7IJzKQatUIS1I","id":"559aea67-130f-7cc0-73ad-3a0854fdae4e"}],"id":"0abc95cf-7e71-e95d-ae99-3a0854e13efe"}]}
