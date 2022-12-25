@@ -168,7 +168,7 @@ namespace Base.viewModel
             {
                 if (ReSessionTimer == null)
                 {
-                    ReSessionTimer = new IntervalOnTime(ReSession, "刷新登录信息", DateTime.Now, 10000);
+                    ReSessionTimer = new IntervalOnTime(ReSession, "刷新登录信息", DateTime.Now, 600000);
                     return;
                 }
 

@@ -417,14 +417,14 @@ namespace Jingyang.viewmodel
 
         protected override void ReSession()
         {
-            foreach(var user in _jingyangLogins)
+            Log("ression invoke");
+            foreach (var user in _jingyangLogins)
             {
                 var tokenController = HttpServiceController.GetService<TokenController>();
                 tokenController.BuildContent(user.Cookie);
                 var token = tokenController.GetToken(user.Cookie);
+                PrintLog($"{user.UserName} - Token:{token}");
             }
-
-            Log("ression invoke");
         }
 
         #endregion Resession
