@@ -1,12 +1,11 @@
 ﻿<Window x:Class="Redhouse.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Redhouse"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:view="clr-namespace:hys020.view"
+        Title="红房子" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:HysConsole x:Name="mainConsole">
 
-    </Grid>
+    </view:HysConsole>
 </Window>
