@@ -7,7 +7,6 @@ namespace Redhouse.common
     {
         public RedhouseContent(string url) : base(url)
         {
-            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 
