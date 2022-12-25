@@ -3,6 +3,7 @@ using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
+using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jingyang.appointment;
 using Jingyang.search;
@@ -99,7 +100,7 @@ namespace Jingyang.viewmodel
 
         private SearchController _searchController;
 
-        private List<JingyangLogin> _gaoxinLogins = new List<JingyangLogin>();
+        private List<JingyangLogin> _jingyangLogins = new List<JingyangLogin>();
 
         #endregion Properties
 
@@ -195,9 +196,9 @@ namespace Jingyang.viewmodel
 
         private void LoginFromConfig()
         {
-            _gaoxinLogins = FileReader.DeserializeFile<List<JingyangLogin>>("Login.json");
+            _jingyangLogins = FileReader.DeserializeFile<List<JingyangLogin>>("Login.json");
 
-            MainSession.Users = _gaoxinLogins;
+            MainSession.Users = _jingyangLogins;
 
             MainSession.InitSession();
             StartAutoRun();
@@ -219,7 +220,7 @@ namespace Jingyang.viewmodel
                 Cookie = Cookie,
             };
 
-            _gaoxinLogins.Add(loginData);
+            _jingyangLogins.Add(loginData);
 
             ClearLoginData();
         }
@@ -242,6 +243,7 @@ namespace Jingyang.viewmodel
                 {
                     BuildOrders();
                     StartOnTimeTimer();
+                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -257,7 +259,7 @@ namespace Jingyang.viewmodel
         private void BuildOrders()
         {
             MainSession.Orders = new Dictionary<string, List<Order>>();
-            foreach(var user in _gaoxinLogins)
+            foreach(var user in _jingyangLogins)
             {
                 var cookie = user.Cookie;
                 var timeId = user.TimeId;
@@ -415,6 +417,12 @@ namespace Jingyang.viewmodel
 
         protected override void ReSession()
         {
+            foreach(var user in _jingyangLogins)
+            {
+                var tokenController = HttpServiceController.GetService<TokenController>();
+                tokenController.GetTokenAsync(user.Cookie);
+            }
+
             Log("ression invoke");
         }
 
