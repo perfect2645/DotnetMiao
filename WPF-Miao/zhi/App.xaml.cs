@@ -1,10 +1,10 @@
 ﻿using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
-using Ych.appointment;
-using Ych.search;
+using Zhi.appointment;
+using Zhi.search;
 
-namespace Ych
+namespace zhi
 {
     /// <summary>
     /// Interaction logic for App.xaml
