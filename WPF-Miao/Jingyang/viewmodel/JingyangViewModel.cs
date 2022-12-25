@@ -420,7 +420,8 @@ namespace Jingyang.viewmodel
             foreach(var user in _jingyangLogins)
             {
                 var tokenController = HttpServiceController.GetService<TokenController>();
-                tokenController.GetTokenAsync(user.Cookie);
+                tokenController.BuildContent(user.Cookie);
+                var token = tokenController.GetToken(user.Cookie);
             }
 
             Log("ression invoke");

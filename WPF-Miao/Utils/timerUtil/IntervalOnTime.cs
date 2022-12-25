@@ -55,7 +55,7 @@ namespace Utils.timerUtil
         {
             var onTimeInterval = (stratTime - DateTime.Now).TotalMilliseconds;
             onTimeInterval = Math.Ceiling(onTimeInterval);
-            if (onTimeInterval < 0)
+            if (onTimeInterval < 20)
             {
                 onTimeInterval = 200;
             }
