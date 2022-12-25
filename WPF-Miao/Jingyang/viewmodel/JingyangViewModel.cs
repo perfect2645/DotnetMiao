@@ -113,7 +113,7 @@ namespace Jingyang.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            TestData();
+            //TestData();
             LoginFromConfig();
         }
 
@@ -124,7 +124,7 @@ namespace Jingyang.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 7, 8, 59, 50);
+            StartTime = new DateTime(2022, 12, 26, 8, 59, 50);
 
             DateList = new List<DspVal>
             {
