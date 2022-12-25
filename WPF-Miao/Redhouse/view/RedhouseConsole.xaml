@@ -1,11 +1,11 @@
-﻿<Page x:Class="hys020.view.HysConsole"
+﻿<Page x:Class="Redhouse.view.RedhouseConsole"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:session="clr-namespace:hys020.session"
+      xmlns:session="clr-namespace:Redhouse.session"
       Title="好医师"
-      x:Name="HysPage">
+      x:Name="RedhousePage">
     <Page.Resources>
         <session:MainSession x:Key="mainSession" />
     </Page.Resources>

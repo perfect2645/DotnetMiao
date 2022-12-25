@@ -1,10 +1,10 @@
-using hys020.common;
+using Redhouse.common;
 using System;
 using Utils.datetime;
 
-namespace hys020.search
+namespace Redhouse.search
 {
-    internal class MiaoContent : HysBaseContent
+    internal class MiaoContent : RedhouseContent
     {
         public MiaoContent(string url) : base(url)
         {

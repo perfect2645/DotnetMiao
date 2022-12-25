@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Redhouse.viewmodel;
+using System;
 using System.Windows;
 
 namespace Redhouse
@@ -13,7 +14,7 @@ namespace Redhouse
             InitializeComponent();
             try
             {
-                DataContext = new HysViewModel(mainConsole.baseConsole.LogPanel);
+                DataContext = new RedhouseViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {

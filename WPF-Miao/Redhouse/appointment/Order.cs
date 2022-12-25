@@ -2,11 +2,11 @@
 using System;
 using System.Text;
 
-namespace hys020.appointment
+namespace Redhouse.appointment
 {
     public class Order
     {
-        //POST http://www.hys020.com/home/attSave_42CB58972CD44CD9945775814C00CA41_D4BEB657DDCD46F585DB5E7046996B3B_1_1_?regPhase=10%3A30%20-%2011%3A00&wechatid=gh_868741944de3&patBindId=7B28B513877B4258A45949146B98F2D6 HTTP/1.1
+        //POST http://www.Redhouse.com/home/attSave_42CB58972CD44CD9945775814C00CA41_D4BEB657DDCD46F585DB5E7046996B3B_1_1_?regPhase=10%3A30%20-%2011%3A00&wechatid=gh_868741944de3&patBindId=7B28B513877B4258A45949146B98F2D6 HTTP/1.1
         public string DepartmentId { get; set; }
         public string AttId { get; set; }
         public string Date { get; set; }
@@ -23,7 +23,7 @@ namespace hys020.appointment
 
         private string BuildUrl()
         {
-            var urlHead = "http://www.hys020.com/home/attSave";
+            var urlHead = "http://www.Redhouse.com/home/attSave";
             var url = $"{urlHead}_{DepartmentId}_{AttId}_1_1_?regPhase={TimeRangeEncode}&wechatid={WechatId}&patBindId={PatBindId}";
             return url;
         }

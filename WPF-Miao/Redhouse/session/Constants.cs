@@ -1,6 +1,6 @@
 ﻿using Base.session;
 
-namespace hys020.session
+namespace Redhouse.session
 {
     internal class Constants : MiaoConstants
     {

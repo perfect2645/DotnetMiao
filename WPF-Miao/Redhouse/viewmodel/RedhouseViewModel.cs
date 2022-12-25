@@ -6,10 +6,10 @@ using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
-using hys020.appointment;
-using hys020.appointment.Yuyue;
-using hys020.search;
-using hys020.session;
+using Redhouse.appointment;
+using Redhouse.appointment.Yuyue;
+using Redhouse.search;
+using Redhouse.session;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,9 +21,9 @@ using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
 
-namespace hys020.viewmodel
+namespace Redhouse.viewmodel
 {
-    internal class HysViewModel : OnTimeViewModel
+    internal class RedhouseViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -109,7 +109,7 @@ namespace hys020.viewmodel
 
         #region Constructor
 
-        public HysViewModel(LogPanel logPanel) : base(logPanel)
+        public RedhouseViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -121,7 +121,7 @@ namespace hys020.viewmodel
         private void TestData()
         {
             Cookie = "JSESSIONID=1C45E2B16593B435963276DBF65CE99E";
-            Location = "http://www.hys020.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=1tclc4SgvKiCId8FY8vdHd1pqq7GzFeM";
+            Location = "http://www.Redhouse.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=1tclc4SgvKiCId8FY8vdHd1pqq7GzFeM";
 
             //StartTime = DateTime.Now.AddSeconds(20);
         }
@@ -147,7 +147,7 @@ namespace hys020.viewmodel
             //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
             {
-                new HysHospital
+                new RedhouseHospital
                 {
                     HospitalId = "doctorYyghMobileDate",
                     HospitalName = "肇庆市鼎湖区",
@@ -155,14 +155,14 @@ namespace hys020.viewmodel
                     DepartmentName = "九价宫颈癌疫苗（进口）",
                 },
                 //<option value="24">儿童乙肝疫苗（免费）</option>
-                new HysHospital
+                new RedhouseHospital
                 {
                     HospitalId = "doctorYyghMobileDate",
                     HospitalName = "肇庆市鼎湖区",
                     DepartmentId = "42CB58972CD44CD9945775814C00CA41",
                     DepartmentName = "盆底修复",
                 },
-                new HysHospital
+                new RedhouseHospital
                 {
                     HospitalId = "doctorYyghMobileDate",
                     HospitalName = "肇庆市鼎湖区",
@@ -348,7 +348,7 @@ namespace hys020.viewmodel
             try
             {
                 MainSession.Cookie = Cookie;
-                var appointController = HttpServiceController.GetService<AppointController>();
+                var appointController = HttpServiceController.GetService<YuyueController>();
             }
             catch (HttpException ex)
             {
@@ -389,7 +389,7 @@ namespace hys020.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as HysHospital;
+            var selectedDept = SelectedDepartment as RedhouseHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
 
@@ -413,7 +413,7 @@ namespace hys020.viewmodel
                 try
                 {
                     var processInfo = new ProcessStartInfo();
-                    processInfo.FileName = "hys020.exe";
+                    processInfo.FileName = "Redhouse.exe";
                     processInfo.ArgumentList.Add(Cookie);
                     processInfo.ArgumentList.Add(Location);
 

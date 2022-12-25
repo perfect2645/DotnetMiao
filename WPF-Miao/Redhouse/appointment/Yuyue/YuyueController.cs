@@ -2,13 +2,13 @@
 using HttpProcessor.Client;
 using HttpProcessor.Container;
 using HttpProcessor.Content;
-using hys020.session;
+using Redhouse.session;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Utils.timerUtil;
 
-namespace hys020.appointment.Yuyue
+namespace Redhouse.appointment.Yuyue
 {
     public class YuyueController : HttpClientBase
     {
@@ -36,11 +36,11 @@ namespace hys020.appointment.Yuyue
             var preview = HttpServiceController.GetService<PreviewAppointController>();
             preview.PreviewAppoint(order);
             Log($"开始预约：{order.ToLogString()}");
-            var content = new AppointContent(order);
+            var content = new YuyueContent(order);
             Yuyue(content);
         }
 
-        private void Yuyue(AppointContent content)
+        private void Yuyue(YuyueContent content)
         {
             try
             {

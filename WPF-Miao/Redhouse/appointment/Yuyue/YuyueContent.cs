@@ -1,16 +1,14 @@
-﻿using HttpProcessor.Content;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Redhouse.common;
 
-namespace hys020.appointment.Yuyue
+namespace Redhouse.appointment.Yuyue
 {
-    internal class YuyueContent : HttpStringContent
+    internal class YuyueContent : RedhouseContent
     {
-        public YuyueContent(string url) : base(url)
+        private const string url = "";
+        public Order Order { get; private set; }
+        public YuyueContent(Order order) : base(url)
         {
+            Order = order;
         }
     }
 }

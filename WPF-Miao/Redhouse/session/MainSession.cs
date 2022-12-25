@@ -1,9 +1,9 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
-using hys020.appointment;
+using Redhouse.appointment;
 using System.Collections.Generic;
 
-namespace hys020.session
+namespace Redhouse.session
 {
     internal class MainSession : MainSessionBase, ISessionContainer
     {

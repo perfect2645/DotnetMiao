@@ -1,8 +1,8 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
-using hys020.appointment;
-using hys020.session;
+using Redhouse.appointment;
+using Redhouse.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +14,12 @@ using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
 
-namespace hys020.search
+namespace Redhouse.search
 {
     internal class MiaoDetailController : HttpClientBase
     {
         private string departmentId = MainSession.PlatformSession[Constants.DeptId].NotNullString();
-        private string url = $"http://www.hys020.com/home/doctorYyghMobileSectionDate_";
+        private string url = $"http://www.Redhouse.com/home/doctorYyghMobileSectionDate_";
         private readonly MiaoDetailContent content;
 
 

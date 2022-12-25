@@ -1,8 +1,8 @@
-﻿using hys020.common;
+﻿using Redhouse.common;
 
-namespace hys020.search
+namespace Redhouse.search
 {
-    internal class MiaoDetailContent : HysBaseContent
+    internal class MiaoDetailContent : RedhouseContent
     {
         public MiaoDetailContent(string url) : base(url)
         {

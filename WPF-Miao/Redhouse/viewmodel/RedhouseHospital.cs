@@ -1,9 +1,9 @@
 ﻿using Base.viewModel.hospital;
 using System.Text;
 
-namespace hys020.viewmodel
+namespace Redhouse.viewmodel
 {
-    internal class HysHospital : HospitalDept
+    internal class RedhouseHospital : HospitalDept
     {
         public override string ToLogString()
         {

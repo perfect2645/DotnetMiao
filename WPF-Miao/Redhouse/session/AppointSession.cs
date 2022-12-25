@@ -1,13 +1,13 @@
 ﻿using Base.model;
 using HttpProcessor.Container;
-using hys020.appointment.Yuyue;
+using Redhouse.appointment.Yuyue;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using Utils;
 
-namespace hys020.session
+namespace Redhouse.session
 {
     public static class AppointSession
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace hys020.appointment
+namespace Redhouse.appointment
 {
     public class AppointEvent
     {

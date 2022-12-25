@@ -1,7 +1,7 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
-using hys020.session;
+using Redhouse.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace hys020.search
+namespace Redhouse.search
 {
     internal class MiaoController : HttpClientBase
     {
@@ -36,7 +36,7 @@ namespace hys020.search
         private List<Dictionary<string, object>> SearchMiao()
         {
             var deptId = MainSession.PlatformSession[Constants.DeptId];
-            var url = $"http://www.hys020.com/home/doctorYyghMobileDate_{deptId}";
+            var url = $"http://www.Redhouse.com/home/doctorYyghMobileDate_{deptId}";
 
             var content = new MiaoContent(url);
             content.BuildDefaultHeaders(Client);

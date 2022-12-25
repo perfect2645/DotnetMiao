@@ -3,13 +3,13 @@ using HttpProcessor.Client;
 using HttpProcessor.ExceptionManager;
 using HttpProcessor.HtmlAnalysis;
 using HttpProcessor.Response;
-using hys020.session;
+using Redhouse.session;
 using System;
 using System.Net.Http;
 using Utils;
 using Utils.stringBuilder;
 
-namespace hys020.appointment
+namespace Redhouse.appointment
 {
     internal class PreviewAppointController : HttpClientBase
     {
@@ -22,7 +22,7 @@ namespace hys020.appointment
             var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
             var openId = MainSession.PlatformSession[Constants.OpenId].NotNullString();
             var timestamp = MainSession.PlatformSession[Constants.TimeStamp].NotNullString();
-            var url = $"http://www.hys020.com/home/reserveMsgMobile_{order.OrgId}_{order.AttId}_1_0?regPhase={order.TimeRangeEncode}&wechatid={wechatId}&openid={openId}&Timestamp={timestamp}";
+            var url = $"http://www.Redhouse.com/home/reserveMsgMobile_{order.OrgId}_{order.AttId}_1_0?regPhase={order.TimeRangeEncode}&wechatid={wechatId}&openid={openId}&Timestamp={timestamp}";
 
             try
             {
