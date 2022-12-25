@@ -8,7 +8,7 @@ namespace Zhi.appointment
 {
     internal class YuyueContent : ZhiContent
     {
-        private static string url = "http://www.szZhirmyy.com/wechatclient/api/auth/appointment/confirmAppointment";
+        private static string url = "https://cloud.cn2030.com/sc/api/User/OrderPost";
         public Order Order { get; }
         public YuyueContent(Order order) : base(url)
         {
