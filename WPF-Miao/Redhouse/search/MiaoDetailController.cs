@@ -107,13 +107,13 @@ namespace Redhouse.search
             var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
             var order = new Order()
             {
-                DepartmentId = departmentId,
-                AttId = miao["regAttId"].NotNullString(),
-                TimeRangeEncode = UnicodeConverter.Encode(time),
-                OrgId = orgid,
-                WechatId = wechatId,
-                Date = date,
-                Time = time,
+                //DepartmentId = departmentId,
+                //AttId = miao["regAttId"].NotNullString(),
+                //TimeRangeEncode = UnicodeConverter.Encode(time),
+                //OrgId = orgid,
+                //WechatId = wechatId,
+                //Date = date,
+                //Time = time,
             };
 
             return order;

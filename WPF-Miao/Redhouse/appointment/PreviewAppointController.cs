@@ -22,18 +22,19 @@ namespace Redhouse.appointment
             var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
             var openId = MainSession.PlatformSession[Constants.OpenId].NotNullString();
             var timestamp = MainSession.PlatformSession[Constants.TimeStamp].NotNullString();
-            var url = $"http://www.Redhouse.com/home/reserveMsgMobile_{order.OrgId}_{order.AttId}_1_0?regPhase={order.TimeRangeEncode}&wechatid={wechatId}&openid={openId}&Timestamp={timestamp}";
+
 
             try
             {
-                HtmlResponse response = SearchHtml(url).Result;
-                if (response == null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"PreviewAppoint - response == null");
-                    return false;
-                }
+                ////HtmlResponse response = SearchHtml(url).Result;
+                //if (response == null)
+                //{
+                //    MainSession.PrintLogEvent.Publish(this, $"PreviewAppoint - response == null");
+                //    return false;
+                //}
 
-                return AnalysisResult(response.Body, order);
+                //return AnalysisResult(response.Body, order);
+                return false;
             }
             catch (HttpException ex)
             {

@@ -1,4 +1,5 @@
 ﻿using Base.model;
+using Base.session;
 using HttpProcessor.Container;
 using Redhouse.appointment.Yuyue;
 using System;
@@ -9,54 +10,14 @@ using Utils;
 
 namespace Redhouse.session
 {
-    public static class AppointSession
+    public class AppointSession : ControllerSession<YuyueController>
     {
-        internal static ConcurrentDictionary<string, YuyueController> YuyueControllerCache { get; private set; }
-
-        static AppointSession()
+        public AppointSession() : base()
         {
-
-        }
-
-        public static void Init()
-        {
-            YuyueControllerCache = new ConcurrentDictionary<string, YuyueController>();
             var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
-            var timeList = (MainSession.PlatformSession["TimeList"] as List<DspVal>).Select(x => x.Value).ToList();
             foreach (var date in dateList)
             {
-                foreach(var time in timeList)
-                {
-                    AddController(date, time);
-                }
-            }
-        }
-
-        private static YuyueController AddController(string? date, string? time)
-        {
-            var key = new YuyueKey(date, time).Key;
-            var yuyueContr = HttpServiceController.GetService<YuyueController>();
-            YuyueControllerCache.AddOrUpdate(key, yuyueContr);
-
-            return yuyueContr;
-        }
-
-        public static YuyueController GetController(string date, string time)
-        {
-            try
-            {
-                var key = new YuyueKey(date, time).Key;
-                if (!YuyueControllerCache.ContainsKey(key))
-                {
-                    return AddController(date, time);
-                }
- 
-                return YuyueControllerCache[key];
-            }
-            catch(Exception ex)
-            {
-                Logging.GLog.Logger.Error(ex);
-                return null;
+                AddController($"{date}");
             }
         }
     }

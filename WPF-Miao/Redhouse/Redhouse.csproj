@@ -8,11 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Encrypt\hfzEncrypt.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Encrypt\hfzEncrypt.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
     <ProjectReference Include="..\Utils\Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Interop.MSScriptControl">
+      <HintPath>..\HttpProcessor\Interop.MSScriptControl.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

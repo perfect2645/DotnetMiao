@@ -80,7 +80,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redhouse", "Redhouse\Redhou
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zhimiao", "zhimiao", "{1FB5C0FA-696A-4D9A-B6D8-66585EBF76C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zhi", "zhi\zhi.csproj", "{E654A692-6C80-4F88-81E2-4E75344C7C85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zhi", "zhi\zhi.csproj", "{E654A692-6C80-4F88-81E2-4E75344C7C85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,4 @@
+       var body1 = new GetUserInfoBody();
+            body1.timestamp = this.ConvertDateTimeToInt();
+            var str1 = JsonConvert.SerializeObject(body1);
+            var str2 = this.RunScript("EncryptData", new string[] { str1 , body1.timestamp.ToString() }).ToString();
