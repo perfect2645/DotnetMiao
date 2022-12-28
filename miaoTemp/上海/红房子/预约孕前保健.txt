@@ -29,3 +29,33 @@ X-Request-Id: e663e58d294c951892f2ed991f155593
 Server: WAF
 
 {"code":200,"message":"预约成功","data":[{"billNo":12921753,"message":"保存成功"}]}
+
+
+
+
+{"data":{"PatientInfoId":"0abc95cf-7e71-e95d-ae99-3a0854e13efe","patientName":"桂子艺","patientSexFlag":2,"patientMarryFlag":0,"patientBirthDate":"2002-12-20","address":"","email":"","idCardKind":1,"idCardNo":"42080420021220232X","cardKind":3,"cardNo":"04660165090563034195","phone":"13940897525","planId":"4356469","itemId":"10072","cardId":"559aea67-130f-7cc0-73ad-3a0854fdae4e","hosId":"10001","Telephone":"13940897525","Mobile":"13940897525"},"timestamp":1671876424000}
+
+
+{
+    "data": {
+        "PatientInfoId": "0abc95cf-7e71-e95d-ae99-3a0854e13efe",
+        "patientName": "桂子艺",
+        "patientSexFlag": 2,
+        "patientMarryFlag": 0,
+        "patientBirthDate": "2002-12-20",
+        "address": "",
+        "email": "",
+        "idCardKind": 1,
+        "idCardNo": "42080420021220232X",
+        "cardKind": 3,
+        "cardNo": "04660165090563034195",
+        "phone": "13940897525",
+        "planId": "4356469",
+        "itemId": "10072",
+        "cardId": "559aea67-130f-7cc0-73ad-3a0854fdae4e",
+        "hosId": "10001",
+        "Telephone": "13940897525",
+        "Mobile": "13940897525"
+    },
+    "timestamp": 1671876424000
+}

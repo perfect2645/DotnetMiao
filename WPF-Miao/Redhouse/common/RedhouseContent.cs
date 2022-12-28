@@ -23,5 +23,10 @@ namespace Redhouse.common
             AddHeader("Accept-Encoding", "gzip, deflate");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }
+
+        public void BuildContent()
+        {
+            AddContent("encryKey", BuildEncryKey)
+        }
     }
 }

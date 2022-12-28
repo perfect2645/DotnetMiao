@@ -151,25 +151,18 @@ namespace Redhouse.viewmodel
             {
                 new RedhouseHospital
                 {
-                    HospitalId = "doctorYyghMobileDate",
-                    HospitalName = "肇庆市鼎湖区",
-                    DepartmentId = "E8A53E4EFFDE46F7B8B15A44230C2524",
+                    HospitalId = "10001",
+                    HospitalName = "红房子医院",
+                    DepartmentId = "10072",
                     DepartmentName = "九价宫颈癌疫苗（进口）",
                 },
                 //<option value="24">儿童乙肝疫苗（免费）</option>
                 new RedhouseHospital
                 {
-                    HospitalId = "doctorYyghMobileDate",
-                    HospitalName = "肇庆市鼎湖区",
-                    DepartmentId = "42CB58972CD44CD9945775814C00CA41",
-                    DepartmentName = "盆底修复",
-                },
-                new RedhouseHospital
-                {
-                    HospitalId = "doctorYyghMobileDate",
-                    HospitalName = "肇庆市鼎湖区",
-                    DepartmentId = "6334C2A529E1423881ADDA4E3A737076",
-                    DepartmentName = "黄针妹",
+                    HospitalId = "10001",
+                    HospitalName = "红房子医院",
+                    DepartmentId = "10072",
+                    DepartmentName = "孕前保健",
                 },
             };
 
