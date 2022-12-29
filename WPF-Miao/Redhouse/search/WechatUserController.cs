@@ -1,5 +1,7 @@
 ﻿using HttpProcessor.Client;
+using Redhouse.session;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -8,14 +10,12 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using Redhouse.session;
-using HttpProcessor.Container;
 
 namespace Redhouse.search
 {
-    internal class UserController : HttpClientBase
+    internal class WechatUserController : HttpClientBase
     {
-        public UserController(HttpClient httpClient) : base(httpClient)
+        public WechatUserController(HttpClient httpClient) : base(httpClient)
         {
         }
 
@@ -24,7 +24,7 @@ namespace Redhouse.search
             await Task.Factory.StartNew(() => GetUser());
         }
 
-        private void GetUser()
+        public void GetUser()
         {
             try
             {
@@ -71,21 +71,10 @@ namespace Redhouse.search
 
             var defaultUser = userList.FirstOrDefault();
 
-            var defaultUserId = defaultUser.GetString("id");
-            var defaultUserName = defaultUser.GetString("name");
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
-            MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
+            var certificationNo = defaultUser.GetString("certificationNo");
 
-            GetSaveCardId();
-
-            MainSession.PrintLogEvent.Publish(this, defaultUser);
-        }
-
-        private void GetSaveCardId()
-        {
-            var wechatUserController = HttpServiceController.GetService<WechatUserController>();
-            wechatUserController.GetUser();
+            var userInfo = MainSession.PlatformSession["user"] as Dictionary<string, object>;
+            userInfo.AddOrUpdate("certificationNo", certificationNo);
         }
     }
 }

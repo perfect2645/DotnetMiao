@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.number;
 using Utils.stringBuilder;
 
 namespace Redhouse.search
@@ -103,6 +104,15 @@ namespace Redhouse.search
 
                 orderList.Add(order);
             }
+
+            orderList = orderList.DisorderItems();
+
+            var appointEventArg = new AppointEventArgs()
+            {
+                OrderList = orderList,
+            };
+
+            MainSession.AppointEvent.Publish(this, appointEventArg);
 
             MainSession.PrintLogEvent.Publish(this, $"查到苗");
             MainSession.SetStatus(MiaoProgress.MiaoGet);
