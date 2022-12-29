@@ -14,10 +14,24 @@ namespace Redhouse.search
 {
     internal class SearchController
     {
+
+        private MiaoController _miaoController;
+
+        public SearchController()
+        {
+            _miaoController = HttpServiceController.GetService<MiaoController>();
+        }
+
+
         public async Task GetUserInfo()
         {
             var userController = HttpServiceController.GetService<UserController>();
             await userController.GetUserAsync();
+        }
+
+        public void GetMiao()
+        {
+            _miaoController.SearchMiaoAsync();
         }
     }
 }

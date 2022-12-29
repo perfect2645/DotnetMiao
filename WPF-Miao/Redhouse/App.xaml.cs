@@ -32,6 +32,7 @@ namespace Redhouse
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<MiaoController>();
 
             HttpServiceController.BuidServiceProvider();
         }

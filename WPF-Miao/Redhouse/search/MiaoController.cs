@@ -1,6 +1,7 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
+using Redhouse.appointment;
 using Redhouse.session;
 using System;
 using System.Collections.Generic;
@@ -20,55 +21,91 @@ namespace Redhouse.search
         {
         }
 
-        public async Task SearchMiaoAsync()
+        public void SearchMiaoAsync()
         {
-            var miaoList = await Task.Factory.StartNew(() => SearchMiao());
-            if (!miaoList.HasItem())
-            {
-                return;
-            }
-
-            MainSession.PrintLogEvent.Publish(this, $"查到苗");
-            MainSession.SetStatus(MiaoProgress.MiaoGet);
+            Task.Factory.StartNew(() => SearchMiao());
         }
 
-        private List<Dictionary<string, object>> SearchMiao()
+        private void SearchMiao()
         {
-            var deptId = MainSession.PlatformSession[Constants.DeptId];
-            var url = $"http://www.Redhouse.com/home/doctorYyghMobileDate_{deptId}";
-
-            var content = new MiaoContent(url);
+            var content = new MiaoContent();
             content.BuildDefaultHeaders(Client);
 
             try
             {
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    Log($"SearchMiao Failed - {response.Message}");
-                    return null;
+                    Log($"获取Miao失败{response?.Message}");
+                    return;
                 }
 
-                var result = response.JsonBody.RootElement;
-                var attList = response.JsonBody.RootElement.GetProperty("attList");
-                if (attList.ValueKind == JsonValueKind.Null)
+                var root = response.JsonBody.RootElement;
+                var code = root.GetProperty("code").NotNullString();
+                var message = root.GetProperty("message").NotNullString();
+                if (!"200".Equals(code))
                 {
-                    Log($"未查到苗 - attList is null");
-                    return null;
+                    MainSession.PrintLogEvent.Publish(this, $"获取Miao失败:code={code}, message={message}");
+                    return;
                 }
-                return AnalysisResult(attList);
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取Miao失败:code={code}, message={message}");
+                    return;
+                }
+                AnalysisResult(data);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
-                return null;
             }
         }
 
-        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
-            var dicResult = JsonAnalysis.JsonToDicList(jsonElement);
-            return null;
+            var dataList = JsonAnalysis.JsonToDicList(jsonElement);
+            if (!dataList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗");
+                return;
+            }
+
+            var userInfo = MainSession.PlatformSession["user"] as Dictionary<string, object>;
+            var wechat_CardInfos = userInfo["wechat_CardInfos"] as List<Dictionary<string, object>>;
+            var userWechat = wechat_CardInfos.FirstOrDefault();
+            var hosId = MainSession.PlatformSession.GetString(Constants.HosId);
+
+            var orderList = new List<Order>();
+            foreach (var data in dataList)
+            {
+                var order = new Order()
+                {
+                    Address = data.GetString("address"),
+                    CardId = userWechat.GetString("id"),
+                    CardKind = userWechat.GetString("cardType").ToInt(),
+                    CardNo = userWechat.GetString("cardNum"),
+                    IdCardNo = userInfo.GetString("certificationNo"),
+                    Email = userInfo.GetString("email"),
+                    HosId = hosId,
+                    IdCardKind = 1,
+                    ItemId = data.GetString("itemId"),
+                    Mobile = userInfo.GetString("phone"),
+                    PatientBirthDate = userInfo.GetString("brithday").Substring(0, 10),
+                    PatientInfoId = userInfo.GetString("id"),
+                    PatientMarryFlag = 0,
+                    PatientName = userInfo.GetString("name"),
+                    PatientSexFlag = userInfo.GetString("sex").ToInt(),
+                    Phone = userInfo.GetString("phone"),
+                    PlanId = data.GetString("planId"),
+                    Telephone = userInfo.GetString("phone"),
+                };
+
+                orderList.Add(order);
+            }
+
+            MainSession.PrintLogEvent.Publish(this, $"查到苗");
+            MainSession.SetStatus(MiaoProgress.MiaoGet);
         }
     }
 }
