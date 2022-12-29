@@ -1,6 +1,9 @@
 ﻿using MSScriptControl;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace Redhouse.Encrypt
@@ -48,6 +51,17 @@ namespace Redhouse.Encrypt
             var decode = decodeObj.NotNullString();
 
             return decode;
+        }
+
+        public static RedhouseData Encrypt(Dictionary<string, object> contents)
+        {
+            var temestamp = DateTimeUtil.GetTimeStamp();
+            var jsonContent = JsonConvert.SerializeObject(contents);
+            var encodeData = RunScript("EncryptData", new string[] { jsonContent, temestamp }).ToString();
+
+            var redhouseData = JsonConvert.DeserializeObject<RedhouseData>(encodeData);
+
+            return redhouseData;
         }
     }
 }

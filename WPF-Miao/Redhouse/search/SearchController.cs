@@ -12,16 +12,12 @@ using Utils;
 
 namespace Redhouse.search
 {
-    internal class SearchController : HttpClientBase
+    internal class SearchController
     {
-        public SearchController(HttpClient httpClient) : base(httpClient)
+        public async Task GetUserInfo()
         {
-        }
-
-        public async Task SearchAsync()
-        {
-            var miaoController = HttpServiceController.GetService<MiaoController>();
-            await miaoController.SearchMiaoAsync();
+            var userController = HttpServiceController.GetService<UserController>();
+            await userController.GetUserAsync();
         }
     }
 }

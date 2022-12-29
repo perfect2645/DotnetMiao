@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Container;
+using Redhouse.search;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -30,12 +31,7 @@ namespace Redhouse
         }
         private void InitController()
         {
-            //HttpServiceController.AddTransientService<SearchController>();
-            //HttpServiceController.AddTransientService<MiaoController>();
-            //HttpServiceController.AddTransientService<MiaoDetailController>();
-            //HttpServiceController.AddTransientService<PreviewAppointController>();
-            //HttpServiceController.AddTransientService<AppointController>();
-            //HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<UserController>();
 
             HttpServiceController.BuidServiceProvider();
         }

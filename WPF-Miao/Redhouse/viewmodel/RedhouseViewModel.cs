@@ -79,15 +79,15 @@ namespace Redhouse.viewmodel
             }
         }
 
-        private string _location;
-        public string Location
+        private string _authorization;
+        public string Authorization
         {
-            get { return _location; }
+            get { return _authorization; }
             set
             {
-                _location = value;
-                SaveLocation(value);
-                NotifyUI(() => Location);
+                _authorization = value;
+                MainSession.Authorization = value;
+                NotifyUI(() => Authorization);
             }
         }
 
@@ -121,32 +121,25 @@ namespace Redhouse.viewmodel
 
         private void TestData()
         {
-            var key = "9232298adcc85af97f8780482b74d98c89883617c5a9a6fda4a04dc5bed9e767";
-            var data = "cc50ba6fa38b66769d1f667b4eb81e18f469c75e95444d4d376231600d3fd4493a2bc6f0ba7bc7a5aba54ee6b4fa0e751adcc3e435a95514f1b37b91046680fc8626ee5cee784280a4eb498c8c706188553d57b1000870496564040dcb1b6221335f7daf85a6af5b5033e545c4bfe7fe0d5f933c3de293c1babf48932a1a56ea4c18b639d67fb631a7ad10afd2acacaf78400daddeea29c8d168034ceccd412c8f303e77253fabc02374c7cc934d4e135b228f8630fdf48438b74f135708ac00edbe089995ae5cdab143084509a86196f3c3a4d2f13ba73c83ab876c0691ff23d29322dc68546a35e282f7cdd71aacef04ac341134c8854440bdd99619aa9ea5a407b0ef6b3f9bf998fc7de02c767d3a362420005661358140611f6a6a25728e4102d58f61cc710236e8dcbc08222b5e013222badcb8553cfd6494bf21466ebb7bd8372e3485b282582ec1c02a8096d25c3a214f0fe4540b75dc59a0f6928c612f1aa7004dcd450261cfec9783f83a9fb4d882cbd095b29256e68ac75480353c80abbefdca79326b02935fe37b3781af7ed11a19fbf9933521a1ba48cc295961a6c1146e44d241e22e95b7a50daa5979b72410b7f2f9230b756722a4f3618a0d1b9e53ddcaed5790d3602a79213152d6d477f6724b2310d9a0c6c420d647a3bc";
+            Authorization = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoib2JZUU90N3FwcS1wY2JXN0lKektRYXRVSVMxSSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkZhd2VpIiwiX1RpbWVTdGFtcF8iOiIxMi8yOS8yMDIyIDI6MjU6NDIgUE0iLCJuYmYiOjE2NzIyOTUxNDIsImV4cCI6MTY3MjQwMzE0MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMzMiIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMzIifQ.zV_SKgKV6YSCzhPVx4fLRGyDP78i6RlDJp4zr626riM";
 
-            HfzEncrypt.Decrypt(key, data);
+            var key = "408b32e0155250f910fe58a174e051811bd16f2b508158d0bc51fa3009283b09";
+            var data = "17f715a728635041cde098f40a7796f16a46acbb37e6030ca2571c52376131e43042f1a03ff8870db42b4c011ffbf2e784f5d3668f1fc98e27b2ff75a9b09fa270fe914647c1e6a0dd57ce0ff341c86b2ef90e0a1e2031065b4ebc03ccf2f8997481ad0f325e8ab76106322fed8be88b95a0d14dceabb29ef603560c2e30381885213b1c1471736dec3d90e00de0ef9ee6c86ee51986656b25c4d4a6996d7244151bb0cdd470c61b7c37d26f14994344b62c2636ea087e80d23492f338d8d2237d7d3835ed399886b9d73c65cf4c04b1147195458f183b78a2557e2243993e342f4f2b8fc0245078f4d48052055cee187b7050d8e4a12ecb2d8546c6bf9428e9555626c00f62e17c14e20d39e0b774942ebcecc83c0e922ae3c05f7a0d5d8c412abec6b557582b460d1ef2606404457bbeaabb58192ec921a5e657de81ba4f01553558ca4ae53fa29546f7ed697e71a20ff536c6215965524b8982c8209c88397e9b5b48da36b6478f5b11aeac2020446fae1fb670dc13b33f7c2cdb1f6d6ae8cdda66ccedaee7bbefeef07371aa5896f881f36d8f61efcb7b7f439a3504f538e1a26a238720adca19f6b16581a28fcadb749c3e62b257e8434bc114b6bb5a094872805ca5800dbce9812fb8ee91bbd07d53d7132be0e667430f02d2745e915c9a41def7b61333f5c94f4e421987e083632b1e2c064cb8d14b943208de501329e07f2be878e61b2ba3de091514dd1393d93086fd3764fe77e36cbadfdee09d02b25064af1437df31e16987f2f348d3d33ca96021220e461e1e8234d1be30dad1cb903fc4fe741acf8fc5b4999844aa2b405e196d073f0ed45453220cb6d0aadadb0f63ecb6e1ee96ab8587bc4621d51e10bc4ee7d1bda99994814365df8d698a";
+
+            var result = HfzEncrypt.Decrypt(key, data);
 
             //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitControllers()
         {
+            _searchController = new SearchController();
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 12, 19, 10, 59, 50);
 
-            if (Application.Current.Properties.Contains("Cookie"))
-            {
-                Cookie = Application.Current.Properties["Cookie"].ToString();
-            }
-            if (Application.Current.Properties.Contains("Cookie"))
-            {
-                Location = Application.Current.Properties["Location"].ToString();
-            }
-
-            //盆底修复 deptid 42CB58972CD44CD9945775814C00CA41
             Departments = new List<HospitalDept>
             {
                 new RedhouseHospital
@@ -168,16 +161,9 @@ namespace Redhouse.viewmodel
 
             DateList = new List<DspVal>
             {
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -212,16 +198,6 @@ namespace Redhouse.viewmodel
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
 
             MainSession.AppointEvent.Subscribe(OnAppointment);
-        }
-
-        private void SaveLocation(string location)
-        {
-            if (string.IsNullOrEmpty(location))
-            {
-                return;
-            }
-            var queryDic = location.UrlToDic();
-            MainSession.PlatformSession.AddOrUpdate(queryDic);
         }
 
         #endregion Constructor
@@ -290,7 +266,7 @@ namespace Redhouse.viewmodel
             try
             {
                 MainSession.SetStatus(MiaoProgress.Searching);
-                await _searchController.SearchAsync();
+                await _searchController.GetUserInfo();
             }
             catch (HttpException ex)
             {
@@ -372,8 +348,8 @@ namespace Redhouse.viewmodel
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                     PrintLogEvent.Publish(this, "开始查苗了");
                 }
-                var miaoSchedule = HttpServiceController.GetService<SearchController>();
-                await miaoSchedule.SearchAsync();
+                //var miaoSchedule = HttpServiceController.GetService<SearchController>();
+                //await miaoSchedule.SearchAsync();
             });
         }
 
@@ -408,8 +384,7 @@ namespace Redhouse.viewmodel
                 {
                     var processInfo = new ProcessStartInfo();
                     processInfo.FileName = "Redhouse.exe";
-                    processInfo.ArgumentList.Add(Cookie);
-                    processInfo.ArgumentList.Add(Location);
+                    //processInfo.ArgumentList.Add(Cookie);
 
                     for (int i = 0; i < ProcessCount; i++)
                     {

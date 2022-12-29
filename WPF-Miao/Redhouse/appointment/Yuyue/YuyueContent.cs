@@ -10,12 +10,11 @@ namespace Redhouse.appointment.Yuyue
         public YuyueContent(Order order) : base(url)
         {
             Order = order;
-            BuildContent();
+            InitContent();
         }
 
-        private void BuildContent()
+        private void InitContent()
         {
-            AddContent("encryKey", Order.EncryKey);
         }
     }
 }

@@ -19,11 +19,6 @@ namespace Redhouse.appointment
 
         public bool PreviewAppoint(Order order)
         {
-            var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
-            var openId = MainSession.PlatformSession[Constants.OpenId].NotNullString();
-            var timestamp = MainSession.PlatformSession[Constants.TimeStamp].NotNullString();
-
-
             try
             {
                 ////HtmlResponse response = SearchHtml(url).Result;
@@ -53,7 +48,6 @@ namespace Redhouse.appointment
             try
             {
                 var patBindId = GetPatBindId(body);
-                order.PatBindId = patBindId;
                 return true;
             }
             catch (Exception ex)

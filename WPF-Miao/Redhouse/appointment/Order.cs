@@ -31,9 +31,12 @@ namespace Redhouse.appointment
 
             sb.AppendLine("******** 开始预约 *********");
 
-            sb.AppendLine($"WechatId - {WechatId}");
-            sb.AppendLine($"Time - {TimeRangeEncode}");
-            sb.AppendLine($"PatBindId - {PatBindId}");
+            sb.AppendLine($"PatientInfoId - {PatientInfoId}");
+            sb.AppendLine($"PatientName - {PatientName}");
+            sb.AppendLine($"IdCardNo - {IdCardNo}");
+            sb.AppendLine($"Mobile - {Mobile}");
+            sb.AppendLine($"PlanId - {PlanId}");
+            sb.AppendLine($"ItemId - {ItemId}");
 
             sb.AppendLine("**************************************");
 

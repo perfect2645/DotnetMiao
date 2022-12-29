@@ -29,8 +29,7 @@ namespace Redhouse.search
             }
 
             MainSession.PrintLogEvent.Publish(this, $"查到苗");
-            var attIdList = miaoList.Select(x => x[Constants.AttId].NotNullString()).ToList();
-            MainSession.SetStatus(MiaoProgress.MiaoGet, attIdList);
+            MainSession.SetStatus(MiaoProgress.MiaoGet);
         }
 
         private List<Dictionary<string, object>> SearchMiao()
@@ -69,17 +68,7 @@ namespace Redhouse.search
         private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement)
         {
             var dicResult = JsonAnalysis.JsonToDicList(jsonElement);
-
-            var miaoList = dicResult.Where(x => StringUtil.NotEmpty(x[Constants.AttId].NotNullString(),
-                x[Constants.OrgId].NotNullString())).ToList();
-
-            if (!miaoList.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(null, $"MiaoController - 没查到苗");
-                return null;
-            }
-
-            return miaoList;
+            return null;
         }
     }
 }

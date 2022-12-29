@@ -104,7 +104,6 @@ namespace Redhouse.search
         {
             var date = miao["regPatAge"].NotNullString();
             var time = miao["regPhase"].NotNullString();
-            var wechatId = MainSession.PlatformSession[Constants.WechatId].NotNullString();
             var order = new Order()
             {
                 //DepartmentId = departmentId,
