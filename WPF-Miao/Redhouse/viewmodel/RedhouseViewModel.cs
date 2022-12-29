@@ -226,11 +226,6 @@ namespace Redhouse.viewmodel
         protected override void OnMiaoGetAsync(object data)
         {
             StopIntervalTimer();
-            var attIdList = data as List<string>;
-            if (attIdList == null)
-            {
-                return;
-            }
         }
 
         #endregion Status Control
@@ -276,25 +271,34 @@ namespace Redhouse.viewmodel
         {
             lock (OrderLock)
             {
-                if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointStart)
+                lock (OrderLock)
                 {
-                    lock (OrderLock)
-                    {
-                        var orderList = e.OrderList;
-                        ConsumeOrdersAsync(orderList);
-                    }
+                    var orderList = e.OrderList;
+                    OnAppointment(orderList);
                 }
             }
         }
 
-        private void ConsumeOrdersAsync(List<Order> orderList)
+        private void OnAppointment(List<Order> orderList)
         {
             try
             {
-                foreach (var order in orderList)
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                 {
-                    //var yuyueController = AppointSession.GetController(order.Date, order.Time);
-                    //yuyueController.StartInterval(order);
+                    return;
+                }
+
+                for (int i = 0; i < 5; i++)
+                {
+                    foreach (var order in orderList)
+                    {
+                        if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                        {
+                            return;
+                        }
+                        var yuyueController = HttpServiceController.GetService<YuyueController>();
+                        yuyueController.YuyueAsync(order);
+                    }
                 }
             }
             catch (Exception ex)
@@ -307,7 +311,6 @@ namespace Redhouse.viewmodel
         {
             try
             {
-                MainSession.Cookie = Cookie;
                 var appointController = HttpServiceController.GetService<YuyueController>();
             }
             catch (HttpException ex)

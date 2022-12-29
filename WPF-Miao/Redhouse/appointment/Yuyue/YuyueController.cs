@@ -5,32 +5,19 @@ using HttpProcessor.Content;
 using Redhouse.session;
 using System;
 using System.Net.Http;
-using System.Threading.Tasks;
-using Utils.timerUtil;
 
 namespace Redhouse.appointment.Yuyue
 {
     public class YuyueController : HttpClientBase
     {
-        public IntervalOnTime IntervalOnTime { get; set; }
-        internal YuyueContent Content { get; set; }
-
-        public string Key { get; set; }
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
-            IntervalOnTime = new IntervalOnTime(Key, 300);
-        }
-
-        public void StartInterval(Order order)
-        {
-            IntervalOnTime.StartIntervalOntime(() => YuyueAsync(order));
         }
 
         public void YuyueAsync(Order order)
         {
             if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
             {
-                IntervalOnTime.StopInterval();
                 return;
             }
             var preview = HttpServiceController.GetService<PreviewAppointController>();
@@ -46,7 +33,6 @@ namespace Redhouse.appointment.Yuyue
             {
                 if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                 {
-                    IntervalOnTime.StopInterval();
                     return;
                 }
                 content.BuildDefaultHeaders(Client);
