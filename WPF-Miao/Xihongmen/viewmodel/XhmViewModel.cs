@@ -82,18 +82,20 @@ namespace Xihongmen.viewmodel
             set
             {
                 _userPhone = value;
+                MainSession.Phone = value;
                 NotifyUI(() => UserPhone);
             }
         }
 
-        private string _userPassword;
-        public string UserPassword
+        private string _loginYzm;
+        public string LoginYzm
         {
-            get { return _userPassword; }
+            get { return _loginYzm; }
             set
             {
-                _userPassword = value;
-                NotifyUI(() => UserPassword);
+                _loginYzm = value;
+                MainSession.PlatformSession.AddOrUpdate("LoginYzm", value);
+                NotifyUI(() => LoginYzm);
             }
         }
 
@@ -131,7 +133,7 @@ namespace Xihongmen.viewmodel
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "17153075010";
-            _userPassword = "123456";
+            _loginYzm = "123456";
             //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
         }
 
@@ -215,13 +217,13 @@ namespace Xihongmen.viewmodel
 
         private async Task ExecuteLogin()
         {
-            if (StringUtil.AnyEmpty(UserPhone, UserPassword))
+            if (StringUtil.AnyEmpty(UserPhone, LoginYzm))
             {
                 MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
                 return;
             }
             var loginController = HttpServiceController.GetService<LoginController>();
-            var userId = await loginController.LoginAsync(UserPhone, UserPassword);
+            var userId = await loginController.LoginAsync(UserPhone, LoginYzm);
             var familyController = HttpServiceController.GetService<FamilyController>();
             await familyController.GetFamilyAsync(userId);
         }
@@ -333,7 +335,7 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    if (StringUtil.AnyEmpty(UserPhone, UserPassword))
+                    if (StringUtil.AnyEmpty(UserPhone, LoginYzm))
                     {
                         MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
                         return;

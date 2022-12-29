@@ -1,17 +1,11 @@
 ﻿using Base.viewmodel.status;
-using Xihongmen.common;
-using Xihongmen.session;
 using HttpProcessor.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
-using Utils.json;
 using Utils.stringBuilder;
+using Xihongmen.session;
 
 namespace Xihongmen.login
 {
@@ -30,8 +24,8 @@ namespace Xihongmen.login
         {
             try
             {
-                var url = $"https://ctmingyi.com:18082/api/user/checkLogin?phone={userPhone}&password={userPassword}&imei=&isDoctor=false";
-                var content = new XihongmenBaseContent(url);
+                var url = $"https://yiyuan.dabannet.cn/loginNew";
+                var content = new LoginContent(userPhone, userPassword);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -39,14 +33,13 @@ namespace Xihongmen.login
                     MainSession.PrintLogEvent.Publish(this, $"登录失败 - {response?.Message},请检查参数");
                 }
                 var code = response.JsonBody.RootElement.GetProperty("code").NotNullString();
-                var success = response.JsonBody.RootElement.GetProperty("success").NotNullString().ToBool();
                 var msg = response.JsonBody.RootElement.GetProperty("msg").NotNullString();
                 MainSession.PrintLogEvent.Publish(this, $"{msg}");
-                if ("0".Equals(code) && success)
+                if ("200".Equals(code) && "OK".Equals(msg))
                 {
-                    var userInfo = response.JsonBody.RootElement.GetProperty("obj");
-                    var userid = SaveUserInfo(userInfo);
-                    return userid;
+                    var token = response.JsonBody.RootElement.GetProperty("token").GetString();
+                    MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
+                    return token;
                 }
                 MainSession.SetStatus(MiaoProgress.Init);
                 return null;
@@ -56,24 +49,6 @@ namespace Xihongmen.login
                 MainSession.PrintLogEvent.Publish(this, $"登录异常{ex.Message}");
                 return null;
             }
-        }
-
-        private string SaveUserInfo(JsonElement userInfo)
-        {
-            var user = userInfo.GetProperty("user");
-            if (user.ValueKind == JsonValueKind.Null)
-            {
-                user = userInfo.GetProperty("vipUser");
-            }
-            var token = userInfo.GetProperty("token").NotNullString();
-            var dicResult = JsonAnalysis.JsonToDic(user);
-            dicResult.AddOrUpdate("token", token);
-            var userId = dicResult[Constants.UserID].NotNullString();
-            MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
-            MainSession.PlatformSession.AddOrUpdate(userId, dicResult);
-            MainSession.PrintLogEvent.Publish(this, dicResult);
-
-            return userId;
         }
     }
 }
