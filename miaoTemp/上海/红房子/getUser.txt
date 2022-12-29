@@ -32,3 +32,47 @@ Server: WAF
 
 
 {"data":{"hosId":"10001"},"timestamp":1671876161000}
+
+{
+    "code": 200,
+    "message": "查询成功",
+    "data": [
+        {
+            "name": "桂子艺",
+            "sex": 2,
+            "brithday": "2002-12-20T00:00:00",
+            "identityType": 1,
+            "identityNum": "F1E60867726ED3725537D04C7782A2DDE88DB5F9FF6A062B88D6539224CCD7E7",
+            "phone": "13940897525",
+            "address": "湖北省武汉市翡翠华庭",
+            "email": "",
+            "isCertification": 1,
+            "status": 1,
+            "openId": "obYQOt7qpq-pcbW7IJzKQatUIS1I",
+            "createTime": "2022-12-24T13:56:37.023",
+            "updateTime": null,
+            "birthDayStr": "20021220",
+            "age": "20岁",
+            "wechat_CardInfos": [
+                {
+                    "cardType": 3,
+                    "cardNum": "04660165090563034195",
+                    "hisPatientId": "103678130",
+                    "createTime": "2022-12-24T14:27:40.75",
+                    "upateTime": null,
+                    "status": 1,
+                    "patientInfoId": "0abc95cf-7e71-e95d-ae99-3a0854e13efe",
+                    "mobile": null,
+                    "isMedical": null,
+                    "isChild": null,
+                    "medicalCode": null,
+                    "cityCode": null,
+                    "isNeedVaild": true,
+                    "openId": "obYQOt7qpq-pcbW7IJzKQatUIS1I",
+                    "id": "559aea67-130f-7cc0-73ad-3a0854fdae4e"
+                }
+            ],
+            "id": "0abc95cf-7e71-e95d-ae99-3a0854e13efe"
+        }
+    ]
+}

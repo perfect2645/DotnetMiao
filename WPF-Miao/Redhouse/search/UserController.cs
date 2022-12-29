@@ -29,7 +29,8 @@ namespace Redhouse.search
             {
                 var content = new UserContent();
                 content.BuildDefaultHeaders(Client);
-                HttpDicResponse response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                content.BuildContent();
+                HttpDicResponse response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"获取用户信息失败{response?.Message}");
@@ -38,15 +39,16 @@ namespace Redhouse.search
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                if (!"1".Equals(code))
+                var message = root.GetProperty("message").NotNullString();
+                if (!"200".Equals(code))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}, message={message}");
                     return;
                 }
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:code={code}, message={message}");
                     return;
                 }
                 SaveUserInfo(data);
@@ -68,11 +70,11 @@ namespace Redhouse.search
 
             var defaultUser = userList.FirstOrDefault();
 
-            var defaultUserId = defaultUser.GetString("patientcode");
-            //MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
-            //var defaultUserName = defaultUser.GetString("realname");
-            //MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
-            //MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
+            var defaultUserId = defaultUser.GetString("id");
+            var defaultUserName = defaultUser.GetString("name");
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, defaultUserId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserName, defaultUserName);
+            MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
 
             MainSession.PrintLogEvent.Publish(this, userList);
         }
