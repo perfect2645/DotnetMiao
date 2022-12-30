@@ -8,7 +8,7 @@ namespace Xihongmen.search
     internal class SearchController
     {
 
-        private DoctorInfoController _doctorInfoController;
+        private User _doctorInfoController;
 
         public SearchController()
         {

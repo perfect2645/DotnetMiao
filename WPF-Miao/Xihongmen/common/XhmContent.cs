@@ -5,6 +5,8 @@ namespace Xihongmen.common
 {
     internal class XhmContent : HttpStringContent
     {
+        public const string Key = "9b4fdBbFyGmrXQ1BmBQIjLAcmNbMfmQPg%2BIcLHe4G%2BKCdDc";
+
         public XhmContent(string url) : base(url)
         {
             ContentType = "application/x-www-form-urlencoded";

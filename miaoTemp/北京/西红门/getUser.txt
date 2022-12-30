@@ -1,0 +1,30 @@
+POST https://yiyuan.dabannet.cn/getChildList HTTP/1.1
+Host: yiyuan.dabannet.cn
+Connection: keep-alive
+Content-Length: 94
+Origin: https://yiyuan.dabannet.cn
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+content-type: application/x-www-form-urlencoded
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://yiyuan.dabannet.cn/h5/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+key=9b4fdBbFyGmrXQ1BmBQIjLAcmNbMfmQPg%2BIcLHe4G%2BKCdDc&token=d53cedbc714cdffd25c6a557c2a3d25a
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 29 Dec 2022 13:55:09 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Powered-By: PHP/5.6.30
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: key
+Access-Control-Allow-Methods: POST,GET,OPTIONS,DELETE
+Strict-Transport-Security: max-age=31536000
+Content-Length: 355
+
+{"code":200,"data":[{"id":45491,"child_ID_number":"500382199908086442","child_name":"周瑠夏","guardian_id":null,"gender":2,"birthday":"1999-08-08","user_id":25982,"last_vaccination_time":null,"vaccination_number":0,"last_examination_time":null,"examination_number":0,"create_time":"2022-12-29 21:54:00","update_time":"2022-12-29 21:54:00"}],"msg":"OK"}

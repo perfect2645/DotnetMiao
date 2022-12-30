@@ -140,31 +140,22 @@ namespace Xihongmen.viewmodel
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 12, 14, 8, 59, 40);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             Departments = new List<HospitalDept>
             {
                 new XhmHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646202",
+                    HospitalId = "yiyuan.dabannet.cn",
+                    HospitalName = "北京西红门医院",
+                    DepartmentId = "10",
                     DepartmentName = "九价HPV疫苗",
                 },
                 new XhmHospital
                 {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646191",
-                    DepartmentName = "四价HPV疫苗",
-                },
-                //<option value="24">儿童乙肝疫苗（免费）</option>
-                new XhmHospital
-                {
-                    HospitalId = "100012",
-                    HospitalName = "武汉市汉阳区妇幼保健院",
-                    DepartmentId = "646441",
-                    DepartmentName = "带状疱疹疫苗",
+                    HospitalId = "yiyuan.dabannet.cn",
+                    HospitalName = "北京西红门医院",
+                    DepartmentId = "7",
+                    DepartmentName = "流感疫苗",
                 },
             };
 
@@ -176,6 +167,7 @@ namespace Xihongmen.viewmodel
             LoginCommand = new AsyncRelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             CancelCommand = new RelayCommand(ExecuteCancel);
+            YzmCommand = new RelayCommand(SendYzm);
 
             MainSession.ReSessionEvent.Subscribe(OnResession);
             MainSession.ScheduleEvent.Subscribe(OnSchedule);
@@ -229,6 +221,21 @@ namespace Xihongmen.viewmodel
         }
 
         #endregion Login
+
+        #region Send Yzm
+
+        private void SendYzm()
+        {
+            if (string.IsNullOrEmpty(UserPhone))
+            {
+                PrintLog("请输入手机号");
+                return;
+            }
+            var yzmController = HttpServiceController.GetService<YzmController>();
+            yzmController.SendYzmAsync(UserPhone);
+        }
+
+        #endregion Send Yzm
 
         #region AutoRun
 
@@ -421,8 +428,7 @@ namespace Xihongmen.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as XhmHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
         }

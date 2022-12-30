@@ -9,15 +9,11 @@ namespace Xihongmen.login
         public string UserYzm { get; }
         public string UserPhone { get; }
 
-        public LoginContent() : base(url)
-        {
-            BuildContent();
-        }
-
         public LoginContent(string phone, string userPassword) : base(url)
         {
             UserPhone = phone;
             UserYzm = userPassword;
+            BuildContent();
         }
 
         private void BuildContent()
