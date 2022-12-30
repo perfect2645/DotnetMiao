@@ -15,17 +15,17 @@ namespace Xihongmen.search
         {
         }
 
-        public void GetUserAsync(string userPhone)
+        public void GetUserAsync()
         {
-            Task.Factory.StartNew(() => GetUser(userPhone));
+            Task.Factory.StartNew(() => GetUser());
         }
 
-        public void GetUser(string userPhone)
+        public void GetUser()
         {
             try
             {
                 var url = $"https://yiyuan.dabannet.cn/loginNew";
-                var content = new YzmContent(userPhone);
+                var content = new UserContent();
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

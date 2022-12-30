@@ -1,6 +1,4 @@
-﻿using Base.Events;
-using System;
-using System.Text;
+﻿using System.Text;
 using Utils.timerUtil;
 
 namespace Xihongmen.appointment
@@ -10,42 +8,28 @@ namespace Xihongmen.appointment
         public IntervalOnTime IntervalOnTime { get; private set; }
         public string UserId { get; set; }
         public string UserName { get; set; }
-        public string UserPhone { get; set; }
-        public string DoctorId { get; set; }
-        public string FamilyId { get; set; }
-        public string ScheduleId { get; set; }
-        public string ParttimeId { get; set; } = string.Empty;
-        public string Hospitalid { get; set; }
-        public string MiaoId { get; set; }
-
-        public string OrderUrl 
-        { 
-            get { return BuildUrl(); }
-        }
+        public string TypeId { get; set; }
+        public string TypeTitle { get; set; }
+        public string Date { get; set; }
+        public string TimeType { get; set; }
+        public string OrderId { get; set; }
 
         public Order()
         {
-            IntervalOnTime = new IntervalOnTime(ScheduleId, 600);
-        }
-
-        private string BuildUrl()
-        {
-            var urlHead = "https://ctmingyi.com:18082/api/order/getOrderById";
-            var url = $"{urlHead}/{MiaoId}/{Hospitalid}";
-            return url;
+            IntervalOnTime = new IntervalOnTime(Date, 600);
         }
 
         public string ToLogString()
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("******** 尝试预约 *********");
+            sb.AppendLine("******** 预约信息 *********");
 
             sb.AppendLine($"UserId - {UserId}");
             sb.AppendLine($"UserName - {UserName}");
-            sb.AppendLine($"UserPhone - {UserPhone}");
-            sb.AppendLine($"ScheduleId - {ScheduleId}");
-            sb.AppendLine($"MiaoId - {MiaoId}");
+            sb.AppendLine($"Date - {Date}");
+            sb.AppendLine($"TimeType - {TimeType}");
+            sb.AppendLine($"OrderId - {OrderId}");
 
             sb.AppendLine("**************************************");
 

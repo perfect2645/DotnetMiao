@@ -1,23 +1,20 @@
-﻿using Xihongmen.login;
-using HttpProcessor.Container;
-using System;
-using System.Threading.Tasks;
+﻿using HttpProcessor.Container;
 
 namespace Xihongmen.search
 {
     internal class SearchController
     {
 
-        private User _doctorInfoController;
+        private readonly UserController userController;
 
         public SearchController()
         {
-            _doctorInfoController = HttpServiceController.GetService<DoctorInfoController>();
+            userController = HttpServiceController.GetService<UserController>();
         }
 
         public void SearchAsync()
         {
-            _doctorInfoController.SearchMiaoAsync();
+            userController.GetUserAsync();
         }
     }
 }

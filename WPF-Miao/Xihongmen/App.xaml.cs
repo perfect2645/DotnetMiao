@@ -31,7 +31,7 @@ namespace Xihongmen
             HttpServiceController.AddTransientService<YzmController>();
             HttpServiceController.AddTransientService<FamilyController>();
             HttpServiceController.AddTransientService<DoctorInfoController>();
-            HttpServiceController.AddTransientService<PreOrderController>();
+            HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();
         }

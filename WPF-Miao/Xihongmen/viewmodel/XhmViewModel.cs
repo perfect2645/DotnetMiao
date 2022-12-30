@@ -296,8 +296,8 @@ namespace Xihongmen.viewmodel
         {
             try
             {
-                var preOrderController = HttpServiceController.GetService<PreOrderController>();
-                var preContent = new PreOrderContent();
+                var preOrderController = HttpServiceController.GetService<YuyueController>();
+                var preContent = new YuyueContent();
                 preOrderController.BuildHeaders(preContent);
 
                 for(int i = 0; i < 10; i ++)
@@ -312,7 +312,7 @@ namespace Xihongmen.viewmodel
                             }
                             lock (OrderLock)
                             {
-                                var content = new PreOrderContent(order);
+                                var content = new YuyueContent(order);
                                 preOrderController.PreOrder(content);
                             }
                         }
@@ -395,8 +395,8 @@ namespace Xihongmen.viewmodel
             order.UserName = userName;
             order.UserPhone = phone;
 
-            var preOrderController = HttpServiceController.GetService<PreOrderController>();
-            var content = new PreOrderContent(order);
+            var preOrderController = HttpServiceController.GetService<YuyueController>();
+            var content = new YuyueContent(order);
             preOrderController.BuildHeaders(content);
             Task.Factory.StartNew(() =>
             {

@@ -11,19 +11,19 @@ using Utils.stringBuilder;
 
 namespace Xihongmen.appointment
 {
-    internal class PreOrderController : HttpClientBase
+    internal class YuyueController : HttpClientBase
     {
         private int count = 0;
-        public PreOrderController(HttpClient httpClient) : base(httpClient)
+        public YuyueController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void BuildHeaders(PreOrderContent content)
+        public void BuildHeaders(YuyueContent content)
         {
             BuildClientHeaders(content);
         }
 
-        public void PreOrderAsync(PreOrderContent content)
+        public void PreOrderAsync(YuyueContent content)
         {
             Task.Factory.StartNew(() =>
             {
@@ -31,7 +31,7 @@ namespace Xihongmen.appointment
             });
         }
 
-        public void PreOrder(PreOrderContent content)
+        public void PreOrder(YuyueContent content)
         {
             try
             {
@@ -96,8 +96,8 @@ namespace Xihongmen.appointment
             }
             order.IntervalOnTime?.StopInterval();
             MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
-            order.MiaoId = miaoInfo.GetProperty("id").NotNullString();
-            if (!string.IsNullOrEmpty(order.MiaoId))
+            order.OrderId = miaoInfo.GetProperty("id").NotNullString();
+            if (!string.IsNullOrEmpty(order.OrderId))
             {
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
             }
@@ -107,7 +107,7 @@ namespace Xihongmen.appointment
 
         #region 转号
 
-        public void Exchange(PreOrderContent contnet)
+        public void Exchange(YuyueContent contnet)
         {
             PreOrder(contnet);
             contnet.Order.IntervalOnTime.StartIntervalOntime(() =>
