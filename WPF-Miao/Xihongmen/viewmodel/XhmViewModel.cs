@@ -216,8 +216,8 @@ namespace Xihongmen.viewmodel
             }
             var loginController = HttpServiceController.GetService<LoginController>();
             var userId = await loginController.LoginAsync(UserPhone, LoginYzm);
-            var familyController = HttpServiceController.GetService<FamilyController>();
-            await familyController.GetFamilyAsync(userId);
+            //var familyController = HttpServiceController.GetService<FamilyController>();
+            //await familyController.GetFamilyAsync(userId);
         }
 
         #endregion Login

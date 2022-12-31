@@ -30,14 +30,6 @@ namespace Longchi.appointment
                 return IsSuccess;
             }
 
-            TokenController.BuildContent(order.Cookie);
-            var token = TokenController.GetToken(order.Cookie);
-            if (string.IsNullOrEmpty(token))
-            {
-                MainSession.PrintLogEvent.Publish(null, $"获取Token失败，请检查该cookie：{order.Cookie}");
-                return false;
-            }
-            order.Token = token;
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
             var content = new YuyueContent(order);
             return Yuyue(content);

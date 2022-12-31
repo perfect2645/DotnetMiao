@@ -1,0 +1,41 @@
+GET http://hpv_ym.zzytrj.net:15003/api/yuyue.php?cmd=get_user_list HTTP/1.1
+Host: hpv_ym.zzytrj.net:15003
+Connection: keep-alive
+Accept: application/json, text/javascript, */*; q=0.01
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+X-Requested-With: XMLHttpRequest
+Cookie: ytytjid=1672498750103_8881f8b15d5c50b57937822fbc618134; PHPSESSID=cq9g9afrfalejcmage7uhv01e4
+Referer: http://hpv_ym.zzytrj.net:15003/views/user/user_list.html
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Sat, 31 Dec 2022 15:39:18 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 305
+Connection: keep-alive
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding,User-Agent
+
+{"code":1,"msg":"ok","data":[{"id":"112775","\u9884\u7ea6\u8005ID":"289978","\u8eab\u4efd\u8bc1\u53f7":"612426199806235426","\u59d3\u540d":"\u5468\u7460\u590f","\u624b\u673a":"13940897525","\u6240\u5c5e\u5355\u4f4d":"\u767e\u76db","\u5c45\u4f4f\u5730\u5740":"\u7fe1\u7fe0\u68a6\u5883","\u5730\u57df":""}]}
+
+
+{
+    "code": 1,
+    "msg": "ok",
+    "data": [
+        {
+            "id": "112775",
+            "预约者ID": "289978",
+            "身份证号": "612426199806235426",
+            "姓名": "周瑠夏",
+            "手机": "13940897525",
+            "所属单位": "百盛",
+            "居住地址": "翡翠梦境",
+            "地域": ""
+        }
+    ]
+}

@@ -74,25 +74,14 @@ namespace Longchi.viewmodel
             }
         }
 
-        private string _userId;
-        public string UserId
+        private string _userName;
+        public string UserName
         {
-            get { return _userId; }
+            get { return _userName; }
             set
             {
-                _userId = value;
-                NotifyUI(() => UserId);
-            }
-        }
-
-        private string _fid;
-        public string Fid
-        {
-            get { return _fid; }
-            set
-            {
-                _fid = value;
-                NotifyUI(() => Fid);
+                _userName = value;
+                NotifyUI(() => UserName);
             }
         }
 
@@ -137,17 +126,19 @@ namespace Longchi.viewmodel
             {
                 new LongchiHospital
                 {
-                    HospitalId = "cnfw.mailiku.com",
-                    HospitalName = "德阳旌阳区城南社区",
-                    DepartmentName = "九价HPV疫苗",
+                    HospitalId = "hpv_ym.zzytrj.net:15003",
+                    HospitalName = "龙池/角美 社区卫生服务中心",
+                    DepartmentName = "【四价疫苗】",
+                    DepartmentList = new List<string> { "300", "700" },
                     TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
                 },
                 new LongchiHospital
                 {
-                    HospitalId = "cnfw.mailiku.com",
-                    HospitalName = "德阳旌阳区城南社区",
-                    DepartmentName = "四价HPV疫苗",
-                    TimeIdList = new List<string> { "2012", "2017", "2022", "2027", "2032" }
+                    HospitalId = "hpv_ym.zzytrj.net:15003",
+                    HospitalName = "龙池/角美 社区卫生服务中心",
+                    DepartmentName = "【九价疫苗】",
+                    DepartmentList = new List<string> { "400", "800" },
+                    TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
                 },
             };
 
@@ -206,7 +197,7 @@ namespace Longchi.viewmodel
 
         private void ExecuteLogin()
         {
-            if (StringUtil.AnyEmpty(UserId, Fid))
+            if (StringUtil.AnyEmpty(UserName, Cookie))
             {
                 Log("请检查参数");
                 return;
@@ -214,9 +205,6 @@ namespace Longchi.viewmodel
 
             var loginData = new LongchiLogin()
             {
-                UserId = UserId,
-                Fid = Fid,
-                Yid = Fid,
                 Cookie = Cookie,
             };
 
@@ -228,8 +216,7 @@ namespace Longchi.viewmodel
         private void ClearLoginData()
         {
             Cookie = string.Empty;
-            UserId = string.Empty;
-            Fid = string.Empty;
+            UserName = string.Empty;
         }
 
         #endregion Login
@@ -259,27 +246,27 @@ namespace Longchi.viewmodel
         private void BuildOrders()
         {
             MainSession.Orders = new Dictionary<string, List<Order>>();
-            foreach(var user in _LongchiLogins)
-            {
-                var cookie = user.Cookie;
-                var timeId = user.TimeId;
-                if (!string.IsNullOrEmpty(timeId))
-                {
-                    Order order = BuildOneOrder(user, timeId);
-                    MainSession.Orders.AddOrUpdate(cookie, new List<Order> { order });
-                    continue;
-                }
+            //foreach(var user in _LongchiLogins)
+            //{
+            //    var cookie = user.Cookie;
+            //    var timeId = user.TimeId;
+            //    if (!string.IsNullOrEmpty(timeId))
+            //    {
+            //        Order order = BuildOneOrder(user, timeId);
+            //        MainSession.Orders.AddOrUpdate(cookie, new List<Order> { order });
+            //        continue;
+            //    }
 
-                var orderList = new List<Order>();
-                foreach (var time in MainSession.TimeIdList)
-                {
-                    Order order = BuildOneOrder(user, time);
-                    orderList.Add(order);
-                }
+            //    var orderList = new List<Order>();
+            //    foreach (var time in MainSession.TimeIdList)
+            //    {
+            //        Order order = BuildOneOrder(user, time);
+            //        orderList.Add(order);
+            //    }
 
-                orderList = orderList.DisorderItems();
-                MainSession.Orders.AddOrUpdate(cookie, orderList);
-            }
+            //    orderList = orderList.DisorderItems();
+            //    MainSession.Orders.AddOrUpdate(cookie, orderList);
+            //}
         }
 
         private Order BuildOneOrder(LongchiLogin user, string timeId)
@@ -287,11 +274,6 @@ namespace Longchi.viewmodel
             return new Order
             {
                 Cookie = user.Cookie,
-                UserId = user.UserId,
-                Fid = user.Fid,
-                Yid = user.Fid,
-                TimeId = timeId,
-                UserName = user.UserName ?? user.Fid
             };
         }
 
@@ -407,6 +389,7 @@ namespace Longchi.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.TimeIdList = selectedDept.TimeIdList;
+            MainSession.DeptList = selectedDept.DepartmentList;
 
             Log(selectedDept.ToLogString());
         }

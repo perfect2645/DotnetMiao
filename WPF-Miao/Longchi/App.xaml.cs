@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Container;
 using Longchi.appointment;
+using Longchi.search;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -25,6 +26,7 @@ namespace Longchi
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.AddTransientService<YuyueController>();
 

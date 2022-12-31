@@ -14,6 +14,7 @@ namespace Longchi.session
         public static Dictionary<string, object> PlatformSession { get; private set; }
         public static AppointSession AppointSession { get; private set; }
         internal static List<string> TimeIdList { get; set; }
+        internal static List<string> DeptList { get; set; }
         internal static List<LongchiLogin> Users { get; set; }
         internal static Dictionary<string, List<Order>> Orders { get; set; }
 
@@ -26,6 +27,7 @@ namespace Longchi.session
             Users = new List<LongchiLogin>();
             Orders = new Dictionary<string, List<Order>>();
             TimeIdList = new List<string>();
+            DeptList = new List<string>();
         }
         
         public static void InitSession()

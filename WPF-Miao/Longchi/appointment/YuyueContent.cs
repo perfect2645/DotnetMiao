@@ -18,12 +18,13 @@ namespace Longchi.appointment
 
         private void BuildContent()
         {
-            AddContent("user_id", Order.UserId);
-            AddContent("time_id", Order.TimeId);
-            AddContent("fid", Order.Fid);
-            AddContent("yid", Order.Yid);
-            AddContent("relation", Order.Relation);
-            AddContent("__token__", Order.Token);
+            AddContent("cmd", "yuyue_post");
+            AddContent("qty", Order.Qty);
+            AddContent("dizhi", Order.Dizhi);
+            AddContent("yuyue_name", Order.YuyueName);
+            AddContent("yuyue_user_code", Order.UserId);
+            AddContent("yuyue_user_add", Order.YuyueUserAdd);
+            AddContent("yuyue_user_suoshu", Order.YuyueUserSuoshu);
         }
     }
 }

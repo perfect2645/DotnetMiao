@@ -13,7 +13,7 @@ namespace Xihongmen
             InitializeComponent();
             try
             {
-                DataContext = new XihongmenViewModel(mainConsole.baseConsole.LogPanel);
+                //DataContext = new XihongmenViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {

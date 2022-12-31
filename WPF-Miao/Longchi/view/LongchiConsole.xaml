@@ -4,7 +4,7 @@
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:session="clr-namespace:Longchi.session"
-      Title="绥阳县妇幼保健院"
+      Title="龙池/角美 社区卫生服务中心"
       x:Name="ChutianPage">
     <Page.Resources>
         <session:MainSession x:Key="mainSession" />
@@ -23,12 +23,8 @@
                         materialDesign:HintAssist.Hint="Cookie"/>
                     <TextBox Width="300" Height="30"
                          Margin="0,0,0,20"
-                         Text="{Binding UserId}"
+                         Text="{Binding UserName}"
                         materialDesign:HintAssist.Hint="UserId"/>
-                    <TextBox Width="300" Height="30"
-                         Margin="0,0,0,20"
-                         Text="{Binding Fid}"
-                        materialDesign:HintAssist.Hint="Fid"/>
                     <Button Content="登录" Margin="0,0,10,0"
                         Command="{Binding LoginCommand}" Width="100">
                     </Button>

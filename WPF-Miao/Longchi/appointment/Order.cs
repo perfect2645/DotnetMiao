@@ -1,7 +1,4 @@
-﻿using Base.Events;
-using System;
-using System.Text;
-using Utils.timerUtil;
+﻿using System.Text;
 
 namespace Longchi.appointment
 {
@@ -9,11 +6,13 @@ namespace Longchi.appointment
     {
         public string UserId { get; set; }
         public string UserName { get; set; }
-        public string TimeId { get; set; }
-        public string Fid { get; set; }
-        public string Yid { get; set; }
-        public string Relation { get; set; } = "1";
-        public string Token { get; set; }
+        public string Date { get; set; }
+        public string Qty { get; set; } = "1";
+        public string Dizhi { get; set; }
+        public string YuyueName { get; set; }
+        public string YuyueUserAdd { get; set; }
+        public string YuyueUserSuoshu { get; set; }
+
         public string Cookie { get; set; }
 
         public string ToLogString()
@@ -24,10 +23,10 @@ namespace Longchi.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"TimeId - {TimeId}");
-            sb.AppendLine($"Fid - {Fid}");
-            sb.AppendLine($"Yid - {Yid}");
-            sb.AppendLine($"Token - {Token}");
+            sb.AppendLine($"Date - {Date}");
+            sb.AppendLine($"Dizhi - {Dizhi}");
+            sb.AppendLine($"YuyueName - {YuyueName}");
+            sb.AppendLine($"Cookie - {Cookie}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();
