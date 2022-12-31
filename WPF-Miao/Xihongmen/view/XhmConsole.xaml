@@ -4,7 +4,7 @@
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:session="clr-namespace:Xihongmen.session"
-      Title="楚天名医"
+      Title="北京西红门"
       x:Name="XihongmenPage">
     <Page.Resources>
         <session:MainSession x:Key="mainSession" />
@@ -34,7 +34,7 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="100">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="100">
                     <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
                              Text="{Binding ScheduleId}"

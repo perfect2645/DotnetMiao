@@ -7,6 +7,7 @@ namespace Xihongmen.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {
+        public static string Cookie { get; set; }
         public static string Phone { get; set; }
         public static string Token { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }

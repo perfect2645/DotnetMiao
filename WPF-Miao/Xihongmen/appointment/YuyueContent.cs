@@ -10,7 +10,11 @@ namespace Xihongmen.appointment
     {
         public Order Order { get; }
 
-        private static readonly string url = "https://ctmingyi.com:18082/api/order/preOrder";
+        private static readonly string url = "https://yiyuan.dabannet.cn/reservation";
+
+        public YuyueContent() : base(url)
+        {
+        }
 
         public YuyueContent(Order schedule) : base(url)
         {
@@ -21,7 +25,7 @@ namespace Xihongmen.appointment
 
         private void BuildHeader()
         {
-            AddHeader("Cookie", "PHPSESSID=ougmq0vvs8j08opsava1jela66");
+            
         }
 
         private void BuildContent()

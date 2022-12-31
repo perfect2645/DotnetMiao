@@ -26,6 +26,10 @@ namespace Xihongmen.common
             AddHeader("Referer", "https://yiyuan.dabannet.cn/h5/");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+            if (!string.IsNullOrEmpty(MainSession.Cookie))
+            {
+                AddHeader("Cookie", MainSession.Cookie);
+            }
         }
     }
 }

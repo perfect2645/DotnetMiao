@@ -387,13 +387,8 @@ namespace Xihongmen.viewmodel
             var phone = userInfo.GetString("familyPhone");
 
             var order = new Order();
-            order.ScheduleId = scheduleId;
-            order.DoctorId = doctorId;
-            order.Hospitalid = hospitalId;
             order.UserId = userId;
-            order.FamilyId = familyId;
-            order.UserName = userName;
-            order.UserPhone = phone;
+
 
             var preOrderController = HttpServiceController.GetService<YuyueController>();
             var content = new YuyueContent(order);
