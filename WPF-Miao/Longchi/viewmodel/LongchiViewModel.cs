@@ -102,7 +102,7 @@ namespace Longchi.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            //TestData();
+            TestData();
             LoginFromConfig();
         }
 
@@ -225,9 +225,10 @@ namespace Longchi.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
+                    await _searchController.GetUsersAsync();
                     BuildOrders();
                     StartOnTimeTimer();
                     StartReSessionTimer();
@@ -246,34 +247,34 @@ namespace Longchi.viewmodel
         private void BuildOrders()
         {
             MainSession.Orders = new Dictionary<string, List<Order>>();
-            //foreach(var user in _LongchiLogins)
-            //{
-            //    var cookie = user.Cookie;
-            //    var timeId = user.TimeId;
-            //    if (!string.IsNullOrEmpty(timeId))
-            //    {
-            //        Order order = BuildOneOrder(user, timeId);
-            //        MainSession.Orders.AddOrUpdate(cookie, new List<Order> { order });
-            //        continue;
-            //    }
-
-            //    var orderList = new List<Order>();
-            //    foreach (var time in MainSession.TimeIdList)
-            //    {
-            //        Order order = BuildOneOrder(user, time);
-            //        orderList.Add(order);
-            //    }
-
-            //    orderList = orderList.DisorderItems();
-            //    MainSession.Orders.AddOrUpdate(cookie, orderList);
-            //}
+            var deptList = MainSession.DeptList;
+            var orderList = new List<Order>();
+            foreach (var user in _LongchiLogins)
+            {
+                var cookie = user.Cookie;
+                foreach (var dept in deptList)
+                {
+                    Order order = BuildOneOrder(user, dept);
+                    orderList.Add(order);
+                    MainSession.Orders.AddOrUpdate(cookie, orderList);
+                }
+                orderList = orderList.DisorderItems();
+            }
         }
 
-        private Order BuildOneOrder(LongchiLogin user, string timeId)
+        private Order BuildOneOrder(LongchiLogin user, string dept)
         {
             return new Order
             {
                 Cookie = user.Cookie,
+                Date = "2023-1-2",
+                Dizhi = dept,
+                UserId = user.UserId,
+                UserName = user.UserName,
+                YuyueUserAdd = user.YuyueUserAdd,
+                YuyueName = user.UserName,
+                YuyueUserSuoshu = user.YuyueUserSuoshu,
+                UserCode = user.UserCode
             };
         }
 
@@ -401,13 +402,6 @@ namespace Longchi.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
-            foreach (var user in _LongchiLogins)
-            {
-                var tokenController = HttpServiceController.GetService<TokenController>();
-                tokenController.BuildContent(user.Cookie);
-                var token = tokenController.GetToken(user.Cookie);
-                PrintLog($"{user.UserName} - Token:{token}");
-            }
         }
 
         #endregion Resession

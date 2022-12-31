@@ -26,7 +26,7 @@ layui
       ytui.req({
         type: "post",
         url: "../../api/yuyue.php",
-        data: { cmd: "get_user_list", user_id: user_id },
+        data: { cmd: "cmd", user_id: user_id },
         success: function (res) {
           data = res.data[0];
           if (res.code == 1) {

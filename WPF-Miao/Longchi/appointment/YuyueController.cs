@@ -14,13 +14,10 @@ namespace Longchi.appointment
         private bool IsHeaderBuilt { get; set; }
         internal YuyueContent Content { get; set; }
 
-        private readonly TokenController TokenController;
-
         public string Key { get; set; }
 
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
-            TokenController = HttpServiceController.GetService<TokenController>();
         }
 
         public bool YuyueAsync(Order order)

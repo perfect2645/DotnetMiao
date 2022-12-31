@@ -5,6 +5,7 @@ namespace Longchi.appointment
     public class Order
     {
         public string UserId { get; set; }
+        public string UserCode { get; set; }
         public string UserName { get; set; }
         public string Date { get; set; }
         public string Qty { get; set; } = "1";

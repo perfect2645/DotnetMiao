@@ -27,7 +27,6 @@ namespace Longchi
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();
