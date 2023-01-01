@@ -12,6 +12,7 @@ namespace Longchi.appointment
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.Cookie, order.FamilyId)
         {
+            ContentType = "application/x-www-form-urlencoded";
             Order = order;
             BuildContent();
         }
@@ -20,7 +21,7 @@ namespace Longchi.appointment
         {
             AddContent("cmd", "yuyue_post");
             AddContent("qty", Order.Qty);
-            AddContent("date", UnicodeConverter.Encode(Order.Date, true));
+            AddContent("date", "2023-01-02+08%3A00");
             AddContent("dizhi", UnicodeConverter.Encode(Order.Dizhi, true));
 
             var encodeName = UnicodeConverter.Encode(Order.YuyueName, true);

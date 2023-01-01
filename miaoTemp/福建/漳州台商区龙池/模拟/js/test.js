@@ -10,7 +10,7 @@ $(document).on("click", ".testBtn", function () {
   var yuyue_user_suoshu = "百盛";
 
   $.post(
-    "../../api/yuyue.php",
+    "http://hpv_ym.zzytrj.net:15003/api/yuyue.php",
     {
       cmd: "yuyue_post",
       date: date,
