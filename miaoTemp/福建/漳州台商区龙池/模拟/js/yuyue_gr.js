@@ -238,25 +238,6 @@ layui
         var yuyue_dizhi_mane = $("#yuyue_dizhi").find("option:selected").text();
         var date = $("#yuyue_time").html();
 
-        if (yuyue_dizhi == "") {
-          layer.msg("请先选择【接种地点】");
-          return;
-        }
-
-        if (yuyue_qty < 1) {
-          layer.msg("请先输入【接种人数】");
-          return;
-        }
-
-        if (date == "") {
-          layer.msg("请选择预约日期");
-          return;
-        }
-        if (date == "请选择") {
-          layer.msg("请选择预约日期");
-          return;
-        }
-
         var yuyue_name = $("#yuyue_name").val();
         var yuyue_user_code = $("#yuyue_user_code").val();
         var yuyue_user_add = $("#yuyue_user_add").val();

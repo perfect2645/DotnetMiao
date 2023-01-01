@@ -118,6 +118,8 @@ layui
 
     //select_time.show(title,jine,list);
 
+    $(".testBtn").click(function () {
+
     $(".select_time_btn").click(function () {
       //选择时间
 

@@ -56,7 +56,7 @@ namespace Longchi.search
                 return;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault();
+            var defaultUser = familyMembers.FirstOrDefault(x => x["姓名"].NotNullString() == user.UserName);
             var familyId = defaultUser.GetString("id");
             var userName = defaultUser.GetString("姓名");
             var userId = defaultUser.GetString("预约者ID");

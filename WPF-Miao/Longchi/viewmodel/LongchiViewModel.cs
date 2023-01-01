@@ -273,10 +273,11 @@ namespace Longchi.viewmodel
             var deptList = MainSession.DeptList;
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
             var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
-            var orderList = new List<Order>();
+
             foreach (var user in _LongchiLogins)
             {
-                var cookie = user.Cookie;
+                var orderList = new List<Order>();
+                var userName = user.UserName;
                 foreach (var dept in deptList)
                 {
                     foreach (var date in dateList)
@@ -289,10 +290,9 @@ namespace Longchi.viewmodel
                             orderList.Add(orderWithTime);
                         }
                     }
-
                 }
                 orderList = orderList.DisorderItems();
-                MainSession.Orders.AddOrUpdate(cookie, orderList);
+                MainSession.Orders.AddOrUpdate(userName, orderList);
             }
         }
 
@@ -361,7 +361,7 @@ namespace Longchi.viewmodel
             }
         }
 
-        private void StartOneOrder(string cookie, List<Order> orders)
+        private void StartOneOrder(string userName, List<Order> orders)
         {
             try
             {
@@ -370,7 +370,7 @@ namespace Longchi.viewmodel
                 {
                     foreach(var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{cookie}|{order.Date}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {

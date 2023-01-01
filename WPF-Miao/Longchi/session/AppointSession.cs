@@ -16,10 +16,10 @@ namespace Longchi.session
             {
                 foreach(var date in dateList)
                 {
-                    AddController($"{user.Cookie}|{date.Value}");
+                    AddController($"{user.UserName}|{date.Value}");
                     foreach(var time in timeList)
                     {
-                        AddController($"{user.Cookie}|{date.Value} {time.Value}");
+                        AddController($"{user.UserName}|{date.Value} {time.Value}");
                     }
                 }
             }

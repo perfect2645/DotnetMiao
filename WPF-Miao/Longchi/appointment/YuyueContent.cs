@@ -22,7 +22,9 @@ namespace Longchi.appointment
             AddContent("qty", Order.Qty);
             AddContent("date", UnicodeConverter.Encode(Order.Date, true));
             AddContent("dizhi", UnicodeConverter.Encode(Order.Dizhi, true));
-            AddContent("yuyue_name", UnicodeConverter.Encode(Order.YuyueName, true));
+
+            var encodeName = UnicodeConverter.Encode(Order.YuyueName, true);
+            AddContent("yuyue_name", encodeName);
             AddContent("yuyue_user_code", Order.UserCode);
             AddContent("yuyue_user_add", UnicodeConverter.Encode(Order.YuyueUserAdd, true));
             AddContent("yuyue_user_suoshu", UnicodeConverter.Encode(Order.YuyueUserSuoshu, true));
