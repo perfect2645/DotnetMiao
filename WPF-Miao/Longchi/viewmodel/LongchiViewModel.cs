@@ -109,12 +109,12 @@ namespace Longchi.viewmodel
 
         private void TestData()
         {
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 26, 8, 59, 50);
+            StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
 
             DateList = new List<DspVal>
             {
@@ -122,8 +122,8 @@ namespace Longchi.viewmodel
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
