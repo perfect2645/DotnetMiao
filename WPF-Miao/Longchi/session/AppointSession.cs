@@ -16,7 +16,6 @@ namespace Longchi.session
             {
                 foreach(var date in dateList)
                 {
-                    AddController($"{user.UserName}|{date.Value}");
                     foreach(var time in timeList)
                     {
                         AddController($"{user.UserName}|{date.Value} {time.Value}");

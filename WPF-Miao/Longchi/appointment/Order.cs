@@ -14,7 +14,7 @@ namespace Longchi.appointment
         public string YuyueName { get; set; }
         public string YuyueUserAdd { get; set; }
         public string YuyueUserSuoshu { get; set; }
-
+        public string ReturnId { get; set; }
         public string Cookie { get; set; }
 
         public string ToLogString()
@@ -29,7 +29,7 @@ namespace Longchi.appointment
             sb.AppendLine($"Date - {Date}");
             sb.AppendLine($"Dizhi - {Dizhi}");
             sb.AppendLine($"YuyueName - {YuyueName}");
-            sb.AppendLine($"Cookie - {Cookie}");
+            sb.AppendLine($"ReturnId - {ReturnId}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

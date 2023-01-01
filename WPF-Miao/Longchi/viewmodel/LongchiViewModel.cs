@@ -136,8 +136,8 @@ namespace Longchi.viewmodel
 
             TimeList = new List<DspVal>
             {
-                 new DspVal("08:00"),
-                 new DspVal("09:00"),
+                 new DspVal("08:00:00"),
+                 new DspVal("09:00:00"),
                  //new DspVal("10:00"),
                  //new DspVal("11:00"),
             };
@@ -281,8 +281,6 @@ namespace Longchi.viewmodel
                 {
                     foreach (var date in dateList)
                     {
-                        Order order = BuildOneOrder(user, dept, date.Value);
-                        orderList.Add(order);
                         foreach(var time in timeList)
                         {
                             Order orderWithTime = BuildOneOrder(user, dept, $"{date.Value} {time.Value}");

@@ -55,12 +55,23 @@ namespace Longchi.appointment
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
                 var msg = root.GetProperty("msg").NotNullString();
-                if (code != "1")
+                if (code != "2")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
                     return false;
                 }
-                IsSuccess = true;
+
+                if (msg == "正在预约，请稍后...")
+                {
+                    var return_id = root.GetProperty("return_id").NotNullString();
+                    if (string.IsNullOrEmpty(return_id))
+                    {
+                        MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                        return false;
+                    }
+                    content.Order.ReturnId = return_id;
+                }
+                //IsSuccess = true;
                 MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
                 MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
 
