@@ -42,7 +42,7 @@ namespace Longchi.appointment
                 var msg = root.GetProperty("msg").NotNullString();
                 if (code != "1")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"验证预约失败:{msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"验证预约失败:code={code}, msg={msg}");
                     return false;
                 }
 
