@@ -71,9 +71,14 @@ namespace Longchi.appointment
                 }
                 content.Order.ReturnId = return_id;
 
-                VerifyYuyue(content.Order);
-                MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
-                MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
+                var isValid = VerifyYuyue(content.Order);
+                if (isValid)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
+                    MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
+                    IsSuccess = true;
+                    return true;
+                }
 
                 return false;
             }

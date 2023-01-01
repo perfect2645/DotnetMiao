@@ -40,13 +40,7 @@ namespace Longchi.appointment
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
                 var msg = root.GetProperty("msg").NotNullString();
-                if (code != "2")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"验证预约失败:{msg}");
-                    return false;
-                }
-
-                if (msg != "正在预约，请稍后...")
+                if (code != "1")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"验证预约失败:{msg}");
                     return false;

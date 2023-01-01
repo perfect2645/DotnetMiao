@@ -13,7 +13,7 @@ namespace Longchi.session
     {
         public static Dictionary<string, object> PlatformSession { get; private set; }
         public static AppointSession AppointSession { get; private set; }
-        public static VerifyYuyueSession VerifyYuyueSession { get; private set; }
+        internal static VerifyYuyueSession VerifyYuyueSession { get; private set; }
         internal static List<string> TimeIdList { get; set; }
         internal static List<string> DeptList { get; set; }
         internal static List<LongchiLogin> Users { get; set; }
