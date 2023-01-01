@@ -1,7 +1,4 @@
-﻿using HttpProcessor.Content;
-using Longchi.common;
-using Longchi.session;
-using System;
+﻿using Longchi.common;
 using Utils;
 
 namespace Longchi.appointment

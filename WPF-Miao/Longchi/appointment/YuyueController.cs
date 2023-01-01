@@ -11,10 +11,6 @@ namespace Longchi.appointment
     {
         public bool IsSuccess { get; set; }
         private bool IsHeaderBuilt { get; set; }
-        internal YuyueContent Content { get; set; }
-
-        public string Key { get; set; }
-
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -61,27 +57,38 @@ namespace Longchi.appointment
                     return false;
                 }
 
-                if (msg == "正在预约，请稍后...")
+                if (msg != "正在预约，请稍后...")
                 {
-                    var return_id = root.GetProperty("return_id").NotNullString();
-                    if (string.IsNullOrEmpty(return_id))
-                    {
-                        MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
-                        return false;
-                    }
-                    content.Order.ReturnId = return_id;
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                    return false;
                 }
-                //IsSuccess = true;
+
+                var return_id = root.GetProperty("return_id").NotNullString();
+                if (string.IsNullOrEmpty(return_id))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                    return false;
+                }
+                content.Order.ReturnId = return_id;
+
+                VerifyYuyue(content.Order);
                 MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
                 MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
 
-                return true;
+                return false;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }
+        }
+
+        private bool VerifyYuyue(Order order)
+        {
+            var verifyController = MainSession.VerifyYuyueSession.GetController($"{order.UserName}|{order.Date}");
+            var isValid = verifyController.VerifyYuyueAsync(order);
+            return isValid;
         }
     }
 }

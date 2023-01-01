@@ -14,8 +14,9 @@ namespace Longchi.appointment
         public string YuyueName { get; set; }
         public string YuyueUserAdd { get; set; }
         public string YuyueUserSuoshu { get; set; }
-        public string ReturnId { get; set; }
         public string Cookie { get; set; }
+        public string ReturnId { get; set; }
+        public string OrderId { get; set; }
 
         public string ToLogString()
         {

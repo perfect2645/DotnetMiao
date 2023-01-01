@@ -28,6 +28,8 @@ namespace Longchi
         {
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<VerifyYuyueController>();
+            
 
             HttpServiceController.BuidServiceProvider();
         }
