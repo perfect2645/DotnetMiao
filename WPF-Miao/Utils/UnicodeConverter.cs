@@ -67,6 +67,11 @@ namespace Utils
             return Encode(content, Encoding.UTF8, isUpper);
         }
 
+        public static string EncodeOriginal(string content, bool isUpper = false)
+        {
+            return EncodeOriginal(content, Encoding.UTF8, isUpper);
+        }
+
         /// <summary>
         /// 对Url进行编码
         /// </summary>
@@ -80,6 +85,14 @@ namespace Utils
             result = result.Replace("%5cu002B", "%2B");
             result = result.Replace("%5cu003C", "%3C");
             result = result.Replace("%5cu003E", "%3E");
+            if (!isUpper)
+                return result;
+            return GetUpperEncode(result);
+        }
+
+        public static string EncodeOriginal(string content, Encoding encoding, bool isUpper = false)
+        {
+            var result = HttpUtility.UrlEncode(content, encoding);
             if (!isUpper)
                 return result;
             return GetUpperEncode(result);

@@ -120,8 +120,6 @@ namespace Longchi.viewmodel
             {
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal("2023-01-02+09%3A00"),
-                new DspVal("2023-01-03+08%3A00"),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),

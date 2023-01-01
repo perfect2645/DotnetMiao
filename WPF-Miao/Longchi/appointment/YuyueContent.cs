@@ -21,7 +21,9 @@ namespace Longchi.appointment
         {
             AddContent("cmd", "yuyue_post");
             AddContent("qty", Order.Qty);
-            AddContent("date", "2023-01-02+08%3A00");
+
+            var dateEncode = UnicodeConverter.EncodeOriginal(Order.Date, true);
+            AddContent("date", dateEncode);
             AddContent("dizhi", UnicodeConverter.Encode(Order.Dizhi, true));
 
             var encodeName = UnicodeConverter.Encode(Order.YuyueName, true);
