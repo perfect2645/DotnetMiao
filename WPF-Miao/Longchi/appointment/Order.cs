@@ -5,6 +5,7 @@ namespace Longchi.appointment
     public class Order
     {
         public string UserId { get; set; }
+        public string FamilyId { get; set; }
         public string UserCode { get; set; }
         public string UserName { get; set; }
         public string Date { get; set; }
@@ -23,6 +24,7 @@ namespace Longchi.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
+            sb.AppendLine($"FamilyId - {FamilyId}");
             sb.AppendLine($"UserId - {UserId}");
             sb.AppendLine($"Date - {Date}");
             sb.AppendLine($"Dizhi - {Dizhi}");

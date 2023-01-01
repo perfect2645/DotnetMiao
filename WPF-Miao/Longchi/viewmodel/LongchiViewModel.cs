@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
@@ -117,10 +118,32 @@ namespace Longchi.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTime.Today.ToString("yyyy-MM-dd")),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
+
+            TimeList = new List<DspVal>
+            {
+                 new DspVal("08:00"),
+                 //new DspVal("09:00"),
+                 //new DspVal("10:00"),
+                 //new DspVal("11:00"),
+            };
+
+            MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
 
             Departments = new List<HospitalDept>
             {
@@ -128,16 +151,16 @@ namespace Longchi.viewmodel
                 {
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
-                    DepartmentName = "【四价疫苗】",
-                    DepartmentList = new List<string> { "300", "700" },
+                    DepartmentName = "【九价疫苗】",
+                    DepartmentList = new List<string> { "400", "800" },
                     TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
                 },
                 new LongchiHospital
                 {
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
-                    DepartmentName = "【九价疫苗】",
-                    DepartmentList = new List<string> { "400", "800" },
+                    DepartmentName = "【四价疫苗】",
+                    DepartmentList = new List<string> { "300", "700" },
                     TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
                 },
             };
@@ -248,33 +271,45 @@ namespace Longchi.viewmodel
         {
             MainSession.Orders = new Dictionary<string, List<Order>>();
             var deptList = MainSession.DeptList;
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+            var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
             var orderList = new List<Order>();
             foreach (var user in _LongchiLogins)
             {
                 var cookie = user.Cookie;
                 foreach (var dept in deptList)
                 {
-                    Order order = BuildOneOrder(user, dept);
-                    orderList.Add(order);
-                    MainSession.Orders.AddOrUpdate(cookie, orderList);
+                    foreach (var date in dateList)
+                    {
+                        Order order = BuildOneOrder(user, dept, date.Value);
+                        orderList.Add(order);
+                        foreach(var time in timeList)
+                        {
+                            Order orderWithTime = BuildOneOrder(user, dept, $"{date.Value} {time.Value}");
+                            orderList.Add(orderWithTime);
+                        }
+                    }
+
                 }
                 orderList = orderList.DisorderItems();
+                MainSession.Orders.AddOrUpdate(cookie, orderList);
             }
         }
 
-        private Order BuildOneOrder(LongchiLogin user, string dept)
+        private Order BuildOneOrder(LongchiLogin user, string dept, string date)
         {
             return new Order
             {
                 Cookie = user.Cookie,
-                Date = "2023-1-2",
+                Date = date,
                 Dizhi = dept,
                 UserId = user.UserId,
                 UserName = user.UserName,
                 YuyueUserAdd = user.YuyueUserAdd,
                 YuyueName = user.UserName,
                 YuyueUserSuoshu = user.YuyueUserSuoshu,
-                UserCode = user.UserCode
+                UserCode = user.UserCode,
+                FamilyId = user.FamilyId,
             };
         }
 
@@ -330,13 +365,12 @@ namespace Longchi.viewmodel
         {
             try
             {
-                var appointController = MainSession.AppointSession.GetController(cookie);
-
                 bool isSuccess = false;
                 while (!isSuccess)
                 {
                     foreach(var order in orders)
                     {
+                        var appointController = MainSession.AppointSession.GetController($"{cookie}|{order.Date}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {

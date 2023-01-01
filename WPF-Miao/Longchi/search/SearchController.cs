@@ -2,6 +2,7 @@
 using Longchi.appointment;
 using Longchi.session;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Longchi.search
@@ -20,6 +21,17 @@ namespace Longchi.search
             {
                 var userController = HttpServiceController.GetService<UserController>();
                 await userController.GetUserAsync(user);
+            }
+        }
+
+        public void GetDateAsync()
+        {
+            var defaultUser = MainSession.Users.FirstOrDefault();
+
+            foreach(var dept in MainSession.DeptList)
+            {
+                var userController = HttpServiceController.GetService<TimeController>();
+                userController.GetDateAsync(dept, defaultUser.Cookie);
             }
         }
     }
