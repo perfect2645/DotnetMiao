@@ -15,33 +15,39 @@ namespace Xihongmen.login
         {
         }
 
-        public async Task<string> LoginAsync(string userPhone, string userPassword)
+        public async Task<string> LoginAsync(string userPhone, string yzm)
         {
-            return await Task.Factory.StartNew(() => Login(userPhone, userPassword));
+            return await Task.Factory.StartNew(() => Login(userPhone, yzm));
         }
 
-        public string Login(string userPhone, string userPassword)
+        public string Login(string userPhone, string yzm)
         {
             try
             {
                 var url = $"https://yiyuan.dabannet.cn/loginNew";
-                var content = new LoginContent(userPhone, userPassword);
+                var content = new LoginContent(userPhone, yzm);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"登录失败 - {response?.Message},请检查参数");
+                    return null;
                 }
-                var code = response.JsonBody.RootElement.GetProperty("code").NotNullString();
-                var msg = response.JsonBody.RootElement.GetProperty("msg").NotNullString();
-                MainSession.PrintLogEvent.Publish(this, $"{msg}");
+
+                var root = response.JsonBody.RootElement;
+                var code = root.GetProperty("code").NotNullString();
+                var msg = root.GetProperty("msg").NotNullString();
+                
                 if ("200".Equals(code) && "OK".Equals(msg))
                 {
-                    var token = response.JsonBody.RootElement.GetProperty("token").GetString();
+                    var token = root.GetProperty("data").GetProperty("token").GetString();
                     MainSession.Token = token;
                     MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
+                    MainSession.PrintLogEvent.Publish(this, $"登录成功 - token:{token}");
                     return token;
                 }
+
+                MainSession.PrintLogEvent.Publish(this, $"{msg}");
                 MainSession.SetStatus(MiaoProgress.Init);
                 return null;
             }

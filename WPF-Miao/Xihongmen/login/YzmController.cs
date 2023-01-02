@@ -27,10 +27,9 @@ namespace Xihongmen.login
         {
             try
             {
-                var url = $"https://yiyuan.dabannet.cn/loginNew";
                 var content = new YzmContent(userPhone);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"登录失败 - {response?.Message},请检查参数");
@@ -38,10 +37,8 @@ namespace Xihongmen.login
                 var code = response.JsonBody.RootElement.GetProperty("code").NotNullString();
                 var msg = response.JsonBody.RootElement.GetProperty("msg").NotNullString();
                 MainSession.PrintLogEvent.Publish(this, $"SendYzm - {msg}");
-                if ("200".Equals(code) && "OK".Equals(msg))
+                if ("200".Equals(code) && "OK".Equals(msg, StringComparison.OrdinalIgnoreCase))
                 {
-                    var token = response.JsonBody.RootElement.GetProperty("token").GetString();
-                    MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
                     return;
                 }
             }

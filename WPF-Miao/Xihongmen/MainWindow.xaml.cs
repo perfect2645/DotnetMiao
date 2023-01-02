@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Xihongmen.viewmodel;
 
 namespace Xihongmen
 {
@@ -13,7 +14,7 @@ namespace Xihongmen
             InitializeComponent();
             try
             {
-                //DataContext = new XihongmenViewModel(mainConsole.baseConsole.LogPanel);
+                DataContext = new XhmViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {

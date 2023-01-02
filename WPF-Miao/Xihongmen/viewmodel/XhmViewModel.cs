@@ -132,9 +132,7 @@ namespace Xihongmen.viewmodel
             Interval = 800;
             StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "17153075010";
-            _loginYzm = "123456";
-            //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
+            UserPhone = "13940897525";
         }
 
         private void InitStaticData()
@@ -211,7 +209,7 @@ namespace Xihongmen.viewmodel
         {
             if (StringUtil.AnyEmpty(UserPhone, LoginYzm))
             {
-                MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
+                MainSession.PrintLogEvent.Publish(this, "请填写用户手机和验证码");
                 return;
             }
             var loginController = HttpServiceController.GetService<LoginController>();
