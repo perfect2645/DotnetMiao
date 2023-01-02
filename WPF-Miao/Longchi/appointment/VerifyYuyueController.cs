@@ -14,14 +14,14 @@ namespace Longchi.appointment
         {
         }
 
-        public bool VerifyYuyueAsync(Order order)
+        public string VerifyYuyueAsync(Order order)
         {
             MainSession.PrintLogEvent.Publish(null, $"开始验证预约：{order.ReturnId}");
             var content = new VerifyYuyueContent(order);
             return VerifyYuyue(content);
         }
 
-        internal bool VerifyYuyue(VerifyYuyueContent content)
+        internal string VerifyYuyue(VerifyYuyueContent content)
         {
             try
             {
@@ -34,34 +34,41 @@ namespace Longchi.appointment
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
-                    return false;
+                    return "-1";
                 }
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
                 var msg = root.GetProperty("msg").NotNullString();
+
+                if (code == "2")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"验证预约正在轮询:code={code}, msg={msg}");
+                    return code;
+                }
+
                 if (code != "1")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"验证预约失败:code={code}, msg={msg}");
-                    return false;
+                    return code;
                 }
 
                 var order_id = root.GetProperty("order_id").NotNullString();
                 if (string.IsNullOrEmpty(order_id) || "00".Equals(order_id))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"验证预约失败:{msg}");
-                    return false;
+                    return code;
                 }
                 content.Order.OrderId = order_id;
 
                 MainSession.PrintLogEvent.Publish(this, $"验证预约结果:{msg}");
 
-                return true;
+                return "1";
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
-                return false;
+                return "-2";
             }
         }
     }

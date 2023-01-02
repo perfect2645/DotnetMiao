@@ -3,6 +3,7 @@ using HttpProcessor.Content;
 using Longchi.session;
 using System;
 using System.Net.Http;
+using System.Threading;
 using Utils.stringBuilder;
 
 namespace Longchi.appointment
@@ -92,8 +93,26 @@ namespace Longchi.appointment
         private bool VerifyYuyue(Order order)
         {
             var verifyController = MainSession.VerifyYuyueSession.GetController($"{order.UserName}|{order.Date}");
-            var isValid = verifyController.VerifyYuyueAsync(order);
-            return isValid;
+            var code = verifyController.VerifyYuyueAsync(order);
+
+            var retryCnt = 1;
+            while (code == "2")
+            {
+                Thread.Sleep(200);
+                code = verifyController.VerifyYuyueAsync(order);
+                retryCnt++;
+                MainSession.PrintLogEvent.Publish(this, $"重试次数：{retryCnt}");
+                if (retryCnt > 50)
+                {
+                    break;
+                }
+            }
+
+            if (code == "1")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
