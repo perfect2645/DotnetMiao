@@ -14,16 +14,12 @@ namespace hys020.search
         private void BuildContent()
         {
             AddContent("endAttDate", BuildEndAttDate());
-            //AddContent("endAttDate", GetWednesday());
             AddContent("last", 8);
             AddContent("amount", 8);
         }
 
         private string BuildEndAttDate()
         {
-            //var nextWeekDay = DateTimeUtil.GetDayOfNextWeek(DateTime.Today.DayOfWeek);
-            //return nextWeekDay;
-
             var dayToday = DateTimeUtil.GetDayOfWeek(DateTime.Today.DayOfWeek);
             return dayToday;
         }
