@@ -6,18 +6,23 @@ namespace Tianhe.appointment
 {
     internal class YuyueContent : TianheContent
     {
-        private static string url = "http://hpv_ym.zzytrj.net:15003/api/yuyue.php";
+        private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_created/";
         public Order Order { get; private set; }
         public YuyueContent(Order order, TianheLogin user) : base(url, user)
         {
-            ContentType = "application/x-www-form-urlencoded";
             Order = order;
             BuildContent();
         }
 
         private void BuildContent()
         {
-            AddContent("cmd", "yuyue_post");
+            AddContent("duty_time_id", Order.DutyTimeId);
+            AddContent("vaccine_id", Order.VaccineId);
+            AddContent("hospital", Order.HosipitalId);
+            AddContent("inoculate_times", Order.InoculateTimes);
+            AddContent("patient", Order.UserId);
+            AddContent("see_date", Order.SeeDate);
+            AddContent("address", Order.Address);
         }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using Base.model;
-using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
-using Tianhe.appointment;
-using Tianhe.login;
-using Tianhe.search;
-using Tianhe.session;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -15,11 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Tianhe.appointment;
+using Tianhe.login;
+using Tianhe.search;
+using Tianhe.session;
 using Utils;
-using Utils.stringBuilder;
 using Utils.datetime;
 using Utils.file;
 using Utils.number;
+using Utils.stringBuilder;
 
 namespace Tianhe.viewmodel
 {
@@ -143,20 +142,19 @@ namespace Tianhe.viewmodel
                 {
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "四价",
-                    DepartmentId = "2",
+                    DepartmentName = "九价",
+                    DepartmentId = "1",
                 },
                 new TianheHospital
                 {
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
-                },                
+                    DepartmentName = "四价",
+                    DepartmentId = "2",
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
-            MainSession.InitSession();
             _searchController = new SearchController();
 
         }
@@ -168,6 +166,7 @@ namespace Tianhe.viewmodel
             CancelCommand = new RelayCommand(ExecuteCancel);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+            MainSession.OrderEvent.Subscribe(OnOrder);
         }
 
         #endregion Constructor
@@ -208,6 +207,8 @@ namespace Tianhe.viewmodel
                 var userController = HttpServiceController.GetService<UserController>();
                 userController.GetUserAsync(user);
             }
+
+            MainSession.InitSession();
         }
 
         private void ExecuteLogin()
@@ -303,7 +304,7 @@ namespace Tianhe.viewmodel
                 try
                 {
                     Task.Factory.StartNew(() => Appoint());
-                    //_searchController.SearchMiao();
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -361,7 +362,7 @@ namespace Tianhe.viewmodel
                         {
                             PrintLog("预约成功");
                             PrintLog(order.ToLogString());
-                            break;
+                            return;
                         }
                     }
                 }
@@ -374,6 +375,36 @@ namespace Tianhe.viewmodel
             {
                 Log(ex);
             }
+        }
+
+        private void OnOrder(object? sender, OrderEventArgs e)
+        {
+            var orderTemplateList = e.OrderList;
+
+            foreach(var user in MainSession.Users)
+            {
+                var orderList = new List<Order>();
+                foreach (var template in orderTemplateList)
+                {
+                    var order = new Order
+                    {
+                        Address = user.Address,
+                        DutyTimeId = template.DutyTimeId,
+                        HosipitalId = template.HosipitalId,
+                        InoculateTimes = user.InoculateTimes,
+                        SeeDate = template.SeeDate,
+                        User = user,
+                        UserId = user.UserId,
+                        UserName = user.UserName,
+                        VaccineId = template.VaccineId,
+                    };
+
+                    orderList.Add(order);
+                }
+
+                Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
+            }
+
         }
 
         private void DirectlyOrder(string scheduleId)

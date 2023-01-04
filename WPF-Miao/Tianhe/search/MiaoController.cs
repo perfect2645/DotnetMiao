@@ -119,6 +119,7 @@ namespace Tianhe.search
         private Order BuildOneOrder(TianheLogin user, string date, string timeId)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
                 Address = user.Address,
@@ -129,6 +130,7 @@ namespace Tianhe.search
                 UserId = user.UserId,
                 UserName = user.UserName,
                 User = user,
+                VaccineId = deptId
             };
         }
     }

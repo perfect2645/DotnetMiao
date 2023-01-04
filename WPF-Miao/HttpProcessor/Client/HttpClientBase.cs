@@ -149,7 +149,7 @@ namespace HttpProcessor.Client
                 {
                     return await Client.PostRichEncodeAsync(content);
                 }
-                return await Client.PostJsonAsync(content);
+                return await Client.PostJsonAsync(content, ensureSuccess);
             }
             catch (Exception ex)
             {

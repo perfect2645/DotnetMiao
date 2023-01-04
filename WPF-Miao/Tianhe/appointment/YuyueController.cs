@@ -5,6 +5,7 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using Utils.stringBuilder;
+using System.Text.Json;
 
 namespace Tianhe.appointment
 {
@@ -42,7 +43,7 @@ namespace Tianhe.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
@@ -50,69 +51,31 @@ namespace Tianhe.appointment
                 }
 
                 var root = response.JsonBody.RootElement;
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                if (code != "2")
+                JsonElement error;
+                var isError = root.TryGetProperty("error", out error);
+                if (isError)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                    var errMsg = error.NotNullString();
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:error {errMsg}");
+                    if (errMsg.Contains("总预约次数已满"))
+                    {
+                        return true;
+                    }
                     return false;
                 }
-
-                if (msg != "正在预约，请稍后...")
+                var msg = root.GetProperty("message").NotNullString();
+                if (msg != "预约成功")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
                     return false;
                 }
-
-                var return_id = root.GetProperty("return_id").NotNullString();
-                if (string.IsNullOrEmpty(return_id))
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:{msg}");
-                    return false;
-                }
-                //content.Order.ReturnId = return_id;
-
-                var isValid = VerifyYuyue(content.Order);
-                if (isValid)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约结果:{msg}");
-                    MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
-                    IsSuccess = true;
-                    return true;
-                }
-
-                return false;
+                return true;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }
-        }
-
-        private bool VerifyYuyue(Order order)
-        {
-            //var verifyController = MainSession.VerifyYuyueSession.GetController($"{order.UserName}|{order.Date}");
-            //var code = verifyController.VerifyYuyueAsync(order);
-
-            //var retryCnt = 1;
-            //while (code == "2")
-            //{
-            //    Thread.Sleep(200);
-            //    code = verifyController.VerifyYuyueAsync(order);
-            //    retryCnt++;
-            //    MainSession.PrintLogEvent.Publish(this, $"重试次数：{retryCnt}");
-            //    if (retryCnt > 50)
-            //    {
-            //        break;
-            //    }
-            //}
-
-            //if (code == "1")
-            //{
-            //    return true;
-            //}
-            return false;
         }
     }
 }

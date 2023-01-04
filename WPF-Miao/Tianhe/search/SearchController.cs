@@ -50,7 +50,7 @@ namespace Tianhe.search
 
         private void GetTimes()
         {
-            var dateList = MainSession.PlatformSession["dateList"] as List<string>;
+            var dateList = MainSession.PlatformSession["orderDates"] as List<string>;
             var defaultUser = MainSession.Users.FirstOrDefault();
 
             foreach (var date in dateList)
