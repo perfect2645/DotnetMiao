@@ -18,17 +18,6 @@ namespace Tianhe.appointment
         private void BuildContent()
         {
             AddContent("cmd", "yuyue_post");
-            //AddContent("qty", Order.Qty);
-
-            //var dateEncode = UnicodeConverter.EncodeOriginal(Order.Date, true);
-            //AddContent("date", dateEncode);
-            //AddContent("dizhi", UnicodeConverter.Encode(Order.Dizhi, true));
-
-            //var encodeName = UnicodeConverter.Encode(Order.YuyueName, true);
-            //AddContent("yuyue_name", encodeName);
-            //AddContent("yuyue_user_code", Order.UserCode);
-            //AddContent("yuyue_user_add", UnicodeConverter.Encode(Order.YuyueUserAdd, true));
-            //AddContent("yuyue_user_suoshu", UnicodeConverter.Encode(Order.YuyueUserSuoshu, true));
         }
     }
 }

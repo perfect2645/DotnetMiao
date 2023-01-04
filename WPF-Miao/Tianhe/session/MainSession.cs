@@ -14,6 +14,7 @@ namespace Tianhe.session
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
+        internal static Dictionary<string, List<Order>> Orders { get; set; }
 
         static MainSession()
         {
@@ -21,6 +22,7 @@ namespace Tianhe.session
             ReSessionEvent = new ReSessionEvent();
             OrderEvent = new OrderEvent();
             Users = new List<TianheLogin>();
+            Orders = new Dictionary<string, List<Order>>();
         }
 
         public static void InitSession()

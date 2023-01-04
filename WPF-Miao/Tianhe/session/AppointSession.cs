@@ -18,7 +18,7 @@ namespace Tianhe.session
                 {
                     foreach(var time in timeList)
                     {
-                        AddController($"{user.UserName}|{date.Value} {time.Value}");
+                        AddController($"{user.UserName}|{date.Value}{time.Value}");
                     }
                 }
             }

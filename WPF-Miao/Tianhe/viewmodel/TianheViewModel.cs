@@ -19,6 +19,7 @@ using Utils;
 using Utils.stringBuilder;
 using Utils.datetime;
 using Utils.file;
+using Utils.number;
 
 namespace Tianhe.viewmodel
 {
@@ -117,18 +118,21 @@ namespace Tianhe.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             TimeList = new List<DspVal>
             {
-                 new DspVal("08:00:00"),
-                 new DspVal("09:00:00"),
-                 //new DspVal("10:00"),
-                 //new DspVal("11:00"),
+                new DspVal("08:00:00-08:30:00", "3"),
+                new DspVal("08:30:00-09:00:00", "4"),
+                new DspVal("09:00:00-09:30:00", "5"),
+                new DspVal("14:00:00-14:30:00", "9"),
+                new DspVal("14:30:00-15:00:00", "10"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
@@ -139,9 +143,16 @@ namespace Tianhe.viewmodel
                 {
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "HPV疫苗",
-                    DepartmentId = "1",
+                    DepartmentName = "四价",
+                    DepartmentId = "2",
                 },
+                new TianheHospital
+                {
+                    HospitalId = "4",
+                    HospitalName = "天河区龙洞街社区卫生服务中心",
+                    DepartmentName = "九价",
+                    DepartmentId = "1",
+                },                
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -231,10 +242,8 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    //await _searchController.GetUsersAsync();
                     BuildOrders();
                     StartOnTimeTimer();
-                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -249,23 +258,42 @@ namespace Tianhe.viewmodel
 
         private void BuildOrders()
         {
+            MainSession.Orders = new Dictionary<string, List<Order>>();
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+            var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
 
+            foreach (var user in MainSession.Users)
+            {
+                var orderList = new List<Order>();
+                var userName = user.UserName;
+                foreach (var date in dateList)
+                {
+                    foreach (var time in timeList)
+                    {
+                        Order orderWithTime = BuildOneOrder(user, date.Value, time.Value);
+                        orderList.Add(orderWithTime);
+                    }
+                }
+                orderList = orderList.DisorderItems();
+                MainSession.Orders.AddOrUpdate(userName, orderList);
+            }
         }
 
-        private Order BuildOneOrder(TianheLogin user, string dept, string date)
+        private Order BuildOneOrder(TianheLogin user, string date, string timeId)
         {
+            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                //Cookie = user.Cookie,
-                //Date = date,
-                //Dizhi = dept,
-                //UserId = user.UserId,
-                //UserName = user.UserName,
-                //YuyueUserAdd = user.YuyueUserAdd,
-                //YuyueName = user.UserName,
-                //YuyueUserSuoshu = user.YuyueUserSuoshu,
-                //UserCode = user.UserCode,
-                //FamilyId = user.FamilyId,
+                Address = user.Address,
+                DutyTimeId = timeId,
+                HosipitalId = hospitalId,
+                InoculateTimes = user.InoculateTimes,
+                SeeDate = date,
+                UserId = user.UserId,
+                UserName = user.UserName,
+                User = user,
+                VaccineId = deptId
             };
         }
 
@@ -274,7 +302,8 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Appoint();
+                    Task.Factory.StartNew(() => Appoint());
+                    //_searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -311,10 +340,10 @@ namespace Tianhe.viewmodel
 
         private void Appoint()
         {
-            //foreach (var order in MainSession.Orders)
-            //{
-            //    Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
-            //}
+            foreach (var order in MainSession.Orders)
+            {
+                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
+            }
         }
 
         private void StartOneOrder(string userName, List<Order> orders)
@@ -326,7 +355,7 @@ namespace Tianhe.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -349,7 +378,6 @@ namespace Tianhe.viewmodel
 
         private void DirectlyOrder(string scheduleId)
         {
-
             var order = new Order();
         }
 

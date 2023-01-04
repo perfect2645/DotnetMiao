@@ -13,9 +13,9 @@ namespace Tianhe.appointment
         public string DutyTimeId { get; set; }
         public string VaccineId { get; set; }
         public string HosipitalId { get; set; }
-        public string InoculateTimes { get; set; }
+        public string InoculateTimes { get; set; } //第几针
         public string SeeDate { get; set; }
-        public string Address { get; set; }
+        public string Address { get; set; } = "天河";
         internal TianheLogin User { get; set; }
 
         public string ToLogString()
