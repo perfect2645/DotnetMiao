@@ -13,16 +13,6 @@ namespace Tianhe.search
 
         }
 
-        public async Task GetUsersAsync()
-        {
-            var users = MainSession.Users;
-            ; foreach (var user in users)
-            {
-                var userController = HttpServiceController.GetService<UserController>();
-                await userController.GetUserAsync(user);
-            }
-        }
-
         public void GetDateAsync()
         {
 

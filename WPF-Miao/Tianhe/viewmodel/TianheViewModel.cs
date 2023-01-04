@@ -76,14 +76,14 @@ namespace Tianhe.viewmodel
             }
         }
 
-        private string _userName;
-        public string UserName
+        private string _authorization;
+        public string Authorization
         {
-            get { return _userName; }
+            get { return _authorization; }
             set
             {
-                _userName = value;
-                NotifyUI(() => UserName);
+                _authorization = value;
+                NotifyUI(() => Authorization);
             }
         }
 
@@ -91,15 +91,12 @@ namespace Tianhe.viewmodel
 
         private SearchController _searchController;
 
-        private List<TianheLogin> _TianheLogins = new List<TianheLogin>();
-
         #endregion Properties
 
         #region Constructor
 
         public TianheViewModel(LogPanel logPanel) : base(logPanel)
         {
-            Interval = 200;
             InitCommands();
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
@@ -110,6 +107,7 @@ namespace Tianhe.viewmodel
 
         private void TestData()
         {
+            Interval = 200;
             StartTime = DateTime.Now.AddSeconds(10);
         }
 
@@ -147,7 +145,9 @@ namespace Tianhe.viewmodel
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+            MainSession.InitSession();
             _searchController = new SearchController();
+
         }
 
         private void InitCommands()
@@ -191,17 +191,17 @@ namespace Tianhe.viewmodel
 
         private void LoginFromConfig()
         {
-            _TianheLogins = FileReader.DeserializeFile<List<TianheLogin>>("Login.json");
-
-            MainSession.Users = _TianheLogins;
-
-            MainSession.InitSession();
-            StartAutoRun();
+            MainSession.Users = FileReader.DeserializeFile<List<TianheLogin>>("Login.json");
+            foreach(var user in MainSession.Users)
+            {
+                var userController = HttpServiceController.GetService<UserController>();
+                userController.GetUserAsync(user);
+            }
         }
 
         private void ExecuteLogin()
         {
-            if (StringUtil.AnyEmpty(UserName, Cookie))
+            if (StringUtil.AnyEmpty(Authorization))
             {
                 Log("请检查参数");
                 return;
@@ -212,15 +212,14 @@ namespace Tianhe.viewmodel
                 
             };
 
-            _TianheLogins.Add(loginData);
+            MainSession.Users.Add(loginData);
 
             ClearLoginData();
         }
 
         private void ClearLoginData()
         {
-            Cookie = string.Empty;
-            UserName = string.Empty;
+            Authorization = string.Empty;
         }
 
         #endregion Login
@@ -232,7 +231,7 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    await _searchController.GetUsersAsync();
+                    //await _searchController.GetUsersAsync();
                     BuildOrders();
                     StartOnTimeTimer();
                     StartReSessionTimer();
@@ -250,29 +249,7 @@ namespace Tianhe.viewmodel
 
         private void BuildOrders()
         {
-            MainSession.Orders = new Dictionary<string, List<Order>>();
-            var deptList = MainSession.DeptList;
-            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
-            var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
 
-            foreach (var user in _TianheLogins)
-            {
-                var orderList = new List<Order>();
-                var userName = user.UserName;
-                foreach (var dept in deptList)
-                {
-                    foreach (var date in dateList)
-                    {
-                        foreach (var time in timeList)
-                        {
-                            Order orderWithTime = BuildOneOrder(user, dept, $"{date.Value} {time.Value}");
-                            orderList.Add(orderWithTime);
-                        }
-                    }
-                }
-                orderList = orderList.DisorderItems();
-                MainSession.Orders.AddOrUpdate(userName, orderList);
-            }
         }
 
         private Order BuildOneOrder(TianheLogin user, string dept, string date)
@@ -334,10 +311,10 @@ namespace Tianhe.viewmodel
 
         private void Appoint()
         {
-            foreach (var order in MainSession.Orders)
-            {
-                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
-            }
+            //foreach (var order in MainSession.Orders)
+            //{
+            //    Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
+            //}
         }
 
         private void StartOneOrder(string userName, List<Order> orders)
@@ -349,7 +326,7 @@ namespace Tianhe.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {

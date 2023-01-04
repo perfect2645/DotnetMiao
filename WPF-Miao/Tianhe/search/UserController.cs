@@ -10,6 +10,7 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 using Tianhe.login;
+using System;
 
 namespace Tianhe.search
 {
@@ -19,33 +20,38 @@ namespace Tianhe.search
         {
         }
 
-        public async Task GetUserAsync(TianheLogin user)
+        public void GetUserAsync(TianheLogin user)
         {
-            await Task.Factory.StartNew(() => GetUser(user));
+            Task.Factory.StartNew(() => GetUser(user));
         }
 
         private void GetUser(TianheLogin user)
         {
-            var url = $"http://hpv_ym.zzytrj.net:15003/api/yuyue.php?cmd=get_user_list";
-            var content = new TianheContent(url);
-            content.BuildDefaultHeaders(Client);
-            var response = GetStringAsync(content).Result;
-            if (response?.Body == null)
+            try
             {
-                MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
-                return;
+                var url = $"https://ldsq.ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
+                var content = new TianheContent(url, user);
+                content.BuildDefaultHeaders(Client);
+                var response = GetStringAsync(content).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    return;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var results = root.GetProperty("results");
+                if (results.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
+                    return;
+                }
+                SaveUser(results, user);
             }
-            var root = response.JsonBody.RootElement;
-            var code = root.GetProperty("code").NotNullString();
-            var msg = root.GetProperty("msg").NotNullString();
-            MainSession.PrintLogEvent.Publish(this, $"获取用户信息msg:{msg}");
-            if (code != "1")
+            catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:{msg}");
-                return;
+                MainSession.PrintLogEvent.Publish(this, $"获取用户信息异常{ex.Message}");
             }
-            var data = root.GetProperty("data");
-            SaveUser(data, user);
         }
 
         private void SaveUser(JsonElement data, TianheLogin user)
@@ -57,20 +63,20 @@ namespace Tianhe.search
                 return;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault(x => x["姓名"].NotNullString() == user.UserName);
-            //var familyId = defaultUser.GetString("id");
-            //var userName = defaultUser.GetString("姓名");
-            //var userId = defaultUser.GetString("预约者ID");
-            //var userAddr = defaultUser.GetString("居住地址");
-            //var userSuoshu = defaultUser.GetString("所属单位");
-            //var userCode = defaultUser.GetString("身份证号");
+            var defaultUser = familyMembers.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            if (defaultUser == null)
+            {
+                defaultUser = familyMembers.FirstOrDefault();
+            }
+            var userName = defaultUser.GetString("name");
+            var userId = defaultUser.GetString("id");
+            var idcard = defaultUser.GetString("idno");
+            var phone = defaultUser.GetString("mobile");
 
-            //user.FamilyId = familyId;
-            //user.UserId = userId;
-            //user.UserName = userName;
-            //user.YuyueUserAdd = userAddr;
-            //user.YuyueUserSuoshu = userSuoshu;
-            //user.UserCode = userCode;
+            user.UserId = userId;
+            user.UserName = userName;
+            user.IdCard = idcard;
+            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

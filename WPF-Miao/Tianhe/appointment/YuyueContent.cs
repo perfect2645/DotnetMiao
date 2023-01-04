@@ -1,4 +1,5 @@
 ﻿using Tianhe.common;
+using Tianhe.login;
 using Utils;
 
 namespace Tianhe.appointment
@@ -7,7 +8,7 @@ namespace Tianhe.appointment
     {
         private static string url = "http://hpv_ym.zzytrj.net:15003/api/yuyue.php";
         public Order Order { get; private set; }
-        public YuyueContent(Order order) : base(url)
+        public YuyueContent(Order order, TianheLogin user) : base(url, user)
         {
             ContentType = "application/x-www-form-urlencoded";
             Order = order;

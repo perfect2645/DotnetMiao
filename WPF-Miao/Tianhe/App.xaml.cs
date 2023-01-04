@@ -27,9 +27,7 @@ namespace Tianhe
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<DoctorInfoController>();
             HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();

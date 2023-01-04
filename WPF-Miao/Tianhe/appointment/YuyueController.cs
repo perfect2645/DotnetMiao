@@ -24,7 +24,7 @@ namespace Tianhe.appointment
             }
 
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
-            var content = new YuyueContent(order);
+            var content = new YuyueContent(order, order.User);
             return Yuyue(content);
         }
 

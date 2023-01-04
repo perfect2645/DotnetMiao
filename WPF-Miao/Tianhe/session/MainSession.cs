@@ -20,6 +20,7 @@ namespace Tianhe.session
             PlatformSession = new Dictionary<string, object>();
             ReSessionEvent = new ReSessionEvent();
             OrderEvent = new OrderEvent();
+            Users = new List<TianheLogin>();
         }
 
         public static void InitSession()
