@@ -99,6 +99,18 @@ namespace Xihongmen.viewmodel
             }
         }
 
+        private string _token;
+        public string Token
+        {
+            get { return _token; }
+            set
+            {
+                _token = value;
+                MainSession.Token = value;
+                NotifyUI(() => Token);
+            }
+        }
+
         private string _scheduleId;
         public string ScheduleId
         {
@@ -112,7 +124,7 @@ namespace Xihongmen.viewmodel
 
         private readonly object OrderLock = new object();
 
-        private SearchController _searchController = new SearchController();
+        private SearchController _searchController;
 
         #endregion Properties
 
@@ -130,14 +142,18 @@ namespace Xihongmen.viewmodel
         private void TestData()
         {
             Interval = 800;
-            StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "13940897525";
+            Token = "76db955e18f11a00f24e3807ec139085";
+
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2022, 12, 14, 8, 59, 40);
+
+            SetDateList();
 
             Departments = new List<HospitalDept>
             {
@@ -152,12 +168,25 @@ namespace Xihongmen.viewmodel
                 {
                     HospitalId = "yiyuan.dabannet.cn",
                     HospitalName = "北京西红门医院",
+                    DepartmentId = "9",
+                    DepartmentName = "四价HPV疫苗",
+                },
+                new XhmHospital
+                {
+                    HospitalId = "yiyuan.dabannet.cn",
+                    HospitalName = "北京西红门医院",
                     DepartmentId = "7",
                     DepartmentName = "流感疫苗",
                 },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+        }
+
+        private void SetDateList()
+        {
+            DateList = new List<DspVal>();
+
         }
 
         private void InitCommands()
@@ -213,9 +242,7 @@ namespace Xihongmen.viewmodel
                 return;
             }
             var loginController = HttpServiceController.GetService<LoginController>();
-            var userId = await loginController.LoginAsync(UserPhone, LoginYzm);
-            //var familyController = HttpServiceController.GetService<FamilyController>();
-            //await familyController.GetFamilyAsync(userId);
+            Token = await loginController.LoginAsync(UserPhone, LoginYzm);
         }
 
         #endregion Login
@@ -242,10 +269,10 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    await ExecuteLogin();
+                    _searchController = new SearchController();
+                    _searchController.GetUser();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
                     StartIntervalTimer();
-                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -340,6 +367,7 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
+                    _searchController = new SearchController();
                     if (StringUtil.AnyEmpty(UserPhone, LoginYzm))
                     {
                         MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
@@ -379,8 +407,7 @@ namespace Xihongmen.viewmodel
             var userInfo = MainSession.UserSession.Users.FirstOrDefault(x => 
                 (x.Value as Dictionary<string, object>)?.GetString("isDefault") == "1").Value as Dictionary<string, object>;
 
-            var userId = userInfo.GetString(Constants.UserID);
-            var familyId = userInfo.GetString(Constants.FamilyID);
+            var userId = userInfo.GetString(Constants.UserId);
             var userName = userInfo.GetString("familyName");
             var phone = userInfo.GetString("familyPhone");
 

@@ -31,6 +31,7 @@ namespace Xihongmen
             HttpServiceController.AddTransientService<YzmController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<TimeController>();
             HttpServiceController.AddTransientService<YuyueController>();
 
             HttpServiceController.BuidServiceProvider();

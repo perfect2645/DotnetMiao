@@ -41,7 +41,6 @@ namespace Xihongmen.login
                 if ("200".Equals(code) && "OK".Equals(msg))
                 {
                     var token = root.GetProperty("data").GetProperty("token").GetString();
-                    MainSession.Token = token;
                     MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
                     MainSession.PrintLogEvent.Publish(this, $"登录成功 - token:{token}");
                     return token;

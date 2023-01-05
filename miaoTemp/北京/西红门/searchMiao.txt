@@ -28,4 +28,40 @@ Access-Control-Allow-Methods: POST,GET,OPTIONS,DELETE
 Strict-Transport-Security: max-age=31536000
 Content-Length: 373
 
-{"code":200,"data":{"family_list":[{"id":45491,"child_name":"周瑠夏"}],"timeTypeList":[{"id":"19","title":"13:30:00 - 14:00:00","number":0},{"id":"20","title":"14:00:00 - 14:30:00","number":0},{"id":"21","title":"14:30:00 - 15:00:00","number":0},{"id":"22","title":"15:00:00 - 15:30:00","number":0}],"type_title":"九价hpv","type_id":10,"time":"1672790400"},"msg":"OK"}
+{
+    "code": 200,
+    "data": {
+        "family_list": [
+            {
+                "id": 45491,
+                "child_name": "周瑠夏"
+            }
+        ],
+        "timeTypeList": [
+            {
+                "id": "19",
+                "title": "13:30:00 - 14:00:00",
+                "number": 0
+            },
+            {
+                "id": "20",
+                "title": "14:00:00 - 14:30:00",
+                "number": 0
+            },
+            {
+                "id": "21",
+                "title": "14:30:00 - 15:00:00",
+                "number": 0
+            },
+            {
+                "id": "22",
+                "title": "15:00:00 - 15:30:00",
+                "number": 0
+            }
+        ],
+        "type_title": "九价hpv",
+        "type_id": 10,
+        "time": "1672790400"
+    },
+    "msg": "OK"
+}

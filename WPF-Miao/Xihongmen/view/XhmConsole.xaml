@@ -18,16 +18,20 @@
             <StackPanel>
                 <StackPanel Background="Bisque">
                     <TextBox Width="300" Height="30"
-                         Margin="0,20,0,20"
+                         Margin="0,0,0,20"
                          Text="{Binding UserPhone}"
                         materialDesign:HintAssist.Hint="手机"/>
                     <TextBox Width="300" Height="30"
-                         Margin="0,20,0,20"
+                         Margin="0,0,0,20"
                          Text="{Binding LoginYzm}"
                         materialDesign:HintAssist.Hint="验证码"/>
+                    <TextBox Width="300" Height="30"
+                         Margin="0,0,0,20"
+                         Text="{Binding Token}"
+                        materialDesign:HintAssist.Hint="Token"/>
                     <StackPanel Orientation="Horizontal">
-                        <Button Content="发送验证码" Margin="0,0,10,0"
-                            Command="{Binding YzmCommand}" Width="100">
+                        <Button Content="发送验证码" Margin="40,0,10,0"
+                            Command="{Binding YzmCommand}" Width="110">
                         </Button>
                         <Button Content="登录" Margin="0,0,10,0"
                             Command="{Binding LoginCommand}" Width="100">

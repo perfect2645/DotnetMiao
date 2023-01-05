@@ -13,12 +13,8 @@ namespace Xihongmen.session
         public const string TimeStamp = "Timestamp";
 
         public const string UserId = "userId";
-        public const string UserID = "userID";
-        public const string FamilyId = "familyId";
-        public const string UserPhone = "userPhone";
-        public const string DoctorId = "doctorId";
-        public const string Scheduleid = "scheduleid";
-        public const string FamilyID = "familyID";
+        public const string UserName = "userName";
+        public const string UserIdCard = "userIdCard";
         public const string Token = "token";
     }
 }
