@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.stringBuilder;
+using Utils.datetime;
 
 namespace Xihongmen.viewmodel
 {
@@ -162,21 +163,21 @@ namespace Xihongmen.viewmodel
                     HospitalId = "yiyuan.dabannet.cn",
                     HospitalName = "北京西红门医院",
                     DepartmentId = "10",
-                    DepartmentName = "九价HPV疫苗",
+                    DepartmentName = "九价hpv",
                 },
                 new XhmHospital
                 {
                     HospitalId = "yiyuan.dabannet.cn",
                     HospitalName = "北京西红门医院",
                     DepartmentId = "9",
-                    DepartmentName = "四价HPV疫苗",
+                    DepartmentName = "四价hpv",
                 },
                 new XhmHospital
                 {
                     HospitalId = "yiyuan.dabannet.cn",
                     HospitalName = "北京西红门医院",
                     DepartmentId = "7",
-                    DepartmentName = "流感疫苗",
+                    DepartmentName = "流感疫苗（自费-3周岁以上）",
                 },
             };
 
@@ -186,7 +187,14 @@ namespace Xihongmen.viewmodel
         private void SetDateList()
         {
             DateList = new List<DspVal>();
+            var targetDates = DateTimeUtil.GetFutureDays(DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday);
+            foreach(var dateStr in targetDates)
+            {
+                var timestamp = DateTimeUtil.GetTimeStamp($"{dateStr} 08:00").Substring(0, 10);
+                DateList.Add(new DspVal(dateStr, timestamp));
+            }
 
+            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
         }
 
         private void InitCommands()
@@ -197,7 +205,7 @@ namespace Xihongmen.viewmodel
             YzmCommand = new RelayCommand(SendYzm);
 
             MainSession.ReSessionEvent.Subscribe(OnResession);
-            MainSession.ScheduleEvent.Subscribe(OnSchedule);
+            MainSession.ScheduleEvent.Subscribe(OnOrder);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
         }
@@ -243,6 +251,8 @@ namespace Xihongmen.viewmodel
             }
             var loginController = HttpServiceController.GetService<LoginController>();
             Token = await loginController.LoginAsync(UserPhone, LoginYzm);
+
+            //MainSession.InitSession();
         }
 
         #endregion Login
@@ -269,6 +279,7 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
+                    MainSession.InitSession();
                     _searchController = new SearchController();
                     _searchController.GetUser();
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
@@ -290,7 +301,15 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchAsync();
+                    //Task.Factory.StartNew(() =>
+                    //{
+                    //    _searchController.SearchAsync();
+                    //});
+
+                    Task.Factory.StartNew(() =>
+                    {
+                        _searchController.GetMiaoFromDate();
+                    });
                 }
                 catch (HttpException ex)
                 {
@@ -307,9 +326,12 @@ namespace Xihongmen.viewmodel
 
         #region Appoint
 
-        int cnt = 0;
-        private void OnSchedule(object? sender, ScheduleEventArgs e)
+        private void OnOrder(object? sender, ScheduleEventArgs e)
         {
+            if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+            {
+                return;
+            }
             lock (OrderLock)
             {
                 var orderList = e.OrderList;
@@ -321,40 +343,24 @@ namespace Xihongmen.viewmodel
         {
             try
             {
-                var preOrderController = HttpServiceController.GetService<YuyueController>();
                 var preContent = new YuyueContent();
-                preOrderController.BuildHeaders(preContent);
 
-                for(int i = 0; i < 10; i ++)
-                {
-                    foreach (var order in orderList)
-                    {
-                        lock (OrderLock)
-                        {
-                            if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
-                            {
-                                return;
-                            }
-                            lock (OrderLock)
-                            {
-                                var content = new YuyueContent(order);
-                                preOrderController.PreOrder(content);
-                            }
-                        }
-                    }
-                }
-
-                /* 防止一个人约到多个号，不能用异步
                 foreach (var order in orderList)
                 {
-                    var content = new PreOrderContent(order);
-                    preOrderController.PreOrderAsync(content);
+                    if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                    {
+                        return;
+                    }
+                    var controller = MainSession.AppointSession.GetController(order.Date);
+                    var content = new YuyueContent(order);
+                    controller.BuildClientHeaders(content);
+                    controller.AppointAsync(content);
+                    return;
                     order.IntervalOnTime.StartIntervalOntime(() =>
                     {
-                        Task.Factory.StartNew(() => preOrderController.PreOrderAsync(content));
+                        Task.Factory.StartNew(() => controller.AppointAsync(content));
                     });
                 }
-                */
             }
             catch (Exception ex)
             {
@@ -367,27 +373,23 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
+                    MainSession.InitSession();
                     _searchController = new SearchController();
-                    if (StringUtil.AnyEmpty(UserPhone, LoginYzm))
+                    if (StringUtil.AnyEmpty(Token))
                     {
-                        MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
+                        MainSession.PrintLogEvent.Publish(this, "请先登录");
                         return;
                     }
                     MainSession.PrintLogEvent.Publish(this, $"手动预约");
                     MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-
-                    await ExecuteLogin();
 
                     if (StringUtil.NotEmpty(ScheduleId))
                     {
                         DirectlyOrder(ScheduleId);
                         return;
                     }
-                    if (MainSession.GetStatus() != MiaoProgress.ReadyForSearch)
-                    {
-                        return;
-                    }
-                    _searchController.SearchAsync();
+ 
+                    _searchController.GetMiaoFromDate();
                 }
                 catch (HttpException ex)
                 {
@@ -449,6 +451,7 @@ namespace Xihongmen.viewmodel
         {
             var selectedDept = SelectedDepartment as XhmHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
 
             Log(selectedDept.ToLogString());
         }

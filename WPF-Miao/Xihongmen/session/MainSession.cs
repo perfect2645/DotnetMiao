@@ -16,6 +16,8 @@ namespace Xihongmen.session
 
         public static ReSessionEvent ReSessionEvent { get; }
         public static ScheduleEvent ScheduleEvent { get; }
+        internal static AppointSession AppointSession { get; private set; }
+        internal static MiaoSession MiaoSession { get; private set; }
 
         static MainSession()
         {
@@ -23,6 +25,12 @@ namespace Xihongmen.session
             UserSession = new UserSession();
             ReSessionEvent = new ReSessionEvent();
             ScheduleEvent = new ScheduleEvent();
+        }
+
+        public static void InitSession()
+        {
+            AppointSession = new AppointSession();
+            MiaoSession = new MiaoSession();
         }
 
         #region MiaoStatus

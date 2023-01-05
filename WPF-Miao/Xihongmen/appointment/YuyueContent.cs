@@ -19,13 +19,7 @@ namespace Xihongmen.appointment
         public YuyueContent(Order schedule) : base(url)
         {
             Order = schedule;
-            BuildHeader();
             BuildContent();
-        }
-
-        private void BuildHeader()
-        {
-            
         }
 
         private void BuildContent()

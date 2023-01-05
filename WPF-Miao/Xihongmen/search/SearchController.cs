@@ -1,4 +1,5 @@
-﻿using HttpProcessor.Container;
+﻿using Base.model;
+using HttpProcessor.Container;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -32,7 +33,8 @@ namespace Xihongmen.search
                 {
                     return;
                 }
-                
+
+                GetMiaoFromTime();
             });
         }
 
@@ -49,6 +51,23 @@ namespace Xihongmen.search
             {
                 return false;
             }
+        }
+
+        internal void GetMiaoFromDate()
+        {
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+            foreach(var date in dateList)
+            {
+                var timestamp = date.Value;
+                var miaoController = MainSession.MiaoSession.GetController(timestamp);
+                miaoController.GetMiaoAsync(timestamp);
+            }
+        }
+
+        internal void GetMiaoFromTime()
+        {
+            var dateList = MainSession.PlatformSession["timeList"] as List<DspVal>;
+
         }
     }
 }

@@ -23,30 +23,34 @@ namespace Xihongmen.appointment
             BuildClientHeaders(content);
         }
 
-        public void PreOrderAsync(YuyueContent content)
+        public void AppointAsync(YuyueContent content)
         {
             Task.Factory.StartNew(() =>
             {
-                PreOrder(content);
+                Appoint(content);
             });
         }
 
-        public void PreOrder(YuyueContent content)
+        public void Appoint(YuyueContent content)
         {
             try
             {
-                count++;
-
-                if (count % 100 == 1)
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                 {
-                    Log($"尝试预约第{count}次");
+                    content.Order.IntervalOnTime.StopInterval();
+                    return;
                 }
-
                 Log($"开始预约");
                 HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"没查到苗{response?.Message}");
+                    return;
+                }
+
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                {
+                    content.Order.IntervalOnTime.StopInterval();
                     return;
                 }
 
@@ -109,10 +113,10 @@ namespace Xihongmen.appointment
 
         public void Exchange(YuyueContent contnet)
         {
-            PreOrder(contnet);
+            Appoint(contnet);
             contnet.Order.IntervalOnTime.StartIntervalOntime(() =>
             {
-                PreOrder(contnet);
+                Appoint(contnet);
             });
         }
 
