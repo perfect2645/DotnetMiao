@@ -137,15 +137,15 @@ namespace renren.viewmodel
 
         private void TestData()
         {
-            MedicToken = "XY9GIW+8PWUUQBBGEPYEIA==";
+            MedicToken = "L3++RIQHXFBKEFON/RXOIQ==";
             OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
-            PublicKey = "91D1788A-F45B-40EA-AE72-1DA87F886597";
+            PublicKey = "E933756A-CD70-4FED-9BC7-349BC0D511BF";
             Interval = 1000;
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 29, 19, 59, 58);
+            StartTime = new DateTime(2023, 1, 5, 19, 59, 58);
             MainSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
             MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
 
