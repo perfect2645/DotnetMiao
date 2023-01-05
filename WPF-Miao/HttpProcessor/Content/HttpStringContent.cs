@@ -38,12 +38,12 @@ namespace HttpProcessor.Content
                 {
                     if (!httpClient.DefaultRequestHeaders.Contains(header.Key))
                     {
-                        httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
+                        httpClient.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
                     }
                     else
                     {
                         httpClient.DefaultRequestHeaders.Remove(header.Key);
-                        httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
+                        httpClient.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
                     }
                 }
             }

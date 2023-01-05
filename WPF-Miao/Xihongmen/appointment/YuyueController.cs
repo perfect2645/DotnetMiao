@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Utils.stringBuilder;
+using System.Net.Http.Headers;
 
 namespace Xihongmen.appointment
 {
@@ -40,7 +41,8 @@ namespace Xihongmen.appointment
                     content.Order.IntervalOnTime.StopInterval();
                     return;
                 }
-                Log($"开始预约");
+                MainSession.PrintLogEvent.Publish(this, content.Order.ToLogString());
+
                 HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
@@ -48,42 +50,33 @@ namespace Xihongmen.appointment
                     return;
                 }
 
+                var root = response.JsonBody.RootElement;
+                var msg = root.GetProperty("msg").NotNullString();
+                if (msg.Contains("请重试"))
+                {
+                    object cookie = string.Empty;
+                    if (response.Headers.TryGetValue("Set-Cookie", out cookie))
+                    {
+                        MainSession.Cookie = cookie.NotNullString();
+                        MainSession.PrintLogEvent.Publish(this, $"Cookie get : {MainSession.Cookie}");
+                        return;
+                    }
+                }
+
+
                 if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                 {
                     content.Order.IntervalOnTime.StopInterval();
                     return;
                 }
-
-                var root = response.JsonBody.RootElement;
-
-                JsonElement messageElement;
-                root.TryGetProperty("message", out messageElement);
-                var message = messageElement.NotNullString();
-                if (message.Contains("JWT expired"))
+                if ("OK".Equals(msg, StringComparison.OrdinalIgnoreCase))
                 {
-                    Log($"登录过期，重新登录{response?.Message}");
-                    MainSession.ReSessionEvent.Publish(this, new ResessionEventArgs());
-                    return;
-                }
-
-                JsonElement errorElement;
-                root.TryGetProperty("error", out errorElement);
-                var error = errorElement.NotNullString();
-                if (!string.IsNullOrEmpty(error))
-                {
-                    Log($"error : {error} - message : {message}");
-                    return;
-                }
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                if ("0".Equals(code))
-                {
-                    var miaoInfo = root.GetProperty("obj");
-                    AnalysisResult(miaoInfo, content.Order);
+                    var data = root.GetProperty("data");
+                    AnalysisResult(data, content.Order);
                 }
                 else
                 {
-                    Log($"预约结果 - {msg}");
+                    Log($"预约失败 - {msg}");
                 }
             }
             catch (Exception ex)

@@ -3,6 +3,7 @@ using HttpProcessor.ExceptionManager;
 using HttpProcessor.Request;
 using HttpProcessor.Response;
 using Logging;
+using System.Net.Http.Headers;
 
 namespace HttpProcessor.Client
 {
@@ -33,12 +34,12 @@ namespace HttpProcessor.Client
                 {
                     if (!Client.DefaultRequestHeaders.Contains(header.Key))
                     {
-                        Client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                        Client.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
                     }
                     else
                     {
                         Client.DefaultRequestHeaders.Remove(header.Key);
-                        Client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                        Client.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
                     }
                 }
             }
@@ -46,6 +47,11 @@ namespace HttpProcessor.Client
             {
                 throw new HttpException(ex, "Build HttpClient Header");
             }
+        }
+
+        public void AddHeaderByName(string name)
+        {
+            Client.DefaultRequestHeaders.UserAgent.TryParseAdd(name);
         }
 
         #endregion Header

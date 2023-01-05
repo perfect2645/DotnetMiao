@@ -2,10 +2,6 @@
 using Base.viewmodel.status;
 using Base.viewModel;
 using Base.viewModel.hospital;
-using Xihongmen.appointment;
-using Xihongmen.login;
-using Xihongmen.search;
-using Xihongmen.session;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -16,8 +12,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
-using Utils.stringBuilder;
 using Utils.datetime;
+using Utils.stringBuilder;
+using Xihongmen.appointment;
+using Xihongmen.login;
+using Xihongmen.search;
+using Xihongmen.session;
 
 namespace Xihongmen.viewmodel
 {
@@ -145,7 +145,7 @@ namespace Xihongmen.viewmodel
             Interval = 800;
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             UserPhone = "13940897525";
-            Token = "76db955e18f11a00f24e3807ec139085";
+            Token = "4870bd9076fd33cbbaec96e62c71da71";
 
             StartTime = DateTime.Now.AddSeconds(10);
         }
@@ -281,8 +281,8 @@ namespace Xihongmen.viewmodel
                 {
                     MainSession.InitSession();
                     _searchController = new SearchController();
-                    _searchController.GetUser();
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+                    await _searchController.GetUserAsync();
+                    _searchController.TryGetCookie();
                     StartIntervalTimer();
                 }
                 catch (HttpException ex)
@@ -355,7 +355,10 @@ namespace Xihongmen.viewmodel
                     var content = new YuyueContent(order);
                     controller.BuildClientHeaders(content);
                     controller.AppointAsync(content);
-                    return;
+//#if DEBUG
+//                    PrintLog("debug return!");
+//                    return;
+//#endif
                     order.IntervalOnTime.StartIntervalOntime(() =>
                     {
                         Task.Factory.StartNew(() => controller.AppointAsync(content));
