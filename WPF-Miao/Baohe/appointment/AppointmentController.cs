@@ -67,10 +67,10 @@ namespace Baohe.appointment
                 throw new HttpException($"{Constant.ProjectName}:Appointment-{content.RequestUrl} - {response.Body["Message"]}", Constant.Appointment);
             }
 
-            var result = response.JsonBody.RootElement.GetProperty("Result");
-            if (result.ValueKind == JsonValueKind.Null)
+            var orderId = response.JsonBody.RootElement.GetProperty("Orderid").NotNullString();
+            if (!string.IsNullOrEmpty(orderId))
             {
-                throw new HttpException($"{Constant.ProjectName}:Appointment-{content.RequestUrl} - Result is empty", "empty result");
+                BaoheSession.PrintLogEvent.Publish(this, $"预约成功：orderid : {orderId}");
             }
         }
     }
