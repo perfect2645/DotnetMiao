@@ -63,16 +63,38 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "jkzlAn_uuid=88844286-2FA2-443E-B7C7-1F2C45BE03DE; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMwZFZaRWRadGJqZGppT1FBaFpuUVIwIiwiU2VjU3RyIjoiNDNGNTY4NkVBNUVGQjQwQjUzRkE1OTlGNTZBQ0JFMjMifQ%3D%3D; logintype=62; loginid=off6ts0dVZEdZtbjdjiOQAhZnQR0; OpenID=off6ts0dVZEdZtbjdjiOQAhZnQR0; LoginChannel=1000031; TOKEN_64EE5E159F480EFBF3D478ED129BE688=413AC2CFAC884EA6A7AFC3EA5D764B1F; jkzlAn_sid=DF6D5676-BA19-4473-A99E-25AE58F1F568; jkzlAn_channelid=1000031; jkzlAn_userid=152468919; jkzlAn_p=-1; jkzlAn_c=-1; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTI0Njg5MTkiLCJDYXJkTnVtYmVyIjoiMjA4MjU1ODQ4OCIsIkxvZ2luSWQiOiJvZmY2dHMwZFZaRWRadGJqZGppT1FBaFpuUVIwIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI1NkZBMDM3QjgzMzAzNjM2Qzk4RTYzMzNCQkM5OTUzRCJ9; _YyghSysTrackUUID=16000707162; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1671120437882";
+            Cookie = "jkzlAn_uuid=732AD1F0-E8A1-41D6-9712-B7974A4EA54A; jkzlAn_userid=148528129; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBWQVQ1NzNVNk1JWG51X1VkWVdiZ3BrIiwiU2VjU3RyIjoiMEZCNTEzQzU1MTZGODEyNDUxOTI4MUIxRkJEMjU0RUMifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=o8e_80VAT573U6MIXnu_UdYWbgpk; OpenID=o8e_80VAT573U6MIXnu_UdYWbgpk; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9001026; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvOGVfODBWQVQ1NzNVNk1JWG51X1VkWVdiZ3BrIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJCQkY2NkQzM0FDMTNFNjAzMkM5QUFCMERCRkM0NjIyQiJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=85600DC36F76411CB75BDE1D67EF00D6; _YyghSysTrackUUID=06221023974; jkzlAn_sid=581D09DE-A1BB-4136-8F83-CC624ADA319D; jkzlAn_channelid=9001026; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1673014506200";
 
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7209111&doctorId=710742232&hospitalInternal=1&showMultiDept=0&platformType=9001026&exConsult=&consultHosId=1047063&utm_source=0.0.h.1026.bus010.0";
+
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 16, 7, 59, 59);
+            StartTime = new DateTime(2023, 1, 7, 19, 59, 59);
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山井岗镇社区卫生服务中心",
+                "7229195", "九价Hpv")
+            {
+                DoctorSn = "711188793"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山井岗镇社区卫生服务中心",
+                "7229244", "四价Hpv")
+            {
+                DoctorSn = "711188785"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1047063", "蜀山井岗镇社区卫生服务中心",
+                "7229244", "计免科")
+            {
+                DoctorSn = "711068630"
+            });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
@@ -108,22 +130,6 @@ namespace Baohe.viewModel
                 DoctorSn = "711202108",
                 HasYzm = false
             });
-
-            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
-                "1047063", "蜀山井岗镇社区卫生服务中心",
-                "7229195", "九价Hpv")
-                {
-                    DoctorSn = "711188793"
-                }
-            );
-
-            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
-                "1047063", "蜀山井岗镇社区卫生服务中心",
-                "7229244", "四价Hpv")
-                {
-                    DoctorSn = "711188785"
-                }
-            );
 
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山井岗镇社区卫生服务中心",
