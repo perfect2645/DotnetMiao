@@ -108,12 +108,12 @@ namespace Tianhe.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
 
             DateList = new List<DspVal>
             {
@@ -303,7 +303,7 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //Task.Factory.StartNew(() => Appoint());
+                    Task.Factory.StartNew(() => Appoint());
                     _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
