@@ -113,7 +113,7 @@ namespace Tianhe.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
+            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(55);
 
             DateList = new List<DspVal>
             {
@@ -303,7 +303,7 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Task.Factory.StartNew(() => Appoint());
+                    //Task.Factory.StartNew(() => Appoint());
                     _searchController.SearchMiao();
                 }
                 catch (HttpException ex)

@@ -69,6 +69,8 @@ namespace Tianhe.search
             }
 
             var dateList = validDates.Select(d => d["date"].NotNullString()).ToList();
+            var today = DateTimeUtil.GetToday();
+            dateList = dateList.Where(d => today != d).ToList();
 
             MainSession.PlatformSession.AddOrUpdate("orderDates", dateList);
 
