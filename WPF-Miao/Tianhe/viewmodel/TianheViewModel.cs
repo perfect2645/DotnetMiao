@@ -113,7 +113,7 @@ namespace Tianhe.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(55);
 
             DateList = new List<DspVal>
             {
