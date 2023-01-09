@@ -30,6 +30,9 @@ namespace Tianhe.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+        public ICommand CancelOneCommand { get; set; }
+        
+        public ICommand RefreshHistoryCommand { get; set; }
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -74,6 +77,28 @@ namespace Tianhe.viewmodel
                 _selectedTime = value;
                 //MainSession.MiaoSession.AddOrUpdate("Time", value.Value);
                 NotifyUI(() => SelectedTime);
+            }
+        }
+
+        private List<DspVal> _historyList;
+        public List<DspVal> HistoryList
+        {
+            get { return _historyList; }
+            set
+            {
+                _historyList = value;
+                NotifyUI(() => HistoryList);
+            }
+        }
+
+        private DspVal _selectedHistory;
+        public DspVal SelectedHistory
+        {
+            get { return _selectedHistory; }
+            set
+            {
+                _selectedHistory = value;
+                NotifyUI(() => SelectedHistory);
             }
         }
 
@@ -164,7 +189,9 @@ namespace Tianhe.viewmodel
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
+            RefreshHistoryCommand = new AsyncRelayCommand(ExecuteSearchHistory);
             CancelCommand = new AsyncRelayCommand(ExecuteCancel);
+            CancelOneCommand = new AsyncRelayCommand(ExecuteCancelOne);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
             MainSession.OrderEvent.Subscribe(OnOrder);
@@ -417,7 +444,7 @@ namespace Tianhe.viewmodel
 
         #region Cancel
 
-        private async Task ExecuteCancel()
+        private async Task ExecuteSearchHistory()
         {
             try
             {
@@ -426,7 +453,31 @@ namespace Tianhe.viewmodel
                 await historyController.SearchHistoryAsync(defaultUser);
 
                 var historyList = MainSession.PlatformSession["history"] as List<History>;
-                var historyGroup = historyList.GroupBy(x => x.see_start_time);
+                var historyGroup = historyList.GroupBy(x => x.Key);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private async Task ExecuteCancelOne()
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private async Task ExecuteCancel()
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {

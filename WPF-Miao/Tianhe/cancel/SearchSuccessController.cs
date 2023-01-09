@@ -73,13 +73,16 @@ namespace Tianhe.cancel
             var historyList = new List<History>();
             foreach (var his in validHistories)
             {
+                var date = his.GetString("see_date");
+                var time = his.GetString("see_start_time");
                 var history = new History
                 {
                     id = his.GetString("id"),
                     name = his.GetString("name"),
-                    see_date = his.GetString("see_date"),
-                    see_start_time = his.GetString("see_start_time"),
+                    see_date = date,
+                    see_start_time = time,
                     see_end_time = his.GetString("see_end_time"),
+                    Key = $"{date} | {time}",
                 };
 
                 historyList.Add(history);
