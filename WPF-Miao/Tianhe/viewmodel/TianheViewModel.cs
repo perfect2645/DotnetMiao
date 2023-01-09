@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Tianhe.appointment;
+using Tianhe.cancel;
 using Tianhe.login;
 using Tianhe.search;
 using Tianhe.session;
@@ -163,7 +164,7 @@ namespace Tianhe.viewmodel
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
-            CancelCommand = new RelayCommand(ExecuteCancel);
+            CancelCommand = new AsyncRelayCommand(ExecuteCancel);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
             MainSession.OrderEvent.Subscribe(OnOrder);
@@ -416,12 +417,16 @@ namespace Tianhe.viewmodel
 
         #region Cancel
 
-        private async void ExecuteCancel()
+        private async Task ExecuteCancel()
         {
             try
             {
-                //var appointController = HttpServiceController.GetService<CancelController>();
-                //await appointController.CancelAsync();
+                var defaultUser = MainSession.Users.FirstOrDefault();
+                var historyController = HttpServiceController.GetService<SearchSuccessController>();
+                await historyController.SearchHistoryAsync(defaultUser);
+
+                var historyList = MainSession.PlatformSession["history"] as List<History>;
+                var historyGroup = historyList.GroupBy(x => x.see_start_time);
             }
             catch (Exception ex)
             {

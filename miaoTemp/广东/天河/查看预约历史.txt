@@ -1,0 +1,155 @@
+GET https://ldsq.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=20&offset=20 HTTP/1.1
+Host: ldsq.ldrmyy120.com
+Connection: keep-alive
+Authorization: Token ff0cf4cbb35bd4d956a3c968d1150ba3c56fbdc9
+Cookie: sessionid=jb9p09113cm13zem1u2qfke3a98bqtqe
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wxe78593328cbc7561/2/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.14.1
+Date: Mon, 09 Jan 2023 14:45:16 GMT
+Content-Type: application/json
+Content-Length: 3071
+Connection: keep-alive
+Vary: Accept
+X-Frame-Options: SAMEORIGIN
+Allow: GET, HEAD, OPTIONS
+
+{
+    "count": 27,
+    "next": null,
+    "previous": "https://ldsq.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=20",
+    "results": [
+        {
+            "id": 662,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "九价HPV疫苗",
+            "see_date": "2023-01-09",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "车瑷玲",
+            "idno": "440117200203070082",
+            "mobile": "17190092942",
+            "see_start_time": "14:30:00",
+            "see_end_time": "15:00:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/662/"
+        },
+        {
+            "id": 661,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "九价HPV疫苗",
+            "see_date": "2023-01-09",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "周珊",
+            "idno": "421081199905074281",
+            "mobile": "17615102645",
+            "see_start_time": "08:30:00",
+            "see_end_time": "09:00:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/661/"
+        },
+        {
+            "id": 644,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "九价HPV疫苗",
+            "see_date": "2023-01-08",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "刘依依",
+            "idno": "440113200307153021",
+            "mobile": "17190092942",
+            "see_start_time": "09:00:00",
+            "see_end_time": "09:30:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/644/"
+        },
+        {
+            "id": 643,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "九价HPV疫苗",
+            "see_date": "2023-01-08",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "周瑠夏",
+            "idno": "411527199909155545",
+            "mobile": "13940897525",
+            "see_start_time": "09:00:00",
+            "see_end_time": "09:30:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/643/"
+        },
+        {
+            "id": 526,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "四价HPV疫苗",
+            "see_date": "2023-01-08",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "周瑠夏",
+            "idno": "411527199909155545",
+            "mobile": "13940897525",
+            "see_start_time": "08:30:00",
+            "see_end_time": "09:00:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/526/"
+        },
+        {
+            "id": 510,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "九价HPV疫苗",
+            "see_date": "2023-01-08",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "周瑠夏",
+            "idno": "411527199909155545",
+            "mobile": "13940897525",
+            "see_start_time": "14:30:00",
+            "see_end_time": "15:00:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/510/"
+        },
+        {
+            "id": 474,
+            "hospital_obj": {
+                "id": 4,
+                "name": "天河区龙洞街社区卫生服务中心"
+            },
+            "vaccine_project_name": "四价HPV疫苗",
+            "see_date": "2023-01-08",
+            "status": "3",
+            "get_status_display": "已取消",
+            "name": "周瑠夏",
+            "idno": "411527199909155545",
+            "mobile": "13940897525",
+            "see_start_time": "14:30:00",
+            "see_end_time": "15:00:00",
+            "get_inoculate_times": "第1针",
+            "get_url": "https://ldsq.ldrmyy120.com/examine/vaccine_detail/474/"
+        }
+    ],
+    "size": 20
+}

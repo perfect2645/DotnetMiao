@@ -1,16 +1,15 @@
 ﻿using HttpProcessor.Client;
 using Jikong.common;
+using Jikong.login;
 using Jikong.session;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Windows.Interop;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using Jikong.login;
-using System;
 
 namespace Jikong.search
 {

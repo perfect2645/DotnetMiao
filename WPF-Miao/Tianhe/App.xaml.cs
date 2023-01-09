@@ -33,6 +33,7 @@ namespace Tianhe
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();
+            HttpServiceController.AddTransientService<SearchSuccessController>();
 
             HttpServiceController.BuidServiceProvider();
         }

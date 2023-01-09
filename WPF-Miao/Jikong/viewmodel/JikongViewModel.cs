@@ -19,6 +19,7 @@ using Utils.datetime;
 using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
+using Jikong.cancel;
 
 namespace Jikong.viewmodel
 {
@@ -118,9 +119,9 @@ namespace Jikong.viewmodel
             DateList = new List<DspVal>
             {
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -420,8 +421,11 @@ namespace Jikong.viewmodel
         {
             try
             {
-                //var appointController = HttpServiceController.GetService<CancelController>();
-                //await appointController.CancelAsync();
+                var defaultUser = MainSession.Users.FirstOrDefault();
+                var historyController = HttpServiceController.GetService<SearchSuccessController>();
+                await historyController.SearchHistoryAsync(defaultUser);
+
+                var historyList = MainSession.PlatformSession["history"] as List<History>;
             }
             catch (Exception ex)
             {
