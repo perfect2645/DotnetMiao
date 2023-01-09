@@ -10,5 +10,6 @@
         public string InoculateTimes { get; set; } = "1";
         public string Authorization { get; set; }
         public string Cookie { get; set; }
+        public string YuyueId { get; set; }
     }
 }

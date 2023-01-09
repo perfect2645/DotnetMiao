@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows;
 using Tianhe.appointment;
+using Tianhe.cancel;
 using Tianhe.login;
 using Tianhe.search;
 
@@ -31,6 +32,7 @@ namespace Tianhe
             HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<CancelController>();
 
             HttpServiceController.BuidServiceProvider();
         }
