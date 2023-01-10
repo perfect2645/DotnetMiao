@@ -469,6 +469,7 @@ namespace Tianhe.viewmodel
                 }
 
                 HistoryList = orderHistories;
+                PrintLog($"查询预约记录成功-数据量:{HistoryList.Count}");
             }
             catch (Exception ex)
             {
@@ -480,7 +481,20 @@ namespace Tianhe.viewmodel
         {
             try
             {
+                if (SelectedHistory == null)
+                {
+                    PrintLog("请选择一个取消时间");
+                    return;
+                }
+                await Task.Factory.StartNew(() =>
+                {
+                    var cancelController = HttpServiceController.GetService<CancelController>();
+                    var defaultOrderId = SelectedHistory.Value.SplitToList(",").FirstOrDefault();
+                    var defaultUser = MainSession.Users.FirstOrDefault();
+                    cancelController.CancelAsync(defaultUser, defaultOrderId);
+                });
 
+                await ExecuteSearchHistory();
             }
             catch (Exception ex)
             {
@@ -492,7 +506,28 @@ namespace Tianhe.viewmodel
         {
             try
             {
+                if (SelectedHistory == null)
+                {
+                    PrintLog("请选择一个取消时间");
+                    return;
+                }
+                var cancelIdList = SelectedHistory.Value.SplitToList(",");
+                var defaultUser = MainSession.Users.FirstOrDefault();
 
+                var cancelTasks = new List<Task>();
+                foreach(var cancelId in cancelIdList)
+                {
+                    var cancelTask = Task.Factory.StartNew(() =>
+                    {
+                        var cancelController = HttpServiceController.GetService<CancelController>();
+                        cancelController.CancelAsync(defaultUser, cancelId);
+                    });
+                    cancelTasks.Add(cancelTask);
+                }
+
+                Task.WaitAll(cancelTasks.ToArray());
+
+                await ExecuteSearchHistory();
             }
             catch (Exception ex)
             {
