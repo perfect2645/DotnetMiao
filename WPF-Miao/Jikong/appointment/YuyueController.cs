@@ -55,7 +55,7 @@ namespace Jikong.appointment
 
                 var root = response.JsonBody.RootElement;
                 var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("message").NotNullString();
+                var msg = root.GetProperty("msg").NotNullString();
                 if (code != "0" || msg != "操作完成")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:code={code}, message: {msg}");

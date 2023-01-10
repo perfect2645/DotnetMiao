@@ -5,6 +5,10 @@ namespace Jikong.viewmodel
 {
     internal class JikongHospital : HospitalDept
     {
+
+        public string DoctorId { get; set; }
+        public string DoctorName { get; set; }
+
         public override string ToLogString()
         {
             var sb = new StringBuilder();

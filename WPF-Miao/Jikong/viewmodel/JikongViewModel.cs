@@ -116,23 +116,24 @@ namespace Jikong.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
 
-            DateList = new List<DspVal>
+            var dateRange = DateTimeUtil.GetDateRange(DateTimeUtil.GetTomorrow(), DateTimeUtil.GetTargetDate(8));
+            DateList = new List<DspVal>();
+            foreach(var date in dateRange)
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
-            };
+                var dateItem = new DspVal(date);
+                DateList.Add(dateItem);
+            }
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             TimeList = new List<DspVal>
             {
-                new DspVal("08:00:00-08:30:00", "3"),
-                new DspVal("08:30:00-09:00:00", "4"),
-                new DspVal("09:00:00-09:30:00", "5"),
-                new DspVal("14:00:00-14:30:00", "9"),
-                new DspVal("14:30:00-15:00:00", "10"),
+                new DspVal("09:00-10:00"),
+                new DspVal("10:00-11:00"),
+                new DspVal("11:00-12:00"),
+                new DspVal("14:00-15:00"),
+                new DspVal("15:00-16:00"),
+                new DspVal("16:00-17:00"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
@@ -141,17 +142,12 @@ namespace Jikong.viewmodel
             {
                 new JikongHospital
                 {
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
-                },
-                new JikongHospital
-                {
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "四价",
-                    DepartmentId = "2",
+                    HospitalId = "1",
+                    HospitalName = "武汉疾控",
+                    DepartmentName = "九价宫颈癌疫苗",
+                    DepartmentId = "18013",
+                    DoctorId = "703",
+                    DoctorName = "九价宫颈癌疫苗"
                 },
             };
 
@@ -200,13 +196,13 @@ namespace Jikong.viewmodel
 
         #region Login
 
-        private async void LoginFromConfigAsync()
+        private void LoginFromConfigAsync()
         {
             MainSession.Users = FileReader.DeserializeFile<List<JikongLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
-                var openIdController = HttpServiceController.GetService<OpenIdController>();
-                await openIdController.GetOpenIdAsync(user);
+                //var openIdController = HttpServiceController.GetService<OpenIdController>();
+                //await openIdController.GetOpenIdAsync(user);
                 var userController = HttpServiceController.GetService<UserController>();
                 userController.GetUserAsync(user);
             }
@@ -434,6 +430,7 @@ namespace Jikong.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
 
             Log(selectedDept.ToLogString());
         }

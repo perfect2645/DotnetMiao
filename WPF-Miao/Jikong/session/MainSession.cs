@@ -14,6 +14,8 @@ namespace Jikong.session
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
+        public static MiaoSession MiaoSession { get; private set; }
+        
         internal static Dictionary<string, List<Order>> Orders { get; set; }
 
         static MainSession()
@@ -28,6 +30,7 @@ namespace Jikong.session
         public static void InitSession()
         {
             AppointSession = new AppointSession();
+            MiaoSession = new MiaoSession();
         }
 
         #region MiaoStatus
