@@ -9,7 +9,7 @@ namespace Jikong.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********楚天名医-选择医院科室*********");
+            sb.AppendLine("********武汉疾控-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {DepartmentName}");
             sb.AppendLine($"DepartmentId - {DepartmentId}");
             sb.AppendLine("**************************************");

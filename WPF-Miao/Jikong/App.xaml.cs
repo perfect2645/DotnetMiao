@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Container;
 using Jikong.appointment;
+using Jikong.login;
 using Jikong.search;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,11 +27,12 @@ namespace Jikong
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<OpenIdController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
-
+            
             HttpServiceController.BuidServiceProvider();
         }
     }

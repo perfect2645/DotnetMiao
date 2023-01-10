@@ -103,7 +103,7 @@ namespace Jikong.viewmodel
             MainSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
-            LoginFromConfig();
+            LoginFromConfigAsync();
         }
 
         private void TestData()
@@ -200,11 +200,13 @@ namespace Jikong.viewmodel
 
         #region Login
 
-        private void LoginFromConfig()
+        private async void LoginFromConfigAsync()
         {
             MainSession.Users = FileReader.DeserializeFile<List<JikongLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
+                var openIdController = HttpServiceController.GetService<OpenIdController>();
+                await openIdController.GetOpenIdAsync(user);
                 var userController = HttpServiceController.GetService<UserController>();
                 userController.GetUserAsync(user);
             }
@@ -287,15 +289,9 @@ namespace Jikong.viewmodel
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
                 UserId = user.UserId,
                 UserName = user.UserName,
                 User = user,
-                VaccineId = deptId
             };
         }
 
@@ -357,7 +353,7 @@ namespace Jikong.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.VisitDate}{order.VisitTime}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -389,15 +385,9 @@ namespace Jikong.viewmodel
                 {
                     var order = new Order
                     {
-                        Address = user.Address,
-                        DutyTimeId = template.DutyTimeId,
-                        HosipitalId = template.HosipitalId,
-                        InoculateTimes = user.InoculateTimes,
-                        SeeDate = template.SeeDate,
                         User = user,
                         UserId = user.UserId,
                         UserName = user.UserName,
-                        VaccineId = template.VaccineId,
                     };
 
                     orderList.Add(order);

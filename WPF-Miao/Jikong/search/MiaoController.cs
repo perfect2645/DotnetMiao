@@ -122,15 +122,9 @@ namespace Jikong.search
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
                 UserId = user.UserId,
                 UserName = user.UserName,
                 User = user,
-                VaccineId = deptId
             };
         }
     }

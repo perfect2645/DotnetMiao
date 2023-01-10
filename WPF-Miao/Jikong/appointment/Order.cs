@@ -24,9 +24,12 @@ namespace Jikong.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"SeeDate - {SeeDate}");
-            sb.AppendLine($"VaccineId - {VaccineId}");
-            sb.AppendLine($"DutyTimeId - {DutyTimeId}");
+            sb.AppendLine($"ItemName - {ItemName}");
+            sb.AppendLine($"VisitDate - {VisitDate}");
+            sb.AppendLine($"VisitTime - {VisitTime}");
+            sb.AppendLine($"AmOrPm - {AmOrPm}");
+            sb.AppendLine($"ScheduleCode - {ScheduleCode}");
+            sb.AppendLine($"ScheduleInfoCode - {ScheduleInfoCode}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

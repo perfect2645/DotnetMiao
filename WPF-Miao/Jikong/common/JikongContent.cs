@@ -21,7 +21,10 @@ namespace Jikong.common
             AddHeader("Origin", "https://hscx.whcdc.org");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
             AddHeader("Accept", "application/json");
-            AddHeader("openId", User.OpenId);
+            if (!string.IsNullOrEmpty(User.OpenId))
+            {
+                AddHeader("openId", User.OpenId);
+            }
             AddHeader("token", string.Empty);
             AddHeader("sign", User.Sign);
             AddHeader("idCard", User.IdCardEncode);

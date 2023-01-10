@@ -63,7 +63,7 @@ namespace Tianhe.appointment
                     }
                     return false;
                 }
-                var msg = root.GetProperty("message").NotNullString();
+                var msg = root.GetProperty("msg").NotNullString();
                 if (msg != "预约成功")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
