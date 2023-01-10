@@ -134,7 +134,7 @@ namespace Tianhe.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
@@ -143,10 +143,10 @@ namespace Tianhe.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
