@@ -30,7 +30,8 @@
                     </Button>
                 </StackPanel>-->
                 <StackPanel Background="Bisque">
-                    <ComboBox
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
                         Style="{StaticResource mui_combobox}"
                         materialDesign:HintAssist.Hint="选择时间组"
                         ItemsSource="{Binding HistoryList}"
@@ -38,14 +39,15 @@
                         DisplayMemberPath="Display"
                         SelectedValuePath="Value"
                         Width="auto" Margin="20"/>
-                    <Button Content="刷新" Margin="0,0,10,0"
+                        <Button Content="刷新" Margin="0,0,0,0"
                         Command="{Binding RefreshHistoryCommand}" Width="100">
-                    </Button>
+                        </Button>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Content="取消一个" Margin="0,0,10,0"
+                        <Button Content="取消一个" Margin="10,0,10,0"
                         Command="{Binding CancelOneCommand}" Width="100">
                         </Button>
-                        <Button Content="取消全部" Margin="0,0,10,0"
+                        <Button Content="取消全部" Margin="10,0,10,0"
                         Command="{Binding CancelCommand}" Width="100">
                         </Button>
                     </StackPanel>

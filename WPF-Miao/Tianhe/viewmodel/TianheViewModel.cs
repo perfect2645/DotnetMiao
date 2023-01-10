@@ -454,6 +454,21 @@ namespace Tianhe.viewmodel
 
                 var historyList = MainSession.PlatformSession["history"] as List<History>;
                 var historyGroup = historyList.GroupBy(x => x.Key);
+
+                var orderHistories = new List<DspVal>();
+                foreach(var history in historyGroup)
+                {
+                    var valList = history.Select(x => x.id).ToArray();
+                    if (!valList.HasItem())
+                    {
+                        continue;
+                    }
+                    var val = string.Join(",", valList);
+                    var dsp = $"{history.Key} 数量{valList.Count()}";
+                    orderHistories.Add(new DspVal(dsp, val));
+                }
+
+                HistoryList = orderHistories;
             }
             catch (Exception ex)
             {
