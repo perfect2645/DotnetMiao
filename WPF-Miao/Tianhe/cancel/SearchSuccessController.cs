@@ -66,9 +66,7 @@ namespace Tianhe.cancel
                 return;
             }
 
-            //var validHistories = histories.Where(h => h["get_status_display"].NotNullString() == "预约成功").ToList();
-
-            var validHistories = histories;
+            var validHistories = histories.Where(h => h["get_status_display"].NotNullString() == "预约成功").ToList();
 
             var historyList = new List<History>();
             foreach (var his in validHistories)
