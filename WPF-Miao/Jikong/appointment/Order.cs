@@ -7,12 +7,13 @@ namespace Jikong.appointment
     {
         public string UserId { get; set; }
         public string UserName { get; set; }
-        public string DutyTimeId { get; set; }
-        public string VaccineId { get; set; }
-        public string HosipitalId { get; set; }
-        public string InoculateTimes { get; set; } //第几针
-        public string SeeDate { get; set; }
-        public string Address { get; set; }
+        public string ItemName { get; set; }
+        public string VisitDate { get; set; }
+        public string VisitTime { get; set; }
+        public string AmOrPm { get; set; }
+        public string ScheduleCode { get; set; } //第几针
+        public string ScheduleInfoCode { get; set; }
+        public string Type { get; set; } = "1";
         internal JikongLogin User { get; set; }
 
         public string ToLogString()

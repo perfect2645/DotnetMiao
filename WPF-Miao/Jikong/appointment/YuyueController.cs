@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Threading;
 using Utils.stringBuilder;
 using System.Text.Json;
+using Utils.json;
+using Utils;
 
 namespace Jikong.appointment
 {
@@ -15,6 +17,7 @@ namespace Jikong.appointment
         private bool IsHeaderBuilt { get; set; }
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
+            IsSuccess = false;
         }
 
         public bool YuyueAsync(Order order)
@@ -51,29 +54,43 @@ namespace Jikong.appointment
                 }
 
                 var root = response.JsonBody.RootElement;
-                JsonElement error;
-                var isError = root.TryGetProperty("error", out error);
-                if (isError)
-                {
-                    var errMsg = error.NotNullString();
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:error {errMsg}");
-                    if (errMsg.Contains("总预约次数已满"))
-                    {
-                        return true;
-                    }
-                    return false;
-                }
+                var code = root.GetProperty("code").NotNullString();
                 var msg = root.GetProperty("message").NotNullString();
-                if (msg != "预约成功")
+                if (code != "0" || msg != "操作完成")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:code={code}, message: {msg}");
                     return false;
                 }
-                return true;
+
+                var data = root.GetProperty("data");
+                return SaveOrderResult(data);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
+                return false;
+            }
+        }
+
+        private bool SaveOrderResult(JsonElement data)
+        {
+            try
+            {
+                var orderData = JsonAnalysis.JsonToDic(data);
+
+                MainSession.PrintLogEvent.Publish(this, orderData);
+
+                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"解析预约结果异常{ex.Message}");
+
                 return false;
             }
         }

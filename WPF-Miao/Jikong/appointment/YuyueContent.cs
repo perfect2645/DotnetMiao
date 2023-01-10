@@ -6,7 +6,7 @@ namespace Jikong.appointment
 {
     internal class YuyueContent : JikongContent
     {
-        private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_created/";
+        private static string url = "https://hscx.whcdc.org/vaccineServer/RegApiManage/lockNumber";
         public Order Order { get; private set; }
         public YuyueContent(Order order, JikongLogin user) : base(url, user)
         {
@@ -16,13 +16,14 @@ namespace Jikong.appointment
 
         private void BuildContent()
         {
-            AddContent("duty_time_id", Order.DutyTimeId);
-            AddContent("vaccine_id", Order.VaccineId);
-            AddContent("hospital", Order.HosipitalId);
-            AddContent("inoculate_times", Order.InoculateTimes);
-            AddContent("patient", Order.UserId);
-            AddContent("see_date", Order.SeeDate);
-            AddContent("address", Order.Address);
+            AddContent("itemName", Order.ItemName);
+            AddContent("visitDate", Order.VisitDate);
+            AddContent("visitTime", Order.VisitTime);
+            AddContent("amOrPm", Order.AmOrPm);
+            AddContent("patientId", Order.UserId);
+            AddContent("scheduleCode", Order.ScheduleCode);
+            AddContent("scheduleInfoCode", Order.ScheduleInfoCode);
+            AddContent("type", Order.Type);
         }
     }
 }
