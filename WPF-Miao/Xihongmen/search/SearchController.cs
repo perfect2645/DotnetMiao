@@ -90,11 +90,10 @@ namespace Xihongmen.search
                 UserId = user.UserId,
                 UserName = userNameEncode,
                 TimeType = "22",
+                Token = user.Token,
                 User = user
             };
-            var content = new YuyueContent(dummyOrder);
-            cookieController.BuildClientHeaders(content);
-            cookieController.AppointAsync(content);
+            cookieController.YuyueAsync(dummyOrder);
         }
     }
 }

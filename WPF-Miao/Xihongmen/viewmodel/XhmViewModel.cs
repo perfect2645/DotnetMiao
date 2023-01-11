@@ -336,36 +336,62 @@ namespace Xihongmen.viewmodel
             }
             lock (OrderLock)
             {
-                var orderList = e.OrderList;
-                Task.Factory.StartNew(() => OnAppointment(orderList));
+                var orderTemplateList = e.OrderList;
+                Task.Factory.StartNew(() => OnAppointment(orderTemplateList));
             }
         }
 
-        private void OnAppointment(List<Order> orderList)
+        private void OnAppointment(List<Order> orderTemplateList)
         {
             try
             {
                 var preContent = new YuyueContent();
 
-                foreach (var order in orderList)
+                foreach (var user in MainSession.Users)
                 {
-                    if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                    var orderList = new List<Order>();
+                    foreach (var order in orderList)
                     {
-                        return;
+                        order.UserId = user.UserId;
+                        order.UserName = user.UserName;
+                        order.Token = user.Token;
+                        order.User = user;
+
+                        orderList.Add(order);
                     }
-                    var controller = MainSession.AppointSession.GetController(order.Date);
-                    var content = new YuyueContent(order);
-                    controller.BuildClientHeaders(content);
-                    controller.AppointAsync(content);
-//#if DEBUG
-//                    PrintLog("debug return!");
-//                    return;
-//#endif
-                    order.IntervalOnTime.StartIntervalOntime(() =>
-                    {
-                        Task.Factory.StartNew(() => controller.AppointAsync(content));
-                    });
+
+                    Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
                 }
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void StartOneOrder(string userName, List<Order> orders)
+        {
+            try
+            {
+                bool isSuccess = false;
+                while (!isSuccess)
+                {
+                    foreach (var order in orders)
+                    {
+                        var controller = MainSession.AppointSession.GetController(order.Date);
+                        isSuccess = controller.YuyueAsync(order);
+                        if (isSuccess)
+                        {
+                            PrintLog("预约成功");
+                            PrintLog(order.ToLogString());
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
             }
             catch (Exception ex)
             {

@@ -1,53 +1,42 @@
 ﻿using Base.viewmodel.status;
-using Xihongmen.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using System;
 using System.Net.Http;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Utils.stringBuilder;
-using System.Net.Http.Headers;
+using Xihongmen.session;
 
 namespace Xihongmen.appointment
 {
     internal class YuyueController : HttpClientBase
     {
-        private int count = 0;
+        private bool IsHeaderBuilt { get; set; }
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void BuildHeaders(YuyueContent content)
+        public bool YuyueAsync(Order order)
         {
-            BuildClientHeaders(content);
+            MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
+            var content = new YuyueContent(order);
+            return Yuyue(content);
         }
 
-        public void AppointAsync(YuyueContent content)
-        {
-            Task.Factory.StartNew(() =>
-            {
-                Appoint(content);
-            });
-        }
-
-        public void Appoint(YuyueContent content)
+        internal bool Yuyue(YuyueContent content)
         {
             try
             {
-                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                if (!IsHeaderBuilt)
                 {
-                    content.Order.IntervalOnTime.StopInterval();
-                    return;
+                    content.BuildDefaultHeaders(Client);
+                    IsHeaderBuilt = true;
                 }
-                MainSession.PrintLogEvent.Publish(this, content.Order.ToLogString());
-
-                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
                     Log($"没查到苗{response?.Message}");
-                    return;
+                    return false;
                 }
 
                 var root = response.JsonBody.RootElement;
@@ -59,28 +48,26 @@ namespace Xihongmen.appointment
                     {
                         content.Order.User.Cookie = cookie.NotNullString();
                         MainSession.PrintLogEvent.Publish(this, $"Cookie get for {content.Order.User.UserName}: {content.Order.User.Cookie}");
-                        return;
+                        return false;
                     }
                 }
 
-                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
-                {
-                    content.Order.IntervalOnTime.StopInterval();
-                    return;
-                }
                 if ("OK".Equals(msg, StringComparison.OrdinalIgnoreCase))
                 {
                     var data = root.GetProperty("data");
                     AnalysisResult(data, content.Order);
+                    return true;
                 }
                 else
                 {
                     Log($"预约失败 - {msg}");
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
+                return false;
             }
         }
 
@@ -100,18 +87,5 @@ namespace Xihongmen.appointment
             }
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }
-
-        #region 转号
-
-        public void Exchange(YuyueContent contnet)
-        {
-            Appoint(contnet);
-            contnet.Order.IntervalOnTime.StartIntervalOntime(() =>
-            {
-                Appoint(contnet);
-            });
-        }
-
-        #endregion 转号
     }
 }
