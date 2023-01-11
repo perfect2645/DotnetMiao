@@ -124,7 +124,7 @@ namespace Utils.datetime
 
             while(startDate <= endDate)
             {
-                result.Add(startDate.ToString());
+                result.Add(startDate.ToString("yyyy-MM-dd"));
 
                 startDate = startDate.AddDays(1);
             }

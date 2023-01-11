@@ -3,6 +3,9 @@ using Base.viewmodel.status;
 using Jikong.appointment;
 using System.Collections.Generic;
 using Jikong.login;
+using Base.model;
+using System;
+using System.Linq;
 
 namespace Jikong.session
 {
@@ -14,9 +17,14 @@ namespace Jikong.session
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
-        public static MiaoSession MiaoSession { get; private set; }
+        internal static MiaoSession MiaoSession { get; private set; }
         
         internal static Dictionary<string, List<Order>> Orders { get; set; }
+
+        internal static List<string> DateList 
+        {
+            get { return GetDateList(); }
+        }
 
         static MainSession()
         {
@@ -31,6 +39,17 @@ namespace Jikong.session
         {
             AppointSession = new AppointSession();
             MiaoSession = new MiaoSession();
+        }
+
+        private static List<string> GetDateList()
+        {
+            if (PlatformSession.ContainsKey("DateList"))
+            {
+                var dateList = PlatformSession["DateList"] as List<DspVal>;
+                return dateList.Select(d => d.Value).ToList();
+            }
+
+            return new List<string>();
         }
 
         #region MiaoStatus

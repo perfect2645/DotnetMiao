@@ -8,6 +8,8 @@ using Base.viewmodel.status;
 using System.Threading;
 using System.Linq;
 using System.Collections.Generic;
+using Base.model;
+using Utils.number;
 
 namespace Jikong.search
 {
@@ -28,34 +30,16 @@ namespace Jikong.search
             //SearchInterval.StartIntervalOntime();
         }
 
-        public void SearchMiao()
+        public async Task SearchMiaoAsync()
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
 
-            GetDates();
-            GetTimes();
-        }
-
-        private void GetDates()
-        {
-            var defaultUser = MainSession.Users.FirstOrDefault();
-
-            var isDateGet = false;
-            while (!isDateGet)
-            {
-                isDateGet = dateController.GetDate(defaultUser);
-                Thread.Sleep(200);
-            }
-        }
-
-        private void GetTimes()
-        {
-            var dateList = MainSession.PlatformSession["orderDates"] as List<string>;
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
             var defaultUser = MainSession.Users.FirstOrDefault();
 
             foreach (var date in dateList)
             {
-                Task.Factory.StartNew(() => GetMiao(date, defaultUser));
+                await Task.Factory.StartNew(() => GetMiao(date.Value, defaultUser));
             }
         }
 
@@ -67,7 +51,7 @@ namespace Jikong.search
             while(!isMiaoGet)
             {
                 isMiaoGet = miaoController.SearchMiao(date, user);
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
             }
         }
     }

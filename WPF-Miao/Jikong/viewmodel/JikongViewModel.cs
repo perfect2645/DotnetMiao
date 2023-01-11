@@ -20,6 +20,7 @@ using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
 using Jikong.cancel;
+using System.Threading;
 
 namespace Jikong.viewmodel
 {
@@ -109,14 +110,14 @@ namespace Jikong.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
 
-            var dateRange = DateTimeUtil.GetDateRange(DateTimeUtil.GetTomorrow(), DateTimeUtil.GetTargetDate(8));
+            var dateRange = DateTimeUtil.GetDateRange(DateTimeUtil.GetTargetDate(10), DateTimeUtil.GetTargetDate(10));
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
@@ -144,11 +145,20 @@ namespace Jikong.viewmodel
                 {
                     HospitalId = "1",
                     HospitalName = "武汉疾控",
-                    DepartmentName = "九价宫颈癌疫苗",
+                    DepartmentName = "预检登记室",
                     DepartmentId = "18013",
                     DoctorId = "703",
-                    DoctorName = "九价宫颈癌疫苗"
+                    DoctorName = "九价人乳头瘤病毒疫苗"
                 },
+                new JikongHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "武汉疾控",
+                    DepartmentName = "预检登记室",
+                    DepartmentId = "18013",
+                    DoctorId = "705",
+                    DoctorName = "成人流感疫苗"
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -242,7 +252,7 @@ namespace Jikong.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    BuildOrders();
+                    //BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -293,11 +303,11 @@ namespace Jikong.viewmodel
 
         protected override void AutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
-                    Task.Factory.StartNew(() => Appoint());
-                    _searchController.SearchMiao();
+                    await _searchController.SearchMiaoAsync();
+                    //_searchController.SearchMiaoAsync();
                 }
                 catch (HttpException ex)
                 {
@@ -357,6 +367,7 @@ namespace Jikong.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
+                        Thread.Sleep(1000);
                     }
                 }
             }
@@ -384,6 +395,12 @@ namespace Jikong.viewmodel
                         User = user,
                         UserId = user.UserId,
                         UserName = user.UserName,
+                        AmOrPm = template.AmOrPm,
+                        ItemName = template.ItemName,
+                        ScheduleCode = template.ScheduleCode,
+                        ScheduleInfoCode = template.ScheduleInfoCode,
+                        VisitDate = template.VisitDate,
+                        VisitTime = template.VisitTime,
                     };
 
                     orderList.Add(order);
@@ -430,7 +447,8 @@ namespace Jikong.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }

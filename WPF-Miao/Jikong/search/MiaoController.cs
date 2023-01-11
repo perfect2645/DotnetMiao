@@ -15,6 +15,7 @@ using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
+using Newtonsoft.Json;
 
 namespace Jikong.search
 {
@@ -57,7 +58,7 @@ namespace Jikong.search
                 }
 
                 var data = root.GetProperty("data");
-                return SaveOrderResult(data, user);
+                return SaveMiao(data, user);
             }
             catch (Exception ex)
             {
@@ -67,39 +68,35 @@ namespace Jikong.search
         }
 
 
-        private bool SaveOrderResult(JsonElement data, JikongLogin user)
+        private bool SaveMiao(JsonElement data, JikongLogin user)
         {
-            var dateSchedule = JsonAnalysis.JsonToDic(data);
-            if (!dateSchedule.HasItem())
+            var summaryList = JsonAnalysis.JsonToDicList(data);
+            if (!summaryList.HasItem())
             {
-                Log($"查苗失败失败");
+                Log($"没开始放苗");
                 return false;
             }
 
-            var scheduleCodesElement = data.GetProperty("scheduleCodes");
-            var scheduleCodes = JsonAnalysis.JsonToDicList(scheduleCodesElement);
+            var summary = summaryList.FirstOrDefault() as Dictionary<string, object>;
 
-            var listElement = data.GetProperty("list");
-            var scheduleList = JsonAnalysis.JsonToDicList(listElement);
+            var list = summary["list"].NotNullString();
+            var scheduleList = JsonConvert.DeserializeObject<List<Schedule>>(list);
 
-
-
-            MainSession.PrintLogEvent.Publish(this, "查到苗");
-            BuildOrderList(scheduleCodes, scheduleList);
+            BuildOrderList(scheduleList);
 
             return true;
         }
 
-        private void BuildOrderList(List<Dictionary<string, object>> scheduleCodes, List<Dictionary<string, object>> scheduleList)
+        private void BuildOrderList(List<Schedule> scheduleList)
         {
             var orderList = new List<Order>();
 
             foreach (var user in MainSession.Users)
             {
                 var userName = user.UserName;
-                foreach (var timeId in timeIdList)
+                foreach (var schedule in scheduleList)
                 {
-                    Order orderWithTime = BuildOneOrder(user, Date, timeId);
+                    Order orderWithTime = BuildOneOrder(user, Date, schedule);
                     orderList.Add(orderWithTime);
                 }
             }
@@ -113,15 +110,22 @@ namespace Jikong.search
             MainSession.OrderEvent.Publish(this, orderArgs);
         }
 
-        private Order BuildOneOrder(JikongLogin user, string date, string timeId)
+        private Order BuildOneOrder(JikongLogin user, string date, Schedule schedule)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
             return new Order
             {
                 UserId = user.UserId,
                 UserName = user.UserName,
                 User = user,
+                AmOrPm = schedule.amPm,
+                ItemName = doctorName,
+                ScheduleCode = schedule.scheduleCode,
+                ScheduleInfoCode = schedule.scheduleInfoCode,
+                VisitDate = Date,
+                VisitTime = schedule.minuteHourInfo,
             };
         }
     }
