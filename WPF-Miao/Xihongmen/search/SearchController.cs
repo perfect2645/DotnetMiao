@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Utils;
 using Xihongmen.appointment;
+using Xihongmen.login;
 using Xihongmen.session;
 
 namespace Xihongmen.search
@@ -21,12 +22,6 @@ namespace Xihongmen.search
             userController = HttpServiceController.GetService<UserController>();
             timeController = HttpServiceController.GetService<TimeController>();
         }
-
-        public async Task GetUserAsync()
-        {
-            await userController.GetUserAsync();
-        }
-
 
         public void SearchAsync()
         {
@@ -72,7 +67,7 @@ namespace Xihongmen.search
 
         }
 
-        internal void TryGetCookie()
+        internal void TryGetCookie(XhmLogin user)
         {
             var cookieController = HttpServiceController.GetService<YuyueController>();
 
@@ -81,9 +76,7 @@ namespace Xihongmen.search
             var deptNameEncode = UnicodeConverter.Encode(deptName, true);
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
-            var userInfo = MainSession.PlatformSession["user"] as Dictionary<string, object>;
-            var userId = MainSession.PlatformSession.GetString(Constants.UserId);
-            var userName = userInfo.GetString("child_name");
+            var userName = user.UserName;
             var userNameEncode = UnicodeConverter.Encode(userName, true);
 
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
@@ -94,9 +87,10 @@ namespace Xihongmen.search
                 TypeId = deptId,
                 Date = defaultDate.Value,
                 TypeTitle = deptNameEncode,
-                UserId = userId,
+                UserId = user.UserId,
                 UserName = userNameEncode,
                 TimeType = "22",
+                User = user
             };
             var content = new YuyueContent(dummyOrder);
             cookieController.BuildClientHeaders(content);

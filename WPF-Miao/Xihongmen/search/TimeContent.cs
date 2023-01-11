@@ -1,4 +1,5 @@
-﻿using Utils;
+﻿using System.Linq;
+using Utils;
 using Xihongmen.common;
 using Xihongmen.session;
 
@@ -17,7 +18,8 @@ namespace Xihongmen.search
         {
             AddContent("type_id", MainSession.PlatformSession.GetString(Constants.DeptId));
             AddContent("key", Key);
-            AddContent("token", MainSession.Token);
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            AddContent("token", defaultUser.Token);
         }
     }
 }

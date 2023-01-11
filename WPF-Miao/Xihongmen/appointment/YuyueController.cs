@@ -55,14 +55,13 @@ namespace Xihongmen.appointment
                 if (msg.Contains("请重试"))
                 {
                     object cookie = string.Empty;
-                    if (response.Headers.TryGetValue("Set-Cookie", out cookie))
+                    if (response.Headers.TryGetValue("Set-Cookie", out cookie!))
                     {
-                        MainSession.Cookie = cookie.NotNullString();
-                        MainSession.PrintLogEvent.Publish(this, $"Cookie get : {MainSession.Cookie}");
+                        content.Order.User.Cookie = cookie.NotNullString();
+                        MainSession.PrintLogEvent.Publish(this, $"Cookie get for {content.Order.User.UserName}: {content.Order.User.Cookie}");
                         return;
                     }
                 }
-
 
                 if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                 {
@@ -94,13 +93,13 @@ namespace Xihongmen.appointment
             order.IntervalOnTime?.StopInterval();
             MainSession.PrintLogEvent.Publish(this, $"result:预约申请提交成功");
             order.OrderId = miaoInfo.GetProperty("id").NotNullString();
+            order.User.OrderId = order.OrderId;
             if (!string.IsNullOrEmpty(order.OrderId))
             {
                 MainSession.SetStatus(MiaoProgress.AppointEnd);
             }
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }
-
 
         #region 转号
 

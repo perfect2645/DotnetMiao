@@ -1,4 +1,5 @@
 ﻿using Xihongmen.common;
+using Xihongmen.login;
 using Xihongmen.session;
 
 namespace Xihongmen.search
@@ -7,15 +8,15 @@ namespace Xihongmen.search
     {
         private const string url = "https://yiyuan.dabannet.cn/getChildList";
 
-        public UserContent() : base(url)
+        public UserContent(XhmLogin user) : base(url)
         {
-            BuildContent();
+            BuildContent(user);
         }
 
-        private void BuildContent()
+        private void BuildContent(XhmLogin user)
         {
             AddContent("key", Key);
-            AddContent("token", MainSession.Token);
+            AddContent("token", user.Token);
         }
     }
 }

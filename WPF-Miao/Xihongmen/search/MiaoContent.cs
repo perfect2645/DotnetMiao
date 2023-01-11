@@ -1,4 +1,5 @@
-﻿using Utils;
+﻿using System.Linq;
+using Utils;
 using Utils.datetime;
 using Xihongmen.common;
 using Xihongmen.session;
@@ -27,7 +28,9 @@ namespace Xihongmen.search
 
             AddContent("time", time);
             AddContent("key", Key);
-            AddContent("token", MainSession.Token);
+
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            AddContent("token", defaultUser.Token);
         }
 
         internal void BuildContent()
@@ -36,7 +39,8 @@ namespace Xihongmen.search
 
             AddContent("time", Time);
             AddContent("key", Key);
-            AddContent("token", MainSession.Token);
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            AddContent("token", defaultUser.Token);
         }
     }
 }

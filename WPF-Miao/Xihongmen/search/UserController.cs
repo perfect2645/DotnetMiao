@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
+using Xihongmen.login;
 using Xihongmen.session;
 
 namespace Xihongmen.search
@@ -17,16 +18,16 @@ namespace Xihongmen.search
         {
         }
 
-        public async Task GetUserAsync()
+        public void GetUserAsync(XhmLogin user)
         {
-            await Task.Factory.StartNew(() => GetUser());
+            Task.Factory.StartNew(() => GetUser(user));
         }
 
-        public void GetUser()
+        public void GetUser(XhmLogin user)
         {
             try
             {
-                var content = new UserContent();
+                var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
@@ -39,7 +40,7 @@ namespace Xihongmen.search
                 if ("200".Equals(code) && "OK".Equals(msg))
                 {
                     var data = response.JsonBody.RootElement.GetProperty("data");
-                    SaveUser(data);
+                    SaveUsers(data, user);
                 }
             }
             catch (Exception ex)
@@ -48,7 +49,7 @@ namespace Xihongmen.search
             }
         }
 
-        private void SaveUser(JsonElement data)
+        private void SaveUsers(JsonElement data, XhmLogin user)
         {
             var familyMembers = JsonAnalysis.JsonToDicList(data);
             if (!familyMembers.HasItem())
@@ -56,14 +57,14 @@ namespace Xihongmen.search
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
-
-            var defaultUser = familyMembers.FirstOrDefault();
-            var userId = defaultUser.GetString("id");
-            var userName = defaultUser.GetString("child_name");
-            var idcard = defaultUser.GetString("child_ID_number");
-
-            MainSession.PlatformSession.AddOrUpdate(Constants.UserId, userId);
-            MainSession.PlatformSession.AddOrUpdate("user", defaultUser);
+            var defaultUser = familyMembers.FirstOrDefault(x => x["child_name"].NotNullString() == user.UserName);
+            if (defaultUser == null)
+            {
+                defaultUser = familyMembers.FirstOrDefault();
+            }
+            user.UserId = defaultUser.GetString("id");
+            user.UserName = defaultUser.GetString("child_name");
+            user.IdCard = defaultUser.GetString("child_ID_number");
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

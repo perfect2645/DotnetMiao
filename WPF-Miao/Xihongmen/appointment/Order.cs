@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Utils.timerUtil;
+using Xihongmen.login;
 
 namespace Xihongmen.appointment
 {
@@ -13,6 +14,8 @@ namespace Xihongmen.appointment
         public string Date { get; set; }
         public string TimeType { get; set; }
         public string OrderId { get; set; }
+        internal XhmLogin User { get; set; }
+        internal string Token { get; set; }
 
         public Order()
         {

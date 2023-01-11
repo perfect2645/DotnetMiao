@@ -31,7 +31,7 @@ namespace Xihongmen.appointment
             AddContent("member_name", Order.UserName);
             AddContent("timeType", Order.TimeType);
             AddContent("key", Key);
-            AddContent("token", MainSession.Token);
+            AddContent("token", Order.Token);
         }
     }
 }

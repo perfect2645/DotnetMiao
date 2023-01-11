@@ -2,29 +2,25 @@
 using Base.viewmodel.status;
 using Xihongmen.appointment;
 using System.Collections.Generic;
+using Xihongmen.login;
 
 namespace Xihongmen.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {
-        public static string Cookie { get; set; }
-        public static string Phone { get; set; }
-        public static string Token { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
-
-        public static UserSession UserSession { get; private set; }
-
         public static ReSessionEvent ReSessionEvent { get; }
         public static ScheduleEvent ScheduleEvent { get; }
         internal static AppointSession AppointSession { get; private set; }
         internal static MiaoSession MiaoSession { get; private set; }
+        internal static List<XhmLogin> Users { get; set; }
 
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
-            UserSession = new UserSession();
             ReSessionEvent = new ReSessionEvent();
             ScheduleEvent = new ScheduleEvent();
+            Users = new List<XhmLogin>();
         }
 
         public static void InitSession()

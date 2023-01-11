@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Content;
+using Xihongmen.login;
 using Xihongmen.session;
 
 namespace Xihongmen.common
@@ -6,6 +7,15 @@ namespace Xihongmen.common
     internal class XhmContent : HttpStringContent
     {
         public const string Key = "9b4fdBbFyGmrXQ1BmBQIjLAcmNbMfmQPg%2BIcLHe4G%2BKCdDc";
+
+        public XhmLogin User { get; private set; }
+
+        public XhmContent(string url, XhmLogin user) : base(url)
+        {
+            User = user;
+            ContentType = "application/x-www-form-urlencoded";
+            BuildHeader();
+        }
 
         public XhmContent(string url) : base(url)
         {
@@ -28,9 +38,9 @@ namespace Xihongmen.common
             AddHeader("Referer", "https://yiyuan.dabannet.cn/h5/");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
-            if (!string.IsNullOrEmpty(MainSession.Cookie))
+            if (!string.IsNullOrEmpty(User?.Cookie))
             {
-                AddHeader("Cookie", MainSession.Cookie);
+                AddHeader("Cookie", User?.Cookie);
             }
         }
     }

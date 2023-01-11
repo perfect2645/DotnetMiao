@@ -87,9 +87,9 @@ namespace Xihongmen.search
             var deptNameEncode = UnicodeConverter.Encode(deptName, true);
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
-            var userInfo = MainSession.PlatformSession["user"] as Dictionary<string, object>;
-            var userId = MainSession.PlatformSession.GetString(Constants.UserId);
-            var userName = userInfo.GetString("child_name");
+            var userInfo = MainSession.Users.FirstOrDefault();
+            var userId = userInfo.UserId;
+            var userName = userInfo.UserName;
             var userNameEncode = UnicodeConverter.Encode(userName, true);
 
             foreach (var timeId in timeIdList)

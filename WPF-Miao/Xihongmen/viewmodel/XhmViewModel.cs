@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
+using Utils.file;
 using Utils.stringBuilder;
 using Xihongmen.appointment;
 using Xihongmen.login;
@@ -83,7 +84,6 @@ namespace Xihongmen.viewmodel
             set
             {
                 _userPhone = value;
-                MainSession.Phone = value;
                 NotifyUI(() => UserPhone);
             }
         }
@@ -97,18 +97,6 @@ namespace Xihongmen.viewmodel
                 _loginYzm = value;
                 MainSession.PlatformSession.AddOrUpdate("LoginYzm", value);
                 NotifyUI(() => LoginYzm);
-            }
-        }
-
-        private string _token;
-        public string Token
-        {
-            get { return _token; }
-            set
-            {
-                _token = value;
-                MainSession.Token = value;
-                NotifyUI(() => Token);
             }
         }
 
@@ -138,21 +126,20 @@ namespace Xihongmen.viewmodel
             MainSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
+
+            LoginFromConfig();
         }
 
         private void TestData()
         {
             Interval = 800;
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "13940897525";
-            Token = "4870bd9076fd33cbbaec96e62c71da71";
-
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 12, 14, 8, 59, 40);
+            StartTime = new DateTime(2023, 1, 11, 16, 59, 00);
 
             SetDateList();
 
@@ -242,6 +229,18 @@ namespace Xihongmen.viewmodel
 
         #region Login
 
+        private void LoginFromConfig()
+        {
+            MainSession.Users = FileReader.DeserializeFile<List<XhmLogin>>("Login.json");
+            foreach (var user in MainSession.Users)
+            {
+                var userController = HttpServiceController.GetService<UserController>();
+                userController.GetUserAsync(user);
+            }
+
+            MainSession.InitSession();
+        }
+
         private async Task ExecuteLogin()
         {
             if (StringUtil.AnyEmpty(UserPhone, LoginYzm))
@@ -250,7 +249,7 @@ namespace Xihongmen.viewmodel
                 return;
             }
             var loginController = HttpServiceController.GetService<LoginController>();
-            Token = await loginController.LoginAsync(UserPhone, LoginYzm);
+            var token = await loginController.LoginAsync(UserPhone, LoginYzm);
 
             //MainSession.InitSession();
         }
@@ -281,9 +280,12 @@ namespace Xihongmen.viewmodel
                 {
                     MainSession.InitSession();
                     _searchController = new SearchController();
-                    await _searchController.GetUserAsync();
-                    _searchController.TryGetCookie();
-                    StartIntervalTimer();
+
+                    foreach(var user in MainSession.Users)
+                    {
+                        _searchController.TryGetCookie(user);
+                        StartIntervalTimer();
+                    }
                 }
                 catch (HttpException ex)
                 {
@@ -373,60 +375,12 @@ namespace Xihongmen.viewmodel
 
         private void ExecuteManual()
         {
-            Task.Factory.StartNew(async () => {
-                try
-                {
-                    MainSession.InitSession();
-                    _searchController = new SearchController();
-                    if (StringUtil.AnyEmpty(Token))
-                    {
-                        MainSession.PrintLogEvent.Publish(this, "请先登录");
-                        return;
-                    }
-                    MainSession.PrintLogEvent.Publish(this, $"手动预约");
-                    MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
-                    if (StringUtil.NotEmpty(ScheduleId))
-                    {
-                        DirectlyOrder(ScheduleId);
-                        return;
-                    }
- 
-                    _searchController.GetMiaoFromDate();
-                }
-                catch (HttpException ex)
-                {
-                    Log(ex);
-                }
-                catch (Exception ex)
-                {
-                    Log(ex);
-                }
-            });
         }
 
         private void DirectlyOrder(string scheduleId)
         {
-            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var userInfo = MainSession.UserSession.Users.FirstOrDefault(x => 
-                (x.Value as Dictionary<string, object>)?.GetString("isDefault") == "1").Value as Dictionary<string, object>;
 
-            var userId = userInfo.GetString(Constants.UserId);
-            var userName = userInfo.GetString("familyName");
-            var phone = userInfo.GetString("familyPhone");
-
-            var order = new Order();
-            order.UserId = userId;
-
-
-            var preOrderController = HttpServiceController.GetService<YuyueController>();
-            var content = new YuyueContent(order);
-            preOrderController.BuildHeaders(content);
-            Task.Factory.StartNew(() =>
-            {
-                preOrderController.Exchange(content);
-            });
         }
 
         #endregion Appoint
