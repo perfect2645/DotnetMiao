@@ -2,10 +2,11 @@
 {
     internal class History
     {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string see_date { get; set; }
-        public string see_start_time { get; set; }
-        public string see_end_time { get; set; }
+        public string registrationId { get;set; }
+        public string cardNo { get; set; }
+        public string patientName { get; set; }
+        public string visitDate { get; set; }
+        public string visitTime { get; set; }
+        public string Key { get; set; }
     }
 }

@@ -31,7 +31,8 @@ namespace Jikong.viewmodel
         public ICommand SearchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-
+        public ICommand CancelOneCommand { get; set; }
+        public ICommand RefreshHistoryCommand { get; set; }
         private List<DspVal> _dateList;
         public List<DspVal> DateList
         {
@@ -89,6 +90,28 @@ namespace Jikong.viewmodel
             }
         }
 
+        private List<DspVal> _historyList;
+        public List<DspVal> HistoryList
+        {
+            get { return _historyList; }
+            set
+            {
+                _historyList = value;
+                NotifyUI(() => HistoryList);
+            }
+        }
+
+        private DspVal _selectedHistory;
+        public DspVal SelectedHistory
+        {
+            get { return _selectedHistory; }
+            set
+            {
+                _selectedHistory = value;
+                NotifyUI(() => SelectedHistory);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController;
@@ -129,12 +152,12 @@ namespace Jikong.viewmodel
 
             TimeList = new List<DspVal>
             {
-                new DspVal("09:00-10:00"),
+                //new DspVal("09:00-10:00"),
                 new DspVal("10:00-11:00"),
-                new DspVal("11:00-12:00"),
-                new DspVal("14:00-15:00"),
-                new DspVal("15:00-16:00"),
-                new DspVal("16:00-17:00"),
+                //new DspVal("11:00-12:00"),
+                //new DspVal("14:00-15:00"),
+                //new DspVal("15:00-16:00"),
+                //new DspVal("16:00-17:00"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
@@ -170,8 +193,9 @@ namespace Jikong.viewmodel
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
-            CancelCommand = new RelayCommand(ExecuteCancel);
-
+            RefreshHistoryCommand = new AsyncRelayCommand(ExecuteSearchHistory);
+            CancelCommand = new AsyncRelayCommand(ExecuteCancel);
+            CancelOneCommand = new AsyncRelayCommand(ExecuteCancelOne);
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
             MainSession.OrderEvent.Subscribe(OnOrder);
         }
@@ -420,15 +444,96 @@ namespace Jikong.viewmodel
 
         #region Cancel
 
-        private async void ExecuteCancel()
+        private async Task ExecuteSearchHistory()
         {
             try
             {
-                var defaultUser = MainSession.Users.FirstOrDefault();
-                var historyController = HttpServiceController.GetService<SearchSuccessController>();
-                await historyController.SearchHistoryAsync(defaultUser);
+                MainSession.HistoryList = new List<History>();
+                foreach (var user in MainSession.Users)
+                {
+                    var historyController = HttpServiceController.GetService<SearchSuccessController>();
+                    await historyController.SearchHistoryAsync(user);
+                    Thread.Sleep(1000);
+                }
 
-                var historyList = MainSession.PlatformSession["history"] as List<History>;
+                var historyList = MainSession.HistoryList;
+                var historyGroup = historyList.GroupBy(x => x.Key);
+
+                var orderHistories = new List<DspVal>();
+                foreach (var history in historyGroup)
+                {
+                    var valList = history.Select(x => x.registrationId).ToArray();
+                    if (!valList.HasItem())
+                    {
+                        continue;
+                    }
+                    var nameArr = history.Select(x => x.patientName).ToArray();
+                    var val = string.Join(",", valList);
+                    var names = string.Join(",", nameArr);
+                    var dsp = $"{history.Key} 数量{valList.Count()} | {names} ";
+                    orderHistories.Add(new DspVal(dsp, val));
+                }
+
+                HistoryList = orderHistories;
+                PrintLog($"查询预约记录成功-数据量:{HistoryList.Count}");
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private async Task ExecuteCancelOne()
+        {
+            try
+            {
+                if (SelectedHistory == null)
+                {
+                    PrintLog("请选择一个取消时间");
+                    return;
+                }
+                await Task.Factory.StartNew(() =>
+                {
+                    var cancelController = HttpServiceController.GetService<CancelController>();
+                    var defaultOrderId = SelectedHistory.Value.SplitToList(",").FirstOrDefault();
+                    var defaultUser = MainSession.Users.FirstOrDefault();
+                    cancelController.CancelAsync(defaultUser, defaultOrderId);
+                });
+
+                await ExecuteSearchHistory();
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private async Task ExecuteCancel()
+        {
+            try
+            {
+                if (SelectedHistory == null)
+                {
+                    PrintLog("请选择一个取消时间");
+                    return;
+                }
+                var cancelIdList = SelectedHistory.Value.SplitToList(",");
+                var defaultUser = MainSession.Users.FirstOrDefault();
+
+                var cancelTasks = new List<Task>();
+                foreach (var cancelId in cancelIdList)
+                {
+                    var cancelTask = Task.Factory.StartNew(() =>
+                    {
+                        var cancelController = HttpServiceController.GetService<CancelController>();
+                        cancelController.CancelAsync(defaultUser, cancelId);
+                    });
+                    cancelTasks.Add(cancelTask);
+                }
+
+                Task.WaitAll(cancelTasks.ToArray());
+
+                await ExecuteSearchHistory();
             }
             catch (Exception ex)
             {

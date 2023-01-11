@@ -30,9 +30,7 @@ namespace Jikong.cancel
         {
             try
             {
-                //可以通过设置offset参数过滤
-                //https://ldsq.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=20&offset=20
-                var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=2000";
+                var url = $"https://hscx.whcdc.org/vaccineServer/RegApiManage/regRecord?patientId={user.UserId}&status=";
                 var content = new JikongContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
@@ -42,14 +40,15 @@ namespace Jikong.cancel
                     return;
                 }
                 var root = response.JsonBody.RootElement;
-
-                var results = root.GetProperty("results");
-                if (results.ValueKind == JsonValueKind.Null)
+                var code = root.GetProperty("code").NotNullString();
+                var msg = root.GetProperty("msg").NotNullString();
+                if (code != "0" || msg != "操作完成")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取预约历史失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"获取预约历史失败:code={code}, message: {msg}");
                     return;
                 }
-                SaveHistory(results, user);
+                var data = root.GetProperty("data");
+                SaveHistory(data, user);
             }
             catch (Exception ex)
             {
@@ -66,22 +65,31 @@ namespace Jikong.cancel
                 return;
             }
 
-            var validHistories = histories.Where(h => h["get_status_display"].NotNullString() == "预约成功").ToList();
-
-            var historyList = new List<History>();
-            foreach(var his in validHistories)
+            var validHistories = histories.Where(h => h["status"].NotNullString() == "-1").ToList();
+            if (!validHistories.HasItem())
             {
-                var history = new History
-                {
-                    id = his.GetString("id"),
-                    name = his.GetString("name"),
-                    see_date = his.GetString("see_date"),
-                    see_start_time = his.GetString("see_start_time"),
-                    see_end_time = his.GetString("see_end_time"),
-                };
+                return;
             }
 
-            MainSession.PlatformSession["history"] = historyList;
+            var historyList = new List<History>();
+            foreach (var his in validHistories)
+            {
+                var date = his.GetString("visitDate");
+                var time = his.GetString("visitTime");
+                var history = new History
+                {
+                    registrationId = his.GetString("registrationId"),
+                    cardNo = his.GetString("cardNo"),
+                    patientName = his.GetString("patientName"),
+                    visitDate = date,
+                    visitTime = time,
+                    Key = $"{date} | {time}",
+                };
+
+                historyList.Add(history);
+            }
+
+            MainSession.HistoryList.AddRange(historyList);
         }
     }
 }

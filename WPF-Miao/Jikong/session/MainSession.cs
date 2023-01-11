@@ -6,6 +6,7 @@ using Jikong.login;
 using Base.model;
 using System;
 using System.Linq;
+using Jikong.cancel;
 
 namespace Jikong.session
 {
@@ -26,6 +27,8 @@ namespace Jikong.session
             get { return GetDateList(); }
         }
 
+        internal static List<History> HistoryList { get; set; }
+
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
@@ -33,6 +36,7 @@ namespace Jikong.session
             OrderEvent = new OrderEvent();
             Users = new List<JikongLogin>();
             Orders = new Dictionary<string, List<Order>>();
+            HistoryList = new List<History>();
         }
 
         public static void InitSession()
