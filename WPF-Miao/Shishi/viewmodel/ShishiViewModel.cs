@@ -171,7 +171,7 @@ namespace Shishi.viewmodel
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
                     DepartmentName = "九价",
-                    DepartmentId = "1",
+                    DepartmentId = "YJYFJZ",
                 },
                 new ShishiHospital
                 {
