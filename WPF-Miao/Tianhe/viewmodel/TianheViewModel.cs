@@ -27,7 +27,7 @@ namespace Tianhe.viewmodel
     {
         #region Properties
 
-        public ICommand SearchCommand { get; set; }
+        public ICommand ManualCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand CancelCommand { get; set; }
         public ICommand CancelOneCommand { get; set; }
@@ -134,7 +134,7 @@ namespace Tianhe.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
@@ -145,7 +145,7 @@ namespace Tianhe.viewmodel
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
             };
 
@@ -154,7 +154,7 @@ namespace Tianhe.viewmodel
             TimeList = new List<DspVal>
             {
                 new DspVal("08:00:00-11:00:00", "1"),
-                new DspVal("14:00:00-16:00:00", "2"),
+                //new DspVal("14:00:00-16:00:00", "2"),
                 //new DspVal("08:00:00-08:30:00", "3"),
                 //new DspVal("08:30:00-09:00:00", "4"),
                 //new DspVal("09:00:00-09:30:00", "5"),
@@ -190,7 +190,7 @@ namespace Tianhe.viewmodel
         private void InitCommands()
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
-            SearchCommand = new RelayCommand(ExecuteManual);
+            ManualCommand = new RelayCommand(ExecuteManual);
             RefreshHistoryCommand = new AsyncRelayCommand(ExecuteSearchHistory);
             CancelCommand = new AsyncRelayCommand(ExecuteCancel);
             CancelOneCommand = new AsyncRelayCommand(ExecuteCancelOne);
@@ -356,6 +356,7 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
+                    BuildManualOrder();
                     Appoint();
                 }
                 catch (HttpException ex)
@@ -369,11 +370,55 @@ namespace Tianhe.viewmodel
             });
         }
 
+        private void BuildManualOrder()
+        {
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+            var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
+
+            var defaultDate = dateList.FirstOrDefault();
+            var defaultTime = timeList.FirstOrDefault();
+            var order = BuildOneOrder(defaultUser, defaultDate.Value, defaultTime.Value);
+
+            var orderList = new List<Order>();
+            orderList.Add(order);
+
+            MainSession.Orders = new Dictionary<string, List<Order>>();
+            MainSession.Orders.Add(defaultUser.UserName, orderList);
+        }
+
         private void Appoint()
         {
             foreach (var order in MainSession.Orders)
             {
-                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
+                Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
+            }
+        }
+
+        private void StartOneManual(string userName, List<Order> orders)
+        {
+            try
+            {
+                bool isSuccess = false;
+                foreach (var order in orders)
+                {
+                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                    isSuccess = appointController.YuyueAsync(order);
+                    if (isSuccess)
+                    {
+                        PrintLog("预约成功");
+                        PrintLog(order.ToLogString());
+                        return;
+                    }
+                }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
             }
         }
 
