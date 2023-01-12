@@ -100,7 +100,8 @@ namespace Xihongmen.search
                     Date = date,
                     TypeTitle = deptNameEncode,
                     UserId = userId,
-                    UserName = userNameEncode,
+                    UserName = userName,
+                    UserNameEncode = userNameEncode,
                     TimeType = timeId,
                 });
             }
@@ -112,8 +113,12 @@ namespace Xihongmen.search
                 OrderList = orderList
             };
 
-            MainSession.SetStatus(MiaoProgress.MiaoGet);
+            if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.MiaoGet)
+            {
+                return;
+            }
             MainSession.ScheduleEvent.Publish(null, appointEventArgs);
+            MainSession.SetStatus(MiaoProgress.MiaoGet);
         }
     }
 }

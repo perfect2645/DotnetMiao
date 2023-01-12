@@ -32,10 +32,10 @@ namespace Xihongmen.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.JsonBody?.RootElement == null)
                 {
-                    Log($"没查到苗{response?.Message}");
+                    Log($"预约失败 - {response?.Message}");
                     return false;
                 }
 
@@ -43,11 +43,16 @@ namespace Xihongmen.appointment
                 var msg = root.GetProperty("msg").NotNullString();
                 if (msg.Contains("请重试"))
                 {
-                    object cookie = string.Empty;
+                    object cookie = new string[1];
                     if (response.Headers.TryGetValue("Set-Cookie", out cookie!))
                     {
-                        content.Order.User.Cookie = cookie.NotNullString();
-                        MainSession.PrintLogEvent.Publish(this, $"Cookie get for {content.Order.User.UserName}: {content.Order.User.Cookie}");
+                        var cookieFull = (cookie as string[])[0];
+                        var cookieStr = cookieFull.Split(';')[0];
+                        foreach(var user in MainSession.Users)
+                        {
+                            user.Cookie = cookieStr;
+                        }
+                        MainSession.PrintLogEvent.Publish(this, $"Cookie get for all users: {cookieStr}");
                         return false;
                     }
                 }
@@ -60,7 +65,7 @@ namespace Xihongmen.appointment
                 }
                 else
                 {
-                    Log($"预约失败 - {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败 - {msg}");
                     return false;
                 }
             }

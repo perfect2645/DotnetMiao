@@ -134,7 +134,7 @@ namespace Xihongmen.viewmodel
         {
             Interval = 800;
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
@@ -278,6 +278,7 @@ namespace Xihongmen.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
+                    MainSession.SetStatus(MiaoProgress.ReadyForSearch);
                     MainSession.InitSession();
                     _searchController = new SearchController();
 
@@ -307,7 +308,6 @@ namespace Xihongmen.viewmodel
                     //{
                     //    _searchController.SearchAsync();
                     //});
-
                     Task.Factory.StartNew(() =>
                     {
                         _searchController.GetMiaoFromDate();
@@ -330,10 +330,6 @@ namespace Xihongmen.viewmodel
 
         private void OnOrder(object? sender, ScheduleEventArgs e)
         {
-            if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
-            {
-                return;
-            }
             lock (OrderLock)
             {
                 var orderTemplateList = e.OrderList;
@@ -350,12 +346,21 @@ namespace Xihongmen.viewmodel
                 foreach (var user in MainSession.Users)
                 {
                     var orderList = new List<Order>();
-                    foreach (var order in orderList)
+                    var userNameEncode = UnicodeConverter.Encode(user.UserName, true);
+                    foreach (var template in orderTemplateList)
                     {
-                        order.UserId = user.UserId;
-                        order.UserName = user.UserName;
-                        order.Token = user.Token;
-                        order.User = user;
+                        var order = new Order
+                        {
+                            Date = template.Date,
+                            TimeType = template.TimeType,
+                            Token = user.Token,
+                            TypeId = template.TypeId,
+                            TypeTitle = template.TypeTitle,
+                            User = user,
+                            UserId = user.UserId,
+                            UserName = user.UserName,
+                            UserNameEncode = userNameEncode
+                        };
 
                         orderList.Add(order);
                     }
@@ -378,7 +383,7 @@ namespace Xihongmen.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var controller = MainSession.AppointSession.GetController(order.Date);
+                        var controller = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
                         isSuccess = controller.YuyueAsync(order);
                         if (isSuccess)
                         {

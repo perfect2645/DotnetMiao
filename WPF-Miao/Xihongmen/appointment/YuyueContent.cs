@@ -28,7 +28,7 @@ namespace Xihongmen.appointment
             AddContent("date", Order.Date);
             AddContent("type_title", Order.TypeTitle);
             AddContent("member_id", Order.UserId);
-            AddContent("member_name", Order.UserName);
+            AddContent("member_name", Order.UserNameEncode);
             AddContent("timeType", Order.TimeType);
             AddContent("key", Key);
             AddContent("token", Order.Token);

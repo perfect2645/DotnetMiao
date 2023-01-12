@@ -10,10 +10,15 @@ namespace Xihongmen.session
         public AppointSession() : base()
         {
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
-            foreach(var date in dateList)
+            var userList = MainSession.Users;
+            foreach (var user in userList)
             {
-                AddController($"{date.Value}");
+                foreach (var date in dateList)
+                {
+                    AddController($"{user.UserName}|{date.Value}");
+                }
             }
+
         }
     }
 }

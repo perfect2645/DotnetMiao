@@ -76,8 +76,7 @@ namespace Xihongmen.search
             var deptNameEncode = UnicodeConverter.Encode(deptName, true);
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
-            var userName = user.UserName;
-            var userNameEncode = UnicodeConverter.Encode(userName, true);
+            var userNameEncode = UnicodeConverter.Encode(user.UserName, true);
 
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
             var defaultDate = dateList.FirstOrDefault();
@@ -88,7 +87,7 @@ namespace Xihongmen.search
                 Date = defaultDate.Value,
                 TypeTitle = deptNameEncode,
                 UserId = user.UserId,
-                UserName = userNameEncode,
+                UserNameEncode = userNameEncode,
                 TimeType = "22",
                 Token = user.Token,
                 User = user

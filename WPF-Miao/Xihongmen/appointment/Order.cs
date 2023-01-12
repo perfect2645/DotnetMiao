@@ -9,6 +9,7 @@ namespace Xihongmen.appointment
         public IntervalOnTime IntervalOnTime { get; private set; }
         public string UserId { get; set; }
         public string UserName { get; set; }
+        public string UserNameEncode { get; set; }
         public string TypeId { get; set; }
         public string TypeTitle { get; set; }
         public string Date { get; set; }
