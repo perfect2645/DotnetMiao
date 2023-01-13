@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Login.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />

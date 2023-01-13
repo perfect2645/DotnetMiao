@@ -1,4 +1,5 @@
 ﻿using Baohe.constants;
+using Baohe.login;
 using Base.Events;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Baohe.session
         public static UpdateUiEvent UpdateUiEvent { get; set; }
 
         public static bool IsYzmChecked { get; set; }
+        internal static List<JkzlLogin> Users { get; set; }
 
         static BaoheSession() 
         {
