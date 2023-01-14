@@ -154,7 +154,7 @@ namespace Tianhe.viewmodel
             TimeList = new List<DspVal>
             {
                 new DspVal("08:00:00-11:00:00", "1"),
-                //new DspVal("14:00:00-16:00:00", "2"),
+                new DspVal("14:00:00-16:00:00", "2"),
                 //new DspVal("08:00:00-08:30:00", "3"),
                 //new DspVal("08:30:00-09:00:00", "4"),
                 //new DspVal("09:00:00-09:30:00", "5"),
@@ -357,7 +357,10 @@ namespace Tianhe.viewmodel
                 try
                 {
                     BuildManualOrder();
-                    Appoint();
+                    foreach (var order in MainSession.Orders)
+                    {
+                        Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
+                    }
                 }
                 catch (HttpException ex)
                 {
@@ -391,7 +394,7 @@ namespace Tianhe.viewmodel
         {
             foreach (var order in MainSession.Orders)
             {
-                Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
+                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
             }
         }
 
