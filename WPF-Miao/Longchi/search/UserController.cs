@@ -71,6 +71,11 @@ namespace Longchi.search
             user.YuyueUserSuoshu = userSuoshu;
             user.UserCode = userCode;
 
+            if (user.UserName == "李雅婷")
+            {
+                user.UserCode = "350602200104164000";
+            }
+
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }
     }

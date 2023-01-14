@@ -115,7 +115,7 @@ namespace Longchi.viewmodel
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(16).AddMinutes(59).AddMinutes(40);
+            StartTime = DateTime.Today.AddHours(16).AddMinutes(59).AddSeconds(50);
 
             DateList = new List<DspVal>
             {
