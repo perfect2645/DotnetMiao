@@ -59,6 +59,7 @@ namespace Baohe.viewModel
             BaoheSession.UpdateUiEvent = UpdateUiEvent;
 
             TestData();
+            LoginFromConfig();
         }
 
         private void TestData()
@@ -222,6 +223,45 @@ namespace Baohe.viewModel
         }
 
         #endregion Constructor
+
+        #region Login
+
+        private void LoginFromConfig()
+        {
+            MainSession.Users = FileReader.DeserializeFile<List<TianheLogin>>("Login.json");
+            foreach (var user in MainSession.Users)
+            {
+                var userController = HttpServiceController.GetService<UserController>();
+                userController.GetUserAsync(user);
+            }
+
+            MainSession.InitSession();
+        }
+
+        private void ExecuteLogin()
+        {
+            if (StringUtil.AnyEmpty(Authorization))
+            {
+                Log("请检查参数");
+                return;
+            }
+
+            var loginData = new TianheLogin()
+            {
+
+            };
+
+            MainSession.Users.Add(loginData);
+
+            ClearLoginData();
+        }
+
+        private void ClearLoginData()
+        {
+            Authorization = string.Empty;
+        }
+
+        #endregion Login
 
         #region Appointment
 
