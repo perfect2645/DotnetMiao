@@ -98,7 +98,7 @@ namespace Longchi.appointment
             var retryCnt = 1;
             while (code == "2")
             {
-                Thread.Sleep(200);
+                Thread.Sleep(2000);
                 code = verifyController.VerifyYuyueAsync(order);
                 retryCnt++;
                 MainSession.PrintLogEvent.Publish(this, $"重试次数：{retryCnt}");
