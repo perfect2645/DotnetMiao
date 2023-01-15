@@ -109,7 +109,7 @@ namespace Longchi.viewmodel
 
         private void TestData()
         {
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
