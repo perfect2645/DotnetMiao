@@ -22,12 +22,12 @@ namespace Baohe.session
         public static UpdateUiEvent UpdateUiEvent { get; set; }
 
         public static bool IsYzmChecked { get; set; }
-        internal static List<JkzlLogin> Users { get; set; }
 
         static MainSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
             OrderSession = new OrderSession();
+            User = new JkzlLogin();
         }
 
         #region AddOrUpdate

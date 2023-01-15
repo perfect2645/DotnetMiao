@@ -13,8 +13,10 @@ using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
@@ -46,6 +48,17 @@ namespace Baohe.viewModel
             }
         }
 
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                NotifyUI(() => UserName);
+            }
+        }
+
         private SearchController SearchController;
 
         #endregion Properties
@@ -66,14 +79,23 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            Cookie = "";
-
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7229195&doctorId=710786668&hospitalInternal=1&showMultiDept=0&platformType=9001026&exConsult=&consultHosId=1047063&utm_source=0.0.h.1026.bus010.0";
         }
 
         private void InitStaticData()
         {
             StartTime = new DateTime(2023, 1, 7, 19, 59, 58);
+
+            if (Application.Current.Properties.Contains("UserName"))
+            {
+                MainSession.User.UserName = Application.Current.Properties["UserName"].ToString();
+                UserName = Application.Current.Properties["UserName"].ToString();
+            }
+            if (Application.Current.Properties.Contains("Cookie"))
+            {
+                MainSession.User.Cookie = Application.Current.Properties["Cookie"].ToString();
+                Cookie = Application.Current.Properties["Cookie"].ToString();
+            }
 
             Departments = new List<HospitalDept>();
 
@@ -230,11 +252,36 @@ namespace Baohe.viewModel
 
         private void LoginFromConfig()
         {
-            MainSession.Users = FileReader.DeserializeFile<List<JkzlLogin>>("Login.json");
-            foreach (var user in MainSession.Users)
+            if (!string.IsNullOrWhiteSpace(MainSession.User.Cookie))
             {
-
+                return;
             }
+            var users = FileReader.DeserializeFile<List<JkzlLogin>>("Login.json");
+            foreach (var user in users)
+            {
+                StartApp(user);
+            }
+        }
+
+        private void StartApp(JkzlLogin user)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    var processInfo = new ProcessStartInfo();
+                    processInfo.FileName = "baohe.exe";
+                    processInfo.ArgumentList.Add(user.UserName);
+                    processInfo.ArgumentList.Add(user.Cookie);
+
+                    var p = Process.Start(processInfo);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+
         }
 
         #endregion Login

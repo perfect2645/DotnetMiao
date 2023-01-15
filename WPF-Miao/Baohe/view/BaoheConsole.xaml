@@ -9,7 +9,7 @@
     <basePage:BaseConsole x:Name="baseConsole"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
-                          ShowReferer="Visible"
+                          ShowReferer="Collapsed"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel CanVerticallyScroll="True" Background="#eee">
@@ -61,6 +61,13 @@
                         IsReadOnly="True"
                       materialDesign:HintAssist.Hint="手机号"
                       Text="{Binding VerifyCode.Phone}"
+                      Margin="8 0 0 20"
+                      VerticalAlignment="Bottom" />
+                    <TextBox
+                        Width="120"
+                        IsReadOnly="True"
+                      materialDesign:HintAssist.Hint="用户名"
+                      Text="{Binding UserName}"
                       Margin="8 0 0 20"
                       VerticalAlignment="Bottom" />
                     <TextBox
