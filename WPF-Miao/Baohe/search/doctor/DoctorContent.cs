@@ -23,8 +23,8 @@ namespace Baohe.search.doctor
         private void BuildContent()
         {
             AddContent("t", DateTimeUtil.GetTimeStamp());
-            AddContent("hosId", BaoheSession.PlatformSesstion[Constant.HospitalId]);
-            AddContent("deptId", BaoheSession.PlatformSesstion[Constant.DeptId]);
+            AddContent("hosId", MainSession.PlatformSesstion[Constant.HospitalId]);
+            AddContent("deptId", MainSession.PlatformSesstion[Constant.DeptId]);
             AddContent("pageIndex", "1");
             AddContent("pageSize", "15");
             AddContent("multiHosDeptId", "");
@@ -32,8 +32,8 @@ namespace Baohe.search.doctor
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType={platformType}&hospitalId={hospitalId}&exConsult=&consultHosId={hospitalId}";
 

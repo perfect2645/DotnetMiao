@@ -27,15 +27,15 @@ namespace Baohe.search.ArrangeWater
                 return;
             }
             Content.Add(Constant.DoctorSn, targetDoctor[Constant.DoctorSn]);
-            Content.Add(Constant.HospitalId, BaoheSession.PlatformSesstion[Constant.HospitalId]);
-            Content.Add(Constant.ChannelId, BaoheSession.PlatformSesstion[Constant.PlatformType]);
+            Content.Add(Constant.HospitalId, MainSession.PlatformSesstion[Constant.HospitalId]);
+            Content.Add(Constant.ChannelId, MainSession.PlatformSesstion[Constant.PlatformType]);
         }
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
 

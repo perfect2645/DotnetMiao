@@ -21,7 +21,7 @@ namespace Baohe.verification
 
         private void BuildContent()
         {
-            var accountSn = BaoheSession.UserSession[Constant.accountSn].NotNullString();
+            var accountSn = MainSession.UserSession[Constant.accountSn].NotNullString();
 
             var userDetail = SessionBuilder.GetDefaultMember();
             Tel = userDetail[Constant.Phone].NotNullString();
@@ -33,9 +33,9 @@ namespace Baohe.verification
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
 

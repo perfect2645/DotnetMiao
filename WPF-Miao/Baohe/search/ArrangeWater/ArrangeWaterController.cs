@@ -27,16 +27,16 @@ namespace Baohe.search.ArrangeWater
 
         private bool GetArrangeWater(bool isPrintLog = false)
         {
-            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater Start");
+            MainSession.PrintLogEvent.Publish(this, $"GetArrangeWater Start");
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater End");
+            MainSession.PrintLogEvent.Publish(this, $"GetArrangeWater End");
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
@@ -53,7 +53,7 @@ namespace Baohe.search.ArrangeWater
 
             if (isPrintLog)
             {
-                BaoheSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
+                MainSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
             }
 
             return arrangeWaters.HasItem();
@@ -66,11 +66,11 @@ namespace Baohe.search.ArrangeWater
 
             if (!arrangeWaterList.HasItem())
             {
-                BaoheSession.PrintLogEvent.Publish(this, $"{Constant.ProjectName}:查苗成功-没有可用苗");
+                MainSession.PrintLogEvent.Publish(this, $"{Constant.ProjectName}:查苗成功-没有可用苗");
                 return null;
             }
 
-            BaoheSession.AddMiaoSession(Constant.ArrangeWater, arrangeWaterList);
+            MainSession.AddMiaoSession(Constant.ArrangeWater, arrangeWaterList);
 
             return arrangeWaterList;
         }

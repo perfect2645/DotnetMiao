@@ -35,11 +35,11 @@ namespace Baohe.appointment
                 }
                 catch (HttpException ex)
                 {
-                    BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+                    MainSession.PrintLogEvent.Publish(this, ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+                    MainSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
                 }
             });
         }
@@ -52,10 +52,10 @@ namespace Baohe.appointment
         private void Appointment(object? sender, OrderArgs e)
         {
             var key = sender.NotNullString();
-            BaoheSession.PrintLogEvent.Publish(this, $"开始预约：key : {key}");
+            MainSession.PrintLogEvent.Publish(this, $"开始预约：key : {key}");
 
             var content = e.Content;
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -70,7 +70,7 @@ namespace Baohe.appointment
             var orderId = response.JsonBody.RootElement.GetProperty("Orderid").NotNullString();
             if (!string.IsNullOrEmpty(orderId))
             {
-                BaoheSession.PrintLogEvent.Publish(this, $"预约成功：orderid : {orderId}");
+                MainSession.PrintLogEvent.Publish(this, $"预约成功：orderid : {orderId}");
             }
         }
     }

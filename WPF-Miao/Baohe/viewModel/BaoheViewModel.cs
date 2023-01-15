@@ -1,5 +1,6 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
+using Baohe.login;
 using Baohe.search;
 using Baohe.session;
 using Baohe.viewModel.platform;
@@ -17,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
+using Utils.file;
 using Utils.stringBuilder;
 
 namespace Baohe.viewModel
@@ -39,7 +41,7 @@ namespace Baohe.viewModel
             set
             {
                 _retId = value;
-                BaoheSession.PlatformSesstion.AddOrUpdate(Constant.RetId, value);
+                MainSession.PlatformSesstion.AddOrUpdate(Constant.RetId, value);
                 NotifyUI(() => RetId);
             }
         }
@@ -55,8 +57,8 @@ namespace Baohe.viewModel
             InitCommands();
             InitStaticData();
             VerifyCode = new VerifyCode(logPanel);
-            BaoheSession.PrintLogEvent = PrintLogEvent;
-            BaoheSession.UpdateUiEvent = UpdateUiEvent;
+            MainSession.PrintLogEvent = PrintLogEvent;
+            MainSession.UpdateUiEvent = UpdateUiEvent;
 
             TestData();
             LoginFromConfig();
@@ -197,7 +199,7 @@ namespace Baohe.viewModel
             {
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
-                BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
+                MainSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
             }
             catch (HttpException ex)
             {
@@ -228,37 +230,11 @@ namespace Baohe.viewModel
 
         private void LoginFromConfig()
         {
-            MainSession.Users = FileReader.DeserializeFile<List<TianheLogin>>("Login.json");
+            MainSession.Users = FileReader.DeserializeFile<List<JkzlLogin>>("Login.json");
             foreach (var user in MainSession.Users)
             {
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
+
             }
-
-            MainSession.InitSession();
-        }
-
-        private void ExecuteLogin()
-        {
-            if (StringUtil.AnyEmpty(Authorization))
-            {
-                Log("请检查参数");
-                return;
-            }
-
-            var loginData = new TianheLogin()
-            {
-
-            };
-
-            MainSession.Users.Add(loginData);
-
-            ClearLoginData();
-        }
-
-        private void ClearLoginData()
-        {
-            Authorization = string.Empty;
         }
 
         #endregion Login
@@ -304,7 +280,7 @@ namespace Baohe.viewModel
         {
             try
             {
-                BaoheSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 SearchController = HttpServiceController.GetService<SearchController>();
                 ;
                 SetSearchTimers();
@@ -328,7 +304,7 @@ namespace Baohe.viewModel
 
         private void ExecuteAutoRun()
         {
-            BaoheSession.Cookie = Cookie;
+            MainSession.Cookie = Cookie;
             Task.Factory.StartNew(async () =>
             {
                 await AutoRunAsync();
@@ -358,15 +334,15 @@ namespace Baohe.viewModel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as Jiankangzhilu;
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.Department, selectedDept);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DoctorSn, selectedDept.DoctorSn);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.Department, selectedDept);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.DoctorSn, selectedDept.DoctorSn);
 
             Log(selectedDept.ToLogString());
 
-            BaoheSession.BuildMiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId].NotNullString());
+            MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
         }
 
         #endregion Hospital Dept
@@ -375,7 +351,7 @@ namespace Baohe.viewModel
 
         private void OnStartTimeChanged(DateTime? selectedTime)
         {
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.StartTime, selectedTime!);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.StartTime, selectedTime!);
         }
 
         #endregion Start Time

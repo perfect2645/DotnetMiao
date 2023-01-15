@@ -8,8 +8,9 @@ using Utils.stringBuilder;
 
 namespace Baohe.session
 {
-    public static class BaoheSession
+    public static class MainSession
     {
+        internal static JkzlLogin User { get; set; }
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSesstion { get; private set; }
         public static MiaoSession MiaoSession { get; private set; }
@@ -23,7 +24,7 @@ namespace Baohe.session
         public static bool IsYzmChecked { get; set; }
         internal static List<JkzlLogin> Users { get; set; }
 
-        static BaoheSession() 
+        static MainSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
             OrderSession = new OrderSession();

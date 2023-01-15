@@ -58,7 +58,7 @@ namespace Baohe.appointment
         {
             DoctorOrder = new Dictionary<string, object>();
 
-            var platformSesstion = BaoheSession.PlatformSesstion;
+            var platformSesstion = MainSession.PlatformSesstion;
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
             DoctorOrder.AddOrUpdate("memberSn", MemberInfo["Membersn"]);
@@ -79,7 +79,7 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("applyNo", "");
             DoctorOrder.AddOrUpdate("mobile", MemberInfo["Phone"]);
             DoctorOrder.AddOrUpdate(Constant.accountSn, MemberInfo.GetString(Constant.Accountsn).ToInt());
-            DoctorOrder.AddOrUpdate("cardNumber", BaoheSession.UserSession["cardNumber"]);
+            DoctorOrder.AddOrUpdate("cardNumber", MainSession.UserSession["cardNumber"]);
 
             DoctorOrder.AddOrUpdate("hosDeptId", platformSesstion[Constant.DeptId]);
 
@@ -166,9 +166,9 @@ namespace Baohe.appointment
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/register/registerOrder.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
 
