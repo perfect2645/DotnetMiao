@@ -139,7 +139,7 @@ namespace hys020.viewmodel
             {
                 Cookie = Application.Current.Properties["Cookie"].ToString();
             }
-            if (Application.Current.Properties.Contains("Cookie"))
+            if (Application.Current.Properties.Contains("Location"))
             {
                 Location = Application.Current.Properties["Location"].ToString();
             }

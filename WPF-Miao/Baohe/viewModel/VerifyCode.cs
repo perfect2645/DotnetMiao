@@ -76,14 +76,14 @@ namespace Baohe.viewModel
 
         public void SetTimer()
         {
-            BaoheSession.IsYzmChecked = false;
-            var dept = BaoheSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
+            MainSession.IsYzmChecked = false;
+            var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
             if (!dept.HasYzm)
             {
-                BaoheSession.IsYzmChecked = true;
+                MainSession.IsYzmChecked = true;
                 return;
             }
-            var startTime = BaoheSession.GetStartTime();
+            var startTime = MainSession.GetStartTime();
             startTime = startTime.AddMinutes(-7);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
 
@@ -98,7 +98,7 @@ namespace Baohe.viewModel
 
         public void StopTimer()
         {
-            var dept = BaoheSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
+            var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
             if (dept.HasYzm)
             {
                 SendYzmTimer?.StopTimer();
@@ -151,7 +151,7 @@ namespace Baohe.viewModel
                 if(Phone == phone)
                 {
                     Yzm = yzm;
-                    BaoheSession.PrintLogEvent.Publish(this, $"接收到验证码 - 手机号:{phone}:验证码:{yzm}");
+                    MainSession.PrintLogEvent.Publish(this, $"接收到验证码 - 手机号:{phone}:验证码:{yzm}");
                     return;
                 }
                 Log($"Bypass其他手机验证码 - 手机号:{phone}:验证码:{yzm}");

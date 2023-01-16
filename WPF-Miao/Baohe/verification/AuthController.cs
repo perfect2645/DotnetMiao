@@ -29,7 +29,7 @@ namespace Baohe.verification
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/idCardAuth";
             var content = new AuthContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -42,7 +42,7 @@ namespace Baohe.verification
             }
             var message = response.Body.FirstOrDefault(x => x.Key == "Message").Value?.ToString();
 
-            BaoheSession.PrintLogEvent.Publish(this, $"用户实名验证 - {message}");
+            MainSession.PrintLogEvent.Publish(this, $"用户实名验证 - {message}");
         }
     }
 }

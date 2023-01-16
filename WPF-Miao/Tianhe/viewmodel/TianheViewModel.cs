@@ -134,19 +134,20 @@ namespace Tianhe.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(20).AddMinutes(59).AddSeconds(59);
 
             DateList = new List<DspVal>
             {
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -333,7 +334,7 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Task.Factory.StartNew(() => Appoint());
+                    //Task.Factory.StartNew(() => Appoint());
                     _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
@@ -357,7 +358,10 @@ namespace Tianhe.viewmodel
                 try
                 {
                     BuildManualOrder();
-                    Appoint();
+                    foreach (var order in MainSession.Orders)
+                    {
+                        Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
+                    }
                 }
                 catch (HttpException ex)
                 {
@@ -391,7 +395,7 @@ namespace Tianhe.viewmodel
         {
             foreach (var order in MainSession.Orders)
             {
-                Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
+                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
             }
         }
 

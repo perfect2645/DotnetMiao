@@ -109,12 +109,13 @@ namespace Longchi.viewmodel
 
         private void TestData()
         {
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
+            //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
+            StartTime = DateTime.Today.AddHours(16).AddMinutes(40).AddSeconds(50);
 
             DateList = new List<DspVal>
             {
@@ -138,8 +139,7 @@ namespace Longchi.viewmodel
             {
                  new DspVal("08:00:00"),
                  new DspVal("09:00:00"),
-                 //new DspVal("10:00"),
-                 //new DspVal("11:00"),
+                 new DspVal("10:00:00"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);

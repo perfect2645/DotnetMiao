@@ -29,7 +29,7 @@ namespace Baohe.verification
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
             var content = new SendYzmContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -41,14 +41,14 @@ namespace Baohe.verification
                 throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "Send Yzm");
             }
 
-            BaoheSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}");
+            MainSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}");
         }
 
         private void CheckYzm(string yzm)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/checkYzm";
             var content = new CheckYzmContent(url, yzm);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -60,8 +60,8 @@ namespace Baohe.verification
                 throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "check Yzm");
             }
 
-            BaoheSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}");
-            BaoheSession.IsYzmChecked = true;
+            MainSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}");
+            MainSession.IsYzmChecked = true;
         }
     }
 }

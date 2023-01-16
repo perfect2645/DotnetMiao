@@ -59,6 +59,7 @@ namespace Tianhe.appointment
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:error {errMsg}");
                     if (errMsg.Contains("总预约次数已满"))
                     {
+                        IsSuccess = true;
                         return true;
                     }
                     return false;

@@ -40,7 +40,7 @@ namespace Baohe.search.numbers
             var arrangeWater = arrangeWaterList[index]!;
 
             var content = new AppointNumbersContent(url, arrangeWater);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -62,7 +62,7 @@ namespace Baohe.search.numbers
 
             if (isPrintLog)
             {
-                BaoheSession.PrintLogEvent.Publish(this, numbers, "Numbers");
+                MainSession.PrintLogEvent.Publish(this, numbers, "Numbers");
             }
 
             return true;
@@ -77,7 +77,7 @@ namespace Baohe.search.numbers
             }
 
             numbers = numbers.DisorderItems();
-            BaoheSession.AddMiaoSession(Constant.Numbers, numbers);
+            MainSession.AddMiaoSession(Constant.Numbers, numbers);
 
             return numbers;
         }

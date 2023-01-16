@@ -13,15 +13,15 @@ namespace Baohe.session
     {
         public static void BuildSession(this StringBuilder sb, string name)
         {
-            if (BaoheSession.PlatformSesstion.ContainsKey(name))
+            if (MainSession.PlatformSesstion.ContainsKey(name))
             {
-                sb.BuildKeyValue(name, BaoheSession.PlatformSesstion[name]);
+                sb.BuildKeyValue(name, MainSession.PlatformSesstion[name]);
             }
         }
 
         public static List<Dictionary<string, object>> GetAvailableArrangeWater()
         {
-            var arrangeWaterList = BaoheSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
+            var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
             var availableWater = arrangeWaterList?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
             && x["availablenum"].NotNullString().ToLong() > 0
                 && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
@@ -40,14 +40,14 @@ namespace Baohe.session
 
         public static Dictionary<string, object> GetDefaultMember()
         {
-            var result = BaoheSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
+            var result = MainSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
 
             return result?.LastOrDefault();
         }
 
         public static Dictionary<string, object> GetDefaultDoctor()
         {
-            var doctorList = BaoheSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
+            var doctorList = MainSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
 
             var targetDoctor = doctorList?.FirstOrDefault(d => IsTargetDoctor(d));
 
@@ -62,7 +62,7 @@ namespace Baohe.session
                 return false;
             }
 
-            var sessionDoctorSn = BaoheSession.PlatformSesstion.GetString(Constant.DoctorSn);
+            var sessionDoctorSn = MainSession.PlatformSesstion.GetString(Constant.DoctorSn);
             if (doctorSn.Equals(sessionDoctorSn))
             {
                 return true;

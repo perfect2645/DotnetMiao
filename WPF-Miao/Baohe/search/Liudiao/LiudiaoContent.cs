@@ -42,8 +42,8 @@ namespace Baohe.search.Liudiao
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType={platformType}&hospitalId={hospitalId}&exConsult=&consultHosId={hospitalId}";
 

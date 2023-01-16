@@ -1,0 +1,26 @@
+POST http://hpv_ym.zzytrj.net:15003/api/yuyue.php HTTP/1.1
+Host: hpv_ym.zzytrj.net:15003
+Accept: application/json, text/javascript, */*; q=0.01
+X-Requested-With: XMLHttpRequest
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://hpv_ym.zzytrj.net:15003
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/WIFI Language/zh_CN
+Connection: keep-alive
+Referer: http://hpv_ym.zzytrj.net:15003/views/yuyue/yuyue_gr.html?id=112775
+Content-Length: 222
+Cookie: ytytjid=1672498568701_67c8d2a0009ae9c3fbd52212fbd234fd; PHPSESSID=0siv9fpctn4r14hhj4784ocef5
+
+cmd=yuyue_post&date=2023-01-02+10%3A00%3A00&qty=1&dizhi=400&yuyue_name=%E5%91%A8%E7%91%A0%E5%A4%8F&yuyue_user_code=612426199806235426&yuyue_user_add=%E7%BF%A1%E7%BF%A0%E6%A2%A6%E5%A2%83&yuyue_user_suoshu=%E7%99%BE%E7%9B%9B
+HTTP/1.1 200 OK
+Date: Sun, 01 Jan 2023 13:27:32 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 105
+
+{"code":2,"msg":"\u6b63\u5728\u9884\u7ea6\uff0c\u8bf7\u7a0d\u540e...","return_id":"230101212732zT95ONNs"}

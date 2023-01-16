@@ -71,6 +71,11 @@ namespace Tianhe.search
             var dateList = validDates.Select(d => d["date"].NotNullString()).ToList();
             var today = DateTimeUtil.GetToday();
             dateList = dateList.Where(d => today != d).ToList();
+            if (!dateList.HasItem())
+            {
+                Log("没有可用日期");
+                return false;
+            }
 
             MainSession.PlatformSession.AddOrUpdate("orderDates", dateList);
 

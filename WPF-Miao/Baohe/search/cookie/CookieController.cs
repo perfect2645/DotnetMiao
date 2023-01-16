@@ -22,7 +22,7 @@ namespace Baohe.search.cookie
 
             var dic = cookie.CookieToDic();
 
-            BaoheSession.PlatformSesstion.AddOrUpdate(dic);
+            MainSession.PlatformSesstion.AddOrUpdate(dic);
         }
     }
 }

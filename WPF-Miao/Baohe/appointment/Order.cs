@@ -52,7 +52,7 @@ namespace Baohe.appointment
 
         public void InitContent()
         {
-            Content = ContentMapper.GetContent(BaoheSession.PlatformSesstion.GetString(Constant.HospitalId));
+            Content = ContentMapper.GetContent(MainSession.PlatformSesstion.GetString(Constant.HospitalId));
             Content.InitContent(MemberInfo);
         }
 

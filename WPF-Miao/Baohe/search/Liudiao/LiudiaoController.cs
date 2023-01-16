@@ -26,7 +26,7 @@ namespace Baohe.search.Liudiao
         {
             var url = "https://fycombat.yihu.com/AHForm/doRegHFSSNGWSYEpidemic";
             var content = new LiudiaoContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -49,9 +49,9 @@ namespace Baohe.search.Liudiao
         private void AnalysisResult(JsonElement jsonElement)
         {
             var result = JsonAnalysis.JsonToDicList(jsonElement);
-            BaoheSession.AddUserSession(Constant.Liudiao, result);
+            MainSession.AddUserSession(Constant.Liudiao, result);
 
-            BaoheSession.PrintLogEvent.Publish(this, result, "Liudiao");
+            MainSession.PrintLogEvent.Publish(this, result, "Liudiao");
         }
     }
 }

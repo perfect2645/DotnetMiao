@@ -1,13 +1,11 @@
-﻿using Tianhe.login;
+﻿using Base.viewmodel.status;
 using HttpProcessor.Container;
-using System;
-using System.Threading.Tasks;
-using Tianhe.session;
-using Utils.timerUtil;
-using Base.viewmodel.status;
-using System.Threading;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Tianhe.login;
+using Tianhe.session;
 
 namespace Tianhe.search
 {
@@ -44,7 +42,7 @@ namespace Tianhe.search
             while (!isDateGet)
             {
                 isDateGet = dateController.GetDate(defaultUser);
-                Thread.Sleep(200);
+                Thread.Sleep(500);
             }
         }
 
@@ -67,7 +65,7 @@ namespace Tianhe.search
             while(!isMiaoGet)
             {
                 isMiaoGet = miaoController.SearchMiao(date, user);
-                Thread.Sleep(100);
+                Thread.Sleep(500);
             }
         }
     }

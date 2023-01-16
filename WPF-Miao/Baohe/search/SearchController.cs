@@ -62,7 +62,7 @@ namespace Baohe.search
 
         public void SetTimer()
         {
-            var startTime = BaoheSession.GetStartTime();
+            var startTime = MainSession.GetStartTime();
             startTime = startTime.AddSeconds(-2);
 
             //var date = new DateTime(2022, 9, 15, 21, 59, 58);
@@ -107,7 +107,7 @@ namespace Baohe.search
             {
                 if (SearchStatus == SearchStatus.NumbersGet)
                 {
-                    BaoheSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}");
+                    MainSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}");
                     AutoRunTimer.Stop();
 
                     return;
@@ -116,12 +116,12 @@ namespace Baohe.search
             }
             catch (HttpException ex)
             {
-                BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
                 StopTimer();
-                BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
 
@@ -146,10 +146,10 @@ namespace Baohe.search
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
                 var isNumbersGet = await appointNumbers.GetNumbersAsync();
 
-                BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+                MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
                 lock (OrderLock)
                 {
-                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && BaoheSession.IsYzmChecked)
+                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
                     {
                         SearchStatus = SearchStatus.NumbersGet;
 
@@ -167,14 +167,14 @@ namespace Baohe.search
             try
             {
                 var authController = HttpServiceController.GetService<CookieController>();
-                authController.GetCookieAdvance(BaoheSession.Cookie);
+                authController.GetCookieAdvance(MainSession.Cookie);
 
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync();
 
                 var defaultMember = SessionBuilder.GetDefaultMember();
                 var phone = defaultMember.GetString(Constant.Phone);
-                BaoheSession.UpdateUI("phone", phone);
+                MainSession.UpdateUI("phone", phone);
 
                 var doctorContr = HttpServiceController.GetService<DoctorController>();
                 await doctorContr.GetDoctorListAsync();
@@ -189,12 +189,12 @@ namespace Baohe.search
             catch (HttpException ex)
             {
                 StopTimer();
-                BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
                 StopTimer();
-                BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
 
@@ -205,19 +205,19 @@ namespace Baohe.search
                 return;
             }
 
-            BaoheSession.OrderSession.Clear();
+            MainSession.OrderSession.Clear();
 
             for(var i = 0; i < 5; i++)
             {
                 var order = new Order(defaultMember, i);
-                BaoheSession.OrderSession.AddOrder(order);
+                MainSession.OrderSession.AddOrder(order);
             }
         }
 
         private void BuildMiaoOrder()
         {
-            var orders = BaoheSession.OrderSession.GetOrders();
-            var numberCount = (BaoheSession.MiaoSession["Numbers"] as IList).Count;
+            var orders = MainSession.OrderSession.GetOrders();
+            var numberCount = (MainSession.MiaoSession["Numbers"] as IList).Count;
 
             var appContr = HttpServiceController.GetService<AppointmentController>();
             if (orders.Count > numberCount)
@@ -227,7 +227,7 @@ namespace Baohe.search
 
             foreach (var order in orders)
             {
-                order.FillContent(BaoheSession.MiaoSession);
+                order.FillContent(MainSession.MiaoSession);
                 Thread.Sleep(3000);
             }
         }

@@ -1,0 +1,303 @@
+POST https://chaos.4009515151.com/market/api/activity/play/task HTTP/1.1
+Host: chaos.4009515151.com
+Origin: https://enterprise.4009515151.com
+Content-Type: application/json
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, application/json
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2022112901 vanke_app_version/5.4.26 X_API_VERSION/20221129 vanke_app/zhuzher vanke_jsbridge_version/5.4.26
+Authorization: Bearer e6eea748-f688-4a24-8cb4-b929b00349eb
+Referer: https://enterprise.4009515151.com/
+Content-Length: 84
+
+{"activityId":777,"projectCode":"21020025","projectName":"大连万科半山半海"}
+HTTP/1.1 200
+Date: Sat, 14 Jan 2023 03:19:15 GMT
+Content-Type: application/json
+Connection: keep-alive
+Set-Cookie: acw_tc=784e2caa16736663556388733e58fc66612c4461110ad8fac6b79814de1ea0;path=/;HttpOnly;Max-Age=1800
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-SVC: prod-zhuzher-server-market-http
+Content-Length: 5122
+
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 4245,
+            "taskId": 498,
+            "taskName": "首次参与送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "首次参与住这儿春节活动即得1个红包，仅限首次",
+            "detail": [
+                {
+                    "taskDetailId": 499,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4246,
+            "taskId": 497,
+            "taskName": "邻里助力送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "一个好汉三个帮，邀请3人助力即得1个红包，每日3次",
+            "detail": [
+                {
+                    "taskDetailId": 498,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4247,
+            "taskId": 499,
+            "taskName": "预缴一年送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "预缴12个月物业费，即得1个红包，当日首次预缴可得",
+            "detail": [
+                {
+                    "taskDetailId": 500,
+                    "sceneName": "无托收预缴12个月",
+                    "sceneCode": "doc-prepay12months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4248,
+            "taskId": 500,
+            "taskName": "预缴两年送红包",
+            "chanceNumber": 2,
+            "taskDesc": "年味",
+            "tips": "预缴24个月物业费，即得2个红包，当日首次预缴可得",
+            "detail": [
+                {
+                    "taskDetailId": 501,
+                    "sceneName": "无托收预缴24个月",
+                    "sceneCode": "doc-prepay24months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 2,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4249,
+            "taskId": 501,
+            "taskName": "预缴三年送红包",
+            "chanceNumber": 3,
+            "taskDesc": "年味",
+            "tips": "预缴12个月物业费，即得1个红包，当日首次预缴可得",
+            "detail": [
+                {
+                    "taskDetailId": 502,
+                    "sceneName": "无托收预缴36个月",
+                    "sceneCode": "doc-prepay36months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 3,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4250,
+            "taskId": 502,
+            "taskName": "托收预缴一年送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "托收并预缴12个月物业费，即得1个红包，当日首次可得",
+            "detail": [
+                {
+                    "taskDetailId": 503,
+                    "sceneName": "托收且预缴12个月",
+                    "sceneCode": "doc-withhold&prepay12months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4251,
+            "taskId": 503,
+            "taskName": "托收预缴两年送红包",
+            "chanceNumber": 2,
+            "taskDesc": "年味",
+            "tips": "托收并预缴24个月物业费，即得1个红包，当日首次可得",
+            "detail": [
+                {
+                    "taskDetailId": 504,
+                    "sceneName": "托收且预缴24个月",
+                    "sceneCode": "doc-withhold&prepay24months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 2,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4252,
+            "taskId": 504,
+            "taskName": "托收预缴三年送红包",
+            "chanceNumber": 3,
+            "taskDesc": "年味",
+            "tips": "托收并预缴36个月物业费，即得1个红包，当日首次可得",
+            "detail": [
+                {
+                    "taskDetailId": 505,
+                    "sceneName": "托收且预缴36个月",
+                    "sceneCode": "doc-withhold&prepay36months",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 3,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        }
+    ]
+}
