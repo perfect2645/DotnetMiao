@@ -7,21 +7,21 @@ Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Accept: application/json, application/json
 User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2022112901 vanke_app_version/5.4.26 X_API_VERSION/20221129 vanke_app/zhuzher vanke_jsbridge_version/5.4.26
-Authorization: Bearer e6eea748-f688-4a24-8cb4-b929b00349eb
+Authorization: Bearer 30cfe5b1-6273-4e8f-ac80-d39e8c8888bb
 Referer: https://enterprise.4009515151.com/
 Content-Length: 84
 
 {"activityId":777,"projectCode":"21020025","projectName":"大连万科半山半海"}
 HTTP/1.1 200
-Date: Sat, 14 Jan 2023 03:19:15 GMT
+Date: Tue, 17 Jan 2023 00:04:35 GMT
 Content-Type: application/json
 Connection: keep-alive
-Set-Cookie: acw_tc=784e2caa16736663556388733e58fc66612c4461110ad8fac6b79814de1ea0;path=/;HttpOnly;Max-Age=1800
+Set-Cookie: acw_tc=784e2c9e16739138753738777e303a0c93f5b5fa6353d2cd738981d8f23712;path=/;HttpOnly;Max-Age=1800
 Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
 Access-Control-Allow-Origin: *
 Strict-Transport-Security: max-age=15724800; includeSubDomains
 X-SVC: prod-zhuzher-server-market-http
-Content-Length: 5122
+Content-Length: 6296
 
 {
     "message": "success",
@@ -96,6 +96,108 @@ Content-Length: 5122
             "finishCount": null
         },
         {
+            "activityTaskId": 4271,
+            "taskId": 509,
+            "taskName": "新年买柑橘送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "参与友邻柑橘节，每日首次下单，即得1个红包",
+            "detail": [
+                {
+                    "taskDetailId": 510,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "",
+                    "url": "https://uiis.4009515151.com/activityTopic/4829?pageMark=cjhdgjwrt0112",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4272,
+            "taskId": 510,
+            "taskName": "便民服务为您送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "点击了解便民服务，浏览10秒即得1个红包，仅限首次",
+            "detail": [
+                {
+                    "taskDetailId": 511,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=zzexcdjsy",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4273,
+            "taskId": 511,
+            "taskName": "送水服务为您送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "点击了解送水服务，浏览10秒即得1个红包，仅限首次",
+            "detail": [
+                {
+                    "taskDetailId": 512,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzexcssy",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
             "activityTaskId": 4247,
             "taskId": 499,
             "taskName": "预缴一年送红包",
@@ -123,74 +225,6 @@ Content-Length: 5122
                     "gameId": 1094,
                     "gameTitle": "年味红包",
                     "limitCount": 1,
-                    "chanceName": "红包"
-                }
-            ],
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4248,
-            "taskId": 500,
-            "taskName": "预缴两年送红包",
-            "chanceNumber": 2,
-            "taskDesc": "年味",
-            "tips": "预缴24个月物业费，即得2个红包，当日首次预缴可得",
-            "detail": [
-                {
-                    "taskDetailId": 501,
-                    "sceneName": "无托收预缴24个月",
-                    "sceneCode": "doc-prepay24months",
-                    "sceneDesc": "",
-                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1227,
-                    "gameId": 1094,
-                    "gameTitle": "年味红包",
-                    "limitCount": 2,
-                    "chanceName": "红包"
-                }
-            ],
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4249,
-            "taskId": 501,
-            "taskName": "预缴三年送红包",
-            "chanceNumber": 3,
-            "taskDesc": "年味",
-            "tips": "预缴12个月物业费，即得1个红包，当日首次预缴可得",
-            "detail": [
-                {
-                    "taskDetailId": 502,
-                    "sceneName": "无托收预缴36个月",
-                    "sceneCode": "doc-prepay36months",
-                    "sceneDesc": "",
-                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1227,
-                    "gameId": 1094,
-                    "gameTitle": "年味红包",
-                    "limitCount": 3,
                     "chanceName": "红包"
                 }
             ],
@@ -232,22 +266,22 @@ Content-Length: 5122
             "finishCount": null
         },
         {
-            "activityTaskId": 4251,
-            "taskId": 503,
-            "taskName": "托收预缴两年送红包",
-            "chanceNumber": 2,
+            "activityTaskId": 4268,
+            "taskId": 506,
+            "taskName": "除夕来住这儿领烟花",
+            "chanceNumber": 1,
             "taskDesc": "年味",
-            "tips": "托收并预缴24个月物业费，即得1个红包，当日首次可得",
+            "tips": "除夕当日打开住这儿参与活动，即得1枚烟花",
             "detail": [
                 {
-                    "taskDetailId": 504,
-                    "sceneName": "托收且预缴24个月",
-                    "sceneCode": "doc-withhold&prepay24months",
-                    "sceneDesc": "",
-                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "taskDetailId": 507,
+                    "sceneName": "作文大赛审核通过",
+                    "sceneCode": "5thzonezwdsshtg",
+                    "sceneDesc": "第五空间友邻作文大赛审核通过",
+                    "url": "1",
                     "detailDesc": "",
                     "finished": false,
-                    "minVersion": "",
+                    "minVersion": null,
                     "eventCode": "ACT:ONLINE:0003",
                     "processValue": "0",
                     "requiredValue": "1"
@@ -255,45 +289,79 @@ Content-Length: 5122
             ],
             "taskGameList": [
                 {
-                    "activityGameId": 1227,
-                    "gameId": 1094,
-                    "gameTitle": "年味红包",
-                    "limitCount": 2,
-                    "chanceName": "红包"
+                    "activityGameId": 1230,
+                    "gameId": 1097,
+                    "gameTitle": "烟花",
+                    "limitCount": 1,
+                    "chanceName": "烟花"
                 }
             ],
             "limitCount": 1,
             "finishCount": null
         },
         {
-            "activityTaskId": 4252,
-            "taskId": 504,
-            "taskName": "托收预缴三年送红包",
-            "chanceNumber": 3,
+            "activityTaskId": 4269,
+            "taskId": 507,
+            "taskName": "参与年味评选领烟花",
+            "chanceNumber": 1,
             "taskDesc": "年味",
-            "tips": "托收并预缴36个月物业费，即得1个红包，当日首次可得",
+            "tips": "逛逛年夜饭厨艺大比拼活动，浏览10秒即得1枚烟花",
             "detail": [
                 {
-                    "taskDetailId": 505,
-                    "sceneName": "托收且预缴36个月",
-                    "sceneCode": "doc-withhold&prepay36months",
+                    "taskDetailId": 508,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
                     "sceneDesc": "",
-                    "url": "zze://vanke.com/common/reactnative?route=BillRoute/PayBills",
+                    "url": "https://communityclass.onewo.com/#/workCollect?activityId=MTU=",
                     "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": [
                 {
-                    "activityGameId": 1227,
-                    "gameId": 1094,
-                    "gameTitle": "年味红包",
-                    "limitCount": 3,
-                    "chanceName": "红包"
+                    "activityGameId": 1230,
+                    "gameId": 1097,
+                    "gameTitle": "烟花",
+                    "limitCount": 1,
+                    "chanceName": "烟花"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4270,
+            "taskId": 508,
+            "taskName": "10人助力领10烟花",
+            "chanceNumber": 10,
+            "taskDesc": "年味",
+            "tips": "0元市集开始前，邀请10人助力，即得10个烟花",
+            "detail": [
+                {
+                    "taskDetailId": 509,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "10"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1230,
+                    "gameId": 1097,
+                    "gameTitle": "烟花",
+                    "limitCount": 10,
+                    "chanceName": "烟花"
                 }
             ],
             "limitCount": 1,
