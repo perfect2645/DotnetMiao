@@ -169,14 +169,14 @@ namespace Shishi.viewmodel
                 new ShishiHospital
                 {
                     HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
+                    HospitalName = "石狮市妇幼保健院",
                     DepartmentName = "九价",
                     DepartmentId = "YJYFJZ",
                 },
                 new ShishiHospital
                 {
                     HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
+                    HospitalName = "石狮市妇幼保健院",
                     DepartmentName = "四价",
                     DepartmentId = "2",
                 },
