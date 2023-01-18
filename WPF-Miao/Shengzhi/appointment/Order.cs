@@ -8,14 +8,24 @@ namespace Shengzhi.appointment
 {
     public class Order
     {
+        public string AppointScore { get; set; }
+        public string AppUuid { get; set; }
+        public string ChannelId { get; set; }
+        public string GroupCode { get; set; }
+        public string HospitalWxOpenId { get; set; }
+        public string ImeiId { get; set; }
+        public string PhoneOperationSys { get; set; }
+        public string PhoneType { get; set; }
+        public string PhoneVersionNum { get; set; }
+        public string PublicServiceType { get; set; }
+        public string QyCheckSuffix { get; set; }
         public string UserId { get; set; }
-        public string UserName { get; set; }
-        public string DutyTimeId { get; set; }
-        public string VaccineId { get; set; }
-        public string HosipitalId { get; set; }
-        public string InoculateTimes { get; set; } //第几针
-        public string SeeDate { get; set; }
-        public string Address { get; set; } = "天河";
+        public string UserVsId { get; set; }
+        public string HospitalId { get; set; }
+        public string MonitorRecords { get; set; }
+        public string OpVersion { get; set; }
+        public string OperateCurrentUserId { get; set; }
+        public string OperateUserSource { get; set; }
         internal ShengzhiLogin User { get; set; }
 
         public string ToLogString()

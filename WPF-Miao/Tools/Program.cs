@@ -14,7 +14,7 @@ var strConvert = new StringConvert();
 var converter = new UnicodeConverter();
 var result  = converter.UrlDecode("08%253A40", Encoding.UTF8);
 
-var de = converter.UrlDecode(@"cmd=yuyue_post&date=2023-01-02+10%3A00%3A00&qty=1&dizhi=400&yuyue_name=%E5%91%A8%E7%91%A0%E5%A4%8F&yuyue_user_code=612426199806235426&yuyue_user_add=%E7%BF%A1%E7%BF%A0%E6%A2%A6%E5%A2%83&yuyue_user_suoshu=%E7%99%BE%E7%9B%9B", Encoding.UTF8);
+var de = converter.UrlDecode(@"%5B%7B%22PAGE_CODE%22:%22appoint_confirm%22,%22ELEMENT_CODE%22:%22countAppointConfirm2%22,%22OPERATE_TIME%22:%222023-01-18+20:38:44%22,%22USER_ID%22:24020334,%22HOSPITAL_ID%22:%223110012%22%7D%5D", Encoding.UTF8);
 
 var en = converter.UrlEncode(de);
 

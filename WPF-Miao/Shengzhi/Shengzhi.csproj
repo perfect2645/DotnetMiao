@@ -18,6 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj" />
+    <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
+    <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\Utils\Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="view\ShengzhiConsole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
