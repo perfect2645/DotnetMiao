@@ -21,7 +21,7 @@ namespace Zhuzher.search
 
         private void InitSceneList()
         {
-            AddScene("app-act-invite&view", 10, "1");
+            AddScene("app-act-invite&view", 9, "1");
             //AddScene("app-act-help", 1, "1");
             //AddScene("doc-withhold&prepay12months", 1, "zze://vanke.com/common/reactnative?route=BillRoute/PayBills");;
 
