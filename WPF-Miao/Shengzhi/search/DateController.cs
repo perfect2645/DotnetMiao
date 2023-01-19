@@ -27,7 +27,7 @@ namespace Shengzhi.search
                 var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
                 var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
                 var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_date_array/?vaccine_id={deptId}&hospital={hosId}";
-                var content = new ShengzhiContent(url, user);
+                var content = new WechatContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

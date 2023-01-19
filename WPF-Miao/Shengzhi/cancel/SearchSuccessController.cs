@@ -33,7 +33,7 @@ namespace Shengzhi.cancel
                 //可以通过设置offset参数过滤
                 //https://ldsq.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=20&offset=20
                 var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=2000";
-                var content = new ShengzhiContent(url, user);
+                var content = new WechatContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

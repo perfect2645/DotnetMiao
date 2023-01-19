@@ -41,7 +41,7 @@ namespace Shengzhi.search
                 var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
                 var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
                 var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/shift_time_for_vaccine/{deptId}/?date={date}&hospital={hosId}";
-                var content = new ShengzhiContent(url, user);
+                var content = new WechatContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -122,15 +122,15 @@ namespace Shengzhi.search
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-                VaccineId = deptId
+                //Address = user.Address,
+                //DutyTimeId = timeId,
+                //HosipitalId = hospitalId,
+                //InoculateTimes = user.InoculateTimes,
+                //SeeDate = date,
+                //UserId = user.UserId,
+                //UserName = user.UserName,
+                //User = user,
+                //VaccineId = deptId
             };
         }
     }

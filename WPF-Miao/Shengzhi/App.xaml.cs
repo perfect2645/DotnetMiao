@@ -28,6 +28,7 @@ namespace Shengzhi
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();

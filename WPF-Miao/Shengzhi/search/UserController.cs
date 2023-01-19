@@ -30,7 +30,7 @@ namespace Shengzhi.search
             try
             {
                 var url = $"https://ldsq.ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
-                var content = new ShengzhiContent(url, user);
+                var content = new WechatContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -73,10 +73,10 @@ namespace Shengzhi.search
             var idcard = defaultUser.GetString("idno");
             var phone = defaultUser.GetString("mobile");
 
-            user.UserId = userId;
+            //user.UserId = userId;
             user.UserName = userName;
-            user.IdCard = idcard;
-            user.Phone = phone;
+            //user.IdCard = idcard;
+            //user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

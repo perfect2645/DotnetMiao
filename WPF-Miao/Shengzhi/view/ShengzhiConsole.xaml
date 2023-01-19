@@ -16,20 +16,20 @@
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:OnTimeConsole.DynamicArea>
             <StackPanel>
-                <!--<StackPanel Background="Bisque">
+                <StackPanel Background="Bisque">
                     <TextBox Width="300" Height="30"
-                         Margin="0,0,0,20"
-                         Text="{Binding Authorization}"
-                        materialDesign:HintAssist.Hint="Authorization"/>
+                         Margin="0,20,0,20"
+                         Text="{Binding UserPhone}"
+                        materialDesign:HintAssist.Hint="手机"/>
                     <TextBox Width="300" Height="30"
-                         Margin="0,0,0,20"
-                         Text="{Binding Cookie}"
-                        materialDesign:HintAssist.Hint="Cookie"/>
+                         Margin="0,20,0,20"
+                         Text="{Binding UserPassword}"
+                        materialDesign:HintAssist.Hint="密码"/>
                     <Button Content="登录" Margin="0,0,10,0"
                         Command="{Binding LoginCommand}" Width="100">
                     </Button>
-                </StackPanel>-->
-                <StackPanel Background="Bisque">
+                </StackPanel>
+                <!--<StackPanel Background="Bisque">
                     <StackPanel Orientation="Horizontal">
                         <ComboBox
                         Style="{StaticResource mui_combobox}"
@@ -51,7 +51,7 @@
                         Command="{Binding CancelCommand}" Width="100">
                         </Button>
                     </StackPanel>
-                </StackPanel>
+                </StackPanel>-->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
                     <Button Content="手动预约" Margin="0,0,10,0"
                     Command="{Binding ManualCommand}" Width="100">

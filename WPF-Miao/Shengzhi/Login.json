@@ -1,14 +1,6 @@
 ﻿[
   {
-    "Authorization": "Token 88e07fdf8048638dd476fd9f7a1b86b0720a64b0",
-    "Cookie": "sessionid=mfuy4xg0jk7rgvctzuugt1c24kgo06xj",
-    "UserName": "李丽",
-    "Address": "广州"
-  },
-  {
-    "Authorization": "Token a3e983641092156eb4193903488124eea934bcd4",
-    "Cookie": "sessionid=2w95lhpntjiwsuk3ws9ztxvjl5nzufnx",
-    "UserName": "许晴",
-    "Address": "广州"
+    "Url": "https://app.quyiyuan.com/APP/user/action/LoginAction.jspx?APPOINT_SOURCE=0&APP_UUID=c7b5959d-e0d6-4d54-8fe0-33c48f409445&CHANNEL_ID=&GROUP_CODE=40&HOSPITAL_WX_OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk&IMEI_ID=&LOGIN_FLAG=0&OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk&PASSWORD=875f801cb7dd72845deaadb2ded26b0458930754ab35f75bec44bd7118640c046d4eb92c90caf25436f112c1a37192767490b564c6ac93bd53d209dd15cb6f15&PHONEOPERATINGSYS=0&PHONETYPE=&PHONEVERSIONNUM=&PUBLIC_SERVICE_TYPE=020514&TOKEN=1674122759530&USER_CODE=13940897525&USER_ID=24020334&USER_VS_ID=41599843&WX_OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk&forceSatification=YES&hospitalID=3110012&isAutoPwdLogin=false&isLogin=true&loc=c&op=login&opVersion=2.6.71&operateCurrent_UserId=24020334&operateUserSource=0&userSource=0&QY_CHECK_SUFFIX=5d92768cf8abba6c360c9fee61324a08",
+    "UserName": "周瑠夏"
   }
 ]

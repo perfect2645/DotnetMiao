@@ -20,6 +20,7 @@ namespace Shengzhi.appointment
         public string PublicServiceType { get; set; }
         public string QyCheckSuffix { get; set; }
         public string UserId { get; set; }
+        public string UserName { get; set; }
         public string UserVsId { get; set; }
         public string HospitalId { get; set; }
         public string MonitorRecords { get; set; }
@@ -36,9 +37,9 @@ namespace Shengzhi.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"SeeDate - {SeeDate}");
-            sb.AppendLine($"VaccineId - {VaccineId}");
-            sb.AppendLine($"DutyTimeId - {DutyTimeId}");
+            //sb.AppendLine($"SeeDate - {SeeDate}");
+            //sb.AppendLine($"VaccineId - {VaccineId}");
+            //sb.AppendLine($"DutyTimeId - {DutyTimeId}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

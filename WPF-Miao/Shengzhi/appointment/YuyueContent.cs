@@ -4,7 +4,7 @@ using Utils;
 
 namespace Shengzhi.appointment
 {
-    internal class YuyueContent : ShengzhiContent
+    internal class YuyueContent : WechatContent
     {
         private static string url = "https://app.quyiyuan.com/APP/appoint/action/AppointActionC.jspx";
         public Order Order { get; private set; }

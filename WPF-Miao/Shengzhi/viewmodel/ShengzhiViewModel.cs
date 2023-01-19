@@ -113,6 +113,28 @@ namespace Shengzhi.viewmodel
             }
         }
 
+        private string _userPhone;
+        public string UserPhone
+        {
+            get { return _userPhone; }
+            set
+            {
+                _userPhone = value;
+                NotifyUI(() => UserPhone);
+            }
+        }
+
+        private string _userPassword;
+        public string UserPassword
+        {
+            get { return _userPassword; }
+            set
+            {
+                _userPassword = value;
+                NotifyUI(() => UserPassword);
+            }
+        }
+
         private readonly object OrderLock = new object();
 
         private SearchController _searchController;
@@ -235,29 +257,50 @@ namespace Shengzhi.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<ShengzhiLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
+                WechatLogin(user);
             }
 
             MainSession.InitSession();
         }
 
+        private void WechatLogin(ShengzhiLogin user)
+        {
+            var query = user.Url.UrlToDic();
+            user.Url = user.Url;
+            user.AppointSource = query.GetString("APPOINT_SOURCE");
+            user.AppUuid = query.GetString("APP_UUID");
+            user.ChannelId = query.GetString("CHANNEL_ID");
+            user.GroupCode = query.GetString("GROUP_CODE");
+            user.ImeiId = query.GetString("IMEI_ID");
+            user.LoginFlag = query.GetString("LOGIN_FLAG");
+            user.Password = query.GetString("PASSWORD");
+            user.PhoneOperationSys = query.GetString("PHONEOPERATINGSYS");
+            user.PhoneType = query.GetString("PHONETYPE");
+            user.PhoneVersionNum = query.GetString("PHONEVERSIONNUM");
+            user.PublicServiceType = query.GetString("PUBLIC_SERVICE_TYPE");
+            user.Token = query.GetString("TOKEN");
+            user.UserCode = query.GetString("USER_CODE");
+            user.ForceSatification = query.GetString("forceSatification");
+            user.HospitalID = query.GetString("hospitalID");
+            user.IsAutoPwdLogin = query.GetString("isAutoPwdLogin");
+            user.Loc = query.GetString("loc");
+            user.Op = query.GetString("op");
+            user.OpVersion = query.GetString("opVersion");
+            user.OperateUserSource = query.GetString("operateUserSource");
+            user.UserSource = query.GetString("userSource");
+
+            var loginController = HttpServiceController.GetService<LoginController>();
+            loginController.WechatLoginAsync(user);
+        }
+
         private void ExecuteLogin()
         {
-            if (StringUtil.AnyEmpty(Authorization))
+            if (StringUtil.AnyEmpty(UserPhone, UserPassword))
             {
-                Log("请检查参数");
+                MainSession.PrintLogEvent.Publish(this, "请填写用户手机和密码");
                 return;
             }
-
-            var loginData = new ShengzhiLogin()
-            {
-                
-            };
-
-            MainSession.Users.Add(loginData);
-
-            ClearLoginData();
+            var loginController = HttpServiceController.GetService<LoginController>();
         }
 
         private void ClearLoginData()
@@ -317,15 +360,6 @@ namespace Shengzhi.viewmodel
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-                VaccineId = deptId
             };
         }
 
@@ -406,7 +440,7 @@ namespace Shengzhi.viewmodel
                 bool isSuccess = false;
                 foreach (var order in orders)
                 {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                    var appointController = MainSession.AppointSession.GetController($"{userName}");
                     isSuccess = appointController.YuyueAsync(order);
                     if (isSuccess)
                     {
@@ -435,7 +469,7 @@ namespace Shengzhi.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -467,15 +501,15 @@ namespace Shengzhi.viewmodel
                 {
                     var order = new Order
                     {
-                        Address = user.Address,
-                        DutyTimeId = template.DutyTimeId,
-                        HosipitalId = template.HosipitalId,
-                        InoculateTimes = user.InoculateTimes,
-                        SeeDate = template.SeeDate,
-                        User = user,
-                        UserId = user.UserId,
-                        UserName = user.UserName,
-                        VaccineId = template.VaccineId,
+                        //Address = user.Address,
+                        //DutyTimeId = template.DutyTimeId,
+                        //HosipitalId = template.HosipitalId,
+                        //InoculateTimes = user.InoculateTimes,
+                        //SeeDate = template.SeeDate,
+                        //User = user,
+                        //UserId = user.UserId,
+                        //UserName = user.UserName,
+                        //VaccineId = template.VaccineId,
                     };
 
                     orderList.Add(order);

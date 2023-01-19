@@ -3,7 +3,7 @@ using Shengzhi.login;
 
 namespace Shengzhi.cancel
 {
-    internal class CancelContent : ShengzhiContent
+    internal class CancelContent : WechatContent
     {
         private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/";
 
