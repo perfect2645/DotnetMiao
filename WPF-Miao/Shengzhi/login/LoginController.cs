@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
+using Utils.Encode;
+using Base.session;
+using System.Security.Cryptography;
 
 namespace Shengzhi.login
 {
@@ -61,7 +64,9 @@ namespace Shengzhi.login
 
         private void AnalysisResult(string loginResult)
         {
-            
+            var result = loginResult.AESDecrypt(Constants.EncodeKey, "", PaddingMode.PKCS7, CipherMode.ECB);
+
+            var decodeStr = result.ToTuple().Item2;
         }
 
         public string Login(string userPhone, string userPassword)

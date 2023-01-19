@@ -133,9 +133,9 @@ namespace suiyang.viewmodel
             DateList = new List<DspVal>
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),

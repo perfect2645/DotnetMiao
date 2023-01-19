@@ -4,6 +4,7 @@ namespace Shengzhi.session
 {
     internal class Constants : MiaoConstants
     {
+        public const string EncodeKey = "abcdefgabcdefg12";
         public const string MiaoHtml = "MiaoHtml";
 
         public const string AttId = "attId";
@@ -16,7 +17,6 @@ namespace Shengzhi.session
         public const string UserID = "userID";
         public const string FamilyId = "familyId";
         public const string UserPhone = "userPhone";
-        public const string DoctorId = "doctorId";
         public const string Scheduleid = "scheduleid";
         public const string FamilyID = "familyID";
         public const string Token = "token";
