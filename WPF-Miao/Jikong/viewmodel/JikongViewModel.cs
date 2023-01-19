@@ -126,7 +126,7 @@ namespace Jikong.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            TestData();
+            //TestData();
             LoginFromConfigAsync();
         }
 
@@ -140,7 +140,7 @@ namespace Jikong.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-01-16", "2023-01-16");
+            var dateRange = DateTimeUtil.GetDateRange("2023-01-24", "2023-01-31");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
@@ -181,6 +181,15 @@ namespace Jikong.viewmodel
                     DepartmentId = "18013",
                     DoctorId = "705",
                     DoctorName = "成人流感疫苗"
+                },
+                new JikongHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "武汉疾控",
+                    DepartmentName = "预检登记室",
+                    DepartmentId = "18013",
+                    DoctorId = "718",
+                    DoctorName = "四价人乳头瘤病毒疫苗"
                 }
             };
 
