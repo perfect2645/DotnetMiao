@@ -69,8 +69,6 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(5720, 1, "青岛啤酒原浆5L一桶", "1059", $"{DateTimeUtil.GetToday()} 20:00:00");
-            //AddMiaoshaItem(5721, 1, "2022卡塔尔世界杯吉祥物拉伊卜", "1059", $"{DateTimeUtil.GetToday()} 19:59:59");
             AddMiaoshaItem(5722, 1, "圣牧有机牛奶1箱", "1059", $"{DateTimeUtil.GetToday()} 19:59:59");
             //AddMiaoshaItem(5722, 1, "圣牧有机牛奶1箱", "1059", "2022-12-09 19:59:59");
             //AddMiaoshaItem(5749, 1, "500元无门槛物业券", "1158", "2022-12-06 20:00:00");
