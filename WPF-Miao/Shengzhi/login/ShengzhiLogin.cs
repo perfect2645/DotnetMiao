@@ -1,4 +1,6 @@
-﻿namespace Shengzhi.login
+﻿using System.Collections.Generic;
+
+namespace Shengzhi.login
 {
     internal class ShengzhiLogin
     {
@@ -26,5 +28,6 @@
         public string OperateUserSource { get; set; }
         public string UserSource { get; set; }
         public string TimeStamp { get; set; }
+        public Dictionary<string, object> LoginInfo { get; set; }
     }
 }

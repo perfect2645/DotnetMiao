@@ -54,7 +54,7 @@ namespace Shengzhi.login
                     return;
                 }
 
-                AnalysisResult(loginResult);
+                AnalysisResult(loginResult, user);
             }
             catch (Exception ex)
             {
@@ -62,11 +62,21 @@ namespace Shengzhi.login
             }
         }
 
-        private void AnalysisResult(string loginResult)
+        private void AnalysisResult(string loginResult, ShengzhiLogin user)
         {
-            var result = loginResult.AESDecrypt(Constants.EncodeKey, "", PaddingMode.PKCS7, CipherMode.ECB);
+            try
+            {
+                var result = loginResult.AESDecrypt(Constants.EncodeKey, "", PaddingMode.PKCS7, CipherMode.ECB);
 
-            var decodeStr = result.ToTuple().Item2;
+                var loginStr = result.ToTuple().Item2;
+                var loginDic = loginStr.ToObjDic();
+                user.LoginInfo = loginDic;
+                MainSession.PrintLogEvent.Publish(this, loginDic);
+            }
+            catch(Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"解析登录信息失败 -WechatLogin- {ex.Message}");
+            }
         }
 
         public string Login(string userPhone, string userPassword)
