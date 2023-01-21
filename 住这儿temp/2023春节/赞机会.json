@@ -37,6 +37,108 @@
             "finishCount": null
         },
         {
+            "activityTaskId": 4306,
+            "taskId": 506,
+            "taskName": "除夕登录即赠10烟花",
+            "chanceNumber": 10,
+            "taskDesc": "年味",
+            "tips": "除夕当日打开住这儿App，即得10枚烟花",
+            "detail": [
+                {
+                    "taskDetailId": 507,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1230,
+                    "gameId": 1097,
+                    "gameTitle": "烟花",
+                    "limitCount": 10,
+                    "chanceName": "烟花"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4307,
+            "taskId": 515,
+            "taskName": "观看烟花直播送红包",
+            "chanceNumber": 2,
+            "taskDesc": "年味",
+            "tips": "观看直播超过15秒可以领取2个红包，仅限1次",
+            "detail": [
+                {
+                    "taskDetailId": 516,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/puli-live/?wid=3723599",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 2,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4308,
+            "taskId": 516,
+            "taskName": "参与新年许愿送红包",
+            "chanceNumber": 1,
+            "taskDesc": "年味",
+            "tips": "在新年祈愿话题下完成新年许愿，每日首次可以获得红包",
+            "detail": [
+                {
+                    "taskDetailId": 517,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=263&from=sfscm",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1227,
+                    "gameId": 1094,
+                    "gameTitle": "年味红包",
+                    "limitCount": 1,
+                    "chanceName": "红包"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
             "activityTaskId": 4246,
             "taskId": 497,
             "taskName": "邻里助力送红包",
@@ -235,40 +337,6 @@
                     "gameTitle": "年味红包",
                     "limitCount": 1,
                     "chanceName": "红包"
-                }
-            ],
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4268,
-            "taskId": 506,
-            "taskName": "除夕来住这儿领烟花",
-            "chanceNumber": 1,
-            "taskDesc": "年味",
-            "tips": "除夕当日打开住这儿参与活动，即得1枚烟花",
-            "detail": [
-                {
-                    "taskDetailId": 507,
-                    "sceneName": "作文大赛审核通过",
-                    "sceneCode": "5thzonezwdsshtg",
-                    "sceneDesc": "第五空间友邻作文大赛审核通过",
-                    "url": "1",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": null,
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1230,
-                    "gameId": 1097,
-                    "gameTitle": "烟花",
-                    "limitCount": 1,
-                    "chanceName": "烟花"
                 }
             ],
             "limitCount": 1,

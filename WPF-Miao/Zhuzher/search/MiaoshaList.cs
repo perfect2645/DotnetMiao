@@ -70,8 +70,9 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             AddMiaoshaItem(6114, 1, "钱兔似锦：送一个月物业费", "1230", $"{DateTimeUtil.GetToday()} 19:59:59");
-            //AddMiaoshaItem(6131, 1, "心想事成：送10斤甜甜的脐橙", "1230", $"{DateTimeUtil.GetToday()} 20:00:05");
-            //AddMiaoshaItem(6132, 1, "万事顺意：送1斤陕西富平柿饼", "1230", $"{DateTimeUtil.GetToday()} 20:00:05");
+            AddMiaoshaItem(6131, 1, "心想事成：送10斤甜甜的脐橙", "1230", $"{DateTimeUtil.GetToday()} 20:00:02");
+            AddMiaoshaItem(6132, 1, "万事顺意：送1斤陕西富平柿饼", "1230", $"{DateTimeUtil.GetToday()} 20:00:01");
+            //AddMiaoshaItem(6133, 1, "大吉大利：送2只鲜嫩的三黄鸡", "1230", $"{DateTimeUtil.GetToday()} 20:00:02");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
