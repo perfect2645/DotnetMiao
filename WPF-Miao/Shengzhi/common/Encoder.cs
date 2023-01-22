@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Utils;
+using Utils.stringBuilder;
 
 namespace Shengzhi.common
 {
@@ -10,8 +8,19 @@ namespace Shengzhi.common
     {
         public static string GetQyCheckSuffix(Dictionary<string, object> source, string timeStamp)
         {
+            var content = SbHelper.GetStringContent(source);
+            var contentMd5 = Encryptor.ToMD5String(content);
 
-            return string.Empty;
+            var qyCheckStr = $"{contentMd5}@@{timeStamp}";
+            var qyCheckMd5 = Encryptor.ToMD5String(qyCheckStr);
+
+            return qyCheckMd5;
+        }
+
+        public static string GetQyCheckSuffix(string url, string timeStamp)
+        {
+            var query = url.UrlToDic();
+            return Encoder.GetQyCheckSuffix(query, timeStamp);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Content;
 using Shengzhi.login;
 using Shengzhi.session;
+using Utils.stringBuilder;
 
 namespace Shengzhi.common
 {
@@ -35,6 +36,13 @@ namespace Shengzhi.common
             AddHeader("Referer", "https://c.quyiyuan.com/c_quyiyuan_web/system/c_quyiyuan/index.jsp?wx_forward=home&userSource=0&PublicServiceType=020514&skinType=1&hospitalID=3110012&code=091JvTkl2jEiDa4DxXkl2uwwbR2JvTkw&state=3110012");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+        }
+
+        public string BuildGetQyCheckSuffix()
+        {
+            var query = RequestUrl.UrlToDic();
+
+            return Encoder.GetQyCheckSuffix(query, User.TimeStamp);
         }
     }
 }

@@ -39,7 +39,10 @@ namespace Shengzhi.login
             try
             {
                 var url = $"{user.Url}";
-                var content = new WechatContent(url);
+                var content = new WechatContent(url, user);
+
+                var qy = content.BuildGetQyCheckSuffix();
+
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

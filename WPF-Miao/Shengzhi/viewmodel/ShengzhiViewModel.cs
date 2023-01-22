@@ -279,7 +279,7 @@ namespace Shengzhi.viewmodel
             user.PhoneVersionNum = query.GetString("PHONEVERSIONNUM");
             user.PublicServiceType = query.GetString("PUBLIC_SERVICE_TYPE");
             user.Token = query.GetString("TOKEN");
-            user.Token = DateTimeUtil.GetTimeStamp();
+            user.TimeStamp = DateTimeUtil.GetTimeStamp();
             user.UserCode = query.GetString("USER_CODE");
             user.ForceSatification = query.GetString("forceSatification");
             user.HospitalID = query.GetString("hospitalID");
