@@ -5,7 +5,12 @@ namespace Shengzhi.appointment
 {
     public class Order
     {
+        public string RegDate { get; set; }
+        public string ClinicDuration { get; set; }
+        public string AppMadeDate { get; set; }
+        public string AmountText { get; set; }
         public string Amount { get; set; }
+
         public string AppointScore { get; set; }
         public string AppUuid { get; set; }
         public string ChannelId { get; set; }

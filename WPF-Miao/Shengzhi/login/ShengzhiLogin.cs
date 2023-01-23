@@ -29,5 +29,7 @@ namespace Shengzhi.login
         public string UserSource { get; set; }
         public string TimeStamp { get; set; }
         public Dictionary<string, object> LoginInfo { get; set; }
+
+        public string PatientId { get; set; }
     }
 }

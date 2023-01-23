@@ -71,10 +71,19 @@ namespace Shengzhi.login
             {
                 var result = loginResult.AESDecrypt(Constants.EncodeKey, "", PaddingMode.PKCS7, CipherMode.ECB);
 
-                var loginStr = result.ToTuple().Item2;
-                var loginDic = loginStr.ToObjDic();
-                user.LoginInfo = loginDic;
-                MainSession.PrintLogEvent.Publish(this, loginDic);
+                var loginResultStr = result.ToTuple().Item2;
+                var loginResultDic = loginResultStr.ToObjDic();
+                if (!loginResultDic.ContainsKey("data"))
+                {
+                    MainSession.PrintLogEvent.Publish(this, "获取用户信息失败");
+                    return;
+                }
+
+                var loginDataStr = loginResultDic["data"].NotNullString();
+                var loginDataDic = loginDataStr.ToObjDic();
+
+                user.LoginInfo = loginDataDic;
+                MainSession.PrintLogEvent.Publish(this, loginResultDic, "获取用户信息成功");
             }
             catch(Exception ex)
             {

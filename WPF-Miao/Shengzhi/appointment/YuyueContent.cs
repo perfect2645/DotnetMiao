@@ -1,5 +1,6 @@
 ﻿using Shengzhi.common;
 using Shengzhi.login;
+using Shengzhi.session;
 using Utils;
 
 namespace Shengzhi.appointment
@@ -16,6 +17,46 @@ namespace Shengzhi.appointment
 
         private void BuildContent()
         {
+            AddContent("DEPT_CODE", MainSession.PlatformSession.GetString(Constants.DeptId));
+            AddContent("DEPT_NAME", MainSession.PlatformSession.GetString(Constants.DeptName));
+            AddContent("DOCTOR_CODE", MainSession.PlatformSession.GetString(Constants.DoctorId));
+            AddContent("DOCTOR_NAME", MainSession.PlatformSession.GetString(Constants.DoctorName));
+            AddContent("MARK_DESC", MainSession.PlatformSession.GetString(Constants.DoctorName));
+            AddContent("CLINIC_TYPE", "免费号");
+            AddContent("REG_DATE", Order.RegDate);
+            AddContent("CLINIC_DURATION", Order.ClinicDuration);
+            AddContent("APPT_MADE_DATE", Order.AppMadeDate);
+            AddContent("AMOUNT_TEXT", Order.AmountText);
+            AddContent("AMOUNT", Order.Amount);
+            AddContent("AMOUNT_TYPE", "0");
+            AddContent("PATIENT_ID", User.PatientId);
+            AddContent("PATIENT_NAME", User.UserName);
+            AddContent("ID_NO", "");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+            AddContent("PATIENT_ID", "0");
+
+
+
+
             AddContent("APPOINT_SOURCE", Order.AppointScore);
             AddContent("APP_UUID", Order.AppUuid);
             AddContent("CHANNEL_ID", Order.ChannelId);
