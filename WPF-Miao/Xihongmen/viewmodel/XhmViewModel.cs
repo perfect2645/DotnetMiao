@@ -125,7 +125,7 @@ namespace Xihongmen.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            TestData();
+            //TestData();
 
             LoginFromConfig();
         }
@@ -139,7 +139,7 @@ namespace Xihongmen.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2023, 1, 11, 16, 59, 00);
+            StartTime = new DateTime(2023, 1, 25, 16, 59, 00);
 
             SetDateList();
 
@@ -174,7 +174,7 @@ namespace Xihongmen.viewmodel
         private void SetDateList()
         {
             DateList = new List<DspVal>();
-            var targetDates = DateTimeUtil.GetFutureDays(DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday);
+            var targetDates = DateTimeUtil.GetFutureDays(DayOfWeek.Monday, DayOfWeek.Wednesday);
             foreach(var dateStr in targetDates)
             {
                 var timestamp = DateTimeUtil.GetTimeStamp($"{dateStr} 08:00").Substring(0, 10);
