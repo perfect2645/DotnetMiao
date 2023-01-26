@@ -133,7 +133,7 @@ namespace Shengzhi.login
             var token = userInfo.GetProperty("token").NotNullString();
             var dicResult = JsonAnalysis.JsonToDic(user);
             dicResult.AddOrUpdate("token", token);
-            var userId = dicResult[Constants.UserID].NotNullString();
+            var userId = dicResult[Constants.UserId].NotNullString();
             MainSession.PlatformSession.AddOrUpdate(Constants.Token, token);
             MainSession.PlatformSession.AddOrUpdate(userId, dicResult);
             MainSession.PrintLogEvent.Publish(this, dicResult);

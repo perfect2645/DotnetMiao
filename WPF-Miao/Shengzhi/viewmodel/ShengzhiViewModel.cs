@@ -191,17 +191,17 @@ namespace Shengzhi.viewmodel
             {
                 new ShengzhiHospital
                 {
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
+                    HospitalId = "3110012",
+                    HospitalName = "河北生殖妇产医院",
                     DepartmentName = "九价",
-                    DepartmentId = "1",
+                    DepartmentId = "412301",
                 },
                 new ShengzhiHospital
                 {
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
+                    HospitalId = "3110012",
+                    HospitalName = "河北生殖妇产医院",
                     DepartmentName = "四价",
-                    DepartmentId = "2",
+                    DepartmentId = "412301",
                 },
             };
 

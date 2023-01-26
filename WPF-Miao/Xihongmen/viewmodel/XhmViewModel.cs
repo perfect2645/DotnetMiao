@@ -125,7 +125,7 @@ namespace Xihongmen.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            //TestData();
+            TestData();
 
             LoginFromConfig();
         }
