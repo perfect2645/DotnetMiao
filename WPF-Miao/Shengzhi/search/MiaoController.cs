@@ -27,21 +27,16 @@ namespace Shengzhi.search
         {
         }
 
-        public void SearchMiaoAsync(string date, ShengzhiLogin user)
+        public void SearchMiaoAsync(ShengzhiLogin user)
         {
-            Date = date;
-            Task.Factory.StartNew(() => SearchMiao(date, user));
+            Task.Factory.StartNew(() => SearchMiao(user));
         }
 
-        public bool SearchMiao(string date, ShengzhiLogin user)
+        public bool SearchMiao(ShengzhiLogin user)
         {
-            Date = date;
             try
             {
-                var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/shift_time_for_vaccine/{deptId}/?date={date}&hospital={hosId}";
-                var content = new WechatContent(url, user);
+                var content = new MiaoContent(user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

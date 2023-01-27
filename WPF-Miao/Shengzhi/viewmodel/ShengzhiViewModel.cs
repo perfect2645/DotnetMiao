@@ -20,6 +20,7 @@ using Utils.datetime;
 using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
+using Base.viewmodel.status;
 
 namespace Shengzhi.viewmodel
 {
@@ -156,7 +157,7 @@ namespace Shengzhi.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
@@ -166,10 +167,7 @@ namespace Shengzhi.viewmodel
             DateList = new List<DspVal>
             {
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -177,12 +175,6 @@ namespace Shengzhi.viewmodel
             TimeList = new List<DspVal>
             {
                 new DspVal("08:00:00-11:00:00", "1"),
-                //new DspVal("14:00:00-16:00:00", "2"),
-                //new DspVal("08:00:00-08:30:00", "3"),
-                //new DspVal("08:30:00-09:00:00", "4"),
-                //new DspVal("09:00:00-09:30:00", "5"),
-                //new DspVal("14:00:00-14:30:00", "9"),
-                //new DspVal("14:30:00-15:00:00", "10"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
@@ -207,7 +199,6 @@ namespace Shengzhi.viewmodel
 
             SelectedDepartment = Departments.FirstOrDefault();
             _searchController = new SearchController();
-
         }
 
         private void InitCommands()
@@ -246,6 +237,7 @@ namespace Shengzhi.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
+            StopIntervalTimer();
         }
 
         #endregion Status Control
@@ -315,11 +307,12 @@ namespace Shengzhi.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
-                    BuildOrders();
-                    StartOnTimeTimer();
+                    //BuildOrders();
+                    MainSession.SetStatus(MiaoProgress.ReadyForSearch);
+                    StartIntervalTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -369,7 +362,12 @@ namespace Shengzhi.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //Task.Factory.StartNew(() => Appoint());
+                    if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.MiaoGet 
+                    && MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                    {
+                        MainSession.SetStatus(MiaoProgress.GettingMiao);
+                    }
+
                     _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
@@ -392,11 +390,7 @@ namespace Shengzhi.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    BuildManualOrder();
-                    foreach (var order in MainSession.Orders)
-                    {
-                        Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
-                    }
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {

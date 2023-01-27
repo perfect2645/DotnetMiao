@@ -1,16 +1,21 @@
 ﻿using Shengzhi.common;
 using Shengzhi.login;
+using Shengzhi.session;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utils;
 using Utils.stringBuilder;
 
 namespace Shengzhi.search
 {
-    internal class MiaoContent : WechatContent
+    internal class DateContent : WechatContent
     {
-
         private static string Url { get; set; }
         private const string BaseUrl = "https://app.quyiyuan.com/APP/appoint/action/AppointActionC.jspx?";
-        public MiaoContent(ShengzhiLogin user) : base(Url, user)
+        public DateContent(ShengzhiLogin user) : base(Url, user)
         {
             BuildUrl();
         }
@@ -19,12 +24,16 @@ namespace Shengzhi.search
         {
             var content = new Dictionary<string, object>();
 
+            var depId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+
             content.Add("APPOINT_SOURCE", User.AppointSource);
             content.Add("APP_UUID", User.AppUuid);
+            content.Add("BUSSINESS_TYPE", "2");
             content.Add("CHANNEL_ID", User.ChannelId);
-            content.Add("CLINIC_DATE", "");
-            content.Add("DEPT_CODE", "");
-            content.Add("DOCTOR_CODE", "");
+
+            content.Add("DEPT_CODE", depId);
+            content.Add("DOCTOR_CODE", doctorId);
             content.Add("GROUP_CODE", "");
             content.Add("HB_TIME", "");
             content.Add("HOSPITAL_WX_OPEN_ID", "");
