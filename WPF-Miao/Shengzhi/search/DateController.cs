@@ -34,13 +34,21 @@ namespace Shengzhi.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var detail = root.GetProperty("detail");
-                if (detail.ValueKind == JsonValueKind.Null)
+                var success = root.GetProperty("success");
+                var message = root.GetProperty("message").GetString();
+                if (success.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取日期信息失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"获取日期信息失败: {message}");
                     return false;
                 }
-                return CheckDate(detail, user);
+                if (success.GetBoolean() == false)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取日期信息失败: {message}");
+                    return false;
+                }
+                //return CheckDate(detail, user);
+
+                return false;
             }
             catch (Exception ex)
             {

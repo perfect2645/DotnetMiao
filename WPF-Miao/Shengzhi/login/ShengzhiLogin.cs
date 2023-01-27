@@ -20,6 +20,8 @@ namespace Shengzhi.login
         public string PublicServiceType { get; set; }
         public string Token { get; set; }
         public string UserCode { get; set; }
+        public string UserId { get; set; }
+        public string UserVsId { get; set; }
         public string ForceSatification { get; set; }
         public string HospitalID { get; set; }
         public string IsAutoPwdLogin { get; set; }

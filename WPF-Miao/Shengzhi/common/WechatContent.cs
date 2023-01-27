@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Content;
 using Shengzhi.login;
 using Shengzhi.session;
+using System.Collections.Generic;
 using Utils.stringBuilder;
 
 namespace Shengzhi.common
@@ -42,6 +43,15 @@ namespace Shengzhi.common
         {
             var query = RequestUrl.UrlToDic();
 
+            return Encoder.GetQyCheckSuffix(query, User.TimeStamp);
+        }
+
+        public string BuildGetQyCheckSuffix(Dictionary<string, object> query)
+        {
+
+            var testTime = "1674834240989";
+
+            var test = Encoder.GetQyCheckSuffix(query, testTime);
             return Encoder.GetQyCheckSuffix(query, User.TimeStamp);
         }
     }

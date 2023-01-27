@@ -274,6 +274,8 @@ namespace Shengzhi.viewmodel
             user.Token = query.GetString("TOKEN");
             user.TimeStamp = DateTimeUtil.GetTimeStamp();
             user.UserCode = query.GetString("USER_CODE");
+            user.UserId = query.GetString("USER_ID");
+            user.UserVsId = query.GetString("USER_VS_ID");
             user.ForceSatification = query.GetString("forceSatification");
             user.HospitalID = query.GetString("hospitalID");
             user.IsAutoPwdLogin = query.GetString("isAutoPwdLogin");
