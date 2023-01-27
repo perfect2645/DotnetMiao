@@ -1,11 +1,8 @@
 ﻿using Shengzhi.common;
 using Shengzhi.login;
 using Shengzhi.session;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Utils;
 using Utils.stringBuilder;
 
@@ -31,13 +28,10 @@ namespace Shengzhi.search
             content.Add("APP_UUID", User.AppUuid);
             content.Add("BUSSINESS_TYPE", "2");
             content.Add("CHANNEL_ID", User.ChannelId);
-
             content.Add("DEPT_CODE", depId);
-            content.Add("DOCTOR_CODE", doctorId);
-            content.Add("GROUP_CODE", "");
-            content.Add("HB_TIME", "");
-            content.Add("HOSPITAL_WX_OPEN_ID", "");
-            content.Add("IMEI_ID", "");
+            content.Add("GROUP_CODE", User.GroupCode);
+            content.Add("HOSPITAL_WX_OPEN_ID", User.HospitalWxOpenId);
+            content.Add("IMEI_ID", User.ImeiId);
             content.Add("IS_REFERRAL", "");
             content.Add("PHONEOPERATINGSYS", "");
             content.Add("PHONETYPE", "");

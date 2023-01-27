@@ -10,6 +10,7 @@ namespace Shengzhi.login
         public string AppUuid { get; set; }
         public string ChannelId { get; set; }
         public string GroupCode { get; set; }
+        public string HospitalWxOpenId { get; set; }
         public string ImeiId { get; set; }
         public string LoginFlag { get; set; }
         public string Password { get; set; }

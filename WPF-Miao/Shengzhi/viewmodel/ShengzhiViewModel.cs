@@ -156,7 +156,7 @@ namespace Shengzhi.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
+            Interval = 500;
             StartTime = DateTime.Now.AddSeconds(10);
         }
 
@@ -263,6 +263,7 @@ namespace Shengzhi.viewmodel
             user.AppUuid = query.GetString("APP_UUID");
             user.ChannelId = query.GetString("CHANNEL_ID");
             user.GroupCode = query.GetString("GROUP_CODE");
+            user.HospitalWxOpenId = query.GetString("HOSPITAL_WX_OPEN_ID");
             user.ImeiId = query.GetString("IMEI_ID");
             user.LoginFlag = query.GetString("LOGIN_FLAG");
             user.Password = query.GetString("PASSWORD");
