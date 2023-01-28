@@ -6,18 +6,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Shengzhi.login;
 using Shengzhi.session;
+using Utils;
 
 namespace Shengzhi.search
 {
     internal class SearchController
     {
         private DoctorController dateController;
-        private MiaoController miaoController;
         //private IntervalOnTime SearchInterval;
 
         public SearchController()
         {
-            miaoController = HttpServiceController.GetService<MiaoController>();
             dateController = HttpServiceController.GetService<DoctorController>();
         }
 
@@ -27,13 +26,22 @@ namespace Shengzhi.search
             {
                 return;
             }
+
+            var scheduleList = MainSession.PlatformSession["scheduleList"] as List<Dictionary<string, object>>;
             var defaultUser = MainSession.Users.FirstOrDefault();
-            miaoController.SearchMiaoAsync(defaultUser);
+            foreach (var schedule in scheduleList)
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var miaoController = HttpServiceController.GetService<MiaoController>();
+                    miaoController.SearchMiao(defaultUser, schedule);
+                });
+            }
         }
 
         private bool GetDates()
         {
-            if (MainSession.PlatformSession.ContainsKey("dates"))
+            if (MainSession.PlatformSession.ContainsKey("scheduleList"))
             {
                 return true;
             }

@@ -27,16 +27,17 @@ namespace Shengzhi.search
         {
         }
 
-        public void SearchMiaoAsync(ShengzhiLogin user)
+        public void SearchMiaoAsync(ShengzhiLogin user, Dictionary<string, object> schedule)
         {
-            Task.Factory.StartNew(() => SearchMiao(user));
+            Task.Factory.StartNew(() => SearchMiao(user, schedule));
         }
 
-        public bool SearchMiao(ShengzhiLogin user)
+        public bool SearchMiao(ShengzhiLogin user, Dictionary<string, object> schedule)
         {
             try
             {
-                var content = new MiaoContent(user);
+                Date = schedule.GetString("CLINIC_DATE");
+                var content = new MiaoContent(user, schedule);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -46,13 +47,22 @@ namespace Shengzhi.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var detail = root.GetProperty("shift_times_obj");
-                if (detail.ValueKind == JsonValueKind.Null)
+                var success = root.GetProperty("success");
+                var message = root.GetProperty("message").GetString();
+                if (success.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: {message}");
                     return false;
                 }
-                return CheckTime(detail, user);
+                if (success.GetBoolean() == false)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: {message}");
+                    return false;
+                }
+
+                var data = root.GetProperty("data");
+                var rows = data.GetProperty("rows");
+                return CheckMiao(rows, user, schedule);
             }
             catch (Exception ex)
             {
@@ -62,46 +72,30 @@ namespace Shengzhi.search
         }
 
 
-        private bool CheckTime(JsonElement data, ShengzhiLogin user)
+        private bool CheckMiao(JsonElement data, ShengzhiLogin user, Dictionary<string, object> schedule)
         {
-            var times = JsonAnalysis.JsonToDicList(data);
-            if (!times.HasItem())
+            var timeList = JsonAnalysis.JsonToDicList(data);
+            if (!timeList.HasItem())
             {
                 Log($"查苗失败失败");
                 return false;
             }
 
-            var validTimes = times.Where(t => t["stay_num"].NotNullString().ToInt() > 0);
-            if (!validTimes.HasItem())
-            {
-                Log("没有可用时间");
-                return false;
-            }
+            BuildOrderList(timeList, user, schedule);
 
-            var timeIdList = validTimes.Select(d => d["id"].NotNullString()).ToList();
-
-            MainSession.PlatformSession.AddOrUpdate("timeIdList", timeIdList);
-
-            BuildOrderList(timeIdList);
-
-            MainSession.PrintLogEvent.Publish(this, "获得预约日期");
+            MainSession.PrintLogEvent.Publish(this, "查到苗");
             return true;
         }
 
-        private void BuildOrderList(List<string> timeIdList)
+        private void BuildOrderList(List<Dictionary<string, object>> timeList, ShengzhiLogin user, Dictionary<string, object> schedule)
         {
             var orderList = new List<Order>();
 
-            foreach (var user in MainSession.Users)
+            foreach (var timeInfo in timeList)
             {
-                var userName = user.UserName;
-                foreach (var timeId in timeIdList)
-                {
-                    Order orderWithTime = BuildOneOrder(user, Date, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                Order orderWithTime = BuildOneOrder(user, schedule, timeInfo);
+                orderList.Add(orderWithTime);
             }
-            orderList = orderList.DisorderItems();
 
             var orderArgs = new OrderEventArgs
             {
@@ -111,21 +105,14 @@ namespace Shengzhi.search
             MainSession.OrderEvent.Publish(this, orderArgs);
         }
 
-        private Order BuildOneOrder(ShengzhiLogin user, string date, string timeId)
+        private Order BuildOneOrder(ShengzhiLogin user, Dictionary<string, object> schedule, Dictionary<string, object> timeInfo)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                //Address = user.Address,
-                //DutyTimeId = timeId,
-                //HosipitalId = hospitalId,
-                //InoculateTimes = user.InoculateTimes,
-                //SeeDate = date,
-                //UserId = user.UserId,
-                //UserName = user.UserName,
-                //User = user,
-                //VaccineId = deptId
+                //Amount = 
+
             };
         }
     }
