@@ -185,14 +185,23 @@ namespace Shengzhi.viewmodel
                 {
                     HospitalId = "3110012",
                     HospitalName = "河北生殖妇产医院",
-                    DepartmentName = "九价",
+                    DepartmentName = "预防接种门诊",
+                    DepartmentId = "412301",
+                    DoctorId = "F1011",
+                    DoctorName = "二价HPV进口",
+                },
+                new ShengzhiHospital
+                {
+                    HospitalId = "3110012",
+                    HospitalName = "河北生殖妇产医院",
+                    DepartmentName = "预防接种门诊",
                     DepartmentId = "412301",
                 },
                 new ShengzhiHospital
                 {
                     HospitalId = "3110012",
                     HospitalName = "河北生殖妇产医院",
-                    DepartmentName = "四价",
+                    DepartmentName = "预防接种门诊",
                     DepartmentId = "412301",
                 },
             };
@@ -625,10 +634,12 @@ namespace Shengzhi.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as ShengzhiHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }

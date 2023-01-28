@@ -30,6 +30,7 @@ namespace Shengzhi
         {
             HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<DoctorController>();
             HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();

@@ -11,14 +11,14 @@ namespace Shengzhi.search
 {
     internal class SearchController
     {
-        private DateController dateController;
+        private DoctorController dateController;
         private MiaoController miaoController;
         //private IntervalOnTime SearchInterval;
 
         public SearchController()
         {
             miaoController = HttpServiceController.GetService<MiaoController>();
-            dateController = HttpServiceController.GetService<DateController>();
+            dateController = HttpServiceController.GetService<DoctorController>();
         }
 
         public void SearchMiao()
@@ -40,7 +40,7 @@ namespace Shengzhi.search
 
             var defaultUser = MainSession.Users.FirstOrDefault();
 
-            var isDateGet = dateController.GetDate(defaultUser);
+            var isDateGet = dateController.GetDoctors(defaultUser);
             return isDateGet;
         }
     }
