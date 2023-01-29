@@ -140,7 +140,7 @@ namespace Jikong.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-01-24", "2023-01-31");
+            var dateRange = DateTimeUtil.GetDateRange("2023-1-29", "2023-1-30");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
