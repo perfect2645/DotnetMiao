@@ -44,6 +44,11 @@ namespace Jkchegu.session
             UserList.Add(new User("bfa272322e5d4423b3eb2bd1e86fd7ba", "周珊"));
             UserList.Add(new User("7c6529ef5b7a413eac86fa7bb6e35c8a", "周甜"));
             UserList.Add(new User("2698928a19b640aa820b80e3acab348c", "周依依"));
+            UserList.Add(new User("3a44f22469a343b2ab459b52ed1aff34", "刘珊"));
+            UserList.Add(new User("0881d4e643cc4f5387c702089589ffba", "赵爽"));
+            UserList.Add(new User("8bd5d1aed18e4c4495e1ba2902e8876c", "李路诗"));
+            UserList.Add(new User("e5649156c86f4f78be624c3d9c9cd36f", "张小明"));
+            UserList.Add(new User("0421b6d647f449d8add7dc7d5a4b65b4", "王冰冰"));
         }
 
         private static User GetDefaultUser()

@@ -115,24 +115,23 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=39D78F5A25E3535594138199ABD21EF5";
+            Cookie = "JSESSIONID=A0D8CB653C371C985907DC68115057B8";
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 11, 7, 59, 56);
+            StartTime = DateTime.Today.AddHours(16).AddMinutes(59);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
             };
 
             JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
