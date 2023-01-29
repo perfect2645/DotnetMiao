@@ -156,6 +156,7 @@ namespace Shengzhi.viewmodel
 
         private void TestData()
         {
+            //20230129下午4点放了
             Interval = 500;
             StartTime = DateTime.Now.AddSeconds(10);
         }
@@ -203,6 +204,33 @@ namespace Shengzhi.viewmodel
                     HospitalName = "河北生殖妇产医院",
                     DepartmentName = "预防接种门诊",
                     DepartmentId = "412301",
+                },
+                new ShengzhiHospital
+                {
+                    HospitalId = "3110012",
+                    HospitalName = "河北生殖妇产医院",
+                    DepartmentName = "预防接种门诊",
+                    DepartmentId = "412301",
+                    DoctorId = "F1035",
+                    DoctorName = "九价HPV第二针",
+                },
+                new ShengzhiHospital
+                {
+                    HospitalId = "3110012",
+                    HospitalName = "河北生殖妇产医院",
+                    DepartmentName = "预防接种门诊",
+                    DepartmentId = "412301",
+                    DoctorId = "F1035",
+                    DoctorName = "九价HPV第二针",
+                },
+                new ShengzhiHospital
+                {
+                    HospitalId = "3110012",
+                    HospitalName = "河北生殖妇产医院",
+                    DepartmentName = "预防接种门诊",
+                    DepartmentId = "412301",
+                    DoctorId = "F1039",
+                    DoctorName = "九价HPV第三针",
                 },
             };
 
