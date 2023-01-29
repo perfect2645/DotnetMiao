@@ -15,6 +15,7 @@ using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
+using System.Text;
 
 namespace Shengzhi.search
 {
@@ -109,10 +110,27 @@ namespace Shengzhi.search
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+
+            var hid = timeInfo.GetString("HID");
+            var duration = schedule.GetString("CLINIC_DURATION");
+            var hidParts = new StringBuilder();
+            var hidPart1 = UnicodeConverter.EncodeOriginal(hid.Replace(",", ""), true);
+            var hidPart2 = UnicodeConverter.EncodeOriginal($"/{duration} ", true);
+            hidParts.Append(hidPart1);
+            hidParts.Append(",");
+            hidParts.Append(hidPart2);
+            hidParts.Append(timeInfo.GetString("HB_TIME"));
+
+            var hidEncode = hidParts.ToString();
             return new Order
             {
-                //Amount = 
-
+                Amount = "0.00",
+                AppointScore = user.AppointSource,
+                AppUuid = user.AppUuid,
+                ChannelId = user.ChannelId,
+                DeptCode = deptId,
+                GroupCode = user.GroupCode,
+                HidEncode = hidEncode,
             };
         }
     }
