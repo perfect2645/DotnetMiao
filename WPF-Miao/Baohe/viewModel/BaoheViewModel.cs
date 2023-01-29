@@ -165,6 +165,14 @@ namespace Baohe.viewModel
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
+                "7208870", "预防接种预约")
+            {
+                HasYzm = false,
+                DoctorSn = "711102799" //儿童9价宫颈癌疫苗
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1094417", "雨花社区卫生服务中心",
                 "7225728", "九价Hpv")
             {
                 HasYzm = false,
