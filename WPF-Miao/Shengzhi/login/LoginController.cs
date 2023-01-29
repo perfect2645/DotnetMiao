@@ -1,20 +1,16 @@
 ﻿using Base.viewmodel.status;
+using HttpProcessor.Client;
 using Shengzhi.common;
 using Shengzhi.session;
-using HttpProcessor.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
+using Utils.Encode;
 using Utils.json;
 using Utils.stringBuilder;
-using Utils.Encode;
-using Base.session;
-using System.Security.Cryptography;
 
 namespace Shengzhi.login
 {
