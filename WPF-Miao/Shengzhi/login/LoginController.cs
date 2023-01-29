@@ -29,42 +29,6 @@ namespace Shengzhi.login
             return await Task.Factory.StartNew(() => Login(userPhone, userPassword));
         }
 
-        public void WechatLoginAsync(ShengzhiLogin user)
-        {
-            Task.Factory.StartNew(() => WechatLogin(user));
-        }
-
-        public void WechatLogin(ShengzhiLogin user)
-        {
-            try
-            {
-                var url = $"{user.Url}";
-                var content = new WechatContent(url, user);
-
-                var qy = content.BuildGetQyCheckSuffix();
-
-                content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
-                if (response?.Body == null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"登录失败 - {response?.Message},请检查参数");
-                    return;
-                }
-                var loginResult = response.JsonBody.RootElement.GetProperty("result").NotNullString();
-                if (string.IsNullOrEmpty(loginResult))
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"登录失败 - result为空,请检查参数");
-                    return;
-                }
-
-                AnalysisResult(loginResult, user);
-            }
-            catch (Exception ex)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"登录异常{ex.Message}");
-            }
-        }
-
         private void AnalysisResult(string loginResult, ShengzhiLogin user)
         {
             try
@@ -140,5 +104,45 @@ namespace Shengzhi.login
 
             return userId;
         }
+
+
+        #region Wechat login
+        public void WechatLoginAsync(ShengzhiLogin user)
+        {
+            Task.Factory.StartNew(() => WechatLogin(user));
+        }
+
+        public void WechatLogin(ShengzhiLogin user)
+        {
+            try
+            {
+                var url = $"{user.Url}";
+                var content = new WechatContent(url, user);
+
+                var qy = content.BuildGetQyCheckSuffix();
+
+                content.BuildDefaultHeaders(Client);
+                var response = GetStringAsync(content).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"登录失败 - {response?.Message},请检查参数");
+                    return;
+                }
+                var loginResult = response.JsonBody.RootElement.GetProperty("result").NotNullString();
+                if (string.IsNullOrEmpty(loginResult))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"登录失败 - result为空,请检查参数");
+                    return;
+                }
+
+                AnalysisResult(loginResult, user);
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"登录异常{ex.Message}");
+            }
+        }
+
+        #endregion Wechat login
     }
 }

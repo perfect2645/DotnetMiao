@@ -110,6 +110,7 @@ namespace Shengzhi.search
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
 
             var hid = timeInfo.GetString("HID");
             var duration = schedule.GetString("CLINIC_DURATION");
@@ -131,6 +132,10 @@ namespace Shengzhi.search
                 DeptCode = deptId,
                 GroupCode = user.GroupCode,
                 HidEncode = hidEncode,
+                ImeiId = user.ImeiId,
+                IsCreateCard = "0",
+                MarkDescEncode = UnicodeConverter.EncodeOriginal(doctorName, true),
+                PatientId = user.PatientId,
             };
         }
     }

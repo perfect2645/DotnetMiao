@@ -14,7 +14,7 @@ var strConvert = new StringConvert();
 var converter = new UnicodeConverter();
 var result  = converter.UrlDecode("08%253A40", Encoding.UTF8);
 
-var de = converter.UrlDecode(@"%E5%85%A8%E5%A4%A9", Encoding.UTF8);
+var de = converter.UrlDecode(@"%E4%BA%8C%E4%BB%B7HPV%E8%BF%9B%E5%8F%A3", Encoding.UTF8);
 
 var en = converter.UrlEncode(de);
 
