@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shengzhi.login
 {
-    internal class PatientController
+    internal class CardInfoController
     {
     }
 }
