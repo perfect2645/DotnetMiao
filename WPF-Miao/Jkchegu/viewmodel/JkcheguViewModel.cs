@@ -115,10 +115,8 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            //Cookie = "JSESSIONID=6454D5C625BA729927634EEA6338B20E";
-
-            //Cookie = "JSESSIONID=A0D8CB653C371C985907DC68115057B8"; //fawei
-            Cookie = "JSESSIONID=5D4A83B57BF9BF2F2B78AEF105C7C842";
+            Cookie = "JSESSIONID=83206E02DE43A6BAB196E3EFD0DC85BB"; //fawei
+            //Cookie = "JSESSIONID=5D4A83B57BF9BF2F2B78AEF105C7C842";
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }
@@ -266,6 +264,30 @@ namespace Jkchegu.viewmodel
         int count = 0;
 
         private void ConsumeOrdersAsync(List<Order> orderList)
+        {
+            try
+            {
+                count++;
+                for (var i = 0; i < 1000; i ++)
+                {
+                    foreach (var user in JkSession.ActiveUsers())
+                    {
+                        if (user.IsSuccess)
+                        {
+                            continue;
+                        }
+                        JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
+                        user.Yuyue(orderList);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ConsumeOrdersAsyncOld(List<Order> orderList)
         {
             try
             {

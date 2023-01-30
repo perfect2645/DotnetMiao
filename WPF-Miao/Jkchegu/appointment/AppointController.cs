@@ -6,6 +6,7 @@ using Jkchegu.session;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Security.RightsManagement;
 using System.Threading;
 using System.Threading.Tasks;
 using Utils;
@@ -17,7 +18,6 @@ namespace Jkchegu.appointment
     {
         private IntervalOnTime _intervalOnTime;
         private int loopCount = 0;
-        public bool IsSuccess { get; private set; }
         public YzmController YzmController { get; private set; }
 
         public AppointController(HttpClient httpClient) : base(httpClient)
@@ -35,31 +35,27 @@ namespace Jkchegu.appointment
 
         private async Task<int> YuyueAsync(User user, List<Order> orderList)
         {
-            for (var i = 1; i < 1000; i++)
+            if (user.IsSuccess)
             {
-                if (IsSuccess)
+                JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return 1;
+            }
+            foreach (var order in orderList)
+            {
+                order.Name = user.Name;
+                order.Etid = user.Etid;
+                order.Session = user.Session;
+                if (user.IsSuccess)
                 {
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
                     return 1;
                 }
-                foreach (var order in orderList)
-                {
-                    order.Name = user.Name;
-                    order.Etid = user.Etid;
-                    order.Session = user.Session;
-                    if (IsSuccess)
-                    {
-                        JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
-                        return 1;
-                    }
 
-                    order.Yzm = await GetYzmAsync(user);
-                    Log(order.ToLogString());
-                    var content = new AppointContent(user, order);
-                    await AppointAsync(content);
-                }
+                order.Yzm = await GetYzmAsync(user);
+                Log(order.ToLogString());
+                var content = new AppointContent(user, order);
+                await AppointAsync(content);
             }
-
             return 0;
         }
 
@@ -77,7 +73,7 @@ namespace Jkchegu.appointment
         {
             try
             {
-                if (IsSuccess)
+                if (content.User.IsSuccess)
                 {
                     return;
                 }
@@ -93,13 +89,13 @@ namespace Jkchegu.appointment
                 if (string.IsNullOrEmpty(result) || result.Contains("成功"))
                 {
                     JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
-                    IsSuccess = true;
+                    content.User.IsSuccess = true;
                 }
 
                 if (string.IsNullOrEmpty(result) || result.Contains("存在已有"))
                 {
                     JkSession.PrintLogEvent.Publish(this, $"result:{result}，预约成功请查询确认");
-                    IsSuccess = true;
+                    content.User.IsSuccess = true;
                 }
 
                 JkSession.PrintLogEvent.Publish(this, $"result:{result}");
@@ -131,7 +127,7 @@ namespace Jkchegu.appointment
         {
             loopCount++;
             JkSession.PrintLogEvent.Publish(this, $"第{loopCount}次预约循环，orderCount{orderList.Count}");
-            if (IsSuccess)
+            if (user.IsSuccess)
             {
                 _intervalOnTime.StopInterval();
                 JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
@@ -139,7 +135,7 @@ namespace Jkchegu.appointment
             }
             foreach (var order in orderList)
             {
-                if (IsSuccess)
+                if (user.IsSuccess)
                 {
                     _intervalOnTime.StopInterval();
                     JkSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
