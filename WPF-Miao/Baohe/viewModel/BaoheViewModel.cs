@@ -194,6 +194,20 @@ namespace Baohe.viewModel
                 HasYzm = false,
                 DoctorSn = "710795068"
             });
+            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
+                "1047032", "常青街道薛河湾社区卫生服务站",
+                "7237655", "九价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711238182"
+            });
+            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
+                "1047032", "常青街道薛河湾社区卫生服务站",
+                "7237655", "四价HPV疫苗")
+            {
+                HasYzm = false,
+                DoctorSn = "711247350"
+            });
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
             //"7229244", "四价Hpv"));
@@ -210,13 +224,7 @@ namespace Baohe.viewModel
             //            "1040231", "蜀山区南岗镇卫生院",
             //            "7211903", "九价Hpv"));
 
-            //        Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-            //            "1040231", "蜀山区南岗镇卫生院",
-            //            "7175975", "(测试)儿童保健科"));
 
-            //        Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-            //            "1040231", "蜀山区南岗镇卫生院",
-            //            "7215685", "(测试)国产二价"));
 
 
             SelectedDepartment = Departments.FirstOrDefault();
