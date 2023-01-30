@@ -268,17 +268,14 @@ namespace Jkchegu.viewmodel
             try
             {
                 count++;
-                for (var i = 0; i < 1000; i ++)
+                foreach (var user in JkSession.ActiveUsers())
                 {
-                    foreach (var user in JkSession.ActiveUsers())
+                    if (user.IsSuccess)
                     {
-                        if (user.IsSuccess)
-                        {
-                            continue;
-                        }
-                        JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
-                        user.Yuyue(orderList);
+                        continue;
                     }
+                    JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
+                    user.Yuyue(orderList);
                 }
             }
             catch (Exception ex)
