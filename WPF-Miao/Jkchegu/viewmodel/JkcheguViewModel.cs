@@ -115,7 +115,10 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=A0D8CB653C371C985907DC68115057B8";
+            //Cookie = "JSESSIONID=6454D5C625BA729927634EEA6338B20E";
+
+            //Cookie = "JSESSIONID=A0D8CB653C371C985907DC68115057B8"; //fawei
+            Cookie = "JSESSIONID=5D4A83B57BF9BF2F2B78AEF105C7C842";
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }
