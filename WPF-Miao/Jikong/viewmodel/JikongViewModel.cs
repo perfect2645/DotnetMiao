@@ -138,9 +138,9 @@ namespace Jikong.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-1-29", "2023-1-30");
+            var dateRange = DateTimeUtil.GetDateRange("2023-2-5", "2023-2-5");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
