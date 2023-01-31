@@ -43,7 +43,7 @@ namespace Shengzhi.common
         {
             var query = RequestUrl.UrlToDic();
 
-            return Encoder.GetQyCheckSuffix(query, User.TimeStamp);
+            return Encoder.GetQyCheckSuffix(query, User.Token);
         }
 
         public string BuildGetQyCheckSuffix(Dictionary<string, object> query)
@@ -52,7 +52,7 @@ namespace Shengzhi.common
             var testTime = "1674834240989";
 
             var test = Encoder.GetQyCheckSuffix(query, testTime);
-            return Encoder.GetQyCheckSuffix(query, User.TimeStamp);
+            return Encoder.GetQyCheckSuffix(query, User.Token);
         }
     }
 }

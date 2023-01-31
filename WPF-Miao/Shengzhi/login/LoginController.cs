@@ -25,32 +25,6 @@ namespace Shengzhi.login
             return await Task.Factory.StartNew(() => Login(userPhone, userPassword));
         }
 
-        private void AnalysisResult(string loginResult, ShengzhiLogin user)
-        {
-            try
-            {
-                var result = loginResult.AESDecrypt(Constants.EncodeKey, "", PaddingMode.PKCS7, CipherMode.ECB);
-
-                var loginResultStr = result.ToTuple().Item2;
-                var loginResultDic = loginResultStr.ToObjDic();
-                if (!loginResultDic.ContainsKey("data"))
-                {
-                    MainSession.PrintLogEvent.Publish(this, "获取用户信息失败");
-                    return;
-                }
-
-                var loginDataStr = loginResultDic["data"].NotNullString();
-                var loginDataDic = loginDataStr.ToObjDic();
-
-                user.LoginInfo = loginDataDic;
-                MainSession.PrintLogEvent.Publish(this, loginResultDic, "获取用户信息成功");
-            }
-            catch(Exception ex)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"解析登录信息失败 -WechatLogin- {ex.Message}");
-            }
-        }
-
         public string Login(string userPhone, string userPassword)
         {
             try
@@ -101,7 +75,6 @@ namespace Shengzhi.login
             return userId;
         }
 
-
         #region Wechat login
         public void WechatLoginAsync(ShengzhiLogin user)
         {
@@ -140,5 +113,70 @@ namespace Shengzhi.login
         }
 
         #endregion Wechat login
+
+        #region Web login
+        public void WebLoginAsync(ShengzhiLogin user)
+        {
+            Task.Factory.StartNew(() => WebLogin(user));
+        }
+
+        public void WebLogin(ShengzhiLogin user)
+        {
+            try
+            {
+                var url = $"{user.Url}";
+                var content = new WechatContent(url, user);
+
+                var qy = content.BuildGetQyCheckSuffix();
+
+                content.BuildDefaultHeaders(Client);
+                var response = GetStringAsync(content).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"登录失败 - {response?.Message},请检查参数");
+                    return;
+                }
+                var loginResult = response.JsonBody.RootElement.GetProperty("result").NotNullString();
+                if (string.IsNullOrEmpty(loginResult))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"登录失败 - result为空,请检查参数");
+                    return;
+                }
+
+                AnalysisResult(loginResult, user);
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"登录异常{ex.Message}");
+            }
+        }
+
+        #endregion Web login
+
+        private void AnalysisResult(string loginResult, ShengzhiLogin user)
+        {
+            try
+            {
+                var result = loginResult.AESDecrypt(Constants.EncodeKey, "", PaddingMode.PKCS7, CipherMode.ECB);
+
+                var loginResultStr = result.ToTuple().Item2;
+                var loginResultDic = loginResultStr.ToObjDic();
+                if (!loginResultDic.ContainsKey("data"))
+                {
+                    MainSession.PrintLogEvent.Publish(this, "获取用户信息失败");
+                    return;
+                }
+
+                var loginDataStr = loginResultDic["data"].NotNullString();
+                var loginDataDic = loginDataStr.ToObjDic();
+
+                user.LoginInfo = loginDataDic;
+                MainSession.PrintLogEvent.Publish(this, loginResultDic, "获取用户信息成功");
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"解析登录信息失败 -WechatLogin- {ex.Message}");
+            }
+        }
     }
 }

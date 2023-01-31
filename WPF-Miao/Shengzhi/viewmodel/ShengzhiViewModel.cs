@@ -323,7 +323,7 @@ namespace Shengzhi.viewmodel
             user.UserSource = query.GetString("userSource");
 
             var loginController = HttpServiceController.GetService<LoginController>();
-            loginController.WechatLoginAsync(user);
+            loginController.WebLogin(user);
         }
 
         private void ExecuteLogin()
