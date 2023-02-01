@@ -124,7 +124,7 @@ namespace Ych.viewmodel
 
             OpenId = "ojo0pt6lt2I7ND7bKy4-kTmqIdhM";
 
-            //StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
