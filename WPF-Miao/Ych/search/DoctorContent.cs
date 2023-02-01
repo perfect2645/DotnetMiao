@@ -7,7 +7,7 @@ namespace Ych.search
 {
     internal class DoctorContent : YchContent
     {
-        private const string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/listDoctor";
+        private const string url = "/wechatclient/api/auth/appointment/listDoctor";
 
         public string Date { get; set; }
 

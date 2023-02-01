@@ -1,13 +1,13 @@
-﻿using Ych.common;
+﻿using NLog.LayoutRenderers;
+using Ych.common;
 using Ych.session;
 
 namespace Ych.search
 {
     internal class UserContent : YchContent
     {
-        private const string url = $"http://www.szychrmyy.com/wechatclient/api/user/listFamily";
-
-        public UserContent() : base(url)
+        private const string _baseUrl = "/wechatclient/api/user/listFamily";
+        public UserContent() : base(_baseUrl)
         {
             BuildContent();
         }

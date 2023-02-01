@@ -11,20 +11,30 @@ namespace Ych.common
     {
         public YchContent(string url) : base(url)
         {
+            BuildUrl(url);
             ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 
+        private void BuildUrl(string url)
+        {
+            var baseUrl = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            RequestUrl = $"{baseUrl}{url}";
+        }
+
         protected virtual void BuildHeader()
         {
-            AddHeader("Host", "www.szychrmyy.com");
+            var baseUrl = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var host = baseUrl.Replace("http://", "www.");
+
+            AddHeader("Host", host);
             AddHeader("Connection", "keep-alive");
             AddHeader("Accept", "application/json, text/plain, */*");
-            AddHeader("Origin", "http://www.szychrmyy.com");
+            AddHeader("Origin", baseUrl);
             AddHeader("openId", MainSession.OpenId);
             AddHeader("X-Access-Token", "e90770a107724c8ba1fb42eb25b88190");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            AddHeader("Referer", $"http://www.szychrmyy.com/wechatclient/?openId={MainSession.OpenId}");
+            AddHeader("Referer", $"{baseUrl}/wechatclient/?openId={MainSession.OpenId}");
             AddHeader("Accept-Encoding", "gzip, deflate");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }

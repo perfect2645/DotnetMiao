@@ -7,7 +7,7 @@ namespace Ych.search
 {
     internal class SearchMiaoContent : YchContent
     {
-        private const string url = "http://www.szychrmyy.com/wechatclient/api/auth/appointment/listNumber";
+        private const string url = "/wechatclient/api/auth/appointment/listNumber";
 
         public string TimeFlag { get; private set; }
         public string Date { get; private set; }

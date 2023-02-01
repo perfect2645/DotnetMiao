@@ -17,6 +17,7 @@ using System.Windows.Input;
 using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
+using static System.Net.WebRequestMethods;
 
 namespace Ych.viewmodel
 {
@@ -121,7 +122,7 @@ namespace Ych.viewmodel
         {
             Interval = 200;
 
-            OpenId = "oSpLZsv5cKfTiMnUWDqkuEh_zOGM&=";
+            OpenId = "ojo0pt6lt2I7ND7bKy4-kTmqIdhM";
 
             StartTime = DateTime.Now.AddSeconds(20);
         }
@@ -141,17 +142,31 @@ namespace Ych.viewmodel
 
             Departments = new List<HospitalDept>
             {
-
                 new YchHospital
                 {
-                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalId = "http://caohuhospital.com",
+                    HospitalName = "漕湖人民医院",
+                    DepartmentId = "01",
+                    DepartmentName = "内科",
+                },
+                new YchHospital
+                {
+                    HospitalId = "http://caohuhospital.com",
+                    HospitalName = "漕湖人民医院",
+                    DepartmentId = "1216",
+                    DepartmentName = "九价",
+                },
+                new YchHospital
+                {
+                    //HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalId = "http://www.szychrmyy.com",
                     HospitalName = "苏州市相城区阳澄湖人民医院",
                     DepartmentId = "1213",
                     DepartmentName = "九价",
                 },
                 new YchHospital
                 {
-                    HospitalId = "http://yy.test.shinegosoft.com.cn",
+                    HospitalId = "http://www.szychrmyy.com",
                     HospitalName = "苏州市相城区阳澄湖人民医院",
                     DepartmentId = "15",
                     DepartmentName = "预防保健科",
@@ -383,6 +398,7 @@ namespace Ych.viewmodel
             var selectedDept = SelectedDepartment as YchHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
 
             Log(selectedDept.ToLogString());
