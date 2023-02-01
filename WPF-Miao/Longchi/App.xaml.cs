@@ -27,6 +27,7 @@ namespace Longchi
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<ConfirmLoginController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<VerifyYuyueController>();
             

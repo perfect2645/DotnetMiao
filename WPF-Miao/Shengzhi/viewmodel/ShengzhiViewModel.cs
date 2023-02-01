@@ -286,7 +286,7 @@ namespace Shengzhi.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<ShengzhiLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
-                WechatLogin(user);
+                WebLogin(user);
             }
 
             MainSession.InitSession();
@@ -324,6 +324,39 @@ namespace Shengzhi.viewmodel
 
             var loginController = HttpServiceController.GetService<LoginController>();
             loginController.WebLogin(user);
+        }
+
+        private void WebLogin(ShengzhiLogin user)
+        {
+            var query = user.Url.UrlToDic();
+            user.Url = user.Url;
+            user.AppointSource = query.GetString("APPOINT_SOURCE");
+            user.AppUuid = query.GetString("APP_UUID");
+            user.ChannelId = query.GetString("CHANNEL_ID");
+            user.GroupCode = query.GetString("GROUP_CODE");
+            user.ImeiId = query.GetString("IMEI_ID");
+            user.LoginFlag = query.GetString("LOGIN_FLAG");
+            user.Password = query.GetString("PASSWORD");
+            user.PhoneOperationSys = query.GetString("PHONEOPERATINGSYS");
+            user.PhoneType = query.GetString("PHONETYPE");
+            user.PhoneVersionNum = query.GetString("PHONEVERSIONNUM");
+            user.PublicServiceType = query.GetString("PUBLIC_SERVICE_TYPE");
+            user.Token = query.GetString("TOKEN");
+            user.TimeStamp = DateTimeUtil.GetTimeStamp();
+            user.UserCode = query.GetString("USER_CODE");
+            user.UserId = query.GetString("USER_ID");
+            user.UserVsId = query.GetString("USER_VS_ID");
+            user.ForceSatification = query.GetString("forceSatification");
+            user.HospitalID = query.GetString("hospitalID");
+            user.IsAutoPwdLogin = query.GetString("isAutoPwdLogin");
+            user.Loc = query.GetString("loc");
+            user.Op = query.GetString("op");
+            user.OpVersion = query.GetString("opVersion");
+            user.OperateUserSource = query.GetString("operateUserSource");
+            user.UserSource = query.GetString("userSource");
+
+            var loginController = HttpServiceController.GetService<LoginController>();
+            loginController.WebLoginAsync(user);
         }
 
         private void ExecuteLogin()

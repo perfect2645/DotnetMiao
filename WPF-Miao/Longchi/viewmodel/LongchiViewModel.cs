@@ -109,19 +109,19 @@ namespace Longchi.viewmodel
 
         private void TestData()
         {
-            //StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(17).AddSeconds(2);
+            StartTime = DateTime.Today.AddHours(17).AddSeconds(5);
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
@@ -312,9 +312,12 @@ namespace Longchi.viewmodel
 
         protected override void AutoRun()
         {
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
+                    var defaultUser = MainSession.Users.FirstOrDefault();
+                    var confirmLoginController = HttpServiceController.GetService<ConfirmLoginController>();
+                    await confirmLoginController.ConfirmLoginAsync(defaultUser);
                     Appoint();
                 }
                 catch (HttpException ex)

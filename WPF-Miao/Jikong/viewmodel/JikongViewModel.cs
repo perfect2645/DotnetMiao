@@ -126,21 +126,21 @@ namespace Jikong.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            //TestData();
+            TestData();
             LoginFromConfigAsync();
         }
 
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-5", "2023-2-5");
+            var dateRange = DateTimeUtil.GetDateRange("2023-2-2", "2023-2-11");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
