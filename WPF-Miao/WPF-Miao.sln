@@ -96,6 +96,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hebei", "hebei", "{E263251F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shengzhi", "Shengzhi\Shengzhi.csproj", "{77D453B9-6BA2-41DC-B404-25CB8C6DB589}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huangdai", "Huangdai\Huangdai.csproj", "{9150BFC4-5A59-4E72-A23E-C54F81CB54FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -230,6 +232,10 @@ Global
 		{77D453B9-6BA2-41DC-B404-25CB8C6DB589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77D453B9-6BA2-41DC-B404-25CB8C6DB589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D453B9-6BA2-41DC-B404-25CB8C6DB589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9150BFC4-5A59-4E72-A23E-C54F81CB54FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9150BFC4-5A59-4E72-A23E-C54F81CB54FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9150BFC4-5A59-4E72-A23E-C54F81CB54FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9150BFC4-5A59-4E72-A23E-C54F81CB54FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -270,6 +276,7 @@ Global
 		{19B0AE1E-6771-45B6-9058-81A05691F71B} = {B181CE64-D635-4BB0-B181-B69234C6CD55}
 		{E263251F-0983-4622-A7B1-DDA91420FCE9} = {34204EE6-86FF-4500-B973-A9BF4272CAD3}
 		{77D453B9-6BA2-41DC-B404-25CB8C6DB589} = {E263251F-0983-4622-A7B1-DDA91420FCE9}
+		{9150BFC4-5A59-4E72-A23E-C54F81CB54FD} = {469A7CCE-E42C-4DE5-994B-12397B8B7761}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2FC287EB-182A-4A4F-82F9-E99E0CCAEFE2}
