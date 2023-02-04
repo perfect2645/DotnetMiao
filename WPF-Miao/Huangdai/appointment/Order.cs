@@ -1,20 +1,16 @@
-﻿using Huangdai.login;
-using System.Text;
+﻿using System.Text;
 
 namespace Huangdai.appointment
 {
     public class Order
     {
-        public string UserId { get; set; }
         public string UserName { get; set; }
-        public string ItemName { get; set; }
-        public string VisitDate { get; set; }
-        public string VisitTime { get; set; }
-        public string AmOrPm { get; set; }
-        public string ScheduleCode { get; set; } //第几针
-        public string ScheduleInfoCode { get; set; }
-        public string Type { get; set; } = "1";
-        internal HuangdaiLogin User { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string Type { get; set; }
+        public string No { get; set; }
+        public string ResultCode { get; set; }
+        public string ResultMsg { get; set; }
 
         public string ToLogString()
         {
@@ -23,13 +19,12 @@ namespace Huangdai.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"ItemName - {ItemName}");
-            sb.AppendLine($"VisitDate - {VisitDate}");
-            sb.AppendLine($"VisitTime - {VisitTime}");
-            sb.AppendLine($"AmOrPm - {AmOrPm}");
-            sb.AppendLine($"ScheduleCode - {ScheduleCode}");
-            sb.AppendLine($"ScheduleInfoCode - {ScheduleInfoCode}");
+            sb.AppendLine($"Phone - {Phone}");
+            sb.AppendLine($"Address - {Address}");
+            sb.AppendLine($"Type - {Type}");
+            sb.AppendLine($"No - {No}");
+            sb.AppendLine($"ResultCode - {ResultCode}");
+            sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();
