@@ -1,14 +1,14 @@
 ﻿using HttpProcessor.Content;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.login;
+using Huangdai.session;
 
-namespace Jikong.common
+namespace Huangdai.common
 {
-    internal class JikongContent : HttpStringContent
+    internal class HuangdaiContent : HttpStringContent
     {
-        public JikongLogin User { get; private set; }
+        public HuangdaiLogin User { get; private set; }
 
-        public JikongContent(string url, JikongLogin user) : base(url)
+        public HuangdaiContent(string url, HuangdaiLogin user) : base(url)
         {
             User = user;
             BuildHeader();

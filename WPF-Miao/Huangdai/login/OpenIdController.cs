@@ -1,7 +1,7 @@
 ﻿using HttpProcessor.Client;
-using Jikong.common;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.common;
+using Huangdai.login;
+using Huangdai.session;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -11,7 +11,7 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace Jikong.login
+namespace Huangdai.login
 {
     internal class OpenIdController : HttpClientBase
     {
@@ -19,17 +19,17 @@ namespace Jikong.login
         {
         }
 
-        public async Task GetOpenIdAsync(JikongLogin user)
+        public async Task GetOpenIdAsync(HuangdaiLogin user)
         {
             await Task.Factory.StartNew(() => GetOpenId(user));
         }
 
-        private void GetOpenId(JikongLogin user)
+        private void GetOpenId(HuangdaiLogin user)
         {
             try
             {
                 var url = $"https://hscx.whcdc.org/vaccineServer/wechat/getOpenIdByCode?code={user.Code}";
-                var content = new JikongContent(url, user);
+                var content = new HuangdaiContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -54,7 +54,7 @@ namespace Jikong.login
             }
         }
 
-        private void SaveOpenId(JsonElement data, JikongLogin user)
+        private void SaveOpenId(JsonElement data, HuangdaiLogin user)
         {
             var familyMembers = JsonAnalysis.JsonToDicList(data);
             if (!familyMembers.HasItem())

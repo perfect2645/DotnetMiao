@@ -1,8 +1,8 @@
-﻿using Jikong.appointment;
+﻿using Huangdai.appointment;
 using System;
 using System.Collections.Generic;
 
-namespace Jikong.session
+namespace Huangdai.session
 {
     public class ReSessionEvent
     {

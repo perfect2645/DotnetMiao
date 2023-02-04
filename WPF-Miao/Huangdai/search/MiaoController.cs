@@ -6,10 +6,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Jikong.appointment;
-using Jikong.common;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.appointment;
+using Huangdai.common;
+using Huangdai.login;
+using Huangdai.session;
 using Utils;
 using Utils.datetime;
 using Utils.json;
@@ -17,7 +17,7 @@ using Utils.number;
 using Utils.stringBuilder;
 using Newtonsoft.Json;
 
-namespace Jikong.search
+namespace Huangdai.search
 {
     internal class MiaoController : HttpClientBase
     {
@@ -28,13 +28,13 @@ namespace Jikong.search
         {
         }
 
-        public void SearchMiaoAsync(string date, JikongLogin user)
+        public void SearchMiaoAsync(string date, HuangdaiLogin user)
         {
             Date = date;
             Task.Factory.StartNew(() => SearchMiao(date, user));
         }
 
-        public bool SearchMiao(string date, JikongLogin user)
+        public bool SearchMiao(string date, HuangdaiLogin user)
         {
             Date = date;
             try
@@ -68,7 +68,7 @@ namespace Jikong.search
         }
 
 
-        private bool SaveMiao(JsonElement data, JikongLogin user)
+        private bool SaveMiao(JsonElement data, HuangdaiLogin user)
         {
             var summaryList = JsonAnalysis.JsonToDicList(data);
             if (!summaryList.HasItem())
@@ -110,7 +110,7 @@ namespace Jikong.search
             MainSession.OrderEvent.Publish(this, orderArgs);
         }
 
-        private Order BuildOneOrder(JikongLogin user, string date, Schedule schedule)
+        private Order BuildOneOrder(HuangdaiLogin user, string date, Schedule schedule)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);

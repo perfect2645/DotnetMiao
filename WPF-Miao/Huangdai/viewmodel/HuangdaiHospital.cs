@@ -1,9 +1,9 @@
 ﻿using Base.viewModel.hospital;
 using System.Text;
 
-namespace Jikong.viewmodel
+namespace Huangdai.viewmodel
 {
-    internal class JikongHospital : HospitalDept
+    internal class HuangdaiHospital : HospitalDept
     {
 
         public string DoctorId { get; set; }

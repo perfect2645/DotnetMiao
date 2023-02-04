@@ -1,20 +1,20 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
-using Jikong.appointment;
+using Huangdai.appointment;
 using System.Collections.Generic;
-using Jikong.login;
+using Huangdai.login;
 using Base.model;
 using System;
 using System.Linq;
-using Jikong.cancel;
+using Huangdai.cancel;
 
-namespace Jikong.session
+namespace Huangdai.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
-        internal static List<JikongLogin> Users { get; set; }
+        internal static List<HuangdaiLogin> Users { get; set; }
         public static ReSessionEvent ReSessionEvent { get; }
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
@@ -34,7 +34,7 @@ namespace Jikong.session
             PlatformSession = new Dictionary<string, object>();
             ReSessionEvent = new ReSessionEvent();
             OrderEvent = new OrderEvent();
-            Users = new List<JikongLogin>();
+            Users = new List<HuangdaiLogin>();
             Orders = new Dictionary<string, List<Order>>();
             HistoryList = new List<History>();
         }

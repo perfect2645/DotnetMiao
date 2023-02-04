@@ -1,13 +1,13 @@
-﻿using Jikong.common;
-using Jikong.login;
+﻿using Huangdai.common;
+using Huangdai.login;
 
-namespace Jikong.cancel
+namespace Huangdai.cancel
 {
-    internal class CancelContent : JikongContent
+    internal class CancelContent : HuangdaiContent
     {
         private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/";
 
-        public CancelContent(JikongLogin user, string cancelId) : base(url, user)
+        public CancelContent(HuangdaiLogin user, string cancelId) : base(url, user)
         {
             CancelId = cancelId;
             ContentType = "application/x-www-form-urlencoded";

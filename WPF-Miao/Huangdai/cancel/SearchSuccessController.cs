@@ -1,7 +1,7 @@
 ﻿using HttpProcessor.Client;
-using Jikong.common;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.common;
+using Huangdai.login;
+using Huangdai.session;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace Jikong.cancel
+namespace Huangdai.cancel
 {
     internal class SearchSuccessController : HttpClientBase
     {
@@ -21,17 +21,17 @@ namespace Jikong.cancel
         {
         }
 
-        public Task SearchHistoryAsync(JikongLogin user)
+        public Task SearchHistoryAsync(HuangdaiLogin user)
         {
             return Task.Factory.StartNew(() => SearchHistory(user));
         }
 
-        private void SearchHistory(JikongLogin user)
+        private void SearchHistory(HuangdaiLogin user)
         {
             try
             {
                 var url = $"https://hscx.whcdc.org/vaccineServer/RegApiManage/regRecord?patientId={user.UserId}&status=";
-                var content = new JikongContent(url, user);
+                var content = new HuangdaiContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -56,7 +56,7 @@ namespace Jikong.cancel
             }
         }
 
-        private void SaveHistory(JsonElement data, JikongLogin user)
+        private void SaveHistory(JsonElement data, HuangdaiLogin user)
         {
             var histories = JsonAnalysis.JsonToDicList(data);
             if (!histories.HasItem())

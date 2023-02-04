@@ -1,6 +1,6 @@
-﻿namespace Jikong.login
+﻿namespace Huangdai.login
 {
-    internal class JikongLogin
+    internal class HuangdaiLogin
     {
         public string UserId { get; set; }
         public string UserName { get; set; }

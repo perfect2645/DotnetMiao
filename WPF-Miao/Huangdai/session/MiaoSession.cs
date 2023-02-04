@@ -1,10 +1,10 @@
 ﻿using Base.model;
 using Base.session;
-using Jikong.appointment;
-using Jikong.search;
+using Huangdai.appointment;
+using Huangdai.search;
 using System.Collections.Generic;
 
-namespace Jikong.session
+namespace Huangdai.session
 {
     internal class MiaoSession : ControllerSession<MiaoController>
     {

@@ -1,8 +1,8 @@
-﻿using Jikong.login;
+﻿using Huangdai.login;
 using HttpProcessor.Container;
 using System;
 using System.Threading.Tasks;
-using Jikong.session;
+using Huangdai.session;
 using Utils.timerUtil;
 using Base.viewmodel.status;
 using System.Threading;
@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using Base.model;
 using Utils.number;
 
-namespace Jikong.search
+namespace Huangdai.search
 {
     internal class SearchController
     {
@@ -43,7 +43,7 @@ namespace Jikong.search
             }
         }
 
-        private void GetMiao(string date, JikongLogin user)
+        private void GetMiao(string date, HuangdaiLogin user)
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
 

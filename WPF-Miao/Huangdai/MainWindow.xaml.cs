@@ -1,4 +1,4 @@
-﻿using Jikong.viewmodel;
+﻿using Huangdai.viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace Huangdai
             InitializeComponent();
             try
             {
-                DataContext = new JikongViewModel(mainConsole.baseConsole.LogPanel);
+                DataContext = new HuangdaiViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {

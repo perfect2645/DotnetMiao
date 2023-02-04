@@ -1,7 +1,7 @@
-﻿using Jikong.login;
+﻿using Huangdai.login;
 using System.Text;
 
-namespace Jikong.appointment
+namespace Huangdai.appointment
 {
     public class Order
     {
@@ -14,7 +14,7 @@ namespace Jikong.appointment
         public string ScheduleCode { get; set; } //第几针
         public string ScheduleInfoCode { get; set; }
         public string Type { get; set; } = "1";
-        internal JikongLogin User { get; set; }
+        internal HuangdaiLogin User { get; set; }
 
         public string ToLogString()
         {

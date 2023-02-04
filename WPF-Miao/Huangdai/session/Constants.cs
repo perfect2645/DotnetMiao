@@ -1,6 +1,6 @@
 ﻿using Base.session;
 
-namespace Jikong.session
+namespace Huangdai.session
 {
     internal class Constants : MiaoConstants
     {

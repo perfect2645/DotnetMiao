@@ -10,21 +10,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Jikong.appointment;
-using Jikong.login;
-using Jikong.search;
-using Jikong.session;
+using Huangdai.appointment;
+using Huangdai.login;
+using Huangdai.search;
+using Huangdai.session;
 using Utils;
 using Utils.datetime;
 using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
-using Jikong.cancel;
+using Huangdai.cancel;
 using System.Threading;
 
-namespace Jikong.viewmodel
+namespace Huangdai.viewmodel
 {
-    internal class JikongViewModel : OnTimeViewModel
+    internal class HuangdaiViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -120,7 +120,7 @@ namespace Jikong.viewmodel
 
         #region Constructor
 
-        public JikongViewModel(LogPanel logPanel) : base(logPanel)
+        public HuangdaiViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -164,7 +164,7 @@ namespace Jikong.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new JikongHospital
+                new HuangdaiHospital
                 {
                     HospitalId = "1",
                     HospitalName = "武汉疾控",
@@ -173,7 +173,7 @@ namespace Jikong.viewmodel
                     DoctorId = "703",
                     DoctorName = "九价人乳头瘤病毒疫苗"
                 },
-                new JikongHospital
+                new HuangdaiHospital
                 {
                     HospitalId = "1",
                     HospitalName = "武汉疾控",
@@ -182,7 +182,7 @@ namespace Jikong.viewmodel
                     DoctorId = "705",
                     DoctorName = "成人流感疫苗"
                 },
-                new JikongHospital
+                new HuangdaiHospital
                 {
                     HospitalId = "1",
                     HospitalName = "武汉疾控",
@@ -241,7 +241,7 @@ namespace Jikong.viewmodel
 
         private void LoginFromConfigAsync()
         {
-            MainSession.Users = FileReader.DeserializeFile<List<JikongLogin>>("Login.json");
+            MainSession.Users = FileReader.DeserializeFile<List<HuangdaiLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
                 //var openIdController = HttpServiceController.GetService<OpenIdController>();
@@ -261,7 +261,7 @@ namespace Jikong.viewmodel
                 return;
             }
 
-            var loginData = new JikongLogin()
+            var loginData = new HuangdaiLogin()
             {
                 
             };
@@ -322,7 +322,7 @@ namespace Jikong.viewmodel
             }
         }
 
-        private Order BuildOneOrder(JikongLogin user, string date, string timeId)
+        private Order BuildOneOrder(HuangdaiLogin user, string date, string timeId)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
@@ -556,7 +556,7 @@ namespace Jikong.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as JikongHospital;
+            var selectedDept = SelectedDepartment as HuangdaiHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);

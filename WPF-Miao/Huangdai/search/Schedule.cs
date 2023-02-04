@@ -1,4 +1,4 @@
-﻿namespace Jikong.search
+﻿namespace Huangdai.search
 {
     internal class Schedule
     {

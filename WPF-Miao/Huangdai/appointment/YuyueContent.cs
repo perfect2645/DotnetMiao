@@ -1,14 +1,14 @@
-﻿using Jikong.common;
-using Jikong.login;
+﻿using Huangdai.common;
+using Huangdai.login;
 using Utils;
 
-namespace Jikong.appointment
+namespace Huangdai.appointment
 {
-    internal class YuyueContent : JikongContent
+    internal class YuyueContent : HuangdaiContent
     {
         private static string url = "https://hscx.whcdc.org/vaccineServer/RegApiManage/lockNumber";
         public Order Order { get; private set; }
-        public YuyueContent(Order order, JikongLogin user) : base(url, user)
+        public YuyueContent(Order order, HuangdaiLogin user) : base(url, user)
         {
             Order = order;
             BuildContent();

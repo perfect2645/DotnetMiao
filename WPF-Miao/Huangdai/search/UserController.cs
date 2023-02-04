@@ -1,7 +1,7 @@
 ﻿using HttpProcessor.Client;
-using Jikong.common;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.common;
+using Huangdai.login;
+using Huangdai.session;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -11,7 +11,7 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace Jikong.search
+namespace Huangdai.search
 {
     internal class UserController : HttpClientBase
     {
@@ -19,17 +19,17 @@ namespace Jikong.search
         {
         }
 
-        public void GetUserAsync(JikongLogin user)
+        public void GetUserAsync(HuangdaiLogin user)
         {
             Task.Factory.StartNew(() => GetUser(user));
         }
 
-        private void GetUser(JikongLogin user)
+        private void GetUser(HuangdaiLogin user)
         {
             try
             {
                 var url = $"https://hscx.whcdc.org/vaccineServer/patientManager/getPatientList?openId={user.OpenId}";
-                var content = new JikongContent(url, user);
+                var content = new HuangdaiContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -54,7 +54,7 @@ namespace Jikong.search
             }
         }
 
-        private void SaveUser(JsonElement data, JikongLogin user)
+        private void SaveUser(JsonElement data, HuangdaiLogin user)
         {
             var familyMembers = JsonAnalysis.JsonToDicList(data);
             if (!familyMembers.HasItem())

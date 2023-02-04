@@ -4,15 +4,15 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Jikong.common;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.common;
+using Huangdai.login;
+using Huangdai.session;
 using Utils;
 using Utils.datetime;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace Jikong.search
+namespace Huangdai.search
 {
     internal class DateController : HttpClientBase
     {
@@ -20,14 +20,14 @@ namespace Jikong.search
         {
         }
 
-        public bool GetDate(JikongLogin user)
+        public bool GetDate(HuangdaiLogin user)
         {
             try
             {
                 var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
                 var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
                 var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_date_array/?vaccine_id={deptId}&hospital={hosId}";
-                var content = new JikongContent(url, user);
+                var content = new HuangdaiContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -52,7 +52,7 @@ namespace Jikong.search
             }
         }
 
-        private bool CheckDate(JsonElement data, JikongLogin user)
+        private bool CheckDate(JsonElement data, HuangdaiLogin user)
         {
             var dates = JsonAnalysis.JsonToDicList(data);
             if (!dates.HasItem())

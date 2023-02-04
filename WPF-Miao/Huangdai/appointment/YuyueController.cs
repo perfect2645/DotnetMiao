@@ -1,6 +1,6 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
-using Jikong.session;
+using Huangdai.session;
 using System;
 using System.Net.Http;
 using System.Threading;
@@ -9,7 +9,7 @@ using System.Text.Json;
 using Utils.json;
 using Utils;
 
-namespace Jikong.appointment
+namespace Huangdai.appointment
 {
     public class YuyueController : HttpClientBase
     {

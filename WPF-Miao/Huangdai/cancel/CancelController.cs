@@ -4,11 +4,11 @@ using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Jikong.login;
-using Jikong.session;
+using Huangdai.login;
+using Huangdai.session;
 using Utils.stringBuilder;
 
-namespace Jikong.cancel
+namespace Huangdai.cancel
 {
     internal class CancelController : HttpClientBase
     {
@@ -16,7 +16,7 @@ namespace Jikong.cancel
         {
         }
 
-        public void CancelAsync(JikongLogin user, string cancelId)
+        public void CancelAsync(HuangdaiLogin user, string cancelId)
         {
             Task.Factory.StartNew(() =>
             {
@@ -24,7 +24,7 @@ namespace Jikong.cancel
             });
         }
 
-        private void Cancel(JikongLogin user, string cancelId)
+        private void Cancel(HuangdaiLogin user, string cancelId)
         {
             try
             {

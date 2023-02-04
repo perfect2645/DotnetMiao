@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Jikong.appointment
+namespace Huangdai.appointment
 {
     public class OrderEvent
     {

@@ -1,4 +1,4 @@
-﻿namespace Jikong.cancel
+﻿namespace Huangdai.cancel
 {
     internal class History
     {

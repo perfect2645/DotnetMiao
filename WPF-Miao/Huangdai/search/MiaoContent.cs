@@ -1,16 +1,16 @@
-﻿using Jikong.common;
-using Jikong.login;
-using Jikong.session;
+﻿using Huangdai.common;
+using Huangdai.login;
+using Huangdai.session;
 using Utils;
 
 
-namespace Jikong.search
+namespace Huangdai.search
 {
-    internal class MiaoContent : JikongContent
+    internal class MiaoContent : HuangdaiContent
     {
         private static string url = "https://hscx.whcdc.org/vaccineServer/RegApiManage/queryNumberSource";
         public string Date { get; set; }
-        public MiaoContent(JikongLogin user, string date) : base(url, user)
+        public MiaoContent(HuangdaiLogin user, string date) : base(url, user)
         {
             Date = date;
             BuildContent();

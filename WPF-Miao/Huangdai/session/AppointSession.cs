@@ -1,9 +1,9 @@
 ﻿using Base.model;
 using Base.session;
-using Jikong.appointment;
+using Huangdai.appointment;
 using System.Collections.Generic;
 
-namespace Jikong.session
+namespace Huangdai.session
 {
     public class AppointSession : ControllerSession<YuyueController>
     {

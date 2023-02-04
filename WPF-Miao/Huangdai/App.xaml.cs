@@ -1,12 +1,12 @@
 ﻿using HttpProcessor.Container;
-using Jikong.appointment;
-using Jikong.cancel;
-using Jikong.login;
-using Jikong.search;
+using Huangdai.appointment;
+using Huangdai.cancel;
+using Huangdai.login;
+using Huangdai.search;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Jikong
+namespace Huangdai
 {
     /// <summary>
     /// Interaction logic for App.xaml
