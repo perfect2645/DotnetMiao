@@ -84,7 +84,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
 
             if (Application.Current.Properties.Contains("UserName"))
             {
@@ -98,6 +98,14 @@ namespace Baohe.viewModel
             }
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1094417", "雨花社区卫生服务中心",
+                "7225728", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711170881"
+            });
 
             Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
                 "1039346", "包河区包公街道社区服务中心",

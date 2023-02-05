@@ -134,14 +134,14 @@ namespace Tianhe.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-6", "2023-2-11");
+            var dateRange = DateTimeUtil.GetDateRange("2023-2-10", "2023-2-10");
             DateList = new List<DspVal>();
             foreach (var date in dateRange)
             {
@@ -333,8 +333,8 @@ namespace Tianhe.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //Task.Factory.StartNew(() => Appoint());
-                    _searchController.SearchMiao();
+                    Task.Factory.StartNew(() => Appoint());
+                    //_searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
