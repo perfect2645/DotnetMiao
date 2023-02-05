@@ -139,23 +139,22 @@ namespace Tianhe.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(20).AddMinutes(59).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            DateList = new List<DspVal>
+            var dateRange = DateTimeUtil.GetDateRange("2023-2-6", "2023-2-11");
+            DateList = new List<DspVal>();
+            foreach (var date in dateRange)
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-            };
+                var dateItem = new DspVal(date);
+                DateList.Add(dateItem);
+            }
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             TimeList = new List<DspVal>
             {
                 new DspVal("08:00:00-11:00:00", "1"),
-                //new DspVal("14:00:00-16:00:00", "2"),
+                new DspVal("14:00:00-16:00:00", "2"),
                 //new DspVal("08:00:00-08:30:00", "3"),
                 //new DspVal("08:30:00-09:00:00", "4"),
                 //new DspVal("09:00:00-09:30:00", "5"),
