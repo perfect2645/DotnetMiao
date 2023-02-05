@@ -5,7 +5,7 @@
         Title="相城区黄埭" 
         Height="800" MinWidth="830" 
         WindowState="Normal">
-    <view:HuangdaiConsole x:Name="mainConsole">
+    <view:MainConsole x:Name="mainConsole">
 
-    </view:HuangdaiConsole>
+    </view:MainConsole>
 </Window>

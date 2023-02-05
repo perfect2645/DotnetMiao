@@ -1,13 +1,10 @@
-﻿using Base.model;
-using Base.viewModel;
+﻿using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
-using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Huangdai.appointment;
 using Huangdai.login;
-using Huangdai.search;
 using Huangdai.session;
 using System;
 using System.Collections.Generic;
@@ -16,10 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
-using Utils.datetime;
 using Utils.file;
-using Utils.number;
-using Utils.stringBuilder;
 
 namespace Huangdai.viewmodel
 {
@@ -117,7 +111,15 @@ namespace Huangdai.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<HuangdaiLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
-
+                var order = new Order
+                {
+                    Address = SelectedDepartment.HospitalName,
+                    No = SelectedDepartment.DepartmentId,
+                    Phone = user.Phone,
+                    Type = SelectedDepartment.DepartmentName,
+                    UserName = user.Name
+                };
+                MainSession.Orders.Add(user.Name, order);
             }
 
             MainSession.InitSession();
@@ -143,31 +145,6 @@ namespace Huangdai.viewmodel
                     Log(ex);
                 }
             });
-        }
-
-        private void BuildOrders()
-        {
-            MainSession.Orders = new Dictionary<string, List<Order>>();
-
-            foreach (var user in MainSession.Users)
-            {
-                var orderList = new List<Order>();
-                        Order orderWithTime = BuildOneOrder(user, date.Value, time.Value);
-                orderList = orderList.DisorderItems();
-                MainSession.Orders.AddOrUpdate(userName, orderList);
-            }
-        }
-
-        private Order BuildOneOrder(HuangdaiLogin user, string date, string timeId)
-        {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            return new Order
-            {
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-            };
         }
 
         protected override void AutoRun()
@@ -218,25 +195,22 @@ namespace Huangdai.viewmodel
             }
         }
 
-        private void StartOneOrder(string userName, List<Order> orders)
+        private void StartOneOrder(string userName, Order order)
         {
             try
             {
                 bool isSuccess = false;
                 while (!isSuccess)
                 {
-                    foreach (var order in orders)
+                    var appointController = MainSession.AppointSession.GetController($"{userName}");
+                    isSuccess = appointController.YuyueAsync(order);
+                    if (isSuccess)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.VisitDate}{order.VisitTime}");
-                        isSuccess = appointController.YuyueAsync(order);
-                        if (isSuccess)
-                        {
-                            PrintLog("预约成功");
-                            PrintLog(order.ToLogString());
-                            return;
-                        }
-                        Thread.Sleep(1000);
+                        PrintLog("预约成功");
+                        PrintLog(order.ToLogString());
+                        return;
                     }
+                    Thread.Sleep(200);
                 }
             }
             catch (HttpException ex)
@@ -251,22 +225,7 @@ namespace Huangdai.viewmodel
 
         private void OnOrder(object? sender, OrderEventArgs e)
         {
-            var orderTemplateList = e.OrderList;
-
-            foreach(var user in MainSession.Users)
-            {
-                var orderList = new List<Order>();
-                foreach (var template in orderTemplateList)
-                {
-                    var order = new Order
-                    {
-                    };
-
-                    orderList.Add(order);
-                }
-
-                Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
-            }
+     
 
         }
 

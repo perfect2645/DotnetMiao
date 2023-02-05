@@ -1,6 +1,4 @@
 ﻿using Huangdai.common;
-using Huangdai.login;
-using Utils;
 
 namespace Huangdai.appointment
 {
@@ -8,7 +6,7 @@ namespace Huangdai.appointment
     {
         private static string url = "https://health-cn.xyz:9033/health_xcdp/api/hpv/save";
         public Order Order { get; private set; }
-        public YuyueContent(Order order, HuangdaiLogin user) : base(url, user)
+        public YuyueContent(Order order) : base(url)
         {
             Order = order;
             BuildContent();
@@ -16,14 +14,11 @@ namespace Huangdai.appointment
 
         private void BuildContent()
         {
-            AddContent("itemName", Order.ItemName);
-            AddContent("visitDate", Order.VisitDate);
-            AddContent("visitTime", Order.VisitTime);
-            AddContent("amOrPm", Order.AmOrPm);
-            AddContent("patientId", Order.UserId);
-            AddContent("scheduleCode", Order.ScheduleCode);
-            AddContent("scheduleInfoCode", Order.ScheduleInfoCode);
+            AddContent("name", Order.UserName);
+            AddContent("phone", Order.Phone);
+            AddContent("address", Order.Address);
             AddContent("type", Order.Type);
+            AddContent("no", Order.No);
         }
     }
 }
