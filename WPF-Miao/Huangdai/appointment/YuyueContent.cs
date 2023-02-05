@@ -6,7 +6,7 @@ namespace Huangdai.appointment
 {
     internal class YuyueContent : HuangdaiContent
     {
-        private static string url = "https://hscx.whcdc.org/vaccineServer/RegApiManage/lockNumber";
+        private static string url = "https://health-cn.xyz:9033/health_xcdp/api/hpv/save";
         public Order Order { get; private set; }
         public YuyueContent(Order order, HuangdaiLogin user) : base(url, user)
         {

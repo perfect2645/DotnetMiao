@@ -1,39 +1,25 @@
 ﻿using HttpProcessor.Content;
-using Huangdai.login;
-using Huangdai.session;
 
 namespace Huangdai.common
 {
     internal class HuangdaiContent : HttpStringContent
     {
-        public HuangdaiLogin User { get; private set; }
-
-        public HuangdaiContent(string url, HuangdaiLogin user) : base(url)
+        public HuangdaiContent(string url) : base(url)
         {
-            User = user;
+            ContentType = "application/json";
             BuildHeader();
         }
 
         private void BuildHeader()
         {
-            AddHeader("Host", "hscx.whcdc.org");
-            AddHeader("Connection", "keep-alive");
-            AddHeader("Origin", "https://hscx.whcdc.org");
-            AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            AddHeader("Accept", "application/json");
-            if (!string.IsNullOrEmpty(User.OpenId))
-            {
-                AddHeader("openId", User.OpenId);
-            }
-            AddHeader("token", string.Empty);
-            AddHeader("sign", User.Sign);
-            AddHeader("idCard", User.IdCardEncode);
-            AddHeader("Sec-Fetch-Site", "same-origin");
-            AddHeader("Sec-Fetch-Mode", "cors");
-            AddHeader("Sec-Fetch-Dest", "empty");
-            AddHeader("Referer", $"https://hscx.whcdc.org/vaccine-h5/?code={User.Code}&state=");
+            AddHeader("Host", "health-cn.xyz:9033");
+            AddHeader("Origin", "https://health-cn.xyz");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+            AddHeader("Connection", "keep-alive");
+            AddHeader("Accept", "application/json, text/plain, */*");
+            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN");
+            AddHeader("Referer", $"https://health-cn.xyz/");
+            AddHeader("Accept-Language", "zh-CN,zh-Hans;q=0.9");
         }
     }
 }
