@@ -86,19 +86,6 @@ namespace Baohe.viewModel
         {
             StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
 
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7229969", "九价Hpv")
-            {
-                DoctorSn = "711199332",
-            });
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7230002", "四价Hpv")
-            {
-                DoctorSn = "711199340",
-            });
-
             if (Application.Current.Properties.Contains("UserName"))
             {
                 MainSession.User.UserName = Application.Current.Properties["UserName"].ToString();
@@ -111,6 +98,19 @@ namespace Baohe.viewModel
             }
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
+                "1039346", "包河区包公街道社区服务中心",
+                "7229969", "九价Hpv")
+            {
+                DoctorSn = "711199332",
+            });
+            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
+                "1039346", "包河区包公街道社区服务中心",
+                "7230002", "四价Hpv")
+            {
+                DoctorSn = "711199340",
+            });
 
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山井岗镇社区卫生服务中心",
