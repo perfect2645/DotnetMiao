@@ -79,12 +79,12 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7229195&doctorId=710786668&hospitalInternal=1&showMultiDept=0&platformType=9001026&exConsult=&consultHosId=1047063&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7229969&doctorId=710788135&hospitalInternal=1&showMultiDept=0&platformType=9000393&exConsult=&consultHosId=1039346&utm_source=0.0.h.1026.bus010.0";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2023, 1, 7, 19, 59, 58);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
 
             if (Application.Current.Properties.Contains("UserName"))
             {
@@ -98,6 +98,27 @@ namespace Baohe.viewModel
             }
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1094417", "雨花社区卫生服务中心",
+                "7225728", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711170881"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
+                "1039346", "包河区包公街道社区服务中心",
+                "7229969", "九价Hpv")
+            {
+                DoctorSn = "711199332",
+            });
+            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
+                "1039346", "包河区包公街道社区服务中心",
+                "7230002", "四价Hpv")
+            {
+                DoctorSn = "711199340",
+            });
 
             Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
                 "1047063", "蜀山井岗镇社区卫生服务中心",
@@ -133,26 +154,6 @@ namespace Baohe.viewModel
                 "7235355", "预防接种门诊（测试）")
             {
                 DoctorSn = "711230106",
-                HasYzm = false
-            });
-
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7229969", "九价Hpv")
-            {
-                DoctorSn = "711199332",
-            });
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7230002", "四价Hpv")
-            {
-                DoctorSn = "711199340",
-            });
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7230344", "带疱疹病毒")
-            {
-                DoctorSn = "711202108",
                 HasYzm = false
             });
 

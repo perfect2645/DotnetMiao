@@ -1,11 +1,11 @@
 ﻿<Window x:Class="Huangdai.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:view="clr-namespace:Jikong.view"
+        xmlns:view="clr-namespace:Huangdai.view"
         Title="相城区黄埭" 
         Height="800" MinWidth="830" 
         WindowState="Normal">
-    <view:JikongConsole x:Name="mainConsole">
+    <view:MainConsole x:Name="mainConsole">
 
-    </view:JikongConsole>
+    </view:MainConsole>
 </Window>

@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Login.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
@@ -16,13 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="view\JikongConsole.xaml.cs">
+    <Compile Update="view\MainConsole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="view\JikongConsole.xaml">
+    <Page Update="view\MainConsole.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
   </ItemGroup>

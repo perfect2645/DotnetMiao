@@ -1,15 +1,14 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
-using Jikong.session;
+using Huangdai.session;
 using System;
 using System.Net.Http;
-using System.Threading;
-using Utils.stringBuilder;
 using System.Text.Json;
-using Utils.json;
 using Utils;
+using Utils.json;
+using Utils.stringBuilder;
 
-namespace Jikong.appointment
+namespace Huangdai.appointment
 {
     public class YuyueController : HttpClientBase
     {
@@ -28,7 +27,7 @@ namespace Jikong.appointment
             }
 
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
-            var content = new YuyueContent(order, order.User);
+            var content = new YuyueContent(order);
             return Yuyue(content);
         }
 

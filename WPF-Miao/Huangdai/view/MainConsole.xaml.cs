@@ -1,10 +1,10 @@
 ﻿using System.Windows.Controls;
 
-namespace Jikong.view
+namespace Huangdai.view
 {
-    public partial class JikongConsole : Page
+    public partial class MainConsole : Page
     {
-        public JikongConsole()
+        public MainConsole()
         {
             InitializeComponent();
         }

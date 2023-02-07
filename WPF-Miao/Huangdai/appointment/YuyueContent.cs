@@ -1,14 +1,12 @@
-﻿using Jikong.common;
-using Jikong.login;
-using Utils;
+﻿using Huangdai.common;
 
-namespace Jikong.appointment
+namespace Huangdai.appointment
 {
-    internal class YuyueContent : JikongContent
+    internal class YuyueContent : HuangdaiContent
     {
-        private static string url = "https://hscx.whcdc.org/vaccineServer/RegApiManage/lockNumber";
+        private static string url = "https://health-cn.xyz:9033/health_xcdp/api/hpv/save";
         public Order Order { get; private set; }
-        public YuyueContent(Order order, JikongLogin user) : base(url, user)
+        public YuyueContent(Order order) : base(url)
         {
             Order = order;
             BuildContent();
@@ -16,14 +14,11 @@ namespace Jikong.appointment
 
         private void BuildContent()
         {
-            AddContent("itemName", Order.ItemName);
-            AddContent("visitDate", Order.VisitDate);
-            AddContent("visitTime", Order.VisitTime);
-            AddContent("amOrPm", Order.AmOrPm);
-            AddContent("patientId", Order.UserId);
-            AddContent("scheduleCode", Order.ScheduleCode);
-            AddContent("scheduleInfoCode", Order.ScheduleInfoCode);
+            AddContent("name", Order.UserName);
+            AddContent("phone", Order.Phone);
+            AddContent("address", Order.Address);
             AddContent("type", Order.Type);
+            AddContent("no", Order.No);
         }
     }
 }

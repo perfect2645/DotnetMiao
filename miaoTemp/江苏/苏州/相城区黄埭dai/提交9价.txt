@@ -1,0 +1,25 @@
+POST https://health-cn.xyz:9033/health_xcdp/api/hpv/save HTTP/1.1
+Host: health-cn.xyz:9033
+Content-Type: application/json;charset=utf-8
+Origin: https://health-cn.xyz
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Referer: https://health-cn.xyz/
+Content-Length: 112
+Accept-Language: zh-CN,zh-Hans;q=0.9
+
+{"name":"周瑠夏","phone":"17615102645","address":"黄埭镇东桥","type":"9价HPV（9-45周岁）","no":"3"}
+HTTP/1.1 200
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,PUT,POST,DELETE
+Access-Control-Allow-Headers: content-type,accessToken,customerAccessToken
+Pragma: No-cache
+Cache-Control: no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 02 Feb 2023 01:43:48 GMT
+Content-Length: 79
+
+{"msg":"当前预约人数已满，请更换种类重新预约！","code":5056}

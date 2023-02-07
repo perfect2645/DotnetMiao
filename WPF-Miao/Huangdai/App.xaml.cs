@@ -1,12 +1,9 @@
 ﻿using HttpProcessor.Container;
-using Jikong.appointment;
-using Jikong.cancel;
-using Jikong.login;
-using Jikong.search;
+using Huangdai.appointment;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Jikong
+namespace Huangdai
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -28,13 +25,7 @@ namespace Jikong
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<OpenIdController>();
-            HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<DateController>();
-            HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
-            HttpServiceController.AddTransientService<SearchSuccessController>();
-            HttpServiceController.AddTransientService<CancelController>();
             HttpServiceController.BuidServiceProvider();
         }
     }
