@@ -1,0 +1,966 @@
+GET http://gzh.51kys.cn/hssfybjyjkglzx_web/order/index/216 HTTP/1.1
+Host: gzh.51kys.cn
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: safedog-flow-item=6F0618794D8D3612C9050C92E42DF12E; ASP.NET_SessionId=ajs5pfu2a1g2d0dmadk0f0p4; extime=2023-02-07+23%3a39%3a32; accessstoken=65_eFvUtm7LrT1Tvn1Y-gyVC2-6XTr2-mF5ne__Nnh28aWKdH12-bMOVq0sT4KsuHbue9KP_2VxPmehlXtNofHcjlm3b5le0Fe8PgidR5IF7qQ; xcyy=0
+Referer: http://gzh.51kys.cn/hssfybjyjkglzx_web/tc/detail/122
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Vary: Accept-Encoding
+X-Frame-Options: SAMEORIGIN
+X-AspNetMvc-Version: 5.2
+X-Powered-By: WAF/2.0
+Date: Tue, 07 Feb 2023 13:42:44 GMT
+Content-Length: 42991
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <style>
+        .allCommonHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: .88rem;
+            padding: 0 .2rem;
+            background: #fff;
+            position: fixed;
+            z-index: 999;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;
+        }
+
+            .allCommonHeader img {
+                width: .32rem
+            }
+
+            .allCommonHeader span:last-child {
+                width: .32rem;
+            }
+
+        .IOSBTN {
+            cursor: pointer;
+        }
+    </style>
+    
+    <link href="/hssfybjyjkglzx_web/Content/css/reset.css" rel="stylesheet" />
+    <link href="/hssfybjyjkglzx_web/Content/css/main.css?v=0.01" rel="stylesheet" />
+    <link rel="stylesheet" href="/hssfybjyjkglzx_web/Content/css/LCalendar.css">
+    <link rel="stylesheet" href="/hssfybjyjkglzx_web/Content/css/mobileSelect.css">
+    <link href="/hssfybjyjkglzx_web/Content/date/calendar.css" rel="stylesheet" />
+
+
+    <script src="/hssfybjyjkglzx_web/Content/js/jquery.min.js?v=2019072701"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/rem.js?v=2019072701"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/public.js?v=2019072701"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/index.js?v=2019072702"></script>
+    <script type="text/javascript">
+        function gotourl(url) {
+            location.href = url;
+        }
+    </script>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : " http://"); document.write(unescape("%3Cspan style='display:none;'id='cnzz_stat_icon_1276395674'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1276395674' type='text/javascript'%3E%3C/script%3E"));
+        document.getElementById("cnzz_stat_icon_1276395674").style.display = "none";
+    </script>
+</head>
+<body>
+    <!-- 顶部公用菜单 -->
+    <div class="top_nav">
+            <div class="back" onclick="window.history.go(-1)"></div>
+        <div class="center">确认订单</div>
+        <div class="bar">
+            <ul>
+                <li style="">
+                    <!-- 只能用点击onclick跳转路径 -->
+                    <a href="#" onclick="gotourl('/hssfybjyjkglzx_web/Hyzx/Index')">
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/gr.png" alt="">
+                        <span>个人中心</span>
+                    </a>
+                </li>
+                <li style="">
+                    <a onclick="gotourl('/hssfybjyjkglzx_web/Hyzx/ScList')">
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/sc.png" alt="">
+                        <span>收藏</span>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="gotourl('/hssfybjyjkglzx_web/Jg/Index?yybh=YY201912192043290001&amp;xcyy=0')">
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/sy.png" alt="">
+                        <span>首页</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+<style>
+    #mask-kkk {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+
+    .box {
+        width: 6rem;
+        height: 4.5rem;
+        background-color: #fff;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+        z-index: 1000;
+    }
+
+    .box1 {
+        height: 0.6rem;
+        font-size: 0.3rem;
+        font-weight: bold;
+        text-indent: 1em;
+        background: #f0f0f0;
+        padding: 0.1rem;
+    }
+
+    .box2 {
+        height: 0.9rem;
+        padding: 0.2rem;
+        overflow: scroll;
+    }
+
+    .box2-1 {
+        font-size: 0.3rem;
+    }
+
+    .box3 {
+        height: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btnok {
+        width: 3rem;
+        height: 0.8rem;
+        background: rgb(13, 144, 204);
+        color: #fff;
+        border: none;
+    }
+
+    .btn {
+        width: 3rem;
+        height: 0.8rem;
+        background: rgb(13, 144, 204);
+        color: #fff;
+        border: none;
+    }
+</style>
+<div id="mask-kkk"></div>
+<div class="box">
+    <div class="box1" style="color:red;font-size:20px;text-align:center;">会员卡支付</div>
+    <div class="box2">
+        <div class="box2-1" style="font-size:18px;text-indent:2em">密码：<input type="password" id="tjkmm" placeholder="请输入会员卡密码" value="" /></div>
+    </div>
+    <div class="box3">
+        <button class="btn">取消</button>
+        <button class="btnok">支付预约</button>
+    </div>
+</div>
+<!-- 弹窗 -->
+<div id="model_box" class="hide">
+    <div class="model_msk"></div>
+    <!-- 日历弹窗 -->
+    <div class="model_box_content model_box_refund fade hide" id="model_box_date">
+        <div class="hd">
+            <h4>体检日期选择</h4>
+            <a href="javascript:;" class="close"><img src="/hssfybjyjkglzx_web/Content/img/icon/clear.png" alt=""></a>
+        </div>
+        <ul class="calender_ul">
+            <li style="color: #fe1605;">日</li>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li style="color: #fe1605;">六</li>
+        </ul>
+        <div class="bd">
+            <div class="date_show_wrap">
+
+            </div>
+        </div>
+    </div>
+    <div class="model_box_content model_box_time fade hide" id="model_box_time">
+        <div class="hd clearfix">
+            <h4>请点击下面的时间段再确认</h4>
+            <a href="javascript:;" class="close"><img src="/hssfybjyjkglzx_web/Content/img/icon/clear.png" alt=""></a>
+        </div>
+        <div class="bd">
+            <ul class="clearfix"></ul>
+        </div>
+        <div class="fd">
+            <a href="javascript:;" class="close">取消</a>
+            <a href="javascript:;" class="sub">确定</a>
+        </div>
+    </div>
+</div>
+
+<form id="form1">
+    <div id="qrdd_page">
+        <input type="hidden" id="ID" name="ID" value="216" />
+        <input type="hidden" id="addItem" name="addItem" />
+        <input type="hidden" id="addItemExt" name="addItemExt" />
+        <div class="main_content" style="margin-top:0.9rem;">
+            <div class="bdLine"></div>
+            <div class="order_form" style="padding-bottom: 0;border-radius: 0.16rem;">
+                <h3>联系人信息</h3>
+                <div class="order_item">
+                    <label>手机号：</label>
+                        <input type="text" id="lXDH" name="LXDH" placeholder="请输入手机号">
+                </div>
+            </div>
+            <div class="bdLine"></div>
+            <div style="border-radius: 0.16rem;overflow:hidden;">
+                <div class="order_info clearfix">
+                    <div class="fl"><img src="http://gzh.51kys.cn//hssfybjyjkglzx_admin/Images/bbbc9a59e5c54e3894ab56876fde46a1.jpg" alt=""></div>
+                    <div class="oh">
+                        <h4>进口九价HPV疫苗(到院支付)</h4>
+                        <p>黄石市妇幼保健院健康管理中心</p>
+                        <dl>
+                            <dt>￥1334.8</dt>
+                            <dt style="padding-left: 40px;">加项￥0</dt>
+                            <dd style="display:none">
+                                <input type="text" value="1" id="TCSL" name="TCSL" readonly="readonly">
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <!-- 未登录提示 -->
+            <div class="no_login" style="display:block;">
+                <div class="order_form" style="padding-bottom: 0;">
+                    <div class="order_item">
+                        <label>体检医院：</label>
+                        <input type="text" value="黄石市妇幼保健院健康管理中心" readonly="readonly" unselectable="on" onfocus="this.blur();" style="font-size:0.28rem">
+                    </div>
+                                                                                <div class="order_item">
+                        <label>体检日期：</label>
+                        <input type="text" placeholder="请选择体检时间" id="choose_date" name="YYSJ" readonly="readonly" unselectable="on" onfocus="this.blur();">
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/date.png" alt="" class="dateImg">
+                    </div>
+
+                    <div class="order_item">
+                        <label>体检时间：</label>
+                        <input type="text" placeholder="请选择体检时间" id="choose_time" name="YYSJD" readonly="readonly" unselectable="on" onfocus="this.blur();">
+                        <div style="display:none" id="choose_time_click"></div>
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/date.png" alt="" class="dateImg">
+                    </div>
+
+                    <div class="order_item">
+                        <label>&nbsp;&nbsp;&nbsp;体检人：</label>
+                        <input type="text" id="XM" name="XM" placeholder="请输入体检人姓名" style="font-size:0.28rem">
+                    </div>
+                        <div class="order_item">
+                            <label>婚姻状态：</label>
+                            <div style="flex: 1;">
+                                <span style="margin-right: 0.6rem;">
+                                    <input type="radio" name="HYZT" id="no" value="0" class="my_radio" checked>
+                                    <label for="no">未婚</label>
+                                </span>
+                                <span>
+                                    <input type="radio" name="HYZT" id="yes" value="1" class="my_radio">
+                                    <label for="yes">已婚</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="order_item">
+                            <label>证件类型：</label>
+                            <a style="flex: 1;" href="javascript:;" id="choose_id">身份证</a>
+                            <input type="hidden" id="ZJLX" name="ZJLX" value="1" />
+                        </div>
+                        <div class="order_item">
+                            <label>证件号码：</label>
+                            <input type="text" id="SFZHM" name="SFZHM" placeholder="请输入您的证件号码">
+                        </div>
+                    <div class="order_item box-sex" style="display: none;">
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别：</label>
+                        <div style="flex: 1;">
+                            <span style="margin-right: 0.6rem;">
+                                <input type="radio" name="XB" id="man" value="1" class="my_radio" checked>
+                                <label for="man">男</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="XB" id="woman" value="0" class="my_radio">
+                                <label for="woman">女</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="order_item box-birth" style="display: none;">
+                        <label>出生日期：</label>
+                        <input type="text" value="2019-09-09" readonly="readonly" name="CSRQ" id="choose_birdth" />
+                    </div>
+                    <div class="order_item">
+                        <label>手机号码：</label>
+                        <input type="text" placeholder="请输入手机号码" id="DH" name="DH" class="phone_input">
+                        <span class="num_clear"><img src="/hssfybjyjkglzx_web/Content/img/icon/clear.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+            <div class="pay_wrap">
+                <div class="top">
+                    <h3>支付方式</h3>
+                    <ul>
+                        <li><img src="/hssfybjyjkglzx_web/Content/img/icon/gai.png" alt="">免费改期</li>
+                        <li><img src="/hssfybjyjkglzx_web/Content/img/icon/tui.png" alt="">未检可退</li>
+                    </ul>
+                </div>
+
+                        <div class="bottom" onclick='$(".zftip").html("到院支付");'>
+                            <div>
+                                <div>
+                                    <h4>到院支付</h4>
+                                </div>
+                            </div>
+                            <input type="radio" class="my_radio" checked id="mrzf" value="0" name="zffs" disabled />
+                        </div>
+            </div>
+            <div class="bdLine"></div>
+            <div class="pay_info" style="border-radius: 0.16rem;">
+                    <p>
+                        <span>订单总额</span>
+                        <span id="price_ddze">￥1334.8</span>
+                    </p>
+                    <p>
+                            <span class="zftip">到院支付</span>
+                        <span id="price_zfze">￥1334.8</span>
+                    </p>
+            </div>
+            <div class="bdLine"></div>
+            <div style="height:1.8rem"></div>
+        </div>
+        <div id="footer">
+            <div class="buy_wrap clearfix">
+                <div class="fl">
+                    <span class="text">实付款</span>
+                    <span class="now_price">￥1334.8</span>
+                </div>
+                <div class="fr">
+                    <span id="querydata" class="yuyue_btn">立即预约</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+    
+    <script src="/hssfybjyjkglzx_web/Content/date/calendar.js?v=20200313"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/LCalendar.js"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/EncodeString.js"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/mobileSelect.js"></script>
+    <script>
+        var zjlxdata = ['身份证', '港澳通行证/护照'];
+        if ("http://gzh.51kys.cn/hssfybjyjkglzx_web" == "http://gzh.51kys.cn/cdsnyy_web") {
+            zjlxdata = ['身份证', '居民户口簿', '护照', '军官证','驾驶证', '出入境通行证', '港澳居民通行证', '台湾居民通行证', '港澳居民来往内地通行证','台湾居民来往内地通行证','其他法定有效证件'];
+        }
+        var mobileSelect1 = new MobileSelect({
+            trigger: '#choose_id',
+            title: '',
+            wheels: [
+                { data: zjlxdata  }
+            ],
+            position: [0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
+            transitionEnd: function (indexArr, data) {
+
+            },
+            callback: function (indexArr, data) {
+                if ("http://gzh.51kys.cn/hssfybjyjkglzx_web" == "http://gzh.51kys.cn/cdsnyy_web") {
+                    if (data[0] == '身份证') {
+                        $("#ZJLX").val(1);
+                        $('.box-sex').hide();
+                        $('.box-birth').hide();
+
+                    } else if (data[0] == '居民户口簿'){
+                        $("#ZJLX").val(2);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '护照') {
+                        $("#ZJLX").val(3);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '军官证') {
+                        $("#ZJLX").val(4);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '港澳居民通行证') {
+                        $("#ZJLX").val(6);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '台湾居民通行证') {
+                        $("#ZJLX").val(7);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '港澳居民来往内地通行证') {
+                        $("#ZJLX").val(8);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '台湾居民来往内地通行证') {
+                        $("#ZJLX").val(9);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else if (data[0] == '驾驶证') {
+                        $("#ZJLX").val(5);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else {
+                        $("#ZJLX").val(99);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    }
+                } else {
+                    if (data[0] == '港澳通行证/护照') {
+                        $("#ZJLX").val(2);
+                        $('.box-sex').show();
+                        $('.box-birth').show();
+                    } else {
+                        $("#ZJLX").val(1);
+                        $('.box-sex').hide();
+                        $('.box-birth').hide();
+                    }
+                }
+            }
+        });
+
+        //资格类别
+        var mobileSelect2 = new MobileSelect({
+            trigger: '#zglb1',
+            title: '',
+            wheels: [
+                { data: ''.split(',') }
+            ],
+            position: [0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
+            transitionEnd: function (indexArr, data) {
+
+            },
+            callback: function (indexArr, data) {
+                console.log(indexArr);
+                console.log(data);
+                $("#zglb").val(data);
+            }
+        });
+
+        //学科类别
+        var mobileSelect3 = new MobileSelect({
+            trigger: '#xklb1',
+            title: '',
+            wheels: [
+                { data: ''.split(',') }
+            ],
+            position: [0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
+            transitionEnd: function (indexArr, data) {
+
+            },
+            callback: function (indexArr, data) {
+                $("#xklb").val(data);
+            }
+        });
+
+        //单位选择
+        var mobileSelect4 = new MobileSelect({
+            trigger: '#choose_dw',
+            title: '',
+            wheels: [
+                { data: ['经济开发区', '港区','其他地区'] }
+            ],
+            position: [0], //初始化定位 打开时默认选中的哪个 如果不填默认为0
+            transitionEnd: function (indexArr, data) {
+
+            },
+            callback: function (indexArr, data) {
+                if (data[0] == '经济开发区') {
+                    $("#DW").val('经济开发区');
+                } else if (data[0] == '港区') {
+                    $("#DW").val('港区');
+                }
+                else {
+                    $("#DW").val('其他地区');
+                }
+            }
+        });
+
+        var calendar2 = new LCalendar();
+        calendar2.init({
+            'trigger': '#choose_birdth', //标签id
+            'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+            'minDate': '1920-01-01', //最小日期
+            'maxDate': '2020-09-09' //最大日期
+        });
+        $(function () {
+            //初始化日历
+            model_box({
+                btn: "#choose_date",
+                model_inner_content: "#model_box_date",
+                close_btn: ".close",
+                callback: ''
+            });
+            model_box({
+                btn: "#choose_time_click",
+                model_inner_content: "#model_box_time",
+                close_btn: ".close",
+                callback: ''
+            });
+            var arr = ["暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约","暂停预约"];
+            var calendar = new Calendar({
+                step: 3, // 最多显示从本月开始的step个月
+                leastDays: 1, // 最少选择天数
+                //callback: fn, // 回调函数，默认有两个数组参数，第一个是所选开始时间和结束时间，第二个是开始时间和结束时间对应的element索引
+                priceData: arr // 价格数据数组集合，如果没有，则为null
+            }).init();
+
+            //绑定日历选择日期事件
+            $('.month-list li.active-date').click(function () {
+                $('.month-list li').removeClass('choose-date')
+                $(this).addClass('choose-date');
+                var liVal = $(this).attr("date-formate").split("/");
+                var month = parseInt(liVal[1]) > 9 ? liVal[1] : ("0" + liVal[1]);
+                var date = parseInt(liVal[2]) > 9 ? liVal[2] : ("0" + liVal[2]);
+                $('#choose_date').val(liVal[0] + "-" + month + "-" + date);
+                setTimeout(function () {
+                    $('.model_msk').click();
+                }, 500)
+            });
+
+            //电话号码清除
+            $('.phone_input').keyup(function () {
+                if ($(this).val() !== '') {
+                    $(this).parent().find('.num_clear').show();
+                } else {
+                    $(this).parent().find('.num_clear').hide();
+                }
+            })
+            $('.num_clear').click(function () {
+                $(this).parent().find('input').val('');
+                $(this).hide();
+            })
+            //展开更多
+            $('.readMore>span').click(function () {
+                $(this).parent().toggleClass('active');
+            })
+            //滑动预约按钮
+            $('.my_switch').click(function () {
+                if ($(this).is(':checked')) {
+                    $('.no_login').slideDown();
+                    $('.noLoing_tips').hide();
+                } else {
+                    $('.no_login').slideUp();
+                    $('.noLoing_tips').show();
+                }
+            })
+            //手机号码输入事件
+            $("#lXDH").on("input", function() {
+                $("#DH").val($("#lXDH").val());
+            });
+        });
+
+        $('input[type=radio][name=zffs]').change(function () {
+            // 获取input radio选中值，方法二
+            var myvalue = $(this).val();
+            if (myvalue == "2") {
+                if (!validate()) {
+                    $("#hyzf").removeAttr("checked");
+                    $("#mrzf").prop("checked", "checked");
+                    alert("请先完整填写预约信息~");
+                    return;
+                }
+                $('#mask-kkk').show();
+                $('.box').show();
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.getElementById("tjkmm").value = "";
+            }
+        });
+
+        $('.btnok').click(function() {
+            if ($("#tjkmm").val() == undefined || $("#tjkmm").val() == "") {
+                alert("请输入会员卡密码！");
+                return;
+            } else {
+                $('#mask-kkk').hide();
+                $('.box').hide();
+                document.body.style.overflow = '';
+                $(".yuyue_btn").click();
+                model_box_tip_independent({ txt: "预约中，请稍候~", closetime: 5500 });
+            }
+        });
+
+        $('.btn').click(function () {
+            $('#mask-kkk').hide();
+            $('.box').hide();
+            document.body.style.overflow = '';
+            model_box_tip_independent({ txt: "你已取消会员卡支付方式，将为您默认选择其他方式~", closetime: 4500 });
+            document.getElementById("tjkmm").value = "";
+            $("#hyzf").removeAttr("checked");
+            $("#mrzf").prop("checked", "checked");
+        });
+
+        var reg_phone = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[0-9])[0-9]{8}$/;
+        function validate() {
+            var lxdh = $("#lXDH").val();
+            if (!lxdh) {
+                model_box_tip_independent({ txt: "请输入手机号码！", closetime: 1500 });
+                $("#lXDH").focus();
+                return false;
+            }
+            if (!reg_phone.test(lxdh)) {
+                model_box_tip_independent({ txt: "请输入正确的手机号码！", closetime: 1500 });
+                $("#lXDH").focus();
+                return false;
+            }
+
+            if (!$("#choose_date").val()) {
+                model_box_tip_independent({ txt: "请选择体检日期！", closetime: 1500 });
+                $("#choose_date").focus();
+                return false;
+            }
+            if(!$("#choose_time").val()){
+                model_box_tip_independent({ txt: "请选择体检时间！", closetime: 1500 });
+                $("#choose_time").focus();
+                return false;
+            }
+            if ($("#XM").val() == "") {
+                model_box_tip_independent({ txt: "请输入体检人姓名！", closetime: 1500 });
+                $("#XM").focus();
+                return false;
+            }
+            if ('http://gzh.51kys.cn/hssfybjyjkglzx_web' == "http://gzh.51kys.cn/sxskfyy_web") {
+                if ($("#zglb").val() == "") {
+                    model_box_tip_independent({ txt: "请选择资格类别！", closetime: 1500 });
+                    $("#zglb1").focus();
+                    return false;
+                }
+                if ($("#xklb").val() == "") {
+                    model_box_tip_independent({ txt: "请选择学科类别！", closetime: 1500 });
+                    $("#xklb1").focus();
+                    return false;
+                }
+            }
+
+            var reg = /^((?![0-9]).)*$/
+            if (!reg.test($("#XM").val())) {
+                model_box_tip_independent({ txt: "姓名不能包含数字，请填写真实姓名！", closetime: 1500 });
+                $("#XM").focus();
+                return false;
+            }
+            if ($("input[name='HYZT']:checked").val() == undefined) {
+                model_box_tip_independent({ txt: "请选择婚姻状态！", closetime: 1500 });
+                return false;
+            }
+            if ($("#ZJLX").val() == 1) {
+                reg = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+                if (!$("#SFZHM").val()) {
+                    model_box_tip_independent({ txt: "请输入证件号码！", closetime: 1500 });
+                    $("#SFZHM").focus();
+                    return false;
+                }
+                if (!reg.test($("#SFZHM").val())) {
+                    model_box_tip_independent({ txt: "证件号码格式不正确！", closetime: 1500 });
+                    $("#SFZHM").focus();
+                    return false;
+                }
+            } else {
+                if ($("input[name='XB']:checked").val() == undefined) {
+                    model_box_tip_independent({ txt: "请选择性别！", closetime: 1500 });
+                    return false;
+                }
+                if ($("#SFZHM").val().length < 8) {
+                    model_box_tip_independent({ txt: "请输入正确的证件号码！", closetime: 1500 });
+                    $("#SFZHM").focus();
+                    return false;
+                }
+            }
+            if ($("#DH").val() == "") {
+                model_box_tip_independent({ txt: "请输入手机号码！", closetime: 1500 });
+                $("#DH").focus();
+                return false;
+            }
+            if (!reg_phone.test($("#DH").val())) {
+                model_box_tip_independent({ txt: "请输入正确的手机号码！", closetime: 1500 });
+                $("#DH").focus();
+                return false;
+            }
+
+            if ($("#YZM").is(':visible') && $("#YZM").val().length < 6) {
+                model_box_tip_independent({ txt: "请输6位数字验证码！", closetime: 1500 });
+                $("#YZM").focus();
+                return false;
+            }
+            return true;
+        }
+
+        //60s倒计时实现逻辑
+        var countdown = 60;
+        function setTime() {
+            var obj = $(".yzmbtn");
+            if (countdown == 0) {
+                obj.removeAttr('disabled');
+                obj.text("获取验证码");
+                countdown = 60;//60秒过后button上的文字初始化,计时器初始化;
+                return;
+            } else {
+                obj.attr('disabled', true);
+                obj.text("(" + countdown + "s)后重新发送");
+                countdown--;
+            }
+            setTimeout(function () { setTime(obj) }, 1000) //每1000毫秒执行一次
+        }
+
+        $(".yzmbtn").click(function() {
+            if ($(this).attr("disabled") == undefined) {
+                var lxdh = $("#lXDH").val();
+                if (!lxdh) {
+                    model_box_tip_independent({ txt: "请输入手机号码！", closetime: 1500 });
+                    $("#lXDH").focus();
+                    return;
+                }
+                if (!reg_phone.test(lxdh)) {
+                    model_box_tip_independent({ txt: "请输入正确的手机号码！", closetime: 1500 });
+                    $("#lXDH").focus();
+                    return;
+                }
+                $.ajax({
+                    url: "/hssfybjyjkglzx_web/ValidCode/SendSms",
+                    data: { phone: lxdh },
+                    dataType: "json",
+                    type: "post",
+                    asynce: false,
+                    success: function(res) {
+                        setTime();
+                    },
+                    error: function(res) {
+                        model_box_tip_independent({ txt: "发送失败，" + res.msg, closetime: 1500 });
+                    }
+                });
+            }
+        });
+
+        $(".yuyue_btn").click(function() {
+            if (!validate()) {
+                return false;
+            }
+            var zffs = null;
+            var obj = document.getElementsByName("zffs")
+            for (var i = 0; i < obj.length; i++) { //遍历Radio
+                if (obj[i].checked) {
+                    zffs = obj[i].value;
+                }
+            }
+            var tjkmm = ($("#tjkmm").val() == undefined ? "" : getEncodeString($("#tjkmm").val())); //东莞市金美济妇女儿童医院个性化
+            if (zffs == "2") {
+                if (tjkmm == "") {
+                    model_box_tip_independent({ txt: "请填写会员卡密码！", closetime: 1500 });
+                    $('#mask-kkk').show();
+                    $('.box').show();
+                    document.body.style.overflow = 'hidden';
+                    return false;
+                }
+                model_box_tip_independent({ txt: "预约中，请稍候~", closetime: 15500 })
+            }
+            var lXDH = getEncodeString($("#lXDH").val());
+            var SFZHM = getEncodeString($("#SFZHM").val());
+            var DH = getEncodeString($("#DH").val());
+            var XM = escape($("#XM").val());
+            var XB = $("input[name='XB']:checked").val();
+            var HYZT = $("input[name='HYZT']:checked").val();
+            var addItem = $("#addItem").val();
+            var addItemExt = $("#addItemExt").val();
+            var tjr = ($("#tjr").val() == undefined ? "" : $("#tjr").val()); //宾阳平子康增加推荐人个性化
+            var zglb = ($("#zglb").val() == undefined ? "" : $("#zglb").val()); //陕西省康复医院资格类别
+            var xklb = ($("#xklb").val() == undefined ? "" : $("#xklb").val()); //陕西省康复医院学科类别
+            var mz = ($("#mz").val() == undefined ? "" : $("#mz").val()); //陕西省康复医院民族
+            var cph = ($("#cph").val() == undefined ? "" : $("#cph").val());
+            var bz = ($("#bz").val() == undefined ? "" : $("#bz").val());
+            var yzm = "";
+            var saleName = "";
+            var zyjxZK = 1;
+            if ("0" == "1") {
+                yzm = $("#YZM").val();
+                if ("http://gzh.51kys.cn/hssfybjyjkglzx_web" == "http://gzh.51kys.cn/sqkfyy_web") {
+                    saleName = $("#saleName").val();
+                    if (saleName == "") {
+                        model_box_tip_independent({ txt: "销售人不能为空！", closetime: 1500 });
+                        return false;
+                    }
+                    if (0 > 0) {
+                        zyjxZK = $("#zyjxZK").val();
+                    }
+                }
+            }
+            if ('' != "") {
+                if (zglb == "") {
+                    model_box_tip_independent({ txt: "请选择资格类型！", closetime: 1500 });
+                    return;
+                }
+                if (xklb == "") {
+                    model_box_tip_independent({ txt: "请选择学科类型！", closetime: 1500 });
+                    return;
+                }
+                if (mz == "") {
+                    model_box_tip_independent({ txt: "请输入民族！", closetime: 1500 });
+                    return;
+                }
+            }
+            var vipcode = $("#vipcode").val();
+            if ('http://gzh.51kys.cn/hssfybjyjkglzx_web' == "http://gzh.51kys.cn/hsskyy_web") //黄山首康医院
+            {
+                if (vipcode == undefined || vipcode == "") {
+                    model_box_tip_independent({ txt: "请输入VIP卡号！", closetime: 1500 });
+                    return;
+                }
+            }
+
+            $.ajax({
+                url: "/hssfybjyjkglzx_web/order/ConfirmOrder",
+                data: { ID: $("#ID").val(), TCSL: $("#TCSL").val(), lXDH: lXDH, YYSJ: $("#choose_date").val(), YYSJD: $("#choose_time").val(), XM: XM, HYZT: HYZT, ZJLX: $("#ZJLX").val(), SFZHM: SFZHM, DH: DH, XB: XB, CSRQ: $("#choose_birdth").val(), addItem: addItem, addItemExt: addItemExt, tjr: tjr, zffs: zffs, tjkmm: tjkmm, zglb: zglb, xklb: xklb, mz: mz, vipcode: vipcode, cph: cph, bz: bz, dw: $("#DW").val(), yzm: yzm, zyjxZK: zyjxZK, saleName: saleName },
+                dataType: "json",
+                type: "post",
+                success: function(res) {
+                    if (res.code == 200) {
+                        if (res.msg != "") {
+                            alert(res.msg);
+                        }
+                        if ("http://gzh.51kys.cn/hssfybjyjkglzx_web" == "http://gzh.51kys.cn/hnkjdxdyfsyy_web" && res.iswrited == "0") {
+                            if (confirm("是否确认前往填写检前健康问卷")) {
+                                window.location.href = "http://gzh.51kys.cn/hnkjdxdyfsyy_web/dttj/index?type=3&djlsh=" + res.hyid + "&refurl=https%3a%2f%2fgzh.51kys.cn%2fhnkjdxdyfsyy_web%2fHyzx%2fOrderDetailDfk%3fddid%3d" + res.ddid;
+                            } else {
+                                window.location.href = "/hssfybjyjkglzx_web/Hyzx/OrderDetailDfk?ddid=" + res.ddid;
+                            }
+                        } else {
+                            window.location.href = "/hssfybjyjkglzx_web/Hyzx/OrderDetailDfk?ddid=" + res.ddid;
+                        }
+                    } else if (res.code == 201) {
+                        if (res.msg != "") {
+                            alert(res.msg);
+                        }
+                        if ("0" == "1") {
+                            window.location.href = "/hssfybjyjkglzx_web/Pay/Return?ddid=" + res.ddid;
+                        } else {
+                            //金湾的驾驶员套餐预约成功增加弹窗提示。add by wzh 2022-10-13
+                            if ('http://gzh.51kys.cn/hssfybjyjkglzx_web' == "http://gzh.51kys.cn/jwqzxyy_web" && '000109' == "001269") {
+                                alert("您已预约了我院驾驶证体检，请您提前半小时到。带上本人有效证件（身份证、通行证、护照等）1张近期彩色证件照，到体检中心报到取号。逾期视为自动放弃本次预约若需矫正视力，请自备眼镜。");
+                            }
+                            if ("http://gzh.51kys.cn/hssfybjyjkglzx_web" == "http://gzh.51kys.cn/hnkjdxdyfsyy_web" && res.iswrited == "0") {
+                                if (confirm("是否确认前往填写检前健康问卷")) {
+                                    window.location.href = "http://gzh.51kys.cn/hnkjdxdyfsyy_web/dttj/index?type=3&djlsh=" + res.hyid + "&refurl=https%3a%2f%2fgzh.51kys.cn%2fhnkjdxdyfsyy_web%2fHyzx%2fOrderList_dtj";
+                                } else {
+                                    window.location.href = "/hssfybjyjkglzx_web/Hyzx/OrderList_dtj";
+                                }
+                            } else {
+                                window.location.href = "/hssfybjyjkglzx_web/Hyzx/OrderList_dtj";
+                            }
+                        }
+                    } else if (res.code == 202) {
+                        window.location.href = "/hssfybjyjkglzx_web/Login/IndexOne";
+                    } else {
+                        model_box_tip_independent({ txt: res.msg, closetime: 3000 });
+                    }
+                },
+                error: function (res) {
+                    console.log(res);
+                }
+            });
+        });
+
+        $("#choose_time").click(function() {
+            var rq = $("#choose_date").val();
+            if (rq == "") {
+                model_box_tip_independent({ txt: "请选择日期", closetime: 1500 });
+                return;
+            }
+            $("#choose_time_click").click();
+            $.ajax({
+                url: "/hssfybjyjkglzx_web/order/GetSJD",
+                data: { tjjgid: 'YY201912192043290001', packageId: '000109', rq: rq },
+                dataType: "json",
+                type: "post",
+                success: function(res) {
+                    var html = "";
+                    var choose_time = $("#choose_time").val();
+                    var kssj = choose_time.split('-')[0];
+                    $.each(res,
+                        function(i, item) {
+                            if (item.KSSJ == kssj) {
+                                html += '<li class="on">';
+                            } else {
+                                html += '<li>';
+                            }
+                            html += '<p>' + item.KSSJ + '-' + item.JSSJ + '</p>';
+                            html += '<span>' + item.SJYYL + '/' + item.YYL + '</span>';
+                            html += '</li>';
+                        });
+                    $("#model_box_time .bd ul").html(html);
+                }
+            });
+        });
+
+        $("#model_box_time").on("click", ".bd ul li", function () {
+            var sjyyl = $(this).find("span").text().split("/")[0];
+            var yyl = $(this).find("span").text().split("/")[1];
+            if (parseInt(yyl) <= parseInt(sjyyl)) {
+                model_box_tip_independent({ txt: "该时间段已约满", closetime: 1500 });
+                return;
+            }
+            $(this).addClass("on").siblings().removeClass("on");
+        });
+
+        $("#model_box_time .sub").click(function() {
+            var choose_time = "";
+            var sjd = $(".model_box_time .bd li.on");
+            if (sjd.length > 0) {
+                choose_time = $(sjd).find("p").text();
+            }
+            $("#choose_time").val(choose_time);
+            $(".close").click();
+        });
+
+        //加项折扣
+        $("#zyjxZK").on("input", function() {
+            var num = parseFloat($(this).val());
+            if (num > 0 && num <= 1) {
+                var addItemExt = $("#addItemExt").val();
+                $.ajax({
+                    url: "/hssfybjyjkglzx_web/order/GetPrice",
+                    data: { ID: $("#ID").val(), addItemExt: addItemExt, zyjxZK: num },
+                    dataType: "json",
+                    type: "post",
+                    success: function (res) {
+                        $("#price_ddze").html("￥" + res.zyjxyj);
+                        $("#price_zfze,.now_price").html("￥" +res.zyjxjg);
+                        $("#price_zk").html(res.zk);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
