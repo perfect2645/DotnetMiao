@@ -28,8 +28,8 @@ namespace Huangshi.search
         {
             try
             {
-                var url = $"https://hscx.whcdc.org/vaccineServer/patientManager/getPatientList?openId={user.OpenId}";
-                var content = new HuangshiContent(url, user);
+                var url = $"https://hscx.whcdc.org/vaccineServer/patientManager/getPatientList?openId=";
+                var content = new MainContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -76,9 +76,6 @@ namespace Huangshi.search
 
             user.UserId = pkid;
             user.UserName = patientName;
-            user.IdCard = cardNo;
-            user.Phone = phone;
-            user.OpenId = openId;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

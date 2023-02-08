@@ -1,5 +1,6 @@
 ﻿using Huangshi.common;
 using Huangshi.login;
+using Huangshi.Encrypt;
 using Utils;
 
 namespace Huangshi.appointment
@@ -17,6 +18,8 @@ namespace Huangshi.appointment
         private void BuildContent()
         {
             AddContent("ID", Order.UserId);
+
+            //var phoneEncode = JsReader.GetEncodeString(User.Phone);
         }
     }
 }

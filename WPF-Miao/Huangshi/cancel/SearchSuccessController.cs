@@ -31,7 +31,7 @@ namespace Huangshi.cancel
             try
             {
                 var url = $"https://hscx.whcdc.org/vaccineServer/RegApiManage/regRecord?patientId={user.UserId}&status=";
-                var content = new HuangshiContent(url, user);
+                var content = new MainContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

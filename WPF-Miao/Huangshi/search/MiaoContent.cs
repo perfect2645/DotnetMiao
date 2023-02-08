@@ -6,7 +6,7 @@ using Utils;
 
 namespace Huangshi.search
 {
-    internal class MiaoContent : HuangshiContent
+    internal class MiaoContent : MainContent
     {
         private static string url = "https://hscx.whcdc.org/vaccineServer/RegApiManage/queryNumberSource";
         public string Date { get; set; }

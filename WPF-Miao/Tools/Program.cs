@@ -21,4 +21,6 @@ var en = converter.UrlEncode(de);
 var cs7 = new PKCS7();
 var cs7result = cs7.DeCodePkcs7("oSpLZsv5cKfTiMnUWDqkuEh_zOGM");
 
+var httpEncode = new HttpEncode();
+
 Console.ReadLine();

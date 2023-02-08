@@ -3,7 +3,7 @@ using Huangshi.login;
 
 namespace Huangshi.cancel
 {
-    internal class CancelContent : HuangshiContent
+    internal class CancelContent : MainContent
     {
         private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/";
 

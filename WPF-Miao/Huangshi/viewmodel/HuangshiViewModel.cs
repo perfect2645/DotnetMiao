@@ -21,6 +21,7 @@ using Utils.number;
 using Utils.stringBuilder;
 using Huangshi.cancel;
 using System.Threading;
+using Huangshi.Encrypt;
 
 namespace Huangshi.viewmodel
 {
@@ -132,6 +133,7 @@ namespace Huangshi.viewmodel
 
         private void TestData()
         {
+            //var phoneEncode = JsReader.GetEncodeString("13940897525");
             Interval = 200;
             StartTime = DateTime.Now.AddSeconds(5);
         }
@@ -392,7 +394,7 @@ namespace Huangshi.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.VisitDate}{order.VisitTime}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -428,12 +430,7 @@ namespace Huangshi.viewmodel
                         User = user,
                         UserId = user.UserId,
                         UserName = user.UserName,
-                        AmOrPm = template.AmOrPm,
-                        ItemName = template.ItemName,
-                        ScheduleCode = template.ScheduleCode,
-                        ScheduleInfoCode = template.ScheduleInfoCode,
-                        VisitDate = template.VisitDate,
-                        VisitTime = template.VisitTime,
+
                     };
 
                     orderList.Add(order);
