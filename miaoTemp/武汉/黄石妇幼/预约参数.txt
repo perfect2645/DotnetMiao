@@ -1,0 +1,27 @@
+{ ID: $("#ID").val()
+ TCSL: $("#TCSL").val()
+ lXDH: lXDH
+ YYSJ: $("#choose_date").val()
+ YYSJD: $("#choose_time").val()
+ XM: XM
+ HYZT: HYZT
+ ZJLX: $("#ZJLX").val()
+ SFZHM: SFZHM
+ DH: DH
+ XB: XB
+ CSRQ: $("#choose_birdth").val()
+ addItem: addItem
+ addItemExt: addItemExt
+ tjr: tjr
+ zffs: zffs
+ tjkmm: tjkmm
+ zglb: zglb
+ xklb: xklb
+ mz: mz
+ vipcode: vipcode
+ cph: cph
+ bz: bz
+ dw: $("#DW").val()
+ yzm: yzm
+ zyjxZK: zyjxZK
+ saleName: saleName }

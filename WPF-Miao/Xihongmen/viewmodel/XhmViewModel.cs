@@ -139,7 +139,7 @@ namespace Xihongmen.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2023, 1, 25, 16, 59, 00);
+            StartTime = new DateTime(2023, 2, 8, 16, 59, 00);
 
             SetDateList();
 
