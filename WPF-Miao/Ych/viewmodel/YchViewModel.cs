@@ -157,6 +157,20 @@ namespace Ych.viewmodel
                 },
                 new YchHospital
                 {
+                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
+                    HospitalName = "漕湖街道社区卫生服务中心",
+                    DepartmentId = "1220",
+                    DepartmentName = "九价",
+                },
+                new YchHospital
+                {
+                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
+                    HospitalName = "漕湖街道社区卫生服务中心",
+                    DepartmentId = "1224",
+                    DepartmentName = "四价",
+                },
+                new YchHospital
+                {
                     //HospitalId = "http://yy.test.shinegosoft.com.cn",
                     HospitalId = "http://www.szychrmyy.com",
                     HospitalName = "苏州市相城区阳澄湖人民医院",

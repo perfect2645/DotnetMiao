@@ -26,13 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="view\MainConsole.xaml.cs">
+    <Compile Update="view\JikongConsole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="view\MainConsole.xaml">
+    <Page Update="view\JikongConsole.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
   </ItemGroup>

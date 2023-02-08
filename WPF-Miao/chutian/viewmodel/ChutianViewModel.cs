@@ -130,7 +130,7 @@ namespace chutian.viewmodel
             Interval = 800;
             StartTime = DateTime.Now.AddSeconds(3);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            UserPhone = "17129530447";
+            UserPhone = "17050685132";
             _userPassword = "123456";
             //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
         }
