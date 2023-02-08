@@ -79,7 +79,7 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7229969&doctorId=710788135&hospitalInternal=1&showMultiDept=0&platformType=9000393&exConsult=&consultHosId=1039346&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7242593&doctorId=710808724&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1101211&utm_source=0.0.h.1026.bus010.0";
         }
 
         private void InitStaticData()
@@ -98,6 +98,22 @@ namespace Baohe.viewModel
             }
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1101211", "漳州市龙文区步文街道社区卫生服务中心",
+                "7242593", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "148528129"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1101211", "漳州市龙文区步文街道社区卫生服务中心",
+                "7242593", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "148528129"
+            });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
