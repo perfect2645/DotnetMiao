@@ -26,6 +26,7 @@
                 <materialDesign:TimePicker Width="150" SelectedTime="{Binding StartTime}"
                     Style="{StaticResource MaterialDesignOutlinedTimePicker}"
                                            ToolTip="开始时间"
+                                           WithSeconds="True"
                                            HorizontalAlignment="Left"
                                            materialDesign:HintAssist.Hint="开始时间"
                                            Margin="10"
