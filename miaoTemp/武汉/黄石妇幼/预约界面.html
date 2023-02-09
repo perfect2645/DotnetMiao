@@ -741,9 +741,35 @@
         });
 
         $(".yuyue_btn").click(function() {
-            if (!validate()) {
-                return false;
-            }
+            var rq = "2023-02-10";
+            $("#choose_date").val(rq);
+            alert("date:" + rq);
+
+            $("#choose_time_click").click();
+            $.ajax({
+                url: "/hssfybjyjkglzx_web/order/GetSJD",
+                data: { tjjgid: 'YY201912192043290001', packageId: '000109', rq: rq },
+                dataType: "json",
+                type: "post",
+                success: function(res) {
+                    var html = "";
+                    var choose_time = "08:00-17:00";
+                    var kssj = choose_time.split('-')[0];
+                    $.each(res,
+                        function(i, item) {
+                            if (item.KSSJ == kssj) {
+                                html += '<li class="on">';
+                            } else {
+                                html += '<li>';
+                            }
+                            html += '<p>' + item.KSSJ + '-' + item.JSSJ + '</p>';
+                            html += '<span>' + item.SJYYL + '/' + item.YYL + '</span>';
+                            html += '</li>';
+                        });
+                    $("#model_box_time .bd ul").html(html);
+                }
+            });
+
             var zffs = null;
             var obj = document.getElementsByName("zffs")
             for (var i = 0; i < obj.length; i++) { //遍历Radio
@@ -868,11 +894,8 @@
         });
 
         $("#choose_time").click(function() {
-            var rq = $("#choose_date").val();
-            if (rq == "") {
-                model_box_tip_independent({ txt: "请选择日期", closetime: 1500 });
-                return;
-            }
+            var rq = "2023-02-10";
+
             $("#choose_time_click").click();
             $.ajax({
                 url: "/hssfybjyjkglzx_web/order/GetSJD",
@@ -881,7 +904,7 @@
                 type: "post",
                 success: function(res) {
                     var html = "";
-                    var choose_time = $("#choose_time").val();
+                    var choose_time = "08:00-17:00";
                     var kssj = choose_time.split('-')[0];
                     $.each(res,
                         function(i, item) {

@@ -1,21 +1,18 @@
-﻿using Base.viewmodel.status;
-using HttpProcessor.Client;
+﻿using HttpProcessor.Client;
+using Huangshi.appointment;
+using Huangshi.login;
+using Huangshi.session;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Huangshi.appointment;
-using Huangshi.common;
-using Huangshi.login;
-using Huangshi.session;
 using Utils;
-using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
-using Newtonsoft.Json;
 
 namespace Huangshi.search
 {
@@ -28,37 +25,28 @@ namespace Huangshi.search
         {
         }
 
-        public void SearchMiaoAsync(string date, HuangshiLogin user)
+        public void SearchMiaoAsync(HuangshiLogin user, string date)
         {
             Date = date;
-            Task.Factory.StartNew(() => SearchMiao(date, user));
+            Task.Factory.StartNew(() => SearchMiao(user, date));
         }
 
-        public bool SearchMiao(string date, HuangshiLogin user)
+        public bool SearchMiao(HuangshiLogin user, string date)
         {
             Date = date;
             try
             {
-                var content = new MiaoContent(user, date);
+                var content = new DateContent(user, date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
-                if (response?.Body == null)
+                if (response?.Body == null && string.IsNullOrEmpty(response?.ContentStr))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败 - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
-
                 var root = response.JsonBody.RootElement;
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                if (code != "0" || msg != "操作完成")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:code={code}, message: {msg}");
-                    return false;
-                }
 
-                var data = root.GetProperty("data");
-                return SaveMiao(data, user);
+                return SaveMiao(root, user);
             }
             catch (Exception ex)
             {
@@ -70,17 +58,27 @@ namespace Huangshi.search
 
         private bool SaveMiao(JsonElement data, HuangshiLogin user)
         {
-            var summaryList = JsonAnalysis.JsonToDicList(data);
-            if (!summaryList.HasItem())
+            var scheduleDic = JsonAnalysis.JsonToDicList(data);
+            if (!scheduleDic.HasItem())
             {
                 Log($"没开始放苗");
                 return false;
             }
 
-            var summary = summaryList.FirstOrDefault() as Dictionary<string, object>;
+            var scheduleList = new List<Schedule>();
 
-            var list = summary["list"].NotNullString();
-            var scheduleList = JsonConvert.DeserializeObject<List<Schedule>>(list);
+            foreach (var scheduleItem in scheduleDic)
+            {
+                var schedule = new Schedule
+                {
+                    JSSJ = scheduleItem.GetString("JSSJ"),
+                    KSSJ = scheduleItem.GetString("KSSJ"),
+                    SJYYL = scheduleItem.GetString("SJYYL"),
+                    YYL = scheduleItem.GetString("YYL"),
+                };
+
+                scheduleList.Add(schedule);
+            }
 
             BuildOrderList(scheduleList);
 
@@ -91,14 +89,12 @@ namespace Huangshi.search
         {
             var orderList = new List<Order>();
 
-            foreach (var user in MainSession.Users)
+
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            foreach (var schedule in scheduleList)
             {
-                var userName = user.UserName;
-                foreach (var schedule in scheduleList)
-                {
-                    Order orderWithTime = BuildOneOrder(user, Date, schedule);
-                    orderList.Add(orderWithTime);
-                }
+                Order orderWithTime = BuildOneOrder(defaultUser, Date, schedule);
+                orderList.Add(orderWithTime);
             }
             orderList = orderList.DisorderItems();
 
@@ -112,14 +108,22 @@ namespace Huangshi.search
 
         private Order BuildOneOrder(HuangshiLogin user, string date, Schedule schedule)
         {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
+            //var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            //var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            //var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
+            var time = UnicodeConverter.EncodeOriginal($"{schedule.KSSJ}-{schedule.JSSJ}", true);
+
             return new Order
             {
-                UserId = user.UserId,
+                DeptId = user.DeptId,
                 UserName = user.UserName,
                 User = user,
+                Birthday = user.Birthday,
+                ContactPhone = user.Phone,
+                Date = date,
+                SFZHM = user.IdCard,
+                Time = time,
+                UserPhone= user.Phone,
             };
         }
     }

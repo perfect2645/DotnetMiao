@@ -74,7 +74,7 @@ namespace Huangshi.search
             var phone = defaultUser.GetString("phone");
             var openId = defaultUser.GetString("openId");
 
-            user.UserId = pkid;
+            user.DeptId = pkid;
             user.UserName = patientName;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);

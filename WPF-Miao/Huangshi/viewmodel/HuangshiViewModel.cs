@@ -22,6 +22,7 @@ using Utils.stringBuilder;
 using Huangshi.cancel;
 using System.Threading;
 using Huangshi.Encrypt;
+using System.Timers;
 
 namespace Huangshi.viewmodel
 {
@@ -142,7 +143,7 @@ namespace Huangshi.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-2", "2023-2-11");
+            var dateRange = DateTimeUtil.GetDateRange("2023-2-10", "2023-2-10");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
@@ -169,30 +170,17 @@ namespace Huangshi.viewmodel
                 new HuangshiHospital
                 {
                     HospitalId = "1",
-                    HospitalName = "武汉疾控",
-                    DepartmentName = "预检登记室",
-                    DepartmentId = "18013",
-                    DoctorId = "703",
-                    DoctorName = "九价人乳头瘤病毒疫苗"
+                    HospitalName = "黄石妇幼",
+                    DepartmentName = "九价",
+                    DepartmentId = "216",
                 },
                 new HuangshiHospital
                 {
                     HospitalId = "1",
-                    HospitalName = "武汉疾控",
-                    DepartmentName = "预检登记室",
-                    DepartmentId = "18013",
-                    DoctorId = "705",
-                    DoctorName = "成人流感疫苗"
+                    HospitalName = "黄石妇幼",
+                    DepartmentName = "九价",
+                    DepartmentId = "215",
                 },
-                new HuangshiHospital
-                {
-                    HospitalId = "1",
-                    HospitalName = "武汉疾控",
-                    DepartmentName = "预检登记室",
-                    DepartmentId = "18013",
-                    DoctorId = "718",
-                    DoctorName = "四价人乳头瘤病毒疫苗"
-                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -202,7 +190,6 @@ namespace Huangshi.viewmodel
 
         private void InitCommands()
         {
-            LoginCommand = new RelayCommand(ExecuteLogin);
             SearchCommand = new RelayCommand(ExecuteManual);
             RefreshHistoryCommand = new AsyncRelayCommand(ExecuteSearchHistory);
             CancelCommand = new AsyncRelayCommand(ExecuteCancel);
@@ -244,33 +231,7 @@ namespace Huangshi.viewmodel
         private void LoginFromConfigAsync()
         {
             MainSession.Users = FileReader.DeserializeFile<List<HuangshiLogin>>("Login.json");
-            foreach(var user in MainSession.Users)
-            {
-                //var openIdController = HttpServiceController.GetService<OpenIdController>();
-                //await openIdController.GetOpenIdAsync(user);
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
-            }
-
             MainSession.InitSession();
-        }
-
-        private void ExecuteLogin()
-        {
-            if (StringUtil.AnyEmpty(Authorization))
-            {
-                Log("请检查参数");
-                return;
-            }
-
-            var loginData = new HuangshiLogin()
-            {
-                
-            };
-
-            MainSession.Users.Add(loginData);
-
-            ClearLoginData();
         }
 
         private void ClearLoginData()
@@ -287,7 +248,7 @@ namespace Huangshi.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    //BuildOrders();
+                    BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -330,7 +291,7 @@ namespace Huangshi.viewmodel
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                UserId = user.UserId,
+                DeptId = user.DeptId,
                 UserName = user.UserName,
                 User = user,
             };
@@ -364,6 +325,7 @@ namespace Huangshi.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
+                    BuildOrders();
                     Appoint();
                 }
                 catch (HttpException ex)
@@ -427,18 +389,21 @@ namespace Huangshi.viewmodel
                 {
                     var order = new Order
                     {
-                        User = user,
-                        UserId = user.UserId,
+                        DeptId = user.DeptId,
                         UserName = user.UserName,
-
+                        User = user,
+                        Birthday = user.Birthday,
+                        ContactPhone = user.Phone,
+                        Date = template.Date,
+                        SFZHM = user.IdCard,
+                        Time = template.Time,
+                        UserPhone = user.Phone,
                     };
 
                     orderList.Add(order);
                 }
-
                 Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
             }
-
         }
 
         private void DirectlyOrder(string scheduleId)

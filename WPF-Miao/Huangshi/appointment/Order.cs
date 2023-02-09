@@ -5,6 +5,7 @@ namespace Huangshi.appointment
 {
     public class Order
     {
+        public string DeptId { get; set; }
         public string UserId { get; set; }
         public string UserName { get; set; } //XM 体检人姓名
         public string TCSL { get; set; } = "1";
@@ -17,8 +18,8 @@ namespace Huangshi.appointment
         public string UserPhone { get; set; } // 就诊人手机号码
         public string XB { get; set; } = "0";
         public string Birthday { get; set; } // CSRQ 出生日期
-        public string addItem { get; set; } // 加项折扣
-        public string addItemExt { get; set; } // 加项折扣
+        //public string addItem { get; set; } // 加项折扣
+        //public string addItemExt { get; set; } // 加项折扣
         public string zffs { get; set; } = "0"; // 支付方式
         public string tjkmm { get; set; } // 会员卡密码
         public string zglb { get; set; } = "0"; // 资格类别
@@ -35,7 +36,9 @@ namespace Huangshi.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {UserId}");
+            sb.AppendLine($"UserId - {DeptId}");
+            sb.AppendLine($"Date - {Date}");
+            sb.AppendLine($"Time - {Time}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

@@ -1,33 +1,27 @@
-﻿using Huangshi.login;
-using HttpProcessor.Container;
-using System;
-using System.Threading.Tasks;
-using Huangshi.session;
-using Utils.timerUtil;
+﻿using Base.model;
 using Base.viewmodel.status;
-using System.Threading;
-using System.Linq;
+using HttpProcessor.Container;
+using Huangshi.login;
+using Huangshi.session;
 using System.Collections.Generic;
-using Base.model;
-using Utils.number;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Huangshi.search
 {
     internal class SearchController
     {
         private DateController dateController;
-        //private IntervalOnTime SearchInterval;
 
         public SearchController()
         {
             dateController = HttpServiceController.GetService<DateController>();
-            //SearchInterval = new IntervalOnTime(SearchAsync, "search", 200);
         }
 
         public void StartSearchInterval()
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
-            //SearchInterval.StartIntervalOntime();
         }
 
         public async Task SearchMiaoAsync()
@@ -48,9 +42,21 @@ namespace Huangshi.search
             var miaoController = HttpServiceController.GetService<MiaoController>();
 
             var isMiaoGet = false;
+            while (!isMiaoGet)
+            {
+                isMiaoGet = miaoController.SearchMiao(user, date);
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void GetDateTime(string date, HuangshiLogin user)
+        {
+            var miaoController = HttpServiceController.GetService<DateController>();
+
+            var isMiaoGet = false;
             while(!isMiaoGet)
             {
-                isMiaoGet = miaoController.SearchMiao(date, user);
+                isMiaoGet = miaoController.GetDateAndTime(user, date);
                 Thread.Sleep(1000);
             }
         }

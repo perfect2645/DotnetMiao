@@ -20,30 +20,22 @@ namespace Huangshi.search
         {
         }
 
-        public bool GetDate(HuangshiLogin user)
+        public bool GetDateAndTime(HuangshiLogin user, string date)
         {
             try
             {
-                var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var url = $"https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_date_array/?vaccine_id={deptId}&hospital={hosId}";
-                var content = new MainContent(url, user);
+                var content = new DateContent(user, date);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
-                if (response?.Body == null)
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
+                if (response?.Body == null && string.IsNullOrEmpty(response?.ContentStr))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetDate - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var detail = root.GetProperty("detail");
-                if (detail.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"获取日期信息失败: results is empty");
-                    return false;
-                }
-                return CheckDate(detail, user);
+                MainSession.PrintLogEvent.Publish(this, $"获取日期信息失败: results is empty");
+                return SaveDateTime(root, user);
             }
             catch (Exception ex)
             {
@@ -52,7 +44,7 @@ namespace Huangshi.search
             }
         }
 
-        private bool CheckDate(JsonElement data, HuangshiLogin user)
+        private bool SaveDateTime(JsonElement data, HuangshiLogin user)
         {
             var dates = JsonAnalysis.JsonToDicList(data);
             if (!dates.HasItem())
