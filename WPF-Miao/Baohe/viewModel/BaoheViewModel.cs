@@ -85,7 +85,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(8).AddSeconds(3);
 
 
             if (Application.Current.Properties.Contains("UserName"))
