@@ -44,26 +44,37 @@ namespace Jikong.viewmodel
             }
         }
 
-        private DspVal _selectedDate;
-        public DspVal SelectedDate
+        private DspVal _startDate;
+        public DspVal StartDate
         {
-            get { return _selectedDate; }
+            get { return _startDate; }
             set
             {
-                _selectedDate = value;
-                //MainSession.MiaoSession.AddOrUpdate("Date", value.Value);
-                NotifyUI(() => SelectedDate);
+                if (EndDate != null && value?.Value.CompareTo(EndDate?.Value) > 0)
+                {
+                    StartDate = EndDate;
+                    return;
+                }
+                _startDate = value;
+                UpdateDateRange();
+                NotifyUI(() => StartDate);
             }
         }
 
-        private List<DspVal> _timeList;
-        public List<DspVal> TimeList
+        private DspVal _endDate;
+        public DspVal EndDate
         {
-            get { return _timeList; }
+            get { return _endDate; }
             set
             {
-                _timeList = value;
-                NotifyUI(() => TimeList);
+                if (StartDate !=null && value?.Value.CompareTo(StartDate?.Value) < 0)
+                {
+                    EndDate = StartDate;
+                    return;
+                }
+                _endDate = value;
+                UpdateDateRange();
+                NotifyUI(() => EndDate);
             }
         }
 
@@ -76,6 +87,17 @@ namespace Jikong.viewmodel
                 _selectedTime = value;
                 //MainSession.MiaoSession.AddOrUpdate("Time", value.Value);
                 NotifyUI(() => SelectedTime);
+            }
+        }
+
+        private List<DspVal> _timeList;
+        public List<DspVal> TimeList
+        {
+            get { return _timeList; }
+            set
+            {
+                _timeList = value;
+                NotifyUI(() => TimeList);
             }
         }
 
@@ -140,7 +162,10 @@ namespace Jikong.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-2", "2023-2-11");
+            StartDate = new DspVal("2023-2-12");
+            EndDate = new DspVal("2023-2-21");
+
+            var dateRange = DateTimeUtil.GetDateRange(StartDate.Value, EndDate.Value);
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
@@ -568,6 +593,35 @@ namespace Jikong.viewmodel
         }
 
         #endregion Hospital Dept
+
+        #region Date Range
+
+        private void UpdateDateRange()
+        {
+            if (StartDate == null || EndDate == null)
+            {
+                return;
+            }
+
+            if (StartDate.Value.CompareTo(EndDate.Value) > 0)
+            {
+                return;
+            }
+
+            var dateRange = DateTimeUtil.GetDateRange(StartDate.Value, EndDate.Value);
+            var dateList = new List<DspVal>();
+            foreach (var date in dateRange)
+            {
+                var dateItem = new DspVal(date);
+                dateList.Add(dateItem);
+            }
+
+            MainSession.PlatformSession.AddOrUpdate("DateList", dateList);
+
+            MainSession.PrintLogEvent?.Publish(this, $"[DateRange:{StartDate.Value} - {EndDate.Value}]");
+        }
+
+        #endregion Date Range
 
         #region ReSession
 
