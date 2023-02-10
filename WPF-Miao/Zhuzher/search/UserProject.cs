@@ -24,7 +24,7 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(11067046, "Fawei", "21020002", "大连假日风景", "Bearer 2425dae4-565d-4962-8b27-99064e01b763");
+            AddUserProject(11067046, "Fawei", "21020002", "大连假日风景", "Bearer c9ec8379-68e5-4ede-98ee-5aa3e3d8aa68");
             //AddUserProject(15045709, "妈妈", "21020025", "大连万科半山半海", "Bearer bb89d50d-db73-409a-98c4-2be3eccc497b");
             //AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 4221de6d-2780-4ae7-86b2-f0c5ebec4d58");
             //AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 478ec930-38e0-4b51-a7fe-a7790ed4ba53");

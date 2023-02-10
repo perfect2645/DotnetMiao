@@ -70,9 +70,9 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            AddMiaoshaItem(6227, 1, "免单！TF情人节限定礼盒", "1242", $"{DateTimeUtil.GetToday()} 19:59:58");
+            AddMiaoshaItem(6292, 1, "免单！TF情人节限定礼盒", "1242", $"{DateTimeUtil.GetToday()} 19:59:58");
             //AddMiaoshaItem(6228, 1, "免单！兰蔻小黑瓶精华50ml", "1242", $"{DateTimeUtil.GetToday()} 19:59:58");
-            AddMiaoshaItem(6227, 1, "免单！TF情人节限定礼盒", "1242", $"{DateTimeUtil.GetToday()} 19:59:59");
+            //AddMiaoshaItem(6227, 1, "免单！TF情人节限定礼盒", "1242", $"{DateTimeUtil.GetToday()} 19:59:59");
             //AddMiaoshaItem(6228, 1, "免单！兰蔻小黑瓶精华50ml", "1242", $"{DateTimeUtil.GetToday()} 19:59:59");
             //AddMiaoshaItem(6132, 1, "万事顺意：送1斤陕西富平柿饼", "1230", $"{DateTimeUtil.GetToday()} 20:00:01");
             //AddMiaoshaItem(6133, 1, "大吉大利：送2只鲜嫩的三黄鸡", "1230", $"{DateTimeUtil.GetToday()} 20:00:02");
