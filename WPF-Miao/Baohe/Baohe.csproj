@@ -10,10 +10,14 @@
 
   <ItemGroup>
     <None Remove="Login.json" />
+    <None Remove="Login1-16.json" />
     <None Remove="Login17-27.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Login1-16.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Login.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

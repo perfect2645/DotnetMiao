@@ -47,23 +47,14 @@ namespace Huangshi.appointment
                     IsHeaderBuilt = true;
                 }
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
-                if (response?.Body == null)
+                if (response?.Body == null && string.IsNullOrEmpty(response?.ContentStr))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
                     return false;
                 }
-
                 var root = response.JsonBody.RootElement;
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                if (code != "0" || msg != "操作完成")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:code={code}, message: {msg}");
-                    return false;
-                }
-
-                var data = root.GetProperty("data");
-                return SaveOrderResult(data);
+                //return SaveOrderResult(data);
+                return false;
             }
             catch (Exception ex)
             {

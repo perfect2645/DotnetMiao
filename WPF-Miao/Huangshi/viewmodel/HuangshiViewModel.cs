@@ -156,7 +156,7 @@ namespace Huangshi.viewmodel
             TimeList = new List<DspVal>
             {
                 //new DspVal("09:00-10:00"),
-                new DspVal("10:00-11:00"),
+                new DspVal("08:00-17:00"),
                 //new DspVal("11:00-12:00"),
                 //new DspVal("14:00-15:00"),
                 //new DspVal("15:00-16:00"),
@@ -178,7 +178,7 @@ namespace Huangshi.viewmodel
                 {
                     HospitalId = "1",
                     HospitalName = "黄石妇幼",
-                    DepartmentName = "九价",
+                    DepartmentName = "四价",
                     DepartmentId = "215",
                 },
             };
@@ -287,13 +287,17 @@ namespace Huangshi.viewmodel
 
         private Order BuildOneOrder(HuangshiLogin user, string date, string timeId)
         {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
                 DeptId = user.DeptId,
                 UserName = user.UserName,
                 User = user,
+                Birthday = user.Birthday,
+                ContactPhone = user.Phone,
+                Date = date,
+                SFZHM = user.IdCard,
+                Time = timeId,
+                UserPhone = user.Phone,
             };
         }
 
@@ -302,7 +306,8 @@ namespace Huangshi.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    await _searchController.SearchMiaoAsync();
+                    Appoint();     
+                    //await _searchController.SearchMiaoAsync();
                     //_searchController.SearchMiaoAsync();
                 }
                 catch (HttpException ex)

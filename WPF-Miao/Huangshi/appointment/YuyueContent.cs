@@ -24,6 +24,7 @@ namespace Huangshi.appointment
             var dateEncode = UnicodeConverter.EncodeOriginal(Order.Date, true);
             var timeEncode = UnicodeConverter.EncodeOriginal(Order.Time, true);
             var name = Encryptor.ToUnicode(User.UserName);
+            name = name.Replace("\\", "%25");
 
             AddContent("YYSJ", dateEncode);
             AddContent("YYSJD", timeEncode);
@@ -32,23 +33,21 @@ namespace Huangshi.appointment
             AddContent("ZJLX", Order.ZJLX);
             AddContent("SFZHM", JsReader.GetEncodeString(Order.SFZHM));
             AddContent("DH", JsReader.GetEncodeString(Order.DeptId));
-            AddContent("XB", Order.DeptId);
-            AddContent("CSRQ", Order.DeptId);
-            AddContent("addItem", Order.DeptId);
-            AddContent("addItemExt", Order.DeptId);
-            AddContent("tjr", Order.DeptId);
-            AddContent("zffs", Order.DeptId);
-            AddContent("tjkmm", Order.DeptId);
-            AddContent("zglb", Order.DeptId);
-            AddContent("xklb", Order.DeptId);
-            AddContent("mz", Order.DeptId);
-            AddContent("cph", Order.DeptId);
-            AddContent("bz", Order.DeptId);
-            AddContent("yzm", Order.DeptId);
-            AddContent("zyjxZK", Order.DeptId);
-            AddContent("saleName", Order.DeptId);
-
-            //var phoneEncode = JsReader.GetEncodeString(User.Phone);
+            AddContent("XB", Order.XB);
+            AddContent("CSRQ", Order.Birthday);
+            AddContent("addItem", string.Empty);
+            AddContent("addItemExt", string.Empty);
+            AddContent("tjr", string.Empty);
+            AddContent("zffs", Order.zffs);
+            AddContent("tjkmm", Order.tjkmm);
+            AddContent("zglb", Order.zglb);
+            AddContent("xklb", Order.xklb);
+            AddContent("mz", string.Empty);
+            AddContent("cph", string.Empty);
+            AddContent("bz", string.Empty);
+            AddContent("yzm", string.Empty);
+            AddContent("zyjxZK", 1);
+            AddContent("saleName", string.Empty);
         }
     }
 }
