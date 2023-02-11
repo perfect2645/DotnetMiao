@@ -14,6 +14,7 @@ namespace Baohe.appointment.content
             ContentDic.Add("1094417", typeof(NanjingContent)); // 雨花社区卫生服务中心
             ContentDic.Add("1039346", typeof(BaoheContent)); // 包河区包公街道社区服务中心
             ContentDic.Add("1099108", typeof(YuhuaKaifaqu1099108)); // 雨花经济开发区社区卫生服务中心
+            ContentDic.Add("1101211", typeof(BuwenContent)); // 漳州市龙文区步文街道社区卫生服务中心
         }
 
         public static AppointmentContent GetContent(string hospitalId)
