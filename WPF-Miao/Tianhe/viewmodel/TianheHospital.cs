@@ -5,13 +5,15 @@ namespace Tianhe.viewmodel
 {
     internal class TianheHospital : HospitalDept
     {
+        public string HospitalPrefix { get; set; }
+
         public override string ToLogString()
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********楚天名医-选择医院科室*********");
-            sb.AppendLine($"{HospitalName}- {DepartmentName}");
-            sb.AppendLine($"DepartmentId - {DepartmentId}");
+            sb.AppendLine("********天河-选择医院科室*********");
+            sb.AppendLine($"{HospitalName}- {HospitalPrefix}");
+            sb.AppendLine($"{DepartmentName} - {DepartmentId}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

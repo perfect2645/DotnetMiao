@@ -168,6 +168,7 @@ namespace Tianhe.viewmodel
             {
                 new TianheHospital
                 {
+                    HospitalPrefix = "ldsq",
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
                     DepartmentName = "九价",
@@ -175,10 +176,19 @@ namespace Tianhe.viewmodel
                 },
                 new TianheHospital
                 {
+                    HospitalPrefix = "ldsq",
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
                     DepartmentName = "四价",
                     DepartmentId = "2",
+                },
+                new TianheHospital
+                {
+                    HospitalPrefix = "ygsq",
+                    HospitalId = "4",
+                    HospitalName = "天河区元岗",
+                    DepartmentName = "九价",
+                    DepartmentId = "1",
                 },
             };
 
@@ -596,6 +606,7 @@ namespace Tianhe.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalPrefix, selectedDept.HospitalPrefix);
 
             Log(selectedDept.ToLogString());
         }

@@ -1,14 +1,15 @@
 ﻿using Tianhe.common;
 using Tianhe.login;
+using Tianhe.session;
 using Utils;
 
 namespace Tianhe.appointment
 {
     internal class YuyueContent : TianheContent
     {
-        private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_created/";
+        private static string baseUrl = "ldrmyy120.com/rest/v1/api/examine/vaccine_created/";
         public Order Order { get; private set; }
-        public YuyueContent(Order order, TianheLogin user) : base(url, user)
+        public YuyueContent(Order order, TianheLogin user) : base(baseUrl, user)
         {
             Order = order;
             BuildContent();
