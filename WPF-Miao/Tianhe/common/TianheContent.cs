@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Content;
 using Tianhe.login;
 using Tianhe.session;
+using Utils;
 
 namespace Tianhe.common
 {
@@ -8,15 +9,18 @@ namespace Tianhe.common
     {
         public TianheLogin User { get; private set; }
 
-        public TianheContent(string url, TianheLogin user) : base(url)
+        public TianheContent(string baseUrl, TianheLogin user) : base(baseUrl)
         {
+            var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
+            RequestUrl = $"https://{prifix}.{baseUrl}";
             User = user;
             BuildHeader();
         }
 
         private void BuildHeader()
         {
-            AddHeader("Host", "ldsq.ldrmyy120.com");
+            var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
+            AddHeader("Host", $"{prifix}.ldrmyy120.com");
             AddHeader("Connection", "keep-alive");
             AddHeader("Authorization", User.Authorization);
             AddHeader("Cookie", User.Cookie);

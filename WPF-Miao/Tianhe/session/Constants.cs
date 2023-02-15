@@ -4,8 +4,7 @@ namespace Tianhe.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string MiaoHtml = "MiaoHtml";
-
+        public const string HospitalPrefix = "HospitalPrefix";
         public const string AttId = "attId";
         public const string OrgId = "orgId";
         public const string WechatId = "wechatid";

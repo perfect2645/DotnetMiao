@@ -235,6 +235,21 @@ namespace Baohe.viewModel
                 HasYzm = false,
                 DoctorSn = "711247350"
             });
+
+            Departments.Add(new Jiankangzhilu("9000371", "合肥蜀山五里墩",
+                "1033881", "蜀山区五里墩街道社区卫生服务中心",
+                "7229497", "九价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711190104"
+            });
+            Departments.Add(new Jiankangzhilu("9000371", "合肥蜀山五里墩",
+                "1033881", "蜀山区五里墩街道社区卫生服务中心",
+                "7229497", "四价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711190063"
+            });
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
             //"7229244", "四价Hpv"));

@@ -5,9 +5,9 @@ namespace Tianhe.cancel
 {
     internal class CancelContent : TianheContent
     {
-        private static string url = "https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/";
+        private static string baseUrl = "ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/";
 
-        public CancelContent(TianheLogin user, string cancelId) : base(url, user)
+        public CancelContent(TianheLogin user, string cancelId) : base(baseUrl, user)
         {
             CancelId = cancelId;
             ContentType = "application/x-www-form-urlencoded";

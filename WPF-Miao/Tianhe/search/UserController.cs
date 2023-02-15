@@ -29,7 +29,8 @@ namespace Tianhe.search
         {
             try
             {
-                var url = $"https://ldsq.ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
+                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
+                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
                 var content = new TianheContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
