@@ -12,15 +12,17 @@ namespace Baohe.verification
 {
     internal class AuthContent : ContentBase
     {
-        public AuthContent(string url) : base(url)
+        public string UserName { get; set; }
+        public AuthContent(string url, string userName) : base(url)
         {
+            UserName = userName;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var userDetail = SessionBuilder.GetDefaultMember();
+            var userDetail = SessionBuilder.GetDefaultMember(UserName);
             var userName = userDetail.GetString("Cname");
             var memberSn = userDetail.GetString("Memberid");
             AddContent("name", UnicodeConverter.Encode(userName, true));

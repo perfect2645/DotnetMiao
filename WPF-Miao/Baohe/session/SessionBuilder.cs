@@ -38,11 +38,23 @@ namespace Baohe.session
             return availableWater;
         }
 
-        public static Dictionary<string, object> GetDefaultMember()
+        public static Dictionary<string, object> GetDefaultMember(string userName)
         {
             var result = MainSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
 
-            return result?.LastOrDefault();
+            if (!result.HasItem())
+            {
+                return null;
+            }
+
+            var matchedUser = result.FirstOrDefault(x => x["Cname"].NotNullString() == userName);
+            if (matchedUser == null)
+            {
+                matchedUser = result?.LastOrDefault();
+            }
+
+
+            return matchedUser;
         }
 
         public static Dictionary<string, object> GetDefaultDoctor()

@@ -80,7 +80,6 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(59);
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
         }
 
@@ -362,9 +361,9 @@ namespace Baohe.viewModel
         private void ExecuteAppointment()
         {
 
-            var appRouter = new AppointmentRouter(SessionItem);
+            var appRouter = new AppointmentRouter(SessionItem, UserName);
 
-            appRouter.AppointTickAsync();
+            appRouter.AppointTickAsync(UserName);
         }
 
 
@@ -397,7 +396,7 @@ namespace Baohe.viewModel
                 SearchController = HttpServiceController.GetService<SearchController>();
                 ;
                 SetSearchTimers();
-                await SearchController.SearchAllAsync();
+                await SearchController.SearchAllAsync(UserName);
             }
             catch (HttpException ex)
             {
@@ -428,7 +427,7 @@ namespace Baohe.viewModel
         {
             SearchController = HttpServiceController.GetService<SearchController>();
             SetSearchTimers();
-            await SearchController.AutoSearchAsync();
+            await SearchController.AutoSearchAsync(UserName);
         }
 
         #endregion AutoRun

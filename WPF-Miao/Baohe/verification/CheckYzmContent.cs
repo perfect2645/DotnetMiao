@@ -10,9 +10,11 @@ namespace Baohe.verification
     {
         public string Tel { get; private set; }
         public string Yzm { get; private set; }
+        public string UserName { get; private set; }
 
-        public CheckYzmContent(string url, string yzm) : base(url)
+        public CheckYzmContent(string url, string yzm, string userName) : base(url)
         {
+            UserName = userName;
             ContentType = "application/x-www-form-urlencoded";
 
             Yzm = yzm;
@@ -23,7 +25,7 @@ namespace Baohe.verification
         {
             var accountSn = MainSession.UserSession[Constant.accountSn].NotNullString();
 
-            var userDetail = SessionBuilder.GetDefaultMember();
+            var userDetail = SessionBuilder.GetDefaultMember(UserName);
             Tel = userDetail[Constant.Phone].NotNullString();
 
             Content.Add("tel", Tel);

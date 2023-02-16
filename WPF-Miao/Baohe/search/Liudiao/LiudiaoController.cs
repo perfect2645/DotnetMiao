@@ -17,15 +17,15 @@ namespace Baohe.search.Liudiao
         {
         }
 
-        public Task LiudiaoAsync()
+        public Task LiudiaoAsync(string userName)
         {
-            return Task.Factory.StartNew(() => Liudiao());
+            return Task.Factory.StartNew(() => Liudiao(userName));
         }
 
-        private void Liudiao()
+        private void Liudiao(string userName)
         {
             var url = "https://fycombat.yihu.com/AHForm/doRegHFSSNGWSYEpidemic";
-            var content = new LiudiaoContent(url);
+            var content = new LiudiaoContent(url, userName);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 

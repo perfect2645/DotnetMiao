@@ -58,6 +58,8 @@ namespace Baohe.viewModel
             }
         }
 
+        public string UserName { get; set; }
+
         private YzmReceiver YzmReceiver;
 
         #endregion Properties
@@ -117,7 +119,7 @@ namespace Baohe.viewModel
             try
             {
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync();
+                await yzmController.SendYzmAsync(UserName);
             }
             catch (HttpException ex)
             {
@@ -135,7 +137,7 @@ namespace Baohe.viewModel
             try
             {
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.CheckYzmAsync(Yzm);
+                await yzmController.CheckYzmAsync(Yzm, UserName);
             }
             catch (HttpException ex)
             {

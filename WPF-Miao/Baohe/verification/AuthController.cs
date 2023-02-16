@@ -17,18 +17,18 @@ namespace Baohe.verification
         {
         }
 
-        public async Task CheckAuthAsync()
+        public async Task CheckAuthAsync(string userName)
         {
             await Task.Factory.StartNew(() =>
             {
-                CheckAuth();
+                CheckAuth(userName);
             });
         }
 
-        private void CheckAuth()
+        private void CheckAuth(string userName)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/idCardAuth";
-            var content = new AuthContent(url);
+            var content = new AuthContent(url, userName);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 

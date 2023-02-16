@@ -82,9 +82,9 @@ namespace Baohe.search
             AutoRunTimer.Stop();
         }
 
-        internal async Task SearchAllAsync()
+        internal async Task SearchAllAsync(string userName)
         {
-            await SearchUserInfo();
+            await SearchUserInfo(userName);
 
             await SearchMiaoInfo();
 
@@ -93,9 +93,9 @@ namespace Baohe.search
 
         #region AutoRun
 
-        internal async Task AutoSearchAsync()
+        internal async Task AutoSearchAsync(string userName)
         {
-            await SearchUserInfo();
+            await SearchUserInfo(userName);
 
             //await SearchMiaoInfo();
 
@@ -162,7 +162,7 @@ namespace Baohe.search
             }
         }
 
-        private async Task SearchUserInfo()
+        private async Task SearchUserInfo(string userName)
         {
             try
             {
@@ -172,7 +172,7 @@ namespace Baohe.search
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync();
 
-                var defaultMember = SessionBuilder.GetDefaultMember();
+                var defaultMember = SessionBuilder.GetDefaultMember(userName);
                 var phone = defaultMember.GetString(Constant.Phone);
                 MainSession.UpdateUI("phone", phone);
 
@@ -182,7 +182,7 @@ namespace Baohe.search
                 //var liudiao = HttpServiceController.GetService<LiudiaoController>();
                 //await liudiao.LiudiaoAsync(sessionItem);
                 var authContr = HttpServiceController.GetService<AuthController>();
-                await authContr.CheckAuthAsync();
+                await authContr.CheckAuthAsync(userName);
 
                 BuildMemberOrder(defaultMember);
             }
