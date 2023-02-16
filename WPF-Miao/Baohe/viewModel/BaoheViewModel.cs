@@ -80,6 +80,7 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
+            StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(59);
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
         }
 
@@ -100,6 +101,13 @@ namespace Baohe.viewModel
             }
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1094218", "西善桥",
+                "7243224", "九价Hpv")
+            {
+                DoctorSn = "711269136"
+            });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
