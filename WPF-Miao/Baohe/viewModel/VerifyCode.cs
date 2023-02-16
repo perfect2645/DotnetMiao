@@ -23,6 +23,7 @@ namespace Baohe.viewModel
         public ICommand VerifyYzmCommand { get; set; }
 
         public ActionOnTime SendYzmTimer { get; set; }
+        public ActionOnTime VerifyYzmTimer { get; set; }
 
         private DateTime _actionTime = DateTime.Now;
         public DateTime ActionTime
@@ -84,14 +85,20 @@ namespace Baohe.viewModel
                 return;
             }
             var startTime = MainSession.GetStartTime();
-            startTime = startTime.AddMinutes(-7);
+            var sendTime = startTime.AddMinutes(-8);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
-
+            var verifyTime = startTime.AddMinutes(-3);
 
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
                 TargetAction = ExecuteSendYzmAsync,
-                ActionTime = startTime
+                ActionTime = sendTime
+            };
+
+            VerifyYzmTimer = new ActionOnTime("验证手机验证码")
+            {
+                TargetAction = ExecuteVerifyYzmAsync,
+                ActionTime = verifyTime
             };
 
         }

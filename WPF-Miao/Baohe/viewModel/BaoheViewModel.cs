@@ -103,18 +103,18 @@ namespace Baohe.viewModel
             Departments = new List<HospitalDept>();
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1099108", "雨花经济开发区社区卫生服务中心",
+                "7235364", "九价Hpv")
+            {
+                DoctorSn = "711230166"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094218", "西善桥",
                 "7243224", "九价Hpv")
             {
                 DoctorSn = "711269136"
             });
-
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1099108", "雨花经济开发区社区卫生服务中心",
-                "7235364", "九价Hpv")
-                {
-                    DoctorSn = "711230166"
-                });
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
                 "1101211", "漳州市龙文区步文街道社区卫生服务中心",
