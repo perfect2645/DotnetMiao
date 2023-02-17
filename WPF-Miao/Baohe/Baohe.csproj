@@ -10,14 +10,18 @@
 
   <ItemGroup>
     <None Remove="Login - fawei.json" />
+    <None Remove="Login-gary.json" />
     <None Remove="Login.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Login - fawei.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Login.json">
+    <Content Include="Login-gary.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
