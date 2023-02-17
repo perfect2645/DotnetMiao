@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Content;
 using System;
 using System.Text;
+using Utils.datetime;
 using Utils.stringBuilder;
 
 namespace Gangwu.common
@@ -36,7 +37,14 @@ namespace Gangwu.common
         private string BuildCookie()
         {
             var strBuilder = new StringBuilder();
-            strBuilder.BuildKeyValue("jsj_uid", )
+            strBuilder.BuildKeyValue("jsj_uid", "e0dd33a0-ad25-4760-b17d-c572de7578ed");
+
+            var timestamp = DateTimeUtil.GetTimeStamp();
+            strBuilder.BuildKeyValue("start_filling_time_MAp5Yn", timestamp);
+
+            strBuilder.BuildKeyValue("csrf_token", timestamp);
+
+            return strBuilder.ToString();
         }
     }
 }

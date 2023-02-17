@@ -1,0 +1,35 @@
+{
+    "operationName": "CreatePublishedFormEntry",
+    "variables": {
+        "input": {
+            "formId": "MAp5Yn",
+            "entryAttributes": {
+                "field_1": "5WlH",
+                "field_2": "李珊珊",
+                "field_3": "jwPD",
+                "field_4": "26",
+                "field_5": "17615102645",
+                "field_6": "lsshan2001@163.com",
+                "field_12": "FxQ5"
+            },
+            "captchaData": null,
+            "weixinAccessToken": null,
+            "xFieldWeixinOpenid": null,
+            "weixinInfo": null,
+            "prefilledParams": "",
+            "embedded": false,
+            "internal": false,
+            "backgroundImage": false,
+            "formMargin": false,
+            "hasPreferential": false,
+            "fillingDuration": 177.418,
+            "forceSubmit": false
+        }
+    },
+    "extensions": {
+        "persistedQuery": {
+            "version": 1,
+            "sha256Hash": "0f9106976e7cf5f19e8878877bc8030cddcb7463dd76f4e02bc5c67b5874eeae"
+        }
+    }
+}
