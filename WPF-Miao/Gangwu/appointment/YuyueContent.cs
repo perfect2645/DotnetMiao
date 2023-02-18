@@ -1,4 +1,6 @@
 ﻿using Gangwu.common;
+using System;
+using System.Collections.Generic;
 
 namespace Gangwu.appointment
 {
@@ -14,11 +16,28 @@ namespace Gangwu.appointment
 
         private void BuildContent()
         {
-            AddContent("name", Order.UserName);
-            AddContent("phone", Order.Phone);
-            AddContent("address", Order.Address);
-            AddContent("type", Order.Type);
-            AddContent("no", Order.No);
+            BuildTopLevel();
+        }
+
+        private void BuildTopLevel()
+        {
+            AddContent("operationName", "CreatePublishedFormEntry");
+            AddContent("variables", BuildVariables());
+        }
+
+        private Dictionary<string, object> BuildVariables()
+        {
+            var variables = new Dictionary<string, object>();
+            variables.Add("input", BuildInput());
+            return variables;
+        }
+
+        private Dictionary<string, object> BuildInput()
+        {
+            var input = new Dictionary<string, object>();
+
+
+            return input;
         }
     }
 }
