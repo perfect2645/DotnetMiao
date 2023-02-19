@@ -5,10 +5,9 @@ namespace Gangwu.appointment
     public class Order
     {
         public string UserName { get; set; }
+        public string Age { get; set; }
         public string Phone { get; set; }
-        public string Address { get; set; }
-        public string Type { get; set; }
-        public string No { get; set; }
+        public string Email { get; set; }
         public string ResultCode { get; set; }
         public string ResultMsg { get; set; }
 
@@ -19,10 +18,9 @@ namespace Gangwu.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
+            sb.AppendLine($"Age - {Age}");
             sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"Address - {Address}");
-            sb.AppendLine($"Type - {Type}");
-            sb.AppendLine($"No - {No}");
+            sb.AppendLine($"Email - {Email}");
             sb.AppendLine($"ResultCode - {ResultCode}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");

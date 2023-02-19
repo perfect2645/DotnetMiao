@@ -54,15 +54,17 @@ namespace Gangwu.viewmodel
             {
                 new GangwuHospital
                 {
-                    HospitalName = "黄埭镇东桥",
+                    HospitalName = "徐州港务",
+                    HospitalId = "MAp5Yn",
                     DepartmentName = "9价HPV（9-45周岁）",
-                    DepartmentId = "3",
+                    DepartmentId = "LdGF",
                 },
                 new GangwuHospital
                 {
-                    HospitalName = "黄埭镇东桥",
+                    HospitalName = "徐州港务",
+                    HospitalId = "MAp5Yn",
                     DepartmentName = "4价HPV（9-45周岁）",
-                    DepartmentId = "2",
+                    DepartmentId = "5WlH",
                 },
             };
 
@@ -113,7 +115,7 @@ namespace Gangwu.viewmodel
             {
                 var order = new Order
                 {
-                    Address = SelectedDepartment.HospitalName,
+                    Email = SelectedDepartment.HospitalName,
                     No = SelectedDepartment.DepartmentId,
                     Phone = user.Phone,
                     Type = SelectedDepartment.DepartmentName,
@@ -242,6 +244,7 @@ namespace Gangwu.viewmodel
         {
             var selectedDept = SelectedDepartment as GangwuHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
 
