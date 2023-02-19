@@ -120,30 +120,30 @@ namespace suiyang.viewmodel
         private void TestData()
         {
             Interval = 300;
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            Auth = "Bearer 2805b851-3357-4c59-abbc-b51867149dcb";
+            Auth = "Bearer dc5324f8-ab20-4036-a5b2-6e0517eb37df";
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 11, 21, 8, 29, 56);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(30);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
             {
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
