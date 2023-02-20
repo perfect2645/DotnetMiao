@@ -155,15 +155,15 @@ namespace Jikong.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            StartDate = new DspVal("2023-2-12");
-            EndDate = new DspVal("2023-2-21");
+            StartDate = new DspVal("2023-2-22");
+            EndDate = new DspVal("2023-2-26");
 
             var dateRange = DateTimeUtil.GetDateRange(StartDate.Value, EndDate.Value);
             DateList = new List<DspVal>();
