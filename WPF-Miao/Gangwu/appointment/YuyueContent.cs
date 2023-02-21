@@ -72,7 +72,17 @@ namespace Gangwu.appointment
 
         private Dictionary<string, object> BuildExtensions()
         {
-            throw new NotImplementedException();
+            var extensions = new Dictionary<string, object>();
+            extensions.Add("persistedQuery", BuildPersistedQuery());
+            return extensions;
+        }
+
+        private object BuildPersistedQuery()
+        {
+            var persistedQuery = new Dictionary<string, object>();
+            persistedQuery.Add("version", 1);
+            persistedQuery.Add("sha256Hash", 1);
+            return persistedQuery;
         }
     }
 }
