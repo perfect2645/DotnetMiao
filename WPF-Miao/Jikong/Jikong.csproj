@@ -8,12 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Login - liu.json" />
     <None Remove="Login - Rad.json" />
     <None Remove="Login.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Login - Rad.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login - liu.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">

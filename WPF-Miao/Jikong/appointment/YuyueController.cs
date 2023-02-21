@@ -80,10 +80,10 @@ namespace Jikong.appointment
 
                 MainSession.PrintLogEvent.Publish(this, orderData);
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
-                {
-                    return true;
-                }
+                //if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                //{
+                //    return true;
+                //}
 
                 return false;
             }
