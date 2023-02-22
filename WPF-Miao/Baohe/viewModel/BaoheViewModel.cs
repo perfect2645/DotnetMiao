@@ -80,14 +80,14 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7211903&doctorId=710749125&hospitalInternal=1&showMultiDept=0&platformType=9000370&exConsult=&consultHosId=1040231&utm_source=0.0.h.1026.bus010.0";
 
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddSeconds(3);
+            StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
 
             if (Application.Current.Properties.Contains("UserName"))
             {
