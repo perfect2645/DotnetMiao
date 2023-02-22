@@ -24,7 +24,7 @@ namespace Baohe.verification
         {
             var userDetail = SessionBuilder.GetDefaultMember(UserName);
             var userName = userDetail.GetString("Cname");
-            var memberSn = userDetail.GetString("Memberid");
+            var memberSn = userDetail.GetString("Membersn");
             AddContent("name", UnicodeConverter.Encode(userName, true));
             AddContent("memberSn", memberSn);
         }
