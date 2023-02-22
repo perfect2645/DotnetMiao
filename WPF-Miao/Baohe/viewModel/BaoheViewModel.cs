@@ -89,7 +89,6 @@ namespace Baohe.viewModel
         {
             StartTime = DateTime.Today.AddHours(8).AddSeconds(3);
 
-
             if (Application.Current.Properties.Contains("UserName"))
             {
                 MainSession.User.UserName = Application.Current.Properties["UserName"].ToString();
@@ -108,15 +107,6 @@ namespace Baohe.viewModel
             }
 
             Departments = new List<HospitalDept>();
-
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7175975", "儿童保健")
-            {
-                DoctorSn = "710869460",
-                HasYzm = false,
-            });
-
 
             Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
                 "1040231", "蜀山区南岗镇卫生院",

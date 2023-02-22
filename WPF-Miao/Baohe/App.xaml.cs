@@ -27,6 +27,11 @@ namespace Baohe
             {
                 Properties["UserName"] = e.Args[0];
                 Properties["Cookie"] = e.Args[1];
+            }
+            else if (e.Args != null && e.Args.Length == 3)
+            {
+                Properties["UserName"] = e.Args[0];
+                Properties["Cookie"] = e.Args[1];
                 Properties["RetId"] = e.Args[2];
             }
             base.OnStartup(e);
