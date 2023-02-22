@@ -81,6 +81,8 @@ namespace Baohe.viewModel
         private void TestData()
         {
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7235364&doctorId=710796399&hospitalInternal=1&showMultiDept=0&platformType=1000031&exConsult=&consultHosId=1099108&utm_source=0.0.h.1026.bus010.0";
+
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
@@ -101,11 +103,20 @@ namespace Baohe.viewModel
 
             if (Application.Current.Properties.Contains("RetId"))
             {
-                MainSession.User.Cookie = Application.Current.Properties["RetId"].ToString();
+                MainSession.User.RetId = Application.Current.Properties["RetId"].ToString();
                 RetId = Application.Current.Properties["RetId"].ToString();
             }
 
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7175975", "儿童保健")
+            {
+                DoctorSn = "710869460",
+                HasYzm = false,
+            });
+
 
             Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
                 "1040231", "蜀山区南岗镇卫生院",
@@ -346,6 +357,7 @@ namespace Baohe.viewModel
                     processInfo.FileName = "baohe.exe";
                     processInfo.ArgumentList.Add(user.UserName);
                     processInfo.ArgumentList.Add(user.Cookie);
+                    processInfo.ArgumentList.Add(user.RetId ?? string.Empty);
 
                     var p = Process.Start(processInfo);
                 }
