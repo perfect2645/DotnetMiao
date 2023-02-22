@@ -1,0 +1,112 @@
+{
+    "waterId": "734897710",
+    "waitingInfor": "09:00-09:15",
+    "store": "",
+    "serialNo": "4",
+    "memberSn": "53937899",
+    "memberName": "王天威",
+    "memberPhone": "13322243359",
+    "memberAddress": "不告诉你",
+    "memberBirthday": "2002-10-06",
+    "memberSex": "2",
+    "memberId": "53937899",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "451***********6943",
+    "memberIdcard": "451***********6943",
+    "accManageGoodSn": null,
+    "birthday": "2002-10-06",
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "isread": "1",
+    "mobile": "13322243359",
+    "doctorSn": "711091344",
+    "hosDeptId": "7211903",
+    "hosDeptName": "九价HPV疫苗",
+    "hospitalId": "1040231",
+    "hospitalName": "合肥市蜀山区南岗镇卫生院",
+    "doctorService_gh": "2",
+    "doctorUid": "710749125",
+    "doctorName": "张恩玉",
+    "doctorPic": "",
+    "doctorClinicName": "护师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2022-09-16",
+    "timeId": 1,
+    "arrangeId": 161887050,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 2,
+    "UnOpened": false,
+    "FHTimes": "22:00",
+    "FHDays": "1",
+    "accountSn": 142687055,
+    "cardNumber": "2072800766",
+    "loginId": "od0AjwEUaWF5JGJzaM8glsbPd9xU",
+    "channelId": "9000370",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": "",
+    "retId": "422f33f8a8f240aa86ffe3afd0cfbab6"
+}
+
+
+&ghFormCon=
+[
+    {
+        "keyValue": "451***********6943",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "isread"
+    },
+    {
+        "keyValue": "不告诉你",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "2002-10-06",
+        "keyName": "birthday"
+    },
+    {
+        "keyValue": "13322243359",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]
