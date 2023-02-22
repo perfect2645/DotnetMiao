@@ -99,7 +99,27 @@ namespace Baohe.viewModel
                 Cookie = Application.Current.Properties["Cookie"].ToString();
             }
 
+            if (Application.Current.Properties.Contains("RetId"))
+            {
+                MainSession.User.Cookie = Application.Current.Properties["RetId"].ToString();
+                RetId = Application.Current.Properties["RetId"].ToString();
+            }
+
             Departments = new List<HospitalDept>();
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7211903", "九价Hpv")
+            {
+                DoctorSn = "711091344"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
+                "1040231", "蜀山区南岗镇卫生院",
+                "7211892", "四价Hpv")
+            {
+                DoctorSn = "711091352"
+            });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1099108", "雨花经济开发区社区卫生服务中心",
@@ -260,18 +280,6 @@ namespace Baohe.viewModel
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
             //"7229244", "四价Hpv"));
-
-            //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
-            //            "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
-            //            "7209050", "(测试)儿童保健科"));
-
-            //        Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-            //            "1040231", "蜀山区南岗镇卫生院",
-            //            "7211892", "四价Hpv"));
-
-            //        Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-            //            "1040231", "蜀山区南岗镇卫生院",
-            //            "7211903", "九价Hpv"));
 
 
 
