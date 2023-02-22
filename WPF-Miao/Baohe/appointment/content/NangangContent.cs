@@ -1,4 +1,5 @@
-﻿using Utils;
+﻿using Baohe.constants;
+using Utils;
 
 namespace Baohe.appointment.content
 {
@@ -25,6 +26,7 @@ namespace Baohe.appointment.content
         protected override void BuildNumberDoctorOrder()
         {
             base.BuildNumberDoctorOrder();
+            DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"{MiaoInfo["CommendScope"]}");
         }
     }
 }
