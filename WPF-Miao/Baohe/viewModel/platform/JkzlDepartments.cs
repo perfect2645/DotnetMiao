@@ -162,6 +162,22 @@ namespace Baohe.viewModel
                 DoctorSn = "711190063"
             });
 
+            Departments.Add(new Jiankangzhilu("9000371", "蜀山区西园街道",
+                "1031364", "蜀山区西园街道社区卫生服务中心",
+                "7210427", "九价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711188596"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000371", "蜀山区西园街道",
+                "1031364", "蜀山区西园街道社区卫生服务中心",
+                "7210427", "四价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711082296"
+            });
+
             #endregion 合肥
 
             Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
