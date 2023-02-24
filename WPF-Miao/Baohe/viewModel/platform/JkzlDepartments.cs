@@ -190,7 +190,7 @@ namespace Baohe.viewModel
                 "1023044", "硚口区古田街社区卫生服务中心",
                 "7152219", "九价HPV疫苗")
             {
-                HasYzm = true,
+                HasYzm = false,
                 DoctorSn = "711250004"
             });
 
@@ -206,11 +206,9 @@ namespace Baohe.viewModel
                 "1023020", "硚口区汉正街社区卫生服务中心",
                 "7234379", "九价HPV疫苗")
             {
-                HasYzm = true,
+                HasYzm = false,
                 DoctorSn = "711226997"
             });
-
-
 
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
