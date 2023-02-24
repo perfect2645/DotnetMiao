@@ -271,6 +271,7 @@ namespace Baohe.viewModel
                 HasYzm = true,
                 DoctorSn = "711190104"
             });
+
             Departments.Add(new Jiankangzhilu("9000371", "合肥蜀山五里墩",
                 "1033881", "蜀山区五里墩街道社区卫生服务中心",
                 "7229497", "四价HPV疫苗")
@@ -278,6 +279,38 @@ namespace Baohe.viewModel
                 HasYzm = true,
                 DoctorSn = "711190063"
             });
+
+            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
+                "1023044", "硚口区古田街社区卫生服务中心",
+                "7152219", "九价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711250004"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
+                "1023044", "硚口区古田街社区卫生服务中心",
+                "7152219", "四价HPV疫苗")
+            {
+                HasYzm = false,
+                DoctorSn = "711266375"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
+                "1023020", "硚口区汉正街社区卫生服务中心",
+                "7234379", "九价HPV疫苗")
+            {
+                HasYzm = true,
+                DoctorSn = "711226997"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
+                "1023020", "硚口区汉正街社区卫生服务中心",
+                "7234379", "四价HPV疫苗")
+            {
+                DoctorSn = "711227042"
+            });
+
             //        Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
             //"1047063", "蜀山区经开区井岗镇社区卫生服务中心",
             //"7229244", "四价Hpv"));
