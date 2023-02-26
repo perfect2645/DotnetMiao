@@ -10,7 +10,7 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="view\JikongConsole.xaml">
+    <Page Update="view\ShaoguanConsole.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

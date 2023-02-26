@@ -21,6 +21,8 @@ using Utils.number;
 using Utils.stringBuilder;
 using Shaoguan.cancel;
 using System.Threading;
+using Shaoguan.common;
+using Huangshi.Encrypt;
 
 namespace Shaoguan.viewmodel
 {
@@ -144,12 +146,20 @@ namespace Shaoguan.viewmodel
 
         public ShaoguanViewModel(LogPanel logPanel) : base(logPanel)
         {
+            TestEncode();
             InitCommands();
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
             TestData();
             LoginFromConfigAsync();
+        }
+
+        private void TestEncode()
+        {
+            var signature = new Signature(Constants.MachineCode, 1676962938, "9636FABA-83AF-9637-A7D0-2B12ABD948A3");
+            var signJson = signature.SignJson;
+            var en = JsReader.GetEncodeString(signJson);
         }
 
         private void TestData()
@@ -581,7 +591,7 @@ namespace Shaoguan.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());

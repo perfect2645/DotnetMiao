@@ -28,7 +28,7 @@ namespace Shaoguan.search
         {
             try
             {
-                var url = $"https://hscx.whcdc.org/vaccineServer/patientManager/getPatientList?openId={user.OpenId}";
+                var url = $"https://hscx.whcdc.org/vaccineServer/patientManager/getPatientList?openId=";
                 var content = new MainContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
@@ -76,9 +76,6 @@ namespace Shaoguan.search
 
             user.UserId = pkid;
             user.UserName = patientName;
-            user.IdCard = cardNo;
-            user.Phone = phone;
-            user.OpenId = openId;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

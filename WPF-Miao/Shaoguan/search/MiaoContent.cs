@@ -18,7 +18,7 @@ namespace Shaoguan.search
 
         private void BuildContent()
         {
-            AddContent(MainSession.PlatformSession, Constants.DocId);
+            AddContent(MainSession.PlatformSession, Constants.DoctorId);
             AddContent("regDate", Date);
             AddContent(MainSession.PlatformSession, Constants.DeptId);
         }

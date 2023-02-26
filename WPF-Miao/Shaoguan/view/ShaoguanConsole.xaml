@@ -4,7 +4,7 @@
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:session="clr-namespace:Shaoguan.session"
-      Title="楚天名医"
+      Title="韶关妇幼"
       x:Name="ShaoguanPage">
     <Page.Resources>
         <session:MainSession x:Key="mainSession" />

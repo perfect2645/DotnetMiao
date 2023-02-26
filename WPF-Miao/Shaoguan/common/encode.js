@@ -2075,7 +2075,7 @@ var _0x5d44 = function (_0xd2e623, _0x5a2373) {
         this[_0x5d44("0x1b", "RCrR")] = this[_0x5d44("0x1c", "SIJQ")] = !0x1;
         this[_0x5d44("0x1d", "PTxb")] = !0x0;
     }
-    function _0x558503(_0x854e4a) {
+    function GetSign(_0x854e4a) {
         var _0x128a07 = {
             bqTdr: function _0x617b78(_0x36a6dc, _0x1be7b0) {
                 return _0x36a6dc === _0x1be7b0;
@@ -2811,7 +2811,7 @@ var _0x5d44 = function (_0xd2e623, _0x5a2373) {
                 }
                 return this;
             } else {
-                return _0x558503;
+                return GetSign;
             }
         }
     };
@@ -6511,11 +6511,11 @@ var _0x5d44 = function (_0xd2e623, _0x5a2373) {
         }
     })();
     _0x4f4193
-        ? (module[_0x5d44("0x4dd", "f3NR")] = _0x558503)
-        : ((_0x1780f7[_0x5d44("0x4de", "]BS)")] = _0x558503),
+        ? (module[_0x5d44("0x4dd", "f3NR")] = GetSign)
+        : ((_0x1780f7[_0x5d44("0x4de", "]BS)")] = GetSign),
             _0x3efe01 &&
             _0x40ccc3[_0x5d44("0x4df", "hLAq")](define, function () {
-                return _0x558503;
+                return GetSign;
             }));
 })();
 (function (_0x367506, _0x442f6e, _0x34e7a5) {

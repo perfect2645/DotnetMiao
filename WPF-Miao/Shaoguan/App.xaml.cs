@@ -28,7 +28,6 @@ namespace Shaoguan
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<OpenIdController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
