@@ -11,6 +11,13 @@ namespace Utils.datetime
             return tsStr;
         }
 
+        public static long GetTimeStampLong()
+        {
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 8, 0, 0, 0);
+            var tslong = Convert.ToInt64(ts.TotalMilliseconds);
+            return tslong;
+        }
+
         public static string GetTimeStamp(DateTime date)
         {
             TimeSpan ts = date - new DateTime(1970, 1, 1, 8, 0, 0, 0);

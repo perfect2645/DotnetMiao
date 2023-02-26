@@ -120,12 +120,7 @@ namespace Shaoguan.search
                 UserId = user.UserId,
                 UserName = user.UserName,
                 User = user,
-                AmOrPm = schedule.amPm,
-                ItemName = doctorName,
-                ScheduleCode = schedule.scheduleCode,
-                ScheduleInfoCode = schedule.scheduleInfoCode,
-                VisitDate = Date,
-                VisitTime = schedule.minuteHourInfo,
+
             };
         }
     }

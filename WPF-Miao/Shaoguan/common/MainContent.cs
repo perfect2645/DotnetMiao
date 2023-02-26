@@ -1,6 +1,9 @@
 ﻿using HttpProcessor.Content;
+using Huangshi.Encrypt;
 using Shaoguan.login;
 using Shaoguan.session;
+using System;
+using Utils.datetime;
 
 namespace Shaoguan.common
 {
@@ -8,10 +11,22 @@ namespace Shaoguan.common
     {
         public ShaoguanLogin User { get; private set; }
 
-        public MainContent(string url, ShaoguanLogin user) : base(url)
+        public MainContent(string baseUrl, ShaoguanLogin user) : base(baseUrl)
         {
             User = user;
+            BuildUrl(baseUrl);
             BuildHeader();
+        }
+
+        private void BuildUrl(string baseUrl)
+        {
+            var timestamp = DateTimeUtil.GetTimeStampLong();
+            var sign = new Signature(Constants.MachineCode, timestamp, User.Token);
+
+            var signJson = sign.SignJson;
+            var signature = JsReader.GetEncodeString(signJson);
+
+            RequestUrl = $"{baseUrl}{signature}";
         }
 
         private void BuildHeader()
@@ -21,13 +36,7 @@ namespace Shaoguan.common
             AddHeader("Origin", "https://hscx.whcdc.org");
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
             AddHeader("Accept", "application/json");
-            if (!string.IsNullOrEmpty(User.OpenId))
-            {
-                AddHeader("openId", User.OpenId);
-            }
-            AddHeader("token", string.Empty);
-            AddHeader("sign", User.Sign);
-            AddHeader("idCard", User.IdCardEncode);
+
             AddHeader("Sec-Fetch-Site", "same-origin");
             AddHeader("Sec-Fetch-Mode", "cors");
             AddHeader("Sec-Fetch-Dest", "empty");
