@@ -13,10 +13,10 @@ namespace Baohe.appointment.content
         protected override void BuildDefaultDoctorOrder()
         {
             base.BuildDefaultDoctorOrder();
-            //DoctorOrder.AddOrUpdate("GH_HosProId", "10");
-            //DoctorOrder.AddOrUpdate("GH_HosProName", "江苏");
-            //DoctorOrder.AddOrUpdate("GH_HosCityId", "77");
-            //DoctorOrder.AddOrUpdate("GH_HosCityName", "南京");
+            DoctorOrder.AddOrUpdate("GH_HosProId", "17");
+            DoctorOrder.AddOrUpdate("GH_HosProName", "湖北");
+            DoctorOrder.AddOrUpdate("GH_HosCityId", "172");
+            DoctorOrder.AddOrUpdate("GH_HosCityName", "武汉");
         }
 
         protected override void BuildNumberDoctorOrder()
