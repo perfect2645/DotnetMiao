@@ -25,7 +25,7 @@ using Utils.stringBuilder;
 
 namespace Baohe.viewModel
 {
-    internal class BaoheViewModel: ViewModelBase
+    internal partial class BaoheViewModel: ViewModelBase
     {
         #region Properties
 
