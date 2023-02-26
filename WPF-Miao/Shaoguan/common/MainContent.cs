@@ -13,6 +13,7 @@ namespace Shaoguan.common
 
         public MainContent(string baseUrl, ShaoguanLogin user) : base(baseUrl)
         {
+            ContentType = "text/plain";
             User = user;
             BuildUrl(baseUrl);
             BuildHeader();
@@ -31,18 +32,14 @@ namespace Shaoguan.common
 
         private void BuildHeader()
         {
-            AddHeader("Host", "hscx.whcdc.org");
+            AddHeader("Host", "qjfy-adm-prod.hosp-proxy.cksoft.tech");
+            AddHeader("Origin", "http://qjfy-h5.hosp-proxy.cksoft.tech");
+            AddHeader("Accept-Encoding", "gzip, deflate");
             AddHeader("Connection", "keep-alive");
-            AddHeader("Origin", "https://hscx.whcdc.org");
-            AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
-            AddHeader("Accept", "application/json");
-
-            AddHeader("Sec-Fetch-Site", "same-origin");
-            AddHeader("Sec-Fetch-Mode", "cors");
-            AddHeader("Sec-Fetch-Dest", "empty");
-            AddHeader("Referer", $"https://hscx.whcdc.org/vaccine-h5/?code={User.Code}&state=");
-            AddHeader("Accept-Encoding", "gzip, deflate, br");
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+            AddHeader("Accept", "application/json, text/plain, */*");
+            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN");
+            AddHeader("Referer", $"http://qjfy-h5.hosp-proxy.cksoft.tech/");
+            AddHeader("Accept-Language", "zh-CN,zh-Hans;q=0.9");
         }
     }
 }
