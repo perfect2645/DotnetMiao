@@ -1,0 +1,72 @@
+POST https://hscx.whcdc.org/vaccineServer/RegApiManage/lockNumber HTTP/1.1
+Host: hscx.whcdc.org
+Connection: keep-alive
+Content-Length: 288
+Origin: https://hscx.whcdc.org
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Accept: application/json
+openId: oq49zvxoEtCBUc_WWg1_lRkGAicc
+token: 
+sign: 2b0464d27b0f346212f5fd92ebb8bfd7
+idCard: tqeIvsikEU0k+Z8iDIT5brwNY52Qm2cL
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://hscx.whcdc.org/vaccine-h5/?code=0818ioFa1yUNRE0cZIGa1V0Y7D18ioF6&state=
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{
+    "itemName": "双价HPV疫苗(厦门万泰)",
+    "itemCode": "719",
+    "minuteHourRegTotal": 2,
+    "visitDate": "2023-03-01",
+    "visitTime": "10:45-11:45",
+    "amOrPm": "上午",
+    "patientId": "1061977639629099008",
+    "scheduleCode": "EE07152774",
+    "scheduleInfoCode": "97939550",
+    "checkType": "01",
+    "checkCode": "",
+    "type": "1"
+}
+HTTP/1.1 200
+Server: nginx/1.21.0
+Date: Tue, 28 Feb 2023 16:13:24 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 767
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: https://hscx.whcdc.org
+Access-Control-Allow-Credentials: true
+
+{
+	"msg":"操作完成",
+	"code":"0",
+	"data":{
+		"age":19,
+		"amOrPm":"上午",
+		"cardNo":"42010220030802984X",
+		"cardType":"1",
+		"itemCode":"719",
+		"itemName":"双价HPV疫苗(厦门万泰)",
+		"minuteHourRegTotal":"2",
+		"openId":"oq49zvxoEtCBUc_WWg1_lRkGAicc",
+		"orderAmount":"356.00",
+		"patientId":"1061977639629099008",
+		"patientName":"李嘉怡",
+		"payUrl":"https://hscx.whcdc.org/pay/PayGateWay.aspx?MerBillNo=YFKJ9000000863176769&ChannelCode=WEIXIN_WAP&PayCategory=01&OpenId=oq49zvxoEtCBUc_WWg1_lRkGAicc&AuthNo=",
+		"phone":"17198212532",
+		"pkid":"YFKJ9000000863176769",
+		"scheduleCode":"EE07152774",
+		"scheduleInfoCode":"97939550",
+		"sex":"0",
+		"transactionId":"48314",
+		"type":"1",
+		"visitDate":"2023-03-01",
+		"visitTime":"10:45-11:45"
+	}
+}

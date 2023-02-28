@@ -8,11 +8,16 @@ namespace Jikong.appointment
         public string UserId { get; set; }
         public string UserName { get; set; }
         public string ItemName { get; set; }
+        public string ItemCode { get; set; }
+        public string MinuteHourRegTotal { get; set; }
         public string VisitDate { get; set; }
         public string VisitTime { get; set; }
         public string AmOrPm { get; set; }
-        public string ScheduleCode { get; set; } //第几针
+        public string PatientId { get; set; }
+        public string ScheduleCode { get; set; }
         public string ScheduleInfoCode { get; set; }
+        public string CheckType { get; set; } = "01";
+        public string CheckCode { get; set; }
         public string Type { get; set; } = "1";
         internal JikongLogin User { get; set; }
 

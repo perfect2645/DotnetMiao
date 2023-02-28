@@ -77,9 +77,12 @@ namespace Jikong.search
                 return false;
             }
 
-            var summary = summaryList.FirstOrDefault() as Dictionary<string, object>;
+            //var summary = summaryList.FirstOrDefault() as Dictionary<string, object>;
 
-            var list = summary["list"].NotNullString();
+            //var list = summary["list"].NotNullString();
+            //var scheduleList = JsonConvert.DeserializeObject<List<Schedule>>(list);
+
+            var list = JsonConvert.SerializeObject(summaryList, Formatting.Indented);
             var scheduleList = JsonConvert.DeserializeObject<List<Schedule>>(list);
 
             BuildOrderList(scheduleList);
@@ -115,6 +118,7 @@ namespace Jikong.search
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
+            var doctorId = MainSession.PlatformSession.GetString(Constants.DocId);
             return new Order
             {
                 UserId = user.UserId,
@@ -122,6 +126,8 @@ namespace Jikong.search
                 User = user,
                 AmOrPm = schedule.amPm,
                 ItemName = doctorName,
+                ItemCode = doctorId,
+                MinuteHourRegTotal = schedule.minuteHourRegTotal,
                 ScheduleCode = schedule.scheduleCode,
                 ScheduleInfoCode = schedule.scheduleInfoCode,
                 VisitDate = Date,

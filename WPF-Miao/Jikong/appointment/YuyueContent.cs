@@ -17,12 +17,16 @@ namespace Jikong.appointment
         private void BuildContent()
         {
             AddContent("itemName", Order.ItemName);
+            AddContent("itemCode", Order.ItemCode);
+            AddContent("minuteHourRegTotal", Order.MinuteHourRegTotal);
             AddContent("visitDate", Order.VisitDate);
             AddContent("visitTime", Order.VisitTime);
             AddContent("amOrPm", Order.AmOrPm);
             AddContent("patientId", Order.UserId);
             AddContent("scheduleCode", Order.ScheduleCode);
             AddContent("scheduleInfoCode", Order.ScheduleInfoCode);
+            AddContent("checkType", Order.CheckType);
+            AddContent("checkCode", Order.CheckCode);
             AddContent("type", Order.Type);
         }
     }
