@@ -89,7 +89,7 @@ namespace Baohe.viewModel
             var startTime = MainSession.GetStartTime();
             var sendTime = startTime.AddMinutes(-8);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
-            var verifyTime = startTime.AddMinutes(-3);
+            var verifyTime = startTime.AddMinutes(-1);
 
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
