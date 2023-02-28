@@ -14,6 +14,13 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
+            Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
+                "1094367", "包河区万年埠街道社区卫生服务中心",
+                "7231670", "九价Hpv")
+            {
+                DoctorSn = "711212600"
+            });
+
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
                 "1101211", "漳州市龙文区步文街道社区卫生服务中心",
                 "7242593", "九价Hpv")
@@ -89,6 +96,27 @@ namespace Baohe.viewModel
             #endregion 南京
 
             #region 合肥
+
+            Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
+                "1094367", "包河区万年埠街道社区卫生服务中心",
+                "7231670", "九价Hpv")
+            {
+                DoctorSn = "711212600"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
+                "1094367", "包河区万年埠街道社区卫生服务中心",
+                "7231733", "四价Hpv")
+            {
+                DoctorSn = "711212504"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001150", "蜀山稻香村街道",
+                "1031995", "稻香村街道社区卫生服务中心",
+                "7231800", "四价Hpv")
+            {
+                DoctorSn = "711213217"
+            });
 
             Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
                 "1040231", "蜀山区南岗镇卫生院",
