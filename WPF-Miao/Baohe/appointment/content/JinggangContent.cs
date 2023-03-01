@@ -1,6 +1,11 @@
 ﻿using Baohe.constants;
+using Baohe.session;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Utils;
 using Utils.number;
+using Utils.stringBuilder;
 
 namespace Baohe.appointment.content
 {
@@ -27,6 +32,29 @@ namespace Baohe.appointment.content
         protected override void BuildNumberDoctorOrder()
         {
             base.BuildNumberDoctorOrder();
+
+            try
+            {
+                var numbers = MainSession.MiaoSession["Numbers"] as List<Dictionary<string, object>>;
+                if (!numbers.HasItem())
+                {
+                    return;
+                }
+                var defaultNumber = numbers.FirstOrDefault();
+                var hintType = defaultNumber["HintType"].NotNullString();
+                if (string.IsNullOrEmpty(hintType))
+                {
+                    return;
+                }
+                if (hintType == "2")
+                {
+                    DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"{MiaoInfo["CommendScope"]}");
+                }
+            } 
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }
