@@ -14,14 +14,6 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9001016", "蜀山区西园街道",
-     "1031364", "蜀山区西园街道社区卫生服务中心",
-     "7210427", "二价HPV（国产")
-            {
-                HasYzm = true,
-                DoctorSn = "711090476"
-            });
-
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
                 "7231670", "九价Hpv")
