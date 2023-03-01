@@ -14,6 +14,14 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
+            Departments.Add(new Jiankangzhilu("9001016", "蜀山区西园街道",
+     "1031364", "蜀山区西园街道社区卫生服务中心",
+     "7210427", "二价HPV（国产")
+            {
+                HasYzm = true,
+                DoctorSn = "711090476"
+            });
+
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
                 "7231670", "九价Hpv")
@@ -166,13 +174,13 @@ namespace Baohe.viewModel
                 DoctorSn = "711188785"
             });
 
-            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
-                "1047032", "常青街道薛河湾社区卫生服务站",
-                "7237655", "九价HPV疫苗")
-            {
-                HasYzm = true,
-                DoctorSn = "711238182"
-            });
+            //Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
+            //    "1047032", "常青街道薛河湾社区卫生服务站",
+            //    "7237655", "九价HPV疫苗")
+            //{
+            //    HasYzm = true,
+            //    DoctorSn = "711238182"
+            //});
             Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
                 "1047032", "常青街道薛河湾社区卫生服务站",
                 "7237655", "四价HPV疫苗")
@@ -197,7 +205,7 @@ namespace Baohe.viewModel
                 DoctorSn = "711190063"
             });
 
-            Departments.Add(new Jiankangzhilu("9000371", "蜀山区西园街道",
+            Departments.Add(new Jiankangzhilu("9001016", "蜀山区西园街道",
                 "1031364", "蜀山区西园街道社区卫生服务中心",
                 "7210427", "九价HPV疫苗")
             {
@@ -205,7 +213,7 @@ namespace Baohe.viewModel
                 DoctorSn = "711188596"
             });
 
-            Departments.Add(new Jiankangzhilu("9000371", "蜀山区西园街道",
+            Departments.Add(new Jiankangzhilu("9001016", "蜀山区西园街道",
                 "1031364", "蜀山区西园街道社区卫生服务中心",
                 "7210427", "四价HPV疫苗")
             {
