@@ -111,6 +111,20 @@ namespace Baohe.viewModel
                 DoctorSn = "711212504"
             });
 
+            Departments.Add(new Jiankangzhilu("9000981", "蜀山区西园街道",
+                "1031364", "蜀山区西园街道社区卫生服务中心",
+                "7210427", "九价Hpv")
+            {
+                DoctorSn = "711188596"
+            });
+
+            Departments.Add(new Jiankangzhilu("9000981", "蜀山区西园街道",
+                "1031364", "蜀山区西园街道社区卫生服务中心",
+                "7210427", "四价Hpv")
+            {
+                DoctorSn = "711082296"
+            });
+
             Departments.Add(new Jiankangzhilu("9001150", "蜀山稻香村街道",
                 "1031995", "稻香村街道社区卫生服务中心",
                 "7231800", "四价Hpv")
