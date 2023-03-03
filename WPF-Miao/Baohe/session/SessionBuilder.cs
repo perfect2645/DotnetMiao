@@ -47,7 +47,7 @@ namespace Baohe.session
                 return null;
             }
 
-            var matchedUser = result.FirstOrDefault(x => x["Cname"].NotNullString() == userName);
+            var matchedUser = result.LastOrDefault(x => x["Cname"].NotNullString() == userName);
             if (matchedUser == null)
             {
                 matchedUser = result?.LastOrDefault();
