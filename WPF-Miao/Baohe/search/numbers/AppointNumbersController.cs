@@ -46,7 +46,7 @@ namespace Baohe.search.numbers
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            var code = response?.Body?.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {response.Body["Message"]}", Constant.GetNumbers);
