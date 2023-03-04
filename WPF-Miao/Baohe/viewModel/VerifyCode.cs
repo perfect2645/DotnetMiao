@@ -119,7 +119,7 @@ namespace Baohe.viewModel
             try
             {
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync(UserName);
+                await yzmController.SendYzmAsync(UserName, Phone);
             }
             catch (HttpException ex)
             {
@@ -137,7 +137,7 @@ namespace Baohe.viewModel
             try
             {
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.CheckYzmAsync(Yzm, UserName);
+                await yzmController.CheckYzmAsync(Yzm, UserName, Phone);
             }
             catch (HttpException ex)
             {

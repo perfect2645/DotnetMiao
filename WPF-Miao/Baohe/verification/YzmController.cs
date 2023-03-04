@@ -15,20 +15,20 @@ namespace Baohe.verification
         {
         }
 
-        public Task SendYzmAsync(string userName)
+        public Task SendYzmAsync(string userName, string phone = "")
         {
-            return Task.Factory.StartNew(() => SendYzm(userName));
+            return Task.Factory.StartNew(() => SendYzm(userName, phone));
         }
 
-        public Task CheckYzmAsync(string yzm, string userName)
+        public Task CheckYzmAsync(string yzm, string userName, string phone)
         {
-            return Task.Factory.StartNew(() => CheckYzm(yzm, userName));
+            return Task.Factory.StartNew(() => CheckYzm(yzm, userName, phone));
         }
 
-        private void SendYzm(string userName)
+        private void SendYzm(string userName, string phone = "")
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
-            var content = new SendYzmContent(url, userName);
+            var content = new SendYzmContent(url, userName, phone);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
@@ -44,10 +44,10 @@ namespace Baohe.verification
             MainSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}");
         }
 
-        private void CheckYzm(string yzm, string userName)
+        private void CheckYzm(string yzm, string userName, string phone)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/checkYzm";
-            var content = new CheckYzmContent(url, yzm, userName);
+            var content = new CheckYzmContent(url, yzm, userName, phone);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 

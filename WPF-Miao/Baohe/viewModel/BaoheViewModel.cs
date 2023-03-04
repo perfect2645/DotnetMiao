@@ -54,6 +54,10 @@ namespace Baohe.viewModel
             get { return _userName; }
             set
             {
+                if (VerifyCode != null)
+                {
+                    VerifyCode.UserName = value;
+                }
                 _userName = value;
                 NotifyUI(() => UserName);
             }
