@@ -22,8 +22,8 @@ namespace Zhuzher.search
         private void InitSceneList()
         {
             //AddScene("app-startapp", 1, "1");
-            AddScene("app-mutuallike", 1, "https://enterprise.4009515151.com/marketing-pages/forum/matchmakingCorner");
-            AddScene("app-post-review", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=289");;
+            //AddScene("puli-daka", 1, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=79");
+            AddScene("app-act-invite&view", 5, "1");;
 
         }
 
