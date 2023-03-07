@@ -1,0 +1,526 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 4446,
+            "taskId": 556,
+            "taskName": "每日参与活动攒金币",
+            "chanceNumber": 100,
+            "taskDesc": "物业节",
+            "tips": "每日打开住这儿，均可攒100金币",
+            "detail": [
+                {
+                    "taskDetailId": 557,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4437,
+            "taskId": 547,
+            "taskName": "邀请1位亲友助力",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "邀请1位家人或邻居点击分享链接助力，即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 548,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4438,
+            "taskId": 548,
+            "taskName": "邀请10位亲友助力",
+            "chanceNumber": 100,
+            "taskDesc": "物业节",
+            "tips": "累计邀请10个亲友或邻居助力，即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 549,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "5",
+                    "requiredValue": "10"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4439,
+            "taskId": 549,
+            "taskName": "邀请50位亲友助力",
+            "chanceNumber": 500,
+            "taskDesc": "物业节",
+            "tips": "累计邀请50个亲友或邻居助力，即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 550,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "5",
+                    "requiredValue": "50"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4432,
+            "taskId": 542,
+            "taskName": "逛逛物业公告",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "住这儿App看社区公告更方便！浏览10秒以上即可完成",
+            "detail": [
+                {
+                    "taskDetailId": 543,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4434,
+            "taskId": 544,
+            "taskName": "使用手机开门",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "使用手机开门即可完成任务，每次1次",
+            "detail": [
+                {
+                    "taskDetailId": 545,
+                    "sceneName": "手机开门成功",
+                    "sceneCode": "app-keyforfree",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/property/opendoor/list",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.4",
+                    "eventCode": "ACCESS:USER:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4435,
+            "taskId": 545,
+            "taskName": "累计3天使用手机开门",
+            "chanceNumber": 50,
+            "taskDesc": "物业节",
+            "tips": "累计3天使用手机开门，即可完成任务，仅限获得1次",
+            "detail": [
+                {
+                    "taskDetailId": 546,
+                    "sceneName": "手机开门成功",
+                    "sceneCode": "app-keyforfree",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/property/opendoor/list",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.4",
+                    "eventCode": "ACCESS:USER:0001",
+                    "processValue": "0",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4436,
+            "taskId": 546,
+            "taskName": "累计10天用手机开门",
+            "chanceNumber": 500,
+            "taskDesc": "物业节",
+            "tips": "累计10天使用手机开门，即可完成任务，仅限完成1次",
+            "detail": [
+                {
+                    "taskDetailId": 547,
+                    "sceneName": "手机开门成功",
+                    "sceneCode": "app-keyforfree",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/property/opendoor/list",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.4",
+                    "eventCode": "ACCESS:USER:0001",
+                    "processValue": "0",
+                    "requiredValue": "10"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4445,
+            "taskId": 555,
+            "taskName": "逛逛预缴活动",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "逛逛在线预缴福利活动，浏览10秒以上完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 556,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=726&from=act828",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4433,
+            "taskId": 543,
+            "taskName": "完成任意金额在线缴费",
+            "chanceNumber": 50,
+            "taskDesc": "物业节",
+            "tips": "完成缴费或在线预缴物业费均可完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 544,
+                    "sceneName": "物业缴费上报金额",
+                    "sceneCode": "doc-property-pay",
+                    "sceneDesc": "车位/房屋管理费，支付成功后触发上报金额，包括预缴/普通缴费",
+                    "url": "https://enterprise.4009515151.com/payment-center/home",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4447,
+            "taskId": 557,
+            "taskName": "逛逛友邻市集",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "友邻市集，只卖产地好物！逛10秒以上即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 558,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/?pageMark=yxhd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4448,
+            "taskId": 558,
+            "taskName": "完成1次友邻市集下单",
+            "chanceNumber": 30,
+            "taskDesc": "物业节",
+            "tips": "完成任意商品购买，即可完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 559,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/?pageMark=yxhd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4449,
+            "taskId": 559,
+            "taskName": "完成3次友邻市集下单",
+            "chanceNumber": 100,
+            "taskDesc": "物业节",
+            "tips": "完成3次任意商品购买，即可完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 560,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/?pageMark=yxhd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4440,
+            "taskId": 550,
+            "taskName": "逛逛便民服务",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "逛逛住这儿便民到家服务，浏览10秒即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 551,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=zzesywyj",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4441,
+            "taskId": 551,
+            "taskName": "完成1次到家服务下单",
+            "chanceNumber": 30,
+            "taskDesc": "物业节",
+            "tips": "完成一次到家服务下单，即可完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 552,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=zzesywyj",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4442,
+            "taskId": 552,
+            "taskName": "完成1次送水到家下单",
+            "chanceNumber": 30,
+            "taskDesc": "物业节",
+            "tips": "完成一次桶装水下单，即可完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 553,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzesywyjtzs",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4443,
+            "taskId": 553,
+            "taskName": "浏览相亲角10s",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "逛逛住这儿相亲角社区服务，浏览10秒以上完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 554,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/matchmakingCorner",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4444,
+            "taskId": 554,
+            "taskName": "浏览宠物话题10s",
+            "chanceNumber": 10,
+            "taskDesc": "物业节",
+            "tips": "逛逛住这儿宠物话题社区，浏览10秒完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 555,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=305",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4450,
+            "taskId": 540,
+            "taskName": "预缴12个月物业费",
+            "chanceNumber": 1000,
+            "taskDesc": "物业节",
+            "tips": "单笔预缴12个月物业费（预缴前无待缴账单）",
+            "detail": [
+                {
+                    "taskDetailId": 541,
+                    "sceneName": "无托收预缴12个月",
+                    "sceneCode": "doc-prepay12months",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/payment-center/home",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4451,
+            "taskId": 541,
+            "taskName": "预缴12个月物业费",
+            "chanceNumber": 1000,
+            "taskDesc": "物业节",
+            "tips": "单笔预缴12个月物业费（预缴前无待缴账单）",
+            "detail": [
+                {
+                    "taskDetailId": 542,
+                    "sceneName": "托收且预缴12个月",
+                    "sceneCode": "doc-withhold&prepay12months",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/payment-center/home",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null
+        }
+    ]
+}
