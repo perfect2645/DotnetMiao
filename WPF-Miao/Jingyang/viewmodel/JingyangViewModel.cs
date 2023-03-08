@@ -125,7 +125,7 @@ namespace Jingyang.viewmodel
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 17, 8, 59, 50);
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(50);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(40);
 
             DateList = new List<DspVal>
             {
@@ -141,7 +141,7 @@ namespace Jingyang.viewmodel
                     HospitalId = "cnfw.mailiku.com",
                     HospitalName = "德阳旌阳区城南社区",
                     DepartmentName = "九价HPV疫苗",
-                    TimeIdList = new List<string> { "2037", "2042", "2047", "2052" }
+                    TimeIdList = new List<string> { "2107" }
                 },
                 new JingyangHospital
                 {
