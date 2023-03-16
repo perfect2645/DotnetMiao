@@ -14,18 +14,11 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7211892", "四价Hpv")
+            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+                "1099108", "雨花经济开发区社区卫生服务中心",
+                "7235364", "九价Hpv")
             {
-                DoctorSn = "711091352"
-            });
-
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7211903", "九价Hpv")
-            {
-                DoctorSn = "711091344"
+                DoctorSn = "711230166"
             });
 
             Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
@@ -37,8 +30,8 @@ namespace Baohe.viewModel
             });
 
             Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
-    "1038404", "包河区同安街道社区卫生服务中心",
-    "7245673", "四价HPV")
+                "1038404", "包河区同安街道社区卫生服务中心",
+                "7245673", "四价HPV")
             {
                 HasYzm = true,
                 DoctorSn = "711279474"
@@ -50,6 +43,8 @@ namespace Baohe.viewModel
             {
                 DoctorSn = "711212600"
             });
+
+            #region 漳州
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
                 "1101211", "漳州市龙文区步文街道社区卫生服务中心",
@@ -66,6 +61,8 @@ namespace Baohe.viewModel
                 HasYzm = false,
                 DoctorSn = "711267961"
             });
+
+            #endregion 漳州
 
             #region 南京
 
