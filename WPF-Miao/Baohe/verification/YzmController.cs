@@ -15,7 +15,7 @@ namespace Baohe.verification
         {
         }
 
-        public Task SendYzmAsync(string userName, string phone = "")
+        public Task<bool> SendYzmAsync(string userName, string phone = "")
         {
             return Task.Factory.StartNew(() => SendYzm(userName, phone));
         }
@@ -25,7 +25,7 @@ namespace Baohe.verification
             return Task.Factory.StartNew(() => CheckYzm(yzm, userName, phone));
         }
 
-        private void SendYzm(string userName, string phone = "")
+        private bool SendYzm(string userName, string phone = "")
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
             var content = new SendYzmContent(url, userName, phone);
@@ -42,6 +42,7 @@ namespace Baohe.verification
             }
 
             MainSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}");
+            return true;
         }
 
         private void CheckYzm(string yzm, string userName, string phone)

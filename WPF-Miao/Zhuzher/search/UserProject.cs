@@ -24,12 +24,12 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(11067046, "Fawei", "21020002", "大连假日风景", "Bearer 4c91fca4-56de-4276-a5bd-eee74e4037f2");
+            //AddUserProject(11067046, "Fawei", "21020002", "大连假日风景", "Bearer 4c91fca4-56de-4276-a5bd-eee74e4037f2");
             //AddUserProject(15045709, "妈妈", "21020025", "大连万科半山半海", "Bearer bb89d50d-db73-409a-98c4-2be3eccc497b");
-            AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 3c41ef45-38b5-40ee-b42c-ff2470b1177d");
-            AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 798f571f-86d7-46ce-84b2-cb441c166fba");
+            //AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 3c41ef45-38b5-40ee-b42c-ff2470b1177d");
+            //AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 798f571f-86d7-46ce-84b2-cb441c166fba");
             //AddUserProject(21520695, "刘书辰", "21020025", "大连万科半山半海", "Bearer aee51e94-bf33-475f-8ff1-19ad92145052");
-            //AddUserProject(12513073, "Zoe", "21020012", "大连樱花园", "Bearer d91f2b58-fa2c-4f4a-9b13-b9a135105596");
+            AddUserProject(12513073, "Zoe", "21020012", "大连樱花园", "Bearer 1be78dd7-aa36-4731-a44a-972db5016efe");
 
             //AddUserProject(14929048, "Gary", "21020012", "大连樱花园", "Bearer d19fc1cd-7efd-4bb2-a1cb-af42d92cf051");
         }

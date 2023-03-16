@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using Utils;
 using Utils.datetime;
+using Utils.number;
 using Utils.timerUtil;
 using Timer = System.Timers.Timer;
 
@@ -41,7 +42,11 @@ namespace Baohe.search
 
         public ActionOnTime StartWaterSearchTimer { get; set; }
 
+        public string UserName { get; set; }
+        public string UserPhone { get; set; }
+
         private readonly object OrderLock = new object();
+        private readonly object YzmLock = new object();
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
@@ -143,10 +148,31 @@ namespace Baohe.search
 
             if (SearchStatus == SearchStatus.WaterGet)
             {
+                var yzmController = HttpServiceController.GetService<YzmController>();
+                var isYzmSent = await yzmController.SendYzmAsync(UserName, UserPhone);
+                if (isYzmSent)
+                {
+                    MainSession.IsYzmSent = true;
+                }
+            }
+
+            if (SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmSent)
+            {
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                var isNumbersGet = await appointNumbers.GetNumbersAsync();
+
+                var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+
+                var index = 0;
+                if (arrangeWaterList.Count > 0)
+                {
+                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                }
+                var arrangeWater = arrangeWaterList[index]!;
+
+                var isNumbersGet = await appointNumbers.GetNumbersAsync(arrangeWater);
 
                 MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+
                 lock (OrderLock)
                 {
                     if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)

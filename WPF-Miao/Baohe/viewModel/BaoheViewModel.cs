@@ -84,15 +84,15 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7246744&doctorId=710815953&hospitalInternal=1&showMultiDept=0&platformType=9001471&exConsult=&consultHosId=1038404&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7211903&doctorId=710749125&hospitalInternal=1&showMultiDept=0&platformType=9000370&exConsult=&consultHosId=1040231&utm_source=0.0.h.1026.bus010.0";
 
             //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
 
             if (Application.Current.Properties.Contains("UserName"))
@@ -232,7 +232,8 @@ namespace Baohe.viewModel
             {
                 MainSession.Cookie = Cookie;
                 SearchController = HttpServiceController.GetService<SearchController>();
-                ;
+                SearchController.UserName= UserName;
+                SearchController.UserPhone = VerifyCode.Phone;
                 SetSearchTimers();
                 await SearchController.SearchAllAsync(UserName);
             }
@@ -264,6 +265,8 @@ namespace Baohe.viewModel
         private async Task AutoRunAsync()
         {
             SearchController = HttpServiceController.GetService<SearchController>();
+            SearchController.UserName = UserName;
+            SearchController.UserPhone = VerifyCode.Phone;
             SetSearchTimers();
             await SearchController.AutoSearchAsync(UserName);
         }

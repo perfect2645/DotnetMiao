@@ -22,6 +22,7 @@ namespace Baohe.session
         public static UpdateUiEvent UpdateUiEvent { get; set; }
 
         public static bool IsYzmChecked { get; set; }
+        public static bool IsYzmSent { get; set; }
 
         static MainSession() 
         {

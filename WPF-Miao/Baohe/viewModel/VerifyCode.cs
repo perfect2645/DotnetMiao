@@ -44,6 +44,7 @@ namespace Baohe.viewModel
             {
                 yzm = value;
                 NotifyUI(() => Yzm);
+                ProcessYzmUpdated();
             }
         }
 
@@ -79,17 +80,21 @@ namespace Baohe.viewModel
 
         public void SetTimer()
         {
+            MainSession.IsYzmSent = false;
             MainSession.IsYzmChecked = false;
             var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
             if (!dept.HasYzm)
             {
+                MainSession.IsYzmSent = true;
                 MainSession.IsYzmChecked = true;
                 return;
             }
+
+            /*
             var startTime = MainSession.GetStartTime();
-            var sendTime = startTime.AddMinutes(-8);
+            var sendTime = startTime.AddMinutes(-7);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
-            var verifyTime = startTime.AddMinutes(-2);
+            var verifyTime = startTime.AddMinutes(-1);
 
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
@@ -102,16 +107,26 @@ namespace Baohe.viewModel
                 TargetAction = ExecuteVerifyYzmAsync,
                 ActionTime = verifyTime
             };
-
+            */
         }
 
         public void StopTimer()
         {
             var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
-            if (dept.HasYzm)
+            //if (dept.HasYzm)
+            //{
+            //    SendYzmTimer?.StopTimer();
+            //}
+        }
+
+        private void ProcessYzmUpdated()
+        {
+            if (!MainSession.IsYzmSent)
             {
-                SendYzmTimer?.StopTimer();
+                return;
             }
+
+            ExecuteVerifyYzmAsync();
         }
 
         private async void ExecuteSendYzmAsync()

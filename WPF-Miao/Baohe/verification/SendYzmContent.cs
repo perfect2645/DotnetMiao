@@ -14,6 +14,8 @@ namespace Baohe.verification
 
         public string Phone { get; private set; }
 
+        public string ArrangeId { get; private set; }
+
         public SendYzmContent(string url, string userName, string phone = "") : base(url)
         {
             UserName = userName;
@@ -38,6 +40,9 @@ namespace Baohe.verification
 
             Content.Add("tel", Tel);
             Content.Add(Constant.accountSn, accountSn);
+
+            MainSession.UserSession[Constant.accountSn].NotNullString();
+            Content.Add(Constant.ArrangeId, accountSn);
         }
 
         public string BuildReferer()
