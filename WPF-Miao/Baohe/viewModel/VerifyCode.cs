@@ -27,6 +27,8 @@ namespace Baohe.viewModel
         public ActionOnTime SendYzmTimer { get; set; }
         public ActionOnTime VerifyYzmTimer { get; set; }
 
+        private bool _isCheckingYzm = false;
+
         private DateTime _actionTime = DateTime.Now;
         public DateTime ActionTime
         {
@@ -128,6 +130,16 @@ namespace Baohe.viewModel
                 return;
             }
 
+            if (MainSession.IsYzmChecked)
+            {
+                return;
+            }
+
+            if (_isCheckingYzm)
+            {
+                return;
+            }
+
             ExecuteVerifyYzmAsync();
         }
 
@@ -135,6 +147,7 @@ namespace Baohe.viewModel
         {
             try
             {
+                _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
                 await yzmController.SendYzmAsync(UserName, Phone);
             }
@@ -147,6 +160,10 @@ namespace Baohe.viewModel
             {
                 StopTimer();
                 Log(ex);
+            }
+            finally
+            {
+                _isCheckingYzm = false;
             }
         }
         public async void ExecuteVerifyYzmAsync()
