@@ -16,10 +16,11 @@ namespace Baohe.verification
 
         public string ArrangeId { get; private set; }
 
-        public SendYzmContent(string url, string userName, string phone = "") : base(url)
+        public SendYzmContent(string url, string userName, string phone = "", string arrangeId = "") : base(url)
         {
             UserName = userName;
             Phone = phone;
+            ArrangeId = arrangeId;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
@@ -41,8 +42,10 @@ namespace Baohe.verification
             Content.Add("tel", Tel);
             Content.Add(Constant.accountSn, accountSn);
 
-            MainSession.UserSession[Constant.accountSn].NotNullString();
-            Content.Add(Constant.ArrangeId, accountSn);
+            if (!string.IsNullOrEmpty(ArrangeId))
+            {
+                Content.Add(Constant.ArrangeId, ArrangeId);
+            }
         }
 
         public string BuildReferer()

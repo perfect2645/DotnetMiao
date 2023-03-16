@@ -15,20 +15,20 @@ namespace Baohe.verification
         {
         }
 
-        public Task<bool> SendYzmAsync(string userName, string phone = "")
+        public Task<bool> SendYzmAsync(string userName, string phone = "", string arrangeId = "")
         {
-            return Task.Factory.StartNew(() => SendYzm(userName, phone));
+            return Task.Factory.StartNew(() => SendYzm(userName, phone, arrangeId));
         }
 
-        public Task CheckYzmAsync(string yzm, string userName, string phone)
+        public Task CheckYzmAsync(string yzm, string userName, string phone, string arrangeId)
         {
-            return Task.Factory.StartNew(() => CheckYzm(yzm, userName, phone));
+            return Task.Factory.StartNew(() => CheckYzm(yzm, userName, phone, arrangeId));
         }
 
-        private bool SendYzm(string userName, string phone = "")
+        private bool SendYzm(string userName, string phone = "", string arrangeId = "")
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
-            var content = new SendYzmContent(url, userName, phone);
+            var content = new SendYzmContent(url, userName, phone, arrangeId);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
@@ -45,10 +45,10 @@ namespace Baohe.verification
             return true;
         }
 
-        private void CheckYzm(string yzm, string userName, string phone)
+        private void CheckYzm(string yzm, string userName, string phone, string arrangeId)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/checkYzm";
-            var content = new CheckYzmContent(url, yzm, userName, phone);
+            var content = new CheckYzmContent(url, yzm, userName, phone, arrangeId);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 

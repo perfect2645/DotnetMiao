@@ -11,6 +11,8 @@ using Prism.Commands;
 using System;
 using System.Windows.Input;
 using Utils.timerUtil;
+using Utils;
+using Utils.stringBuilder;
 
 namespace Baohe.viewModel
 {
@@ -151,8 +153,14 @@ namespace Baohe.viewModel
         {
             try
             {
+                if (!MainSession.DefaultWater.HasItem())
+                {
+                    return;
+                }
+
+                var arrangeId = MainSession.DefaultWater[Constant.ArrangeId].NotNullString();
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.CheckYzmAsync(Yzm, UserName, Phone);
+                await yzmController.CheckYzmAsync(Yzm, UserName, Phone, arrangeId);
             }
             catch (HttpException ex)
             {

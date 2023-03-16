@@ -24,6 +24,8 @@ namespace Baohe.session
         public static bool IsYzmChecked { get; set; }
         public static bool IsYzmSent { get; set; }
 
+        public static Dictionary<string, object> DefaultWater { get; set; }
+
         static MainSession() 
         {
             PlatformSesstion = new Dictionary<string, object>();
