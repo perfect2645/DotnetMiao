@@ -1,5 +1,6 @@
 ﻿using Baohe.search.ArrangeWater;
 using Baohe.search.numbers;
+using Baohe.session;
 using Baohe.verification;
 using Base.viewModel;
 using HttpProcessor.Container;
@@ -46,7 +47,7 @@ namespace Baohe.appointment
                 await arrangeWater.GetArrangeWaterAsync();
 
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                await appointNumbers.GetNumbersAsync();
+                await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
 
                 //var getverifyCode = HttpServiceController.GetService<GetVerifyCodeController>();
                 //await getverifyCode.GetVerifyCodeAsync(SessionItem);
