@@ -28,6 +28,10 @@ namespace Baohe.search.numbers
 
         private bool GetNumbers(Dictionary<string, object> water, bool isPrintLog = false)
         {
+            if (!water.HasItem())
+            {
+                return false;
+            }
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
 
             var content = new AppointNumbersContent(url, water);

@@ -139,6 +139,7 @@ namespace Baohe.search
         {
             if (SearchStatus == SearchStatus.Start)
             {
+                MainSession.DefaultWater = new Dictionary<string, object>();
                 var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
                 var isWaterGet = await arrangeWater.GetArrangeWaterAsync();
                 if (isWaterGet)
@@ -149,7 +150,6 @@ namespace Baohe.search
 
             if (SearchStatus == SearchStatus.WaterGet)
             {
-                MainSession.DefaultWater = new Dictionary<string, object>();
                 var yzmController = HttpServiceController.GetService<YzmController>();
 
                 var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
