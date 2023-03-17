@@ -175,7 +175,7 @@ namespace Baohe.viewModel
                     return;
                 }
 
-                var arrangeId = MainSession.DefaultWater[Constant.ArrangeId].NotNullString();
+                var arrangeId = MainSession.DefaultWater["ArrangeID"].NotNullString();
                 var yzmController = HttpServiceController.GetService<YzmController>();
                 await yzmController.CheckYzmAsync(Yzm, UserName, Phone, arrangeId);
             }
