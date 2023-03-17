@@ -44,7 +44,7 @@ namespace Baohe.verification
 
             if (!string.IsNullOrEmpty(ArrangeId))
             {
-                Content.Add(Constant.ArrangeId, ArrangeId);
+                Content.Add("arrangeSn", ArrangeId);
             }
         }
 
