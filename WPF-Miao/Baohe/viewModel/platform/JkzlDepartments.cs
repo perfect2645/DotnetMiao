@@ -21,12 +21,12 @@ namespace Baohe.viewModel
     //            DoctorSn = "711230106"
     //        });
 
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1099108", "雨花经济开发区社区卫生服务中心",
-                "7235364", "九价Hpv")
-            {
-                DoctorSn = "711230166"
-            });
+            //Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+            //    "1099108", "雨花经济开发区社区卫生服务中心",
+            //    "7235364", "九价Hpv")
+            //{
+            //    DoctorSn = "711230166"
+            //});
 
             Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
                 "1038404", "包河区同安街道社区卫生服务中心",
