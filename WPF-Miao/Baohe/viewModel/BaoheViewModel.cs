@@ -143,6 +143,8 @@ namespace Baohe.viewModel
 
             AutoRunCommand = new DelegateCommand(ExecuteAutoRun);
 
+            ExchangeCommand = new DelegateCommand(ExecuteExchangeAsync);
+
             SessionEvents.Instance.Subscribe(LogSession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);

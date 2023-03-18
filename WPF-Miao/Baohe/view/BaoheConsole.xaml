@@ -41,7 +41,9 @@
                     <Button Content="自动查约"
                     Command="{Binding AutoRunCommand}" Width="100" >
                     </Button>
-
+                    <Button Content="转号"
+                    Command="{Binding ExchangeCommand}" Width="100" >
+                    </Button>
                     <TextBox
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Width="100"

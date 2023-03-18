@@ -78,7 +78,7 @@ namespace Baohe.viewModel
             YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
         }
 
-        #endregion Properties
+        #endregion Constructor
 
         #region 验证码
 
