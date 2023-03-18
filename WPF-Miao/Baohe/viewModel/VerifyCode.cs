@@ -186,9 +186,13 @@ namespace Baohe.viewModel
                     return;
                 }
 
-                var arrangeId = MainSession.DefaultWater["ArrangeID"].NotNullString();
+                if (string.IsNullOrEmpty(ArrangeSn))
+                {
+                    ArrangeSn = MainSession.DefaultWater["ArrangeID"].NotNullString();
+                }
+
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.CheckYzmAsync(Yzm, UserName, Phone, arrangeId);
+                await yzmController.CheckYzmAsync(Yzm, UserName, Phone, ArrangeSn);
             }
             catch (HttpException ex)
             {

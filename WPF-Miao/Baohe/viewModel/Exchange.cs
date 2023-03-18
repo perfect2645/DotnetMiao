@@ -1,4 +1,7 @@
-﻿using Baohe.verification;
+﻿using Baohe.constants;
+using Baohe.session;
+using Baohe.verification;
+using Baohe.viewModel.platform;
 using Base.viewModel;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
@@ -35,12 +38,19 @@ namespace Baohe.viewModel
 
         #endregion Properties
 
-        private async void ExecuteExchangeAsync()
+        private void ExecuteExchangeAsync()
         {
             try
             {
-                var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync(UserName, VerifyCode.Phone, ArrangeSn);
+                MainSession.Cookie = Cookie;
+
+                var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
+                dept.HasYzm = false;
+                Task.Factory.StartNew(async () =>
+                {
+                    await AutoRunAsync();
+                    VerifyCode.ExecuteVerifyYzmAsync();
+                });
             }
             catch (HttpException ex)
             {
