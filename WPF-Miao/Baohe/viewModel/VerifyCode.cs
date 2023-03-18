@@ -63,6 +63,17 @@ namespace Baohe.viewModel
             }
         }
 
+        private string arrangeSn;
+        public string ArrangeSn
+        {
+            get { return arrangeSn; }
+            set
+            {
+                arrangeSn = value;
+                NotifyUI(() => ArrangeSn);
+            }
+        }
+
         public string UserName { get; set; }
 
         private YzmReceiver YzmReceiver;
@@ -149,7 +160,7 @@ namespace Baohe.viewModel
             {
                 _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync(UserName, Phone);
+                await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
             }
             catch (HttpException ex)
             {

@@ -84,8 +84,11 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7246744&doctorId=710815953&hospitalInternal=1&showMultiDept=0&platformType=9001471&exConsult=&consultHosId=1038404&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7231670&doctorId=710791067&hospitalInternal=1&showMultiDept=0&platformType=9000981&exConsult=&consultHosId=1094367&utm_source=0.0.h.1026.bus010.0";
 
+
+            VerifyCode.ArrangeSn = "169149843";
+            VerifyCode.Phone = "18301135103";
             //StartTime = DateTime.Now.AddSeconds(20);
         }
 

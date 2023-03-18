@@ -28,22 +28,6 @@ namespace Baohe.viewModel
             //    DoctorSn = "711230166"
             //});
 
-            Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
-                "1038404", "包河区同安街道社区卫生服务中心",
-                "7246744", "九价HPV")
-            {
-                HasYzm = true,
-                DoctorSn = "711282925"
-            });
-
-            Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
-                "1038404", "包河区同安街道社区卫生服务中心",
-                "7245673", "四价HPV")
-            {
-                HasYzm = true,
-                DoctorSn = "711279474"
-            });
-
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
                 "7231670", "九价Hpv")
@@ -130,6 +114,22 @@ namespace Baohe.viewModel
             #endregion 南京
 
             #region 合肥
+
+            Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
+                "1038404", "包河区同安街道社区卫生服务中心",
+                "7246744", "九价HPV")
+            {
+                HasYzm = true,
+                DoctorSn = "711282925"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
+                "1038404", "包河区同安街道社区卫生服务中心",
+                "7245673", "四价HPV")
+            {
+                HasYzm = true,
+                DoctorSn = "711279474"
+            });
 
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
