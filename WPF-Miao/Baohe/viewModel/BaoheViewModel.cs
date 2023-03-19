@@ -274,6 +274,7 @@ namespace Baohe.viewModel
             SearchController = HttpServiceController.GetService<SearchController>();
             SearchController.UserName = UserName;
             SearchController.UserPhone = VerifyCode.Phone;
+            SearchController.CheckYzmAction = VerifyCode.ExecuteVerifyYzmAsync;
             SetSearchTimers();
             await SearchController.AutoSearchAsync(UserName);
         }

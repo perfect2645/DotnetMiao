@@ -49,6 +49,8 @@ namespace Baohe.search
         private readonly object OrderLock = new object();
         private readonly object YzmLock = new object();
 
+        public Action CheckYzmAction { get; set; }
+
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
             InitAuoRunTimer();
@@ -118,7 +120,7 @@ namespace Baohe.search
 
                     return;
                 }
-                await SearchMiaoInfo();
+                await SearchMiaoInfoAutoYzm();
             }
             catch (HttpException ex)
             {
@@ -133,7 +135,52 @@ namespace Baohe.search
 
         #endregion AutoRun
 
+        private async Task SearchMiaoInfoAutoYzm()
+        {
+            if (SearchStatus == SearchStatus.Start)
+            {
+                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+                var isWaterGet = await arrangeWater.GetArrangeWaterAsync();
+                if (isWaterGet)
+                {
+                    SearchStatus = SearchStatus.WaterGet;
+                }
+            }
 
+            if (SearchStatus == SearchStatus.WaterGet)
+            {
+                var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+
+                var index = 0;
+                if (arrangeWaterList.Count > 0)
+                {
+                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                }
+                MainSession.DefaultWater = arrangeWaterList[index]!;
+
+                if (!MainSession.IsYzmChecked)
+                {
+                    CheckYzmAction?.Invoke();
+                }
+
+                var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+                var isNumbersGet = await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
+
+                MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+                lock (OrderLock)
+                {
+                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
+                    {
+                        SearchStatus = SearchStatus.NumbersGet;
+
+                        lock (OrderLock)
+                        {
+                            BuildMiaoOrder();
+                        }
+                    }
+                }
+            }
+        }
 
         private async Task SearchMiaoInfo()
         {

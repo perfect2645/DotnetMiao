@@ -160,7 +160,7 @@ namespace Baohe.viewModel
             {
                 _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                MainSession.IsYzmSent = await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
+                await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
             }
             catch (HttpException ex)
             {
