@@ -21,16 +21,11 @@ namespace Zhuzher.search
 
         private void InitSceneList()
         {
-            //AddScene("app-startapp", 1, "1");
+            AddScene("app-startapp", 1, "1");
             //AddScene("puli-daka", 1, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=79");
-            AddScene("app-act-invite&view", 10, "1");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
-            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=726&from=act828");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/?pageMark=yxhd");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=zzesywyj");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/forum/matchmakingCorner");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=305");
+            AddScene("app-act-invite&view", 1, "1");
+            AddScene("doc-withhold&prepay36months", 1, "https://enterprise.4009515151.com/payment-center/home");
+
 
             //AddScene("doc-withhold&prepay12months", 1, "https://enterprise.4009515151.com/payment-center/home");
         }
