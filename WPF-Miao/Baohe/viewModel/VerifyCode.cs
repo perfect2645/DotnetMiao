@@ -105,11 +105,9 @@ namespace Baohe.viewModel
                 return;
             }
 
-            /*
             var startTime = MainSession.GetStartTime();
             var sendTime = startTime.AddMinutes(-7);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
-            var verifyTime = startTime.AddMinutes(-1);
 
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
@@ -117,6 +115,8 @@ namespace Baohe.viewModel
                 ActionTime = sendTime
             };
 
+            /*
+            var verifyTime = startTime.AddMinutes(-1);
             VerifyYzmTimer = new ActionOnTime("验证手机验证码")
             {
                 TargetAction = ExecuteVerifyYzmAsync,
@@ -160,7 +160,7 @@ namespace Baohe.viewModel
             {
                 _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
+                MainSession.IsYzmSent = await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
             }
             catch (HttpException ex)
             {
