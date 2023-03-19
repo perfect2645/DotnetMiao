@@ -21,25 +21,20 @@ namespace Baohe.search.numbers
         {
         }
 
-        public Task<bool> GetNumbersAsync(bool isPrintLog = false)
+        public Task<bool> GetNumbersAsync(Dictionary<string, object> water, bool isPrintLog = false)
         {
-            return Task.Factory.StartNew(() => GetNumbers(isPrintLog));
+            return Task.Factory.StartNew(() => GetNumbers(water, isPrintLog));
         }
 
-        private bool GetNumbers(bool isPrintLog = false)
+        private bool GetNumbers(Dictionary<string, object> water, bool isPrintLog = false)
         {
+            if (!water.HasItem())
+            {
+                return false;
+            }
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
 
-            var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
-
-            var index = 0;
-            if (arrangeWaterList.Count > 0)
-            {
-                index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
-            }
-            var arrangeWater = arrangeWaterList[index]!;
-
-            var content = new AppointNumbersContent(url, arrangeWater);
+            var content = new AppointNumbersContent(url, water);
             content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
@@ -58,7 +53,7 @@ namespace Baohe.search.numbers
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
             }
 
-            var numbers = AnalysisResult(result, arrangeWater);
+            var numbers = AnalysisResult(result, water);
 
             if (isPrintLog)
             {

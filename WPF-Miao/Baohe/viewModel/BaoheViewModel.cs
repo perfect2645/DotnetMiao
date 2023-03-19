@@ -84,13 +84,17 @@ namespace Baohe.viewModel
 
         private void TestData()
         {
-            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7234901&doctorId=710796004&hospitalInternal=1&showMultiDept=0&platformType=9000415&exConsult=&consultHosId=1047032&utm_source=0.0.h.1026.bus010.0";
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7231670&doctorId=710791067&hospitalInternal=1&showMultiDept=0&platformType=9000981&exConsult=&consultHosId=1094367&utm_source=0.0.h.1026.bus010.0";
 
+
+            //VerifyCode.ArrangeSn = "169149843";
+            //VerifyCode.Phone = "18301135103";
             //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
+            //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
             StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
@@ -141,6 +145,8 @@ namespace Baohe.viewModel
             SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
 
             AutoRunCommand = new DelegateCommand(ExecuteAutoRun);
+
+            ExchangeCommand = new DelegateCommand(ExecuteExchangeAsync);
 
             SessionEvents.Instance.Subscribe(LogSession);
 
@@ -232,7 +238,8 @@ namespace Baohe.viewModel
             {
                 MainSession.Cookie = Cookie;
                 SearchController = HttpServiceController.GetService<SearchController>();
-                ;
+                SearchController.UserName= UserName;
+                SearchController.UserPhone = VerifyCode.Phone;
                 SetSearchTimers();
                 await SearchController.SearchAllAsync(UserName);
             }
@@ -264,6 +271,8 @@ namespace Baohe.viewModel
         private async Task AutoRunAsync()
         {
             SearchController = HttpServiceController.GetService<SearchController>();
+            SearchController.UserName = UserName;
+            SearchController.UserPhone = VerifyCode.Phone;
             SetSearchTimers();
             await SearchController.AutoSearchAsync(UserName);
         }

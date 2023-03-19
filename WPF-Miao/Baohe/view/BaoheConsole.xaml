@@ -41,40 +41,54 @@
                     <Button Content="自动查约"
                     Command="{Binding AutoRunCommand}" Width="100" >
                     </Button>
-
-                    <TextBox
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                        <Button Content="手动发验证码" HorizontalAlignment="Left"
+                        Command="{Binding VerifyCode.SendYzmCommand}" Width="120" Margin="5, 10">
+                        </Button>
+                        <TextBox
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Width="100"
                       materialDesign:HintAssist.Hint="验证码"
                       Text="{Binding VerifyCode.Yzm}"
                       Margin="8 0 0 0"
                       VerticalAlignment="Bottom" />
-                    <Button Content="验证"
-                        Command="{Binding VerifyCode.VerifyYzmCommand}" Width="100">
-                    </Button>
-                </StackPanel>
-                <StackPanel>
-                    <Button Content="手动发验证码" HorizontalAlignment="Left"
-                        Command="{Binding VerifyCode.SendYzmCommand}" Width="120" Margin="50, 10">
-                    </Button>
-                    <TextBox
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                        <TextBox
+                        Width="120"
+                      materialDesign:HintAssist.Hint="ArrangeSn"
+                      Text="{Binding VerifyCode.ArrangeSn}"
+                      Margin="8 0 0 0" />
+                        <TextBox
                         Width="120"
                         IsReadOnly="True"
                       materialDesign:HintAssist.Hint="手机号"
                       Text="{Binding VerifyCode.Phone}"
-                      Margin="8 0 0 20"
+                      Margin="8 0 10 0"
                       VerticalAlignment="Bottom" />
+                        <Button Content="验证"
+                        Command="{Binding VerifyCode.VerifyYzmCommand}" Width="100">
+                        </Button>
+                    </StackPanel>
+
                     <TextBox
                         Width="120"
                         IsReadOnly="True"
                       materialDesign:HintAssist.Hint="用户名"
                       Text="{Binding UserName}"
-                      Margin="8 0 0 20"
+                      Margin="8 20 0 20"
                       VerticalAlignment="Bottom" />
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="转号"
+                                Command="{Binding ExchangeCommand}" Width="100" >
+                        </Button>
+                    </StackPanel>
                     <TextBox
                         Width="300"
                       materialDesign:HintAssist.Hint="备注"
-                      Margin="8 0 0 0"
+                      Margin="8 20 0 0"
                       VerticalAlignment="Bottom" />
                 </StackPanel>
             </StackPanel>

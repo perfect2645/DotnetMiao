@@ -168,9 +168,12 @@ namespace Baohe.appointment
         {
             var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
             var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var deptId = MainSession.PlatformSesstion[Constant.DeptId];
+            //var doctorSn = MiaoInfo["DoctorSN"];
             var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
-            var refererTemplate = $"https://appoint.yihu.com/appoint/register/registerOrder.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+        //https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=1000031&hospitalId=1099108&deptId=7235355&doctorSn=711230106&arrangeId=169002694&utm_source=0.0.h.1026.bus010.0
+            var refererTemplate = $"https://appoint.yihu.com/appoint/register/registerOrder.html?platformType={platformType}&hospitalId={hospitalId}&deptid={deptId}";
 
             return refererTemplate;
         }

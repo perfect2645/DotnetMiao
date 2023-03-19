@@ -22,6 +22,8 @@ using System.Threading.Tasks;
 using System.Timers;
 using Utils;
 using Utils.datetime;
+using Utils.number;
+using Utils.stringBuilder;
 using Utils.timerUtil;
 using Timer = System.Timers.Timer;
 
@@ -41,7 +43,11 @@ namespace Baohe.search
 
         public ActionOnTime StartWaterSearchTimer { get; set; }
 
+        public string UserName { get; set; }
+        public string UserPhone { get; set; }
+
         private readonly object OrderLock = new object();
+        private readonly object YzmLock = new object();
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
@@ -133,6 +139,7 @@ namespace Baohe.search
         {
             if (SearchStatus == SearchStatus.Start)
             {
+                MainSession.DefaultWater = new Dictionary<string, object>();
                 var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
                 var isWaterGet = await arrangeWater.GetArrangeWaterAsync();
                 if (isWaterGet)
@@ -143,19 +150,43 @@ namespace Baohe.search
 
             if (SearchStatus == SearchStatus.WaterGet)
             {
-                var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                var isNumbersGet = await appointNumbers.GetNumbersAsync();
+                var yzmController = HttpServiceController.GetService<YzmController>();
 
-                MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
-                lock (OrderLock)
+                var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+
+                var index = 0;
+                if (arrangeWaterList.Count > 0)
                 {
-                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
-                    {
-                        SearchStatus = SearchStatus.NumbersGet;
+                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                }
+                MainSession.DefaultWater = arrangeWaterList[index]!;
 
-                        lock (OrderLock)
+                if (!MainSession.IsYzmSent)
+                {
+                    var isYzmSent = await yzmController.SendYzmAsync(UserName, UserPhone, MainSession.DefaultWater["ArrangeID"].NotNullString());
+                    if (isYzmSent)
+                    {
+                        MainSession.IsYzmSent = true;
+                    }
+                }
+
+                if (MainSession.IsYzmSent)
+                {
+                    var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+                    var isNumbersGet = await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
+
+                    MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+
+                    lock (OrderLock)
+                    {
+                        if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
                         {
-                            BuildMiaoOrder();
+                            SearchStatus = SearchStatus.NumbersGet;
+
+                            lock (OrderLock)
+                            {
+                                BuildMiaoOrder();
+                            }
                         }
                     }
                 }

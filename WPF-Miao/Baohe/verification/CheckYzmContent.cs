@@ -14,10 +14,13 @@ namespace Baohe.verification
 
         public string Phone { get; private set; }
 
-        public CheckYzmContent(string url, string yzm, string userName, string phone) : base(url)
+        public string ArrangeId { get; private set; }
+
+        public CheckYzmContent(string url, string yzm, string userName, string phone, string arrangeId = "") : base(url)
         {
             UserName = userName;
             Phone = phone;
+            ArrangeId = arrangeId;
             ContentType = "application/x-www-form-urlencoded";
 
             Yzm = yzm;
@@ -42,6 +45,11 @@ namespace Baohe.verification
             Content.Add("tel", Tel);
             Content.Add("yzmCode", Yzm);
             Content.Add(Constant.accountSn, accountSn);
+
+            if (!string.IsNullOrEmpty(ArrangeId))
+            {
+                Content.Add("arrangeSn", ArrangeId);
+            }
         }
 
         public string BuildReferer()

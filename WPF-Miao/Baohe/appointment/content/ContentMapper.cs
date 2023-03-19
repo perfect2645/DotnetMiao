@@ -13,6 +13,7 @@ namespace Baohe.appointment.content
             ContentDic.Add("1047063", typeof(JinggangContent)); // 蜀山区井岗中心服务号
             ContentDic.Add("1031364", typeof(JinggangContent)); // 蜀山区西园街道
             ContentDic.Add("1031995", typeof(JinggangContent)); // 蜀山稻香村街道
+            ContentDic.Add("1038404", typeof(JinggangContent)); // 包河区同安街道社区卫生服务中心
             ContentDic.Add("1040231", typeof(NangangContent)); // 蜀山区南岗镇卫生院
             ContentDic.Add("1039346", typeof(BaoheContent)); // 包河区包公街道社区服务中心
             ContentDic.Add("1094367", typeof(BaoheContent)); // 包河区万年埠街道

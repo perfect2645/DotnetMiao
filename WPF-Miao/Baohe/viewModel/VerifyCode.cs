@@ -11,6 +11,8 @@ using Prism.Commands;
 using System;
 using System.Windows.Input;
 using Utils.timerUtil;
+using Utils;
+using Utils.stringBuilder;
 
 namespace Baohe.viewModel
 {
@@ -24,6 +26,8 @@ namespace Baohe.viewModel
 
         public ActionOnTime SendYzmTimer { get; set; }
         public ActionOnTime VerifyYzmTimer { get; set; }
+
+        private bool _isCheckingYzm = false;
 
         private DateTime _actionTime = DateTime.Now;
         public DateTime ActionTime
@@ -44,6 +48,7 @@ namespace Baohe.viewModel
             {
                 yzm = value;
                 NotifyUI(() => Yzm);
+                ProcessYzmUpdated();
             }
         }
 
@@ -55,6 +60,17 @@ namespace Baohe.viewModel
             {
                 phone = value;
                 NotifyUI(() => Phone);
+            }
+        }
+
+        private string arrangeSn;
+        public string ArrangeSn
+        {
+            get { return arrangeSn; }
+            set
+            {
+                arrangeSn = value;
+                NotifyUI(() => ArrangeSn);
             }
         }
 
@@ -73,23 +89,27 @@ namespace Baohe.viewModel
             YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
         }
 
-        #endregion Properties
+        #endregion Constructor
 
         #region 验证码
 
         public void SetTimer()
         {
+            MainSession.IsYzmSent = false;
             MainSession.IsYzmChecked = false;
             var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
             if (!dept.HasYzm)
             {
+                MainSession.IsYzmSent = true;
                 MainSession.IsYzmChecked = true;
                 return;
             }
+
+            /*
             var startTime = MainSession.GetStartTime();
-            var sendTime = startTime.AddMinutes(-8);
+            var sendTime = startTime.AddMinutes(-7);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
-            var verifyTime = startTime.AddMinutes(-2);
+            var verifyTime = startTime.AddMinutes(-1);
 
             SendYzmTimer = new ActionOnTime("发送手机验证码")
             {
@@ -102,24 +122,45 @@ namespace Baohe.viewModel
                 TargetAction = ExecuteVerifyYzmAsync,
                 ActionTime = verifyTime
             };
-
+            */
         }
 
         public void StopTimer()
         {
             var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
-            if (dept.HasYzm)
+            //if (dept.HasYzm)
+            //{
+            //    SendYzmTimer?.StopTimer();
+            //}
+        }
+
+        private void ProcessYzmUpdated()
+        {
+            if (!MainSession.IsYzmSent)
             {
-                SendYzmTimer?.StopTimer();
+                return;
             }
+
+            if (MainSession.IsYzmChecked)
+            {
+                return;
+            }
+
+            if (_isCheckingYzm)
+            {
+                return;
+            }
+
+            ExecuteVerifyYzmAsync();
         }
 
         private async void ExecuteSendYzmAsync()
         {
             try
             {
+                _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync(UserName, Phone);
+                await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
             }
             catch (HttpException ex)
             {
@@ -131,13 +172,27 @@ namespace Baohe.viewModel
                 StopTimer();
                 Log(ex);
             }
+            finally
+            {
+                _isCheckingYzm = false;
+            }
         }
         public async void ExecuteVerifyYzmAsync()
         {
             try
             {
+                if (!MainSession.DefaultWater.HasItem())
+                {
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(ArrangeSn))
+                {
+                    ArrangeSn = MainSession.DefaultWater["ArrangeID"].NotNullString();
+                }
+
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.CheckYzmAsync(Yzm, UserName, Phone);
+                await yzmController.CheckYzmAsync(Yzm, UserName, Phone, ArrangeSn);
             }
             catch (HttpException ex)
             {

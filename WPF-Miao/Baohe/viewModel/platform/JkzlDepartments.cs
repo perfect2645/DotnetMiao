@@ -14,13 +14,19 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
-                "1047032", "包河区常青街道社区卫生服务中心",
-                "7234901", "九价HPV")
-            {
-                HasYzm = true,
-                DoctorSn = "711228572"
-            });
+    //        Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+    //"1099108", "雨花经济开发区社区卫生服务中心",
+    //"7235355", "预防接种门诊")
+    //        {
+    //            DoctorSn = "711230106"
+    //        });
+
+            //Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
+            //    "1099108", "雨花经济开发区社区卫生服务中心",
+            //    "7235364", "九价Hpv")
+            //{
+            //    DoctorSn = "711230166"
+            //});
 
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
@@ -28,6 +34,8 @@ namespace Baohe.viewModel
             {
                 DoctorSn = "711212600"
             });
+
+            #region 漳州
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
                 "1101211", "漳州市龙文区步文街道社区卫生服务中心",
@@ -44,6 +52,8 @@ namespace Baohe.viewModel
                 HasYzm = false,
                 DoctorSn = "711267961"
             });
+
+            #endregion 漳州
 
             #region 南京
 
@@ -104,6 +114,22 @@ namespace Baohe.viewModel
             #endregion 南京
 
             #region 合肥
+
+            Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
+                "1038404", "包河区同安街道社区卫生服务中心",
+                "7246744", "九价HPV")
+            {
+                HasYzm = true,
+                DoctorSn = "711282925"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001471", "包河区同安街道社区卫生服务中心",
+                "1038404", "包河区同安街道社区卫生服务中心",
+                "7245673", "四价HPV")
+            {
+                HasYzm = true,
+                DoctorSn = "711279474"
+            });
 
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
