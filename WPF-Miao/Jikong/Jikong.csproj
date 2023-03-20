@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Login - liu.json" />
     <None Remove="Login - Rad.json" />
+    <None Remove="Login - user.json" />
     <None Remove="Login.json" />
   </ItemGroup>
 
@@ -18,6 +19,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login - liu.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login - user.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">

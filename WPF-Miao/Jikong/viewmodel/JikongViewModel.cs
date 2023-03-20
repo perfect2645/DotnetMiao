@@ -162,8 +162,8 @@ namespace Jikong.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(20);
 
-            StartDate = new DspVal("2023-3-2");
-            EndDate = new DspVal("2023-3-11");
+            StartDate = new DspVal("2023-3-25");
+            EndDate = new DspVal("2023-3-25");
 
             var dateRange = DateTimeUtil.GetDateRange(StartDate.Value, EndDate.Value);
             DateList = new List<DspVal>();
