@@ -195,27 +195,20 @@ namespace Jikong.viewmodel
                     HospitalName = "武汉疾控",
                     DepartmentName = "预检登记室",
                     DepartmentId = "18013",
+                    DoctorId = "718",
+                    DoctorName = "四价人乳头瘤病毒疫苗"
+                },
+                new JikongHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "武汉疾控",
+                    DepartmentName = "预检登记室",
+                    DepartmentId = "18013",
                     DoctorId = "703",
                     DoctorName = "九价人乳头瘤病毒疫苗"
                 },
-                new JikongHospital
-                {
-                    HospitalId = "1",
-                    HospitalName = "武汉疾控",
-                    DepartmentName = "预检登记室",
-                    DepartmentId = "18013",
-                    DoctorId = "719",
-                    DoctorName = "双价HPV疫苗(厦门万泰)"
-                },
-                new JikongHospital
-                {
-                    HospitalId = "1",
-                    HospitalName = "武汉疾控",
-                    DepartmentName = "预检登记室",
-                    DepartmentId = "18013",
-                    DoctorId = "718",
-                    DoctorName = "四价人乳头瘤病毒疫苗"
-                }
+
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
