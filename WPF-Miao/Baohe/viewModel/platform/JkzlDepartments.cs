@@ -17,6 +17,14 @@ namespace Baohe.viewModel
             #region 漳州
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
+    "1101211", "漳州市龙文区步文街道社区卫生服务中心",
+    "7242593", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711267962"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
                 "1101211", "漳州市龙文区步文街道社区卫生服务中心",
                 "7242593", "九价Hpv")
             {

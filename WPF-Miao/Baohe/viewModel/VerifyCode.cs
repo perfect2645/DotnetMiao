@@ -128,10 +128,10 @@ namespace Baohe.viewModel
         public void StopTimer()
         {
             var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
-            //if (dept.HasYzm)
-            //{
-            //    SendYzmTimer?.StopTimer();
-            //}
+            if (dept.HasYzm)
+            {
+                SendYzmTimer?.StopTimer();
+            }
         }
 
         private void ProcessYzmUpdated()
@@ -189,6 +189,11 @@ namespace Baohe.viewModel
                 if (string.IsNullOrEmpty(ArrangeSn))
                 {
                     ArrangeSn = MainSession.DefaultWater["ArrangeID"].NotNullString();
+                }
+
+                if (string.IsNullOrEmpty(ArrangeSn))
+                {
+                    ArrangeSn = "169301668";
                 }
 
                 var yzmController = HttpServiceController.GetService<YzmController>();

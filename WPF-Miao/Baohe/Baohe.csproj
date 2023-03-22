@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Login - 漳州.json" />
     <None Remove="Login -gary.json" />
     <None Remove="Login-kevan.json" />
     <None Remove="Login.json" />
@@ -16,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Login - 漳州.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Login-kevan.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
