@@ -134,12 +134,12 @@ namespace Xihongmen.viewmodel
         {
             Interval = 800;
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2023, 2, 8, 16, 59, 00);
+            StartTime = DateTime.Today.AddHours(16).AddMinutes(58);
 
             SetDateList();
 
