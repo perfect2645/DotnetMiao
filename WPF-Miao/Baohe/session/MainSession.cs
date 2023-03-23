@@ -24,6 +24,8 @@ namespace Baohe.session
         public static bool IsYzmChecked { get; set; }
         public static bool IsYzmSent { get; set; }
 
+        public static YzmMode YzmMode { get; set; } = 0;
+
         public static Dictionary<string, object> DefaultWater { get; set; }
 
         static MainSession() 
@@ -102,5 +104,12 @@ namespace Baohe.session
         }
 
         #endregion UpdateUI
+    }
+
+    public enum YzmMode
+    {
+        PreSendOnTimeVerify = 0,
+        OnTimeSendVerify = 1,
+        PreSendVerify = 2,
     }
 }
