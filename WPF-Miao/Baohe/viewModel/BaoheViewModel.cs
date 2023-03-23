@@ -93,7 +93,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
+            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
             MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
 
