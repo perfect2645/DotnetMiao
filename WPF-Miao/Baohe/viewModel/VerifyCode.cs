@@ -105,24 +105,34 @@ namespace Baohe.viewModel
                 return;
             }
 
+            if (MainSession.YzmMode == YzmMode.PreSendVerify)
+            {
+                MainSession.IsYzmSent = true;
+                MainSession.IsYzmChecked = true;
+            }
+
             var startTime = MainSession.GetStartTime();
             var sendTime = startTime.AddMinutes(-7);
             //var date = new DateTime(2022, 9, 15, 21, 59, 0);
 
-            SendYzmTimer = new ActionOnTime("发送手机验证码")
+            if (MainSession.YzmMode != YzmMode.OnTimeSendVerify)
             {
-                TargetAction = ExecuteSendYzmAsync,
-                ActionTime = sendTime
-            };
+                SendYzmTimer = new ActionOnTime("发送手机验证码")
+                {
+                    TargetAction = ExecuteSendYzmAsync,
+                    ActionTime = sendTime
+                };
+            }
 
-            /*
-            var verifyTime = startTime.AddMinutes(-1);
-            VerifyYzmTimer = new ActionOnTime("验证手机验证码")
+            if (MainSession.YzmMode == YzmMode.PreSendVerify)
             {
-                TargetAction = ExecuteVerifyYzmAsync,
-                ActionTime = verifyTime
-            };
-            */
+                var verifyTime = startTime.AddMinutes(-1);
+                VerifyYzmTimer = new ActionOnTime("验证手机验证码")
+                {
+                    TargetAction = ExecuteVerifyYzmAsync,
+                    ActionTime = verifyTime
+                };
+            }
         }
 
         public void StopTimer()
@@ -160,7 +170,11 @@ namespace Baohe.viewModel
             {
                 _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
-                await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
+                var isYzmSent = await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
+                if (MainSession.YzmMode == YzmMode.OnTimeSendVerify)
+                {
+                    MainSession.IsYzmSent= isYzmSent;
+                }
             }
             catch (HttpException ex)
             {

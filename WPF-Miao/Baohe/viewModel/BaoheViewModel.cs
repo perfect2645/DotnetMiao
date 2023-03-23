@@ -95,6 +95,8 @@ namespace Baohe.viewModel
         {
             MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
 
+            MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
+
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);

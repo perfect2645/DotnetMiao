@@ -120,7 +120,17 @@ namespace Baohe.search
 
                     return;
                 }
-                await SearchMiaoInfoAutoYzm();
+
+                switch(MainSession.YzmMode)
+                {
+                    case YzmMode.PreSendOnTimeVerify: 
+                        await SearchMiaoInfoAutoYzm(); break;
+                    case YzmMode.OnTimeSendVerify: 
+                        await SearchMiaoInfo(); break;
+                    case YzmMode.PreSendVerify:
+                        await SearchMiaoInfoAutoYzm(); break;
+                    default: await SearchMiaoInfoAutoYzm(); break;
+                }
             }
             catch (HttpException ex)
             {
