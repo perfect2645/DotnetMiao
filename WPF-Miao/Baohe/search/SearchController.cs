@@ -138,7 +138,7 @@ namespace Baohe.search
             }
             catch (Exception ex)
             {
-                StopTimer();
+                //StopTimer();
                 MainSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
