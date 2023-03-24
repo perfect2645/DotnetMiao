@@ -9,36 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Login - mode0.json" />
-    <None Remove="Login - mode1.json" />
-    <None Remove="Login - mode2.json" />
     <None Remove="Login - 漳州.json" />
-    <None Remove="Login -gary.json" />
-    <None Remove="Login-kevan.json" />
     <None Remove="Login.json" />
-    <None Remove="LoginA11.json" />
+    <None Remove="Login南京.json" />
+    <None Remove="Login南京2.json" />
+    <None Remove="Login南京延迟.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Login - mode1.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login - mode2.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login - mode0.json">
+    <Content Include="Login南京延迟.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login - 漳州.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Login-kevan.json">
+    <Content Include="Login南京2.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="LoginA11.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login -gary.json">
+    <Content Include="Login南京.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">

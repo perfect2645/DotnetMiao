@@ -63,7 +63,6 @@
                       Margin="8 0 0 0" />
                         <TextBox
                         Width="120"
-                        IsReadOnly="True"
                       materialDesign:HintAssist.Hint="手机号"
                       Text="{Binding VerifyCode.Phone}"
                       Margin="8 0 10 0"
