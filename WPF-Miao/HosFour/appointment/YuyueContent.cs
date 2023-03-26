@@ -1,13 +1,11 @@
 ﻿using HosFour.common;
 using HosFour.login;
-using HosFour.session;
-using Utils;
 
 namespace HosFour.appointment
 {
     internal class YuyueContent : HosFourContent
     {
-        private static string baseUrl = "ldrmyy120.com/rest/v1/api/examine/vaccine_created/";
+        private static string baseUrl = "https://fwcs.linkingcloud.cn/YuYue/Alipay_BookingApply";
         public Order Order { get; private set; }
         public YuyueContent(Order order, HosFourLogin user) : base(baseUrl, user)
         {
@@ -17,13 +15,21 @@ namespace HosFour.appointment
 
         private void BuildContent()
         {
-            AddContent("duty_time_id", Order.DutyTimeId);
-            AddContent("vaccine_id", Order.VaccineId);
-            AddContent("hospital", Order.HosipitalId);
-            AddContent("inoculate_times", Order.InoculateTimes);
-            AddContent("patient", Order.UserId);
-            AddContent("see_date", Order.SeeDate);
-            AddContent("address", Order.Address);
+            AddContent("hospitalUserID", Order.HospitalUserID);
+            AddContent("resourceID", Order.ResourceID);
+            AddContent("registDate", Order.RegistDate);
+            AddContent("docCode", Order.DocCode);
+            AddContent("hospitalID", Order.HospitalUserID);
+            AddContent("docCode", Order.DocCode);
+            AddContent("docName", Order.DocName);
+            AddContent("docDuty", Order.DocDuty);
+            AddContent("deptCode", Order.DeptCode);
+            AddContent("deptName", Order.DeptName);
+            AddContent("hospitalName", Order.HospitalName);
+            AddContent("docPhotoPath", string.Empty);
+            AddContent("extInfo", new object());
+            AddContent("feeType", string.Empty);
+            AddContent("t", Order.T);
         }
     }
 }

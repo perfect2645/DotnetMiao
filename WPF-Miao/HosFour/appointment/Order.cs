@@ -1,21 +1,23 @@
-﻿using Base.Events;
-using System;
+﻿using HosFour.login;
 using System.Text;
-using HosFour.login;
-using Utils.timerUtil;
 
 namespace HosFour.appointment
 {
     public class Order
     {
-        public string UserId { get; set; }
+        public string HospitalUserID { get; set; }
         public string UserName { get; set; }
-        public string DutyTimeId { get; set; }
-        public string VaccineId { get; set; }
-        public string HosipitalId { get; set; }
-        public string InoculateTimes { get; set; } //第几针
-        public string SeeDate { get; set; }
-        public string Address { get; set; } = "天河";
+        public string HospitalName { get; set; }
+        public string ResourceID { get; set; }
+        public string Url { get; set; } = "https://fwcs.linkingcloud.cn/App/yuyue/index.html#/pages/yuyue/doctor?dataSource=";
+        public string DocCode { get; set; }
+        public string DocName { get; set; }
+        public string DocDuty { get; set; }
+        public string DeptCode { get; set; }
+        public string DeptName { get; set; }
+        public string RegistDate { get; set; }
+        public string T { get; set; }
+        public string BookingID { get; set; }
         internal HosFourLogin User { get; set; }
 
         public string ToLogString()
@@ -25,10 +27,10 @@ namespace HosFour.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"SeeDate - {SeeDate}");
-            sb.AppendLine($"VaccineId - {VaccineId}");
-            sb.AppendLine($"DutyTimeId - {DutyTimeId}");
+            sb.AppendLine($"UserId - {HospitalUserID}");
+            sb.AppendLine($"RegistDate - {RegistDate}");
+            sb.AppendLine($"DeptName - {DeptName}");
+            sb.AppendLine($"BookingID - {BookingID}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();
