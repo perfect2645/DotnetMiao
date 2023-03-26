@@ -14,9 +14,13 @@
     <None Remove="Login南京.json" />
     <None Remove="Login南京延迟.json" />
     <None Remove="Login合肥.json" />
+    <None Remove="Login武汉.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Login武汉.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Login南京延迟.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
