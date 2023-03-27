@@ -40,8 +40,7 @@ namespace Tianhe.search
             {
                 var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
                 var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
-                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/api/examine/shift_time_for_vaccine/{deptId}/?date={date}&hospital={hosId}";
+                var url = $"ldrmyy120.com/rest/v1/api/examine/shift_time_for_vaccine/{deptId}/?date={date}&hospital={hosId}";
                 var content = new TianheContent(url, user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
