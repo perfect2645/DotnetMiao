@@ -14,20 +14,12 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
-    "1023020", "硚口区汉正街社区卫生服务中心",
-    "7234379", "四价HPV疫苗")
+            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
+                  "1047032", "常青街道薛河湾社区卫生服务站",
+                  "7237655", "九价HPV疫苗")
             {
-                HasYzm = false,
-                DoctorSn = "711227042"
-            });
-
-            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
-                "1023020", "硚口区汉正街社区卫生服务中心",
-                "7234379", "九价HPV疫苗")
-            {
-                HasYzm = false,
-                DoctorSn = "711226997"
+                HasYzm = true,
+                DoctorSn = "711238182"
             });
 
             #region 漳州
