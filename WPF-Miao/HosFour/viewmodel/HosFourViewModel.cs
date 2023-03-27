@@ -52,7 +52,6 @@ namespace HosFour.viewmodel
             set
             {
                 _selectedDate = value;
-                //MainSession.MiaoSession.AddOrUpdate("Date", value.Value);
                 NotifyUI(() => SelectedDate);
             }
         }

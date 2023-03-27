@@ -11,7 +11,7 @@ namespace HosFour.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********天河-选择医院科室*********");
+            sb.AppendLine("********上海4院-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {HospitalPrefix}");
             sb.AppendLine($"{DepartmentName} - {DepartmentId}");
             sb.AppendLine("**************************************");

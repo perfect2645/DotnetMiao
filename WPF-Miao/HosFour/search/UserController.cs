@@ -29,11 +29,9 @@ namespace HosFour.search
         {
             try
             {
-                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
-                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
-                var content = new HosFourContent(url, user);
+                var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -41,13 +39,22 @@ namespace HosFour.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var results = root.GetProperty("results");
-                if (results.ValueKind == JsonValueKind.Null)
+                var responseResult = root.GetProperty("responseResult");
+                if (responseResult.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(results, user);
+                var isSuccess = responseResult.GetInt16();
+                if (isSuccess != 1)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
+                    return;
+                }
+
+                var bindCardList = root.GetProperty("bindCardList");
+
+                SaveUser(bindCardList, user);
             }
             catch (Exception ex)
             {
