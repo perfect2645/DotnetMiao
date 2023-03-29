@@ -53,9 +53,15 @@ namespace Huangshi.appointment
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
+                var code = root.GetProperty("code").GetInt32();
 
-                var code = root.GetProperty("code").GetString();
-                var msg = root.GetProperty("msg").GetString();
+                JsonElement msgNode;
+                var hasMsg = root.TryGetProperty("msg", out msgNode);
+                var msg = string.Empty;
+                if (hasMsg)
+                {
+                    msg = msgNode.GetString();
+                }
                 if (code.ToInt() > 201)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败 - code:{code}, msg:{msg}");

@@ -20,8 +20,9 @@ namespace Huangshi.search
 
         private void BuildContent()
         {
+            var packageId = MainSession.PlatformSession.GetString(Constants.PackageId);
             AddContent("tjjgid", "YY201912192043290001");
-            AddContent("packageId", "000109");
+            AddContent("packageId", packageId);
             AddContent("rq", Date);
         }
     }

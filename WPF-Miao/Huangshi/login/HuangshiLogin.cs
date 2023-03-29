@@ -2,7 +2,6 @@
 {
     internal class HuangshiLogin
     {
-        public string DeptId { get; set; }
         public string UserName { get; set; }
         public string Cookie { get; set; }
         public string Phone { get; set; }

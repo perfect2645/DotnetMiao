@@ -295,9 +295,10 @@ namespace Huangshi.viewmodel
 
         private Order BuildOneOrder(HuangshiLogin user, string date, string timeId)
         {
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                DeptId = user.DeptId,
+                DeptId = deptId,
                 UserName = user.UserName,
                 User = user,
                 Birthday = user.Birthday,
@@ -395,14 +396,16 @@ namespace Huangshi.viewmodel
         {
             var orderTemplateList = e.OrderList;
 
-            foreach(var user in MainSession.Users)
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+
+            foreach (var user in MainSession.Users)
             {
                 var orderList = new List<Order>();
                 foreach (var template in orderTemplateList)
                 {
                     var order = new Order
                     {
-                        DeptId = user.DeptId,
+                        DeptId = deptId,
                         UserName = user.UserName,
                         User = user,
                         Birthday = user.Birthday,

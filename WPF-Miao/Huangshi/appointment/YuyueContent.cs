@@ -19,7 +19,9 @@ namespace Huangshi.appointment
         {
             AddContent("ID", Order.DeptId);
             AddContent("TCSL", "1");
-            AddContent("lXDH", JsReader.GetEncodeString(Order.ContactPhone));
+
+            var phoneEncode = JsReader.GetEncodeString(Order.ContactPhone);
+            AddContent("lXDH", phoneEncode);
 
             var dateEncode = UnicodeConverter.EncodeOriginal(Order.Date, true);
             var timeEncode = UnicodeConverter.EncodeOriginal(Order.Time, true);

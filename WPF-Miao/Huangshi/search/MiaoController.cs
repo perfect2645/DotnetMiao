@@ -109,13 +109,13 @@ namespace Huangshi.search
         private Order BuildOneOrder(HuangshiLogin user, string date, Schedule schedule)
         {
             //var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            //var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             //var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
             var time = UnicodeConverter.EncodeOriginal($"{schedule.KSSJ}-{schedule.JSSJ}", true);
 
             return new Order
             {
-                DeptId = user.DeptId,
+                DeptId = deptId,
                 UserName = user.UserName,
                 User = user,
                 Birthday = user.Birthday,
