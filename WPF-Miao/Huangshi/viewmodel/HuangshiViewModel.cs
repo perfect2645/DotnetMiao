@@ -143,7 +143,7 @@ namespace Huangshi.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-03-30", "2023-03-30");
+            var dateRange = DateTimeUtil.GetDateRange("2023-03-30", "2023-03-31");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {

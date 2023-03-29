@@ -24,17 +24,16 @@ namespace Huangshi.appointment
             AddContent("lXDH", phoneEncode);
 
             var dateEncode = UnicodeConverter.EncodeOriginal(Order.Date, true);
-            var timeEncode = UnicodeConverter.EncodeOriginal(Order.Time, true);
             var name = Encryptor.ToUnicode(User.UserName);
             name = name.Replace("\\", "%25");
 
             AddContent("YYSJ", dateEncode);
-            AddContent("YYSJD", timeEncode);
+            AddContent("YYSJD", Order.Time);
             AddContent("XM", name);
             AddContent("HYZT", Order.HYZT);
             AddContent("ZJLX", Order.ZJLX);
             AddContent("SFZHM", JsReader.GetEncodeString(Order.SFZHM));
-            AddContent("DH", JsReader.GetEncodeString(Order.DeptId));
+            AddContent("DH", JsReader.GetEncodeString(Order.UserPhone));
             AddContent("XB", Order.XB);
             AddContent("CSRQ", Order.Birthday);
             AddContent("addItem", string.Empty);
