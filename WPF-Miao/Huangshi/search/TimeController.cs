@@ -14,9 +14,9 @@ using Utils.stringBuilder;
 
 namespace Huangshi.search
 {
-    internal class DateController : HttpClientBase
+    internal class TimeController : HttpClientBase
     {
-        public DateController(HttpClient httpClient) : base(httpClient)
+        public TimeController(HttpClient httpClient) : base(httpClient)
         {
         }
 
@@ -24,7 +24,7 @@ namespace Huangshi.search
         {
             try
             {
-                var content = new DateContent(user, date);
+                var content = new TimeContent(user, date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null && string.IsNullOrEmpty(response?.ContentStr))
@@ -33,8 +33,6 @@ namespace Huangshi.search
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
-
-                MainSession.PrintLogEvent.Publish(this, $"获取日期信息失败: results is empty");
                 return SaveDateTime(root, user);
             }
             catch (Exception ex)
@@ -53,20 +51,7 @@ namespace Huangshi.search
                 return false;
             }
 
-            var validDates = dates.Where(d => DateTimeUtil.IsEqualOrGreaterThanToday(d["date"].NotNullString()));
-            if (!validDates.HasItem())
-            {
-                Log("没有可用日期");
-                return false;
-            }
-
-            var dateList = validDates.Select(d => d["date"].NotNullString()).ToList();
-            var today = DateTimeUtil.GetToday();
-            dateList = dateList.Where(d => today != d).ToList();
-
-            MainSession.PlatformSession.AddOrUpdate("orderDates", dateList);
-
-            MainSession.PrintLogEvent.Publish(this, "获得预约日期");
+            
             return true;
         }
     }

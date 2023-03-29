@@ -46,15 +46,22 @@ namespace Huangshi.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.Body == null && string.IsNullOrEmpty(response?.ContentStr))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
-                //return SaveOrderResult(data);
-                return false;
+
+                var code = root.GetProperty("code").GetString();
+                var msg = root.GetProperty("msg").GetString();
+                if (code.ToInt() > 201)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败 - code:{code}, msg:{msg}");
+                    return false;
+                }
+                return SaveOrderResult(root);
             }
             catch (Exception ex)
             {
@@ -71,7 +78,7 @@ namespace Huangshi.appointment
 
                 MainSession.PrintLogEvent.Publish(this, orderData);
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                if (!string.IsNullOrEmpty(orderData.GetString("ddid")))
                 {
                     return true;
                 }

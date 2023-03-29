@@ -12,5 +12,6 @@ namespace Huangshi.session
         public const string DocId = "docId";
         public const string Scheduleid = "scheduleid";
         public const string Token = "token";
+        public const string PackageId = "packageId";
     }
 }

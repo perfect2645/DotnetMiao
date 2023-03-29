@@ -36,7 +36,7 @@ namespace Huangshi.search
             Date = date;
             try
             {
-                var content = new DateContent(user, date);
+                var content = new TimeContent(user, date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null && string.IsNullOrEmpty(response?.ContentStr))

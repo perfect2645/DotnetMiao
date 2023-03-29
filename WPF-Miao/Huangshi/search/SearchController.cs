@@ -12,11 +12,11 @@ namespace Huangshi.search
 {
     internal class SearchController
     {
-        private DateController dateController;
+        private TimeController dateController;
 
         public SearchController()
         {
-            dateController = HttpServiceController.GetService<DateController>();
+            dateController = HttpServiceController.GetService<TimeController>();
         }
 
         public void StartSearchInterval()
@@ -37,6 +37,19 @@ namespace Huangshi.search
             }
         }
 
+        private void GetTime(string date, HuangshiLogin user)
+        {
+            var miaoController = HttpServiceController.GetService<TimeController>();
+
+            var isMiaoGet = false;
+            while(!isMiaoGet)
+            {
+                isMiaoGet = miaoController.GetDateAndTime(user, date);
+                Thread.Sleep(1000);
+            }
+        }
+
+
         private void GetMiao(string date, HuangshiLogin user)
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
@@ -45,18 +58,6 @@ namespace Huangshi.search
             while (!isMiaoGet)
             {
                 isMiaoGet = miaoController.SearchMiao(user, date);
-                Thread.Sleep(1000);
-            }
-        }
-
-        private void GetDateTime(string date, HuangshiLogin user)
-        {
-            var miaoController = HttpServiceController.GetService<DateController>();
-
-            var isMiaoGet = false;
-            while(!isMiaoGet)
-            {
-                isMiaoGet = miaoController.GetDateAndTime(user, date);
                 Thread.Sleep(1000);
             }
         }

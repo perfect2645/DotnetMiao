@@ -29,7 +29,7 @@ namespace Huangshi
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<DateController>();
+            HttpServiceController.AddTransientService<TimeController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<SearchSuccessController>();

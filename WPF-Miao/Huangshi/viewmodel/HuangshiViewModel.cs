@@ -143,7 +143,7 @@ namespace Huangshi.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-10", "2023-2-10");
+            var dateRange = DateTimeUtil.GetDateRange("2023-03-30", "2023-03-30");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
@@ -166,13 +166,22 @@ namespace Huangshi.viewmodel
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
 
             Departments = new List<HospitalDept>
-            {
+            {   
+                new HuangshiHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "黄石妇幼",
+                    DepartmentName = "国产2价",
+                    DepartmentId = "213",
+                    PackageId = "000092",
+                },
                 new HuangshiHospital
                 {
                     HospitalId = "1",
                     HospitalName = "黄石妇幼",
                     DepartmentName = "九价",
                     DepartmentId = "216",
+                    PackageId = "000109"
                 },
                 new HuangshiHospital
                 {
@@ -185,7 +194,6 @@ namespace Huangshi.viewmodel
 
             SelectedDepartment = Departments.FirstOrDefault();
             _searchController = new SearchController();
-
         }
 
         private void InitCommands()
@@ -248,7 +256,7 @@ namespace Huangshi.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    BuildOrders();
+                    //BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -306,8 +314,8 @@ namespace Huangshi.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    Appoint();     
-                    //await _searchController.SearchMiaoAsync();
+                    //Appoint();     
+                    await _searchController.SearchMiaoAsync();
                     //_searchController.SearchMiaoAsync();
                 }
                 catch (HttpException ex)
@@ -530,6 +538,7 @@ namespace Huangshi.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DocId, selectedDept.DoctorId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.PackageId, selectedDept.PackageId);
 
             Log(selectedDept.ToLogString());
         }
