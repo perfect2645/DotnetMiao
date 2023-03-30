@@ -129,7 +129,7 @@ namespace chutian.viewmodel
         {
             Interval = 800;
 
-            UserPhone = "17198008619";
+            UserPhone = "17136341196";
             _userPassword = "123456";
             //ScheduleId = "d900afa7-a1cd-427a-a601-dd5a51837609";
 

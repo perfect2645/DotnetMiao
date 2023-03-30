@@ -295,7 +295,7 @@ namespace Baohe.search
 
             MainSession.OrderSession.Clear();
 
-            for(var i = 0; i < 5; i++)
+            for(var i = 0; i < 10; i++)
             {
                 var order = new Order(defaultMember, i);
                 MainSession.OrderSession.AddOrder(order);
