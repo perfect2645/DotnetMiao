@@ -97,7 +97,7 @@ namespace Jikong.search
             var availableSchedule = GetAvailableSchedule(scheduleList);
             if (!availableSchedule.HasItem())
             {
-                Log($"没货了！");
+                MainSession.PrintLogEvent.Publish(this, $"日期：{Date}没货了！");
                 return;
             }
 
