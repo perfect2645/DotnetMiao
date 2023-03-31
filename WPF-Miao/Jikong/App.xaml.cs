@@ -33,6 +33,7 @@ namespace Jikong
             HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<YuyueHpvController>();
             HttpServiceController.AddTransientService<SearchSuccessController>();
             HttpServiceController.AddTransientService<CancelController>();
             HttpServiceController.BuidServiceProvider();

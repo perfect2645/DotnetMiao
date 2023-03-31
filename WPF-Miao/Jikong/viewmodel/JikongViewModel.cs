@@ -162,8 +162,8 @@ namespace Jikong.viewmodel
         {
             StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(20);
 
-            StartDate = new DspVal("2023-3-25");
-            EndDate = new DspVal("2023-3-25");
+            StartDate = new DspVal("2023-04-01");
+            EndDate = new DspVal("2023-04-01");
 
             var dateRange = DateTimeUtil.GetDateRange(StartDate.Value, EndDate.Value);
             DateList = new List<DspVal>();
@@ -195,8 +195,8 @@ namespace Jikong.viewmodel
                     HospitalName = "武汉疾控",
                     DepartmentName = "预检登记室",
                     DepartmentId = "18013",
-                    DoctorId = "718",
-                    DoctorName = "四价人乳头瘤病毒疫苗"
+                    DoctorId = "703",
+                    DoctorName = "九价人乳头瘤病毒疫苗"
                 },
                 new JikongHospital
                 {
@@ -204,11 +204,9 @@ namespace Jikong.viewmodel
                     HospitalName = "武汉疾控",
                     DepartmentName = "预检登记室",
                     DepartmentId = "18013",
-                    DoctorId = "703",
-                    DoctorName = "九价人乳头瘤病毒疫苗"
+                    DoctorId = "718",
+                    DoctorName = "四价人乳头瘤病毒疫苗"
                 },
-
-
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -450,6 +448,7 @@ namespace Jikong.viewmodel
                         ItemName = template.ItemName,
                         ItemCode = template.ItemCode,
                         MinuteHourRegTotal = template.MinuteHourRegTotal,
+                        MinuteHourRegOdd = template.MinuteHourRegOdd,
                         ScheduleCode = template.ScheduleCode,
                         ScheduleInfoCode = template.ScheduleInfoCode,
                         VisitDate = template.VisitDate,

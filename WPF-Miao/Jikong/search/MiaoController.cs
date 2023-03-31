@@ -94,10 +94,17 @@ namespace Jikong.search
         {
             var orderList = new List<Order>();
 
+            var availableSchedule = GetAvailableSchedule(scheduleList);
+            if (!availableSchedule.HasItem())
+            {
+                Log($"没货了！");
+                return;
+            }
+
             foreach (var user in MainSession.Users)
             {
                 var userName = user.UserName;
-                foreach (var schedule in scheduleList)
+                foreach (var schedule in availableSchedule)
                 {
                     Order orderWithTime = BuildOneOrder(user, Date, schedule);
                     orderList.Add(orderWithTime);
@@ -111,6 +118,15 @@ namespace Jikong.search
             };
 
             MainSession.OrderEvent.Publish(this, orderArgs);
+        }
+
+        private List<Schedule> GetAvailableSchedule(List<Schedule> scheduleList)
+        {
+            var availableScheduleList = new List<Schedule>();
+
+            availableScheduleList = scheduleList.Where(sche => sche.minuteHourRegOdd > 0).ToList();
+
+            return availableScheduleList;
         }
 
         private Order BuildOneOrder(JikongLogin user, string date, Schedule schedule)
@@ -128,6 +144,7 @@ namespace Jikong.search
                 ItemName = doctorName,
                 ItemCode = doctorId,
                 MinuteHourRegTotal = schedule.minuteHourRegTotal,
+                MinuteHourRegOdd= schedule.minuteHourRegOdd,
                 ScheduleCode = schedule.scheduleCode,
                 ScheduleInfoCode = schedule.scheduleInfoCode,
                 VisitDate = Date,

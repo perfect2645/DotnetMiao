@@ -11,11 +11,11 @@ using Utils;
 
 namespace Jikong.appointment
 {
-    public class YuyueController : HttpClientBase
+    public class YuyueHpvController : HttpClientBase
     {
         public bool IsSuccess { get; set; }
         private bool IsHeaderBuilt { get; set; }
-        public YuyueController(HttpClient httpClient) : base(httpClient)
+        public YuyueHpvController(HttpClient httpClient) : base(httpClient)
         {
             IsSuccess = false;
         }
@@ -80,10 +80,10 @@ namespace Jikong.appointment
 
                 MainSession.PrintLogEvent.Publish(this, orderData);
 
-                //if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
-                //{
-                //    return true;
-                //}
+                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                {
+                    return true;
+                }
 
                 return false;
             }

@@ -9,7 +9,8 @@ namespace Jikong.appointment
         public string UserName { get; set; }
         public string ItemName { get; set; }
         public string ItemCode { get; set; }
-        public string MinuteHourRegTotal { get; set; }
+        public int MinuteHourRegTotal { get; set; }
+        public int MinuteHourRegOdd { get; set; }
         public string VisitDate { get; set; }
         public string VisitTime { get; set; }
         public string AmOrPm { get; set; }
