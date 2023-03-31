@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Jikong.session
 {
-    public class AppointSession : ControllerSession<YuyueHpvController>
+    public class AppointSession : ControllerSession<YuyueController>
     {
         public AppointSession() : base()
         {
