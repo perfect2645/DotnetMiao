@@ -42,6 +42,14 @@ namespace Baohe.viewModel
         {
             try
             {
+                MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
+
+                if (string.IsNullOrEmpty(ArrangeSn))
+                {
+                    MainSession.PrintLogEvent.Publish(this, "转号请先输入ArrangeSn");
+                    return;
+                }
+
                 MainSession.Cookie = Cookie;
 
                 var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
