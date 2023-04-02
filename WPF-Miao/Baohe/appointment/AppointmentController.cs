@@ -61,7 +61,7 @@ namespace Baohe.appointment
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Encode).Result;
-            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            var code = response?.Body?.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
                 throw new HttpException($"{Constant.ProjectName}:Appointment-{content.RequestUrl} - {response.Body["Message"]}", Constant.Appointment);

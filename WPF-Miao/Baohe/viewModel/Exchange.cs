@@ -42,6 +42,8 @@ namespace Baohe.viewModel
         {
             try
             {
+                StartTime = DateTime.Now.AddSeconds(20);
+                ArrangeSn = "169666337";
                 MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
 
                 if (string.IsNullOrEmpty(ArrangeSn))
@@ -51,13 +53,10 @@ namespace Baohe.viewModel
                 }
 
                 MainSession.Cookie = Cookie;
-
-                var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
-                dept.HasYzm = false;
                 Task.Factory.StartNew(async () =>
                 {
                     await AutoRunAsync();
-                    VerifyCode.ExecuteVerifyYzmAsync();
+                    //VerifyCode.ExecuteVerifyYzmAsync();
                 });
             }
             catch (HttpException ex)
