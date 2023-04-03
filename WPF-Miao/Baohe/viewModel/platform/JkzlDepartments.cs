@@ -14,11 +14,12 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1099108", "雨花经济开发区社区卫生服务中心",
-                "7235364", "九价Hpv")
+            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
+                "1023044", "硚口区古田街社区卫生服务中心",
+                "7152219", "九价HPV疫苗")
             {
-                DoctorSn = "711230166"
+                HasYzm = false,
+                DoctorSn = "711250004"
             });
 
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",

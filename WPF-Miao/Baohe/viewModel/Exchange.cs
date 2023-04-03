@@ -24,29 +24,18 @@ namespace Baohe.viewModel
 
         public ICommand ExchangeCommand { get; set; }
 
-
-        private string arrangeSn;
-        public string ArrangeSn
-        {
-            get { return arrangeSn; }
-            set
-            {
-                arrangeSn = value;
-                NotifyUI(() => ArrangeSn);
-            }
-        }
-
         #endregion Properties
 
         private void ExecuteExchangeAsync()
         {
             try
             {
+                VerifyCode.ArrangeSn = "169666337";
+                UserName = "肖丽媛";
                 StartTime = DateTime.Now.AddSeconds(20);
-                ArrangeSn = "169666337";
                 MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
 
-                if (string.IsNullOrEmpty(ArrangeSn))
+                if (string.IsNullOrEmpty(VerifyCode.ArrangeSn))
                 {
                     MainSession.PrintLogEvent.Publish(this, "转号请先输入ArrangeSn");
                     return;

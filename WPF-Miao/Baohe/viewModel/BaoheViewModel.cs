@@ -96,11 +96,13 @@ namespace Baohe.viewModel
         {
             MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
+
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
 

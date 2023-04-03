@@ -136,14 +136,14 @@ namespace Huangshi.viewmodel
         {
             //var phoneEncode = JsReader.GetEncodeString("13940897525");
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(30);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-03-30", "2023-03-31");
+            var dateRange = DateTimeUtil.GetDateRange("2023-04-03", "2023-04-04");
             DateList = new List<DspVal>();
             foreach(var date in dateRange)
             {
@@ -171,14 +171,6 @@ namespace Huangshi.viewmodel
                 {
                     HospitalId = "1",
                     HospitalName = "黄石妇幼",
-                    DepartmentName = "国产2价",
-                    DepartmentId = "213",
-                    PackageId = "000092",
-                },
-                new HuangshiHospital
-                {
-                    HospitalId = "1",
-                    HospitalName = "黄石妇幼",
                     DepartmentName = "九价",
                     DepartmentId = "216",
                     PackageId = "000109"
@@ -189,6 +181,14 @@ namespace Huangshi.viewmodel
                     HospitalName = "黄石妇幼",
                     DepartmentName = "四价",
                     DepartmentId = "215",
+                },
+                new HuangshiHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "黄石妇幼",
+                    DepartmentName = "国产2价",
+                    DepartmentId = "213",
+                    PackageId = "000092",
                 },
             };
 
