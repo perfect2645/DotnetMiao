@@ -24,32 +24,28 @@ namespace Baohe.viewModel
 
         public ICommand ExchangeCommand { get; set; }
 
-
-        private string arrangeSn;
-        public string ArrangeSn
-        {
-            get { return arrangeSn; }
-            set
-            {
-                arrangeSn = value;
-                NotifyUI(() => ArrangeSn);
-            }
-        }
-
         #endregion Properties
 
         private void ExecuteExchangeAsync()
         {
             try
             {
-                MainSession.Cookie = Cookie;
+                VerifyCode.ArrangeSn = "169666337";
+                UserName = "肖丽媛";
+                StartTime = DateTime.Now.AddSeconds(20);
+                MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
 
-                var dept = MainSession.PlatformSesstion[Constant.Department] as Jiankangzhilu;
-                dept.HasYzm = false;
+                if (string.IsNullOrEmpty(VerifyCode.ArrangeSn))
+                {
+                    MainSession.PrintLogEvent.Publish(this, "转号请先输入ArrangeSn");
+                    return;
+                }
+
+                MainSession.Cookie = Cookie;
                 Task.Factory.StartNew(async () =>
                 {
                     await AutoRunAsync();
-                    VerifyCode.ExecuteVerifyYzmAsync();
+                    //VerifyCode.ExecuteVerifyYzmAsync();
                 });
             }
             catch (HttpException ex)
