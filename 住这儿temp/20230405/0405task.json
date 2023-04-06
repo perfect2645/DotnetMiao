@@ -1,1 +1,278 @@
-{"message":"success","code":200,"result":[{"activityTaskId":4562,"taskId":587,"taskName":"每日参与城市大富翁","chanceNumber":1,"taskDesc":"大富翁","tips":"每日首次参与活动即可获得1次摇骰子机会","detail":[{"taskDetailId":588,"sceneName":"登录app","sceneCode":"app-startapp","sceneDesc":"","url":"1","detailDesc":"","finished":true,"minVersion":"5.2.6","eventCode":null,"processValue":"1","requiredValue":"1"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4563,"taskId":589,"taskName":"每日邀请3位亲友助力","chanceNumber":1,"taskDesc":"大富翁","tips":"每天邀请3位亲友助力即可获得1次摇骰子机会","detail":[{"taskDetailId":590,"sceneName":"邀请好友参与活动","sceneCode":"app-act-invite&view","sceneDesc":"","url":"1","detailDesc":"","finished":false,"minVersion":"","eventCode":null,"processValue":"0","requiredValue":"3"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4565,"taskId":588,"taskName":"每日体验购买到家服务","chanceNumber":1,"taskDesc":"大富翁","tips":"每日完成1次桶装水或家政到家服务下单","detail":[{"taskDetailId":589,"sceneName":"便民支付成功","sceneCode":"5thzone-convenience-pay","sceneDesc":"","url":"https://neighbor.4009515151.com/summoner-canary/water?pageMark=4yzzetchdtzs","detailDesc":"","finished":false,"minVersion":"","eventCode":"LIVE:CONV:0001","processValue":"0","requiredValue":"1"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4566,"taskId":591,"taskName":"每周请30位亲友助力","chanceNumber":30,"taskDesc":"大富翁","tips":"每周1次限定任务：本周累计邀请30位亲友助力","detail":[{"taskDetailId":592,"sceneName":"邀请好友参与活动","sceneCode":"app-act-invite&view","sceneDesc":"","url":"1","detailDesc":"","finished":false,"minVersion":"","eventCode":null,"processValue":"0","requiredValue":"30"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":30,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4564,"taskId":590,"taskName":"每日玩积分大转盘抽奖","chanceNumber":1,"taskDesc":"大富翁","tips":"每天用积分兑换任意礼品即可完成任务","detail":[{"taskDetailId":591,"sceneName":"消耗积分","sceneCode":"app-points","sceneDesc":"","url":"https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hdApril","detailDesc":"","finished":false,"minVersion":"","eventCode":"ACT:SCORE:0001","processValue":"0","requiredValue":"1"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4569,"taskId":593,"taskName":"每周参与春天摄影比赛","chanceNumber":1,"taskDesc":"大富翁","tips":"每周完成1次：参与春天摄影比赛发帖成功","detail":[{"taskDetailId":594,"sceneName":"发帖成功","sceneCode":"app-post","sceneDesc":"邻居团队使用","url":"https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=333","detailDesc":"","finished":false,"minVersion":"","eventCode":"CMS:SOCIAL:0001","processValue":"0","requiredValue":"1"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4567,"taskId":4,"taskName":"房屋绑定成功","chanceNumber":1,"taskDesc":"","tips":"限定完成1次：完成房屋绑定并认证业主/家属/租客身份","detail":[{"taskDetailId":4,"sceneName":"绑定房屋成功","sceneCode":"app-housebinding","sceneDesc":"","url":"zze://vanke.com/user/house/list","detailDesc":"","finished":true,"minVersion":"","eventCode":"ASSET:MAG:0001","processValue":"1","requiredValue":"1"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null},{"activityTaskId":4568,"taskId":592,"taskName":"报名以内洗地机0元试","chanceNumber":1,"taskDesc":"大富翁","tips":"限定完成1次：成功报名以内洗地机0元试活动","detail":[{"taskDetailId":593,"sceneName":"社区活动报名成功","sceneCode":"app-communityactivity-signup","sceneDesc":"","url":"https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activityDetail?id=96295","detailDesc":"","finished":false,"minVersion":"","eventCode":"OFFLINE:OFFLINE:0001","processValue":"0","requiredValue":"1"}],"taskGameList":[{"activityGameId":1332,"gameId":1200,"gameTitle":"摇骰子机会","limitCount":1,"chanceName":""}],"limitCount":1,"finishCount":null}]}
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 4562,
+            "taskId": 587,
+            "taskName": "每日参与城市大富翁",
+            "chanceNumber": 1,
+            "taskDesc": "大富翁",
+            "tips": "每日首次参与活动即可获得1次摇骰子机会",
+            "detail": [
+                {
+                    "taskDetailId": 588,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4563,
+            "taskId": 589,
+            "taskName": "每日邀请3位亲友助力",
+            "chanceNumber": 1,
+            "taskDesc": "大富翁",
+            "tips": "每天邀请3位亲友助力即可获得1次摇骰子机会",
+            "detail": [
+                {
+                    "taskDetailId": 590,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4565,
+            "taskId": 588,
+            "taskName": "每日体验购买到家服务",
+            "chanceNumber": 1,
+            "taskDesc": "大富翁",
+            "tips": "每日完成1次桶装水或家政到家服务下单",
+            "detail": [
+                {
+                    "taskDetailId": 589,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=4yzzetchdtzs",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4566,
+            "taskId": 591,
+            "taskName": "每周请30位亲友助力",
+            "chanceNumber": 30,
+            "taskDesc": "大富翁",
+            "tips": "每周1次限定任务：本周累计邀请30位亲友助力",
+            "detail": [
+                {
+                    "taskDetailId": 592,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "30"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 30,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4564,
+            "taskId": 590,
+            "taskName": "每日玩积分大转盘抽奖",
+            "chanceNumber": 1,
+            "taskDesc": "大富翁",
+            "tips": "每天用积分兑换任意礼品即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 591,
+                    "sceneName": "消耗积分",
+                    "sceneCode": "app-points",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hdApril",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4569,
+            "taskId": 593,
+            "taskName": "每周参与春天摄影比赛",
+            "chanceNumber": 1,
+            "taskDesc": "大富翁",
+            "tips": "每周完成1次：参与春天摄影比赛发帖成功",
+            "detail": [
+                {
+                    "taskDetailId": 594,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=333",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4567,
+            "taskId": 4,
+            "taskName": "房屋绑定成功",
+            "chanceNumber": 1,
+            "taskDesc": "",
+            "tips": "限定完成1次：完成房屋绑定并认证业主/家属/租客身份",
+            "detail": [
+                {
+                    "taskDetailId": 4,
+                    "sceneName": "绑定房屋成功",
+                    "sceneCode": "app-housebinding",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/user/house/list",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ASSET:MAG:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4568,
+            "taskId": 592,
+            "taskName": "报名以内洗地机0元试",
+            "chanceNumber": 1,
+            "taskDesc": "大富翁",
+            "tips": "限定完成1次：成功报名以内洗地机0元试活动",
+            "detail": [
+                {
+                    "taskDetailId": 593,
+                    "sceneName": "社区活动报名成功",
+                    "sceneCode": "app-communityactivity-signup",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activityDetail?id=96295",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "OFFLINE:OFFLINE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1332,
+                    "gameId": 1200,
+                    "gameTitle": "摇骰子机会",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        }
+    ]
+}

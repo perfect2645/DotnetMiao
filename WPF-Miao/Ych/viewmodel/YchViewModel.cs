@@ -122,25 +122,39 @@ namespace Ych.viewmodel
         {
             Interval = 200;
 
-            OpenId = "o4oPojnR7mXgRMmDGP1YVbVfebbo";
+            //OpenId = "o4oPojnR7mXgRMmDGP1YVbVfebbo";
 
             //StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(13).AddMinutes(28);
+            StartTime = DateTime.Today.AddHours(14).AddMinutes(29).AddSeconds(55);
             MainSession.StartTime = StartTime;
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
             {
+                           new YchHospital
+                {
+                    HospitalId = "http://caohuhospital.com",
+                    HospitalName = "漕湖人民医院",
+                    DepartmentId = "1216",
+                    DepartmentName = "九价",
+                },
+                new YchHospital
+                {
+                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
+                    HospitalName = "漕湖街道社区卫生服务中心",
+                    DepartmentId = "1220",
+                    DepartmentName = "九价",
+                },
                 new YchHospital
                 {
                     HospitalId = "http://www.sz-tpwsy.com",
