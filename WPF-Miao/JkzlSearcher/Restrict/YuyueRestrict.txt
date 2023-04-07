@@ -1,0 +1,7 @@
+﻿antiBrushChk":[1] - 短信验证码
+
+
+井岗9价
+{"Message":"成功","Code":10000,"Result":{"allow":"1","antiBrushChk":[1],"childChk":3,"waitChk":[],"isChild":0,"childNotPass":""}}
+雨花开发区
+{"Message":"成功","Code":10000,"Result":{"allow":"1","antiBrushChk":[1],"childChk":3,"waitChk":[],"isChild":0,"childNotPass":""}}

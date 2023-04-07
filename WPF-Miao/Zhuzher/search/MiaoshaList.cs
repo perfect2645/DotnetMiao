@@ -59,46 +59,23 @@ namespace Zhuzher.search
         {
             MiaoshaList = new List<MiaoshaItem>();
             InitMiaoshaList();
+            //TestInitMiaoshaList();
         }
 
         private void TestInitMiaoshaList()
         {
-            AddDuobaoItem(2818, "iPhone 14 Pro", "452", 125);
-            AddMiaoshaItem(2859, 1, "AirPods 3", "466", "2022-09-24 22:11:00");
-            AddMiaoshaItem(2832, 1, "蒙牛圣牧有机奶1箱 3", "466", "2022-09-24 22:12:00");
-            AddMiaoshaItem(2835, 1, "长粒香东北大米5KG", "466", "2022-09-24 22:13:00");
-
-
+            //AddMiaoshaItem(5734, 1, "【6折】家政家电清洁大额补贴", "1059", "2022-12-08 20:13:00");
         }
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(2821, "友邻市集5元无门槛券", "466");
-            //AddDuobaoItem(2817, "iPhone 14 Pro", "452", 72);
-            //AddDuobaoItem(2818, "iPhone 14 Pro", "452", 125);
-            //AddMiaoshaItem(2832, 1, "AirPods 3", "466", "2022-09-25 12:00:00");
-            //AddMiaoshaItem(2835, 1, "长粒香东北大米5KG", "466", "2022-09-25 12:00:00");
-            //AddMiaoshaItem(2834, 1, "送一个月物业费", "466", "2022-09-25 12:00:00");
-            //AddMiaoshaItem(2841, 1, "5元物业券", "466", "2022-09-25 12:00:00");
-            //AddMiaoshaItem(2836, 2, "蒙牛圣牧有机奶1箱", "466", "2022-09-25 14:00:00");
-            //AddMiaoshaItem(2842, 2, "AirPods 3", "466", "2022-09-25 14:00:00");
-            //AddMiaoshaItem(2843, 2, "送一个月物业费", "466", "2022-09-25 14:00:00");
-            //AddMiaoshaItem(2844, 3, "AirPods 3", "466", "2022-09-25 16:00:00");
-            //AddMiaoshaItem(2845, 3, "送一个月物业费", "466", "2022-09-25 16:00:00");
-            //AddMiaoshaItem(2837, 3, "温氏牧场原味酸奶1箱", "466", "2022-09-25 16:00:00");
-            //AddMiaoshaItem(2833, 4, "一年物业费", "466", "2022-09-25 18:00:00");
-            //AddMiaoshaItem(2846, 4, "AirPods 3", "466", "2022-09-25 18:00:00");
-            //AddMiaoshaItem(2838, 4, "维达蓝色经典有芯卷纸", "466", "2022-09-25 18:00:00");
-            //AddMiaoshaItem(2819, 4, "10元物业券", "466", "2022-09-25 18:00:00");
-            AddMiaoshaItem(2847, 5, "AirPods 3", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2848, 5, "送一个月物业费", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2839, 5, "荣事达亚摩斯304不锈钢小奶锅", "466", "2022-09-25 20:00:00");
-            //AddMiaoshaItem(2851, 5, "20元物业券", "466", "2022-09-25 20:00:00");
-            AddMiaoshaItem(2824, 6, "送1个月物业费", "465", "2022-09-25 20:20:00");
-            AddMiaoshaItem(2849, 7, "AirPods 3", "466", "2022-09-25 22:00:00");
-            AddMiaoshaItem(2850, 7, "送一个月物业费", "466", "2022-09-25 22:00:00");
-            AddMiaoshaItem(2840, 7, "心相印印花厨房纸巾8卷", "466", "2022-09-25 22:00:00");
-            AddMiaoshaItem(2875, 100, "iPhone 14 Pro Max 256G", "476", "2022-09-25 21:00:00");
+            //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
+            AddMiaoshaItem(6292, 1, "免单！TF情人节限定礼盒", "1242", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(6228, 1, "免单！兰蔻小黑瓶精华50ml", "1242", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(6227, 1, "免单！TF情人节限定礼盒", "1242", $"{DateTimeUtil.GetToday()} 19:59:59");
+            //AddMiaoshaItem(6228, 1, "免单！兰蔻小黑瓶精华50ml", "1242", $"{DateTimeUtil.GetToday()} 19:59:59");
+            //AddMiaoshaItem(6132, 1, "万事顺意：送1斤陕西富平柿饼", "1230", $"{DateTimeUtil.GetToday()} 20:00:01");
+            //AddMiaoshaItem(6133, 1, "大吉大利：送2只鲜嫩的三黄鸡", "1230", $"{DateTimeUtil.GetToday()} 20:00:02");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

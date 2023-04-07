@@ -3,6 +3,7 @@ using HttpProcessor.ExceptionManager;
 using HttpProcessor.Request;
 using HttpProcessor.Response;
 using Logging;
+using System.Net.Http.Headers;
 
 namespace HttpProcessor.Client
 {
@@ -22,6 +23,38 @@ namespace HttpProcessor.Client
         {
             Client = httpClient;
         }
+
+        #region Header
+
+        public void BuildClientHeaders(HttpStringContent content)
+        {
+            try
+            {
+                foreach (var header in content.Headers)
+                {
+                    if (!Client.DefaultRequestHeaders.Contains(header.Key))
+                    {
+                        Client.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
+                    }
+                    else
+                    {
+                        Client.DefaultRequestHeaders.Remove(header.Key);
+                        Client.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new HttpException(ex, "Build HttpClient Header");
+            }
+        }
+
+        public void AddHeaderByName(string name)
+        {
+            Client.DefaultRequestHeaders.UserAgent.TryParseAdd(name);
+        }
+
+        #endregion Header
 
         #region Search
 
@@ -81,18 +114,6 @@ namespace HttpProcessor.Client
             }
         }
 
-        public virtual void Search(HttpMessageContent content, Action<HttpDicResponse> callback)
-        {
-            try
-            {
-                Client.Search(content, callback);
-            }
-            catch (Exception ex)
-            {
-                GLog.Logger.Error("Search Failed", ex);
-            }
-        }
-
         public virtual async Task<HtmlResponse> SearchHtml(string url)
         {
             var response = await Client.SearchHtml(url);
@@ -103,29 +124,16 @@ namespace HttpProcessor.Client
 
         #region Get
 
-        public virtual async Task<string> GetStringAsync(HttpStringContent content)
+        public virtual async Task<HttpDicResponse> GetStringAsync(HttpStringContent content)
         {
             try
             {
-                return await Client.GetStringAsync(content.RequestUrl);
+                return await Client.GetJsonAsync(content);
             }
             catch (Exception ex)
             {
-                GLog.Logger.Error("GetStringAsync Failed", ex);
-                return null;
-            }
-        }
-
-        public virtual async Task<Stream> GetStreamAsync(HttpStringContent content)
-        {
-            try
-            {
-                return await Client.GetStreamAsync(content.RequestUrl);
-            }
-            catch (Exception ex)
-            {
-                GLog.Logger.Error("GetStringAsync Failed", ex);
-                return null;
+                GLog.Logger.Error("GetStringAsync", ex);
+                return new HttpDicResponse(ex.Message);
             }
         }
 
@@ -133,27 +141,56 @@ namespace HttpProcessor.Client
 
         #region Post String
 
-        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, ContentType contentType = ContentType.Json)
+        public virtual async Task<HttpDicResponse> PostStringAsync(HttpStringContent content, 
+            ContentType contentType = ContentType.Json, 
+            bool ensureSuccess = true)
         {
             try
             {
                 if (contentType == ContentType.String)
                 {
-                    return await Client.PostStringAsync(content);
+                    return await Client.PostStringAsync(content, ensureSuccess);
                 }
                 if (contentType == ContentType.Encode)
                 {
                     return await Client.PostRichEncodeAsync(content);
                 }
-                return await Client.PostJsonAsync(content);
+                return await Client.PostJsonAsync(content, ensureSuccess);
             }
             catch (Exception ex)
             {
                 GLog.Logger.Error("Search Failed", ex);
-                return null;
+                return new HttpDicResponse(ex.Message);
+            }
+        }
+
+        public virtual async Task<HttpDicResponse> PostStringDecodeAsync(HttpStringContent content,
+            Func<string, string> decodeAction,
+            ContentType contentType = ContentType.Json)
+        {
+            try
+            {
+                var response = await Client.PostAsync(content.RequestUrl, content.GetJsonContent());
+                response.EnsureSuccessStatusCode();
+                return new HttpDicResponse(response, decodeAction);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error("Search Failed", ex);
+                return new HttpDicResponse(ex.Message);
             }
         }
 
         #endregion Post String
+
+        #region Log
+
+        public void Log(string message)
+        {
+            var threadId = Thread.CurrentThread.ManagedThreadId;
+            Logging.GLog.Logger.Info($"[Thread: {threadId}]{message}");
+        }
+
+        #endregion Log
     }
 }

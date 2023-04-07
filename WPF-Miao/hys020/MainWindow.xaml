@@ -1,0 +1,11 @@
+﻿<Window x:Class="hys020.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:hys020.view"
+        Title="好医师" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:HysConsole x:Name="mainConsole">
+
+    </view:HysConsole>
+</Window>

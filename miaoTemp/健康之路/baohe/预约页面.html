@@ -1,0 +1,235 @@
+GET https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9001026&hospitalId=1047063&deptId=7229244&doctorSn=711188785&arrangeId=160450472&utm_source=0.0.h.1026.bus010.0 HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvOGVfODBZb196X1RaVmRGRzE4V0l4MjRkSTVJIiwiU2VjU3RyIjoiMUFFQ0FGQkUxMDA3MkYzNzUwMEMxMjdDMjJFQjc5MDIifQ%3D%3D; logintype=62; loginid=o8e_80Yo_z_TZVdFG18WIx24dI5I; OpenID=o8e_80Yo_z_TZVdFG18WIx24dI5I; LoginChannel=9001026; TOKEN_FF92E02EA4CF7703D9822F4F8653931A=CD65CE0480E0410E98DA89C89CAD3D5F; _YyghSysTrackUUID=19122812629; jkzlAn_uuid=08212D24-6F80-476B-9345-61E89AA82CE6; jkzlAn_channelid=9001026; jkzlAn_userid=149169340; jkzlAn_p=-1; jkzlAn_c=-1; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDkxNjkzNDAiLCJDYXJkTnVtYmVyIjoiMjA3OTI3MjEwOSIsIkxvZ2luSWQiOiJvOGVfODBZb196X1RaVmRGRzE4V0l4MjRkSTVJIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI4QkFEQzY5MUJCRUQ0QUY4MDJBRjFGMzQxNTU0MjAzMiJ9; jkzlAn_sid=C3F99B72-E68C-4227-BF44-D8764F28A8C3; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1660910406827
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7209050&doctorId=710742231&hospitalInternal=1&showMultiDept=0&platformType=9001026&exConsult=&consultHosId=1047063&utm_source=0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 19 Aug 2022 12:02:26 GMT
+Content-Type: text/html
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+Accept-Ranges: bytes
+ETag: W/"10080-1660894731000"
+Last-Modified: Fri, 19 Aug 2022 07:38:51 GMT
+Vary: Accept-Encoding
+Content-Length: 10080
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>就诊信息</title>
+		<link rel="stylesheet" href="//f1.yihuimg.com/concat/mobile/??cross/css/cross.old.min.css,cross/css/dialog.ui.min.css" />
+		<link rel="stylesheet" href="../iconfont/iconfont.css?v=081024" type="text/css">
+		<link rel="stylesheet" href="../css/public.css" type="text/css">
+		<link rel="stylesheet" href="../css/doctor.css?v=20181101" type="text/css">
+		<link rel="stylesheet" href="../css/kitdialog.css" type="text/css">
+		<link rel="stylesheet" href="../cross/css/cross.css" type="text/css">
+		<link rel="stylesheet" href="../css/animate.min.css" type="text/css" />
+    	<link rel="stylesheet" href="../css/sep-style.min.css?v=201021" type="text/css">
+	</head>
+	<style type="text/css">
+	      .box2,.box3{position:fixed; top: 50% !important; margin-top: -150px !important;}
+	</style>
+<body>
+<div id="ghDiv">
+        <!-- 科室/医生/预约时间/挂号费用 -->
+        <div class="pm_mess_new">
+            <div class="pntop">
+                <div class="pmn_con">预约信息<span id="reDateInfo"></span></div>
+            </div>
+            <ul>
+                <li>
+                    <div class="pmn_tit c-333"><i class="iconfont icon-doctor mr5"></i>预约医生</div>
+                    <div class="pmn_con c-909090"><span id="docName"></span><span class="c-f13 ml5" id="depName"></span></div>
+                </li>
+                <li id="liAmount" style="display:none"></li>
+                <li id="liAmountOnline" style="display:none"></li>
+                <li id="selnum">
+                    <div class="pmn_tit c-333"><i class="iconfont icon-rili mr5"></i>选择号源</div>
+                    <div class="pmn_con c-ff8100"><span id="numcon">请选择号源！</span></div>
+                    <div class="prpoint"></div>
+                </li>
+                <li id="selmember">
+                    <div class="pmn_tit c-333"><i class="iconfont icon-iconqianbao mr5"></i>就诊人</div>
+                    <div class="pmn_con c-909090"><span id="memname"></span></div>
+                    <div class="prpoint"></div>
+                </li>
+                <li id="liClinicCard" style="display:none"></li>
+            </ul>
+            <ul class="childul" id="formUl" style="display: none;">
+                <li id="liMoreInfo"></li>
+                <li id="liGraphAuth" style ='display:none'></li>
+                <li id="liYzmPhone" style ='display:none'>
+                    <div class="pmn_tit c-333">手机号码：</div>
+                    <div class="pmn_con c-909090">
+                        <input class="pminput" type="text" id="telephon" maxlength="28" masstxt="请填写正确的手机！"></div>
+                </li>
+                <li id="liYzmCode"  style ='display:none'>
+                    <div class="pmn_tit c-333">验证码：</div>
+                    <div class="pmn_con c-909090">
+                        <input class="pminput" type="text" id="valCode" maxlength="20" masstxt="请输入验证码！" placeholder="请填写验证码"></div>
+                    <a id="getValidCode" href="javascript:;" onclick="SendYzm();" class="sched-btn">发送验证码</a>
+                </li>
+            </ul>
+            <ul class="bor_t bor_b">
+                <li>
+                    <div class="pmn_con c-007cd9 editinto">
+                        <label>编辑就诊人</label><span class="arrow-right"></span></div>
+                </li>
+            </ul>
+        </div>
+        <div id="divShowOpenAccManage"></div>
+        <div class="pm_mess_new c-border-tb mt10">
+            <div class="pntop" style="display: -webkit-box;" id="diseaseChoo">
+                <div>疾病信息</div>
+                <div class="pmn_con c-909090 c-t-right pr15">
+                    <input type="hidden" id="cmb_disease" name="ghFormCon" />
+                    <span id="cmb_diseasename">请选择</span>
+                    <span class="rightjt arrow-right"></span>
+                </div>
+            </div>
+        </div>
+        <!--陪诊服务-->
+        <div id="divPz">
+        </div>
+        <!-- 预约提示 -->
+        <div id="divRemarkBlock" style="display: none" class="pm_mess_new bor_t bor_b mt10">
+            <div class="pntop">
+                <div class="pmn_con">预约须知</div>
+            </div>
+            <ul class="pmnotice pb10 mt10">
+                <li>
+                    <div id="divRemark" class="pmn_con"></div>
+                </li>
+            </ul>
+        </div>
+        <!-- 预约按钮 -->
+        <div class="btnhold">
+            <div class="plr10 mt20 pb20">
+                <a href="javascript:;" class=" c-btn c-btn-full c-btn-4dcd70 c-f15 border-radius-rounded" id="orderBtn" style="display: none">立即预约</a>
+            </div>
+        </div>
+    </div>
+    <!-- 号原列表 -->
+    <div id="numDiv" class="dmtpop">
+        <ul id="numWatUl">
+        </ul>
+    </div>
+    <!-- 就诊人列表 -->
+    <div id="memberDiv" class="dmtpop">
+        <div id="memlist">
+            <ul id="memberUl" >
+            </ul>
+        </div>
+        <span class="dmtadd"><a id="ToAddMember" href="javascript:toAddMember();">添加就诊人</a></span>
+    </div>
+    <!-- 正在锁号 -->
+    <div class="conf_box box2" style="display: none;">
+        <div class="b_traet_list confcontent">
+            <div class="circle-dashed mt20">
+            </div>
+            <span id="num"></span>
+            <p id="box2Msg" class="mtb15">正在锁定号源，请稍后</p>
+        </div>
+        <div class="confbtn">
+            <a href="javascript:" id="box2Unlock" class="onebtn confbor">取消锁定</a>
+        </div>
+    </div>
+    <!-- 锁号成功 -->
+    <div class="conf_box box3" style="display: none;">
+        <div class="b_traet_list confcontent">
+            <div class="circle-dashed"></div>
+            <p class="mtb15">锁号成功，订单处理中……</p>
+        </div>
+    </div>
+    <div id="openDiv">
+    </div>
+    <div class="pop_screen" style="display: none;" onclick="ShowGh();">
+    </div>
+    <!-- 搜索疾病 -->
+    <div class="c-main c-hide" id="diseaseShow" >
+        <div class="search-hold" >
+            <div class="c-ser-hold c-boxs c-serdet c-border-b" >
+                <div class="c-ser-back"><i class="si-right"></i></div>
+                <div class="c-ser-main">
+                    <i class="ser-icon ser-icon-search"></i>
+                    <input id="inpDiseaseName" type="text" class="c-ser-input c-f13 c-boxs" placeholder="搜索疾病" />
+                </div>
+                <div class="c-ser-btn"><a href="javascript:SearchDisease(true)">搜索</a></div>
+            </div>
+        </div>
+        <div class="search-result">
+            <div class="ser-defu c-f15">
+                <div class="ser-defu-his">
+                    <ul id="ulDiseaseList" class="c-border-b">
+                        <li data-id="0" onclick="SelDisease(this)">未确诊</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--详细地址 end-->
+    <div id="divAccountManage"></div>
+	<div class="scode-hold c-hide">
+		<div class="scode-mask"></div>
+		<div class="scode-pop">
+			<a href="javascript:;" class="scode-close"><i class="iconfont icon-close_icon"></i></a>
+			<div class="scp-top">
+				<p>邀请成员扫码关注健康之路公众号</p>
+				<h4>免费享受服务 ~</h4>
+			</div>
+			<div class="scp-con">
+				<p><img src="../images/a-ewm.png" alt="" /></p>
+				<p class="mt5">长按二维码发送给朋友</p>
+			</div>
+		</div>
+	</div>
+    <input type="hidden" id="maxmember" value="5" />
+	<input type="hidden" id="nowMember" />
+	<input type="hidden" id="reqMemSn" />
+	<script type="text/javascript" src="//f1.yihuimg.com/concat/mobile/cross/js/jquery/2.1.3/jquery.js"></script>
+	<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script type="text/javascript" src="//f1.yihuimg.com/concat/mobile/widget/mobiscroll/2.17.1/js/mobiscroll.min.js"></script>
+    <link rel="stylesheet" href="//f1.yihuimg.com/concat/mobile/widget/mobiscroll/2.17.1/css/mobiscroll.min.css" />
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/base.js?v=20210624"></script>
+	<script type="text/javascript" src="../js/checkForm.js?v=20181211"></script>
+    <script type="text/javascript" src="../widget/cmarea/js/cmarea.js"></script>
+    <link rel="stylesheet" href="../widget/cmarea/css/cmarea.css" />
+    <script type="text/javascript" src="//f1.yihuimg.com/TFS/upfile/realfile/1000000/imgjs1.3.js"></script>
+	<script type="text/javascript" src="../js/register/registerOrder.js?v=20220624"></script>
+	<script type="text/javascript" src="../js/register/registerRealTime.js?v=20180903"></script>
+	<script type="text/javascript" src="../js/register/orderFormComm.js?v=20211027"></script>
+    <script type="text/javascript" src="../js/register/orderPeizhen.js?v=20180903"></script>
+    <script type="text/javascript" src="../js/register/orderFormPlus.js?v=20210609"></script>
+	<script type="text/javascript" src="../js/iscroll.js"></script>
+	<script type="text/javascript" src="../js/jquery.json-2.4.js"></script>
+	<script type="text/javascript" src="//f1.yihuimg.com/concat/mobile/widget/artDialog/6.0.5/js/dialog-plus.min.js"></script>
+    <script type="text/javascript" src="../js/commShare.js?v=20220713"></script>
+	<script type="text/javascript">
+	if(showPageTop){
+	    $('.c-ser-hold.c-boxs.c-serdet.c-border-b').attr('style','top:43px;');
+	}
+	$(function(){
+		initShowShare(false,'','','','','');
+	});
+</script>
+	</body>
+</html>

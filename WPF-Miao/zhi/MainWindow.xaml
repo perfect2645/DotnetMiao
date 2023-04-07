@@ -1,0 +1,11 @@
+﻿<Window x:Class="zhi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Zhi.view"
+        Title="知苗" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:ZhiConsole x:Name="mainConsole">
+
+    </view:ZhiConsole>
+</Window>

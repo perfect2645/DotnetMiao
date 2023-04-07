@@ -24,18 +24,18 @@ namespace Jkchegu.search.yzm
             }
         }
 
-        public async Task GetYzmAsync()
+        public async Task<string> GetYzmAsync(User user)
         {
-            await Task.Factory.StartNew(() => GetYzm());
+            return await Task.Factory.StartNew(() => GetYzm(user));
         }
 
-        public void GetYzm()
+        public string GetYzm(User user)
         {
             var timeStamp = DateTimeUtil.GetTimeStamp();
             var url = $"http://app.whkfqws.com/wx-mobile/Vaccination/code.do?t={timeStamp}";
 
-            var content = new SearchContent(url);
-            content.AddHeader("Cookie", JkSession.Cookie);
+            var content = new DateCountContent(user.Etid, url);
+            content.AddHeader("Cookie", user.Session);
 
             content.BuildDefaultHeaders(Client);
 
@@ -43,16 +43,19 @@ namespace Jkchegu.search.yzm
             if (byteYzm == null)
             {
                 JkSession.PrintLogEvent.Publish(this, $"GetYzm 失败");
+                return "获取验证码 失败";
             }
 
             var yzmResult = GetCodeFromOcr(byteYzm!);
             if (string.IsNullOrEmpty(yzmResult))
             {
                 JkSession.PrintLogEvent.Publish(this, $"获取验证码 失败");
-                return;
+                return "获取验证码 失败";
             }
-            JkSession.PrintLogEvent.Publish(this, $"获取验证码 成功 - {yzmResult}");
+            Log($"获取验证码 成功 - {yzmResult}");
             JkSession.MiaoSession.AddOrUpdate("Yzm", yzmResult);
+
+            return yzmResult;
         }
 
         // [StructLayout(LayoutKind.Sequential)]

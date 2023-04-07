@@ -1,0 +1,245 @@
+GET http://wx1936.cnhis.cc/wx/user/appointment/v1/regOrder.htm?doctorId=17543348&deptId=5241221&timeRange=09:00-09:10&appointDate=2022-11-30&registerTypeId=14101&scheduleId=10682267 HTTP/1.1
+Host: wx1936.cnhis.cc
+userType: TX
+openId: 
+Accept-Encoding: gzip, deflate
+token: E8F0F87646FAEFE62B54A807B04E8093302DB4B95DBD16940ED0F486A0792CE2CEC89C9E9B01F046E50BD612F74C4C56
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/WIFI Language/zh_CN
+Connection: keep-alive
+Referer: http://wx1936.cnhis.cc/wxcommon/web/
+Cookie: SESSION=ZDdmMjUzZmQtZGVmYy00NTU1LTk5YmMtZTIzODEyZjExNDE3
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 29 Nov 2022 01:00:58 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Headers: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.cnhis.com:* https://*.cnhis.cc:* https://*.qq.com:*; connect-src 'self' wss://*.qq.com:* https://*.qq.com:* https://*.cnhis.com:* https://*.cnhis.cc:* https://*.map.gtimg.com:*
+Content-Length: 5051
+
+{"code":null,"result":"Success","resultMsg":"","list":[],"map":{"deptName":"预防接种门诊","actionMedicalInsurancePromotion":false,"deptOriginalId":"125","jobTitle":"","appointNum":null,"defCustomer":{"orderBy":null,"descOrAsc":null,"createdDate":1669501627000,"createdBy":null,"updatedDate":1669586367803,"updatedBy":null,"customerId":78083792,"level":null,"no":"342224199905251625","name":"赵梦云","password":null,"idCard":"342224199905251625","phone":null,"mobile":"13940897525","email":null,"remark":"绑定就诊人不存在，创建并发卡","status":null,"parentId":null,"originalId":"83087","orgId":6246,"areaId":null,"patientId":null,"source":2,"iptno":null,"optno":"MZ052913","levelId":null,"archivesId":null,"mediumId":0,"originalCustomerId":"35863","phrName":null,"phrIdCard":null,"flag":1,"cardType":"1","jsonField":"{\"age\": 23, \"sex\": 2, \"flag\": \"1\", \"name\": \"赵梦云\", \"type\": \"门诊\", \"mobile\": \"13940897525\", \"id_card\": \"342224199905251625\", \"orgName\": \"揭阳安真妇产医院\", \"birthday\": \"1999-05-25\", \"self_mobile\": \"1\"}","isDefault":null,"sex":2,"infoSource":null,"birthday":"1999-05-25","gender":"女","map":null},"appointDate":"2022-11-30","orgId":6246,"regtype":"19","doctorName":"九价HPV疫苗","doctorId":17543348,"headerImage":"https://cdn.cnhis.cc/6246/17241760/20220903/623d06c281854850acebe97db727633b.jpg","timeRangeTxt":"上午","scheduleId":"10682267","timeRange":"09:00-09:10","doctorOriginalId":"252","orgName":"揭阳安真妇产医院","sex":"1","deptId":5241221,"appointDateTxt":"周三","appointAmount":0.0,"registerTypeOriginalId":null,"isActionInsurancePay":false,"registerTypeId":"14101","tcSysConfig":{"orderBy":null,"descOrAsc":null,"createdDate":null,"createdBy":null,"updatedDate":null,"updatedBy":null,"orgId":6246,"orgName":"揭阳安真妇产医院","orgIntro":null,"orgAddr":null,"wxAppid":"wx58feebc9dfbea20c","wxAppSecrect":"f5ad695ba1d8ae42b38ad9690e980ed8","wxMchId":"1499533652","wxApiKey":"103E69CDC883FF0C79AE29B11AE72WE4","wxCertPath":"META-INF/cert/wx1380/apiclient_cert.p12","wxSubAppid":"wx6a7277de6db59b13","wxSubAppSecrect":"85836f4d8b469ff2935df443c2a253d7","wxSubMchId":"1604397219","wxSubApiKey":"Abcdefghijklmnopqrstuvwxyz840616","baseUrl":"http://wx1936.cnhis.cc/wx","secondDomain":"http://wx1936.cnhis.cc","secondDomainValue":"wx1936","wxTemplateCheck":null,"wxTemplateDaily":null,"wxTemplateInspection":null,"wxTemplatePhysicalExam":null,"hisUrl":"10.11.4.14:888","isReg":true,"isAppoint":false,"parentId":null,"isGroupShow":false,"smCorpId":"3010311","smLoginName":"cnhis","smPassword":"773027","smSupplier":"http://172.18.21.97/esb-scheduler/api/sendMsg?phone=PHONE&content=CONTENT&org_id=ORGID&p1=&p2=&p3=&p4=&p5=&account=wx&passwd=c67a3f1b2a51","smSupplierCode":null,"isNavShortcut":false,"xingyeMchId":null,"xingyeApiKey":null,"esbUrl":"http://172.18.213.70:9080/esb-scheduler/api/wxcrm/","insuranceKey":null,"insuranceRegYljgbm":null,"insuranceRegCzybm":null,"insuranceRegCzyxm":null,"insuranceOrgNo":null,"noticeReport":null,"noticeReg":null,"uiMainColor":null,"uiMainBgColor":null,"hospitalId":null,"extendField1":"{\"kick\": \"1\", \"show_schedule_week_limit\": 1}","extendField":"{\"kick\": \"1\", \"show_schedule_week_limit\": 1}","editionType":1,"hisInvokeType":null,"groupOrPlatform":false,"thirdHis":false,"realAppid":"wx6a7277de6db59b13","realAppSecrect":"85836f4d8b469ff2935df443c2a253d7","integratedPlatform":null,"pacsFromCrm":true,"pacsReport":null,"userCenter":false,"changHaoFlag":false,"integralFlag":false,"subMch":true,"jsessionids":null,"hisType":"null","hlhturl":null,"extendFieldObj":{"kick":"1","show_schedule_week_limit":1},"appletsPush":false,"onlinePaySynEtl":false,"etlChannelCode":null,"map":null},"timeRangeShow":"09:00-09:10","customerList":[{"orderBy":null,"descOrAsc":null,"createdDate":1669501627000,"createdBy":null,"updatedDate":1669586367803,"updatedBy":null,"customerId":78083792,"level":null,"no":"342224199905251625","name":"赵梦云","password":null,"idCard":"342224199905251625","phone":null,"mobile":"13940897525","email":null,"remark":"绑定就诊人不存在，创建并发卡","status":null,"parentId":null,"originalId":"83087","orgId":6246,"areaId":null,"patientId":null,"source":2,"iptno":null,"optno":"MZ052913","levelId":null,"archivesId":null,"mediumId":0,"originalCustomerId":"35863","phrName":null,"phrIdCard":null,"flag":1,"cardType":"1","jsonField":"{\"age\": 23, \"sex\": 2, \"flag\": \"1\", \"name\": \"赵梦云\", \"type\": \"门诊\", \"mobile\": \"13940897525\", \"id_card\": \"342224199905251625\", \"orgName\": \"揭阳安真妇产医院\", \"birthday\": \"1999-05-25\", \"self_mobile\": \"1\"}","birthday":927561600000,"sex":2,"companyName":null,"introducer":null,"infoSource":"{\"add_source\": 1}","idCardAes":null,"isEhCard":false,"chooseOptNo":"1","patientMark":"1,2","gender":"女","map":null}]},"obj":null,"total":0,"pageSize":0,"currentPage":0,"totalPage":0,"recordsTotal":0,"recordsFiltered":0,"rows":null,"tmpList":null,"data":null,"tableField":null}
+
+{
+    "code": null,
+    "result": "Success",
+    "resultMsg": "",
+    "list": [],
+    "map": {
+        "deptName": "预防接种门诊",
+        "actionMedicalInsurancePromotion": false,
+        "deptOriginalId": "125",
+        "jobTitle": "",
+        "appointNum": null,
+        "defCustomer": {
+            "orderBy": null,
+            "descOrAsc": null,
+            "createdDate": 1669501627000,
+            "createdBy": null,
+            "updatedDate": 1669586367803,
+            "updatedBy": null,
+            "customerId": 78083792,
+            "level": null,
+            "no": "342224199905251625",
+            "name": "赵梦云",
+            "password": null,
+            "idCard": "342224199905251625",
+            "phone": null,
+            "mobile": "13940897525",
+            "email": null,
+            "remark": "绑定就诊人不存在，创建并发卡",
+            "status": null,
+            "parentId": null,
+            "originalId": "83087",
+            "orgId": 6246,
+            "areaId": null,
+            "patientId": null,
+            "source": 2,
+            "iptno": null,
+            "optno": "MZ052913",
+            "levelId": null,
+            "archivesId": null,
+            "mediumId": 0,
+            "originalCustomerId": "35863",
+            "phrName": null,
+            "phrIdCard": null,
+            "flag": 1,
+            "cardType": "1",
+            "jsonField": "{\"age\": 23, \"sex\": 2, \"flag\": \"1\", \"name\": \"赵梦云\", \"type\": \"门诊\", \"mobile\": \"13940897525\", \"id_card\": \"342224199905251625\", \"orgName\": \"揭阳安真妇产医院\", \"birthday\": \"1999-05-25\", \"self_mobile\": \"1\"}",
+            "isDefault": null,
+            "sex": 2,
+            "infoSource": null,
+            "birthday": "1999-05-25",
+            "gender": "女",
+            "map": null
+        },
+        "appointDate": "2022-11-30",
+        "orgId": 6246,
+        "regtype": "19",
+        "doctorName": "九价HPV疫苗",
+        "doctorId": 17543348,
+        "headerImage": "https://cdn.cnhis.cc/6246/17241760/20220903/623d06c281854850acebe97db727633b.jpg",
+        "timeRangeTxt": "上午",
+        "scheduleId": "10682267",
+        "timeRange": "09:00-09:10",
+        "doctorOriginalId": "252",
+        "orgName": "揭阳安真妇产医院",
+        "sex": "1",
+        "deptId": 5241221,
+        "appointDateTxt": "周三",
+        "appointAmount": 0,
+        "registerTypeOriginalId": null,
+        "isActionInsurancePay": false,
+        "registerTypeId": "14101",
+        "tcSysConfig": {
+            "orderBy": null,
+            "descOrAsc": null,
+            "createdDate": null,
+            "createdBy": null,
+            "updatedDate": null,
+            "updatedBy": null,
+            "orgId": 6246,
+            "orgName": "揭阳安真妇产医院",
+            "orgIntro": null,
+            "orgAddr": null,
+            "wxAppid": "wx58feebc9dfbea20c",
+            "wxAppSecrect": "f5ad695ba1d8ae42b38ad9690e980ed8",
+            "wxMchId": "1499533652",
+            "wxApiKey": "103E69CDC883FF0C79AE29B11AE72WE4",
+            "wxCertPath": "META-INF/cert/wx1380/apiclient_cert.p12",
+            "wxSubAppid": "wx6a7277de6db59b13",
+            "wxSubAppSecrect": "85836f4d8b469ff2935df443c2a253d7",
+            "wxSubMchId": "1604397219",
+            "wxSubApiKey": "Abcdefghijklmnopqrstuvwxyz840616",
+            "baseUrl": "http://wx1936.cnhis.cc/wx",
+            "secondDomain": "http://wx1936.cnhis.cc",
+            "secondDomainValue": "wx1936",
+            "wxTemplateCheck": null,
+            "wxTemplateDaily": null,
+            "wxTemplateInspection": null,
+            "wxTemplatePhysicalExam": null,
+            "hisUrl": "10.11.4.14:888",
+            "isReg": true,
+            "isAppoint": false,
+            "parentId": null,
+            "isGroupShow": false,
+            "smCorpId": "3010311",
+            "smLoginName": "cnhis",
+            "smPassword": "773027",
+            "smSupplier": "http://172.18.21.97/esb-scheduler/api/sendMsg?phone=PHONE&content=CONTENT&org_id=ORGID&p1=&p2=&p3=&p4=&p5=&account=wx&passwd=c67a3f1b2a51",
+            "smSupplierCode": null,
+            "isNavShortcut": false,
+            "xingyeMchId": null,
+            "xingyeApiKey": null,
+            "esbUrl": "http://172.18.213.70:9080/esb-scheduler/api/wxcrm/",
+            "insuranceKey": null,
+            "insuranceRegYljgbm": null,
+            "insuranceRegCzybm": null,
+            "insuranceRegCzyxm": null,
+            "insuranceOrgNo": null,
+            "noticeReport": null,
+            "noticeReg": null,
+            "uiMainColor": null,
+            "uiMainBgColor": null,
+            "hospitalId": null,
+            "extendField1": "{\"kick\": \"1\", \"show_schedule_week_limit\": 1}",
+            "extendField": "{\"kick\": \"1\", \"show_schedule_week_limit\": 1}",
+            "editionType": 1,
+            "hisInvokeType": null,
+            "groupOrPlatform": false,
+            "thirdHis": false,
+            "realAppid": "wx6a7277de6db59b13",
+            "realAppSecrect": "85836f4d8b469ff2935df443c2a253d7",
+            "integratedPlatform": null,
+            "pacsFromCrm": true,
+            "pacsReport": null,
+            "userCenter": false,
+            "changHaoFlag": false,
+            "integralFlag": false,
+            "subMch": true,
+            "jsessionids": null,
+            "hisType": "null",
+            "hlhturl": null,
+            "extendFieldObj": {
+                "kick": "1",
+                "show_schedule_week_limit": 1
+            },
+            "appletsPush": false,
+            "onlinePaySynEtl": false,
+            "etlChannelCode": null,
+            "map": null
+        },
+        "timeRangeShow": "09:00-09:10",
+        "customerList": [
+            {
+                "orderBy": null,
+                "descOrAsc": null,
+                "createdDate": 1669501627000,
+                "createdBy": null,
+                "updatedDate": 1669586367803,
+                "updatedBy": null,
+                "customerId": 78083792,
+                "level": null,
+                "no": "342224199905251625",
+                "name": "赵梦云",
+                "password": null,
+                "idCard": "342224199905251625",
+                "phone": null,
+                "mobile": "13940897525",
+                "email": null,
+                "remark": "绑定就诊人不存在，创建并发卡",
+                "status": null,
+                "parentId": null,
+                "originalId": "83087",
+                "orgId": 6246,
+                "areaId": null,
+                "patientId": null,
+                "source": 2,
+                "iptno": null,
+                "optno": "MZ052913",
+                "levelId": null,
+                "archivesId": null,
+                "mediumId": 0,
+                "originalCustomerId": "35863",
+                "phrName": null,
+                "phrIdCard": null,
+                "flag": 1,
+                "cardType": "1",
+                "jsonField": "{\"age\": 23, \"sex\": 2, \"flag\": \"1\", \"name\": \"赵梦云\", \"type\": \"门诊\", \"mobile\": \"13940897525\", \"id_card\": \"342224199905251625\", \"orgName\": \"揭阳安真妇产医院\", \"birthday\": \"1999-05-25\", \"self_mobile\": \"1\"}",
+                "birthday": 927561600000,
+                "sex": 2,
+                "companyName": null,
+                "introducer": null,
+                "infoSource": "{\"add_source\": 1}",
+                "idCardAes": null,
+                "isEhCard": false,
+                "chooseOptNo": "1",
+                "patientMark": "1,2",
+                "gender": "女",
+                "map": null
+            }
+        ]
+    },
+    "obj": null,
+    "total": 0,
+    "pageSize": 0,
+    "currentPage": 0,
+    "totalPage": 0,
+    "recordsTotal": 0,
+    "recordsFiltered": 0,
+    "rows": null,
+    "tmpList": null,
+    "data": null,
+    "tableField": null
+}

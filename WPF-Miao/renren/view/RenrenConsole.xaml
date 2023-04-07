@@ -3,21 +3,39 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:session="clr-namespace:renren.session"
       Title="仁仁医疗"
       x:Name="RenrenPage">
+    <Page.Resources>
+        <session:MainSession x:Key="mainSession" />
+    </Page.Resources>
 
-    <basePage:BaseConsole x:Name="baseConsole"
+    <basePage:OnTimeConsole x:Name="baseConsole"
                           Title="{Binding Title}"
+                          IsCookieVisible="Collapsed"
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
-        <basePage:BaseConsole.ButtonArea>
-            <StackPanel>
-                <TextBox Width="300" Height="30"
-                         Margin="0,20,0,20"
-                         Text="{Binding Etid}"
-                        materialDesign:HintAssist.Hint="ETID">
+        <basePage:OnTimeConsole.DynamicArea>
+            <StackPanel Height="400">
+                <TextBox Width="300"
+                         Height="30"
+                         Margin="0,10,0,10"
+                         Text="{Binding MedicToken}"
+                         materialDesign:HintAssist.Hint="medicToken">
                 </TextBox>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="100">
+                <TextBox Width="300"
+                         Height="30"
+                         Margin="0,10,0,10"
+                         Text="{Binding OpenId}"
+                         materialDesign:HintAssist.Hint="openId">
+                </TextBox>
+                <TextBox Width="300"
+                         Height="30"
+                         Margin="0,10,0,10"
+                         Text="{Binding PublicKey}"
+                         materialDesign:HintAssist.Hint="publicKey">
+                </TextBox>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <ComboBox
                         Style="{StaticResource mui_combobox}"
                         materialDesign:HintAssist.Hint="选择日期"
@@ -33,27 +51,31 @@
                         SelectedItem="{Binding SelectedTime}"
                         DisplayMemberPath="Display"
                         SelectedValuePath="Value"
-                        Width="auto" Margin="20"/>
-
-
+                        Width="auto" Margin="10"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
-                    <Button Content="自动" Margin="0,0,10,0"
-                    Command="{Binding SearchCommand}" Width="100">
-                    </Button>
-
-                    <Button Content="约" Margin="0,0,10,0"
-                    Command="{Binding AppointCommand}" Width="100" >
-                    </Button>
-                    <Button Content="验证码"
-                    Command="{Binding YzmCommand}" Width="100" >
-                    </Button>
-                </StackPanel>
-                <TextBox Width="300" Height="30"
-                         Margin="0,20,0,20"
-                        materialDesign:HintAssist.Hint="备注">
+                <TextBox Width="300"
+                         Height="50"
+                         IsReadOnly="True"
+                         Background="LightGreen"
+                         Opacity=".6"
+                         Margin="0,10,0,10"
+                         Text="{Binding Source={StaticResource mainSession}, Path=MiaoStatus.StatusDesc}"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         materialDesign:HintAssist.Hint="Progress">
                 </TextBox>
+                <StackPanel Orientation="Horizontal" 
+                            VerticalAlignment="Bottom" 
+                            Background="Beige"
+                            Height="100" 
+                            Margin="30,0,0,0">
+                    <Button Content="查" Margin="0,0,10,0"
+                        Command="{Binding SearchCommand}" Width="100">
+                    </Button>
+                    <Button Content="约" Margin="0,0,10,0"
+                        Command="{Binding AppointCommand}" Width="100" >
+                    </Button>
+                </StackPanel>
             </StackPanel>
-        </basePage:BaseConsole.ButtonArea>
-    </basePage:BaseConsole>
+        </basePage:OnTimeConsole.DynamicArea>
+    </basePage:OnTimeConsole>
 </Page>

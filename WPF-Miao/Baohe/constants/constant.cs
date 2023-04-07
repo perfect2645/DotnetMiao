@@ -5,6 +5,7 @@
         public const string StartTime = "StartTime";
         public const string RandomSeed = "RandomSeed";
 
+        public const string Department = "Department";
         public const string ProjectName = "健康之路";
         public const string accountSn = "accountSn";
         public const string Accountsn = "Accountsn";

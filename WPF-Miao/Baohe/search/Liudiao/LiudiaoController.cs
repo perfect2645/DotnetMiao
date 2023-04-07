@@ -17,16 +17,16 @@ namespace Baohe.search.Liudiao
         {
         }
 
-        public Task LiudiaoAsync()
+        public Task LiudiaoAsync(string userName)
         {
-            return Task.Factory.StartNew(() => Liudiao());
+            return Task.Factory.StartNew(() => Liudiao(userName));
         }
 
-        private void Liudiao()
+        private void Liudiao(string userName)
         {
             var url = "https://fycombat.yihu.com/AHForm/doRegHFSSNGWSYEpidemic";
-            var content = new LiudiaoContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            var content = new LiudiaoContent(url, userName);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -43,15 +43,15 @@ namespace Baohe.search.Liudiao
             {
                 throw new HttpException($"{Constant.ProjectName}:Liudiao-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result);
+            AnalysisResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             var result = JsonAnalysis.JsonToDicList(jsonElement);
-            BaoheSession.AddUserSession(Constant.Liudiao, result);
+            MainSession.AddUserSession(Constant.Liudiao, result);
 
-            BaoheSession.PrintLogEvent.Publish(this, result, "Liudiao");
+            MainSession.PrintLogEvent.Publish(this, result, "Liudiao");
         }
     }
 }

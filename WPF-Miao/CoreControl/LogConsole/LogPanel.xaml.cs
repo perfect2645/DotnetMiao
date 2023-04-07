@@ -34,6 +34,7 @@ namespace CoreControl.LogConsole
         {
             Dispatcher.BeginInvoke(() =>
             {
+                Clear();
                 var paragraph = new Paragraph();
                 paragraph.Inlines.Add(new Run(text));
                 document.Blocks.Add(paragraph);
@@ -60,6 +61,10 @@ namespace CoreControl.LogConsole
 
         public void Clear()
         {
+            if (logText.Document.Blocks.Count > 300)
+            {
+                logText.Document.Blocks.Clear();
+            }
         }
 
         #endregion Clear

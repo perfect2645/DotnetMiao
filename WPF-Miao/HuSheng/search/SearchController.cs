@@ -1,99 +1,32 @@
-﻿using HttpProcessor.Client;
+﻿using Base.model;
 using HttpProcessor.Container;
-using HttpProcessor.ExceptionManager;
-using HttpProcessor.HtmlAnalysis;
-using HttpProcessor.Response;
-using HuSheng.appointment;
 using HuSheng.session;
 using System;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Utils.timerUtil;
+using System.Collections.Generic;
 
 namespace HuSheng.search
 {
-    internal class SearchController : HttpClientBase
+    internal class SearchController
     {
-        private IntervalOnTime SearchInterval { get; set; }
-        private bool isGetMiao = false;
-
-        public SearchController(HttpClient httpClient) : base(httpClient)
+        public SearchController()
         {
-            var startTime = HushengSession.MiaoSession["StartTime"] as DateTime?;
-            //SearchInterval = new IntervalOnTime(async () => await SearchIntervalAsync(), "SearchInterval", startTime ?? DateTime.Now, 2000);
+            BuildSearchList();
         }
 
-        public async void SearchAsync()
+        private void BuildSearchList()
         {
-            isGetMiao = await Task.Factory.StartNew(() => Search());
-            if (!isGetMiao)
+            var startTime = MainSession.PlatformSession["StartTime"] as DateTime?;
+            var preSetDateList = MainSession.PlatformSession["PreDateList"] as List<DspVal>;
+            foreach (var preSetDate in preSetDateList)
             {
-                return;
+                var date = preSetDate.Value;
+                var dateController = HttpServiceController.GetService<SelectDateController>();
+                //dateController.Init(date, startTime);
+
+                MainSession.PrintLogEvent.Publish(this, $"初始化查询：{date}");
+
             }
-        }
-
-        public async Task SearchIntervalAsync()
-        {
-            isGetMiao = await Task.Factory.StartNew(() => Search());
-            if (!isGetMiao)
-            {
-                return;
-            }
-            SearchInterval.StopInterval();
-
-            //await Yuyue();
-        }
-
-        private async Task Yuyue()
-        {
-            var appointController = HttpServiceController.GetService<AppointController>();
-            appointController.AppointAsync();
-        }
-
-        private bool Search()
-        {
-            var url = "http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-10&appointmentTime=15:01~15:30&appointmentTimeId=2068&configValue=1&schemeId=2158";
-
-            try
-            {
-                HtmlResponse response = SearchHtml(url).Result;
-                if (response == null)
-                {
-                    HushengSession.PrintLogEvent.Publish(this, $"Search - response == null");
-                    return false;
-                }
-
-                AnalizeResult(response.Body);
-            }
-            catch (HttpException ex)
-            {
-                HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
-                return false;
-            }
-            catch (Exception ex)
-            {
-                HushengSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
-                return false;
-            }
-
-            return true;
-        }
-
-        private void AnalizeResult(HtmlDoc body)
-        {
-            var vassNameNodes = body.SearchNodes("//*[@class='vassName']/text()");
-            if (vassNameNodes == null)
-            {
-                HushengSession.PrintLogEvent.Publish(this, $"未查到苗 - no vassNames");
-                return;
-            }
-
-            var vassNames = vassNameNodes.Select(x => x.InnerText);
-            foreach (var name in vassNames)
-            {
-                HushengSession.PrintLogEvent.Publish(this, $"查到苗 - {name}");
-            }
+            MainSession.PrintLogEvent.Publish(this, $"程序已就绪 开始时间：{startTime}");
         }
     }
 }

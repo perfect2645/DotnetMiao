@@ -1,0 +1,454 @@
+POST http://hoosn.cn/yy/toSelectDate?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo HTTP/1.1
+Host: hoosn.cn
+Connection: keep-alive
+Content-Length: 33
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://hoosn.cn
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: JSESSIONID=be42af88-675d-444a-92f8-40dd4cb541dc
+Referer: http://hoosn.cn/yy/toSelectDate?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+appDate=2022-11-14&selectAgainID=
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 12 Nov 2022 15:33:48 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+Content-Language: zh-CN
+Vary: Accept-Encoding
+Content-Length: 12093
+
+	
+		
+		<!DOCTYPE html>
+		<html>
+		<head>
+		<meta charset="UTF-8" />
+		<title>选择接种日期</title>
+		<meta name="viewport"
+		content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+		<!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- 这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 忽略页面中的数字识别为电话号码,email识别 -->
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<!-- 启用360浏览器的极速模式(webkit) -->
+		<meta name="renderer" content="webkit">
+		<!-- 避免IE使用兼容模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		<!-- 微软的老式浏览器 -->
+		<meta name="MobileOptimized" content="320">
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		<!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">
+		<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+
+		<link rel="stylesheet"
+		href="/jsp/js/jquery-weui/style/weui.min.css">
+		<link rel="stylesheet"
+		href="/jsp/js/jquery-weui/style/jquery-weui.min.css">
+
+	<!-- 	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+		 -->
+		<script type="text/javascript" src="/jsp/wechat_client/js/jquery.min.js"></script>
+		
+		<script
+		src="/jsp/js/jquery-weui/jquery-weui.min.js"></script>
+		<script src="/jsp/js/jquery-weui/swiper.min.js"></script>
+		<script
+		src="/jsp/js/jquery.form.js"></script>
+		<script src="/jsp/layer/layer.js"></script>
+	   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>			
+		<style>
+		.back_color {
+		color: #666;
+		background-color: #f1f1f1;
+		border: 1px solid #1aad19;
+		border-radius: 10px;
+		}
+		</style>
+		</head>
+
+		<body ontouchstart>
+		<div class="conducts" style="display: none" >
+		<ul id="bType">
+		<li value="1"  style="background:#1bc43f;color:#fff;">预约 注意事项：</li>
+		<li value="2" >2、XXXXXXXX</li>
+		<li value="3" >3、XXXXXXX</li>
+		<li value="4" >4、XXXXXXXXXXXX</li>
+
+		</ul>
+		</div>
+		<form id="appDateForm" method="post" action="/yy/toSelectDate?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo">
+		<input type="hidden" name="appDate" id="appDate" value="2022-11-14">
+		<input type="hidden" name="selectAgainID" id="selectAgainID" value="">
+		<div id="inline-calendar"></div>
+		</form>
+		<div class="weui-tab" >
+		<form id="appSourceForm" method="get" action="#">
+		<input type="hidden" name="appointmentTimeId" id="appID" value=""/>
+		<input type="hidden" name="haveVaccFlag" id="haveVaccFlag" value="1"/>
+		<input type="hidden" name="appointmentDate" id="yydate" value="2022-11-14"/>
+ 		<input type="hidden" name="AppointmentLogID" id="AppointmentLogID" value=""/>
+		<input type="hidden" name="configValue" id="configValue" value="1"/>
+		<input type="hidden" name="openid" id="openid" value="oSfkt5jTELgDNfJnxR_HjyF5Ardo"/>
+		<input type="hidden" name="subId" id="subId" value="8D4AAA5FA2C04B8E971C89FCA2A4D4F4"/>
+		<div class="weui-navbar" >
+		<a class="weui-navbar__item weui-bar__item--on back back_color"  vvalue="0" href="#tab1">
+		上午
+		</a>
+		<a class="weui-navbar__item back " href="#tab2"  vvalue="1">
+		下午
+		</a>
+		</div>
+		<div class="weui-tab__bd" style="width: 90%;margin: auto;">
+		<div id="tab1" class="weui-tab__bd-item " style="margin-top: 10px;" >
+		
+			
+						
+						
+ 	    	 				
+						
+						
+							<a   href="javascript:tosumbit('2057','08:00~08:30','08:30');" class="weui-btn weui-btn_plain-primary"  style="height: 40px;">08:00~08:30</a>
+						
+						
+ 	    	 				
+ 	    	 					    	 									
+			
+		
+			
+						
+						
+ 	    	 				
+						
+						
+						
+ 	    	 				
+ 	    	 			 
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">08:31~09:00(已约满)</a>
+	    	 					    	 									
+			
+		
+			
+						
+						
+ 	    	 				
+						
+						
+						
+ 	    	 				
+ 	    	 			 
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">09:01~09:30(已约满)</a>
+	    	 					    	 									
+			
+		
+			
+						
+						
+ 	    	 				
+						
+						
+						
+ 	    	 				
+ 	    	 			 
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">09:31~10:00(已约满)</a>
+	    	 					    	 									
+			
+		
+			
+						
+						
+ 	    	 				
+						
+						
+						
+ 	    	 				
+ 	    	 			 
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">10:01~10:30(已约满)</a>
+	    	 					    	 									
+			
+		
+			
+						
+						
+ 	    	 				
+						
+						
+						
+ 	    	 				
+ 	    	 			 
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">10:31~11:00(已约满)</a>
+	    	 					    	 									
+			
+		
+			
+		
+			
+		
+			
+		
+		</div>
+		
+		<div id="tab2" class="weui-tab__bd-item" style="margin-top: 10px;">
+		
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+						
+						
+ 	    	 				
+	    	 									
+						
+						
+ 	    	 										
+						  
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">14:00~14:30(已约满)</a>
+	    	 				
+					 
+			
+		
+			
+						
+						
+ 	    	 				
+	    	 									
+						
+						
+ 	    	 										
+						  
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">14:30~15:00(已约满)</a>
+	    	 				
+					 
+			
+		
+			
+						
+						
+ 	    	 				
+	    	 									
+						
+						
+ 	    	 										
+						  
+						<a href="javascript:void(0);" class="weui-btn weui-btn_disabled weui-btn_default"  style="height: 40px;color: gray;border-color:  #909090 ;">15:01~15:30(已约满)</a>
+	    	 				
+					 
+			
+		
+		</div>
+		</div>
+		</form>
+		</div>
+		</body>
+		<script type="text/javascript">
+		$("#inline-calendar").calendar({
+			container : "#inline-calendar",
+			input : "#appDate",
+			minDate:"2022-11-12",
+			maxDate:"2022-11-14",
+			dateFormat:"yyyy-mm-dd",
+			value:["2022-11-14"] 
+		});
+		
+$(function(){
+	var ampm="0";
+	if(ampm==0){
+		$("#tab1").addClass("weui-tab__bd-item--active");
+		$("#tab2").removeClass("weui-tab__bd-item--active");
+	}else{
+		$("#tab2").addClass("weui-tab__bd-item--active");
+		$("#tab1").removeClass("weui-tab__bd-item--active");
+	}
+	
+	$(".back").click(function(){
+		 $(".back").eq($(this).index()).addClass("back_color").siblings().removeClass('back_color');
+	     var am= $(this).attr("vvalue")
+	 	if(am==0){
+		$("#tab1").addClass("weui-tab__bd-item--active");
+		$("#tab2").removeClass("weui-tab__bd-item--active");
+		}else{
+		$("#tab2").addClass("weui-tab__bd-item--active");
+		$("#tab1").removeClass("weui-tab__bd-item--active");
+		}
+		})
+		//渲染日期
+		var dayList="[2022-11-12, 2022-11-14]";
+
+		$('.picker-calendar-month-current').children('.picker-calendar-row').each(function (){
+		//alert($(this).text());
+		$(this).children('.picker-calendar-day').each(function (){
+		//alert($(this).attr("data-date"));
+		var month=parseInt($(this).attr('data-month'))+1;
+		if(month<10){
+		month="0"+	month;
+		}
+		var day=$(this).attr('data-day');
+		if(day<10){
+		day="0"+day;
+		}
+		var appDate=$(this).attr('data-year')+"-"+month +"-"+day;
+		$(this).addClass("picker-calendar-day-disabled");
+		$(this).removeClass("picker-calendar-day-prev");
+		$(this).removeClass("picker-calendar-day-next");
+		//alert(dayList.indexOf(appDate,0));
+		//alert(appDate);
+		if(dayList.indexOf(appDate,0)!=-1){
+		$(this).removeClass("picker-calendar-day-disabled");
+		}
+
+		});
+		});
+
+		$('.picker-calendar-month-next').children('.picker-calendar-row').each(function (){
+		$(this).children('.picker-calendar-day').each(function (){
+		//alert($(this).attr("data-date"));
+		var month=parseInt($(this).attr('data-month'))+1;
+		if(month<10){
+		month="0"+	month;
+		}
+		var day=$(this).attr('data-day');
+		if(day<10){
+		day="0"+day;
+		}
+		var appDate=$(this).attr('data-year')+"-"+month +"-"+day;
+		$(this).addClass("picker-calendar-day-disabled");
+		$(this).removeClass("picker-calendar-day-prev");
+		$(this).removeClass("picker-calendar-day-next");
+
+		//alert(dayList.indexOf(appDate,0));
+		//alert(appDate);
+		if(dayList.indexOf(appDate,0)!=-1){
+		$(this).removeClass("picker-calendar-day-disabled");
+		}
+
+		});
+		});
+
+
+
+
+   	 
+		////===========
+		if(true){
+			function onBridgeReady() {
+				WeixinJSBridge.call('hideOptionMenu');
+			}
+			if (typeof WeixinJSBridge == "undefined") {
+				if (document.addEventListener) {
+					document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+				} else if (document.attachEvent) {
+					document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+					document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+				}
+			} else {
+				onBridgeReady();
+			} 
+			
+		}
+////===========	   
+
+
+
+
+		});
+		//
+		$("#appDate").on("change",function(){
+		var appDate=$("#appDate").val();
+		var dayList="[2022-11-12, 2022-11-14]";
+
+		//alert(appDate);
+		//alert(dayList.indexOf(appDate,0));
+		if(dayList.indexOf(appDate,0)==-1){
+		layer.msg("抱歉，今天不可预约",{icon:2});
+		$(this).removeClass("picker-calendar-day-selected")
+		return;
+		}
+
+		//  if("1"==0){
+		//layer.msg("抱歉，今天不可预约",{icon:2});
+		//$(this).removeClass("picker-calendar-day-selected")
+		//return;
+		//}
+
+		if($(this).val()!=''){
+		$("#appDateForm").submit();
+		}
+		});
+
+		function tosumbit(vid,vdata,endtime){
+		if("1"==0){
+			layer.msg("抱歉，今天不可预约",{icon:2});
+			return;
+		}
+
+		$("#appID").val(vid);
+		$("#appTime").val(vdata);
+		var formData = $("#appSourceForm").serialize();
+		if($("#appID").val()!=''){
+		var logID=$("#AppointmentLogID").val();
+		if(logID!=''&&logID!=null){
+		$("#appSourceForm").ajaxSubmit({
+			url : "/newApp/updateAppointment",
+			type:'POST',
+			data: formData,
+			datatype: "json",
+			onSubmit : function() {},
+			success:function (data) {
+				//alert("我在提交表单成功之后被调用");
+					if(data.success){
+					layer.msg("预约成功，您的号码："+data.message, {
+					icon: 1,
+					time: 3000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+						window.location.href="/yy/toSelectDate?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo";
+					});
+					}else{
+						layer.msg("预约失败："+data.message,{icon:2});
+					}
+				}
+			});
+
+		}else{////
+		   $("#appSourceForm").attr("action", "/newyy/listVaccPlan");
+			/* if("6BA647C07FB44A5EBF047E07FD1F0DC3"=="87DD03EBF9CF477E8FBC5897C0F1D692"){
+			 }else{
+			    $("#appSourceForm").attr("action", "/yy/listVaccPlan");
+		    } */
+			$("#appSourceForm").submit();
+		}////
+		
+		}
+		
+		}
+		</script>
+		</html>

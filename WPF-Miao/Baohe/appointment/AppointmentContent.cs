@@ -17,14 +17,12 @@ namespace Baohe.appointment
 
         public Dictionary<string, object> MiaoInfo { get; set; }
 
-        private Dictionary<string, object> DoctorOrder { get; set; }
-        private List<Dictionary<string, object>> GhFormConOrder { get; set; }
+        public Dictionary<string, object> DoctorOrder { get; set; }
+        public List<Dictionary<string, object>> GhFormConOrder { get; set; }
 
-        public AppointmentContent(Dictionary<string, object> memberInfo) : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
+        public AppointmentContent() : base("https://appoint.yihu.com/appoint/do/registerInfo/register")
         {
-            MemberInfo = memberInfo;
             ContentType = "application/x-www-form-urlencoded";
-            InitContent();
         }
 
         public override void BuildDefaultHeaders(HttpClient httpClient)
@@ -34,11 +32,17 @@ namespace Baohe.appointment
 
         #region Content
 
+        public void InitContent(Dictionary<string, object> memberInfo)
+        {
+            MemberInfo = memberInfo;
+            BuildDefaultDoctorOrder();
+            BuildDefaultGhFormCon();
+        }
+
         private void InitContent()
         {
             BuildDefaultDoctorOrder();
             BuildDefaultGhFormCon();
-
         }
 
         public void FillContent()
@@ -50,11 +54,11 @@ namespace Baohe.appointment
             AddContent("ghFormCon", GhFormConOrder);
         }
 
-        private void BuildDefaultDoctorOrder()
+        protected virtual void BuildDefaultDoctorOrder()
         {
             DoctorOrder = new Dictionary<string, object>();
 
-            var platformSesstion = BaoheSession.PlatformSesstion;
+            var platformSesstion = MainSession.PlatformSesstion;
             var doctorInfo = SessionBuilder.GetDefaultDoctor();
 
             DoctorOrder.AddOrUpdate("memberSn", MemberInfo["Membersn"]);
@@ -74,8 +78,8 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("cliniccard", MemberInfo["Cliniccard"]);
             DoctorOrder.AddOrUpdate("applyNo", "");
             DoctorOrder.AddOrUpdate("mobile", MemberInfo["Phone"]);
-            DoctorOrder.AddOrUpdate(Constant.accountSn, MemberInfo[Constant.Accountsn]);
-            DoctorOrder.AddOrUpdate("cardNumber", BaoheSession.UserSession["cardNumber"]);
+            DoctorOrder.AddOrUpdate(Constant.accountSn, MemberInfo.GetString(Constant.Accountsn).ToInt());
+            DoctorOrder.AddOrUpdate("cardNumber", MainSession.UserSession["cardNumber"]);
 
             DoctorOrder.AddOrUpdate("hosDeptId", platformSesstion[Constant.DeptId]);
 
@@ -88,22 +92,19 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("GH_HosProName", "安徽");
             DoctorOrder.AddOrUpdate("GH_HosCityId", "101");
             DoctorOrder.AddOrUpdate("GH_HosCityName", "合肥");
-
-            DoctorOrder.AddOrUpdate("timeId", 1);
-
             DoctorOrder.AddOrUpdate("ghAmount", 0);
             DoctorOrder.AddOrUpdate("securityDeposit", 0);
             DoctorOrder.AddOrUpdate("ghfeeway", 0);
             DoctorOrder.AddOrUpdate("ModeId", 0);
             DoctorOrder.AddOrUpdate("GhFee", 0);
             DoctorOrder.AddOrUpdate("AllFee", 0);
+            DoctorOrder.AddOrUpdate("store", "");
 
             DoctorOrder.AddOrUpdate("UnOpened", false);
 
-
             DoctorOrder.AddOrUpdate(Constant.LoginId, platformSesstion[Constant.Loginid]);
-            DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.LoginChannel]);
-            //DoctorOrder.AddOrUpdate("utm_source", platformSesstion["jkzlAn_utm_source"]);//.0.h.1026.bus010.0
+            DoctorOrder.AddOrUpdate(Constant.ChannelId, platformSesstion[Constant.PlatformType]);
+            //DoctorOrder.AddOrUpdate("utm_source", "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0");//.0.h.1026.bus010.0
             DoctorOrder.AddOrUpdate("doctorOfficeName", "");
             DoctorOrder.AddOrUpdate("isread", "1");
 
@@ -113,25 +114,21 @@ namespace Baohe.appointment
             }
         }
 
-        private void BuildDefaultGhFormCon()
+        protected virtual void BuildDefaultGhFormCon()
         {
             GhFormConOrder = new List<Dictionary<string, object>>();
-            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Familyaddress"], "familyaddress"));
             //ghFormCon.AddOrUpdate(BuildGhFormConItem(member["Cname"], "name"));
             GhFormConOrder.Add(BuildGhFormConItem("", "name"));
-            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Cliniccard"], "ClinicCard"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Idcard"], "CardNo"));
-            GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Birthday"], "birthday"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Sex"], "sex"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Phone"], "mobile"));
             GhFormConOrder.Add(BuildGhFormConItem(MemberInfo["Identitytype"], "cardtype"));
             GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
             GhFormConOrder.Add(BuildGhFormConItem("0", "cmb_disease"));
             GhFormConOrder.Add(BuildGhFormConItem("未确诊", "cmb_diseaseName"));
-            GhFormConOrder.Add(BuildGhFormConItem("1", "isread"));
         }
 
-        private void BuildNumberDoctorOrder()
+        protected virtual void BuildNumberDoctorOrder()
         {
             var water = MiaoInfo["arrangeWater"].Dic();
             DoctorOrder.AddOrUpdate("registerDate", water["registerdate"]);
@@ -141,13 +138,12 @@ namespace Baohe.appointment
             DoctorOrder.AddOrUpdate("availablenum", water["availablenum"].ToString()!.ToLong());
             DoctorOrder.AddOrUpdate("FHTimes", water["FHTimes"]);
             DoctorOrder.AddOrUpdate("FHDays", water["FHDays"]);
-
             DoctorOrder.AddOrUpdate(Constant.WaterId, MiaoInfo["NumberSN"].ToString()!.ToLong());
             DoctorOrder.AddOrUpdate(Constant.WaitingInfor, $"第{MiaoInfo["SerialNo"]}号 {MiaoInfo["CommendScope"]}");
-            DoctorOrder.AddOrUpdate("store", "");
             DoctorOrder.AddOrUpdate("serialNo", MiaoInfo["SerialNo"]);
             DoctorOrder.AddOrUpdate(Constant.DoctorSn, MiaoInfo["DoctorSN"]);
             DoctorOrder.AddOrUpdate("arrangeId", MiaoInfo["ArrangeID"].ToString()!.ToLong());
+            DoctorOrder.AddOrUpdate("timeId", water["timeid"]);
         }
 
         private void BuildNumberGhFormCon()
@@ -155,7 +151,7 @@ namespace Baohe.appointment
 
         }
 
-        private Dictionary<string, object> BuildGhFormConItem(object keyValue, string keyName)
+        protected Dictionary<string, object> BuildGhFormConItem(object keyValue, string keyName)
         {
             return new Dictionary<string, object>
             {
@@ -170,11 +166,14 @@ namespace Baohe.appointment
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var deptId = MainSession.PlatformSesstion[Constant.DeptId];
+            //var doctorSn = MiaoInfo["DoctorSN"];
+            var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
-            var refererTemplate = $"https://appoint.yihu.com/appoint/register/registerOrder.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
+        //https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=1000031&hospitalId=1099108&deptId=7235355&doctorSn=711230106&arrangeId=169002694&utm_source=0.0.h.1026.bus010.0
+            var refererTemplate = $"https://appoint.yihu.com/appoint/register/registerOrder.html?platformType={platformType}&hospitalId={hospitalId}&deptid={deptId}";
 
             return refererTemplate;
         }

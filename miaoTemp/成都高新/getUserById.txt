@@ -1,0 +1,40 @@
+POST https://ymglfw.care4u.cn/npApii/auth/getUserById HTTP/1.1
+Host: ymglfw.care4u.cn
+Connection: keep-alive
+Content-Length: 49
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzAxNjE1MDgxNzksInBheWxvYWQiOiJ7XCJpZFwiOlwiNGE5OWZkMTQ1MDM5NDEyZjhiMzFkMWY3NzAyMjUwMDJcIixcInVzZXJJZFwiOlwiZWU1MjlkMDctMTAyZC00ODk5LWEyMzMtZGFkMGNmMDdjOTY3XCIsXCJhcHBsZXRJZFwiOlwiMVwiLFwiY29uZmlnT3JnSWRcIjpcIjRcIixcInR5cGVcIjoxLFwiZGF0ZVwiOjE2NzAwNzUxMDgxNzl9In0.4DvKZg0M4GHus3jSJ7PyFKQcyAYBzZN2RZ1o44rv6Wo
+Referer: https://servicewechat.com/wx4293c7bbe5d3df87/8/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"userId":"ee529d07-102d-4899-a233-dad0cf07c967"}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Sat, 03 Dec 2022 13:48:19 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 448
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+HTx7Z8VfeugcBEpzgw7zD1pbdRJQPbjzxdWbAXgrOVoXDM0eeI0YP6Unv0m86uZbQi5x/AnFATDU8+ytCnck3RdfzEZeJyk4YE8rh2dywIEjlLgAIUTfIHQXBPHy4HJw+ub1u8M8Rrbbyog3h+ki3u5LXe2NHcEjljAqHIjy9iAgt0Td1kwuUPMjMG4pbnNTKHEVHbn0cunOuBSdE8Qj69d3CTkWs73E/1SeCFbpIyTUE4JOtP75WepKgTWqppIM6ULvA6PnXx2C5YEpUegFdzYaOIDL+cy+dau0bKrT7Gp8zdh/kfUOQlnpe+XqwzX+L1A1sN2tFsa5tm/jX0onibEGMzkmjBhdnvE3Rlsi65zvR9b0Bs/RMEkmD5c7eISiBPBXNgRdgBROXqqBVqhP2kCqrnnKY0VcYRulk89y9tvvTZBamxWMtze1s0cjYpRT
+
+
+{
+    "code": 1,
+    "value": {
+        "id": "ee529d07-102d-4899-a233-dad0cf07c967",
+        "xingm": "高宇",
+        "xingb": 1,
+        "chusrq": "Apr 27, 1989 12:00:00 AM",
+        "zhengjlx": 1,
+        "zhengjhm": "2310*************3919",
+        "benrdh": "133****3359",
+        "guanljg": "0",
+        "zhuangt": 0,
+        "toux": "wechat/wechatHeadImg/2020/3/645cdb4d-dfe1-43fa-8198-5c10d4116540.jpg"
+    },
+    "msg": "成功",
+    "count": null
+}

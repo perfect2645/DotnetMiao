@@ -1,0 +1,228 @@
+GET http://wx.haoyishi.com.cn/doctorOrder.php?wechatid=gh_868741944de3 HTTP/1.1
+Host: wx.haoyishi.com.cn
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Thu, 27 Oct 2022 10:31:39 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.6.40 mod_jk/1.2.42
+X-Powered-By: PHP/5.6.40
+Cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Set-Cookie: PHPSESSID=afp4nc1ucctnp801g4dioe9cb5; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Pragma: no-cache
+Vary: Accept-Encoding,User-Agent
+Content-Length: 14971
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html;charset=utf-8
+
+ <html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta name="Generator" content="APPNAME VERSION" />
+               <meta http-equiv="Content-Type" content="text/html; charset=" />
+        <title>预约挂号</title>
+        <base href=".">
+        <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link href="./CurrentTemplate/themes/weiweb/css/cate4_0.css" rel="stylesheet" type="text/css">
+        <link href="./CurrentTemplate/themes/weiweb/css/iscroll.css" rel="stylesheet" type="text/css">
+        <script src="./CurrentTemplate/themes/weiweb/js/iscroll.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var myScroll; 
+ 
+            function loaded() {
+                myScroll = new iScroll('wrapper', {
+                    snap: true,
+                    momentum: false,
+                    hScrollbar: false,
+                    onScrollEnd: function () {
+                        document.querySelector('#indicator > li.active').className = '';
+                        document.querySelector('#indicator > li:nth-child(' + (this.currPageX+1) + ')').className = 'active';
+                    }
+                });
+ 
+            }
+
+            document.addEventListener('DOMContentLoaded', loaded, false);
+        </script>
+
+    </head>
+    <body id="cate4">
+    
+        <div class="banner">
+		<div class="clr"></div>
+		</div>
+            <div id="insert1"></div>
+        <div id="todayList">
+            <ul class="todayList">
+                <li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=26F9ADE938E347E9A3D534E0A152D3E0&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/26F9ADE938E347E9A3D534E0A152D3E0/logo/thumb_20210317045408746.png"></div><h2>谢学英&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">副主任医师、副院长</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">擅长乳腺疾病、妇科常见病、多发病、妇科内分泌、妇科肿瘤、不孕不育、计划生育...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=F8B5FBBA5C8A4A1EB059F6FAE85747B5&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/F8B5FBBA5C8A4A1EB059F6FAE85747B5/logo/thumb_20190404020744983.png"></div><h2>蔡书琴&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">主治医师、门诊主任</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">擅长产前遗传咨询，孕产保健，产后盆底康复保健...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=DCC54B939B374BEDB8DBF3BB91E4EEA9&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/DCC54B939B374BEDB8DBF3BB91E4EEA9/logo/thumb_20190401031341384.png"></div><h2>伍少芬&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">副主任医师</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">妇科常见病、多发病、妇科内分泌、不孕不育、妇女保健和宫颈疾病的诊断和治疗...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=CD59321D93054D2C8FE29944D612F6B0&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/CD59321D93054D2C8FE29944D612F6B0/logo/thumb_20200624044651486.png"></div><h2>吴有珍&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">副主任医师</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">擅长各种妇科炎症如阴道炎、宫颈炎、盆腔炎的诊断与治疗...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=6334C2A529E1423881ADDA4E3A737076&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/6334C2A529E1423881ADDA4E3A737076/logo/thumb_20210317045740056.png"></div><h2>黄针妹&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">医师</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">擅长妇科常见病、多发病，计划生育和围产期保健、妇女保健、宫颈疾病、遗传咨询...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=1336E6B4385741DABE134DFE15D6666B&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/1336E6B4385741DABE134DFE15D6666B/logo/thumb_20220111093435851.png"></div><h2>覃健英&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">中心主任   副主任医师</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">从事妇科诊疗工作30年，国家四级生殖健康咨询师，对妇科疾病诊治积累了丰富的临�...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=7893F3E49D6C43B0857D79B38CEB6D0F&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/7893F3E49D6C43B0857D79B38CEB6D0F/logo/thumb_20210310033801311.png"></div><h2>四价疫苗&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;"></span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/E8A53E4EFFDE46F7B8B15A44230C2524/logo/thumb_20210310034001713.png"></div><h2>九价疫苗&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;"></span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li><li class="only4"><a href="http://www.hys020.com/home/yyghDorMobile?userId=42CB58972CD44CD9945775814C00CA41&openid=&wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/42CB58972CD44CD9945775814C00CA41/logo/thumb_20190329101437499.png"></div><h2>盆底康复&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;">盆底康复</span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">盆底功能康复训练...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a></li>            </ul>
+        </div>
+        <script>
+
+
+            var count = document.getElementById("thelist").getElementsByTagName("img").length;	
+
+
+            for(i=0;i<count;i++){
+                document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+
+            }
+
+            document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+
+
+            setInterval(function(){
+                myScroll.scrollToPage('next', 0,400,count);
+            },3500 );
+
+            window.onresize = function(){ 
+                for(i=0;i<count;i++){
+                    document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+
+                }
+
+                document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+            } 
+
+        </script>
+        <div id="insert2"></div>
+        <div style="display:none"> </div>
+        <div style="display:none"></div>
+
+<div class="copyright">
+</div> 
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js" type="text/javascript"></script>
+<br>
+<br><script>
+function displayit(n){
+	for(i=0;i<4;i++){
+		if(i==n){
+			var id='menu_list'+n;
+			if(document.getElementById(id).style.display=='none'){
+				document.getElementById(id).style.display='';
+				document.getElementById("plug-wrap").style.display='';
+			}else{
+				document.getElementById(id).style.display='none';
+				document.getElementById("plug-wrap").style.display='none';
+			}
+		}else{
+			if($('#menu_list'+i)){
+				$('#menu_list'+i).css('display','none');
+			}
+		}
+	}
+}
+function closeall(){
+	var count = document.getElementById("top_menu").getElementsByTagName("ul").length;
+	for(i=0;i<count;i++){
+		document.getElementById("top_menu").getElementsByTagName("ul").item(i).style.display='none';
+	}
+	document.getElementById("plug-wrap").style.display='none';
+}
+
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	WeixinJSBridge.call('hideToolbar');
+});
+</script>  <style type="text/css">
+body {margin-bottom:60px !important;}
+a, button, input {-webkit-tap-highlight-color:rgba(255, 0, 0, 0);}
+ul, li {list-style:none; margin:0;}
+.top_bar {position: fixed; z-index: 900; bottom: 0; left: 0; right: 0; margin: auto; font-family: Helvetica, Tahoma, Arial, Microsoft YaHei, sans-serif;}
+.top_menu {display:-webkit-box; border-top: 1px solid #3D3D46; display: block; width: 100%; background: rgba(255, 255, 255, 0.7); height: 48px; display: -webkit-box; display: box; margin:0; padding:0; -webkit-box-orient: horizontal; background: -webkit-gradient(linear, 0 0, 0 100%, from(#697077), to(#3F434E), color-stop(60%, #464A53)); box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.3) inset;}
+.top_bar .top_menu>li {-webkit-box-flex:1; background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.4))), -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.1)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.15))); ; -webkit-background-size:1px 100%, 1px 100%; background-size:1px 100%, 1px 100%; background-position: 1px center, 2px center; background-repeat: no-repeat; position:relative; text-align:center;}
+.top_menu li:first-child {background:none;}
+.top_bar .top_menu>li>a {height:48px; display:block; text-align:center; color:#FFF; text-decoration:none; text-shadow: 0 1px rgba(0, 0, 0, 0.3); -webkit-box-flex:1;}
+.top_bar .top_menu>li>a label {overflow:hidden; margin: 0 0 0 0; font-size: 12px; display: block !important; line-height: 18px; text-align: center;}
+.top_bar .top_menu>li>a img {padding: 3px 0 0 0; height: 24px; width: 24px; color: #fff; line-height: 48px; vertical-align:middle;}
+.top_bar li:first-child a {display: block;}
+.menu_font {text-align:left; position:absolute; right:10px; z-index:500; background: -webkit-gradient(linear, 0 0, 0 100%, from(#697077), to(#3F434E), color-stop(60%, #464A53)); border-radius: 5px; width: 120px; margin-top: 10px; padding: 0; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);}
+.menu_font.hidden {display:none;}
+.menu_font {top:inherit !important; bottom:60px;}
+.menu_font li a {height:40px; margin-right: 1px; display:block; text-align:center; color:#FFF; text-decoration:none; text-shadow: 0 1px rgba(0, 0, 0, 0.3); -webkit-box-flex:1;}
+.menu_font li a {text-align: left !important;}
+.top_menu li:last-of-type a {background: none;}
+.menu_font:after {top: inherit!important; bottom: -6px; border-color: #3F434E rgba(0, 0, 0, 0) rgba(0, 0, 0, 0); border-width: 6px 6px 0; position: absolute; content: ""; display: inline-block; width: 0; height: 0; border-style: solid; left: 80%;}
+.menu_font li {border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.2);}
+.menu_font li:first-of-type {border-top: 0;}
+.menu_font li:last-of-type {border-bottom: 0;}
+.menu_font li a {height: 40px; line-height: 40px !important; position: relative; color: #fff; display: block; width: 100%; text-indent: 10px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.menu_font li a img {width: 20px; height:20px; display: inline-block; margin-top:-2px; color: #fff; line-height: 40px; vertical-align:middle;}
+.menu_font>li>a label {padding:3px 0 0 3px; font-size:14px; overflow:hidden; margin: 0;}
+#menu_list0 {right:0; left:10px;}
+#menu_list0:after {left: 20%;}
+#sharemcover {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; z-index: 20000;}
+#sharemcover img {position: fixed; right: 18px; top: 5px; width: 260px; height: 180px; z-index: 20001; border:0;}
+.top_bar .top_menu>li>a:hover, .top_bar .top_menu>li>a:active {background-color:#333;}
+.menu_font li a:hover, .menu_font li a:active {background-color:#333;}
+.menu_font li:first-of-type a {border-radius:5px 5px 0 0;}
+.menu_font li:last-of-type a {border-radius:0 0 5px 5px;}
+#plug-wrap {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0); z-index:800;}
+#cate18 .device {bottom: 49px;}
+#cate18 #indicator {bottom: 240px;}
+#cate19 .device {bottom: 49px;}
+#cate19 #indicator {bottom: 330px;}
+#cate19 .pagination {bottom: 60px;}
+#cate17 .device {margin-bottom: 46px;}
+#cate17 #indicator {bottom: 130px;}
+</style>
+ 
+<div class="top_bar" style="-webkit-transform:translate3d(0,0,0)">
+    <nav>
+    <ul id="top_menu" class="top_menu">
+    <li> <a href="tel:0758-2692673"><img src="./CurrentTemplate/themes/weiweb/images/plugmenu1.png"><label>联系我们</label></a>
+                </li><li> <a href=""><img src="./CurrentTemplate/themes/weiweb/images/plugmenu3.png"><label>地址</label></a>
+                </li> 
+    </ul>
+  </nav>
+</div>
+
+<div id="plug-wrap" onclick="closeall()" style="display: none;"></div>
+    
+<iframe id="__WeixinJSBridgeIframe_SetResult" style="display: none;"></iframe><iframe id="__WeixinJSBridgeIframe" style="display: none;"></iframe></body>
+<script type="text/javascript">
+	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256061240'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256061240%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+	$("#cnzz_stat_icon_1256061240").hide();
+</script>
+</html>
+
+
+
+
+<a href="http://www.hys020.com/home/yyghDorMobile?userId=E8A53E4EFFDE46F7B8B15A44230C2524&amp;openid=&amp;wechatid=gh_868741944de3">
+					<div class="img"> <img src="../uploads/doctor/E8A53E4EFFDE46F7B8B15A44230C2524/logo/thumb_20210310034001713.png"></div><h2>九价疫苗&nbsp;&nbsp;<span style="font-size:14px;color:#2f2f2f;"></span></h2>
+					<div><span style="font-size:12px;color:#666;font-weight:normal;">...</span></div>		
+							<p class="onlyheight"></p> <span class="icon">&nbsp;</span><div class="clr"></div></a>

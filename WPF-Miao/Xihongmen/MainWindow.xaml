@@ -1,0 +1,11 @@
+﻿<Window x:Class="Xihongmen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Xihongmen.view"
+        Title="大兴区西红门" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:XihongmenConsole x:Name="mainConsole">
+
+    </view:XihongmenConsole>
+</Window>

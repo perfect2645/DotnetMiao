@@ -1,0 +1,11 @@
+﻿<Window x:Class="Longchi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Longchi.view"
+        Title="漳州龙池" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:LongchiConsole x:Name="mainConsole">
+
+    </view:LongchiConsole>
+</Window>

@@ -1,9 +1,4 @@
 ﻿using HuSheng.session;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HuSheng.analysis
 {
@@ -19,6 +14,21 @@ namespace HuSheng.analysis
             }
 
             if (miaoName.Contains(Constants.NineJia))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool IsDoseOne(this string miaoName)
+        {
+            if (string.IsNullOrEmpty(miaoName))
+            {
+                return false;
+            }
+
+            if (miaoName.Contains(Constants.DoseOne))
             {
                 return true;
             }

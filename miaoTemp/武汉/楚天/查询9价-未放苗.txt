@@ -1,0 +1,78 @@
+POST https://ctmingyi.com:18082/api/hospital/doctorInfo HTTP/1.1
+Host: ctmingyi.com:18082
+Connection: keep-alive
+Content-Length: 15
+content-type: application/x-www-form-urlencoded
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d37) NetType/WIFI Language/zh_CN
+Referer: https://servicewechat.com/wx8d28cdcd4357647c/33/page-frame.html
+
+doctorId=646202
+HTTP/1.1 200
+Server: nginx/1.13.7
+Date: Sun, 13 Nov 2022 12:18:30 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 1886
+
+{"msg":"操作成功","code":0,"success":true,"obj":[{"divisionID":23876,"hosCode":" ","keyword":null,"teletOpen":null,"audioOpen":null,"wzCount":null,"teletPrice":null,"audioPrice":null,"audioDura":null,"scheduleList":null,"outpdate":null,"description":"<p>温馨提示!</p><p><span style=\"color: rgb(255, 0, 0);\">应疫情防控要求不能跨区，仅限本区居民才能预约就诊，待疫情防控解除后可以正常跨区预约，谢谢您的理解！</span></p><p><span style=\"color: rgb(255, 0, 0);\">九价宫颈癌疫苗号源量按照疾控中心当月配送量比例投放！</span></p><p><span style=\"color: rgb(255, 0, 0);\">在有苗的情况下每周三上午进行排号！</span></p><p>1、未在他院接种过此类疫苗。&nbsp;</p><p>2、按预约时间，在当天上午8:30-11：30、下午2:00-4：30期间完成接种。&nbsp;</p><p>4、未实名预约、携带资料不符、逾期等原因造成未能接种，责任自负。\r\n就诊流程：前台挂号→103取号→105开单→收银台缴费→301排队签核→注射。</p>","parentCode":null,"inputCode":"","reservationSum":594,"inquirySum":0,"isAccount":null,"isHold":null,"hospitaCode":"100012","isExpertism":null,"id":646202,"type":0,"verification":0,"code":null,"explain":"1.就诊需携带证件相关要求请仔细阅读挂号须知。\r\n2.就诊请提前15分钟到场，戴好口罩，保持一米排队距离！如需取消预约，请提前一天下午4点以前取消预约。","yycount":null,"hospitalName":"武汉市汉阳区妇幼保健院","province":null,"divisionName":"九价HPV疫苗","parentID":23312,"imgUrl":"http://img.ctmingyi.com/upload/IMAGE/doctor.png","inquire":null,"hang":1,"duty":null,"job":"医师","attending":"无","hospitalID":54,"divisionCode":"","name":"普通号","goodAt":"无","createTime":"2021-07-12 08:55:02","phone":null,"sex":0,"status":3}]}
+
+
+{
+    "msg": "操作成功",
+    "code": 0,
+    "success": true,
+    "obj": [
+        {
+            "divisionID": 23876,
+            "hosCode": " ",
+            "keyword": null,
+            "teletOpen": null,
+            "audioOpen": null,
+            "wzCount": null,
+            "teletPrice": null,
+            "audioPrice": null,
+            "audioDura": null,
+            "scheduleList": null,
+            "outpdate": null,
+            "description": "<p>温馨提示!</p><p><span style=\"color: rgb(255, 0, 0);\">应疫情防控要求不能跨区，仅限本区居民才能预约就诊，待疫情防控解除后可以正常跨区预约，谢谢您的理解！</span></p><p><span style=\"color: rgb(255, 0, 0);\">九价宫颈癌疫苗号源量按照疾控中心当月配送量比例投放！</span></p><p><span style=\"color: rgb(255, 0, 0);\">在有苗的情况下每周三上午进行排号！</span></p><p>1、未在他院接种过此类疫苗。&nbsp;</p><p>2、按预约时间，在当天上午8:30-11：30、下午2:00-4：30期间完成接种。&nbsp;</p><p>4、未实名预约、携带资料不符、逾期等原因造成未能接种，责任自负。\r\n就诊流程：前台挂号→103取号→105开单→收银台缴费→301排队签核→注射。</p>",
+            "parentCode": null,
+            "inputCode": "",
+            "reservationSum": 594,
+            "inquirySum": 0,
+            "isAccount": null,
+            "isHold": null,
+            "hospitaCode": "100012",
+            "isExpertism": null,
+            "id": 646202,
+            "type": 0,
+            "verification": 0,
+            "code": null,
+            "explain": "1.就诊需携带证件相关要求请仔细阅读挂号须知。\r\n2.就诊请提前15分钟到场，戴好口罩，保持一米排队距离！如需取消预约，请提前一天下午4点以前取消预约。",
+            "yycount": null,
+            "hospitalName": "武汉市汉阳区妇幼保健院",
+            "province": null,
+            "divisionName": "九价HPV疫苗",
+            "parentID": 23312,
+            "imgUrl": "http://img.ctmingyi.com/upload/IMAGE/doctor.png",
+            "inquire": null,
+            "hang": 1,
+            "duty": null,
+            "job": "医师",
+            "attending": "无",
+            "hospitalID": 54,
+            "divisionCode": "",
+            "name": "普通号",
+            "goodAt": "无",
+            "createTime": "2021-07-12 08:55:02",
+            "phone": null,
+            "sex": 0,
+            "status": 3
+        }
+    ]
+}

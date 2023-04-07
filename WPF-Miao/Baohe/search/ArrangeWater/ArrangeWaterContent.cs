@@ -4,6 +4,7 @@ using Baohe.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Utils;
 
 namespace Baohe.search.ArrangeWater
 {
@@ -18,23 +19,23 @@ namespace Baohe.search.ArrangeWater
         private void BuildContent()
         {
             //doctorSn=711111254&hospitalId=1040231&channelId=9000370
-            var doctorList = BaoheSession.MiaoSession[Constant.DoctorList] as List<Dictionary<string, object>>;
-            var targetDoctor = doctorList?.FirstOrDefault();
+            var targetDoctor = SessionBuilder.GetDefaultDoctor();
+
             if (targetDoctor == null)
             {
                 Logging.GLog.Logger.Warn("ArrangeWaterContent targetDoctor is null");
                 return;
             }
             Content.Add(Constant.DoctorSn, targetDoctor[Constant.DoctorSn]);
-            Content.Add(Constant.HospitalId, BaoheSession.PlatformSesstion[Constant.HospitalId]);
-            Content.Add("channelId", BaoheSession.PlatformSesstion[Constant.LoginChannel]);
+            Content.Add(Constant.HospitalId, MainSession.PlatformSesstion[Constant.HospitalId]);
+            Content.Add(Constant.ChannelId, MainSession.PlatformSesstion[Constant.PlatformType]);
         }
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
 

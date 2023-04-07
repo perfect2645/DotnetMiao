@@ -140,13 +140,13 @@ namespace Jk160.viewModel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as Jk160Dept;
-            Jk160Session.PlatformSesstion.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
-            Jk160Session.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
-            Jk160Session.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
+            Jk160Session.PlatformSession.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
+            Jk160Session.PlatformSession.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
+            Jk160Session.PlatformSession.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
 
-            Jk160Session.BuildMiaoSession(Jk160Session.PlatformSesstion[Constant.DeptId].NotNullString());
+            Jk160Session.BuildMiaoSession(Jk160Session.PlatformSession[Constant.DeptId].NotNullString());
         }
 
         #endregion Hospital Dept

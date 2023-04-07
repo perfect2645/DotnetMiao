@@ -1,0 +1,29 @@
+GET https://app.quyiyuan.com/APP/user/action/LoginAction.jspx?APPOINT_SOURCE=0&APP_UUID=88ae0966-43e2-4b3d-8cd9-dd52902dddf2&CHANNEL_ID=&GROUP_CODE=40&IMEI_ID=&LOGIN_FLAG=0&PASSWORD=2be57c6af8fef0171c834a5876038377a73c41eb54f4f118a93a5b7fd0aad82f2c074f2ee84771b3f2eb664a8a2218bc5b01d9d55d5b6e9248ab6253042ec371&PHONEOPERATINGSYS=0&PHONETYPE=&PHONEVERSIONNUM=&PUBLIC_SERVICE_TYPE=020514&TOKEN=1674973220220&USER_CODE=13940897525&forceSatification=YES&hospitalID=3110012&isAutoPwdLogin=false&isLogin=false&loc=c&op=login&opVersion=2.6.71&operateUserSource=0&userSource=0&QY_CHECK_SUFFIX=f59e6c364d9a7f3aec0ee205d652846a HTTP/1.1
+Host: app.quyiyuan.com
+Connection: keep-alive
+sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"
+Accept: application/json, text/plain, */*
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Origin: https://c.quyiyuan.com
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://c.quyiyuan.com/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+
+HTTP/1.1 200
+Date: Sun, 29 Jan 2023 06:20:46 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+Set-Cookie: acw_tc=3ccdc15d16749732467748166e2b1153cc836809905785a6ef4ada9bee3ce8;path=/;HttpOnly;Max-Age=1800
+Vary: Accept-Encoding
+Access-Control-Allow-Methods: POST, GET
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type, Authorization, Accept,X-Requested-With
+Content-Length: 1181
+
+{"result":"LkYZqRj4BfUcUX4Tc9JGl/8A7iXdIjQFYrenclSG673mDSzJzlERRmYssb0g7SDMkRwQkUEwqAO94gAig1LEefixedM0iRyHeQFKtOrGR0AvlDqu0IqLqVw3Iogsf0/N/4hyg/mP16LGFjRs8wnWrSmmf9eTvBF8maGgt9XOusm80jUAfM3ntbz82dnzMpH80TaCMfpldX3ucWheXukmngG/N/j2wCVwmmE1EHOdh9/znp/l9x5MyBxurfje1VMHtjrCMg/bFTFuq7zEjpZ/oPh73mlA90x+/uPxBsVC1+nNcuIK39iFcsA1bb7CO4DDhGhd940xtoUWm36/QfNkMWozVzdUDYvyDIJMFCqcV1/wg9JeebI4fyVEBc5VFmOTfkfrGKUmZtyPD8YRrjl0u+IYUpwrFqtJ7Bb4IyAnBsuUsQlYW9G/lf3Bhgg0/gIdS/qcAGxmf6hhYNQKAQx2kyhrwr4EzOdVgYjwRLDrE5BVCrmAhTRnhsYRrGoFdFzt53NIuQ8Bp8A0XFfB3Tr85x8l35kCPyrPIa5KKVMfclMxJpsmO2XizLOLQwyNp2deaL/If1HOu/5UtPquIZowxT4tVkTmv/GEDmA6mcgaSC429WNLgb/TzAgIY/mugpkUaf0OkQlWpcMq/cTNxbfi3LXEOGJK253ez69udXaiLBRwHKe/cO8H4mXK7P10B8xrK/BqJhFfWXVufSnx40vLTSqsJixhbGSc5Xzc92vOVidVCIvK+se4vKrevliK8lwA6JOeDTFm7b4y+gUE6zUpPGSEisRjKpI2eZdpTDAICqHHQZmRXw6OYz0PUrH7ZAp7Iqsnw6Pyv8/aM3ncjTVDloC8wXxbgJxLZx4j/IvABD5b0RDwzjPQSBK46GnMMthPNVVXJDnPJ1/UuRRt7jjwoNn0PFsS05jfp6iLv1/byv9CN+r9aLbUVAF5uSweC2SH7yDOF2gHRg1pIw8/lrhLWolpOLeMqc3qmGayUuI6KVNeVkKKefvtM0RIKS33CmX3vAtKMEeiLk5F52nsrOZyfImVkFRfIVuSqL5PUTJZTMn80Dw/lc3bG88ef/L4ii7Tp6efzJvTrCkAFhoGDtJm7QbDACXHH1DTu/xnlRJYZkEh3fVHXl1hdule6hOmwMy2","isEncrypt":"1"}

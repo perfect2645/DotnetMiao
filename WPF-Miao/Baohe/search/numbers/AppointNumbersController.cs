@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.number;
 
 namespace Baohe.search.numbers
 {
@@ -20,27 +21,27 @@ namespace Baohe.search.numbers
         {
         }
 
-        public Task<bool> GetNumbersAsync(bool isPrintLog = false)
+        public Task<bool> GetNumbersAsync(Dictionary<string, object> water, bool isPrintLog = false)
         {
-            return Task.Factory.StartNew(() => GetNumbers(isPrintLog));
+            return Task.Factory.StartNew(() => GetNumbers(water, isPrintLog));
         }
 
-        private bool GetNumbers(bool isPrintLog = false)
+        private bool GetNumbers(Dictionary<string, object> water, bool isPrintLog = false)
         {
+            if (!water.HasItem())
+            {
+                return false;
+            }
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getNumbers";
 
-            var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
-            //TODO 选取所有的water
-            var arrangeWater = arrangeWaterList.LastOrDefault()!;
-
-            var content = new AppointNumbersContent(url, arrangeWater);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            var content = new AppointNumbersContent(url, water);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-            var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
+            var code = response?.Body?.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - {response.Body["Message"]}", Constant.GetNumbers);
@@ -52,24 +53,26 @@ namespace Baohe.search.numbers
                 throw new HttpException($"{Constant.ProjectName}:GetNumbers-{url} - Result is empty", "empty result");
             }
 
-            var numbers = AnalizeResult(result, arrangeWater);
+            var numbers = AnalysisResult(result, water);
 
             if (isPrintLog)
             {
-                BaoheSession.PrintLogEvent.Publish(this, numbers, "Numbers");
+                MainSession.PrintLogEvent.Publish(this, numbers, "Numbers");
             }
 
             return true;
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement, Dictionary<string, object> arrangeWater)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement, Dictionary<string, object> arrangeWater)
         {
             var numbers = JsonAnalysis.JsonToDicList(jsonElement);
             foreach (var number in numbers)
             {
                 number.AddOrUpdate("arrangeWater", arrangeWater);
             }
-            BaoheSession.AddMiaoSession(Constant.Numbers, numbers);
+
+            numbers = numbers.DisorderItems();
+            MainSession.AddMiaoSession(Constant.Numbers, numbers);
 
             return numbers;
         }

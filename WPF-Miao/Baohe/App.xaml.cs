@@ -1,7 +1,7 @@
 ﻿using Baohe.appointment;
 using Baohe.search;
 using Baohe.search.ArrangeWater;
-using Baohe.search.auth;
+using Baohe.search.cookie;
 using Baohe.search.doctor;
 using Baohe.search.Liudiao;
 using Baohe.search.numbers;
@@ -23,6 +23,17 @@ namespace Baohe
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            if (e.Args != null && e.Args.Length == 2)
+            {
+                Properties["UserName"] = e.Args[0];
+                Properties["Cookie"] = e.Args[1];
+            }
+            else if (e.Args != null && e.Args.Length == 3)
+            {
+                Properties["UserName"] = e.Args[0];
+                Properties["Cookie"] = e.Args[1];
+                Properties["RetId"] = e.Args[2];
+            }
             base.OnStartup(e);
             InitControllerAsync();
         }
@@ -37,6 +48,7 @@ namespace Baohe
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<CookieController>();
             HttpServiceController.AddTransientService<AuthController>();
             HttpServiceController.AddTransientService<UserInfoController>();
             HttpServiceController.AddTransientService<DoctorController>();

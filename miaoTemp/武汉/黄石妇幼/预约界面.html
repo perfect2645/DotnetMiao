@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="Cache-Control" content="no-SiteAPP" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <title></title>
+    <link href="/hssfybjyjkglzx_web/Content/css/reset.css" rel="stylesheet" />
+    <link href="/hssfybjyjkglzx_web/Content/css/main.css" rel="stylesheet" />
+    <script src="/hssfybjyjkglzx_web/Content/js/jquery.min.js"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/rem.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            background: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : " http://"); document.write(unescape("%3Cspan style='display:none;'id='cnzz_stat_icon_1276395674'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1276395674' type='text/javascript'%3E%3C/script%3E"));
+        document.getElementById("cnzz_stat_icon_1276395674").style.display = "none";
+    </script>
+</head>
+<body>
+    <form id="form1" style="height:100%">
+        <div id="login_page" style="height:100%">
+            <img src="/hssfybjyjkglzx_web/Content/img/logotop.png">
+            <div class="login_top">
+                <div class="logo"><img src="http://gzh.51kys.cn//hssfybjyjkglzx_admin/Images/6fb4e066e6dd4caf98fc405d95a987ec.png"></div>
+            </div>
+            <div class="login_form">
+                    <div class="item">
+                        <div class="left">
+                            <img src="/hssfybjyjkglzx_web/Content/img/icon/phone.png">
+                            <input type="text" id="zh" name="zh" placeholder="请输入账号">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="left">
+                            <img src="/hssfybjyjkglzx_web/Content/img/icon/psd.png">
+                            <input type="password" id="mm" name="mm" placeholder="请输入密码(英文或数字)">
+                        </div>
+                    </div>
+                <div class="item">
+                    <div class="left">
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/yzm.png">
+                        <input type="text" id="validCode" name="validCode" placeholder="请输入图形验证码">
+                    </div>
+                    <div class="right">
+                        <div class="yzm_box"><img src="/hssfybjyjkglzx_web/ValidCode/index"></div>
+                    </div>
+                </div>
+                <div class="item" style="display:none">
+                    <div class="left">
+                        <img src="/hssfybjyjkglzx_web/Content/img/icon/psd.png">
+                        <input type="text" id="code" name="code" placeholder="请输入验证码">
+                    </div>
+                    <div class="right">
+                        <div class="get_yzm_box"><span class="can_click">获取验证码</span></div>
+                    </div>
+                </div>
+                <div class="login_sub_box">
+                    <a href="javascript:;"><img src="/hssfybjyjkglzx_web/Content/img/loginbtn.png"><span>登 录</span></a>
+                </div>
+                    <div class="item">
+                        <div class="left">
+                            <a id="zc" class="login_scan_panel_forgot_pwd" href="/hssfybjyjkglzx_web/Login/Register?ReturnUrl=/hssfybjyjkglzx_web/Hyzx/Index"><span>注册</span></a>
+                        </div>
+                        <div class="right">
+                            <a id="wjmm" class="login_scan_panel_forgot_pwd" href="/hssfybjyjkglzx_web/Login/ForgetPwd"><span>忘记密码</span></a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </form>
+    <script src="/hssfybjyjkglzx_web/Content/js/public.js"></script>
+    <script src="/hssfybjyjkglzx_web/Content/js/index.js"></script>
+    <script>
+        $(function() {
+            $(".yzm_box").click(function() {
+                $(this).find("img").attr("src", "/hssfybjyjkglzx_web/ValidCode/index?v=" + Math.random());
+            });
+            $(".yzm_box").click();
+        });
+
+        //60s倒计时实现逻辑
+        var countdown = 60;
+        function setTime() {
+            var obj = $(".get_yzm_box span");
+            if (countdown == 0) {
+                obj.addClass('can_click');
+                obj.text("获取验证码");
+                countdown = 60;//60秒过后button上的文字初始化,计时器初始化;
+                return;
+            } else {
+                obj.removeClass('can_click');
+                obj.text("(" + countdown + "s)后重新发送");
+                countdown--;
+            }
+            setTimeout(function() { setTime(obj) }, 1000); //每1000毫秒执行一次
+        }
+
+        $(".get_yzm_box").click(function() {
+            if ($(this).find("span").hasClass("can_click")) {
+                var reg = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/;
+                if (!reg.test($("#phone").val())) {
+                    model_box_tip_independent({ txt: "请输入正确的手机号码！", closetime: 1500 });
+                    $("#phone").focus();
+                    return;
+                }
+                $.ajax({
+                    url: "/hssfybjyjkglzx_web/ValidCode/SendSms",
+                    data: { phone: $("#phone").val() },
+                    dataType: "json",
+                    type: "post",
+                    asynce: false,
+                    success: function (res) {
+                        if (res.code != 200) {
+                            model_box_tip_independent({ txt: res.msg, closetime: 3000 });
+                        }
+                    },
+                    error: function(res) {
+                        model_box_tip_independent({ txt: "发送失败！", closetime: 1500 });
+                    }
+                });
+                setTime();
+            }
+        });
+
+		var getEncodeString = function (srcString) {
+            var BASE32CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+            var i = 0;
+            var index = 0;
+            var digit = 0;
+            var currByte;
+            var nextByte;
+            var retrunString = '';
+
+            for (var i = 0; i < srcString.length;) {
+                currByte = (srcString.charCodeAt(i) >= 0) ? srcString.charCodeAt(i)
+                    : (srcString.charCodeAt(i) + 256);
+                if (index > 3) {
+                    if ((i + 1) < srcString.length) {
+                        nextByte = (srcString.charCodeAt(i + 1) >= 0)
+                            ? srcString.charCodeAt(i + 1)
+                            : (srcString.charCodeAt(i + 1) + 256);
+                    } else {
+                        nextByte = 0;
+                    }
+
+                    digit = currByte & (0xFF >> index);
+                    index = (index + 5) % 8;
+                    digit <<= index;
+                    digit |= (nextByte >> (8 - index));
+                    i++;
+                } else {
+                    digit = (currByte >> (8 - (index + 5))) & 0x1F;
+                    index = (index + 5) % 8;
+
+                    if (index == 0) {
+                        i++;
+                    }
+                }
+                retrunString = retrunString + BASE32CHAR.charAt(digit);
+            }
+            return retrunString.toLowerCase();
+        }
+
+        $(".login_sub_box a").click(function () {
+            if ("0" == "1") {
+                var reg = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-9]|18[0-9]|19[0-9])[0-9]{8}$/;
+                if (!reg.test($("#phone").val())) {
+                    model_box_tip_independent({ txt: "请输入正确的手机号码！", closetime: 1500 });
+                    $("#phone").focus();
+                    return;
+                }
+                if (!$("#code").val()) {
+                    model_box_tip_independent({ txt: "请输入验证码！", closetime: 1500 });
+                    $("#code").focus();
+                    return;
+                }
+            } else {
+                if (!$("#zh").val()) {
+                    model_box_tip_independent({ txt: "请输入账号！", closetime: 1500 });
+                    $("#zh").focus();
+                    return;
+                }
+                if (!$("#mm").val()) {
+                    model_box_tip_independent({ txt: "请输入密码！", closetime: 1500 });
+                    $("#mm").focus();
+                    return;
+                }
+            }
+
+            if (!$("#validCode").val()) {
+                model_box_tip_independent({ txt: "请输入图形验证码！", closetime: 1500 });
+                $("#validCode").focus();
+                return;
+            }
+
+            $.ajax({
+                url: "/hssfybjyjkglzx_web/Login/IndexNew",
+                data: "0" == "1" ? { zh: $("#phone").val(), mm: $("#code").val(), validCode: $("#validCode").val() } : { zh: $("#zh").val(), mm: getEncodeString($("#mm").val()), validCode: $("#validCode").val() },
+                dataType: "json",
+                type: "post",
+                success: function(res) {
+                    if (res.code == 200) {
+                        window.location.href = "/hssfybjyjkglzx_web/Hyzx/Index";
+                    } else {
+                        model_box_tip_independent({ txt: res.msg, closetime: 1500 });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

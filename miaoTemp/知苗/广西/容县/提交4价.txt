@@ -1,0 +1,26 @@
+POST https://cloud.cn2030.com/sc/api/User/OrderPost HTTP/1.1
+Host: cloud.cn2030.com
+Connection: keep-alive
+Content-Length: 416
+Cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzE5Njk2OTkuOTExMjQ2MywiZXhwIjoxNjcxOTczMjk5LjkxMTI0NjMsInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIyMTIyNTIwMDEwMCIsInZhbCI6ImxGcWpBUUlBQUFBRWJtOXVaUnh2Y1hJMWJ6VkVOa1ZZWjJKa2VIVmxPV0ZVVVRsbFJGOU9iMFYzQUJ4dlZUSTJXSFEwYkRSMGVEZ3lcclxuUW00eFVtbFlSak5TVms1TlZWSlpEREV4TXk0NUxqRXlNeTR5TUFBUWJFWnhha0ZaZW1oQlFVRjFhbFJSUWdFQUFBQUEifQ.i9bAs7k2nvCsCMkxtQGTV2gq6P1cwenHEGwTfX4xU4k; path=/
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+zftsl: 106b9a780096a48a728e40d5baff53a9
+Referer: https://servicewechat.com/wx2c7f0f3c30d99445/96/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+852118fe5b46cb97bf1d82579eff46b54779ce99f2e3a796e10640e61be2b8838555bf244182ec62a6650676192093144702912deb9abd3ba09403a1057b8d30e4dc905a218637a5b9dbc00c3e64bd774467c82561a99bbb93adafe0a0e3412d34b33f01c9e5c4a291022583ed916d456cdface03dfaff1f3597cf8df64ab1511d9cfbae2a510f262ec4882229964fc916cd643d485abeea8bee5e6b644e83ddab6ae30b6802dc42f2c32e597a5882f47893065ce50734eb884edd57e65d57cd39868a9922a1ffc9b67a4575e16b2e7b
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 25 Dec 2022 12:01:40 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 35
+Connection: keep-alive
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+X-AspNet-Version: 4.0.30319
+Set-Cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzE5Njk3MDAuNTg0NTk4MywiZXhwIjoxNjcxOTczMzAwLjU4NDU5ODMsInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIyMTIyNTIwMDEwMCIsInZhbCI6ImxGcWpBUUlBQUFBRWJtOXVaUnh2Y1hJMWJ6VkVOa1ZZWjJKa2VIVmxPV0ZVVVRsbFJGOU9iMFYzQUJ4dlZUSTJXSFEwYkRSMGVEZ3lcclxuUW00eFVtbFlSak5TVms1TlZWSlpEREV4TXk0NUxqRXlNeTR5TUFBUWJFWnhha0ZaZW1oQlFVRjFhbFJSUWdFQUFBQUEifQ.GpYJPZne8iXrilvsf_cHl__nmZalHSGVTzWcgJ3lYbU; path=/
+X-Powered-By: ASP.NET
+
+{"status":200,"msg":"提交成功"}

@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Utils;
 using Utils.json;
+using Utils.stringBuilder;
 
 namespace HttpProcessor.Content
 {
@@ -13,7 +14,7 @@ namespace HttpProcessor.Content
         public Dictionary<string, string> Headers { get; private set; }
         public Dictionary<string, object> Content { get; private set; }
         public string ContentType { get; set; } = "application/json";
-        public string RequestUrl { get; private set; }
+        public string RequestUrl { get; set; }
         public string ContentPrefix { get; set; }
         public string ContentSuffix { get; set; }
         public bool IsEncode { get; set; }
@@ -37,7 +38,12 @@ namespace HttpProcessor.Content
                 {
                     if (!httpClient.DefaultRequestHeaders.Contains(header.Key))
                     {
-                        httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
+                        httpClient.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
+                    }
+                    else
+                    {
+                        httpClient.DefaultRequestHeaders.Remove(header.Key);
+                        httpClient.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
                     }
                 }
             }
@@ -55,6 +61,11 @@ namespace HttpProcessor.Content
         public void AddHeader(string key, string value)
         {
             Headers.AddOrUpdate(key, value);
+        }
+
+        public void AddHeader(Dictionary<string, object> source, string key)
+        {
+            Headers.AddOrUpdate(key, source[key].NotNullString());
         }
 
         public void AddHeaders(Dictionary<string, string> pairs)

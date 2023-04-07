@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using Utils.datetime;
 
 namespace Base.Events
 {
@@ -22,7 +24,7 @@ namespace Base.Events
             var e = new LogEventArgs
             {
                 Items = new Dictionary<string, object>(),
-                Message = message ?? sender.GetType().Name,
+                Message = $"[{Thread.CurrentThread.ManagedThreadId}]{message ?? sender.GetType().Name} - Time={DateTimeUtil.GetNow()}",
             };
             PrintLogEvent?.Invoke(sender, e);
         }
@@ -36,6 +38,23 @@ namespace Base.Events
             };
             PrintLogEvent?.Invoke(sender, e);
         }
+
+        public void Publish(object? sender, Dictionary<string, string> args, string message = null)
+        {
+            var objectDic = new Dictionary<string, object>();
+            foreach(var arg in args)
+            {
+                objectDic.Add(arg.Key, arg.Value);
+            }
+
+            var e = new LogEventArgs
+            {
+                Items = objectDic,
+                Message = message ?? sender.GetType().Name,
+            };
+            PrintLogEvent?.Invoke(sender, e);
+        }
+
 
         public void Publish(object? sender, List<Dictionary<string, object>> args, string message = null)
         {
@@ -53,6 +72,14 @@ namespace Base.Events
 
     public class LogEventArgs
     {
+        public LogEventArgs()
+        {
+        }
+        public LogEventArgs(string log)
+        {
+            Message = log;
+        }
+
         public string Message { get; set; }
         public Dictionary<string, object> Items { get; set; }
     }

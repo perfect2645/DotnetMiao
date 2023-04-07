@@ -1,0 +1,25 @@
+POST http://hpv_ym.zzytrj.net:15003/api/yuyue.php HTTP/1.1
+Host: hpv_ym.zzytrj.net:15003
+Connection: keep-alive
+Content-Length: 217
+Accept: application/json, text/javascript, */*; q=0.01
+User-Agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: null
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+
+cmd=yuyue_post&date=2023-01-02+08%3A00%3A00&qty=1&dizhi=400&yuyue_name=%E5%91%A8%E7%91%A0%E5%A4%8F&yuyue_user_code=612426199806235426&yuyue_user_add=%E7%BF%A1%E7%BF%A0%E6%A2%A6%E5%A2%83&yuyue_user_suoshu=%E7%99%BE%E7%9B%9B
+cmd=yuyue_post&date=2023-01-02+10%3A00%3A00&qty=1&dizhi=400&yuyue_name=%E5%91%A8%E7%91%A0%E5%A4%8F&yuyue_user_code=612426199806235426&yuyue_user_add=%E7%BF%A1%E7%BF%A0%E6%A2%A6%E5%A2%83&yuyue_user_suoshu=%E7%99%BE%E7%9B%9B
+HTTP/1.1 200 OK
+Date: Sun, 01 Jan 2023 07:48:34 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 52
+Connection: keep-alive
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Set-Cookie: PHPSESSID=ht27ajq2f56d8dq4v6al3chi55; path=/
+Vary: Accept-Encoding,User-Agent
+
+{"code":-998,"msg":"\u5fae\u4fe1\u767b\u5f55\uff01"}

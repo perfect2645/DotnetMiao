@@ -1,0 +1,91 @@
+{
+    "memberSn": "56382130",
+    "memberName": "马智慧",
+    "memberPhone": "17154389854",
+    "memberAddress": "南京市雨花开发区弘阳装饰城c2区",
+    "memberBirthday": "2002-11-27",
+    "memberSex": "2",
+    "memberId": "56382130",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "4116**********4447",
+    "memberIdcard": "4116**********4447",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "17154389854",
+    "accountSn": 148528129,
+    "cardNumber": "2078631533",
+    "hosDeptId": "7152219",
+    "doctorService_gh": "2",
+    "doctorUid": "710803137",
+    "doctorName": "九价HPV疫苗",
+    "doctorPic": "",
+    "doctorClinicName": "主治医师",
+    "GH_HosProId": "17",
+    "GH_HosProName": "湖北",
+    "GH_HosCityId": "172",
+    "GH_HosCityName": "武汉",
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "store": "",
+    "UnOpened": false,
+    "loginId": "oSlGdxAX1XRfHpaJyqQ7mkt_DerU",
+    "channelId": "9000553",
+    "doctorOfficeName": "",
+    "isread": "1",
+    "retid": "",
+    "registerDate": "2023-03-03",
+    "hosDeptName": "疫苗预约",
+    "hospitalId": "1023044",
+    "hospitalName": "硚口区古田街社区卫生服务中心",
+    "availablenum": 1,
+    "FHTimes": "16:00",
+    "FHDays": "7",
+    "waterId": 789204475,
+    "waitingInfor": "09:00-09:30",
+    "serialNo": "1",
+    "doctorSn": "711250004",
+    "arrangeId": 168252478,
+    "timeId": "1"
+},
+[
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "4116**********4447",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "17154389854",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]

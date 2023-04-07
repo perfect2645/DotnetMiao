@@ -1,0 +1,98 @@
+{
+    "waterId": "790915943",
+    "waitingInfor": "第17号 15:30-16:00",
+    "store": "",
+    "serialNo": "17",
+    "memberSn": "56311966",
+    "memberName": "徐颖",
+    "memberPhone": "13940897525",
+    "memberAddress": "南京",
+    "memberBirthday": "1994-05-22",
+    "memberSex": "2",
+    "memberId": "56311966",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "320***********2641",
+    "memberIdcard": "320***********2641",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "13940897525",
+    "doctorSn": "711212336",
+    "hosDeptId": "7210427",
+    "hosDeptName": "成人疫苗预约",
+    "hospitalId": "1031364",
+    "hospitalName": "蜀山区西园街道社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710791020",
+    "doctorName": "二价HPV（进口）",
+    "doctorPic": "",
+    "doctorClinicName": "医师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2023-03-02",
+    "timeId": 2,
+    "arrangeId": 168515747,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 1,
+    "UnOpened": false,
+    "FHTimes": "20:30",
+    "FHDays": "5",
+    "accountSn": 148528129,
+    "cardNumber": "2078631533",
+    "loginId": "oHN-twg6spTo8abmeNf5Z23z_HxY",
+    "channelId": "9001016",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+[
+    {
+        "keyValue": "南京",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "320***********2641",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "13940897525",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]

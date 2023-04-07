@@ -9,6 +9,7 @@
     <basePage:BaseConsole x:Name="baseConsole"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
+                          ShowReferer="Collapsed"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:BaseConsole.ButtonArea>
             <StackPanel CanVerticallyScroll="True" Background="#eee">
@@ -25,6 +26,7 @@
                 <materialDesign:TimePicker Width="150" SelectedTime="{Binding StartTime}"
                     Style="{StaticResource MaterialDesignOutlinedTimePicker}"
                                            ToolTip="开始时间"
+                                           WithSeconds="True"
                                            HorizontalAlignment="Left"
                                            materialDesign:HintAssist.Hint="开始时间"
                                            Margin="10"
@@ -39,19 +41,54 @@
                     <Button Content="自动查约"
                     Command="{Binding AutoRunCommand}" Width="100" >
                     </Button>
-                    <!--<Button Content="手动验证码"
-                    Command="{Binding VerifyCode.SendYzmCommand}" Width="100" Margin="50, 0">
-                </Button>-->
-                    <TextBox
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                        <Button Content="手动发验证码" HorizontalAlignment="Left"
+                        Command="{Binding VerifyCode.SendYzmCommand}" Width="120" Margin="5, 10">
+                        </Button>
+                        <TextBox
                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Width="100"
                       materialDesign:HintAssist.Hint="验证码"
                       Text="{Binding VerifyCode.Yzm}"
                       Margin="8 0 0 0"
                       VerticalAlignment="Bottom" />
-                    <Button Content="验证"
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                        <TextBox
+                        Width="120"
+                      materialDesign:HintAssist.Hint="ArrangeSn"
+                      Text="{Binding VerifyCode.ArrangeSn}"
+                      Margin="8 0 0 0" />
+                        <TextBox
+                        Width="120"
+                      materialDesign:HintAssist.Hint="手机号"
+                      Text="{Binding VerifyCode.Phone}"
+                      Margin="8 0 10 0"
+                      VerticalAlignment="Bottom" />
+                        <Button Content="验证"
                         Command="{Binding VerifyCode.VerifyYzmCommand}" Width="100">
-                    </Button>
+                        </Button>
+                    </StackPanel>
+
+                    <TextBox
+                        Width="120"
+                        IsReadOnly="True"
+                      materialDesign:HintAssist.Hint="用户名"
+                      Text="{Binding UserName}"
+                      Margin="8 20 0 20"
+                      VerticalAlignment="Bottom" />
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="转号"
+                                Command="{Binding ExchangeCommand}" Width="100" >
+                        </Button>
+                    </StackPanel>
+                    <TextBox
+                        Width="300"
+                      materialDesign:HintAssist.Hint="备注"
+                      Margin="8 20 0 0"
+                      VerticalAlignment="Bottom" />
                 </StackPanel>
             </StackPanel>
 

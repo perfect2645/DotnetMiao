@@ -1,0 +1,31 @@
+POST https://communityclass.onewo.com/app/api/app/userVote/add HTTP/1.1
+Host: communityclass.onewo.com
+Accept: application/json, text/plain, */*
+Authorization: 2425dae4-565d-4962-8b27-99064e01b763
+projectCode: 21020025
+Accept-Language: zh-CN,zh-Hans;q=0.9
+x-source: zhuzher
+X-XSRF-TOKEN: 157f1c07-a6a0-41a3-8126-4ce5b3b2c34f
+Accept-Encoding: gzip, deflate, br
+Origin: https://communityclass.onewo.com
+Content-Length: 28
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2022112901 vanke_app_version/5.4.26 X_API_VERSION/20221129 vanke_app/zhuzher vanke_jsbridge_version/5.4.26
+Referer: https://communityclass.onewo.com/
+Connection: keep-alive
+Content-Type: application/json
+Cookie: CNZZDATA1280103761=630100604-1674195742-%7C1675817973; UM_distinctid=1861aba74264-0216af8bd45a47-43156a19-4a574-1861aba7427809; XSRF-TOKEN=157f1c07-a6a0-41a3-8126-4ce5b3b2c34f; acw_tc=784e2ca916758193557924364e612ccfd99308d4e92709ee135dbb6f2244b7; language=zh_CN
+
+{"worksId":1351,"voteId":16}
+HTTP/1.1 200
+Date: Wed, 08 Feb 2023 01:23:27 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-SVC: prod-community-class-prod-community-class-app-9311
+Content-Length: 46
+
+{"code":200,"result":null,"message":"success"}

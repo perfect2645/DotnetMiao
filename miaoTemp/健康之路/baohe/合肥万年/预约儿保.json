@@ -1,0 +1,178 @@
+{
+    "waterId": 789743890,
+    "waitingInfor": "15:20-15:30",
+    "store": "",
+    "serialNo": "8",
+    "memberSn": "55735978",
+    "memberName": "赵梦云",
+    "memberPhone": "13940897525",
+    "memberAddress": "白云山",
+    "memberBirthday": "1999-05-25",
+    "memberSex": "2",
+    "memberId": "55735978",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "342***********1625",
+    "memberIdcard": "342***********1625",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "13940897525",
+    "doctorSn": "711273968",
+    "hosDeptId": "7231306",
+    "hosDeptName": "儿保科",
+    "hospitalId": "1094367",
+    "hospitalName": "包河区万年埠街道社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710812152",
+    "doctorName": "施梦瑶",
+    "doctorPic": "",
+    "doctorClinicName": "医师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2023-03-06",
+    "timeId": 2,
+    "arrangeId": 168375696,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 10,
+    "UnOpened": false,
+    "FHTimes": "20:00",
+    "FHDays": "7",
+    "accountSn": 148528129,
+    "cardNumber": "2078631533",
+    "loginId": "ojQR6wOvgLSc-Z5g272ppNQHlogs",
+    "channelId": "9000981",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+[
+    {
+        "keyValue": "南京市雨花开发区弘阳装饰城c2区",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "411***********4447",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "17154389854",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    },
+    {
+        "keyValue": "南京",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "320***********2641",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "13940897525",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    },
+    {
+        "keyValue": "白云山",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "342***********1625",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "13940897525",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]

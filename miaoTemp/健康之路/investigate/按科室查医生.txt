@@ -1,0 +1,29 @@
+POST https://appoint.yihu.com/appoint/do/doctor/getDeptDoctorList HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 102
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=148528129; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; _YyghSysTrackUUID=29182120882; jkzlAn_sid=77F3967B-2A5F-460B-A9E0-BF5FEB5E9CBF; YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiU2VjU3RyIjoiMjE0MzJFOUE4MzRENzM3REYyMzczRkQ3MUI5RDQ0MDYifQ%3D%3D; loginid=oA3ZA0cFHRTawO843XTJZpQaBhI8; OpenID=oA3ZA0cFHRTawO843XTJZpQaBhI8; LoginChannel=9000393; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvQTNaQTBjRkhSVGF3Tzg0M1hUSlpwUWFCaEk4IiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI2QUM0OTRBNUI0OTJDQjE1MUIyRUQwQzM3NENFQTJCQSJ9; jkzlAn_channelid=9000393; jkzlAn_ct=1669725905840
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType=9000393&deptId=7230344&hospitalId=1039346&exConsult=&consultHosId=1039346
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+t=1669725908123&hosId=1039346&deptId=7229969&pageIndex=1&pageSize=15&multiHosDeptId=&channelId=9000393
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 29 Nov 2022 12:46:36 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 263
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":10000,"Message":"成功","Total":1,"Result":[{"hospitalId":"1039346","deptName":"九价HPV","doctorUid":"710788135","doctorName":"九价HPV","doctorSex":"2","lczcName":"护师","skill":"","photoUri":"","doctorService_phone":"0","doctorService_text":"0"}]}

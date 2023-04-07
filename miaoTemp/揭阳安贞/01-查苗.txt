@@ -1,0 +1,85 @@
+GET http://wx1936.cnhis.cc/wx/dept/scheduleDoctorRange.htm?employeeId=16825177&deptId=5220066&date=2022-12-03&timeType=%E4%B8%8B%E5%8D%88&newVersion=true HTTP/1.1
+Host: wx1936.cnhis.cc
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+openId: 
+userType: TX
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+token: E8F0F87646FAEFE62B54A807B04E80936FF51308C1D77F33E8BA860D63885BB3499CCC2DF53ADACAE147E8F45DF86360
+Cookie: SESSION=ZTUxNTdlMDctNjVjZC00ZmI1LWFmMWEtNGU0MmJhYTk3NzYz
+Referer: http://wx1936.cnhis.cc/wxcommon/web/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 28 Nov 2022 14:03:09 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Headers: Content-Type, Authorization, Accept,X-Requested-With
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.cnhis.com:* https://*.cnhis.cc:* https://*.qq.com:*; connect-src 'self' wss://*.qq.com:* https://*.qq.com:* https://*.cnhis.com:* https://*.cnhis.cc:* https://*.map.gtimg.com:*
+Content-Length: 740
+
+{"code":null,"result":"Success","resultMsg":"","list":[{"isClose":1,"registerTypeOriginalId":"12","registerTypeId":9904,"timeRangeShow":"14:30-15:00","count":1,"sign":1,"totalSurplusText":"(0/1)","bco01":"3434","scheduleId":10577817,"timeRange":"14:30-15:00","isShow":1},{"isClose":1,"registerTypeOriginalId":"12","registerTypeId":9904,"timeRangeShow":"16:00-16:30","count":1,"sign":1,"totalSurplusText":"(0/1)","bco01":"3437","scheduleId":10577817,"timeRange":"16:00-16:30","isShow":1}],"map":{"dateText":"2022-12-03 周六","timeInterval":["上午","下午"],"feeText":"23.0元"},"obj":null,"total":0,"pageSize":0,"currentPage":0,"totalPage":0,"recordsTotal":0,"recordsFiltered":0,"rows":null,"tmpList":null,"data":null,"tableField":null}
+
+{
+    "code": null,
+    "result": "Success",
+    "resultMsg": "",
+    "list": [
+        {
+            "isClose": 1,
+            "registerTypeOriginalId": "12",
+            "registerTypeId": 9904,
+            "timeRangeShow": "14:30-15:00",
+            "count": 1,
+            "sign": 1,
+            "totalSurplusText": "(0/1)",
+            "bco01": "3434",
+            "scheduleId": 10577817,
+            "timeRange": "14:30-15:00",
+            "isShow": 1
+        },
+        {
+            "isClose": 1,
+            "registerTypeOriginalId": "12",
+            "registerTypeId": 9904,
+            "timeRangeShow": "16:00-16:30",
+            "count": 1,
+            "sign": 1,
+            "totalSurplusText": "(0/1)",
+            "bco01": "3437",
+            "scheduleId": 10577817,
+            "timeRange": "16:00-16:30",
+            "isShow": 1
+        }
+    ],
+    "map": {
+        "dateText": "2022-12-03 周六",
+        "timeInterval": [
+            "上午",
+            "下午"
+        ],
+        "feeText": "23.0元"
+    },
+    "obj": null,
+    "total": 0,
+    "pageSize": 0,
+    "currentPage": 0,
+    "totalPage": 0,
+    "recordsTotal": 0,
+    "recordsFiltered": 0,
+    "rows": null,
+    "tmpList": null,
+    "data": null,
+    "tableField": null
+}

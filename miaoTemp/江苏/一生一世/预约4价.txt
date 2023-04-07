@@ -1,0 +1,43 @@
+POST https://jinshuju.net/graphql/f/MAp5Yn HTTP/1.1
+Host: jinshuju.net
+Connection: keep-alive
+Content-Length: 632
+sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"
+accept: */*
+content-type: application/json;charset=UTF-8
+x-csrf-token: piiX8aklLhfvY5lxIJKq7+sf404L7pCOknOh1ZXbwfPFhBRzbIr/6kzcrhAUdXzL1ioFocHaZryUJ4FtiEXeTA==
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Origin: https://jinshuju.net
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://jinshuju.net/f/MAp5Yn
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: jsj_uid=e0dd33a0-ad25-4760-b17d-c572de7578ed; start_filling_time_MAp5Yn=1676474689; csrf_token=piiX8aklLhfvY5lxIJKq7+sf404L7pCOknOh1ZXbwfPFhBRzbIr/6kzcrhAUdXzL1ioFocHaZryUJ4FtiEXeTA==; Hm_lvt_47cd03e974df6869353431fe4f4d6b2f=1675171641,1675172423,1676474689; Hm_lpvt_47cd03e974df6869353431fe4f4d6b2f=1676474689; filled_form_scene=form; cid=eyJfcmFpbHMiOnsibWVzc2FnZSI6IklqQTFNR1kyTVdFMkxXWXlaRGd0TkdNeVl5MDRPVE5rTFRrMU5tUmxNVGcxTXpRM01pST0iLCJleHAiOiIyMDIzLTAzLTE1VDE1OjI0OjUwLjczOVoiLCJwdXIiOm51bGx9fQ%3D%3D--0b11c62cf4647f099b0056a6b314c70aa86eb832; _gd_session=VytzeHNpSm91TVhSNmNtVGgxR1dsY0doeG5uU1gwS2NGeGVCTFIyaTFxQ2dmcGtleGVFZSthWlZKZXBabW1MS29nQnFGOFBMZ1M0T3hsdzArSUdQWDZYUWZoWUQvcjhIajV5dlFEY1lWNUtpYmVPK3BSYU5hTWJPcG5uV215d1FXeHFFbG9YcHFwNXFweTlFMjNPc0NRPT0tLW9kS2VyVWY2NkViNDVYVEVDUWFjRUE9PQ%3D%3D--92b84ce6585defe300c5c40ca7ac03b72f7bbee2
+
+{"operationName":"CreatePublishedFormEntry","variables":{"input":{"formId":"MAp5Yn","entryAttributes":{"field_1":"5WlH","field_2":"李珊珊","field_3":"jwPD","field_4":"26","field_5":"17615102645","field_6":"lsshan2001@163.com","field_12":"FxQ5"},"captchaData":null,"weixinAccessToken":null,"xFieldWeixinOpenid":null,"weixinInfo":null,"prefilledParams":"","embedded":false,"internal":false,"backgroundImage":false,"formMargin":false,"hasPreferential":false,"fillingDuration":156.036,"forceSubmit":false}},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"0f9106976e7cf5f19e8878877bc8030cddcb7463dd76f4e02bc5c67b5874eeae"}}}
+HTTP/1.1 200 OK
+Date: Wed, 15 Feb 2023 15:27:26 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Server: openresty
+Vary: Accept-Encoding
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Accept, Origin
+Set-Cookie: _gd_session=; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Set-Cookie: cid=eyJfcmFpbHMiOnsibWVzc2FnZSI6IklqQTFNR1kyTVdFMkxXWXlaRGd0TkdNeVl5MDRPVE5rTFRrMU5tUmxNVGcxTXpRM01pST0iLCJleHAiOiIyMDIzLTAzLTE1VDE1OjI3OjI1Ljk2N1oiLCJwdXIiOm51bGx9fQ%3D%3D--99becfe5fb482ef6d455f9834a7555682d2a4665; path=/; expires=Wed, 15 Mar 2023 15:27:25 GMT
+Set-Cookie: _gd_session=NVZHT283V0gxYjVtTG1rOEpwOE1Tdmx6aUJKRExoSEpjbWNJM04vV0RDNDM4SDY5SHB6eFY0UVVQRFdSclBXK3BaUFlJVHBJOEliYk5lRHRvdFlpZnlWc2d0OW1pSVBXOVl2Q2VQb1RicUd5Y2FObU92T3c4R1hnNkV0T08rUnBReHFab3lSdDU2bU84SWpYVWc1eitnPT0tLUpLZHJKYitlS0VhTlY4RFNRb05kSUE9PQ%3D%3D--f4dd7db48545161e598af5468686fa62e86448b1; domain=.jinshuju.net; path=/; HttpOnly
+ETag: W/"ef1f09600a3714d59e2502e7608b23c2"
+Cache-Control: max-age=0, private, must-revalidate
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Content-Length: 378
+
+{"data":{"createPublishedFormEntry":{"errors":[{"code":400,"message":"预约人手机已被占用","path":["entry_attributes","field_5"],"details":null,"__typename":"Error"}],"redirectUrl":null,"wxOnetimeMessageRedirectUrl":null,"cookies":null,"redirectToMiniprogramSuccess":null,"submitterExists":null,"identityFieldLabel":null,"__typename":"CreatePublishedFormEntryPayload"}}}

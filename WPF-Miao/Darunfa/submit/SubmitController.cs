@@ -39,14 +39,14 @@ namespace Darunfa.submit
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}-{DateTimeUtil.GetNow()}");
+                MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
             }
 
         }
 
         private void ValidateRes(HttpDicResponse response)
         {
-            MainSession.PrintLogEvent.Publish(this, $"抢购完成时间 - {DateTimeUtil.GetNow()}");
+            MainSession.PrintLogEvent.Publish(this, $"抢购完成时间");
             var errorDesc = response.JsonBody.RootElement.GetProperty("errorDesc").GetString();
             if (!string.IsNullOrEmpty(errorDesc))
             {

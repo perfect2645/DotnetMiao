@@ -26,7 +26,7 @@ namespace Baohe.search.doctor
         {
             var url = "https://appoint.yihu.com/appoint/do/doctor/getDocListByDeptId";
             var content = new DoctorContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -43,16 +43,16 @@ namespace Baohe.search.doctor
             {
                 throw new HttpException($"{Constant.ProjectName}:GetDoctorList-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result);
+            AnalysisResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
             var doctorDept = JsonAnalysis.JsonToDicList(jsonElement);
 
-            BaoheSession.AddMiaoSession(Constant.DoctorList, doctorDept);
+            MainSession.AddMiaoSession(Constant.DoctorList, doctorDept);
 
-            BaoheSession.PrintLogEvent.Publish(this, doctorDept, "DoctorList");
+            MainSession.PrintLogEvent.Publish(this, doctorDept, "DoctorList");
         }
     }
 }

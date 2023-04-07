@@ -1,0 +1,103 @@
+GET https://app.quyiyuan.com/APP/user/action/LoginAction.jspx?APPOINT_SOURCE=0&APP_UUID=c7b5959d-e0d6-4d54-8fe0-33c48f409445&CHANNEL_ID=&GROUP_CODE=40&HOSPITAL_WX_OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk&IMEI_ID=&LOGIN_FLAG=0&OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk&PASSWORD=875f801cb7dd72845deaadb2ded26b0458930754ab35f75bec44bd7118640c046d4eb92c90caf25436f112c1a37192767490b564c6ac93bd53d209dd15cb6f15&PHONEOPERATINGSYS=0&PHONETYPE=&PHONEVERSIONNUM=&PUBLIC_SERVICE_TYPE=020514&TOKEN=1674122759530&USER_CODE=13940897525&USER_ID=24020334&USER_VS_ID=41599843&WX_OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk&forceSatification=YES&hospitalID=3110012&isAutoPwdLogin=false&isLogin=true&loc=c&op=login&opVersion=2.6.71&operateCurrent_UserId=24020334&operateUserSource=0&userSource=0&QY_CHECK_SUFFIX=5d92768cf8abba6c360c9fee61324a08 HTTP/1.1
+Host: app.quyiyuan.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Origin: https://c.quyiyuan.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://c.quyiyuan.com/c_quyiyuan_web/system/c_quyiyuan/index.jsp?wx_forward=home&userSource=0&PublicServiceType=020514&skinType=1&hospitalID=3110012&code=091JvTkl2jEiDa4DxXkl2uwwbR2JvTkw&state=3110012
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 200
+Date: Thu, 19 Jan 2023 10:08:09 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+Set-Cookie: acw_tc=3ccdc15016741228891675247e1df817e7912d5bfd4a63b35cbb2ddd3eeae3;path=/;HttpOnly;Max-Age=1800
+Vary: Accept-Encoding
+Access-Control-Allow-Methods: POST, GET
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type, Authorization, Accept,X-Requested-With
+Content-Length: 1181
+
+{"result":"LkYZqRj4BfUcUX4Tc9JGl/8A7iXdIjQFYrenclSG672KcBiGogsrjy7ktqLxYJnzkRwQkUEwqAO94gAig1LEefixedM0iRyHeQFKtOrGR0AvlDqu0IqLqVw3Iogsf0/N/4hyg/mP16LGFjRs8wnWrSmmf9eTvBF8maGgt9XOusm80jUAfM3ntbz82dnzMpH80TaCMfpldX3ucWheXukmngG/N/j2wCVwmmE1EHOdh9/znp/l9x5MyBxurfje1VMHtjrCMg/bFTFuq7zEjpZ/oPh73mlA90x+/uPxBsVC1+nNcuIK39iFcsA1bb7CO4DDhGhd940xtoUWm36/QfNkMWozVzdUDYvyDIJMFCqcV1/wg9JeebI4fyVEBc5VFmOTfkfrGKUmZtyPD8YRrjl0u+IYUpwrFqtJ7Bb4IyAnBsuUsQlYW9G/lf3Bhgg0/gIdS/qcAGxmf6hhYNQKAQx2kyhrwr4EzOdVgYjwRLDrE5BVCrmAhTRnhsYRrGoFdFzt53NIuQ8Bp8A0XFfB3Tr85x8l35kCPyrPIa5KKVMfclMxJpsmO2XizLOLQwyNp2deaL/If1HOu/5UtPquIZowxXb2x+ujppqA0cP7WtQDhNw29WNLgb/TzAgIY/mugpkUaf0OkQlWpcMq/cTNxbfi3LXEOGJK253ez69udXaiLBRwHKe/cO8H4mXK7P10B8xrK/BqJhFfWXVufSnx40vLTSqsJixhbGSc5Xzc92vOVidVCIvK+se4vKrevliK8lwA6JOeDTFm7b4y+gUE6zUpPGSEisRjKpI2eZdpTDAICqHHQZmRXw6OYz0PUrH7ZAp7Iqsnw6Pyv8/aM3ncjTVDloC8wXxbgJxLZx4j/IvABD5b0RDwzjPQSBK46GnMMthPNVVXJDnPJ1/UuRRt7jjwoNn0PFsS05jfp6iLv1/byv9CN+r9aLbUVAF5uSweC2SH7yDOF2gHRg1pIw8/lrhLWolpOLeMqc3qmGayUuI6KVNeVkKKefvtM0RIKS33CmX3vAtKMEeiLk5F52nsrOZyfImVkFRfIVuSqL5PUTJZTMn80Dw/lc3bG88ef/L4ii7Tp6efzJvTrCkAFhoGDtJm7QbDACXHH1DTu/xnlRJYZkEh3fVHXl1hdule6hOmwMy2","isEncrypt":"1"}
+
+
+
+APPOINT_SOURCE=0
+APP_UUID=c7b5959d-e0d6-4d54-8fe0-33c48f409445
+CHANNEL_ID=
+GROUP_CODE=40
+HOSPITAL_WX_OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk
+IMEI_ID=
+LOGIN_FLAG=0
+OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk
+PASSWORD=875f801cb7dd72845deaadb2ded26b0458930754ab35f75bec44bd7118640c046d4eb92c90caf25436f112c1a37192767490b564c6ac93bd53d209dd15cb6f15
+PHONEOPERATINGSYS=0
+PHONETYPE=
+PHONEVERSIONNUM=
+PUBLIC_SERVICE_TYPE=020514
+TOKEN=1674122759530
+USER_CODE=13940897525
+USER_ID=24020334
+USER_VS_ID=41599843
+WX_OPEN_ID=oQi_M0VghsxwuT7ybhnZ2ZwvupNk
+forceSatification=YES
+hospitalID=3110012
+isAutoPwdLogin=false
+isLogin=true
+loc=c
+op=login
+opVersion=2.6.71
+operateCurrent_UserId=24020334
+operateUserSource=0
+userSource=0
+QY_CHECK_SUFFIX=5d92768cf8abba6c360c9fee61324a08
+
+
+
+
+{
+    "success": true,
+    "time": "2023-01-20 16:35:47",
+    "message": "用户登录成功！",
+    "resultCode": "0000000",
+    "data": {
+        "HAS_VIS_RECORD": false,
+        "FLAG": 0,
+        "PATIENT_COUNT": 0,
+        "IS_MDT_PATIENT": 0,
+        "MDT_AND_RPP": "NONE",
+        "USER_HOSPITAL_LIST": [],
+        "USER_VS_ID": 0,
+        "USER_ID": 24020334,
+        "USER_CODE": "13940897525_1",
+        "PASSWORD": "******",
+        "NAME": "周瑠夏",
+        "ID_NO": "612426199806235426",
+        "SEX": "2",
+        "BIRTHDAY": "1998-06-23 00:00:00",
+        "PHONE_NUMBER": "139****7525",
+        "PWD_PART": "645",
+        "SALT": "1674122887995",
+        "USER_SOURCE": 0,
+        "APP_USER_SOURCE": 0,
+        "USER_TYPE": 0,
+        "CO_PASSWORD": "******",
+        "HOSPITAL_ID": 3110012,
+        "REMARK": "",
+        "PUBLIC_SERVICE_TYPE": "020514",
+        "OPEN_ID": "oQi_M0VghsxwuT7ybhnZ2ZwvupNk",
+        "DOCTOR_HOSPITAL_ID": 0,
+        "STATUS": 0,
+        "LOCKED_FLAG": 0,
+        "REGISTER_APP_UUID": "c7b5959d-e0d6-4d54-8fe0-33c48f409445",
+        "REGISTER_CHANNEL_ID": "",
+        "REGISTER_IMEI_ID": "",
+        "REGIST_BY_APPOINT": 0,
+        "MEDICAL_GUIDE_STATUS": 0
+    }
+}

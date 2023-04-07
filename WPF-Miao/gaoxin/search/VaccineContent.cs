@@ -1,0 +1,27 @@
+﻿using gaoxin.common;
+using gaoxin.session;
+
+namespace gaoxin.search
+{
+    internal class VaccineContent : GaoxinContent
+    {
+        private const string url = "https://ymglfw.care4u.cn/npApii/slVaccineDispark/selectVaccineInfo";
+        public UserInfo UserInfo { get; set; }
+        public VaccineContent(UserInfo userInfo) : base(url, "查苗", null)
+        {
+            UserInfo = userInfo;
+            BuildHeaderPlus();
+            BuildContent();
+        }
+        private void BuildHeaderPlus()
+        {
+            AddHeader("token", UserInfo.Token);
+        }
+
+        private void BuildContent()
+        {
+            AddContent("disparkId", MainSession.DisparkId);
+            AddContent("yhid", UserInfo.daid);
+        }
+    }
+}

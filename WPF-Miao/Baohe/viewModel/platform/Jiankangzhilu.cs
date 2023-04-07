@@ -7,6 +7,8 @@ namespace Baohe.viewModel.platform
 {
     internal class Jiankangzhilu : HospitalDept
     {
+        public bool HasYzm { get; set; }
+        public string DoctorSn { get; set; }
         public Jiankangzhilu(string platformId, string platName, string hosId, string hosName, string deptId, string deptName)
         {
             PlatformId = platformId;
@@ -15,6 +17,7 @@ namespace Baohe.viewModel.platform
             HospitalName = hosName;
             DepartmentId = deptId;
             DepartmentName = deptName;
+            HasYzm = true;
         }
 
         public override string ToLogString()

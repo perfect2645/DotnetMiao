@@ -1,0 +1,59 @@
+POST http://wx1936.cnhis.cc/wx/user/appointment/reg.htm HTTP/1.1
+Host: wx1936.cnhis.cc
+Connection: keep-alive
+Content-Length: 457
+Origin: http://wx1936.cnhis.cc
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+showError: false
+Accept: application/json, text/plain, */*
+openId: 
+userType: TX
+Content-Type: application/x-www-form-urlencoded
+token: E8F0F87646FAEFE62B54A807B04E80934499FCE4218DB31786A4A255A2DEA0BCCEC89C9E9B01F046E50BD612F74C4C56
+Cookie: SESSION=ZTUxNTdlMDctNjVjZC00ZmI1LWFmMWEtNGU0MmJhYTk3NzYz
+Referer: http://wx1936.cnhis.cc/wxcommon/web/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+regtype=12&type=reg&deptId=5220066&deptName=%E4%BA%A7%E7%A7%91&doctorId=16825177&doctorName=%E5%90%B4%E6%A1%82%E9%BB%94&orgName=%E6%8F%AD%E9%98%B3%E5%AE%89%E7%9C%9F%E5%A6%87%E4%BA%A7%E5%8C%BB%E9%99%A2&customerName=%E8%B5%B5%E6%A2%A6%E4%BA%91&customerId=78083792&appointAmount=23&appointDate=2022-12-03&timeRange=16%3A00-16%3A30&remark=&newVersion=true&insuranceReg=0&medicalCardId=&childMedicalCardId=&scheduleId=10577817&insurancePromotion=false&bco01=3437
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 28 Nov 2022 14:11:52 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Headers: Content-Type, Authorization, Accept,X-Requested-With
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.cnhis.com:* https://*.cnhis.cc:* https://*.qq.com:*; connect-src 'self' wss://*.qq.com:* https://*.qq.com:* https://*.cnhis.com:* https://*.cnhis.cc:* https://*.map.gtimg.com:*
+Content-Length: 1667
+
+{"code":null,"result":"Success","resultMsg":"","list":[],"map":{"tcAppointment":{"orderBy":null,"descOrAsc":null,"createdDate":1669644711738,"createdBy":78083792,"updatedDate":null,"updatedBy":78083792,"appointmentId":5531867,"customerId":78083792,"no":"AP0122112822115173837772715","consultChannel":"3","status":0,"remark":null,"making":null,"makingDate":null,"confirm":null,"confirmDate":null,"medicalType":12,"consultantId":null,"consultant":null,"reason":null,"evaluateLevel":null,"isReturnVisit":false,"registerTypeId":"12","registerType":null,"age":null,"ageUnit":null,"ageDescription":null,"marital":null,"physicalExaminationType":null,"work":null,"effectiveDate":null,"education":null,"workNature":null,"industryClass":null,"limitDate":1670056200000,"content":null,"appointDate":1670054400000,"doctor":"吴桂黔","doctorId":16825177,"orgName":"揭阳安真妇产医院","deptName":"产科","deptId":5220066,"orgId":6246,"areaId":null,"originalId":null,"amount":23,"timeRange":"16:00-16:30","payExpireDate":1669646511738,"isDel":null,"originalCustomerId":null,"dbSource":"TX","hisDeptId":88,"hisDoctorId":74,"sourceNo":"591b1c3b-8c7b-4adb-a860-080859f96ddd","registerSource":null,"hostIp":null,"hostName":null,"customerOrgId":"1596631676649639936","jsonField":"{\"pb_num\":\"160001\",\"user_openId\":\"obS6Rt3PsDb2-TOInuHlxUkZA01E\",\"scheduleId\":\"10577817\",\"consultationRoom\":\"\",\"deptLocation\":\"\",\"isTodayReg\":0}","map":null},"appointAmount":23.0,"appointmentId":5531867,"regtype":"12"},"obj":null,"total":0,"pageSize":0,"currentPage":0,"totalPage":0,"recordsTotal":0,"recordsFiltered":0,"rows":null,"tmpList":null,"data":null,"tableField":null}
+
+
+
+regtype=12&
+type=reg&
+deptId=5220066&
+deptName=产科&
+doctorId=16825177&
+doctorName=吴桂黔&
+orgName=揭阳安真妇产医院&
+customerName=赵梦云&
+customerId=78083792&
+appointAmount=23&
+appointDate=2022-12-03&
+timeRange=16:00-16:30&
+remark=&
+newVersion=true&
+insuranceReg=0&
+medicalCardId=&
+childMedicalCardId=&
+scheduleId=10577817&
+insurancePromotion=false&
+bco01=3437

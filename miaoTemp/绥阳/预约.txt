@@ -1,0 +1,66 @@
+POST http://www.jxy-tech.com/api/v1/locations/1/appoints HTTP/1.1
+Host: www.jxy-tech.com
+Accept: */*
+Authorization: Bearer 21726430-f440-412a-9ac8-73123e005c61
+X-Requested-With: XMLHttpRequest
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate
+Content-Type: application/json
+Origin: http://www.jxy-tech.com
+Content-Length: 313
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Referer: http://www.jxy-tech.com/booking/companies/514966/?v=1.0
+Connection: keep-alive
+Cookie: JSESSIONID=EEC310DF733B864DB4F61D5AE511F96D
+
+{"type":"UNDEFINED","btCode":"D","appointDate":"2022-11-25","beginTime":"08:00","endTime":"16:30","openid":"ohcxP58icuLf35ZBbVsSB7mZ2YZ8","barcode":"53fd3eda-3b62-4618-83b8-bb13d91ce290","price":0,"priority":10,"addressId":61924,"identity":"500225199908054760","phone":"13940897525","idName":"\u5468\u4f9d\u4f9d"}
+HTTP/1.1 200
+Server: nginx/1.16.1
+Date: Sun, 20 Nov 2022 00:26:42 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Set-Cookie: JSESSIONID=0F921DFB467C9A884C3955F06610E5E1; Path=/; HttpOnly
+X-Application-Context: application:8899
+Content-Length: 429
+
+{"success":true,"message":null,"data":{"type":"UNDEFINED","btCode":"D","appointDate":"2022-11-25","beginTime":"08:00","endTime":"16:30","openid":"ohcxP58icuLf35ZBbVsSB7mZ2YZ8","barcode":"53fd3eda-3b62-4618-83b8-bb13d91ce290","price":0,"priority":10,"addressId":61924,"identity":"500225199908054760","phone":"13940897525","idName":"周依依","appointId":225490,"appointNo":"221120002","refCode":"560788","btName":"孕产保健"}}
+
+
+{
+    "type": "UNDEFINED",
+    "btCode": "D",
+    "appointDate": "2022-11-25",
+    "beginTime": "08:00",
+    "endTime": "16:30",
+    "openid": "ohcxP58icuLf35ZBbVsSB7mZ2YZ8",
+    "barcode": "53fd3eda-3b62-4618-83b8-bb13d91ce290",
+    "price": 0,
+    "priority": 10,
+    "addressId": 61924,
+    "identity": "500225199908054760",
+    "phone": "13940897525",
+    "idName": "周依依"
+}
+
+
+
+{
+    "type": "UNDEFINED",
+    "btCode": "F",
+    "appointDate": "2022-11-21",
+    "beginTime": "08:00",
+    "endTime": "16:30",
+    "openid": "ohcxP58icuLf35ZBbVsSB7mZ2YZ8",
+    "barcode": "e5c40e93-c261-40e7-ae47-c61b4c1fe09b",
+    "price": 0,
+    "priority": 10,
+    "addressId": 61924,
+    "identity": "13940897525",
+    "idName": "周依依"
+}

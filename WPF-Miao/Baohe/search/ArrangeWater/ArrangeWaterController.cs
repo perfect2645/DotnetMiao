@@ -27,16 +27,16 @@ namespace Baohe.search.ArrangeWater
 
         private bool GetArrangeWater(bool isPrintLog = false)
         {
-            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater Start, Time = {DateTimeUtil.GetNow()}");
+            MainSession.PrintLogEvent.Publish(this, $"GetArrangeWater Start");
             var url = "https://appoint.yihu.com/appoint/do/doctorArrange/getArrangeWater";
             var content = new ArrangeWaterContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.String).Result;
-            BaoheSession.PrintLogEvent.Publish(this, $"GetArrangeWater End, Time = {DateTimeUtil.GetNow()}");
+            MainSession.PrintLogEvent.Publish(this, $"GetArrangeWater End");
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
@@ -49,27 +49,28 @@ namespace Baohe.search.ArrangeWater
                 throw new HttpException($"{Constant.ProjectName}:GetArrangeWater-{url} - Result is empty", "empty result");
             }
 
-            var arrangeWaters = AnalizeResult(result);
+            var arrangeWaters = AnalysisResult(result);
 
             if (isPrintLog)
             {
-                BaoheSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
+                MainSession.PrintLogEvent.Publish(this, arrangeWaters, "ArrangeWater");
             }
 
-            return true;
+            return arrangeWaters.HasItem();
         }
 
-        private List<Dictionary<string, object>> AnalizeResult(JsonElement jsonElement)
+        private List<Dictionary<string, object>> AnalysisResult(JsonElement jsonElement)
         {
             var arrangeWater = JsonAnalysis.JsonToDicList(jsonElement);
             var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater(arrangeWater);
 
             if (!arrangeWaterList.HasItem())
             {
-                throw new HttpException($"{Constant.ProjectName}:查苗成功-没有可用苗", "no water");
+                MainSession.PrintLogEvent.Publish(this, $"{Constant.ProjectName}:查苗成功-没有可用苗");
+                return null;
             }
 
-            BaoheSession.AddMiaoSession(Constant.ArrangeWater, arrangeWaterList);
+            MainSession.AddMiaoSession(Constant.ArrangeWater, arrangeWaterList);
 
             return arrangeWaterList;
         }

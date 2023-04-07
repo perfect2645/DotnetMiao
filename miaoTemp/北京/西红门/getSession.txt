@@ -1,0 +1,34 @@
+POST https://yiyuan.dabannet.cn/reservation HTTP/1.1
+Host: yiyuan.dabannet.cn
+Connection: keep-alive
+Content-Length: 307
+Origin: https://yiyuan.dabannet.cn
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+content-type: application/x-www-form-urlencoded
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://yiyuan.dabannet.cn/h5/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+type_id=5&date=1674000000&type_title=%E6%B5%81%E6%84%9F(%E8%87%AA%E8%B4%B9%EF%BC%9A6%E6%9C%88%E9%BE%84-35%E6%9C%88%E9%BE%84%E4%BB%A5%E5%86%85)%20&member_id=45491&member_name=%E5%91%A8%E7%91%A0%E5%A4%8F&timeType=1&key=9b4fdBbFyGmrXQ1BmBQIjLAcmNbMfmQPg%2BIcLHe4G%2BKCdDc&token=0de673205e41f4bc6d64a304af98d95c
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 12 Jan 2023 02:17:16 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Powered-By: PHP/5.6.30
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: key
+Access-Control-Allow-Methods: POST,GET,OPTIONS,DELETE
+Set-Cookie: PHPSESSID=2hher7d0r535qet18s5tt8sd01; path=/; HttpOnly
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Strict-Transport-Security: max-age=31536000
+Content-Length: 83
+
+{"msg":"操作失败，请重试","error_code":20013,"request_url":"\/reservation"}

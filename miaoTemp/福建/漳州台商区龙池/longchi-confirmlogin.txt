@@ -1,0 +1,26 @@
+POST http://hpv_ym.zzytrj.net:15003/api/yuyue.php HTTP/1.1
+Host: hpv_ym.zzytrj.net:15003
+Connection: keep-alive
+Content-Length: 19
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: http://hpv_ym.zzytrj.net:15003
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: ytytjid=1675231651500_37327cebedb51119c5be63775e365813; PHPSESSID=lgpqgnmllib5egilmeu0cunsc1
+Referer: http://hpv_ym.zzytrj.net:15003/views/index/paidui.html?login=1&openCode=230201140732I68xG9NF
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+cmd=yuyue_get_login
+HTTP/1.1 200 OK
+Date: Wed, 01 Feb 2023 06:07:33 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-Length: 542
+
+{"code":1,"msg":"ok","data":{"user_id":"290104","\u6635\u79f0":"\u5218\u4e66\u8bb0","\u6027\u522b":"","\u5e38\u4f4f\u5730":"\u6f33\u5dde\u5e02","\u59d3\u540d":"\u5218\u4e66\u8bb0","\u624b\u673a":"17050684778","\u751f\u65e5":null,"\u5934\u50cf":"","\u8d26\u6237\u4f59\u989d":".0000","\u53ef\u7528\u79ef\u5206":0,"\u521b\u5efa\u65f6\u95f4":"2023-01-12 12:37:35","\u5fae\u4fe1ID":"","\u5de5\u4f5c\u5355\u4f4d":"","\u4e0a\u7ea7user_id":"0","\u5206\u7ec4\u4ee3\u7801":"","\u89d2\u8272\u4ee3\u7801":"","\u6743\u9650\u4ee3\u7801":""},"system_ini":0}
