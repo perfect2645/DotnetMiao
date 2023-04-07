@@ -31,12 +31,28 @@ namespace Baohe.viewModel
 
             #region 漳州
 
-            Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
-                "1101211", "漳州市龙文区步文街道社区卫生服务中心",
-                "7242593", "九价Hpv")
+            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
+                "1101614", "龙文区碧湖街道社区卫生服务中心",
+                "7248104", "九价Hpv")
             {
                 HasYzm = false,
-                DoctorSn = "711267962"
+                DoctorSn = "711288413"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
+                "1101614", "龙文区碧湖街道社区卫生服务中心",
+                "7248104", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711288413"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
+                "1101211", "漳州市龙文区步文街道社区卫生服务中心",
+                "7248114", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711288367"
             });
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
