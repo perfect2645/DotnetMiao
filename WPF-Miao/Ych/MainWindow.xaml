@@ -1,0 +1,11 @@
+﻿<Window x:Class="Ych.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Ych.view"
+        Title="阳澄湖" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:YchConsole x:Name="mainConsole">
+
+    </view:YchConsole>
+</Window>

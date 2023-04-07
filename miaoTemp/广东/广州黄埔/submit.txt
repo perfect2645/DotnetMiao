@@ -1,0 +1,68 @@
+POST https://www.medic.ren/PM-server/mobserviceOrder/addServiceOrder HTTP/1.1
+Host: www.medic.ren
+medicToken: CK5I1F9BUCUUSTG1+BSOXA==
+Accept: */*
+Authorization: ddtoken
+source: wx
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Origin: https://www.medic.ren
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.28(0x18001c2e) NetType/WIFI Language/zh_CN
+Referer: https://www.medic.ren/app/
+Content-Length: 597
+Connection: keep-alive
+
+{"userHospitalId":"2c92808a83597c0c0183c552cfb2585f","hospitalId":"2c924b1061e108200161e5bae2c031e8","patientId":"2c92809783bb06fd0183c552f1a74885","serviceId":"2c9280977a66dc42017a7b17b1f52b5b","dateId":"2c928097835945eb0183625c18eb1767","teamId":"2c9280977a66de69017a7b16a6f8637f","bookingDate":"2022-10-13","startTime":"16:00","endTime":"17:00","isAgent":false,"fee":0,"openId":"oYSgi1AC5pqly_Brb2aLM7mnpLUU","serviceStartTime":"2022-10-11 17:00:00","serviceEndTime":"2022-10-13 17:00:00","serviceItem":[],"bookingType":"0","bookingToken":"35E40274-4CCF-4F19-BBBC-1933C89CD8CF","toFollow":true}
+HTTP/1.1 200 OK
+Server: nginx/1.10.3
+Date: Tue, 11 Oct 2022 14:36:00 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Expires: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Frame-Options: DENY
+Access-Control-Allow-Origin: https://www.medic.ren
+Vary: Origin
+Access-Control-Allow-Credentials: true
+X-Content-Type-Options: nosniff
+X-Application-Context: PM-server:prodLinux:8096
+Content-Length: 499
+
+{
+  "code" : "200",
+  "message" : "Success",
+  "data" : {
+    "serviceOrderId" : "2c92809783bb091b0183c7794d46594e",
+    "doctorName" : "儿童入托体检",
+    "serviceName" : "儿童入托体检",
+    "hospitalId" : "2c924b1061e108200161e5bae2c031e8",
+    "remark" : "本次预约服务只针对儿童入园体检，体检流程提示：凭预约成功凭证--导诊处领取处方单--收费处缴费--二楼体检科登记--开始体检",
+    "patientName" : "崔法威",
+    "charge" : 0
+  }
+}
+
+
+{
+    "userHospitalId": "2c92808a83597c0c0183c552cfb2585f",
+    "hospitalId": "2c924b1061e108200161e5bae2c031e8",
+    "patientId": "2c92809783bb06fd0183c552f1a74885",
+    "serviceId": "2c9280977a66dc42017a7b17b1f52b5b",
+    "dateId": "2c928097835945eb0183625c18eb1767",
+    "teamId": "2c9280977a66de69017a7b16a6f8637f",
+    "bookingDate": "2022-10-13",
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "isAgent": false,
+    "fee": 0,
+    "openId": "oYSgi1AC5pqly_Brb2aLM7mnpLUU",
+    "serviceStartTime": "2022-10-11 17:00:00",
+    "serviceEndTime": "2022-10-13 17:00:00",
+    "serviceItem": [],
+    "bookingType": "0",
+    "bookingToken": "35E40274-4CCF-4F19-BBBC-1933C89CD8CF",
+    "toFollow": true
+}

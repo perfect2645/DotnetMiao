@@ -16,13 +16,36 @@ namespace HttpProcessor.Client
 
         public string Message { get; private set; }
 
+        public string ContentStr { get; private set; }
+
         public Dictionary<string, object> Body { get; private set; }
 
         public JsonDocument JsonBody { get; private set; }
 
+        public Func<string, string> DecodeAction { get; set; }
+
         #endregion Properties
 
         #region Constructor
+
+        public HttpDicResponse(string error)
+        {
+            Message = error;
+        }
+
+        public HttpDicResponse(HttpResponseMessage response, Func<string, string> decodeAction)
+        {
+            DecodeAction = decodeAction;
+            try
+            {
+                BuildHeaders(response.Headers);
+                BuildBody(response.Content);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+            }
+        }
 
         public HttpDicResponse(HttpResponseMessage response)
         {
@@ -54,11 +77,20 @@ namespace HttpProcessor.Client
                 contentStr = content.ReadAsStringAsync().Result;
             }
 
-            var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
+            contentStr = DecodeAction?.Invoke(contentStr) ?? contentStr;
 
-            Body = contentDic ?? new Dictionary<string, object>();
-
+            ContentStr = contentStr;
             JsonBody = JsonDocument.Parse(contentStr);
+
+            try
+            {
+                var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
+                Body = contentDic ?? new Dictionary<string, object>();
+            }
+            catch
+            {
+
+            }
         }
 
         private string BuildBodyFromGzip(HttpContent httpContent)

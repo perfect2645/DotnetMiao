@@ -1,0 +1,39 @@
+     public object RunScript(string method, string[] pars)
+        {
+            ScriptControl sc = new ScriptControl();
+            sc.Language = "javascript";
+            string javascript1 = File.ReadAllText(@"a.js");
+            sc.AddCode(javascript1);
+
+            if (pars.Any())
+            {
+                string temppars = "";
+                foreach (string s in pars)
+                {
+                    temppars += "'" + s + "',";
+                }
+
+                temppars = temppars.Remove(temppars.LastIndexOf(","));
+                temppars += ")";
+                string mainCons = method + "(" + temppars;
+                object obj = sc.Eval(mainCons);
+                return obj;
+
+            }
+            else
+            {
+                string mainCons = method + "()";
+                object obj = sc.Eval(mainCons);
+                return obj;
+            }
+
+        }
+
+       private void DecodeDataGetUserInfo()
+        {
+            var key = "a122f43e35a2c1f26f8ea2a5eaad338f0be46a2deda7fc1ce1f6e2058ac0dcbd";
+            var data = "e34e6efd2f89c2acf6b76b9e061c1dff15e167057ae43ed13d22c695f334eb0e976935f6bbe08df4299ba34b239f7ec8489fb6366cdeb0bd542dc1e427e73f30d922ab2726dfe8b4b5d5ed6e404989c2f4d521ce3ba679892e77e34d4a144be5626cb0383951177eb89d356c255318973e58267f0ae71d2d2748ca68cf389d93fd5affb7213c911d79d263736a0514c6719d8ea3799a81440d0181956c07ec0ab05f618f21cffc5bd7a23bce9a610652ec4e829fa104c6162af97803a14b3f5afc8e27edd45e7d8aeb1c0d6d041f39cf20371827cca1e264dea84e700c360c44c2103ea2e313d17f18f013c9a6def4c59a0600b774f32e26b37cb6e8e41969b7b87091b02b83245abe34e47d2b4c96388e9b82f4ccd9caada8be0d1a89fbe7213598556af1c9328221c6c40d8330b494ec5d3d19833b07bac8abe0d5806d4aaf289158e4f569b99b01da1be8e983e483ccb76836c75c0a5bf06d202d1ab1e05e9bd72b6817af307274c1d37f379cdf9a8db586b541fbe475c65fc34c544f623724cde92d3dda37668a3b6d26d7fbb80798a41b92e363834f50ec5f277d5ce8de49d280d11f18bb20e38616780b6e29391e90983af53499869efb25d8b0319d4ee2d90ef58dde87cdd611095d5fa67b1e34329cd3d31976ee66d5de2238f0cc5deb5702fa082fccaa7d68d66e75b311031af93693bf8eacc3aa15e173d1c826bb";
+            var str1 = RunScript("DncryptData", new string[] { key, data });
+
+            var str2 = str1.ToString();
+        }

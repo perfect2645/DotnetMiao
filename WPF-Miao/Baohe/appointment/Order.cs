@@ -1,7 +1,9 @@
-﻿using Baohe.constants;
+﻿using Baohe.appointment.content;
+using Baohe.constants;
 using Baohe.session;
 using System.Collections;
 using System.Collections.Generic;
+using Utils;
 using Utils.datetime;
 using Utils.number;
 using Utils.stringBuilder;
@@ -42,7 +44,6 @@ namespace Baohe.appointment
             OrderStatusEvent.OrderStatusChangedEvent += OrderStatusEvent_OrderStatusChangedEvent;
 
             InitContent();
-
         }
 
         #endregion Constructor
@@ -51,7 +52,8 @@ namespace Baohe.appointment
 
         public void InitContent()
         {
-            Content = new AppointmentContent(MemberInfo);
+            Content = ContentMapper.GetContent(MainSession.PlatformSesstion.GetString(Constant.HospitalId));
+            Content.InitContent(MemberInfo);
         }
 
         public void FillContent(session.MiaoSession miaoSession)

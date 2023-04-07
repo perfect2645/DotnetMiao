@@ -1,0 +1,71 @@
+GET https://app.quyiyuan.com/APP/appoint/action/AppointActionC.jspx?
+APPOINT_SOURCE=0
+APP_UUID=88ae0966-43e2-4b3d-8cd9-dd52902dddf2
+CHANNEL_ID=
+CLINIC_DATE=2023%2F01%2F29
+DEPT_CODE=412301
+DOCTOR_CODE=F1011
+GROUP_CODE=40
+HB_TIME=%E5%85%A8%E5%A4%A9
+IMEI_ID=
+IS_REFERRAL=0
+PHONEOPERATINGSYS=0
+PHONETYPE=
+PHONEVERSIONNUM=
+PUBLIC_SERVICE_TYPE=020514
+hospitalID=3110012
+loc=c
+op=getClinicDetailActionC
+opVersion=2.6.71
+operateUserSource=0
+QY_CHECK_SUFFIX=db85df75cf8337b2d49df9a7af60803a HTTP/1.1
+Host: app.quyiyuan.com
+Connection: keep-alive
+sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"
+Accept: application/json, text/plain, */*
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+Origin: https://c.quyiyuan.com
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://c.quyiyuan.com/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+
+
+https://app.quyiyuan.com/APP/appoint/action/AppointActionC.jspx?APPOINT_SOURCE=0
+APP_UUID=88ae0966-43e2-4b3d-8cd9-dd52902dddf2
+CHANNEL_ID=
+CLINIC_DATE=2023%2F01%2F29
+DEPT_CODE=412301
+DOCTOR_CODE=F1011
+GROUP_CODE=40
+HB_TIME=%E5%85%A8%E5%A4%A9
+IMEI_ID=
+IS_REFERRAL=0
+PHONEOPERATINGSYS=0
+PHONETYPE=
+PHONEVERSIONNUM=
+PUBLIC_SERVICE_TYPE=020514
+hospitalID=3110012
+loc=c
+op=getClinicDetailActionC
+opVersion=2.6.71
+operateUserSource=0
+QY_CHECK_SUFFIX=db85df75cf8337b2d49df9a7af60803a
+
+HTTP/1.1 200
+Date: Sat, 28 Jan 2023 14:46:11 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+Set-Cookie: acw_tc=b65cfd3116749171712564299e333871897c6e96c7715f092a31e360988453;path=/;HttpOnly;Max-Age=1800
+Vary: Accept-Encoding
+Access-Control-Allow-Methods: POST, GET
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Content-Type, Authorization, Accept,X-Requested-With
+Content-Length: 2316
+
+{"success":true,"time":"2023-01-28 22:46:11","message":"获取预约号源成功","resultCode":"0000000","data":{"total":9,"isAppointFee":"1","isShowVCard":"false","rows":[{"HB_TIME":"全天 15:06-15:07","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1187,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:07-15:08","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1188,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:08-15:09","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1189,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:09-15:10","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1190,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:10-15:11","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1191,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:11-15:12","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1192,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:12-15:13","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1193,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:13-15:14","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1194,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""},{"HB_TIME":"全天 15:14-15:15","HOSPITAL_ID":0,"HB_NO":"","EXPENSE_DETAIL":"","HID":"29-1月 -23二价HPV进口全天A1195,","DETAIL_ID":0,"DIAG_FEE":"0.00","PHARMACY_FEE":"0.00","IS_ONLINE":"0","REGISTERED_FEE":"","HB_TYPE":""}],"ARCHIVE_FEE":0,"APPOINT_PAY_WAY":"1","isHidden":false},"alertType":"NO"}

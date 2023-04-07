@@ -80,7 +80,7 @@ namespace Base.search
             {
                 if (SearchStatus == SearchStatus.NumbersGet)
                 {
-                    ISessionContainer.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}, Time = {DateTimeUtil.GetNow()}");
+                    ISessionContainer.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}");
                     AutoRunTimer.Stop();
 
                     return;

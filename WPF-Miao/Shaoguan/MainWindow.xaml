@@ -1,0 +1,11 @@
+﻿<Window x:Class="Shaoguan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Shaoguan.view"
+        Title="韶关曲江区妇幼" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:ShaoguanConsole x:Name="mainConsole">
+
+    </view:ShaoguanConsole>
+</Window>

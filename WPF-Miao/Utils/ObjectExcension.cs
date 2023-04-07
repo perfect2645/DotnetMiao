@@ -47,7 +47,7 @@ namespace Utils
             return obj;
         }
 
-        public static bool HasItem<T>(this IEnumerable<T> list)
+        public static bool HasItem<T>(this IEnumerable<T>? list)
         {
             if (list == null)
             {
@@ -55,6 +55,15 @@ namespace Utils
             }
 
             return list.Count() > 0;
+        }
+
+        public static int ToInt(this object obj)
+        {
+            if (obj == null)
+            {
+                return 0;
+            }
+            return Convert.ToInt32(obj);
         }
     }
 }

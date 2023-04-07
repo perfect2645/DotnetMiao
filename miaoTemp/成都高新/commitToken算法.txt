@@ -1,0 +1,33 @@
+   public string EnCodeToken(string data)
+        {
+            try
+            {
+                if (data.Contains("u003d"))
+                {
+                    data = data.Replace("\"", "");
+                    data = data.Replace("\\u003d\\u003d", "\u003d\u003d");
+                }
+
+                byte[] keyArray = Encoding.UTF8.GetBytes("Lrfhpd#bLxe#QBCw");
+                byte[] ivArray = Encoding.UTF8.GetBytes("s6MiN8&UcX5Dt#Yk");
+                byte[] toEncryptArray = Encoding.UTF8.GetBytes(data);
+                toEncryptArray = Encoding.UTF8.GetBytes(Convert.ToBase64String(toEncryptArray));
+
+                RijndaelManaged rDel = new RijndaelManaged();
+                rDel.Key = keyArray;
+                rDel.IV = ivArray;
+                rDel.Mode = CipherMode.CBC;
+                rDel.Padding = PaddingMode.PKCS7;
+
+                ICryptoTransform cTransform = rDel.CreateEncryptor();
+                byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+                cTransform.Dispose();
+                return Convert.ToBase64String(resultArray);
+            }
+            catch(Exception ex)
+            {
+                this.WriteLog(ex.Message);
+                return null;
+            }
+        }

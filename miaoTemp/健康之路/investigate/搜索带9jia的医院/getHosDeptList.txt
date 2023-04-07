@@ -1,0 +1,29 @@
+POST https://appoint.yihu.com/appoint/do/dept/getHosDeptList HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 89
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; BaseDoctorUid=0; BaseUserType=0; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJDNTUzQjkyQzU4MDM1QUJDRDBBRUM4QzU5MUNDRDQyQiJ9; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; _YyghSysTrackUUID=27101554115; jkzlAn_uuid=A5B8A3C7-1F13-409C-AD11-F7554869577A; jkzlAn_channelid=1000031; jkzlAn_userid=148528129; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_sid=B734F36E-3986-450C-8B8F-92C09D694642; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1669524693556
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType=1000031&hospitalId=1099108&time=1669524737
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+t=1669524738487&hospitalId=1099108&cooperate=1&orderColumns=orderId%3A0&channelId=1000031
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 27 Nov 2022 04:52:39 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 506
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":10000,"Message":"成功","Total":3,"Result":[{"hosDeptId":"7235355","deptName":"预防接种门诊","spells":"yfjzmz","gloryId":"","parentDeptID":"0","doctorNum":"1","ghNum":2430},{"hosDeptId":"7235344","deptName":"新建卡门诊（儿童）","spells":"xjkmz（et）","gloryId":"","parentDeptID":"0","doctorNum":"1","ghNum":179},{"hosDeptId":"7235364","deptName":"宫颈癌疫苗接种门诊（首针）","spells":"gjaymjzmz（sz）","gloryId":"","parentDeptID":"0","doctorNum":"2","ghNum":1355}]}

@@ -8,8 +8,10 @@ namespace Baohe.search.Liudiao
 {
     internal class LiudiaoContent : ContentBase
     {
-        public LiudiaoContent(string url) : base(url)
+        public string UserName { get; set; }
+        public LiudiaoContent(string url, string userName) : base(url)
         {
+            UserName = userName;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
@@ -21,7 +23,7 @@ namespace Baohe.search.Liudiao
 
         private void BuildContent()
         {
-            var member = SessionBuilder.GetDefaultMember();
+            var member = SessionBuilder.GetDefaultMember(UserName);
             AddContent("userName", member["Cname"]);
             AddContent("phone", member["Phone"]);
             AddContent("cardNum", member["cardNumber"]);
@@ -42,8 +44,8 @@ namespace Baohe.search.Liudiao
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/doctor/ghDoctorList.html?platformType={platformType}&hospitalId={hospitalId}&exConsult=&consultHosId={hospitalId}";
 

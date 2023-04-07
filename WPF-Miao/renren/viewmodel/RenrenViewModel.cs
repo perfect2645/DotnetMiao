@@ -1,21 +1,29 @@
 ﻿using Base.Events;
 using Base.model;
+using Base.viewmodel.status;
 using Base.viewModel;
+using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
+using renren.appointment;
 using renren.search;
+using renren.search.miao;
 using renren.session;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
+using Utils.stringBuilder;
+using Utils.timerUtil;
 
 namespace renren.viewmodel
 {
-    internal class RenrenViewModel : ViewModelBase
+    internal class RenrenViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -23,6 +31,7 @@ namespace renren.viewmodel
         public ICommand AppointCommand { get; set; }
         public ICommand YzmCommand { get; set; }
 
+        private IntervalOnTime _keepConnectionInterval;
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -70,17 +79,48 @@ namespace renren.viewmodel
             }
         }
 
-        private string _etid;
-        public string Etid
+        private string _medicToken;
+        public string MedicToken
         {
-            get { return _etid; }
+            get { return _medicToken; }
             set
             {
-                _etid = value;
-                //MainSession.MiaoSession.AddOrUpdate("Etid", value);
-                NotifyUI(() => Etid);
+                _medicToken = value;
+                MainSession.PlatformSession.AddOrUpdate(Constants.MedicToken, value);
+                NotifyUI(() => MedicToken);
+                CheckInitStatus();
             }
         }
+
+        private string _openId;
+        public string OpenId
+        {
+            get { return _openId; }
+            set
+            {
+                _openId = value;
+                MainSession.PlatformSession.AddOrUpdate(Constants.OpenId, value);
+                NotifyUI(() => OpenId);
+                CheckInitStatus();
+            }
+        }
+
+        private string _publicKey;
+        public string PublicKey
+        {
+            get { return _publicKey; }
+            set
+            {
+                _publicKey = value;
+                MainSession.PlatformSession.AddOrUpdate(Constants.PublicKey, value);
+                NotifyUI(() => PublicKey);
+                CheckInitStatus();
+            }
+        }
+
+        private readonly object OrderLock = new object();
+
+        private ScheduleController _scheduleController;
 
         #endregion Properties
 
@@ -88,22 +128,95 @@ namespace renren.viewmodel
 
         public RenrenViewModel(LogPanel logPanel) : base(logPanel)
         {
-            InitStaticData();
             InitCommands();
-            MainSession.PrintLogEvent = PrintLogEvent;
+            InitStaticData();
+            InitController();
+
+            TestData();
+        }
+
+        private void TestData()
+        {
+            MedicToken = "L3++RIQHXFBKEFON/RXOIQ==";
+            OpenId = "oYSgi1AC5pqly_Brb2aLM7mnpLUU";
+            PublicKey = "E933756A-CD70-4FED-9BC7-349BC0D511BF";
+            Interval = 1000;
         }
 
         private void InitStaticData()
         {
-            //MainSession.MiaoSession.AddOrUpdate("StartTime", new DateTime(2022, 10, 7, 8, 57, 0));
+            StartTime = new DateTime(2023, 1, 5, 19, 59, 58);
+            MainSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
+            MainSession.PlatformSession.AddOrUpdate(Constants.AppId, "wx8320e743a5db7bff");
+
+            var dayToday = (int)DateTime.Today.DayOfWeek;
+            if (dayToday < 6)
+            {
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfWeek(DateTime.Today.DayOfWeek));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfWeek(DateTime.Today.DayOfWeek + 1));
+            }
+            else
+            {
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleFrom, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Sunday));
+                MainSession.PlatformSession.AddOrUpdate(Constants.ScheduleTo, DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday));
+            }
+
+            Departments = new List<HospitalDept>
+            {
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第一针",
+                    ServiceId = "2c9280978201614d01821f73cc5c7da5",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第二针",
+                    ServiceId = "2c9280978201614d01821f7594977e2b",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-9价第三针",
+                    ServiceId = "2c9280978201614d01821f7635e87e4f",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "儿童入托体检",
+                    ServiceId = "2c9280977a66dc42017a7b17b1f52b5b",
+                },
+                new RenrenHospital
+                {
+                    UserHospitalId = "2c92808a83597c0c0183c552cfb2585f",
+                    HospitalId = "2c924b1061e108200161e5bae2c031e8",
+                    HospitalName = "广州市黄浦区联和街社区卫生服务中心",
+                    DepartmentId = "2c9280977a0d16c4017a13a0de5310bf",
+                    DepartmentName = "HPV-富春卫生服务站-4价第一针",
+                    ServiceId = "2c9280977a0d16c4017a13a20ee4113a",
+                },
+            };
 
             DateList = new List<DspVal>
             {
-                new DspVal("2022-10-10"),
-                new DspVal("2022-10-11"),
-                new DspVal("2022-10-12"),
-                new DspVal("2022-10-13"),
-                new DspVal("2022-10-14"),
+                new DspVal("2022-11-08"),
+                new DspVal("2022-11-09"),
+                new DspVal("2022-11-10"),
+                new DspVal("2022-11-11"),
+                new DspVal("2022-11-12"),
             };
 
             TimeList = new List<DspVal>
@@ -115,47 +228,103 @@ namespace renren.viewmodel
                 new DspVal("10:00-10:30", "DATE5_COUNT"),
                 new DspVal("10:30-11:00", "DATE6_COUNT"),
             };
+
+            SelectedDepartment = Departments.FirstOrDefault();
+
+        }
+
+        private void InitController()
+        {
+            _scheduleController = HttpServiceController.GetService<ScheduleController>();
         }
 
         private void InitCommands()
         {
-            SearchCommand = new RelayCommand(ExecuteSearchAsync);
+            MainSession.PrintLogEvent = PrintLogEvent;
+
+            SearchCommand = new RelayCommand(OnSearchClick);
             AppointCommand = new RelayCommand(ExecuteAppointAsync);
             YzmCommand = new AsyncRelayCommand(ExecuteYzmAsync);
             SessionEvents.Instance.Subscribe(LogSession);
+
+            SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
+
+            MainSession.AppointEvent.Subscribe(OnAppointment);
+
+            _keepConnectionInterval = new IntervalOnTime(KeepConnection, "KeepConnection", 60000);
         }
 
         #endregion Constructor
 
-        #region Search
+        #region Status Control
 
-        private void ExecuteSearchAsync()
+        private void CheckInitStatus()
         {
-            try
+            if (StringUtil.NotEmpty(MedicToken, OpenId, PublicKey))
             {
-                MainSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<SearchController>();
-                //searchController.Search();
+                MainSession.SetStatus(MiaoProgress.ReadyForSearch);
             }
-            catch (HttpException ex)
+            else
             {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
+                MainSession.SetStatus(MiaoProgress.Init);
             }
         }
 
-        #endregion Search
-
-        #region Appoint
-
-        private async void ExecuteAppointAsync()
+        protected override void OnInitAsync()
         {
+
+        }
+
+        protected override void OnReadyForSearchAsync()
+        {
+
+        }
+
+        protected override void OnSearchingAsync()
+        {
+
+        }
+
+        protected override void OnSearchendAsync()
+        {
+            _keepConnectionInterval.StartIntervalOntime();
+        }
+
+        protected override void OnMiaoGetAsync(object data)
+        {
+            StopIntervalTimer();
+            _keepConnectionInterval.StopInterval();
+        }
+
+        #endregion Status Control
+
+        #region Search
+
+        private void OnSearchClick()
+        {
+            Task.Factory.StartNew(async () =>
+            {
+                await SearchAsync();
+                if (MainSession.MiaoStatus.MiaoProgress < MiaoProgress.GettingMiao)
+                {
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
+                }
+                var miaoSchedule = HttpServiceController.GetService<ScheduleController>();
+                await miaoSchedule.GetServiceScheduleAsync();
+            });
+        }
+
+        private async Task SearchAsync()
+        {
+            if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.Init)
+            {
+                PrintLogEvent.Publish(this, "请补全必须的信息");
+                return;
+            }
+
             try
             {
-                MainSession.Cookie = Cookie;
+                MainSession.SetStatus(MiaoProgress.Searching);
                 var searchController = HttpServiceController.GetService<SearchController>();
                 await searchController.SearchAsync();
             }
@@ -169,7 +338,114 @@ namespace renren.viewmodel
             }
         }
 
+        private void KeepConnection()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                var keepConnection = HttpServiceController.GetService<ScheduleController>();
+                keepConnection.KeepConnection();
+            });
+        }
+
+        #endregion Search
+
+        #region Appoint
+
+        private void OnAppointment(object? sender, AppointEventArgs e)
+        {
+            lock (OrderLock)
+            {
+                var orderList = e.OrderList;
+                ConsumeOrdersAsync(orderList);
+            }
+        }
+
+        private void ConsumeOrdersAsync(List<Order> orderList)
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    Yuyue(orderList);
+                });
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        internal void Yuyue(List<Order> orderList)
+        {
+            MainSession.PrintLogEvent.Publish(this, $"开始预约：");
+            if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointEnd)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                return;
+            }
+            foreach (var order in orderList)
+            {
+                if (MainSession.MiaoStatus.MiaoProgress == MiaoProgress.AppointEnd)
+                {
+                    order.IntervalOnTime.StopInterval();
+                    MainSession.PrintLogEvent.Publish(this, $"预约结束，退出循环");
+                    return;
+                }
+                MainSession.PrintLogEvent.Publish(this, order.ToLogString());
+                var content = new AppointContent(order);
+
+                var appointController = HttpServiceController.GetService<AppointController>();
+                Task.Factory.StartNew(() => appointController.AppointAsync(content));
+                order.IntervalOnTime.StartIntervalOntime(() =>
+                {
+                    Task.Factory.StartNew(() => appointController.AppointAsync(content));
+                });
+            }
+        }
+
+        private async void ExecuteAppointAsync()
+        {
+            try
+            {
+                //MainSession.Cookie = Cookie;
+                //var appointController = HttpServiceController.GetService<AppointController>();
+                //await appointController.AppointAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
         #endregion Appoint
+
+        #region AutoRun
+
+        protected override async void StartAutoRun()
+        {
+            await SearchAsync();
+            StartIntervalTimer();
+        }
+
+        protected override void AutoRun()
+        {
+            Task.Factory.StartNew(async () =>
+            {
+                PrintLogEvent.Publish(this, "开始了");
+                if (MainSession.MiaoStatus.MiaoProgress != MiaoProgress.GettingMiao)
+                {
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
+                }
+
+                await _scheduleController.GetServiceScheduleAsync();
+            });
+        }
+
+        #endregion AutoRun
 
         #region 验证码
 
@@ -181,11 +457,32 @@ namespace renren.viewmodel
 
         #endregion 验证码
 
+        #region Hospital Dept
+
+        private void OnSelectedDepartmentChanged()
+        {
+            var selectedDept = SelectedDepartment as RenrenHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.UserHospitalId, selectedDept.UserHospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.TeamId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.ServiceId, selectedDept.ServiceId);
+
+            Log(selectedDept.ToLogString());
+
+            //MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
+        }
+
+        #endregion Hospital Dept
+
         #region Session
 
         private void LogSession(object? sender, SesstionEventArgs args)
         {
 
+        }
+
+        protected override void ReSession()
+        {
         }
 
         #endregion Session

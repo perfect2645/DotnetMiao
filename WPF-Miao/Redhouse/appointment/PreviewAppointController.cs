@@ -1,0 +1,68 @@
+﻿using HtmlAgilityPack;
+using HttpProcessor.Client;
+using HttpProcessor.ExceptionManager;
+using HttpProcessor.HtmlAnalysis;
+using HttpProcessor.Response;
+using Redhouse.session;
+using System;
+using System.Net.Http;
+using Utils;
+using Utils.stringBuilder;
+
+namespace Redhouse.appointment
+{
+    internal class PreviewAppointController : HttpClientBase
+    {
+        public PreviewAppointController(HttpClient httpClient) : base(httpClient)
+        {
+        }
+
+        public bool PreviewAppoint(Order order)
+        {
+            try
+            {
+                ////HtmlResponse response = SearchHtml(url).Result;
+                //if (response == null)
+                //{
+                //    MainSession.PrintLogEvent.Publish(this, $"PreviewAppoint - response == null");
+                //    return false;
+                //}
+
+                //return AnalysisResult(response.Body, order);
+                return false;
+            }
+            catch (HttpException ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"查苗异常 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+        }
+
+        private bool AnalysisResult(HtmlDoc body, Order order)
+        {
+            try
+            {
+                var patBindId = GetPatBindId(body);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"AnalysisResult异常 - {ex.Message}");
+                return false;
+            }
+        }
+
+        private string GetPatBindId(HtmlDoc body)
+        {
+            var xpath = "//*[@id=\"txtPatBindId\"]";
+            var tarNode = body.GetDefaultNode(xpath);
+            var patBindId = body.GetFormValue(tarNode);
+            return patBindId;
+        }
+    }
+}

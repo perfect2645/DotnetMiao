@@ -40,7 +40,7 @@ namespace Utils.timerUtil
 
         public void StopTimer()
         {
-            OnTimeTimer.Stop();
+            OnTimeTimer?.Stop();
         }
 
         #endregion Public

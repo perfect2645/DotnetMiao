@@ -1,0 +1,29 @@
+POST https://appoint.yihu.com/appoint/do/registerInfo/register HTTP/1.1
+Cookie: jkzlAn_uuid=F59F6FFD-123E-4E0E-AFF7-B53DB44204BD; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_userid=148528129; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_5D0161F2EB225D58BD7D4CE01260C0E2=2373522205B64A25980A6103C8134EFE; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiU2VjU3RyIjoiMzEwMDk3MjcwNTYxRDcwNTQxNDg3MkU4RDY0MUVDMDcifQ%3D%3D; loginid=off6ts1LqGhmQhNOcgJowx4kPRWM; OpenID=off6ts1LqGhmQhNOcgJowx4kPRWM; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDg1MjgxMjkiLCJDYXJkTnVtYmVyIjoiMjA3ODYzMTUzMyIsIkxvZ2luSWQiOiJvZmY2dHMxTHFHaG1RaE5PY2dKb3d4NGtQUldNIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiJDNTUzQjkyQzU4MDM1QUJDRDBBRUM4QzU5MUNDRDQyQiJ9; jkzlAn_channelid=1000031; _YyghSysTrackUUID=02094528208; jkzlAn_refercode=; jkzlAn_sid=783E6EBE-E933-4360-AD2B-AE6AE71FED40; jkzlAn_utm_source=0.0.h.1026.bus010.0; jkzlAn_ct=1669945534946
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=1000031&hospitalId=1099108&time=1669917164
+Host: appoint.yihu.com
+Connection: keep-alive
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN, zh; q=0.9, en-US; q=0.8, en; q=0.7
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Length: 2681
+
+doctorRegOrder=%7B%22memberSn%22%3A%2255735978%22%2C%22memberName%22%3A%22%E8%B5%B5%E6%A2%A6%E4%BA%91%22%2C%22memberPhone%22%3A%2213940897525%22%2C%22memberAddress%22%3A%22%E7%99%BD%E4%BA%91%E5%B1%B1%22%2C%22memberBirthday%22%3A%221999-05-25%22%2C%22memberSex%22%3A%222%22%2C%22memberId%22%3A%2255735978%22%2C%22othercard%22%3A%22%22%2C%22guardianmembersn%22%3A%22%22%2C%22identitytype%22%3A%221%22%2C%22memberZhengjianid%22%3A%223422**********1625%22%2C%22memberIdcard%22%3A%223422**********1625%22%2C%22accManageGoodSn%22%3Anull%2C%22regpaytype%22%3A%22%22%2C%22cliniccard%22%3A%22%22%2C%22applyNo%22%3A%22%22%2C%22mobile%22%3A%2213940897525%22%2C%22accountSn%22%3A148528129%2C%22cardNumber%22%3A%222078631533%22%2C%22hosDeptId%22%3A%227235344%22%2C%22doctorService_gh%22%3A%222%22%2C%22doctorUid%22%3A%22710796398%22%2C%22doctorName%22%3A%22%E5%BB%BA%E5%8D%A1%E5%8C%BB%E7%94%9F%22%2C%22doctorPic%22%3A%22%22%2C%22doctorClinicName%22%3A%22%E5%8C%BB%E5%B8%88%22%2C%22GH_HosProId%22%3A%2212%22%2C%22GH_HosProName%22%3A%22%E5%AE%89%E5%BE%BD%22%2C%22GH_HosCityId%22%3A%22101%22%2C%22GH_HosCityName%22%3A%22%E5%90%88%E8%82%A5%22%2C%22timeId%22%3A1%2C%22ghAmount%22%3A0%2C%22securityDeposit%22%3A0%2C%22ghfeeway%22%3A0%2C%22ModeId%22%3A0%2C%22GhFee%22%3A0%2C%22AllFee%22%3A0%2C%22store%22%3A%22%22%2C%22UnOpened%22%3Afalse%2C%22loginId%22%3A%22off6ts1LqGhmQhNOcgJowx4kPRWM%22%2C%22channelId%22%3A%221000031%22%2C%22doctorOfficeName%22%3A%22%22%2C%22isread%22%3A%221%22%2C%22registerDate%22%3A%222022-12-09%22%2C%22hosDeptName%22%3A%22%E6%96%B0%E5%BB%BA%E5%8D%A1%E9%97%A8%E8%AF%8A%EF%BC%88%E5%84%BF%E7%AB%A5%EF%BC%89%22%2C%22hospitalId%22%3A%221099108%22%2C%22hospitalName%22%3A%22%E9%9B%A8%E8%8A%B1%E7%BB%8F%E6%B5%8E%E5%BC%80%E5%8F%91%E5%8C%BA%E7%A4%BE%E5%8C%BA%E5%8D%AB%E7%94%9F%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83%22%2C%22availablenum%22%3A29%2C%22FHTimes%22%3A%2208%3A00%22%2C%22FHDays%22%3A%227%22%2C%22waterId%22%3A763365593%2C%22waitingInfor%22%3A%22%E7%AC%AC7%E5%8F%B7%2013%3A30-14%3A30%22%2C%22serialNo%22%3A%227%22%2C%22doctorSn%22%3A%22711230190%22%2C%22arrangeId%22%3A165023271%7D&ghFormCon=%5B%7B%22keyValue%22%3A%22%22%2C%22keyName%22%3A%22name%22%7D%2C%7B%22keyValue%22%3A%223422**********1625%22%2C%22keyName%22%3A%22CardNo%22%7D%2C%7B%22keyValue%22%3A%222%22%2C%22keyName%22%3A%22sex%22%7D%2C%7B%22keyValue%22%3A%2213940897525%22%2C%22keyName%22%3A%22mobile%22%7D%2C%7B%22keyValue%22%3A%221%22%2C%22keyName%22%3A%22cardtype%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%220%22%2C%22keyName%22%3A%22cmb_disease%22%7D%2C%7B%22keyValue%22%3A%22%E6%9C%AA%E7%A1%AE%E8%AF%8A%22%2C%22keyName%22%3A%22cmb_diseaseName%22%7D%5D
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 02 Dec 2022 01:53:12 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 49
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":-10000,"Message":"排班校验不通过"}

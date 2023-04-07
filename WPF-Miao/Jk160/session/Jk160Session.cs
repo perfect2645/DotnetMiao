@@ -8,7 +8,7 @@ namespace Jk160.session
     public class Jk160Session : ISessionContainer
     {
         public static string Cookie { get; set; }
-        public static Dictionary<string, object> PlatformSesstion { get; private set; }
+        public static Dictionary<string, object> PlatformSession { get; private set; }
         public static MiaoSession MiaoSession { get; private set; }
         public static UserSession UserSession { get; private set; }
 
@@ -18,7 +18,7 @@ namespace Jk160.session
 
         static Jk160Session() 
         {
-            PlatformSesstion = new Dictionary<string, object>();
+            PlatformSession = new Dictionary<string, object>();
             OrderSession = new OrderSession();
         }
 

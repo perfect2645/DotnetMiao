@@ -15,21 +15,21 @@ namespace Baohe.verification
         {
         }
 
-        public Task SendYzmAsync()
+        public Task<bool> SendYzmAsync(string userName, string phone = "", string arrangeId = "")
         {
-            return Task.Factory.StartNew(() => SendYzm());
+            return Task.Factory.StartNew(() => SendYzm(userName, phone, arrangeId));
         }
 
-        public Task CheckYzmAsync(string yzm)
+        public Task CheckYzmAsync(string yzm, string userName, string phone, string arrangeId)
         {
-            return Task.Factory.StartNew(() => CheckYzm(yzm));
+            return Task.Factory.StartNew(() => CheckYzm(yzm, userName, phone, arrangeId));
         }
 
-        private void SendYzm()
+        private bool SendYzm(string userName, string phone = "", string arrangeId = "")
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
-            var content = new SendYzmContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            var content = new SendYzmContent(url, userName, phone, arrangeId);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -41,14 +41,15 @@ namespace Baohe.verification
                 throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "Send Yzm");
             }
 
-            BaoheSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}, Time = {DateTimeUtil.GetNow()}");
+            MainSession.PrintLogEvent.Publish(this, $"验证码发送成功 Tel={content.Tel}");
+            return true;
         }
 
-        private void CheckYzm(string yzm)
+        private void CheckYzm(string yzm, string userName, string phone, string arrangeId)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/checkYzm";
-            var content = new CheckYzmContent(url, yzm);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            var content = new CheckYzmContent(url, yzm, userName, phone, arrangeId);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -60,7 +61,8 @@ namespace Baohe.verification
                 throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "check Yzm");
             }
 
-            BaoheSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}, Time = {DateTimeUtil.GetNow()}");
+            MainSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}");
+            MainSession.IsYzmChecked = true;
         }
     }
 }

@@ -1,0 +1,11 @@
+﻿<Window x:Class="Jkgs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Jkgs.view"
+        Title="健康甘肃" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:JkgsConsole x:Name="mainConsole">
+
+    </view:JkgsConsole>
+</Window>

@@ -1,0 +1,11 @@
+﻿<Window x:Class="Redhouse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Redhouse.view"
+        Title="红房子" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:RedhouseConsole x:Name="mainConsole">
+
+    </view:RedhouseConsole>
+</Window>

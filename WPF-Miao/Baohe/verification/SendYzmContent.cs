@@ -9,30 +9,50 @@ namespace Baohe.verification
 {
     internal class SendYzmContent : ContentBase
     {
+        public string UserName { get;set; }
         public string Tel { get; private set; }
 
-        public SendYzmContent(string url) : base(url)
+        public string Phone { get; private set; }
+
+        public string ArrangeId { get; private set; }
+
+        public SendYzmContent(string url, string userName, string phone = "", string arrangeId = "") : base(url)
         {
+            UserName = userName;
+            Phone = phone;
+            ArrangeId = arrangeId;
             ContentType = "application/x-www-form-urlencoded";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var accountSn = BaoheSession.UserSession[Constant.accountSn].NotNullString();
+            var accountSn = MainSession.UserSession[Constant.accountSn].NotNullString();
 
-            var userDetail = BaoheSession.UserSession[Constant.MemberList] as List<Dictionary<string, object>>;
-            Tel = userDetail[0][Constant.Phone].NotNullString();
+            var userDetail = SessionBuilder.GetDefaultMember(UserName);
+            if (string.IsNullOrEmpty(Phone))
+            {
+                Tel = userDetail[Constant.Phone].NotNullString();
+            }
+            else
+            {
+                Tel = Phone;
+            }
 
             Content.Add("tel", Tel);
             Content.Add(Constant.accountSn, accountSn);
+
+            if (!string.IsNullOrEmpty(ArrangeId))
+            {
+                Content.Add("arrangeSn", ArrangeId);
+            }
         }
 
         public string BuildReferer()
         {
-            var platformType = BaoheSession.PlatformSesstion[Constant.PlatformType];
-            var hospitalId = BaoheSession.PlatformSesstion[Constant.HospitalId];
-            var time = BaoheSession.PlatformSesstion[Constant.SessionTime];
+            var platformType = MainSession.PlatformSesstion[Constant.PlatformType];
+            var hospitalId = MainSession.PlatformSesstion[Constant.HospitalId];
+            var time = MainSession.PlatformSesstion[Constant.SessionTime];
 
             var refererTemplate = $"https://appoint.yihu.com/appoint/hospital/ghDeptList.html?platformType={platformType}&hospitalId={hospitalId}&time={time}";
 

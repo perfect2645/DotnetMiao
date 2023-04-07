@@ -1,0 +1,275 @@
+POST http://www.hys020.com/home/doctorYyghMobileSectionDate_D4BEB657DDCD46F585DB5E7046996B3B HTTP/1.1
+Host: www.hys020.com
+Connection: keep-alive
+Content-Length: 0
+Accept: application/json, text/javascript, */*
+Origin: http://www.hys020.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63060012)
+Cookie: JSESSIONID=C45BA847E13FCF5500EFBAE80C86E138
+Referer: http://www.hys020.com/home/yyghDorMobile?userId=42CB58972CD44CD9945775814C00CA41&wechatid=gh_868741944de3&openid=o1_Liw34_q5dnOFrOCRDK7jQn5E0&Timestamp=iS3Q9CBrbeyPHlIIEGgNKbAOrU4pLMF1
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Sun, 30 Oct 2022 04:22:34 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.6.40 mod_jk/1.2.42
+Content-Length: 4701
+Vary: User-Agent
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=utf-8
+
+{"amount":0,"att":{"amLeft":5,"amTotal":6,"amZb":0,"attDate":"2022-11-04T00:00:00","attId":"D4BEB657DDCD46F585DB5E7046996B3B","beginAm":"08:30","beginPm":"14:30","endAm":"11:30","endPm":"17:00","modifierId":"42CB58972CD44CD9945775814C00CA41","modifierName":"盆底肌康复治疗","modifyTime":"2022-10-24T08:16:48","officeId":"0","officeName":"保健科","onlineReservable":null,"orgId":"63AF0B5D02504957A1173AB9B9C231E0","perHourRegcount":1,"pmLeft":1,"pmTotal":5,"pmZb":0,"resTimeLen":30,"reserveStopped":0,"roomId":null,"shiftId":"71E8D359D2A74FBC944A3B5BE2362C15","shiftName":"全日","startOrder":null,"time3Begin":null,"time3End":null,"time3Left":0,"time3Total":0,"time3Zb":0,"userId":"42CB58972CD44CD9945775814C00CA41","userName":"盆底康复"},"attId":"D4BEB657DDCD46F585DB5E7046996B3B","attList":null,"attType":0,"bindedList":null,"code":null,"dateList":null,"deptList":null,"doctor":null,"doctorList":null,"endAttDate":null,"last":0,"lastAttDate":null,"numList":[{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":0,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"08:30 - 09:00","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":1},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":1,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"09:00 - 09:30","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":1},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":1,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"09:30 - 10:00","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":1},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":1,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"10:00 - 10:30","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":1},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":1,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"10:30 - 11:00","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":1},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":1,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"11:00 - 11:30","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":1},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":0,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"14:30 - 15:00","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":2},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":1,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"15:00 - 15:30","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":2},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":0,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"15:30 - 16:00","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":2},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":0,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"16:00 - 16:30","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":2},{"expire":false,"regAttId":"D4BEB657DDCD46F585DB5E7046996B3B","regLeft":0,"regOrder":0,"regPatAge":"2022-11-04","regPatCard":null,"regPatName":null,"regPatPhone":null,"regPatResult":null,"regPatSex":null,"regPhase":"16:30 - 17:00","regReserveId":"42CB58972CD44CD9945775814C00CA41","regTotal":1,"regType":2}],"officeId":null,"openid":null,"org":null,"orgId":null,"orgList":null,"orgReservation":null,"patBindId":null,"patInfo":null,"patientId":null,"realName":null,"regPhase":null,"regReserve":null,"resKeyId":null,"resultMessage":null,"successMessage":null,"timestamp":null,"topTab":null,"url":null,"userId":null,"wechatid":null,"weekIndex":0,"wxstatus":0}
+
+{
+    "amount": 0,
+    "att": {
+        "amLeft": 5,
+        "amTotal": 6,
+        "amZb": 0,
+        "attDate": "2022-11-04T00:00:00",
+        "attId": "D4BEB657DDCD46F585DB5E7046996B3B",
+        "beginAm": "08:30",
+        "beginPm": "14:30",
+        "endAm": "11:30",
+        "endPm": "17:00",
+        "modifierId": "42CB58972CD44CD9945775814C00CA41",
+        "modifierName": "盆底肌康复治疗",
+        "modifyTime": "2022-10-24T08:16:48",
+        "officeId": "0",
+        "officeName": "保健科",
+        "onlineReservable": null,
+        "orgId": "63AF0B5D02504957A1173AB9B9C231E0",
+        "perHourRegcount": 1,
+        "pmLeft": 1,
+        "pmTotal": 5,
+        "pmZb": 0,
+        "resTimeLen": 30,
+        "reserveStopped": 0,
+        "roomId": null,
+        "shiftId": "71E8D359D2A74FBC944A3B5BE2362C15",
+        "shiftName": "全日",
+        "startOrder": null,
+        "time3Begin": null,
+        "time3End": null,
+        "time3Left": 0,
+        "time3Total": 0,
+        "time3Zb": 0,
+        "userId": "42CB58972CD44CD9945775814C00CA41",
+        "userName": "盆底康复"
+    },
+    "attId": "D4BEB657DDCD46F585DB5E7046996B3B",
+    "attList": null,
+    "attType": 0,
+    "bindedList": null,
+    "code": null,
+    "dateList": null,
+    "deptList": null,
+    "doctor": null,
+    "doctorList": null,
+    "endAttDate": null,
+    "last": 0,
+    "lastAttDate": null,
+    "numList": [
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 0,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "08:30 - 09:00",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 1
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 1,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "09:00 - 09:30",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 1
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 1,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "09:30 - 10:00",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 1
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 1,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "10:00 - 10:30",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 1
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 1,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "10:30 - 11:00",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 1
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 1,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "11:00 - 11:30",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 1
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 0,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "14:30 - 15:00",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 2
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 1,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "15:00 - 15:30",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 2
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 0,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "15:30 - 16:00",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 2
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 0,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "16:00 - 16:30",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 2
+        },
+        {
+            "expire": false,
+            "regAttId": "D4BEB657DDCD46F585DB5E7046996B3B",
+            "regLeft": 0,
+            "regOrder": 0,
+            "regPatAge": "2022-11-04",
+            "regPatCard": null,
+            "regPatName": null,
+            "regPatPhone": null,
+            "regPatResult": null,
+            "regPatSex": null,
+            "regPhase": "16:30 - 17:00",
+            "regReserveId": "42CB58972CD44CD9945775814C00CA41",
+            "regTotal": 1,
+            "regType": 2
+        }
+    ],
+    "officeId": null,
+    "openid": null,
+    "org": null,
+    "orgId": null,
+    "orgList": null,
+    "orgReservation": null,
+    "patBindId": null,
+    "patInfo": null,
+    "patientId": null,
+    "realName": null,
+    "regPhase": null,
+    "regReserve": null,
+    "resKeyId": null,
+    "resultMessage": null,
+    "successMessage": null,
+    "timestamp": null,
+    "topTab": null,
+    "url": null,
+    "userId": null,
+    "wechatid": null,
+    "weekIndex": 0,
+    "wxstatus": 0
+}

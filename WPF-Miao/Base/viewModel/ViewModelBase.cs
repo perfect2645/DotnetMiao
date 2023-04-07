@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using System.Windows.Threading;
 using Utils;
 
 namespace Base.viewModel
@@ -21,10 +22,13 @@ namespace Base.viewModel
         public ISessionItem SessionItem { get; private set; }
 
         public Action SelectedDepartmentChanged { get; set; }
+        public Action CookieChanged { get; set; }
 
         public Action<DateTime?> StartTimeChanged { get; set; }
 
         public LogEvents PrintLogEvent { get; set; }
+
+        public UpdateUiEvent UpdateUiEvent { get; set; }
 
         private string _cookie;
         public string Cookie
@@ -34,6 +38,7 @@ namespace Base.viewModel
             {
                 _cookie = value;
                 NotifyUI(() => Cookie);
+                CookieChanged?.Invoke();
             }
         }
 
@@ -97,6 +102,9 @@ namespace Base.viewModel
             SessionItem = ContainerBase.ServiceProvider?.GetService<ISessionItem>();
             PrintLogEvent = new LogEvents();
             PrintLogEvent.Subscribe(PrintLog);
+
+            UpdateUiEvent = new UpdateUiEvent();
+            UpdateUiEvent.Subscribe(OnUpdateUI);
         }
 
         #endregion Constructor
@@ -113,6 +121,12 @@ namespace Base.viewModel
             LogHelper.PrintLog(LogPanel.WriteLogAction, e);
         }
 
+        protected void PrintLog(string log)
+        {
+            var args = new LogEventArgs(log);
+            LogHelper.PrintLog(LogPanel.WriteLogAction, args);
+        }
+
         public void Log(Exception ex)
         {
             if (ex.InnerException != null)
@@ -121,7 +135,7 @@ namespace Base.viewModel
                 return;
             }
 
-            LogHelper.PrintLog(LogPanel.WriteLogAction, ex.Message);
+            LogHelper.PrintErr(LogPanel.WriteLogAction, ex.Message, ex.StackTrace ?? "No Stacktrace");
         }
 
         public void Log(string logStr)
@@ -146,5 +160,18 @@ namespace Base.viewModel
         }
 
         #endregion Log
+
+        #region Update UI
+
+        private void OnUpdateUI(object? sender, UiEventArgs e)
+        {
+            UpdateUI(e);
+        }
+
+        protected virtual void UpdateUI(UiEventArgs e)
+        {
+        }
+
+        #endregion Update UI
     }
 }

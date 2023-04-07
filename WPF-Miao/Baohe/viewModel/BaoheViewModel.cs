@@ -1,9 +1,8 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
+using Baohe.login;
 using Baohe.search;
-using Baohe.search.auth;
 using Baohe.session;
-using Baohe.verification;
 using Baohe.viewModel.platform;
 using Base.Events;
 using Base.viewModel;
@@ -14,15 +13,19 @@ using HttpProcessor.ExceptionManager;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Utils;
 using Utils.datetime;
+using Utils.file;
 using Utils.stringBuilder;
 
 namespace Baohe.viewModel
 {
-    internal class BaoheViewModel: ViewModelBase
+    internal partial class BaoheViewModel: ViewModelBase
     {
         #region Properties
 
@@ -40,8 +43,23 @@ namespace Baohe.viewModel
             set
             {
                 _retId = value;
-                BaoheSession.PlatformSesstion.AddOrUpdate(Constant.RetId, value);
+                MainSession.PlatformSesstion.AddOrUpdate(Constant.RetId, value);
                 NotifyUI(() => RetId);
+            }
+        }
+
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                if (VerifyCode != null)
+                {
+                    VerifyCode.UserName = value;
+                }
+                _userName = value;
+                NotifyUI(() => UserName);
             }
         }
 
@@ -56,41 +74,56 @@ namespace Baohe.viewModel
             InitCommands();
             InitStaticData();
             VerifyCode = new VerifyCode(logPanel);
-            BaoheSession.PrintLogEvent = PrintLogEvent;
+            MainSession.PrintLogEvent = PrintLogEvent;
+            MainSession.UpdateUiEvent = UpdateUiEvent;
+
+            TestData();
+            LoginFromConfig();
+            MainSession.PrintLogEvent.Publish(this, StartTime.ToString());
+            MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
+        }
+
+        private void TestData()
+        {
+            SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7231670&doctorId=710791067&hospitalInternal=1&showMultiDept=0&platformType=9000981&exConsult=&consultHosId=1094367&utm_source=0.0.h.1026.bus010.0";
+
+            //VerifyCode.ArrangeSn = "169149843";
+            //VerifyCode.Phone = "18301135103";
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            StartTime = new DateTime(2022, 9, 22, 22, 0, 0);
+            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
-            Departments = new List<HospitalDept>();
-            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
-                "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
-                "7229244", "四价Hpv"));
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
-            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
-                "1047063", "蜀山区经开区井岗镇社区卫生服务中心",
-                "7209050", "(测试)儿童保健科"));
+            //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
 
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7211892", "四价Hpv"));
+            if (Application.Current.Properties.Contains("UserName"))
+            {
+                MainSession.User.UserName = Application.Current.Properties["UserName"].ToString();
+                UserName = Application.Current.Properties["UserName"].ToString();
+            }
+            if (Application.Current.Properties.Contains("Cookie"))
+            {
+                MainSession.User.Cookie = Application.Current.Properties["Cookie"].ToString();
+                Cookie = Application.Current.Properties["Cookie"].ToString();
+            }
 
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7211903", "九价Hpv"));
+            if (Application.Current.Properties.Contains("RetId"))
+            {
+                MainSession.User.RetId = Application.Current.Properties["RetId"].ToString();
+                RetId = Application.Current.Properties["RetId"].ToString();
+            }
 
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7175975", "(测试)儿童保健科"));
-
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-                "1040231", "蜀山区南岗镇卫生院",
-                "7215685", "(测试)国产二价"));
-
-            Departments.Add(new Jiankangzhilu("9000393", "包河区包公街道",
-                "1039346", "包河区包公街道社区服务中心",
-                "7229969", "九价Hpv"));
+            BuildDepartments();
 
             InitPlatformSession();
         }
@@ -101,7 +134,7 @@ namespace Baohe.viewModel
             {
                 var tsStr = DateTimeUtil.GetTimeStamp();
                 var sessionTime = tsStr.Substring(0, 10);
-                BaoheSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
+                MainSession.PlatformSesstion.Add(Constant.SessionTime, sessionTime);
             }
             catch (HttpException ex)
             {
@@ -120,6 +153,8 @@ namespace Baohe.viewModel
 
             AutoRunCommand = new DelegateCommand(ExecuteAutoRun);
 
+            ExchangeCommand = new DelegateCommand(ExecuteExchangeAsync);
+
             SessionEvents.Instance.Subscribe(LogSession);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
@@ -127,6 +162,45 @@ namespace Baohe.viewModel
         }
 
         #endregion Constructor
+
+        #region Login
+
+        private void LoginFromConfig()
+        {
+            if (!string.IsNullOrWhiteSpace(MainSession.User.Cookie))
+            {
+                return;
+            }
+            var users = FileReader.DeserializeFile<List<JkzlLogin>>("Login.json");
+            foreach (var user in users)
+            {
+                StartApp(user);
+            }
+        }
+
+        private void StartApp(JkzlLogin user)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    var processInfo = new ProcessStartInfo();
+                    processInfo.FileName = "baohe.exe";
+                    processInfo.ArgumentList.Add(user.UserName);
+                    processInfo.ArgumentList.Add(user.Cookie);
+                    processInfo.ArgumentList.Add(user.RetId ?? string.Empty);
+
+                    var p = Process.Start(processInfo);
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                }
+            });
+
+        }
+
+        #endregion Login
 
         #region Appointment
 
@@ -138,9 +212,9 @@ namespace Baohe.viewModel
         private void ExecuteAppointment()
         {
 
-            var appRouter = new AppointmentRouter(SessionItem);
+            var appRouter = new AppointmentRouter(SessionItem, UserName);
 
-            appRouter.AppointTickAsync();
+            appRouter.AppointTickAsync(UserName);
         }
 
 
@@ -169,11 +243,12 @@ namespace Baohe.viewModel
         {
             try
             {
-                BaoheSession.Cookie = SessionItem.Cookie;
+                MainSession.Cookie = Cookie;
                 SearchController = HttpServiceController.GetService<SearchController>();
-                ;
+                SearchController.UserName= UserName;
+                SearchController.UserPhone = VerifyCode.Phone;
                 SetSearchTimers();
-                await SearchController.SearchAllAsync(SessionItem);
+                await SearchController.SearchAllAsync(UserName);
             }
             catch (HttpException ex)
             {
@@ -193,7 +268,7 @@ namespace Baohe.viewModel
 
         private void ExecuteAutoRun()
         {
-            BaoheSession.Cookie = SessionItem.Cookie;
+            MainSession.Cookie = Cookie;
             Task.Factory.StartNew(async () =>
             {
                 await AutoRunAsync();
@@ -203,8 +278,11 @@ namespace Baohe.viewModel
         private async Task AutoRunAsync()
         {
             SearchController = HttpServiceController.GetService<SearchController>();
+            SearchController.UserName = UserName;
+            SearchController.UserPhone = VerifyCode.Phone;
+            SearchController.CheckYzmAction = VerifyCode.ExecuteVerifyYzmAsync;
             SetSearchTimers();
-            await SearchController.AutoSearchAsync(SessionItem);
+            await SearchController.AutoSearchAsync(UserName);
         }
 
         #endregion AutoRun
@@ -223,13 +301,15 @@ namespace Baohe.viewModel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as Jiankangzhilu;
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.PlatformType, selectedDept.PlatformId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.Department, selectedDept);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.DoctorSn, selectedDept.DoctorSn);
 
             Log(selectedDept.ToLogString());
 
-            BaoheSession.BuildMiaoSession(BaoheSession.PlatformSesstion[Constant.DeptId].NotNullString());
+            MainSession.BuildMiaoSession(MainSession.PlatformSesstion[Constant.DeptId].NotNullString());
         }
 
         #endregion Hospital Dept
@@ -238,10 +318,31 @@ namespace Baohe.viewModel
 
         private void OnStartTimeChanged(DateTime? selectedTime)
         {
-            BaoheSession.PlatformSesstion.AddOrUpdate(Constant.StartTime, selectedTime!);
+            MainSession.PlatformSesstion.AddOrUpdate(Constant.StartTime, selectedTime!);
         }
 
         #endregion Start Time
+
+        #region Update UI
+
+        protected override void UpdateUI(UiEventArgs e)
+        {
+            var field = e.Field;
+            if ("yzm".Equals(field, StringComparison.OrdinalIgnoreCase))
+            {
+                VerifyCode.Yzm = e.Value.NotNullString();
+                VerifyCode.ExecuteVerifyYzmAsync();
+                return;
+            }
+
+            if ("phone".Equals(field, StringComparison.OrdinalIgnoreCase))
+            {
+                VerifyCode.Phone = e.Value.NotNullString();
+                return;
+            }
+        }
+
+        #endregion Update UI
 
     }
 }

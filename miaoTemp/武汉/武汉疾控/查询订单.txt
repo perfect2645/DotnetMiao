@@ -1,0 +1,54 @@
+GET https://hscx.whcdc.org/vaccineServer/RegApiManage/regRecord?patientId=1061980545094782976&status= HTTP/1.1
+Host: hscx.whcdc.org
+Connection: keep-alive
+idCard: tqeIvsikEU09iSh1BlrklTUovbEiGh6l
+Accept: application/json
+openId: oq49zvxoEtCBUc_WWg1_lRkGAicc
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+token: 
+sign: 32adb3b44d04e5b1f34e1ee3d97c4548
+Content-Type: application/json;charset=UTF-8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://hscx.whcdc.org/vaccine-h5/?code=031OwYll2NL7za4er4nl2V8sQb1OwYlj&state=
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: nginx/1.21.0
+Date: Wed, 11 Jan 2023 06:02:48 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 744
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+{
+	"msg":"操作完成",
+	"code":"0",
+	"data":[
+		{
+			"deptName":"预检登记室",
+			"patientName":"李旌阳",
+			"tranNo":{},
+			"hospitalName":"",
+			"cardNo":"420112200311053667",
+			"transactionId":"DDC95F907938430592C844206344142A",
+			"docName":"9价HPV疫苗(默沙东)",
+			"registrationTypeBus":"[{\"fee\":1305,\"discount\":0,\"name\":\"疫苗费用\",\"id\":\"184\"},{\"fee\":20,\"discount\":0,\"name\":\"处置费用\",\"id\":\"185\"}]",
+			"visitTime":"10:00-11:00",
+			"hospitalId":"0",
+			"registrationType":"9价HPV疫苗(默沙东)",
+			"totalFee":"1325.00",
+			"createTime":"2023-01-11 10:00:11",
+			"registrationId":"34856",
+			"visitDate":"2023-01-17",
+			"visitCode":{},
+			"deptAddr":"一楼",
+			"status":"-1"
+		}
+	]
+}

@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="search\DateCountController - 复制.cs" />
+    <Compile Remove="session\JkSession - 复制.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="search\yzm\OCR.dll" />
     <None Remove="search\yzm\XYLib.dll" />
   </ItemGroup>

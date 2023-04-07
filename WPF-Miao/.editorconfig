@@ -17,3 +17,15 @@ dotnet_diagnostic.CA1715.severity = none
 
 # CS8601: 引用类型赋值可能为 null。
 dotnet_diagnostic.CS8601.severity = none
+
+# IDE0002: 简化成员访问
+dotnet_diagnostic.IDE0002.severity = none
+
+# CS8604: 引用类型参数可能为 null。
+dotnet_diagnostic.CS8604.severity = none
+
+# CS8620: 由于引用类型的可为 null 性差异，实参不能用于形参。
+dotnet_diagnostic.CS8620.severity = silent
+
+# CA1416: 验证平台兼容性
+dotnet_diagnostic.CA1416.severity = none

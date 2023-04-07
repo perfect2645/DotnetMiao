@@ -1,0 +1,35 @@
+POST http://wx1936.cnhis.cc/wx/login/regist/submit.htm HTTP/1.1
+Host: wx1936.cnhis.cc
+Connection: keep-alive
+Content-Length: 120
+Accept: application/json, text/plain, */*
+Origin: http://wx1936.cnhis.cc
+openId: 
+userType: TX
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+token: 
+Content-Type: application/x-www-form-urlencoded
+Cookie: SESSION=NjliNzc2MjAtNGFjMy00MjU0LTllZjAtYzE3OGEwNTU1YjQ2
+Referer: http://wx1936.cnhis.cc/wxcommon/web/?router=home&state=
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+phone=13940897525&code=573562&name=%E5%91%A8%E7%91%A0%E5%A4%8F&idCard=&shareUserId=&regType=1&openId=&isrh=0&singleCode=
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 02 Dec 2022 14:32:45 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: *
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Headers: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval' https://*.cnhis.com:* https://*.cnhis.cc:* https://*.qq.com:*; connect-src 'self' wss://*.qq.com:* https://*.qq.com:* https://*.cnhis.com:* https://*.cnhis.cc:* https://*.map.gtimg.com:*
+Content-Length: 1314
+
+{"code":null,"result":"Success","resultMsg":"","list":[],"map":{"domain":"wx1936","isNavShortcut":false,"tokenInfo":{"token":"DF2AADDF47152FD775311574E78DE1F7CE10785BCCBA3AA79DCEE6898B9223D0499CCC2DF53ADACAE147E8F45DF86360","expireTime":1669991685583,"refreshToken":"DF2AADDF47152FD775311574E78DE1F72274C4E19B91D54384D480B68335871E125379D5E6435C2DD50806C2E431C2F2","refreshExpireTime":1669998765583}},"obj":{"orderBy":null,"descOrAsc":null,"createdDate":1669991565525,"createdBy":null,"updatedDate":1669991565525,"updatedBy":null,"userId":6192737,"username":"周瑠夏","password":"cdb11a6b36c3cd1d51b91a17aa864eec","mobile":null,"phone":"13940897525","idCard":null,"email":null,"status":1,"isLock":null,"lockDate":null,"loginFailCount":null,"patientId":null,"birthDate":null,"sex":null,"blood":null,"marital":null,"areaId":null,"address":null,"openid":null,"alias":null,"picture":null,"salt":"0ad0c7d84a40f5e978f42cfa5026fccc","sessionId":"b3b4e28fdd78126c3956c3669d63af60","agrNo":null,"jsonField":"{\"crmCustomerId_6246\": \"78164106\"}","shareUserId":null,"unionId":null,"cardType":null,"credentialsSalt":"139408975250ad0c7d84a40f5e978f42cfa5026fccc","map":null},"total":0,"pageSize":0,"currentPage":0,"totalPage":0,"recordsTotal":0,"recordsFiltered":0,"rows":null,"tmpList":null,"data":null,"tableField":null}

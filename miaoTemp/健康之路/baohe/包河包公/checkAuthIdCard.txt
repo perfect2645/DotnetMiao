@@ -1,0 +1,31 @@
+POST https://appoint.yihu.com/appoint/do/registerAuth/idCardAuth HTTP/1.1
+Host: appoint.yihu.com
+Connection: keep-alive
+Content-Length: 41
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: https://appoint.yihu.com
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: YiHu_OpenId=eyJPcGVuSUQiOiJvQTNaQTBmMWlRMnJ2YWo0bXVCTllRQzUwd3FrIiwiU2VjU3RyIjoiOERCQUM2REFBNkIyMzg0MTk1MkE5QjcxM0Q3RTBDQjMifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=oA3ZA0f1iQ2rvaj4muBNYQC50wqk; OpenID=oA3ZA0f1iQ2rvaj4muBNYQC50wqk; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000393; TOKEN_207B2EF0F0558E611E24F8AFEC310393=A5562CA886FF4D4CA2A90C62F06E1623; jkzlAn_uuid=F448EE14-597E-4EE8-88E9-FEAB0227B4E5; jkzlAn_channelid=9000393; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNDQ4ODcxNjUiLCJDYXJkTnVtYmVyIjoiMjA3NDk5NjI2NyIsIkxvZ2luSWQiOiJvQTNaQTBmMWlRMnJ2YWo0bXVCTllRQzUwd3FrIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI5OTczOTc1N0FCMUUzRkE1NjdFMThGRkU0QTM5NzEyNiJ9; TOKEN_DCD5425DB06A035EFE0308CBEE42BB2B=F7F6121F41F640FF8FBF4F8FD2E3B14E; jkzlAn_sid=195117E2-5F35-4E2B-84CE-4945D1A5B60E; jkzlAn_userid=144887165; _YyghSysTrackUUID=30195154016; jkzlAn_utm_source=0.0.h.1026.bus010.0__0.0.h.1026.bus010.0; jkzlAn_ct=1669809660034
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://appoint.yihu.com/appoint/register/registerOrder.html?platformType=9000393&hospitalId=1039346&deptId=7229969&doctorSn=711199332&arrangeId=164998808&utm_source=0.0.h.1026.bus010.0
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+name=%E5%88%98%E4%BA%91&memberSn=54193649
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 30 Nov 2022 12:03:20 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 39
+Connection: keep-alive
+Expires: Wed, 31 Dec 1969 23:59:59 GMT
+Cache-Control: no-cache
+Pragma: no-cache
+
+{"Code":10000,"Message":"验证成功"}
+
+name=刘云&memberSn=54193649

@@ -6,7 +6,7 @@ namespace Base.session
     public interface ISessionContainer
     {
         static string Cookie { get; set; }
-        static Dictionary<string, object> PlatformSesstion { get; set; }
+        static Dictionary<string, object> PlatformSession { get; set; }
         static ISession MiaoSession { get; set; }
         static ISession UserSession { get; set; }
 

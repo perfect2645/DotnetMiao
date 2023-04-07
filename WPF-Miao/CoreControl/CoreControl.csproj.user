@@ -2,7 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="DataGrid\DataView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DateControl\DateTimePicker.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DateControl\TimerControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LogConsole\LogPanel.xaml.cs">
@@ -10,7 +16,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DataGrid\DataView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DateControl\DateTimePicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DateControl\TimerControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LogConsole\LogPanel.xaml">

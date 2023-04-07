@@ -1,0 +1,11 @@
+﻿<Window x:Class="Jksx.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Jksx.view"
+        Title="健康山西" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:JksxConsole x:Name="mainConsole">
+
+    </view:JksxConsole>
+</Window>

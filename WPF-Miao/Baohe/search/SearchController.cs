@@ -1,11 +1,13 @@
 ﻿using Baohe.appointment;
 using Baohe.constants;
 using Baohe.search.ArrangeWater;
-using Baohe.search.auth;
+using Baohe.search.cookie;
 using Baohe.search.doctor;
 using Baohe.search.numbers;
 using Baohe.search.user;
 using Baohe.session;
+using Baohe.verification;
+using Base.Events;
 using Base.viewModel;
 using HttpProcessor.Client;
 using HttpProcessor.Container;
@@ -20,6 +22,8 @@ using System.Threading.Tasks;
 using System.Timers;
 using Utils;
 using Utils.datetime;
+using Utils.number;
+using Utils.stringBuilder;
 using Utils.timerUtil;
 using Timer = System.Timers.Timer;
 
@@ -39,7 +43,13 @@ namespace Baohe.search
 
         public ActionOnTime StartWaterSearchTimer { get; set; }
 
+        public string UserName { get; set; }
+        public string UserPhone { get; set; }
+
         private readonly object OrderLock = new object();
+        private readonly object YzmLock = new object();
+
+        public Action CheckYzmAction { get; set; }
 
         public SearchController(HttpClient httpClient) : base(httpClient)
         {
@@ -60,7 +70,7 @@ namespace Baohe.search
 
         public void SetTimer()
         {
-            var startTime = BaoheSession.GetStartTime();
+            var startTime = MainSession.GetStartTime();
             startTime = startTime.AddSeconds(-2);
 
             //var date = new DateTime(2022, 9, 15, 21, 59, 58);
@@ -80,9 +90,9 @@ namespace Baohe.search
             AutoRunTimer.Stop();
         }
 
-        internal async Task SearchAllAsync(ISessionItem sessionItem)
+        internal async Task SearchAllAsync(string userName)
         {
-            await SearchUserInfo(sessionItem);
+            await SearchUserInfo(userName);
 
             await SearchMiaoInfo();
 
@@ -91,9 +101,9 @@ namespace Baohe.search
 
         #region AutoRun
 
-        internal async Task AutoSearchAsync(ISessionItem sessionItem)
+        internal async Task AutoSearchAsync(string userName)
         {
-            await SearchUserInfo(sessionItem);
+            await SearchUserInfo(userName);
 
             //await SearchMiaoInfo();
 
@@ -105,29 +115,37 @@ namespace Baohe.search
             {
                 if (SearchStatus == SearchStatus.NumbersGet)
                 {
-                    BaoheSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}, Time = {DateTimeUtil.GetNow()}");
+                    MainSession.PrintLogEvent.Publish(this, $"AutoRunTimer stopped start. SearchStatus={SearchStatus}");
                     AutoRunTimer.Stop();
 
                     return;
                 }
-                await SearchMiaoInfo();
+
+                switch(MainSession.YzmMode)
+                {
+                    case YzmMode.PreSendOnTimeVerify: 
+                        await SearchMiaoInfoAutoYzm(); break;
+                    case YzmMode.OnTimeSendVerify: 
+                        await SearchMiaoInfo(); break;
+                    case YzmMode.PreSendVerify:
+                        await SearchMiaoInfoAutoYzm(); break;
+                    default: await SearchMiaoInfoAutoYzm(); break;
+                }
             }
             catch (HttpException ex)
             {
-                BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
-                StopTimer();
-                BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+                //StopTimer();
+                MainSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
 
         #endregion AutoRun
 
-
-
-        private async Task SearchMiaoInfo()
+        private async Task SearchMiaoInfoAutoYzm()
         {
             if (SearchStatus == SearchStatus.Start)
             {
@@ -141,12 +159,27 @@ namespace Baohe.search
 
             if (SearchStatus == SearchStatus.WaterGet)
             {
+                var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+
+                var index = 0;
+                if (arrangeWaterList.Count > 0)
+                {
+                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                }
+                MainSession.DefaultWater = arrangeWaterList[index]!;
+
+                if (!MainSession.IsYzmChecked)
+                {
+                    CheckYzmAction?.Invoke();
+                }
+
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                var isNumbersGet = await appointNumbers.GetNumbersAsync();
-                BaoheSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}, Time = {DateTimeUtil.GetNow()}");
+                var isNumbersGet = await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
+
+                MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
                 lock (OrderLock)
                 {
-                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet)
+                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
                     {
                         SearchStatus = SearchStatus.NumbersGet;
 
@@ -159,59 +192,120 @@ namespace Baohe.search
             }
         }
 
-        private async Task SearchUserInfo(ISessionItem sessionItem)
+        private async Task SearchMiaoInfo()
+        {
+            if (SearchStatus == SearchStatus.Start)
+            {
+                MainSession.DefaultWater = new Dictionary<string, object>();
+                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+                var isWaterGet = await arrangeWater.GetArrangeWaterAsync();
+                if (isWaterGet)
+                {
+                    SearchStatus = SearchStatus.WaterGet;
+                }
+            }
+
+            if (SearchStatus == SearchStatus.WaterGet)
+            {
+                var yzmController = HttpServiceController.GetService<YzmController>();
+
+                var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+
+                var index = 0;
+                if (arrangeWaterList.Count > 0)
+                {
+                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                }
+                MainSession.DefaultWater = arrangeWaterList[index]!;
+
+                if (!MainSession.IsYzmSent)
+                {
+                    var isYzmSent = await yzmController.SendYzmAsync(UserName, UserPhone, MainSession.DefaultWater["ArrangeID"].NotNullString());
+                    if (isYzmSent)
+                    {
+                        MainSession.IsYzmSent = true;
+                    }
+                }
+
+                if (MainSession.IsYzmSent)
+                {
+                    var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+                    var isNumbersGet = await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
+
+                    MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+
+                    lock (OrderLock)
+                    {
+                        if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
+                        {
+                            SearchStatus = SearchStatus.NumbersGet;
+
+                            lock (OrderLock)
+                            {
+                                BuildMiaoOrder();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private async Task SearchUserInfo(string userName)
         {
             try
             {
-                var authController = HttpServiceController.GetService<AuthController>();
-                authController.GetCookieAdvance(sessionItem.Cookie);
+                var authController = HttpServiceController.GetService<CookieController>();
+                authController.GetCookieAdvance(MainSession.Cookie);
 
                 var userInfoContr = HttpServiceController.GetService<UserInfoController>();
                 await userInfoContr.GetUserInfoAsync();
+
+                var defaultMember = SessionBuilder.GetDefaultMember(userName);
+                var phone = defaultMember.GetString(Constant.Phone);
+                MainSession.UpdateUI("phone", phone);
 
                 var doctorContr = HttpServiceController.GetService<DoctorController>();
                 await doctorContr.GetDoctorListAsync();
 
                 //var liudiao = HttpServiceController.GetService<LiudiaoController>();
                 //await liudiao.LiudiaoAsync(sessionItem);
+                var authContr = HttpServiceController.GetService<AuthController>();
+                await authContr.CheckAuthAsync(userName);
 
-                BuildMemberOrder(userInfoContr.MemberList);
+                BuildMemberOrder(defaultMember);
             }
             catch (HttpException ex)
             {
                 StopTimer();
-                BaoheSession.PrintLogEvent.Publish(this, ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.Message);
             }
             catch (Exception ex)
             {
                 StopTimer();
-                BaoheSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
+                MainSession.PrintLogEvent.Publish(this, ex.StackTrace ?? ex.Message);
             }
         }
 
-        private void BuildMemberOrder(List<Dictionary<string, object>> memberList)
+        private void BuildMemberOrder(Dictionary<string, object> defaultMember)
         {
-            if (!memberList.HasItem())
+            if (!defaultMember.HasItem())
             {
                 return;
             }
 
-            BaoheSession.OrderSession.Clear();
+            MainSession.OrderSession.Clear();
 
-            foreach (var member in memberList)
+            for(var i = 0; i < 10; i++)
             {
-                for(var i = 0; i < 5; i++)
-                {
-                    var order = new Order(member, i);
-                    BaoheSession.OrderSession.AddOrder(order);
-                }
+                var order = new Order(defaultMember, i);
+                MainSession.OrderSession.AddOrder(order);
             }
         }
 
         private void BuildMiaoOrder()
         {
-            var orders = BaoheSession.OrderSession.GetOrders();
-            var numberCount = (BaoheSession.MiaoSession["Numbers"] as IList).Count;
+            var orders = MainSession.OrderSession.GetOrders();
+            var numberCount = (MainSession.MiaoSession["Numbers"] as IList).Count;
 
             var appContr = HttpServiceController.GetService<AppointmentController>();
             if (orders.Count > numberCount)
@@ -221,7 +315,7 @@ namespace Baohe.search
 
             foreach (var order in orders)
             {
-                order.FillContent(BaoheSession.MiaoSession);
+                order.FillContent(MainSession.MiaoSession);
                 Thread.Sleep(3000);
             }
         }

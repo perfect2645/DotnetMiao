@@ -1,0 +1,37 @@
+﻿using Xihongmen.common;
+using Xihongmen.session;
+using System.Text;
+using Utils;
+using System;
+
+namespace Xihongmen.appointment
+{
+    internal class YuyueContent : XhmContent
+    {
+        public Order Order { get; }
+
+        private static readonly string url = "https://yiyuan.dabannet.cn/reservation";
+
+        public YuyueContent() : base(url)
+        {
+        }
+
+        public YuyueContent(Order schedule) : base(url)
+        {
+            Order = schedule;
+            BuildContent();
+        }
+
+        private void BuildContent()
+        {
+            AddContent("type_id", Order.TypeId);
+            AddContent("date", Order.Date);
+            AddContent("type_title", Order.TypeTitle);
+            AddContent("member_id", Order.UserId);
+            AddContent("member_name", Order.UserNameEncode);
+            AddContent("timeType", Order.TimeType);
+            AddContent("key", Key);
+            AddContent("token", Order.Token);
+        }
+    }
+}

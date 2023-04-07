@@ -1,0 +1,33 @@
+﻿<Page x:Class="Huangdai.view.MainConsole"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:basePage="clr-namespace:Base.view;assembly=Base"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:session="clr-namespace:Huangdai.session"
+      Title="苏州相城黄埭"
+      x:Name="HuangdaiPage">
+    <Page.Resources>
+        <session:MainSession x:Key="mainSession" />
+    </Page.Resources>
+    <basePage:OnTimeConsole x:Name="baseConsole"
+                            IsCookieVisible="Collapsed"
+                          Title="{Binding Title}"
+                          HospitalDeptList="{Binding Departments}"
+                          SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
+        <basePage:OnTimeConsole.DynamicArea>
+            <StackPanel>
+                <StackPanel Background="Bisque">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
+                    <Button Content="手动预约" Margin="0,0,10,0"
+                    Command="{Binding SearchCommand}" Width="100">
+                    </Button>
+                </StackPanel>
+                <TextBox Width="300" Height="30"
+                         Margin="0,20,0,20"
+                        materialDesign:HintAssist.Hint="备注">
+                </TextBox>
+            </StackPanel>
+        </basePage:OnTimeConsole.DynamicArea>
+    </basePage:OnTimeConsole>
+</Page>

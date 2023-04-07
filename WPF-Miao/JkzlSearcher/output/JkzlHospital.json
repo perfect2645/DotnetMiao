@@ -1,0 +1,85 @@
+﻿{
+  "HospitalId": "1025646",
+  "HospitalName": "宜都市陆城街道办事处卫生院",
+  "Province": "湖北",
+  "City": "宜昌",
+  "Address": "湖北省宜都市陆城街办园林大道160号",
+  "Departments": {
+    "7214652": {
+      "DeptId": "7214652",
+      "DeptName": "疫苗接种",
+      "Doctors": {
+        "710755957": {
+          "DoctorId": "710755957",
+          "DoctorName": "HPV九价宫颈癌疫苗"
+        }
+      }
+    }
+  }
+}, {
+  "HospitalId": "1023044",
+  "HospitalName": "硚口区古田街社区卫生服务中心",
+  "Province": "湖北",
+  "City": "武汉",
+  "Address": "武汉市硚口区古田二路招商江湾国际42-1号",
+  "Departments": {
+    "7152219": {
+      "DeptId": "7152219",
+      "DeptName": "疫苗预约",
+      "Doctors": {
+        "710781926": {
+          "DoctorId": "710781926",
+          "DoctorName": "【周六】6岁以上儿童及成人疫苗预约"
+        },
+        "710792990": {
+          "DoctorId": "710792990",
+          "DoctorName": "疫苗接种"
+        },
+        "710803137": {
+          "DoctorId": "710803137",
+          "DoctorName": "九价HPV疫苗"
+        },
+        "710808131": {
+          "DoctorId": "710808131",
+          "DoctorName": "四价HPV疫苗"
+        },
+        "710808123": {
+          "DoctorId": "710808123",
+          "DoctorName": "二价HPV疫苗"
+        },
+        "710808224": {
+          "DoctorId": "710808224",
+          "DoctorName": "带状疱疹疫苗"
+        }
+      }
+    }
+  }
+}, {
+  "HospitalId": "1023015",
+  "HospitalName": "台江区上海街道社区卫生服务中心",
+  "Province": "福建",
+  "City": "福州",
+  "Address": "福建省福州市台江区工业路398号荷花新村9号楼一层",
+  "Departments": {
+    "7190139": {
+      "DeptId": "7190139",
+      "DeptName": "宫颈癌疫苗预约",
+      "Doctors": {
+        "710699892": {
+          "DoctorId": "710699892",
+          "DoctorName": "宫颈癌疫苗四价预约"
+        },
+        "710699862": {
+          "DoctorId": "710699862",
+          "DoctorName": "宫颈癌疫苗二价预约"
+        },
+        "710699893": {
+          "DoctorId": "710699893",
+          "DoctorName": "宫颈癌疫苗九价预约"
+        }
+      }
+    }
+  }
+},
+
+

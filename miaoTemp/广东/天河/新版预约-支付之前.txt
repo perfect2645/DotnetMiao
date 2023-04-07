@@ -1,0 +1,23 @@
+POST https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_created/ HTTP/1.1
+Host: ldsq.ldrmyy120.com
+Connection: keep-alive
+Content-Length: 134
+Authorization: Token a3e983641092156eb4193903488124eea934bcd4
+Cookie: sessionid=2w95lhpntjiwsuk3ws9ztxvjl5nzufnx
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wxe78593328cbc7561/3/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"duty_time_id":"2","vaccine_id":2,"hospital":"4","inoculate_times":1,"patient":"14477458","see_date":"2023-02-11","address":"广州"}
+HTTP/1.1 201 Created
+Server: nginx/1.14.1
+Date: Sun, 05 Feb 2023 12:57:26 GMT
+Content-Type: application/json
+Content-Length: 1885
+Connection: keep-alive
+Vary: Accept
+X-Frame-Options: SAMEORIGIN
+Allow: POST, OPTIONS
+
+{"id":1455,"num":"YM202302052057264518276","patient":14477458,"name":"许晴","idno":"440117200201263021","status":"4","vaccine_project":2,"get_status_display":"待支付","vaccine_time":2,"hospital":4,"see_start_time":"14:00:00","see_end_time":"16:00:00","see_date":"2023-02-11","cancel_time":null,"end_time":null,"cancel_reason":null,"created_time":"2023-02-05T20:57:26.897902+08:00","age":21,"gender":"女","inoculate_times":1,"mobile":"15734965373","hospital_obj":{"id":4,"name":"天河区龙洞街社区卫生服务中心"},"vaccine_project_obj":{"id":2,"name":"四价HPV疫苗","hospital":[4],"category":1,"tag":[6,3,1],"vaccination_times":3,"fee":"831.00","vaccine_many":[{"id":27,"num":50,"vaccine_duty_time":1,"already_num":9},{"id":28,"num":50,"vaccine_duty_time":2,"already_num":16}],"icon":"/media/d46125e89ebb11ec8d8cfa163ef03154.jpg","is_active":true,"created_time":"2022-03-08T16:44:26.928718+08:00","tag_obj":[{"created_time":"2022-02-23T01:17:30.517781Z","is_active":true,"id":6,"name":"进口疫苗"},{"created_time":"2022-01-29T01:56:15.595587Z","is_active":true,"id":3,"name":"自费疫苗"},{"created_time":"2022-01-29T01:55:30.121934Z","is_active":true,"id":1,"name":"成人疫苗"}],"desc":"适用年龄9-45周岁，共接种3针次","hospital_obj":[{"id":4,"name":"天河区龙洞街社区卫生服务中心"}],"already_num":88,"category_obj":{"id":1,"name":"HPV疫苗","icon":"/media/0c1c0c429e8e11ecb9d7fa163ef03154.png","is_active":true,"created_time":"2022-03-08T11:15:47.896230+08:00"},"total_times":3,"month_times":1,"time_list":["2023-02-06","2023-02-08","2023-02-10","2023-02-11"],"is_online_pay":true},"vaccine_project_name":"四价HPV疫苗","get_url":"https://ldsq.ldrmyy120.com/examine/vaccine_detail/1455/","address":"广州","fee":"831.00","pay_type":null,"get_pay_type_display":null,"pay_time":null,"refuse_time":null,"refuse_refund_reason":null}

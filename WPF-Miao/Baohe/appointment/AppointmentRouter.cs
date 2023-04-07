@@ -1,5 +1,7 @@
 ﻿using Baohe.search.ArrangeWater;
 using Baohe.search.numbers;
+using Baohe.session;
+using Baohe.verification;
 using Base.viewModel;
 using HttpProcessor.Container;
 using System;
@@ -14,10 +16,12 @@ namespace Baohe.appointment
     internal class AppointmentRouter
     {
         private ISessionItem SessionItem { get; }
+        private string UserName;
 
-        public AppointmentRouter(ISessionItem sessionItem)
+        public AppointmentRouter(ISessionItem sessionItem, string userName)
         {
             SessionItem = sessionItem;
+            UserName = userName;
 
             AppTimer = new System.Timers.Timer();
             AppTimer.Enabled = false;
@@ -30,12 +34,12 @@ namespace Baohe.appointment
 
         private void AppTimer_Elapsed(object? sender, ElapsedEventArgs e)
         {
-            AppointTickAsync();
+            AppointTickAsync(UserName);
         }
 
         public Timer AppTimer { get; set; }
 
-        public void AppointTickAsync()
+        public void AppointTickAsync(string userName)
         {
             Task.Factory.StartNew(async () =>
             {
@@ -43,10 +47,12 @@ namespace Baohe.appointment
                 await arrangeWater.GetArrangeWaterAsync();
 
                 var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                await appointNumbers.GetNumbersAsync();
+                await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
 
                 //var getverifyCode = HttpServiceController.GetService<GetVerifyCodeController>();
                 //await getverifyCode.GetVerifyCodeAsync(SessionItem);
+                var authContr = HttpServiceController.GetService<AuthController>();
+                await authContr.CheckAuthAsync(userName);
 
                 var appContr = HttpServiceController.GetService<AppointmentController>();
 

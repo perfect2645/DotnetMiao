@@ -1,0 +1,33 @@
+GET https://hscx.whcdc.org/vaccineServer/wechat/getOpenIdByCode?code=031LwPkl284Kza4Kp2nl2oyVhm4LwPkF HTTP/1.1
+Host: hscx.whcdc.org
+Connection: keep-alive
+idCard: N5QL2ynP5zGWGIJJvDAvYQzEuvASf/Yl
+Accept: application/json
+openId: oq49zvxoEtCBUc_WWg1_lRkGAicc
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+token: 
+sign: 29c58fccce1c9ee01bacd0d6b001f13a
+Content-Type: application/json;charset=UTF-8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://hscx.whcdc.org/vaccine-h5/?code=031LwPkl284Kza4Kp2nl2oyVhm4LwPkF&state=
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 200
+Server: nginx/1.21.0
+Date: Mon, 09 Jan 2023 15:59:40 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 78
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+{
+	"msg":"操作完成",
+	"code":"0",
+	"data":"oq49zvxoEtCBUc_WWg1_lRkGAicc"
+}

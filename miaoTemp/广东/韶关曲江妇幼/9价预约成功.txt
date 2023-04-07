@@ -1,0 +1,40 @@
+POST http://qjfy-adm-prod.hosp-proxy.cksoft.tech/api/register/submit?signature=56113bc1b135503597086fc961818cc1 HTTP/1.1
+Host: qjfy-adm-prod.hosp-proxy.cksoft.tech
+Content-Type: text/plain
+Origin: http://qjfy-h5.hosp-proxy.cksoft.tech
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Referer: http://qjfy-h5.hosp-proxy.cksoft.tech/
+Content-Length: 360
+Accept-Language: zh-CN,zh-Hans;q=0.9
+
+{
+    "deptId": "10",
+    "deptName": "预防接种门诊",
+    "doctorId": "262",
+    "doctorName": "预防接种9价疫苗预约号",
+    "regDate": "2023-02-22",
+    "timeID": "05",
+    "startTime": "00:00",
+    "endTime": "23:59",
+    "payment_type": "WX_GZH",
+    "patient_id": "QPD622LrYWZS86sTFtqqag==",
+    "nowTime": "",
+    "timestamp": 1676962938,
+    "machine_code": "WeChat-SA",
+    "token": "9636FABA-83AF-9637-A7D0-2B12ABD948A3"
+}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 21 Feb 2023 07:02:15 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Access-Control-Allow-Methods: POST,GET
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Content-Type,Authorization,Accept
+Access-Control-Allow-Origin: *
+Content-Length: 308
+
+{"status":200,"message":"操作成功！","result":{"payment_no":"289606200806029939","payment_amount":"0.00","payment_desc":"预约挂号","business_id":67645,"business_source":10,"payment_type":"WX_GZH","appointment":{"his_order_no":"","seq_no":"523||45","info_seq":"","wait_time":"","visit_location":""}}}

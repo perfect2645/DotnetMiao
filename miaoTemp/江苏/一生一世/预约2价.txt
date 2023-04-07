@@ -1,0 +1,43 @@
+POST https://jinshuju.net/graphql/f/MAp5Yn HTTP/1.1
+Host: jinshuju.net
+Connection: keep-alive
+Content-Length: 201
+Origin: https://jinshuju.net
+tracestate: 868043@nr=0-1-868043-1134272420-7db44eef1a86f6c3----1675171317627
+traceparent: 00-1572d76ebe4102995803647192af76d0-7db44eef1a86f6c3-01
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+newrelic: eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6Ijg2ODA0MyIsImFwIjoiMTEzNDI3MjQyMCIsImlkIjoiN2RiNDRlZWYxYTg2ZjZjMyIsInRyIjoiMTU3MmQ3NmViZTQxMDI5OTU4MDM2NDcxOTJhZjc2ZDAiLCJ0aSI6MTY3NTE3MTMxNzYyN319
+content-type: application/json;charset=UTF-8
+accept: */*
+x-csrf-token: 2m9wb4qd+p4nK/mu3qvWwc1mJpfZ5qQeceHncbbIhTHllrq42SvGK1m8I3BrblQFetYcqOGRjnGnGEyD7mzwMA==
+Cookie: jsj_uid=fa2f578b-d5b7-4c48-8bf3-c363b5165c0c; start_filling_time_MAp5Yn=1675171316; csrf_token=2m9wb4qd+p4nK/mu3qvWwc1mJpfZ5qQeceHncbbIhTHllrq42SvGK1m8I3BrblQFetYcqOGRjnGnGEyD7mzwMA==; Hm_lvt_47cd03e974df6869353431fe4f4d6b2f=1675171317; Hm_lpvt_47cd03e974df6869353431fe4f4d6b2f=1675171317; cid=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkltRmpPRFl6TXpRM0xXUTJZbUV0TkRZM01DMDVNR05tTFRJME1tWmxabU0xWlRWak1DST0iLCJleHAiOiIyMDIzLTAyLTI4VDEzOjIxOjU4LjI4NloiLCJwdXIiOm51bGx9fQ%3D%3D--2dd15f05901cb33d15d0c9dc2567f37cffc4c503; _gd_session=c2Mzd1ExUDVjMzdXb0wyejBXK21LYzRzYlNiSG5HN2t1WlRNeEJ4ZmpJejFsbjdMSXhIa0xDN2toM215amJaclFTWUZ6R3hQUDlqR0tETit2WEFqOTVUUkh0ZVA1WmxYelltenJVUmJGRWRka0RjaFZhOUdNcmZtRFk0RWhvbHlldU5mN2ZvSCtmT21hcVdYeUx5azFRPT0tLXEzZy96NU1hQzVRdHNuMWtKdWxzd2c9PQ%3D%3D--934eddac87e8ae556f068675d66af3af825e5e35
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://jinshuju.net/f/MAp5Yn
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+[{"operationName":"publishedDynamicAttrs","variables":{"formId":"MAp5Yn"},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"55bad5978d82063361d985dfc36ad12a721c48245a07e8a14623fb49888bcd16"}}}]
+HTTP/1.1 200 OK
+Date: Tue, 31 Jan 2023 13:21:58 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Server: openresty
+Vary: Accept-Encoding
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Accept, Origin
+Set-Cookie: _gd_session=; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Set-Cookie: cid=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkltRmpPRFl6TXpRM0xXUTJZbUV0TkRZM01DMDVNR05tTFRJME1tWmxabU0xWlRWak1DST0iLCJleHAiOiIyMDIzLTAyLTI4VDEzOjIxOjU4LjYxNFoiLCJwdXIiOm51bGx9fQ%3D%3D--8dd09df5a4210f447ebd032f5a4648b1c9baea6b; path=/; expires=Tue, 28 Feb 2023 13:21:58 GMT
+Set-Cookie: _gd_session=cFZtenVPRHRTSmlmMzA3STlraVJsWXkxckhpckEwMUw2UTk4cVNoU0FkQk8wUVZxb2hFZzdFdytSdVlpcnFTcmZlSGUwVWRvUzVVVXM2ZmZTY2pjVFA0RXQxWlRVbm5IK0JOMUFjZGpmb2hCQmc0Y1lhMzFRTndiZFc5ZkZNWFl3cVIyZ0dCRE1BWUhZdVBRUEVGV0dRPT0tLVFLN2d5MExIb0lDT3N3QTUxS2YzYlE9PQ%3D%3D--50409c5dbbd499fa44dc705cc29036fc625ad41c; domain=.jinshuju.net; path=/; HttpOnly
+ETag: W/"f86e7c891244229d68a8c20266fcc3d1"
+Cache-Control: max-age=0, private, must-revalidate
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Content-Length: 459
+
+[{"data":{"publishedFormDynamicAttrs":{"status":{"key":"open","message":null,"__typename":"publishedFormStatus"},"entryCountsPerChoice":null,"inventoryFields":{},"quotableFields":{"field_1":{"hIZG":{"quota":222},"5WlH":{"quota":148},"LdGF":{"quota":0}}},"likeCount":32,"marqueeEntriesCount":5001,"marqueeDisplayData":[],"entry":{"fieldValues":{},"weixinAccessToken":null,"xFieldWeixinOpenid":null,"__typename":"Entry"},"__typename":"publishedDynamicAttrs"}}}]

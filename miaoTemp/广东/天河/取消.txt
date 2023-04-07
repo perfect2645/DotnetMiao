@@ -1,0 +1,28 @@
+POST https://ldsq.ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/ HTTP/1.1
+Host: ldsq.ldrmyy120.com
+Connection: keep-alive
+Content-Length: 6
+Accept: */*
+X-Requested-With: XMLHttpRequest
+Authorization: Token ff0cf4cbb35bd4d956a3c968d1150ba3c56fbdc9
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+Content-Type: application/x-www-form-urlencoded
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://ldsq.ldrmyy120.com/examine/vaccine_detail/696/?mode=wx&token=ff0cf4cbb35bd4d956a3c968d1150ba3c56fbdc9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-us,en
+
+id=696
+HTTP/1.1 200 OK
+Server: nginx/1.14.1
+Date: Sun, 08 Jan 2023 15:21:00 GMT
+Content-Type: application/json
+Content-Length: 26
+Connection: keep-alive
+Vary: Accept
+X-Frame-Options: SAMEORIGIN
+Allow: POST, OPTIONS
+
+{"message":"取消成功"}

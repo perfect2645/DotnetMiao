@@ -5,16 +5,52 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <BaseOutputPath>bin\0922</BaseOutputPath>
+    <BaseOutputPath></BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Login - 漳州.json" />
+    <None Remove="Login.json" />
+    <None Remove="Login南京.json" />
+    <None Remove="Login南京手动.json" />
+    <None Remove="Login南京转号.json" />
+    <None Remove="Login合肥.json" />
+    <None Remove="Login武汉.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Login南京手动.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login武汉.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login南京转号.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login - 漳州.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login合肥.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login南京.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Base\Base.csproj" />
+    <ProjectReference Include="..\Communication\Reveiver.csproj" />
     <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
     <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />

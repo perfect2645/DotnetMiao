@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--     <meta charset="utf-8"/> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>服务器运行提示</title>
+    <script src="https://h5oss.daxiang91.com/js/jquery-3.2.1.min.js"></script>
+<!--    <script src="https://h5oss.daxiang91.com/js/jquery-3.4.1.min.js"></script> 怀化使用-->
+    <script src="https://h5oss.daxiang91.com/js/bootstrap.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/jquery.toastmessage.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/common.js?v=13"></script>
+    <script src="https://h5oss.daxiang91.com/js/jquery.charfirst.pinyin.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/dialog.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/Base64.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/sort.js"></script>
+    <link href="https://h5oss.daxiang91.com/css/bootstrap.css" rel="stylesheet"/>
+    <link href="https://h5oss.daxiang91.com/css/jquery.toastmessage.css" rel="stylesheet"/>
+    <link href="https://h5oss.daxiang91.com/css/common.css?v=3" rel="stylesheet"/>
+    <link href="https://h5oss.daxiang91.com/css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/alert.jquery.js?v=1"></script>
+    <script src="https://h5oss.daxiang91.com/js/toastr.js"></script>
+    <link href="https://h5oss.daxiang91.com/css/toastr.css" rel="stylesheet"/>
+    <script src="https://h5oss.daxiang91.com/js/wxFontSizeControl.js"></script>
+    <link href="https://h5oss.daxiang91.com/css/touch_scale_image.css" rel="stylesheet"/>
+    <script src="https://h5oss.daxiang91.com/js/touch_scale_image.js"></script>
+    <link href="https://h5oss.daxiang91.com/css/slider.css" rel="stylesheet"/>
+
+    <!--    <link th:href="@{https://h5oss.daxiang91.com/css/global.css}" rel="stylesheet"/>-->
+    <link href="https://h5oss.daxiang91.com/css/animate.css" rel="stylesheet"/>
+    <!--    <link th:href="@{https://h5oss.daxiang91.com/css/fontCss.css}" rel="stylesheet"/>-->
+    <link href="https://h5oss.daxiang91.com/css/scrollmenu.css" rel="stylesheet"/>
+    <script src="https://h5oss.daxiang91.com/js/bscroll.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/scrollmenu.2021211102.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/timeFormat.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/circleChart.min.js"></script>
+    <script src="https://h5oss.daxiang91.com/js/JsBarcode.all.min.js"></script>
+    <link href="https://h5oss.daxiang91.com/css/changePerson.20210831.css" rel="stylesheet"/>
+    <script src="https://h5oss.daxiang91.com/js/vue.min.js"></script>
+    <link rel="stylesheet" href="https://h5oss.daxiang91.com/css/vantCss.css"/>
+    <script src="https://h5oss.daxiang91.com/js/vant.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href='https://h5oss.daxiang91.com/components/index.220328.css?v=9'>
+    <script type="text/javascript" src="https://h5oss.daxiang91.com/components/medicallyExamined/changePatient.js?v=2" ></script>
+    <script type="text/javascript" src="https://h5oss.daxiang91.com/components/medicallyExamined/empty.js?v=1" ></script>
+    <script type="text/javascript" src="https://h5oss.daxiang91.com/components/medicallyExamined/physicalPackages.js?v=1" ></script>
+
+<!--    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>-->
+    <script src="https://h5oss.daxiang91.com/js/bzAlert.js"></script>
+<!--    <script src="https://h5oss.daxiang91.com/js/scrollmenu1.js"></script>-->
+
+
+    <style  type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <script>
+        var baseUrl = '/qfh5dev'
+        $(function (){
+            var height = $('#changePerson_name').height();
+            if(height > 40){
+                $('#changePerson_name').addClass('overText')
+            }else {
+                $('#changePerson_name').removeClass('overText')
+            }
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+<style>
+	.img-err {
+		width: 140px;
+		height: 140px;
+		margin-top: 35%
+	}
+
+	.err-text {
+		font-family: PingFangSC-Regular;
+		font-size: 25px;
+		color: #999999;
+		letter-spacing: 0;
+		text-align: center;
+		margin-top: 15px;
+	}
+
+</style>
+<div style="text-align: center">
+	<img src="https://h5oss.daxiang91.com/img/yes.png" class="img-err"/>
+</div>
+<div class="err-text">h5服务运行中</div>
+
+<script>
+	/*<![CDATA[*/
+	/*]]>*/
+</script>
+</body>
+</html>

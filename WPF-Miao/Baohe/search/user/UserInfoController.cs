@@ -15,7 +15,7 @@ namespace Baohe.search.user
     internal class UserInfoController : HttpClientBase
     {
 
-        public List<Dictionary<string, object>> MemberList { get; private set; }
+        //public List<Dictionary<string, object>> MemberList { get; private set; }
 
         public UserInfoController(HttpClient httpClient) : base(httpClient)
         {
@@ -35,7 +35,7 @@ namespace Baohe.search.user
         {
             var url = "https://appoint.yihu.com/appoint/do/user/getUserInfo";
             var content = new UserInfoContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -46,15 +46,15 @@ namespace Baohe.search.user
             {
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} failed", Constant.accountSn);
             }
-            BaoheSession.BuildUserSession(userid, userInfo.Body);
-            BaoheSession.PrintLogEvent.Publish(this, userInfo.Body, "user summary");
+            MainSession.BuildUserSession(userid, userInfo.Body);
+            MainSession.PrintLogEvent.Publish(this, userInfo.Body, "user summary");
         }
 
         private void GetUserDetails()
         {
             var url = "https://appoint.yihu.com/appoint/do/registerInfo/getMemberList";
             var content = new MemberListContent(url);
-            content.AddHeader("Cookie", BaoheSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Referer", content.BuildReferer());
 
             content.BuildDefaultHeaders(Client);
@@ -71,16 +71,16 @@ namespace Baohe.search.user
             {
                 throw new HttpException($"{Constant.ProjectName}:GetUserDetails-{url} - Result is empty", "empty result");
             }
-            AnalizeResult(result);
+            AnalysisResult(result);
         }
 
-        private void AnalizeResult(JsonElement jsonElement)
+        private void AnalysisResult(JsonElement jsonElement)
         {
-            MemberList = JsonAnalysis.JsonToDicList(jsonElement);
+            var memberList = JsonAnalysis.JsonToDicList(jsonElement);
 
-            BaoheSession.AddUserSession(Constant.MemberList, MemberList);
+            MainSession.AddUserSession(Constant.MemberList, memberList);
 
-            BaoheSession.PrintLogEvent.Publish(this, MemberList, "user details");
+            MainSession.PrintLogEvent.Publish(this, memberList, "user details");
         }
     }
 }

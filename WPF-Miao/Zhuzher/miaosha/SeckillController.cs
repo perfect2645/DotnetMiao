@@ -16,6 +16,7 @@ namespace Zhuzher.miaosha
     internal class SeckillController : HttpClientBase
     {
         private Dictionary<int, IntervalOnTime> IntervalList = new Dictionary<int, IntervalOnTime>();
+        private readonly UserProjectList UserProjectList = new UserProjectList();
 
         public SeckillController(HttpClient httpClient) : base(httpClient)
         {
@@ -30,16 +31,20 @@ namespace Zhuzher.miaosha
             {
                 foreach(var item in group)
                 {
-                    var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
-                    var interval = new IntervalOnTime(() => SeckillTick(item, exchangeHandler), item.GoodName, group.Key);
-                    IntervalList.AddOrUpdate(item.GameGoodId, interval);
+                    foreach(var user in UserProjectList.UserProjects)
+                    {
+                        ZhuzherSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
+                        var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
+                        var interval = new IntervalOnTime(() => SeckillTick(user, item, exchangeHandler), item.GoodName, group.Key);
+                        IntervalList.AddOrUpdate(item.GameGoodId, interval);
+                    }
                 }
             }
 
             ZhuzherSession.PrintLogEvent?.Publish(this, $"****秒杀预备结束");
         }
 
-        public void SeckillTick(MiaoshaItem item, ExchangeController exchangeHandler)
+        public void SeckillTick(UserProject user, MiaoshaItem item, ExchangeController exchangeHandler)
         {
             Task.Factory.StartNew(() =>
             {
@@ -50,8 +55,8 @@ namespace Zhuzher.miaosha
                         IntervalList[item.GameGoodId].StopInterval();
                     }
                     item.Status = 1; //开始
-                    ZhuzherSession.PrintLogEvent?.Publish(item, $"开始秒杀！{item.Log}");
-                    exchangeHandler.Seckill(item);
+                    ZhuzherSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
+                    exchangeHandler.Seckill(user, item);
                 }
                 catch (Exception ex)
                 {

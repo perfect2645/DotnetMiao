@@ -1,0 +1,11 @@
+﻿<Window x:Class="Shengzhi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Shengzhi.view"
+        Title="河北生殖妇产" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:ShengzhiConsole x:Name="mainConsole">
+
+    </view:ShengzhiConsole>
+</Window>

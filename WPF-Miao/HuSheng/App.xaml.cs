@@ -26,7 +26,7 @@ namespace HuSheng
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<SearchController>();
+            HttpServiceController.AddTransientService<VaccPlanController>();
             HttpServiceController.AddTransientService<AppointController>();
             //HttpServiceController.AddTransientService<YzmController>();
 

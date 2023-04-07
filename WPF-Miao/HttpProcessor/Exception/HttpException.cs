@@ -10,10 +10,10 @@
             Logging.GLog.Logger.Error($"message:{message}, errCode:{errCode}");
         }
 
-        public HttpException(Exception ex, string errCode = "error") : base(ex.StackTrace)
+        public HttpException(Exception ex, string errCode = "error") : base(ex.Message)
         {
             ErrCode = errCode;
-            Logging.GLog.Logger.Error($"errCode:{errCode}\r\n, Exception:{ex.StackTrace}, ");
+            Logging.GLog.Logger.Error($"errCode:{errCode}\r\n, Exception:{ex.Message}, ");
         }
     }
 }

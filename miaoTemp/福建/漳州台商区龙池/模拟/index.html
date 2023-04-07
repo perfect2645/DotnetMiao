@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    
+    <link rel="stylesheet" href="./css/light7.css">
+    <link rel="stylesheet" href="./css/light7-swiper.min.css">
+ 
+ 
+     <script type='text/javascript' src='./js/jquery-1.10.1.min.js' charset='utf-8'></script>	 
+	 
+    <script type='text/javascript' src='./js/light7.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./js/light7-swiper.min.js' charset='utf-8'></script>
+	
+		 <script type='text/javascript' src='https://res.wx.qq.com/open/js/jweixin-1.6.0.js' charset='utf-8'></script>	
+
+ 	 <script type='text/javascript' src='./YTUI-1.0.php' charset='utf-8'></script>	
+	 
+	  <link rel="stylesheet" href="./css/layui.css"  media="all">
+    <link rel="stylesheet" href="./css/global.css"  media="all">
+	 <script src="./js/layui.js" charset="utf-8"></script>
+   <script src="./js/test.js" charset="utf-8"></script>
+  	
+<!-- 让IE8/9支持媒体查询，从而兼容栅格          -->
+<!--[if lt IE 9]>
+  <script src="../../layui/html5.min.js"></script>
+  <script src="../../layui/respond.min.js"></script>
+<![endif]-->          
+          
+ 
+	 
+  </head>
+  
+  <body>
+  
+  
+  <!-- page 容88888器 -->
+<div class="page"  id="page-yuyue-gr-mx" js-url="./js/yuyue_gr.js"  >
+
+
+	 <!-- 标题栏 -->
+  <header class="bar bar-nav" >
+   
+   <a class="icon icon-left pull-left back "  href="#index#"></a>
+    <h1 class="title" >个人预约</h1>
+   
+   
+  </header>
+  
+  
+  
+ 
+
+
+<div class="layui-row content" style="background-color:#fff" >
+
+
+ 
+ 
+    <div class="list-block" style="margin-top:0px;margin-bottom:5px;font-size:16px;">
+    <ul  style="border-bottom: 0px solid #f00;">
+
+
+  <li>
+        <div class="item-content">
+    
+          <div class="item-inner">
+            <div class="item-title label">接种地点</div>
+            <div class="item-input" >
+			
+             <select id="yuyue_dizhi" lay-filter="aihao">
+              <option>400</option>
+      </select>
+	  
+	  
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+	  	  	  
+  <li>
+        <div class="item-content" >
+    
+          <div class="item-inner"  style="border-bottom: 0px solid #f00;">
+            <div class="item-title label">接种疫苗</div>
+            <div class="item-input" >
+             <span id="yuyue_title" style="color:#000;font-size:18px;font-weight:bold" ></span>
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+	  
+ 
+	 <li>
+        <div class="item-content">
+    
+          <div class="item-inner">
+            <div class="item-title label">预约时间</div>
+            <div class="item-input select_time_btn" >
+           <span style="padding-left:5px" id="yuyue_time">请选择</span>
+		   
+		   <span style="float:right;color:#999"><i class="layui-icon layui-icon-right"></i> </span>
+		   
+		   </div>
+		   
+          </div>
+        </div>
+      </li>
+	  
+ 
+		  <div style="padding:15px">  
+	<div style="background-color:#f1ede2">  
+ 
+ 
+  
+	  
+  <li style="margin-top:0px">
+        <div class="item-content" >
+    
+          <div class="item-inner"  style="border-bottom: 0px solid #f00;">
+            <div class="item-title label">姓名</div>
+            <div class="item-input" >
+              <input type="text" readonly="readonly" style="text-align:left" id="yuyue_name" placeholder="输入姓名">
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+ 
+  <li>
+        <div class="item-content" >
+    
+          <div class="item-inner"  style="border-bottom: 0px solid #f00;">
+            <div class="item-title label">身份证号</div>
+            <div class="item-input" >
+              <input type="text" readonly="readonly"  style="text-align:left" id="yuyue_user_code" placeholder="输入身份证号码">
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+	   
+	   <li>
+        <div class="item-content" >
+    
+          <div class="item-inner"  style="border-bottom: 0px solid #f00;">
+            <div class="item-title label">所属单位</div>
+            <div class="item-input" >
+              <input type="text" readonly="readonly" style="text-align:left" id="yuyue_user_suoshu" placeholder="所属村居场或工作单位">
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+	  
+		  
+  <li>
+        <div class="item-content" >
+    
+          <div class="item-inner" style="border-bottom: 0px solid #f00;">
+            <div class="item-title label">居住地址</div>
+            <div class="item-input" >
+              <input type="text" readonly="readonly" style="text-align:left" id="yuyue_user_add" placeholder="输入当前居住地址">
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+	</div>  
+</div>
+
+
+  <li>
+        <div class="item-content" style="display: none;">
+    
+          <div class="item-inner" >
+            <div class="item-title label">接种人数</div>
+            <div class="item-input" >
+              <input type="number" value="1" style="text-align:left" id="yuyue_qty" placeholder="人数">
+            </div>
+          </div>
+        </div>
+      </li>
+	  
+	   
+
+ 
+	  
+
+	   </ul> 
+	  
+     </div>
+  
+	   <div class="layui-col-xs12 " style="color:#f00;padding:15px;text-align:center"   >
+      <button   class="layui-btn  layui-btn-lg layui-btn-danger layui-btn-fluid testBtn" style="border-radius:0px;">测试</button>
+     
+     </div>
+ 
+  <div class="layui-col-xs12 " style="color:#f00;padding:15px;text-align:center"   >
+ <button   class="layui-btn  layui-btn-lg layui-btn-danger layui-btn-fluid goods_pay_btn" style="border-radius:0px;">确认预约</button>
+
+</div>
+
+
+ 
+  
+ 
+ 
+ 
+ </div>
+ 
+ 
+ 
+	 
+
+ 
+
+ 
+<div class="spinfo_sku_list" style="position:fixed;width:100%;height:400px;float:left;z-index:9999;bottom:0px;background-color:#FFF;display:none;overflow:auto">
+
+<div style="position:fixed;right:0px;width:100%;z-index:99998;background-color:#FFF;padding-bottom:5px;padding-top:5px"><div style="position:fixed;right:0px;margin:0px 5px" class="goods_zz"><i class="layui-icon layui-icon-close" style=";font-size:22px"></i> </div> 
+ <span style="float:left;margin-left:120px;font-size:22px;color:#F00;width:100%" class="spinfo_SKU_SELECT_DJ_TIP">￥0.00</span>
+ <span style="float:left;margin-left:120px;font-size:18px;color:#000;" class="spinfo_SKU_SELECT_TIP">请选择</span>
+  <span style="float:left;margin-left:120px;font-size:18px;color:#000;width:100%" class="spinfo_kucun_SELECT_TIP"></span>
+ </div> 
+ <div style="background-color:#ffffff;position:absolute;z-index:9999;width:100%">
+ <div  style=";margin-left:15px;margin-top:85px;font-size:18px;">规格</div>
+<div class="goods_sku_list"></div>
+ <div class="spinfo_QTY_ADJ" style="font-size:18px;padding:10px 10px 120px 15px;border-top:1px solid #eee;line-height:35px">数量<div style="float:right;width:80%;text-align:center"><span   class="layui-btn layui-btn-primary jia" style=";float:right;font-size:24px;margin-right:10px;border-radius:0px 5px 5px 0px;">+</span><input type="number"  value="1"   autocomplete="off" class="layui-input" style="border-radius:0px;width:60px;float:right;text-align:center;padding-left:0px"><span    class="layui-btn layui-btn-primary jian" style=";float:right;font-size:24px;border-radius:5px 0px 0px 5px;">-</span></div></div>
+ 
+
+ </div>
+ 
+</div> 
+
+<style>
+
+ .ZZ {/*遮罩层*/
+         
+         
+            background-color: black;         
+            -moz-opacity: 0.3;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        } 
+
+		</style>
+
+<div class="spinfo_sku_select_win ZZ goods_zz" style="display:none;position:fixed;width:100%;height:100%;z-index:99999;background-color:#000;bottom:400px;" ></div>
+
+<div class="spinfo_sku_select_win" style="display:none;position:fixed;width:100px;height:100px;float:left;z-index:999999;border-radius:5px;background-color:#FFF;bottom:330px;margin-left:10px;border:1px solid #EEE;padding:2px"><img class="spinfo_sku_img" style="position:fixed;z-index:99999999;width:94px;height:94px;" /></div>
+
+<div class="spinfo_sku_select_win" style="display:none;position:fixed;bottom:0px;height:60px;width:100%;z-index:999999;background-color:#fff"> <button   class="layui-btn  layui-btn-lg layui-btn-danger goods_select_btn" style="width:100%;border-radius:0px;height:100%;font-size:18px">确 定</button></div>
+
+
+
+
+  
+ 
+ 
+  
+</div>
+
+ 
+<script>
+
+
+//初始化页面
+
+  $.init();
+  
+  
+ 
+ 
+      </script>
+	  
+
+ 
+ 
+  </body>
+</html>

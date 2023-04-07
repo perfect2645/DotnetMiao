@@ -1,0 +1,26 @@
+POST http://hpv_ym.zzytrj.net:15003/api/yuyue.php HTTP/1.1
+Host: hpv_ym.zzytrj.net:15003
+Connection: keep-alive
+Content-Length: 50
+Accept: application/json, text/javascript, */*; q=0.01
+Origin: http://hpv_ym.zzytrj.net:15003
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: ytytjid=1672498750103_8881f8b15d5c50b57937822fbc618134; PHPSESSID=cq9g9afrfalejcmage7uhv01e4
+Referer: http://hpv_ym.zzytrj.net:15003/views/yuyue/yuyue_gr.html?id=112775
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+cmd=get_yuyue_time&dizhi=400&qty=1&date=2023-01-02
+HTTP/1.1 200 OK
+Date: Sun, 01 Jan 2023 05:47:08 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 104
+Connection: keep-alive
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding,User-Agent
+
+{"code":1,"msg":"ok","rows":[{"title":"\u70b9\u51fb\u9884\u7ea6","val":"2023-01-02 08:00:00","qty":30}]}

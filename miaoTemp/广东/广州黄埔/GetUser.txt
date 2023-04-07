@@ -1,0 +1,51 @@
+POST https://www.medic.ren/PM-server/mobuserHospital/getUser HTTP/1.1
+Host: www.medic.ren
+medicToken: 74416CAC-0A76-4959-80E3-A729ECD6E075
+Accept: */*
+Authorization: ddtoken
+source: wx
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Origin: https://www.medic.ren
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d30) NetType/4G Language/zh_CN
+Referer: https://www.medic.ren/app/
+Content-Length: 89
+Connection: keep-alive
+
+{"openId":"oYSgi1CEdmXiVTQBS-6F66Jplyjk","hospitalId":"2c924b1061e108200161e5bae2c031e8"}
+HTTP/1.1 200 OK
+Server: nginx/1.10.3
+Date: Fri, 21 Oct 2022 07:23:37 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Expires: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Frame-Options: DENY
+Access-Control-Allow-Origin: https://www.medic.ren
+Vary: Origin
+Access-Control-Allow-Credentials: true
+X-Content-Type-Options: nosniff
+X-Application-Context: PM-server:prodLinux:8095
+Content-Length: 522
+
+{
+  "code" : "200",
+  "message" : "Success",
+  "data" : {
+    "originUserHospitalId" : "2c92808a80b236a90181b3bc7df66aad",
+    "isTest" : false,
+    "hasPatients" : true,
+    "appId" : "wx8320e743a5db7bff",
+    "mobile" : "13322243359",
+    "hasRedpack" : false,
+    "userHospitalId" : "2c92808a80b236a90181b3bc7df66aad",
+    "publicKey" : "74416CAC-0A76-4959-80E3-A729ECD6E075",
+    "hasTemporaryPatient" : false,
+    "userId" : "2c92808a80b236a90180d5db003249da",
+    "presigned" : true,
+    "hasNewBpData" : false
+  }
+}

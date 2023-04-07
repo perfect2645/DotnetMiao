@@ -73,17 +73,6 @@ namespace HttpProcessor.Request
             }
         }
 
-        public static Task<HttpDicResponse> Search(this HttpClient client, HttpMessageContent content)
-        {
-            return Task.Run(() => client.SearchAsync(content).Result);
-        }
-
-        public static void Search(this HttpClient client, HttpMessageContent content, Action<HttpDicResponse> callback)
-        {
-            var task = client.Search(content);
-            callback(task.Result);
-        }
-
         public static async Task<HtmlResponse> SearchHtml(this HttpClient client, string url)
         {
             try
@@ -104,38 +93,59 @@ namespace HttpProcessor.Request
             }
         }
 
-        #endregion Get
-
-        #region Post
-
-        public static async Task<HttpDicResponse> PostJsonAsync(this HttpClient client, HttpStringContent content)
+        public static async Task<HttpDicResponse> GetJsonAsync(this HttpClient client, HttpStringContent content)
         {
             try
             {
-                var response = await client.PostAsync(content.RequestUrl, content.GetJsonContent());
+                var response = await client.GetAsync(content.RequestUrl);
                 response.EnsureSuccessStatusCode();
                 return new HttpDicResponse(response);
             }
             catch (Exception ex)
             {
                 GLog.Logger.Error(ex);
-                throw new HttpException(ex, "PostStringAsync");
+                throw new HttpException(ex, "GetJsonAsync");
             }
         }
 
-        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content)
+        #endregion Get
+
+        #region Post
+
+        public static async Task<HttpDicResponse> PostJsonAsync(this HttpClient client, HttpStringContent content, bool ensureSuccess = true)
+        {
+            try
+            {
+                var response = await client.PostAsync(content.RequestUrl, content.GetJsonContent());
+                if (ensureSuccess)
+                {
+                    response.EnsureSuccessStatusCode();
+                }
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, "PostJsonAsync");
+            }
+        }
+
+        public static async Task<HttpDicResponse> PostStringAsync(this HttpClient client, HttpStringContent content, bool ensureSuccess = true)
         {
             try
             {
                 var strContent = content.GetStringContent();
                 var response = await client.PostAsync(content.RequestUrl, strContent);
-                response.EnsureSuccessStatusCode();
+                if (ensureSuccess)
+                {
+                    response.EnsureSuccessStatusCode();
+                }
                 return new HttpDicResponse(response);
             }
             catch (Exception ex)
             {
                 GLog.Logger.Error(ex);
-                throw new HttpException(ex, "PostStringAsync");
+                throw new HttpException(ex.Message, "PostStringAsync");
             }
         }
 

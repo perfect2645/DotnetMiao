@@ -1,0 +1,31 @@
+POST https://wxgzh.fckyy.org.cn/api/hosservice/WeChat/GetWeChatUser HTTP/1.1
+Host: wxgzh.fckyy.org.cn
+Origin: https://wxgzh.fckyy.org.cn
+Content-Type: application/json;charset=utf-8
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoib2JZUU90N3FwcS1wY2JXN0lKektRYXRVSVMxSSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkZhd2VpIiwiX1RpbWVTdGFtcF8iOiIxMi8yNC8yMDIyIDY6MDI6NDEgUE0iLCJuYmYiOjE2NzE4NzYxNjEsImV4cCI6MTY3MTk4NDE2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDMzMiIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDQzMzIifQ.9oabCCWM-3aXP4zLJvviBjQtS92Joqe0yl2S_20kXdk
+Referer: https://wxgzh.fckyy.org.cn/home
+Content-Length: 317
+
+{"encryKey":"d8c68cece7e53d9e7f1f2a03f39b1e0adcc0b15175bd1679ec9ccd122e81cb01","data":"86aedbb4d5f20e79732375d0f42196457385ba4b7adad5f12de3602972c32e18fb0b021e8a12386e52e2f266d375b37f6f47a469e4b74491b19a3d5479f57566","sign":"1d22300ff3eb7f42c57ff0d8338833e560d77a7d783dd0f6c822348af75a08d0","timestamp":1671876161000}
+HTTP/1.1 200 OK
+Date: Sat, 24 Dec 2022 10:02:42 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 396
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: default-src 'self' wxgzh.fckyy.org.cn 'unsafe-inline' 'unsafe-eval' blob: data: ;
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+X-Request-Id: 030808e81a73aaead1b98f038bd15cc6
+Server: WAF
+
+{"code":200,"data":[{"nickName":"Fawei","sex":0,"headImgUrl":"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIuauVEh0J1Ul3BSkS0BxH1bTgbSQQH9j0icJhf844iagRcQiaFms39veQoItDDwibke40sbqNwkdjgtA/132","status":1,"subscribeTime":"1970-01-01T08:00:00","subscribeScene":null,"isCertification":1,"mobile":"13940897525","realName":"周瑠夏","certificationNo":"42080420021220232X","certificationType":1}]}

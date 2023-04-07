@@ -1,0 +1,375 @@
+HTTP/1.1 200 OK
+Server: nginx/1.19.0
+Date: Fri, 28 Oct 2022 03:52:49 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Content-Language: zh-CN
+Vary: Accept-Encoding
+Content-Security-Policy: default-src 'self' static4.segway.com 'unsafe-inline' 'unsafe-eval' blob: data: ;
+X-Xss-Protection: 1;mode=block
+X-Content-Type-Options: nosniff
+Content-Length: 15756
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>预约菜单</title>
+    <!-- head 中 -->
+    <link rel="stylesheet" href="/wx-mobile/static/app/css/weui.css">
+    <link rel="stylesheet" href="/wx-mobile/static/app/css/example.css">
+    <link href="/wx-mobile/static/wechat/css/mui.min.css" rel="stylesheet"/>
+    <link href="/wx-mobile/static/wechat/css/style.css" rel="stylesheet"/>
+    <link href="/wx-mobile/static/app/css/frozenui.css" rel="stylesheet"/>
+    <script src="/wx-mobile/static/wechat/js/mui.min.js"></script>
+    <script src="/wx-mobile/static/wechat/js/doctorHomePage.js"></script>
+    <link rel="stylesheet" href="/wx-mobile/static/app/css/Appointment_registration.css">
+    <link rel="stylesheet" href="/wx-mobile/static/app/css/Personal_Center.css">
+    <link rel="stylesheet" href="/wx-mobile/static/app/css/Card_package.css">
+    <link rel="stylesheet" href="/wx-mobile/static/app/css/addCard.css">
+    <link rel="stylesheet" href="/wx-mobile/static/css/datepicker.css"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav mui-bar-green">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">接种预约</h1>
+    <a onclick="gppHomePage()" class="mui-btn mui-btn-link mui-pull-right">首页</a>
+</header>
+<div class="mui-content">
+    <div class="mui-panel">
+        <div class="mui-panel-content">
+            <form>
+                <input type="hidden" id="DOC_CUSTOM_VACCINE_GUID" value="" name="DOC_CUSTOM_VACCINE_GUID">
+                <input type="hidden" id="ETID" value="7bf4400434ea4e80a6dfb331f6f6a077" name="ETID">
+                <div class="Editor">
+                    <a class="mui-navigate-right">
+                        <span><em>*</em>医&nbsp;&nbsp;&nbsp;院：</span>
+                        <label for="division"></label><select id="division" name="division" class="mui-h5"
+                                                              onchange="remove(this.options[this.options.selectedIndex].value)">
+                        <option value="">请选择医院</option>
+                        
+                            <option value="whsjjkfqzyjxmsqwsfwzx">武汉经济技术开发区沌阳街新民社区卫生服务中心</option>
+                        
+                    </select>
+                    </a>
+                </div>
+                <div class="Editor">
+                    <a class="mui-navigate-right">
+                        <span><em>*</em>日&nbsp;&nbsp;&nbsp;期：</span>
+                        <label for="date1"></label><select id="date1" name="date1" class="mui-h5"
+                                                           onchange="getDoctorByOrgCode2(this.options[this.options.selectedIndex].value)">
+                        <option value="">请选择日期</option>
+                    </select>
+                    </a>
+                </div>
+                <div class="Editor">
+                    <a class="mui-navigate-right">
+                        <span><em>&nbsp;</em>时&nbsp;&nbsp;&nbsp;段：</span>
+                        <select id="DateCount" name="DateCount" class="mui-h5">
+
+                        </select>
+                    </a>
+                </div>
+                <div class="Editor">
+                    <a class="mui-navigate-right">
+                        <span><em>*</em>疫苗种类：</span>
+                        <label for="VACCINES_NAME"></label><select id="VACCINES_NAME" name="VACCINES_NAME" class="mui-h5">
+                        <option value="">请选择对应疫苗</option>
+                        
+                            <option value="24">儿童乙肝疫苗（免费）</option>
+                        
+                            <option value="2">脊灰疫苗（针剂）</option>
+                        
+                            <option value="3">脊灰疫苗（口服）</option>
+                        
+                            <option value="7">百白破疫苗</option>
+                        
+                            <option value="8">白破疫苗</option>
+                        
+                            <option value="9">麻腮风疫苗</option>
+                        
+                            <option value="5">乙脑减毒活疫苗</option>
+                        
+                            <option value="6">A群流脑疫苗</option>
+                        
+                            <option value="25">A+C群流脑疫苗（免费）</option>
+                        
+                            <option value="4">甲肝减毒活疫苗</option>
+                        
+                            <option value="26">儿童乙肝疫苗</option>
+                        
+                            <option value="1">成人乙肝疫苗</option>
+                        
+                            <option value="11">五联疫苗</option>
+                        
+                            <option value="21">四联疫苗</option>
+                        
+                            <option value="13">肠道病毒71型疫苗（手足口）</option>
+                        
+                            <option value="12">水痘疫苗</option>
+                        
+                            <option value="19">腮腺炎疫苗</option>
+                        
+                            <option value="10">A群C群结合疫苗（自费）</option>
+                        
+                            <option value="27">13价肺炎疫苗</option>
+                        
+                            <option value="20">23价肺炎疫苗</option>
+                        
+                            <option value="28">轮状病毒疫苗</option>
+                        
+                            <option value="15">流感病毒裂解疫苗（儿童）</option>
+                        
+                            <option value="14">流感病毒裂解疫苗（成人）</option>
+                        
+                            <option value="29">双价宫颈癌疫苗（国产）</option>
+                        
+                            <option value="16">双价宫颈癌疫苗（进口）</option>
+                        
+                            <option value="17">四价宫颈癌疫苗（进口）</option>
+                        
+                            <option value="18">九价宫颈癌疫苗（进口）</option>
+                        
+                            <option value="22">其他</option>
+                        
+                    </select>
+                    </a>
+                </div>
+                <div class="Editor">
+                    <a class="mui-navigate-right">
+                        <span><em>*</em>验证码：</span>
+                        <label for="code"></label><input type="text" id="code" name="code" class="mui-navigate-right">
+
+                    </input>
+                    </a>
+                </div>
+                <div class="Editor">
+                    <a class="mui-navigate-right">
+                        <span><em></em></span>
+                        <img style="height:30px;" id="codeImg" alt="点击更换"
+                             title="点击更换" src="" class="mui-h5"/>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui-btn-wrap">
+    <a class="ui-btn-lg ui-btn-primary" id="submit_form"
+       onclick="saveJkkyy()">提交</a>
+</div>
+<div id="submitprogerss" class="tcbg" style="display: none;">
+    <div class="Load">
+        <span></span><font>正在提交，请稍后...</font>
+    </div>
+</div>
+<script type="text/javascript" src="/wx-mobile/static/app/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/wx-mobile/static/app/js/dialog.js?v=202204"></script>
+<script type="text/javascript" src="/wx-mobile/static/app/js/Radio.js"></script>
+<script type="text/javascript" src="/wx-mobile/static/app/js/comm.js"></script>
+<script src="/wx-mobile/static/app/js/gloabl.js"></script>
+<script src="/wx-mobile/static/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/wx-mobile/static/js/common/DateFormat.js"></script>
+<script type="text/javascript" src="/wx-mobile/static/js/doctorJg.js"></script>
+</body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        changeCode();
+        $("#codeImg").bind("click", changeCode);
+    });
+    function changeCode() {
+        $("#codeImg").attr("src", "code.do?t=" + genTimestamp());
+    }
+    function genTimestamp() {
+        var time = new Date();
+        return time.getTime();
+    }
+    $(function () {
+        //日期框
+        $('.date-picker').datepicker({autoclose: true, todayHighlight: true});
+        //getUnitByPid('999999999');
+    });
+
+
+    function do_trim(s) {
+        return s.replace(/(^\s*|\s*$)/g, '');
+    }
+
+    function remove(REGICODE) {
+        //清空时段事件
+        $("#DateCount").html("");
+        var date = $("#date1").val();
+        var ETID = $("#ETID").val();
+        if (do_trim(date).length == 0) {
+            vaccinavaccina_DateCounts(REGICODE, date);
+        } else {
+            //vaccinavaccina(ETID, date);
+            vaccinavaccina_DateCounts(REGICODE, date);
+        }
+    }
+
+    //表单校验
+    function saveJkkyy() {
+        var cms = $("#division").find("option:selected").text();
+        if (cms == null || cms == '' || cms == '请选择医院') {
+            setDialog("请选择医院", 1);
+            return;
+        }
+        var dateCount = $("#DateCount").val();
+        var code = $("#code").val();
+        var VACCINES_NAME = $("#VACCINES_NAME").val();
+
+        var date = $("#date1").val();
+        if (do_trim(date).length == 0) {
+            setDialog("请选择日期", 1);
+            return false;
+        } else {
+            $("#date1").val = date;
+        }
+        if (VACCINES_NAME == null || VACCINES_NAME === '') {
+            setDialog("请选择对应疫苗种类", 1);
+            return false;
+        }
+        var myDate = new Date().Format("yyyy-MM-dd");
+        if (date <= myDate) {
+            $("#date1").val("");
+            setDialog("预约日期必须超过当前时间", 1);
+            return false;
+        } else {
+            $("#date1").val(date);
+        }
+
+        if (dateCount == null || dateCount === '') {
+            setDialog("请选择时段", 1);
+            return;
+        }
+
+        if(code == ''){
+            setDialog("请填写验证码", 1);
+            return;
+        }
+        var url = '/wx-mobile/Reservations/vaccinavaccina_save.do';
+        var guid = $("#DOC_CUSTOM_VACCINE_GUID").val();
+        var ETID = $("#ETID").val();
+        var data = {
+            "APPOINTMENT_DATE": date,
+            "dateCount": dateCount,
+            "ETID": ETID,
+            "VACCINES_NAME": VACCINES_NAME,
+            "DOC_CUSTOM_VACCINE_GUID": guid,
+            "code":code
+        };
+        $('#submitprogerss').show();
+        $.post(url, data, function (data1) {
+            $('#submitprogerss').hide();
+            if ("" === data1.res) {
+                setDialog("预约申请提交成功",1);
+
+                window.location.href = "/wx-mobile/Vaccination/vaccination.do?ETID=" + ETID;
+            } else {
+                if (data1.res==='存在已有订单'){
+                    setDialog(data1.res, 1);
+                    window.location.href = "/wx-mobile/Vaccination/vaccination.do?ETID=" + ETID;
+                }else if(data1.code==='2') {
+                    setDialog(data1.res, 4,"/wx-mobile/Reservations/menus.do");
+                    changeCode();
+                }else if(data1.code==='3') {
+                    setDialog(data1.res, 1);//验证码错误不刷新验证码
+                }else {
+                    changeCode();
+                    setDialog(data1.res, 1);
+                    getDoctorByOrgCode2(date);
+                }
+            }
+
+        });
+    }
+
+    function getDoctorByOrgCode2(date) {
+        var REGICODE = $("#division").val();
+        if (REGICODE == null || REGICODE == '') {
+            setDialog("请先选择机构", 1);
+            return false;
+        }
+
+        if(do_trim(date).length==0){
+            setDialog("请先选择日期", 1);
+            $("#DateCount").val("");
+            return false;
+        }else{
+            $("#date1").val = date;
+        }
+        var myDate = new Date().Format("yyyy-MM-dd");
+        if(date <= myDate ){
+            $("#date1").val("");
+            setDialog("预约日期必须超过当前时间", 1);
+            return false;
+        }else {
+            $("#date1").val(date);
+        }
+        vaccinavaccina_DateCounts(REGICODE,date);
+    }
+
+    function vaccinavaccina_DateCounts(orgcode, date) {
+        var url2 = '/wx-mobile/Reservations/vaccinavaccina_DateCount.do';
+        $.post(url2,{"ORG_CODE":orgcode,"yyDate":date},function (daa) {
+            //console.log(data);
+            var data = daa.doccustom;
+            var pdList = daa.pdList;
+            var str ='';
+            if (null!=data&&""!=data) {
+                if (data.DATE1_COUNT>0){str+='<option value="DATE1_COUNT">8:30～9:00(可预约人数：'+data.DATE1_COUNT+')</option>';}
+                if (data.DATE2_COUNT>0){str+='<option value="DATE2_COUNT">9:00～9:30(可预约人数：'+data.DATE2_COUNT+')</option>';}
+                if (data.DATE3_COUNT>0){str+='<option value="DATE3_COUNT">9:30～10:00(可预约人数：'+data.DATE3_COUNT+')</option>';}
+                if (data.DATE4_COUNT>0){str+='<option value="DATE4_COUNT">10:00～10:30(可预约人数：'+data.DATE4_COUNT+')</option>';}
+                if (data.DATE5_COUNT>0){str+='<option value="DATE5_COUNT">10:30～11:00(可预约人数：'+data.DATE5_COUNT+')</option>';}
+                if (data.DATE6_COUNT>0){str+='<option value="DATE6_COUNT">11:00～11:20(可预约人数：'+data.DATE6_COUNT+')</option>';}
+                if (data.DATE7_COUNT>0){str+='<option value="DATE7_COUNT">14:00～14:30(可预约人数：'+data.DATE7_COUNT+')</option>';}
+                if (data.DATE8_COUNT>0){str+='<option value="DATE8_COUNT">14:30～15:00(可预约人数：'+data.DATE8_COUNT+')</option>';}
+                if (data.DATE9_COUNT>0){str+='<option value="DATE9_COUNT">15:00～15:30(可预约人数：'+data.DATE9_COUNT+')</option>';}
+                if (data.DATE10_COUNT>0){str+='<option value="DATE10_COUNT">15:30～16:00(可预约人数：'+data.DATE10_COUNT+')</option>';}
+                if (data.DATE11_COUNT>0){str+='<option value="DATE11_COUNT">16:00～16:30(可预约人数：'+data.DATE11_COUNT+')</option>';}
+                if (data.DATE12_COUNT>0){str+='<option value="DATE12_COUNT">16:30～17:00(可预约人数：'+data.DATE12_COUNT+')</option>';}
+                $('#DOC_CUSTOM_VACCINE_GUID').val(data.GUID);
+                $('#DateCount').html('<option value="">请选择时段</option>');
+                $('#DateCount').append(str);
+            }else {
+                if (null!=pdList&&""!=pdList) {
+                    var date1str= "";
+                    for (var i = 0; i < pdList.length; i++) {
+                        date1str+='<option value="'+pdList[i].THEDATE+'">'+pdList[i].THEDATE+'</option>';
+                    }
+                    $('#date1').html('<option value="">请选择日期</option>');
+
+                    $('#date1').append(date1str);
+                }else {
+                    $('#date1').html('<option value="">未选择机构或该机构无预约安排</option>');
+                    $('#DateCount').html('<option value="">无预约安排或者预约已满</option>');
+                }
+
+            }
+
+        });
+    }
+
+</script>
+</html>
+
+{doccustom:{DATE1_COUNT:1,DATE2_COUNT:1,DATE3_COUNT:1,DATE4_COUNT:1,DATE5_COUNT:1,DATE6_COUNT:1,DATE7_COUNT:1,DATE8_COUNT:1,DATE9_COUNT:1,DATE10_COUNT:1,DATE11_COUNT:1,DATE12_COUNT:1,GUID:123456},pdList:[{THEDATE:'2022-10-08'},{THEDATE:'2022-10-09'}]}
+
+{doccustom:{DATE1_COUNT:1,DATE2_COUNT:1,GUID:123456},pdList:[{THEDATE:'2022-10-08'},{THEDATE:'2022-10-09'}]}
+
+"{\"pdList\":[{\"THEDATE\":\"2022-10-08\"},{\"THEDATE\":\"2022-10-09\"}],\"ORG_CODE\":\"whsjjkfqzyjxmsqwsfwzx\",\"yyDate\":\"2022-10-07\",\"doccustom\":{\"DATE1_COUNT\":1,\"DATE2_COUNT\":1,\"DATE3_COUNT\":1,\"DATE4_COUNT\":1,\"DATE5_COUNT\":1,\"DATE6_COUNT\":1,\"DATE7_COUNT\":1,\"DATE8_COUNT\":1,\"DATE9_COUNT\":1,\"DATE10_COUNT\":1,\"DATE11_COUNT\":1,\"DATE12_COUNT\":1,\"GUID\":123456}}"
+
+
+<option value="17">四价宫颈癌疫苗（进口）</option>
+                        
+<option value="18">九价宫颈癌疫苗（进口）</option>

@@ -1,23 +1,23 @@
-GET http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-11&appointmentTime=09:01~09:30&appointmentTimeId=2059&configValue=2&schemeId=2159 HTTP/1.1
+GET http://hoosn.cn/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-11-14&appointmentTime=08:00~08:30&appointmentTimeId=2057&configValue=1&schemeId=2159 HTTP/1.1
 Host: hoosn.cn
-Cookie: JSESSIONID=a00910fa-a95b-4591-8ef3-c78cb97bb6e8; Hm_lpvt_08b50eff0cc0ff570f27ba863823c644=1665240399; Hm_lvt_08b50eff0cc0ff570f27ba863823c644=1665240399
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.28(0x18001c2e) NetType/WIFI Language/zh_CN
-Referer: http://hoosn.cn/newyy/listVaccPlan?appointmentTimeId=2059&haveVaccFlag=1&appointmentDate=2022-10-11&AppointmentLogID=&configValue=2&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4
-Accept-Language: zh-CN,zh-Hans;q=0.9
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x6307062c)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: JSESSIONID=be42af88-675d-444a-92f8-40dd4cb541dc
+Referer: http://hoosn.cn/newyy/listVaccPlan?appointmentTimeId=2057&haveVaccFlag=1&appointmentDate=2022-11-14&AppointmentLogID=&configValue=1&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4
 Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
 
 HTTP/1.1 200 OK
 Server: nginx
-Date: Sun, 09 Oct 2022 00:06:37 GMT
+Date: Sat, 12 Nov 2022 15:34:15 GMT
 Content-Type: text/html;charset=utf-8
 Connection: keep-alive
 Content-Language: zh-CN
 Vary: Accept-Encoding
-Content-Length: 34590
+Content-Length: 34617
 
 
 
@@ -159,7 +159,7 @@ Content-Length: 34590
 <body>
 	<!-- <header>请选择需要接种的疫苗：</header> -->
 	<div class="user_info" style='margin-bottom:10px;margin-bottom: 10px;padding:0 5px;height: 28px;line-height: 28px;background: #fff;font-size: 14px;'>
-		<span style="float:left">王可言(22岁1月)</span>
+		<span style="float:left">王可言(22岁2月)</span>
 		<span style="float:left;width:30%;text-align:center"> 女</span>
 		<span style="float:right">2000-09-06</span>
 	</div>
@@ -168,13 +168,13 @@ Content-Length: 34590
 			
 				<div   onclick="toScheme('2162');" class="slide-item  " >戊肝疫苗</div>
 			
+				<div   onclick="toScheme('2149');" class="slide-item  " >流感疫苗</div>
+			
 				<div   onclick="toScheme('2161');" class="slide-item  " >国产二价</div>
 			
 				<div   onclick="toScheme('2158');" class="slide-item  " >四价HPV</div>
 			
 				<div   onclick="toScheme('2159');" class="slide-item  active2" >九价HPV</div>
-			
-				<div   onclick="toScheme('2163');" class="slide-item  " >参考程序</div>
 			
 		</div>
 	</div>
@@ -190,23 +190,23 @@ Content-Length: 34590
 	 	        
 		
 	 	        
-		          <div class="top_titYes"><p>16~26岁女性人群，全程0、2、6个月接种3剂次。备孕及哺乳期暂缓接种！切记切记“不到16周岁或超过26岁都不能接种”</p></div>
-		        
 		
 	 	        
+		          <div class="top_titYes"><p>16~26岁女性人群，全程0、2、6个月接种3剂次。备孕及哺乳期暂缓接种！切记切记“不到16周岁或超过26岁都不能接种”</p></div>
+		        
 		
 	
   	
 
   <div style='background:#fff;width:100%;height:8px;margin-bottom:4px;'></div>
   <form  id="saveForm"  action="" method="POST" >
-	 <input type="hidden" name="appointmentDate" id="appointmentDate" value="2022-10-11"/> 
-     <input type="hidden" name="appointmentTime" id="appointmentTime" value="09:01~09:30"/> 
-     <input type="hidden" name="appointmentTimeId" id="appointmentTimeId" value="2059"/> 
+	 <input type="hidden" name="appointmentDate" id="appointmentDate" value="2022-11-14"/> 
+     <input type="hidden" name="appointmentTime" id="appointmentTime" value="08:00~08:30"/> 
+     <input type="hidden" name="appointmentTimeId" id="appointmentTimeId" value="2057"/> 
      <input type="hidden" name="dataFrom" id="dataFrom" value="0"/> 
      <input type="hidden" name="dealStatus" id="dealStatus" value="0"/> 
      <input type="hidden" name="etId" id="etId" value="19E9DCA43E6A4AFB81FCA744E38AB223"/> 
-     <input type="hidden" name="configValue" id="configValue" value="2"/> 
+     <input type="hidden" name="configValue" id="configValue" value="1"/> 
      <input type="hidden" name="openid" id="openid" value="oSfkt5jTELgDNfJnxR_HjyF5Ardo"/> 
      <input type="hidden" name="schemeId" id="schemeId" value="2159"/> 
      <input type="hidden" name="subOpenid" id="subOpenid" value="oSfkt5jTELgDNfJnxR_HjyF5Ardo"/> 
@@ -222,72 +222,74 @@ Content-Length: 34590
 	     </div>	
            
              
-	   		<input type="hidden"  name='logVaccList["0"].appointmentVaId' id="appointmentVaId726E8ABAAB194EA5AF1357C1230BC1E6" value="13843"/> 
-		    <input type="hidden"  name='logVaccList["0"].vaName' id="vaName726E8ABAAB194EA5AF1357C1230BC1E6" value="九价人乳头瘤病毒疫苗(酿酒酵母)"/> 
-			<input type="hidden"  name='logVaccList["0"].vaId' id="vaId726E8ABAAB194EA5AF1357C1230BC1E6" value="93938FC5A0BD4011909A4D9F8100F3B9"/> 
-			<input type="hidden"  name='logVaccList["0"].vaDose' id="vaDose726E8ABAAB194EA5AF1357C1230BC1E6" value="①"/>
-			<input type="hidden" class="mySelectFlag" name='logVaccList["0"].selectFlag' appointmentVaId="13843" 	vaccId="93938FC5A0BD4011909A4D9F8100F3B9"  id="selectFlag726E8ABAAB194EA5AF1357C1230BC1E6" value="0" />
-            <input type="hidden"  name='logVaccList["0"].etPlanId' id="etPlanId726E8ABAAB194EA5AF1357C1230BC1E6" value="726E8ABAAB194EA5AF1357C1230BC1E6" /> 
+	   		<input type="hidden"  name='logVaccList["0"].appointmentVaId' id="appointmentVaIdF0525FFC11174E189BE46236FC8014E7" value="13843"/> 
+		    <input type="hidden"  name='logVaccList["0"].vaName' id="vaNameF0525FFC11174E189BE46236FC8014E7" value="九价人乳头瘤病毒疫苗(酿酒酵母)"/> 
+			<input type="hidden"  name='logVaccList["0"].vaId' id="vaIdF0525FFC11174E189BE46236FC8014E7" value="93938FC5A0BD4011909A4D9F8100F3B9"/> 
+			<input type="hidden"  name='logVaccList["0"].vaDose' id="vaDoseF0525FFC11174E189BE46236FC8014E7" value="①"/>
+			<input type="hidden" class="mySelectFlag" name='logVaccList["0"].selectFlag' appointmentVaId="13843" 	vaccId="93938FC5A0BD4011909A4D9F8100F3B9"  id="selectFlagF0525FFC11174E189BE46236FC8014E7" value="0" />
+            <input type="hidden"  name='logVaccList["0"].etPlanId' id="etPlanIdF0525FFC11174E189BE46236FC8014E7" value="F0525FFC11174E189BE46236FC8014E7" /> 
 			
-			<input type="hidden"  name='logVaccList["0"].cosumeVaPrice' id="cosumeVaPrice726E8ABAAB194EA5AF1357C1230BC1E6" value="1.00" /> 
-			<input type="hidden"  name='logVaccList["0"].trueVaPrice' id="trueVaPrice726E8ABAAB194EA5AF1357C1230BC1E6" value="1.00" /> 
+			<input type="hidden"  name='logVaccList["0"].cosumeVaPrice' id="cosumeVaPriceF0525FFC11174E189BE46236FC8014E7" value="1.00" /> 
+			<input type="hidden"  name='logVaccList["0"].trueVaPrice' id="trueVaPriceF0525FFC11174E189BE46236FC8014E7" value="1.00" /> 
 			
-			<input type="hidden"   name='logVaccList["0"].producer' id="producer726E8ABAAB194EA5AF1357C1230BC1E6" value=""/> 
-			<input type="hidden"  name='logVaccList["0"].norms'    id="norms726E8ABAAB194EA5AF1357C1230BC1E6" value=""/> 
-			<input type="hidden"  name='logVaccList["0"].dose' id="dose726E8ABAAB194EA5AF1357C1230BC1E6" value=""> 
-			<input type="hidden"  name='logVaccList["0"].discPercentage'  id="discPercentage726E8ABAAB194EA5AF1357C1230BC1E6" value="100"/> 
-			<input type="hidden"  name='logVaccList["0"].planBeginDate'  id="planBeginDate726E8ABAAB194EA5AF1357C1230BC1E6" value=""/> 
-			<input type="hidden"  name='logVaccList["0"].myToken1'  id="myToken1726E8ABAAB194EA5AF1357C1230BC1E6" value="8692a23a98a4b15d9aa946de2194921b"/> 
-			<input type="hidden"  name='logVaccList["0"].myToken2'  id="myToken2726E8ABAAB194EA5AF1357C1230BC1E6" value="" /> 			
+			<input type="hidden"   name='logVaccList["0"].producer' id="producerF0525FFC11174E189BE46236FC8014E7" value=""/> 
+			<input type="hidden"  name='logVaccList["0"].norms'    id="normsF0525FFC11174E189BE46236FC8014E7" value=""/> 
+			<input type="hidden"  name='logVaccList["0"].dose' id="doseF0525FFC11174E189BE46236FC8014E7" value=""> 
+			<input type="hidden"  name='logVaccList["0"].discPercentage'  id="discPercentageF0525FFC11174E189BE46236FC8014E7" value="100"/> 
+			<input type="hidden"  name='logVaccList["0"].planBeginDate'  id="planBeginDateF0525FFC11174E189BE46236FC8014E7" value=""/> 
+			<input type="hidden"  name='logVaccList["0"].myToken1'  id="myToken1F0525FFC11174E189BE46236FC8014E7" value="8692a23a98a4b15d9aa946de2194921b"/> 
+			<input type="hidden"  name='logVaccList["0"].myToken2'  id="myToken2F0525FFC11174E189BE46236FC8014E7" value="" /> 			
 			
 			
 			
 				
 				
-					 <input type="hidden"   id="scosumeVaPrice726E8ABAAB194EA5AF1357C1230BC1E6" value="1.00"/> 
-				     <input type="hidden"  id="strueVaPrice726E8ABAAB194EA5AF1357C1230BC1E6" value="1.00"/>	
+					 <input type="hidden"   id="scosumeVaPriceF0525FFC11174E189BE46236FC8014E7" value="1.00"/> 
+				     <input type="hidden"  id="strueVaPriceF0525FFC11174E189BE46236FC8014E7" value="1.00"/>	
 				
 			
 				
 						
-		  <a  id="726E8ABAAB194EA5AF1357C1230BC1E6" todayJzFlag="0"   kc="0" singleDoseNum="0"   vaccType="1" tjFlag="0"     href="javaScript:toNext('0','726E8ABAAB194EA5AF1357C1230BC1E6','93938FC5A0BD4011909A4D9F8100F3B9','','九价人乳头瘤病毒疫苗(酿酒酵母)','①');"  >
-			 <div class="vaccineList free clearFix" id="div726E8ABAAB194EA5AF1357C1230BC1E6"  vaccId="93938FC5A0BD4011909A4D9F8100F3B9">
+		  <a  id="F0525FFC11174E189BE46236FC8014E7" todayJzFlag="0"   kc="0" singleDoseNum="1"   vaccType="1" tjFlag="0"     href="javaScript:toNext('0','F0525FFC11174E189BE46236FC8014E7','93938FC5A0BD4011909A4D9F8100F3B9','','九价人乳头瘤病毒疫苗(酿酒酵母)','①');"  >
+			 <div class="vaccineList free clearFix" id="divF0525FFC11174E189BE46236FC8014E7"  vaccId="93938FC5A0BD4011909A4D9F8100F3B9">
 			 	<div> 
 			 		<div class="vassName">九价人乳头瘤病毒疫苗(酿酒酵母)① <span style="color: red;font-size: 12px;">非该苗接种日</span></div>
 			 	</div>
 			 	
-			 	 <div class="cs clearfix" style="display: none;" id="goodsDiv726E8ABAAB194EA5AF1357C1230BC1E6">
+			 	 <div class="cs clearfix" style="display: none;" id="goodsDivF0525FFC11174E189BE46236FC8014E7">
 					 <p></p>
 					 <p></p>
 					 <p></p>
 				 </div> 
 				 
-				<div class="lbCont" id="lbCont726E8ABAAB194EA5AF1357C1230BC1E6">
+				<div class="lbCont" id="lbContF0525FFC11174E189BE46236FC8014E7">
 				 		 
 							
  						    
  						     							
  		 					
- 							 <p  id="lbContp726E8ABAAB194EA5AF1357C1230BC1E6">自愿选择自费接种的疫苗</p>
+ 							 <p  id="lbContpF0525FFC11174E189BE46236FC8014E7">自愿选择自费接种的疫苗</p>
  							 												
 							
 					   					   
 				</div>
 				
 				<div class="xqCont">
-					<div class="green price_type" id="price_type726E8ABAAB194EA5AF1357C1230BC1E6">
+					<div class="green price_type" id="price_typeF0525FFC11174E189BE46236FC8014E7">
 						
 						
-						  <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPrice726E8ABAAB194EA5AF1357C1230BC1E6">
-						    					     
+						  <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPriceF0525FFC11174E189BE46236FC8014E7">
+						     
+					                       此日该剂次已约满
+				            					     
 					      </span>
 					    
 					</div>	
 					<div class="xqBtn">
  					 
-						<button type="button" style="background:#1ac43f;color:#fff;" onclick="goGZS('九价人乳头瘤病毒疫苗(酿酒酵母)①',this,'93938FC5A0BD4011909A4D9F8100F3B9');">告知书</button>
+ 			       
+						<button type="button" style="background:gray;color:#fff;"  >告知书</button> 			       
  			         
- 			        
 					</div>
 				</div>
 			</div>
@@ -303,74 +305,72 @@ Content-Length: 34590
 	     </div>	
            
              
-	   		<input type="hidden"  name='logVaccList["1"].appointmentVaId' id="appointmentVaId04DC577D261B470BABADDE6CB500F3B3" value="13843"/> 
-		    <input type="hidden"  name='logVaccList["1"].vaName' id="vaName04DC577D261B470BABADDE6CB500F3B3" value="九价人乳头瘤病毒疫苗(酿酒酵母)"/> 
-			<input type="hidden"  name='logVaccList["1"].vaId' id="vaId04DC577D261B470BABADDE6CB500F3B3" value="93938FC5A0BD4011909A4D9F8100F3B9"/> 
-			<input type="hidden"  name='logVaccList["1"].vaDose' id="vaDose04DC577D261B470BABADDE6CB500F3B3" value="②"/>
-			<input type="hidden" class="mySelectFlag" name='logVaccList["1"].selectFlag' appointmentVaId="13843" 	vaccId="93938FC5A0BD4011909A4D9F8100F3B9"  id="selectFlag04DC577D261B470BABADDE6CB500F3B3" value="0" />
-            <input type="hidden"  name='logVaccList["1"].etPlanId' id="etPlanId04DC577D261B470BABADDE6CB500F3B3" value="04DC577D261B470BABADDE6CB500F3B3" /> 
+	   		<input type="hidden"  name='logVaccList["1"].appointmentVaId' id="appointmentVaId9A60FF73B55F475AA7950F208D47C0D9" value="13843"/> 
+		    <input type="hidden"  name='logVaccList["1"].vaName' id="vaName9A60FF73B55F475AA7950F208D47C0D9" value="九价人乳头瘤病毒疫苗(酿酒酵母)"/> 
+			<input type="hidden"  name='logVaccList["1"].vaId' id="vaId9A60FF73B55F475AA7950F208D47C0D9" value="93938FC5A0BD4011909A4D9F8100F3B9"/> 
+			<input type="hidden"  name='logVaccList["1"].vaDose' id="vaDose9A60FF73B55F475AA7950F208D47C0D9" value="②"/>
+			<input type="hidden" class="mySelectFlag" name='logVaccList["1"].selectFlag' appointmentVaId="13843" 	vaccId="93938FC5A0BD4011909A4D9F8100F3B9"  id="selectFlag9A60FF73B55F475AA7950F208D47C0D9" value="0" />
+            <input type="hidden"  name='logVaccList["1"].etPlanId' id="etPlanId9A60FF73B55F475AA7950F208D47C0D9" value="9A60FF73B55F475AA7950F208D47C0D9" /> 
 			
-			<input type="hidden"  name='logVaccList["1"].cosumeVaPrice' id="cosumeVaPrice04DC577D261B470BABADDE6CB500F3B3" value="1.00" /> 
-			<input type="hidden"  name='logVaccList["1"].trueVaPrice' id="trueVaPrice04DC577D261B470BABADDE6CB500F3B3" value="1.00" /> 
+			<input type="hidden"  name='logVaccList["1"].cosumeVaPrice' id="cosumeVaPrice9A60FF73B55F475AA7950F208D47C0D9" value="1.00" /> 
+			<input type="hidden"  name='logVaccList["1"].trueVaPrice' id="trueVaPrice9A60FF73B55F475AA7950F208D47C0D9" value="1.00" /> 
 			
-			<input type="hidden"   name='logVaccList["1"].producer' id="producer04DC577D261B470BABADDE6CB500F3B3" value=""/> 
-			<input type="hidden"  name='logVaccList["1"].norms'    id="norms04DC577D261B470BABADDE6CB500F3B3" value=""/> 
-			<input type="hidden"  name='logVaccList["1"].dose' id="dose04DC577D261B470BABADDE6CB500F3B3" value=""> 
-			<input type="hidden"  name='logVaccList["1"].discPercentage'  id="discPercentage04DC577D261B470BABADDE6CB500F3B3" value="100"/> 
-			<input type="hidden"  name='logVaccList["1"].planBeginDate'  id="planBeginDate04DC577D261B470BABADDE6CB500F3B3" value=""/> 
-			<input type="hidden"  name='logVaccList["1"].myToken1'  id="myToken104DC577D261B470BABADDE6CB500F3B3" value="8692a23a98a4b15d9aa946de2194921b"/> 
-			<input type="hidden"  name='logVaccList["1"].myToken2'  id="myToken204DC577D261B470BABADDE6CB500F3B3" value="" /> 			
+			<input type="hidden"   name='logVaccList["1"].producer' id="producer9A60FF73B55F475AA7950F208D47C0D9" value=""/> 
+			<input type="hidden"  name='logVaccList["1"].norms'    id="norms9A60FF73B55F475AA7950F208D47C0D9" value=""/> 
+			<input type="hidden"  name='logVaccList["1"].dose' id="dose9A60FF73B55F475AA7950F208D47C0D9" value=""> 
+			<input type="hidden"  name='logVaccList["1"].discPercentage'  id="discPercentage9A60FF73B55F475AA7950F208D47C0D9" value="100"/> 
+			<input type="hidden"  name='logVaccList["1"].planBeginDate'  id="planBeginDate9A60FF73B55F475AA7950F208D47C0D9" value=""/> 
+			<input type="hidden"  name='logVaccList["1"].myToken1'  id="myToken19A60FF73B55F475AA7950F208D47C0D9" value="8692a23a98a4b15d9aa946de2194921b"/> 
+			<input type="hidden"  name='logVaccList["1"].myToken2'  id="myToken29A60FF73B55F475AA7950F208D47C0D9" value="" /> 			
 			
 			
 			
 				
 				
-					 <input type="hidden"   id="scosumeVaPrice04DC577D261B470BABADDE6CB500F3B3" value="1.00"/> 
-				     <input type="hidden"  id="strueVaPrice04DC577D261B470BABADDE6CB500F3B3" value="1.00"/>	
+					 <input type="hidden"   id="scosumeVaPrice9A60FF73B55F475AA7950F208D47C0D9" value="1.00"/> 
+				     <input type="hidden"  id="strueVaPrice9A60FF73B55F475AA7950F208D47C0D9" value="1.00"/>	
 				
 			
 				
 						
-		  <a  id="04DC577D261B470BABADDE6CB500F3B3" todayJzFlag="0"   kc="0" singleDoseNum="1"   vaccType="1" tjFlag="0"     href="javaScript:toNext('0','04DC577D261B470BABADDE6CB500F3B3','93938FC5A0BD4011909A4D9F8100F3B9','','九价人乳头瘤病毒疫苗(酿酒酵母)','②');"  >
-			 <div class="vaccineList free clearFix" id="div04DC577D261B470BABADDE6CB500F3B3"  vaccId="93938FC5A0BD4011909A4D9F8100F3B9">
+		  <a  id="9A60FF73B55F475AA7950F208D47C0D9" todayJzFlag="0"   kc="0" singleDoseNum="0"   vaccType="1" tjFlag="0"     href="javaScript:toNext('0','9A60FF73B55F475AA7950F208D47C0D9','93938FC5A0BD4011909A4D9F8100F3B9','','九价人乳头瘤病毒疫苗(酿酒酵母)','②');"  >
+			 <div class="vaccineList free clearFix" id="div9A60FF73B55F475AA7950F208D47C0D9"  vaccId="93938FC5A0BD4011909A4D9F8100F3B9">
 			 	<div> 
 			 		<div class="vassName">九价人乳头瘤病毒疫苗(酿酒酵母)② <span style="color: red;font-size: 12px;">非该苗接种日</span></div>
 			 	</div>
 			 	
-			 	 <div class="cs clearfix" style="display: none;" id="goodsDiv04DC577D261B470BABADDE6CB500F3B3">
+			 	 <div class="cs clearfix" style="display: none;" id="goodsDiv9A60FF73B55F475AA7950F208D47C0D9">
 					 <p></p>
 					 <p></p>
 					 <p></p>
 				 </div> 
 				 
-				<div class="lbCont" id="lbCont04DC577D261B470BABADDE6CB500F3B3">
+				<div class="lbCont" id="lbCont9A60FF73B55F475AA7950F208D47C0D9">
 				 		 
 							
  						    
  						     							
  		 					
- 							 <p  id="lbContp04DC577D261B470BABADDE6CB500F3B3">自愿选择自费接种的疫苗</p>
+ 							 <p  id="lbContp9A60FF73B55F475AA7950F208D47C0D9">自愿选择自费接种的疫苗</p>
  							 												
 							
 					   					   
 				</div>
 				
 				<div class="xqCont">
-					<div class="green price_type" id="price_type04DC577D261B470BABADDE6CB500F3B3">
+					<div class="green price_type" id="price_type9A60FF73B55F475AA7950F208D47C0D9">
 						
 						
-						  <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPrice04DC577D261B470BABADDE6CB500F3B3">
-						     
-					                       此日该剂次已约满
-				            					     
+						  <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPrice9A60FF73B55F475AA7950F208D47C0D9">
+						    					     
 					      </span>
 					    
 					</div>	
 					<div class="xqBtn">
  					 
- 			       
-						<button type="button" style="background:gray;color:#fff;"  >告知书</button> 			       
+						<button type="button" style="background:#1ac43f;color:#fff;" onclick="goGZS('九价人乳头瘤病毒疫苗(酿酒酵母)②',this,'93938FC5A0BD4011909A4D9F8100F3B9');">告知书</button>
  			         
+ 			        
 					</div>
 				</div>
 			</div>
@@ -382,78 +382,76 @@ Content-Length: 34590
   	
       <div class="vaccine-list-wrap">
 	     <div class="vaccine-list-month">
-			  16岁6月至26岁7月	       
+			  16岁6月至26岁10月	       
 	     </div>	
            
              
-	   		<input type="hidden"  name='logVaccList["2"].appointmentVaId' id="appointmentVaIdF89E30446E634EA1842C284A2299F268" value="13843"/> 
-		    <input type="hidden"  name='logVaccList["2"].vaName' id="vaNameF89E30446E634EA1842C284A2299F268" value="九价人乳头瘤病毒疫苗(酿酒酵母)"/> 
-			<input type="hidden"  name='logVaccList["2"].vaId' id="vaIdF89E30446E634EA1842C284A2299F268" value="93938FC5A0BD4011909A4D9F8100F3B9"/> 
-			<input type="hidden"  name='logVaccList["2"].vaDose' id="vaDoseF89E30446E634EA1842C284A2299F268" value="③"/>
-			<input type="hidden" class="mySelectFlag" name='logVaccList["2"].selectFlag' appointmentVaId="13843" 	vaccId="93938FC5A0BD4011909A4D9F8100F3B9"  id="selectFlagF89E30446E634EA1842C284A2299F268" value="0" />
-            <input type="hidden"  name='logVaccList["2"].etPlanId' id="etPlanIdF89E30446E634EA1842C284A2299F268" value="F89E30446E634EA1842C284A2299F268" /> 
+	   		<input type="hidden"  name='logVaccList["2"].appointmentVaId' id="appointmentVaId1AE34AD59BAA45C4A979B551F9A6D529" value="13843"/> 
+		    <input type="hidden"  name='logVaccList["2"].vaName' id="vaName1AE34AD59BAA45C4A979B551F9A6D529" value="九价人乳头瘤病毒疫苗(酿酒酵母)"/> 
+			<input type="hidden"  name='logVaccList["2"].vaId' id="vaId1AE34AD59BAA45C4A979B551F9A6D529" value="93938FC5A0BD4011909A4D9F8100F3B9"/> 
+			<input type="hidden"  name='logVaccList["2"].vaDose' id="vaDose1AE34AD59BAA45C4A979B551F9A6D529" value="③"/>
+			<input type="hidden" class="mySelectFlag" name='logVaccList["2"].selectFlag' appointmentVaId="13843" 	vaccId="93938FC5A0BD4011909A4D9F8100F3B9"  id="selectFlag1AE34AD59BAA45C4A979B551F9A6D529" value="0" />
+            <input type="hidden"  name='logVaccList["2"].etPlanId' id="etPlanId1AE34AD59BAA45C4A979B551F9A6D529" value="1AE34AD59BAA45C4A979B551F9A6D529" /> 
 			
-			<input type="hidden"  name='logVaccList["2"].cosumeVaPrice' id="cosumeVaPriceF89E30446E634EA1842C284A2299F268" value="1.00" /> 
-			<input type="hidden"  name='logVaccList["2"].trueVaPrice' id="trueVaPriceF89E30446E634EA1842C284A2299F268" value="1.00" /> 
+			<input type="hidden"  name='logVaccList["2"].cosumeVaPrice' id="cosumeVaPrice1AE34AD59BAA45C4A979B551F9A6D529" value="1.00" /> 
+			<input type="hidden"  name='logVaccList["2"].trueVaPrice' id="trueVaPrice1AE34AD59BAA45C4A979B551F9A6D529" value="1.00" /> 
 			
-			<input type="hidden"   name='logVaccList["2"].producer' id="producerF89E30446E634EA1842C284A2299F268" value=""/> 
-			<input type="hidden"  name='logVaccList["2"].norms'    id="normsF89E30446E634EA1842C284A2299F268" value=""/> 
-			<input type="hidden"  name='logVaccList["2"].dose' id="doseF89E30446E634EA1842C284A2299F268" value=""> 
-			<input type="hidden"  name='logVaccList["2"].discPercentage'  id="discPercentageF89E30446E634EA1842C284A2299F268" value="100"/> 
-			<input type="hidden"  name='logVaccList["2"].planBeginDate'  id="planBeginDateF89E30446E634EA1842C284A2299F268" value=""/> 
-			<input type="hidden"  name='logVaccList["2"].myToken1'  id="myToken1F89E30446E634EA1842C284A2299F268" value="8692a23a98a4b15d9aa946de2194921b"/> 
-			<input type="hidden"  name='logVaccList["2"].myToken2'  id="myToken2F89E30446E634EA1842C284A2299F268" value="" /> 			
+			<input type="hidden"   name='logVaccList["2"].producer' id="producer1AE34AD59BAA45C4A979B551F9A6D529" value=""/> 
+			<input type="hidden"  name='logVaccList["2"].norms'    id="norms1AE34AD59BAA45C4A979B551F9A6D529" value=""/> 
+			<input type="hidden"  name='logVaccList["2"].dose' id="dose1AE34AD59BAA45C4A979B551F9A6D529" value=""> 
+			<input type="hidden"  name='logVaccList["2"].discPercentage'  id="discPercentage1AE34AD59BAA45C4A979B551F9A6D529" value="100"/> 
+			<input type="hidden"  name='logVaccList["2"].planBeginDate'  id="planBeginDate1AE34AD59BAA45C4A979B551F9A6D529" value=""/> 
+			<input type="hidden"  name='logVaccList["2"].myToken1'  id="myToken11AE34AD59BAA45C4A979B551F9A6D529" value="8692a23a98a4b15d9aa946de2194921b"/> 
+			<input type="hidden"  name='logVaccList["2"].myToken2'  id="myToken21AE34AD59BAA45C4A979B551F9A6D529" value="" /> 			
 			
 			
 			
 				
 				
-					 <input type="hidden"   id="scosumeVaPriceF89E30446E634EA1842C284A2299F268" value="1.00"/> 
-				     <input type="hidden"  id="strueVaPriceF89E30446E634EA1842C284A2299F268" value="1.00"/>	
+					 <input type="hidden"   id="scosumeVaPrice1AE34AD59BAA45C4A979B551F9A6D529" value="1.00"/> 
+				     <input type="hidden"  id="strueVaPrice1AE34AD59BAA45C4A979B551F9A6D529" value="1.00"/>	
 				
 			
 				
 						
-		  <a  id="F89E30446E634EA1842C284A2299F268" todayJzFlag="0"   kc="0" singleDoseNum="1"   vaccType="1" tjFlag="0"     href="javaScript:toNext('0','F89E30446E634EA1842C284A2299F268','93938FC5A0BD4011909A4D9F8100F3B9','','九价人乳头瘤病毒疫苗(酿酒酵母)','③');"  >
-			 <div class="vaccineList free clearFix" id="divF89E30446E634EA1842C284A2299F268"  vaccId="93938FC5A0BD4011909A4D9F8100F3B9">
+		  <a  id="1AE34AD59BAA45C4A979B551F9A6D529" todayJzFlag="0"   kc="0" singleDoseNum="0"   vaccType="1" tjFlag="0"     href="javaScript:toNext('0','1AE34AD59BAA45C4A979B551F9A6D529','93938FC5A0BD4011909A4D9F8100F3B9','','九价人乳头瘤病毒疫苗(酿酒酵母)','③');"  >
+			 <div class="vaccineList free clearFix" id="div1AE34AD59BAA45C4A979B551F9A6D529"  vaccId="93938FC5A0BD4011909A4D9F8100F3B9">
 			 	<div> 
 			 		<div class="vassName">九价人乳头瘤病毒疫苗(酿酒酵母)③ <span style="color: red;font-size: 12px;">非该苗接种日</span></div>
 			 	</div>
 			 	
-			 	 <div class="cs clearfix" style="display: none;" id="goodsDivF89E30446E634EA1842C284A2299F268">
+			 	 <div class="cs clearfix" style="display: none;" id="goodsDiv1AE34AD59BAA45C4A979B551F9A6D529">
 					 <p></p>
 					 <p></p>
 					 <p></p>
 				 </div> 
 				 
-				<div class="lbCont" id="lbContF89E30446E634EA1842C284A2299F268">
+				<div class="lbCont" id="lbCont1AE34AD59BAA45C4A979B551F9A6D529">
 				 		 
 							
  						    
  						     							
  		 					
- 							 <p  id="lbContpF89E30446E634EA1842C284A2299F268">自愿选择自费接种的疫苗</p>
+ 							 <p  id="lbContp1AE34AD59BAA45C4A979B551F9A6D529">自愿选择自费接种的疫苗</p>
  							 												
 							
 					   					   
 				</div>
 				
 				<div class="xqCont">
-					<div class="green price_type" id="price_typeF89E30446E634EA1842C284A2299F268">
+					<div class="green price_type" id="price_type1AE34AD59BAA45C4A979B551F9A6D529">
 						
 						
-						  <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPriceF89E30446E634EA1842C284A2299F268">
-						     
-					                       此日该剂次已约满
-				            					     
+						  <span style="color: orange;font-size: 1rem;font-weight: bolder;" id="showPrice1AE34AD59BAA45C4A979B551F9A6D529">
+						    					     
 					      </span>
 					    
 					</div>	
 					<div class="xqBtn">
  					 
- 			       
-						<button type="button" style="background:gray;color:#fff;"  >告知书</button> 			       
+						<button type="button" style="background:#1ac43f;color:#fff;" onclick="goGZS('九价人乳头瘤病毒疫苗(酿酒酵母)③',this,'93938FC5A0BD4011909A4D9F8100F3B9');">告知书</button>
  			         
+ 			        
 					</div>
 				</div>
 			</div>
@@ -727,7 +725,7 @@ function toScheme(schemeId){
  		$('.top_titYes').find('p').css({"height":"500px","line-height":"500px"});
  		$('.submit').hide();
  	}
-	var url="/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-10-11&appointmentTime=09:01~09:30&appointmentTimeId=2059&configValue=2&schemeId="+schemeId;
+	var url="/newyy/listVaccPlan?subId=8D4AAA5FA2C04B8E971C89FCA2A4D4F4&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&appointmentDate=2022-11-14&appointmentTime=08:00~08:30&appointmentTimeId=2057&configValue=1&schemeId="+schemeId;
 	document.location.href=url;
 }
 
@@ -735,7 +733,7 @@ function openVaccList(vaccId,vaName){
 	var vaId=$("#selectFlag"+vaccId).attr("vaccId");
 	var appointmentVaId=$("#selectFlag"+vaccId).attr("appointmentVaId");
 
-	var url="/newApp/vaccList/6BA647C07FB44A5EBF047E07FD1F0DC3/"+vaccId+"?vaccName="+encodeURIComponent(vaName)+"&sourceFlag=203&schemeName=九价HPV&schemeId=2159&monthAge=265&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&etId=19E9DCA43E6A4AFB81FCA744E38AB223&appointmentVaId="+appointmentVaId;
+	var url="/newApp/vaccList/6BA647C07FB44A5EBF047E07FD1F0DC3/"+vaccId+"?vaccName="+encodeURIComponent(vaName)+"&sourceFlag=203&schemeName=九价HPV&schemeId=2159&monthAge=266&openid=oSfkt5jTELgDNfJnxR_HjyF5Ardo&etId=19E9DCA43E6A4AFB81FCA744E38AB223&appointmentVaId="+appointmentVaId;
 	openVacc("可选择疫苗",url,"100%","100%","0");
 }
 
@@ -817,7 +815,7 @@ function clearVaccInfo(id){
      } 
      
      
-     var ageMonth=parseInt("265");
+     var ageMonth=parseInt("266");
      var etSex="女";
      var begin="0";
      var end="2000";
@@ -858,7 +856,7 @@ function clearVaccInfo(id){
 				        skin: 'myskin',
 				        area: ["90%", "70%"],
 				        offset: "100px",
-				        content: "/newyy/toBuySuit/6BA647C07FB44A5EBF047E07FD1F0DC3/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/19E9DCA43E6A4AFB81FCA744E38AB223/2159?appointmentDate=2022-10-11&appointmentTimeId=2059&configValue=2",
+				        content: "/newyy/toBuySuit/6BA647C07FB44A5EBF047E07FD1F0DC3/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/19E9DCA43E6A4AFB81FCA744E38AB223/2159?appointmentDate=2022-11-14&appointmentTimeId=2057&configValue=1",
 				        title:false
 				    }); 	  
    	   return  true;
@@ -871,7 +869,7 @@ function clearVaccInfo(id){
 	       if("2159"==0||"5"==0){
 	    	    return ;
 	       }  
-           var ageMonth=parseInt("265");
+           var ageMonth=parseInt("266");
 	       var etSex="女";
 	       var begin="0";
 	       var end="2000";
@@ -983,8 +981,8 @@ function cancelAppointmentSuitBuy(){
    			type: "POST",
    			url:"/newyy/cancelAppointmentSuitBuy/8D4AAA5FA2C04B8E971C89FCA2A4D4F4/oSfkt5jTELgDNfJnxR_HjyF5Ardo/2159/"+$("#logId").val(),
    			data: { 
-   				sign:"7ef5e4b5f7c46c160a3884ac8bb7064b",
-   				t:"1665273997356"
+   				sign:"6714915406ab24bf8d68a52ce5d23255",
+   				t:"1668267255540"
    			},
    			success: function(data){
    				//alert(data.message); 
