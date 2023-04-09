@@ -14,27 +14,20 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9001016", "蜀山区西园街道",
-                "1031364", "蜀山区西园街道社区卫生服务中心",
-                "7210427", "四价HPV疫苗")
-            {
-                HasYzm = true,
-                DoctorSn = "711082296"
-            });
-
-            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
-                "1023044", "硚口区古田街社区卫生服务中心",
-                "7152219", "九价HPV疫苗")
+            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
+                "1101614", "龙文区碧湖街道社区卫生服务中心",
+                "7248104", "九价Hpv")
             {
                 HasYzm = false,
-                DoctorSn = "711250004"
+                DoctorSn = "711288413"
             });
 
-            Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
-                "1094367", "包河区万年埠街道社区卫生服务中心",
-                "7231670", "九价Hpv")
+            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
+                "1101614", "龙文区碧湖街道社区卫生服务中心",
+                "7248114", "四价Hpv")
             {
-                DoctorSn = "711212600"
+                HasYzm = false,
+                DoctorSn = "711288367"
             });
 
             #region 漳州
@@ -49,18 +42,18 @@ namespace Baohe.viewModel
 
             Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
                 "1101614", "龙文区碧湖街道社区卫生服务中心",
-                "7248104", "九价Hpv")
-            {
-                HasYzm = false,
-                DoctorSn = "711288413"
-            });
-
-            Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
-                "1101211", "漳州市龙文区步文街道社区卫生服务中心",
                 "7248114", "四价Hpv")
             {
                 HasYzm = false,
                 DoctorSn = "711288367"
+            });
+
+            Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
+                "1101211", "漳州市龙文区步文街道社区卫生服务中心",
+                "7242593", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711267962"
             });
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
