@@ -1,0 +1,130 @@
+{
+    "waterId": "804125226",
+    "waitingInfor": "08:00-08:30",
+    "store": "",
+    "serialNo": "13",
+    "memberSn": "56919725",
+    "memberName": "林怡青",
+    "memberPhone": "17124961419",
+    "memberAddress": "漳州",
+    "memberBirthday": "2000-06-02",
+    "memberSex": "2",
+    "memberId": "56919725",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "350***********2549",
+    "memberIdcard": "350***********2549",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "17124961419",
+    "doctorSn": "711276210",
+    "hosDeptId": "7244902",
+    "hosDeptName": "预防接种",
+    "hospitalId": "1101614",
+    "hospitalName": "龙文区碧湖街道社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710813045",
+    "doctorName": "预防接种科室",
+    "doctorPic": "",
+    "doctorClinicName": "医师",
+    "GH_HosProId": "13",
+    "GH_HosProName": "福建",
+    "GH_HosCityId": "123",
+    "GH_HosCityName": "漳州",
+    "registerDate": "2023-04-12",
+    "timeId": 1,
+    "arrangeId": 169985716,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 48,
+    "UnOpened": false,
+    "FHTimes": "00:00",
+    "FHDays": "3",
+    "accountSn": 156166098,
+    "cardNumber": "2086251473",
+    "loginId": "ovTa55n3Tvr2huU6RBbJ3Q0AX11s",
+    "channelId": "9001567",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+[
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "350***********2549",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "17124961419",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "350***********2549",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "17124961419",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]

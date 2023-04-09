@@ -90,11 +90,12 @@ namespace Baohe.viewModel
             //VerifyCode.ArrangeSn = "169149843";
             //VerifyCode.Phone = "18301135103";
             //StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Today.AddMinutes(3);
         }
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
+            MainSession.YzmMode = YzmMode.PreSendVerify;
 
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
