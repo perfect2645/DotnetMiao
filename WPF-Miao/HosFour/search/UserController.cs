@@ -45,7 +45,7 @@ namespace HosFour.search
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                var isSuccess = responseResult.GetInt16();
+                var isSuccess = responseResult.GetProperty("isSuccess").GetInt16();
                 if (isSuccess != 1)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
@@ -83,8 +83,6 @@ namespace HosFour.search
 
             user.UserId = userId;
             user.UserName = userName;
-            user.IdCard = idcard;
-            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

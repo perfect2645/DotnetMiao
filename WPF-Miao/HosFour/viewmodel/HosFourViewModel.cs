@@ -325,15 +325,7 @@ namespace HosFour.viewmodel
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-                VaccineId = deptId
+
             };
         }
 
@@ -414,7 +406,7 @@ namespace HosFour.viewmodel
                 bool isSuccess = false;
                 foreach (var order in orders)
                 {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
                     isSuccess = appointController.YuyueAsync(order);
                     if (isSuccess)
                     {
@@ -443,7 +435,7 @@ namespace HosFour.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -475,15 +467,7 @@ namespace HosFour.viewmodel
                 {
                     var order = new Order
                     {
-                        Address = user.Address,
-                        DutyTimeId = template.DutyTimeId,
-                        HosipitalId = template.HosipitalId,
-                        InoculateTimes = user.InoculateTimes,
-                        SeeDate = template.SeeDate,
-                        User = user,
-                        UserId = user.UserId,
-                        UserName = user.UserName,
-                        VaccineId = template.VaccineId,
+
                     };
 
                     orderList.Add(order);

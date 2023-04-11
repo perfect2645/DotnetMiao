@@ -59,7 +59,7 @@ namespace HosFour.search
 
                 var resourceList = root.GetProperty("docResourceResourceList");
 
-                return CheckSaveResource(resourceList, user);
+                return CheckSaveResource(resourceList);
             }
             catch (Exception ex)
             {

@@ -64,7 +64,7 @@ namespace HosFour.search
             var isMiaoGet = false;
             while(!isMiaoGet)
             {
-                isMiaoGet = miaoController.SearchMiao(date, user);
+                isMiaoGet = miaoController.SearchMiao(date);
                 Thread.Sleep(500);
             }
         }
