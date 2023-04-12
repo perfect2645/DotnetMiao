@@ -14,22 +14,6 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
-                "1101614", "龙文区碧湖街道社区卫生服务中心",
-                "7248104", "九价Hpv")
-            {
-                HasYzm = false,
-                DoctorSn = "711288413"
-            });
-
-            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
-                "1101614", "龙文区碧湖街道社区卫生服务中心",
-                "7248114", "四价Hpv")
-            {
-                HasYzm = false,
-                DoctorSn = "711288367"
-            });
-
             #region 漳州
 
             Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
@@ -62,6 +46,22 @@ namespace Baohe.viewModel
             {
                 HasYzm = false,
                 DoctorSn = "711267961"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001478", "龙海市",
+                "1100937", "漳州高新技术产业开发区颜厝卫生院",
+                "7248218", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711289095"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001478", "龙海市",
+                "1100937", "漳州高新技术产业开发区颜厝卫生院",
+                "7248218", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711289082"
             });
 
             #endregion 漳州
