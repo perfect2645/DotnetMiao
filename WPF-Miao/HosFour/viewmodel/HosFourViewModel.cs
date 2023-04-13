@@ -154,11 +154,6 @@ namespace HosFour.viewmodel
             {
                 new DspVal("08:00:00-11:00:00", "1"),
                 new DspVal("14:00:00-16:00:00", "2"),
-                //new DspVal("08:00:00-08:30:00", "3"),
-                //new DspVal("08:30:00-09:00:00", "4"),
-                //new DspVal("09:00:00-09:30:00", "5"),
-                //new DspVal("14:00:00-14:30:00", "9"),
-                //new DspVal("14:30:00-15:00:00", "10"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
