@@ -115,7 +115,7 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=83206E02DE43A6BAB196E3EFD0DC85BB"; //fawei
+            Cookie = "JSESSIONID=0C3A7FA73912A9B1AE8AF1E3776DAE18"; //fawei
             //Cookie = "JSESSIONID=5D4A83B57BF9BF2F2B78AEF105C7C842";
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
@@ -123,16 +123,16 @@ namespace Jkchegu.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(16).AddMinutes(59);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(30);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
             };
 
             JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
