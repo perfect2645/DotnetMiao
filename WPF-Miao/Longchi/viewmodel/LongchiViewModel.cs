@@ -115,16 +115,16 @@ namespace Longchi.viewmodel
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(17).AddSeconds(1);
+            StartTime = DateTime.Today.AddHours(17).AddMinutes(30).AddSeconds(1);
 
             DateList = new List<DspVal>
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
@@ -367,8 +367,8 @@ namespace Longchi.viewmodel
             try
             {
                 bool isSuccess = false;
-                while (!isSuccess)
-                {
+                //while (!isSuccess)
+                //{
                     foreach(var order in orders)
                     {
                         var appointController = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
@@ -380,7 +380,7 @@ namespace Longchi.viewmodel
                             break;
                         }
                     }
-                }
+                //}
             }
             catch (HttpException ex)
             {
