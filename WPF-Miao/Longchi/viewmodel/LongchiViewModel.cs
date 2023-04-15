@@ -115,7 +115,7 @@ namespace Longchi.viewmodel
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(17).AddMinutes(30).AddSeconds(1);
+            StartTime = DateTime.Today.AddHours(17).AddMinutes(30).AddSeconds(10);
 
             DateList = new List<DspVal>
             {
@@ -150,19 +150,20 @@ namespace Longchi.viewmodel
                 {
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
-                    DepartmentName = "【四价疫苗】",
-                    //DepartmentList = new List<string> { "300", "700" },
-                    DepartmentList = new List<string> { "700" },
+                    DepartmentName = "【九价疫苗】",
+                    DepartmentList = new List<string> { "800" },
                     TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
                 },
                 new LongchiHospital
                 {
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
-                    DepartmentName = "【九价疫苗】",
-                    DepartmentList = new List<string> { "400", "800" },
+                    DepartmentName = "【四价疫苗】",
+                    //DepartmentList = new List<string> { "300", "700" },
+                    DepartmentList = new List<string> { "700" },
                     TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
                 },
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
