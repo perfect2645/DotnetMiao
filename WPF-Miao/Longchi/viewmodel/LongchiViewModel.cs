@@ -103,7 +103,7 @@ namespace Longchi.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            TestData();
+            //TestData();
             LoginFromConfig();
         }
 
