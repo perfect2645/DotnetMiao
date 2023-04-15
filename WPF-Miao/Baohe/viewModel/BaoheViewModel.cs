@@ -101,7 +101,7 @@ namespace Baohe.viewModel
 
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
