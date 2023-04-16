@@ -40,11 +40,11 @@ namespace Jkchegu.appointment
 
         private void BuildContent()
         {
-            AddContent("APPOINTMENT_DATE", Order.Date);
+            AddContent("APPOINTMENT_DATE", "2023-04-17");
             AddContent("dateCount", Order.Time);
-            AddContent("ETID", Etid);
+            AddContent("ETID", "bd208cd181694e66b930a5f9b23fbd11");
             AddContent("VACCINES_NAME", JkSession.PlatformSession[Constants.DeptId]);
-            AddContent("DOC_CUSTOM_VACCINE_GUID", Order.GUID);
+            AddContent("DOC_CUSTOM_VACCINE_GUID", "e2aef03aa00c4d8f9edab967f3cd10f2");
             AddContent("code", Order.Yzm);
         }
     }
