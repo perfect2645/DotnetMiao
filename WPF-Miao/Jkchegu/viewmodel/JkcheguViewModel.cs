@@ -115,7 +115,7 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=6491E0FF2474C8DAF6F6ABD5721E14A3"; //fawei
+            Cookie = "JSESSIONID=6B70C7D53F30056F3BB333F7A99D0F11"; //fawei
             //Cookie = "JSESSIONID=5D4A83B57BF9BF2F2B78AEF105C7C842";
             StartTime = DateTime.Now.AddSeconds(20);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
@@ -128,11 +128,11 @@ namespace Jkchegu.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
             };
 
             JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
