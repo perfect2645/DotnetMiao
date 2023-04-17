@@ -1,5 +1,7 @@
 ﻿using HosFour.common;
 using HosFour.login;
+using HosFour.session;
+using Utils;
 
 namespace HosFour.search
 {
@@ -16,7 +18,9 @@ namespace HosFour.search
 
         private void BuildContent()
         {
-            AddContent("docCode", "0400||儿科门诊普通号|儿科门诊|普通门诊");
+            var docCode = MainSession.PlatformSession.GetString(Constants.DocCode);
+            var docCodeEncode = UnicodeConverter.EncodeOriginal(docCode, true);
+            AddContent("docCode", docCodeEncode);
             AddContent("dataSource", string.Empty);
             AddContent("day", Date);
             AddContent("t", 1);

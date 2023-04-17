@@ -4,20 +4,8 @@ namespace HosFour.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string HospitalPrefix = "HospitalPrefix";
-        public const string AttId = "attId";
-        public const string OrgId = "orgId";
-        public const string WechatId = "wechatid";
-        public const string OpenId = "openid";
-        public const string TimeStamp = "Timestamp";
-
-        public const string UserId = "userId";
-        public const string UserID = "userID";
-        public const string FamilyId = "familyId";
-        public const string UserPhone = "userPhone";
-        public const string DoctorId = "doctorId";
-        public const string Scheduleid = "scheduleid";
-        public const string FamilyID = "familyID";
-        public const string Token = "token";
+        public const string DocCode = "docCode";
+        public const string DocName = "docName";
+        public const string DocDuty = "docDuty";
     }
 }
