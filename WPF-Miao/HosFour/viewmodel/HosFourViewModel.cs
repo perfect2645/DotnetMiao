@@ -132,8 +132,8 @@ namespace HosFour.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            Interval = 1000;
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
@@ -169,7 +169,17 @@ namespace HosFour.viewmodel
                     DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
                     DocName = "儿科门诊普通号",
                     DocDuty = string.Empty
-                }
+                },
+                new HosFourHospital
+                {
+                    HospitalId = "01",
+                    HospitalName = "上海市第四人民医院",
+                    DepartmentName = "疫苗接种高级专家门诊",
+                    DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
+                    DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
+                    DocName = "疫苗接种高级专家门诊",
+                    DocDuty = string.Empty
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -263,7 +273,6 @@ namespace HosFour.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -315,8 +324,7 @@ namespace HosFour.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Task.Factory.StartNew(() => Appoint());
-                    //_searchController.SearchMiao();
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {

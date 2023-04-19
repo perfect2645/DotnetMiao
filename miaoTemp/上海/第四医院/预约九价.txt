@@ -1,0 +1,54 @@
+POST https://fwcs.linkingcloud.cn/YuYue/Alipay_BookingApply HTTP/1.1
+Host: fwcs.linkingcloud.cn
+Connection: keep-alive
+Content-Length: 1397
+Origin: https://fwcs.linkingcloud.cn
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+content-type: application/x-www-form-urlencoded
+Accept: */*
+Cookie: acw_tc=2f624a6f16818264960121425e66e2a6656b3d7d25322059347aa12cb735e7; FuWuChuang=84B15BA91252DF79E0D66108CC05040AF519AACFB3654A7B83CCE50FDC0F3B8688F27B4DD0C3B2384B02F84F1784EECDE37EB0629FB5721485566F631C9991F32154C2C6B377AC87869F0615B2D061186BBCAD14A9281820BB1DD17F38530F66E104D4D7B16F9A00A32C56B11F59FB78955246379D8987E7AB3798862A16BBBE48D1ED4A20F50E4F8E07F270099FEE18EC97DA87685C69F9459A3894B46591E38267D037283DCB80D4FDE869B12B0C0DA5531D5B5999ED2672A9249602EFC5A49ECB46A189B29ABA89DA3310190CA1A74BAB9046; SERVERID=0c119a896ca5fbe95c211ab664e886a6|1681828190|1681827997
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://fwcs.linkingcloud.cn/App/yuyue/index.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+hospitalUserID=LC-1d752966508c4f02b96f7dd010229026&resourceID=%24LC%24XYQYeMkHEOkz%2BkVgfHk%2BGeDjnHULn8QxL0GDXosSpeIvlN9LCsOOuXfipJeEisS8z85aGQwwE53FPrPoZe%2FipC%2BU30sKw465d%2BKkl4SKxLw4K9rw5Q0BJ3G165U9n5y8Igvcd5BRhttin9RV0cK%2F5g%3D%3D%24LC%24&registDate=2023-04-25%2015%3A30-16%3A00&url=https%3A%2F%2Ffwcs.linkingcloud.cn%2FApp%2Fyuyue%2Findex.html%23%2Fpages%2Fyuyue%2Fdoctor%3FdataSource%3D%26docCode%3D9289%7C%7C%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A%7C%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A%7C%E7%96%AB%E8%8B%97%E9%97%A8%E8%AF%8A%26hospitalID%3D01&docCode=9289%7C%7C%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A%7C%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A%7C%E7%96%AB%E8%8B%97%E9%97%A8%E8%AF%8A&docName=%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A&docDuty=&deptCode=9289%7C%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A%7C102%7C%E7%96%AB%E8%8B%97%E9%97%A8%E8%AF%8A&deptName=%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A7%8D%E9%AB%98%E7%BA%A7%E4%B8%93%E5%AE%B6%E9%97%A8%E8%AF%8A&hospitalName=%E4%B8%8A%E6%B5%B7%E5%B8%82%E7%AC%AC%E5%9B%9B%E4%BA%BA%E6%B0%91%E5%8C%BB%E9%99%A2&docPhotoPath=&extInfo=%7B%7D&feeType=&t=1
+
+
+
+HTTP/1.1 200 OK
+Date: Tue, 18 Apr 2023 14:29:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 571
+Connection: keep-alive
+Cache-Control: private, s-maxage=0
+Access-Control-Allow-Origin: https://fwcs.linkingcloud.cn
+X-Frame-Options: SAMEORIGIN
+Access-Control-Allow-Headers: *
+Access-Control-Allow-Methods: GET, POST
+Strict-Transport-Security: max-age=31536000
+X-XSS-Protection: 1
+Set-Cookie: SERVERID=0c119a896ca5fbe95c211ab664e886a6|1681828194|1681827997;Path=/
+
+{"responseResult":{"isSuccess":"1","message":"创建订单成功","subCode":"","subMessage":""},"bookingResult":{"bookingID":"zfby02yy20230418222940820a7b1000","needPay":"0","needPayAmount":"","prescriptionDetail":"","socialServiceNumber":"","selfAmount":"","medicareAmount":"","feeType":"0","socialServiceDetail":"","extInfo":"","needToNextPage":""},"preBillOrder":{"orderStatus":null,"isAdvance":null,"statusDiv":null,"payStatusDiv":null,"isNeedPay":null,"talkID":null,"advID":null,"docCode":null,"orderDescribe":null,"extInfo":null,"url":null,"unifiedPortalUrl":null}}
+
+
+
+hospitalUserID=LC-1d752966508c4f02b96f7dd010229026
+resourceID=$LC$XYQYeMkHEOkz+kVgfHk+GeDjnHULn8QxL0GDXosSpeIvlN9LCsOOuXfipJeEisS8z85aGQwwE53FPrPoZe/ipC+U30sKw465d+Kkl4SKxLw4K9rw5Q0BJ3G165U9n5y8Igvcd5BRhttin9RV0cK/5g==$LC$
+registDate=2023-04-25 15:30-16:00
+url=https://fwcs.linkingcloud.cn/App/yuyue/index.html#/pages/yuyue/doctor?dataSource=
+docCode=9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊
+hospitalID=01
+docCode=9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊
+docName=疫苗接种高级专家门诊
+docDuty=
+deptCode=9289|疫苗接种高级专家门诊|102|疫苗门诊
+deptName=疫苗接种高级专家门诊
+hospitalName=上海市第四人民医院
+docPhotoPath=
+extInfo={}
+feeType=
+t=1
