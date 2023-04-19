@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using HosFour.login;
 using HosFour.session;
+using Utils.datetime;
 
 namespace HosFour.search
 {
@@ -18,9 +19,12 @@ namespace HosFour.search
         public void SearchMiao()
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
+            var defaultDate = DateTimeUtil.GetTomorrow();
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            GetMiao(defaultDate);
         }
 
-        private void GetMiao(string date, HosFourLogin user)
+        private void GetMiao(string date)
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
 

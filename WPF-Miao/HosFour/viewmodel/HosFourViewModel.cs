@@ -140,7 +140,7 @@ namespace HosFour.viewmodel
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-10", "2023-2-10");
+            var dateRange = DateTimeUtil.GetDateRange("2023-04-20", "2023-04-20");
             DateList = new List<DspVal>();
             foreach (var date in dateRange)
             {
