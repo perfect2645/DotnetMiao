@@ -29,7 +29,6 @@ namespace HosFour
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();

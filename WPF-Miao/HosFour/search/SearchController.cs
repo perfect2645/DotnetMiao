@@ -6,58 +6,25 @@ using System.Threading;
 using System.Threading.Tasks;
 using HosFour.login;
 using HosFour.session;
+using Utils.datetime;
 
 namespace HosFour.search
 {
     internal class SearchController
     {
-        private DateController dateController;
-        //private IntervalOnTime SearchInterval;
-
         public SearchController()
         {
-            dateController = HttpServiceController.GetService<DateController>();
-            //SearchInterval = new IntervalOnTime(SearchAsync, "search", 200);
-        }
-
-        public void StartSearchInterval()
-        {
-            MainSession.SetStatus(MiaoProgress.GettingMiao);
-            //SearchInterval.StartIntervalOntime();
         }
 
         public void SearchMiao()
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
-
-            GetDates();
-            GetTimes();
-        }
-
-        private void GetDates()
-        {
+            var defaultDate = DateTimeUtil.GetTomorrow();
             var defaultUser = MainSession.Users.FirstOrDefault();
-
-            var isDateGet = false;
-            while (!isDateGet)
-            {
-                isDateGet = dateController.GetDate(defaultUser);
-                Thread.Sleep(500);
-            }
+            GetMiao(defaultDate);
         }
 
-        private void GetTimes()
-        {
-            var dateList = MainSession.PlatformSession["orderDates"] as List<string>;
-            var defaultUser = MainSession.Users.FirstOrDefault();
-
-            foreach (var date in dateList)
-            {
-                Task.Factory.StartNew(() => GetMiao(date, defaultUser));
-            }
-        }
-
-        private void GetMiao(string date, HosFourLogin user)
+        private void GetMiao(string date)
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
 

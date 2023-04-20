@@ -132,15 +132,15 @@ namespace HosFour.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            Interval = 1000;
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-10", "2023-2-10");
+            var dateRange = DateTimeUtil.GetDateRange("2023-04-20", "2023-04-20");
             DateList = new List<DspVal>();
             foreach (var date in dateRange)
             {
@@ -162,27 +162,23 @@ namespace HosFour.viewmodel
             {
                 new HosFourHospital
                 {
-                    HospitalPrefix = "ldsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
+                    HospitalId = "01",
+                    HospitalName = "上海市第四人民医院",
+                    DepartmentName = "儿科门诊",
+                    DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
+                    DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
+                    DocName = "儿科门诊普通号",
+                    DocDuty = string.Empty
                 },
                 new HosFourHospital
                 {
-                    HospitalPrefix = "ldsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "四价",
-                    DepartmentId = "2",
-                },
-                new HosFourHospital
-                {
-                    HospitalPrefix = "ygsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区元岗",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
+                    HospitalId = "01",
+                    HospitalName = "上海市第四人民医院",
+                    DepartmentName = "疫苗接种高级专家门诊",
+                    DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
+                    DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
+                    DocName = "疫苗接种高级专家门诊",
+                    DocDuty = string.Empty
                 },
             };
 
@@ -277,7 +273,6 @@ namespace HosFour.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -329,8 +324,7 @@ namespace HosFour.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Task.Factory.StartNew(() => Appoint());
-                    //_searchController.SearchMiao();
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -584,7 +578,9 @@ namespace HosFour.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalPrefix, selectedDept.HospitalPrefix);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocCode, selectedDept.DocCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocName, selectedDept.DocName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocDuty, selectedDept.DocDuty);
 
             Log(selectedDept.ToLogString());
         }

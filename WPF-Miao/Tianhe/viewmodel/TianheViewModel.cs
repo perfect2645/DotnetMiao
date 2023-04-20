@@ -141,7 +141,7 @@ namespace Tianhe.viewmodel
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-3-28", "2023-3-28");
+            var dateRange = DateTimeUtil.GetDateRange("2023-04-20", "2023-04-20");
             DateList = new List<DspVal>();
             foreach (var date in dateRange)
             {
@@ -160,6 +160,8 @@ namespace Tianhe.viewmodel
                 //new DspVal("09:00:00-09:30:00", "5"),
                 //new DspVal("14:00:00-14:30:00", "9"),
                 //new DspVal("14:30:00-15:00:00", "10"),
+                new DspVal("14:00:00-15:00:00", "13"),
+                new DspVal("15:00:00-16:00:00", "14"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);

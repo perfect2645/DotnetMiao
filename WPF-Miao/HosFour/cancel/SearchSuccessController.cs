@@ -30,11 +30,7 @@ namespace HosFour.cancel
         {
             try
             {
-                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
-                //可以通过设置offset参数过滤
-                //https://{prifix}.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=20&offset=20
-                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/api/examine/my_vaccine/?limit=2000";
-                var content = new HosFourContent(url, user);
+                var content = new HosFourContent("", user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

@@ -34,7 +34,8 @@ namespace HosFour.search
             Date = date;
             try
             {
-                var content = new MiaoContent(null, date);
+                var defaultUser = MainSession.Users.FirstOrDefault();
+                var content = new MiaoContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
@@ -50,8 +51,8 @@ namespace HosFour.search
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return false;
                 }
-                var isSuccess = responseResult.GetInt16();
-                if (isSuccess != 1)
+                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
+                if (isSuccess != "1")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
                     return false;
