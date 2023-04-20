@@ -456,7 +456,17 @@ namespace HosFour.viewmodel
                 {
                     var order = new Order
                     {
-
+                        ResourceID = template.ResourceID,
+                        RegistDate = template.RegistDate,
+                        HospitalUserID = user.UserId,
+                        HospitalID = template.HospitalID,
+                        HospitalName = template.HospitalName,
+                        DeptCode = template.DeptCode,
+                        DeptName = template.DeptName,
+                        DocCode = template.DocCode,
+                        DocName = template.DocName,
+                        DocDuty = template.DocDuty,
+                        UserName = user.UserName,
                     };
 
                     orderList.Add(order);
@@ -464,7 +474,6 @@ namespace HosFour.viewmodel
 
                 Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
             }
-
         }
 
         private void DirectlyOrder(string scheduleId)

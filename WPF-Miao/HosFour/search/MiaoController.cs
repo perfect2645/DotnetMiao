@@ -112,13 +112,28 @@ namespace HosFour.search
         private Order BuildOneOrder(Dictionary<string, object> resource)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var hospitalName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+            var docId = MainSession.PlatformSession.GetString(Constants.DocCode);
+            var docName = MainSession.PlatformSession.GetString(Constants.DocName);
+            var docDuty = MainSession.PlatformSession.GetString(Constants.DocDuty);
+
+            var day = resource.GetString("day");
+            var timeEnd = resource.GetString("timeEnd");
+
+
             return new Order
             {
                 ResourceID = resource.GetString("resourceID"),
-                DeptCode = UnicodeConverter.EncodeOriginal(deptId, true),
-                DeptName = UnicodeConverter.EncodeOriginal(deptName, true),
+                RegistDate = resource.GetString($"{day} {timeEnd}"),
+                HospitalID = hospitalId,
+                HospitalName = hospitalName,
+                DeptCode = deptId,
+                DeptName = deptName,
+                DocCode = docId,
+                DocName = docName,
+                DocDuty = docDuty,
             };
         }
     }
