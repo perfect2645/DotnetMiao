@@ -13,6 +13,7 @@
     <None Remove="Login - 漳州 57.json" />
     <None Remove="Login - 漳州.json" />
     <None Remove="Login.json" />
+    <None Remove="Login南京 - fawei.json" />
     <None Remove="Login南京.json" />
     <None Remove="Login合肥.json" />
     <None Remove="Login武汉.json" />
@@ -23,6 +24,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login - 漳州 4.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login南京 - fawei.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login武汉.json">
