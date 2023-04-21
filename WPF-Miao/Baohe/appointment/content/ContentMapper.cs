@@ -10,14 +10,14 @@ namespace Baohe.appointment.content
         static ContentMapper()
         {
             ContentDic = new Dictionary<string, Type>();
-            ContentDic.Add("1047063", typeof(JinggangContent)); // 蜀山区井岗中心服务号
-            ContentDic.Add("1031364", typeof(JinggangContent)); // 蜀山区西园街道
-            ContentDic.Add("1031995", typeof(JinggangContent)); // 蜀山稻香村街道
-            ContentDic.Add("1038404", typeof(JinggangContent)); // 包河区同安街道社区卫生服务中心
+            ContentDic.Add("1047063", typeof(HeFeiContent)); // 蜀山区井岗中心服务号
+            ContentDic.Add("1031364", typeof(HeFeiContent)); // 蜀山区西园街道
+            ContentDic.Add("1031995", typeof(HeFeiContent)); // 蜀山稻香村街道
+            ContentDic.Add("1038404", typeof(HeFeiContent)); // 包河区同安街道社区卫生服务中心
             ContentDic.Add("1040231", typeof(NangangContent)); // 蜀山区南岗镇卫生院
-            ContentDic.Add("1039346", typeof(BaoheContent)); // 包河区包公街道社区服务中心
-            ContentDic.Add("1094367", typeof(BaoheContent)); // 包河区万年埠街道
-            ContentDic.Add("1047032", typeof(JinggangContent)); // 包河区常青街道社区卫生服务中心
+            ContentDic.Add("1039346", typeof(HeFeiContent)); // 包河区包公街道社区服务中心
+            ContentDic.Add("1094367", typeof(HeFeiContent)); // 包河区万年埠街道
+            ContentDic.Add("1047032", typeof(HeFeiContent)); // 包河区常青街道社区卫生服务中心
             ContentDic.Add("1094417", typeof(NanjingContent)); // 雨花社区卫生服务中心
             ContentDic.Add("1099108", typeof(YuhuaKaifaqu1099108)); // 雨花经济开发区社区卫生服务中心
             ContentDic.Add("1101211", typeof(BuwenContent)); // 漳州市龙文区步文街道社区卫生服务中心
