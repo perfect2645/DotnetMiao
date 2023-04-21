@@ -16,7 +16,7 @@ namespace HosFour.appointment
         private void BuildContent()
         {
             AddContent("hospitalUserID", Order.HospitalUserID);
-            AddContent("resourceID", Order.ResourceID);
+            AddEncodeContent("resourceID", Order.ResourceID);
             AddEncodeContent("registDate", Order.RegistDate);
             AddEncodeContent("url", Order.Url);
             AddEncodeContent("docCode", Order.DocCode);
@@ -28,7 +28,7 @@ namespace HosFour.appointment
             AddEncodeContent("deptName", Order.DeptName);
             AddEncodeContent("hospitalName", Order.HospitalName);
             AddContent("docPhotoPath", string.Empty);
-            AddContent("extInfo", new object());
+            AddContent("extInfo", "{}");
             AddContent("feeType", string.Empty);
             AddContent("t", Order.T);
         }

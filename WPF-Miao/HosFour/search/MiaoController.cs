@@ -126,7 +126,7 @@ namespace HosFour.search
             return new Order
             {
                 ResourceID = resource.GetString("resourceID"),
-                RegistDate = resource.GetString($"{day} {timeEnd}"),
+                RegistDate = $"{day} {timeEnd}",
                 HospitalID = hospitalId,
                 HospitalName = hospitalName,
                 DeptCode = deptId,
