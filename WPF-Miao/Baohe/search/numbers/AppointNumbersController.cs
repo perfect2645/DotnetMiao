@@ -55,6 +55,12 @@ namespace Baohe.search.numbers
 
             var numbers = AnalysisResult(result, water);
 
+            if (!numbers.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, "Water get but numbers is empty");
+                return false;
+            }
+
             if (isPrintLog)
             {
                 MainSession.PrintLogEvent.Publish(this, numbers, "Numbers");
