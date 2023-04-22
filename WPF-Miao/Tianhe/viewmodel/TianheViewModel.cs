@@ -163,7 +163,7 @@ namespace Tianhe.viewmodel
                 //new DspVal("14:00:00-15:00:00", "13"),
                 //new DspVal("15:00:00-16:00:00", "14"),
 
-                new DspVal("08:00:00-11:00:00", "2"),
+                new DspVal("14:00:00-16:00:00", "10"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
