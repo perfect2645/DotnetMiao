@@ -1,6 +1,6 @@
 ﻿using HttpProcessor.Client;
-using Tianhe.common;
-using Tianhe.session;
+using Tongzhou.common;
+using Tongzhou.session;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -9,10 +9,10 @@ using System.Windows.Interop;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using Tianhe.login;
+using Tongzhou.login;
 using System;
 
-namespace Tianhe.search
+namespace Tongzhou.search
 {
     internal class UserController : HttpClientBase
     {
@@ -20,19 +20,18 @@ namespace Tianhe.search
         {
         }
 
-        public void GetUserAsync(TianheLogin user)
+        public void GetUserAsync(TongzhouLogin user)
         {
             Task.Factory.StartNew(() => GetUser(user));
         }
 
-        private void GetUser(TianheLogin user)
+        private void GetUser(TongzhouLogin user)
         {
             try
             {
-                var url = $"ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
-                var content = new TianheContent(url, user);
+                var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -40,13 +39,22 @@ namespace Tianhe.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var results = root.GetProperty("results");
-                if (results.ValueKind == JsonValueKind.Null)
+                var responseResult = root.GetProperty("responseResult");
+                if (responseResult.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(results, user);
+                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
+                if (isSuccess != "1")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
+                    return;
+                }
+
+                var bindCardList = root.GetProperty("bindCardList");
+
+                SaveUser(bindCardList, user);
             }
             catch (Exception ex)
             {
@@ -54,7 +62,7 @@ namespace Tianhe.search
             }
         }
 
-        private void SaveUser(JsonElement data, TianheLogin user)
+        private void SaveUser(JsonElement data, TongzhouLogin user)
         {
             var familyMembers = JsonAnalysis.JsonToDicList(data);
             if (!familyMembers.HasItem())
@@ -63,20 +71,16 @@ namespace Tianhe.search
                 return;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = familyMembers.FirstOrDefault(x => x["patientName_Sort"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
                 defaultUser = familyMembers.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("name");
-            var userId = defaultUser.GetString("id");
-            var idcard = defaultUser.GetString("idno");
-            var phone = defaultUser.GetString("mobile");
+            var userName = defaultUser.GetString("patientName_Sort");
+            var userId = defaultUser.GetString("hospitalUserID");
 
             user.UserId = userId;
             user.UserName = userName;
-            user.IdCard = idcard;
-            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }
