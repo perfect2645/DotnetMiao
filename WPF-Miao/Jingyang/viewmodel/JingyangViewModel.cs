@@ -141,7 +141,12 @@ namespace Jingyang.viewmodel
                     HospitalId = "cnfw.mailiku.com",
                     HospitalName = "德阳旌阳区城南社区",
                     DepartmentName = "九价HPV疫苗",
-                    TimeIdList = new List<string> { "2107" }
+                    TimeIdList = new List<string> { "2112", "2117",
+                    "2122", "2127",
+                    "2132", "2137",
+                    "2142", "2147",
+                    "2152", "2157",
+                    "2162", "2167"}
                 },
                 new JingyangHospital
                 {
