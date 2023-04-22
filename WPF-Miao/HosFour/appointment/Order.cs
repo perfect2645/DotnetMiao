@@ -7,6 +7,7 @@ namespace HosFour.appointment
     {
         public string HospitalUserID { get; set; }
         public string UserName { get; set; }
+        public string HospitalID { get; set; }
         public string HospitalName { get; set; }
         public string ResourceID { get; set; }
         public string Url { get; set; } = "https://fwcs.linkingcloud.cn/App/yuyue/index.html#/pages/yuyue/doctor?dataSource=";
@@ -16,7 +17,7 @@ namespace HosFour.appointment
         public string DeptCode { get; set; }
         public string DeptName { get; set; }
         public string RegistDate { get; set; }
-        public string T { get; set; }
+        public string T { get; set; } = "1";
         public string BookingID { get; set; }
         internal HosFourLogin User { get; set; }
 

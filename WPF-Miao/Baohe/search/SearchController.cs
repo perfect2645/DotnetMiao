@@ -160,7 +160,10 @@ namespace Baohe.search
             if (SearchStatus == SearchStatus.WaterGet)
             {
                 var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
-
+                if (arrangeWaterList.Count <= 0)
+                {
+                    return;
+                }
                 var index = 0;
                 if (arrangeWaterList.Count > 0)
                 {

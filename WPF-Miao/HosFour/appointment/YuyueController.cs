@@ -43,33 +43,34 @@ namespace HosFour.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    return false;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var responseResult = root.GetProperty("responseResult");
+                if (responseResult.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
+                    return false;
+                }
+                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
+                var message = responseResult.GetProperty("message").GetString();
+                if (isSuccess != "1")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: isSuccess = {isSuccess}, message = {message}");
                     return false;
                 }
 
-                var root = response.JsonBody.RootElement;
-                JsonElement error;
-                var isError = root.TryGetProperty("error", out error);
-                if (isError)
-                {
-                    var errMsg = error.NotNullString();
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:error {errMsg}");
-                    if (errMsg.Contains("总预约次数已满"))
-                    {
-                        IsSuccess = true;
-                        return true;
-                    }
-                    return false;
-                }
-                var msg = root.GetProperty("msg").NotNullString();
-                if (msg != "预约成功")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
-                    return false;
-                }
+                MainSession.PrintLogEvent.Publish(this, $"预约成功: message = {message}");
+
+                var bookingResult = root.GetProperty("bookingResult");
+
+                CheckOrder(bookingResult, content.Order);
+
                 return true;
             }
             catch (Exception ex)
@@ -77,6 +78,18 @@ namespace HosFour.appointment
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }
+        }
+
+        private void CheckOrder(JsonElement bookingResult, Order order)
+        {
+            var bookingId = bookingResult.GetProperty("bookingID").GetString();
+
+            if (!string.IsNullOrEmpty(bookingId))
+            {
+                order.BookingID = bookingId;
+            }
+
+            MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }
     }
 }

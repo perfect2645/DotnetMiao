@@ -164,22 +164,22 @@ namespace HosFour.viewmodel
                 {
                     HospitalId = "01",
                     HospitalName = "上海市第四人民医院",
-                    DepartmentName = "儿科门诊",
-                    DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
-                    DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
-                    DocName = "儿科门诊普通号",
-                    DocDuty = string.Empty
-                },
-                new HosFourHospital
-                {
-                    HospitalId = "01",
-                    HospitalName = "上海市第四人民医院",
                     DepartmentName = "疫苗接种高级专家门诊",
                     DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
                     DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
                     DocName = "疫苗接种高级专家门诊",
                     DocDuty = string.Empty
                 },
+                new HosFourHospital
+                {
+                    HospitalId = "01",
+                    HospitalName = "上海市第四人民医院",
+                    DepartmentName = "儿科门诊",
+                    DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
+                    DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
+                    DocName = "儿科门诊普通号",
+                    DocDuty = string.Empty
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -456,7 +456,18 @@ namespace HosFour.viewmodel
                 {
                     var order = new Order
                     {
-
+                        ResourceID = template.ResourceID,
+                        RegistDate = template.RegistDate,
+                        HospitalUserID = user.UserId,
+                        HospitalID = template.HospitalID,
+                        HospitalName = template.HospitalName,
+                        DeptCode = template.DeptCode,
+                        DeptName = template.DeptName,
+                        DocCode = template.DocCode,
+                        DocName = template.DocName,
+                        DocDuty = template.DocDuty,
+                        UserName = user.UserName,
+                        User = user,
                     };
 
                     orderList.Add(order);
@@ -464,7 +475,6 @@ namespace HosFour.viewmodel
 
                 Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
             }
-
         }
 
         private void DirectlyOrder(string scheduleId)

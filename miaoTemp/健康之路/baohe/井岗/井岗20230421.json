@@ -1,0 +1,108 @@
+{
+    "waterId": "809127352",
+    "waitingInfor": "第24号 15:09-15:12",
+    "store": "",
+    "serialNo": "24",
+    "memberSn": "57031343",
+    "memberName": "陈珊珊",
+    "memberPhone": "13940897525",
+    "memberAddress": "南京",
+    "memberBirthday": "1988-01-16",
+    "memberSex": "2",
+    "memberId": "57031343",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "320***********8949",
+    "memberIdcard": "320***********8949",
+    "accManageGoodSn": null,
+    "birthday": "1988-01-16",
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "isread": "1",
+    "mobile": "13940897525",
+    "doctorSn": "711188793",
+    "hosDeptId": "7229195",
+    "hosDeptName": "九价HPV第一针",
+    "hospitalId": "1047063",
+    "hospitalName": "蜀山区经开区井岗镇社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710786668",
+    "doctorName": "九价HPV第一针",
+    "doctorPic": "",
+    "doctorClinicName": "护师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2023-04-25",
+    "timeId": 2,
+    "arrangeId": 170491944,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 3,
+    "UnOpened": false,
+    "FHTimes": "20:00",
+    "FHDays": "4",
+    "accountSn": 156329837,
+    "cardNumber": "2086414779",
+    "loginId": "o8e_80VAT573U6MIXnu_UdYWbgpk",
+    "channelId": "9001026",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+[
+    {
+        "keyValue": "1",
+        "keyName": "isread"
+    },
+    {
+        "keyValue": "南京",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "320***********8949",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "1988-01-16",
+        "keyName": "birthday"
+    },
+    {
+        "keyValue": "13940897525",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]
