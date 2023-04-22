@@ -170,6 +170,22 @@ namespace Tianhe.viewmodel
             {
                 new TianheHospital
                 {
+                    HospitalPrefix = "cxsq",
+                    HospitalId = "1552",
+                    HospitalName = "天河区长兴街社区卫生服务中心",
+                    DepartmentName = "四价绪针",
+                    DepartmentId = "15",
+                },
+                new TianheHospital
+                {
+                    HospitalPrefix = "cxsq",
+                    HospitalId = "1552",
+                    HospitalName = "天河区长兴街社区卫生服务中心",
+                    DepartmentName = "九价",
+                    DepartmentId = "20",
+                },
+                new TianheHospital
+                {
                     HospitalPrefix = "ldsq",
                     HospitalId = "4",
                     HospitalName = "天河区龙洞街社区卫生服务中心",
