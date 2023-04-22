@@ -64,12 +64,19 @@ namespace Tianhe.appointment
                     }
                     return false;
                 }
-                var msg = root.GetProperty("msg").NotNullString();
-                if (msg != "预约成功")
+                //var msg = root.GetProperty("msg").NotNullString();
+                //if (msg != "预约成功")
+                //{
+                //    MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
+                //    return false;
+                //}
+                var status = root.GetProperty("get_status_display").NotNullString();
+                if (status != "待支付")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败:status: {status}");
                     return false;
                 }
+
                 return true;
             }
             catch (Exception ex)
