@@ -134,6 +134,10 @@ namespace Tongzhou.viewmodel
         {
             Interval = 1000;
             StartTime = DateTime.Now.AddSeconds(20);
+
+
+
+
         }
 
         private void InitStaticData()
@@ -163,7 +167,7 @@ namespace Tongzhou.viewmodel
                 new TongzhouHospital
                 {
                     HospitalId = "01",
-                    HospitalName = "上海市第四人民医院",
+                    HospitalName = "北京通州区妇幼保健院",
                     DepartmentName = "疫苗接种高级专家门诊",
                     DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
                     DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
