@@ -22,6 +22,7 @@ namespace Baohe.appointment.content
             ContentDic.Add("1099108", typeof(YuhuaKaifaqu1099108)); // 雨花经济开发区社区卫生服务中心
             ContentDic.Add("1101211", typeof(BuwenContent)); // 漳州市龙文区步文街道社区卫生服务中心
             ContentDic.Add("1101614", typeof(BuwenContent)); // 龙文区碧湖街道社区卫生服务中心
+            ContentDic.Add("1091919", typeof(BuwenContent)); // 龙文区蓝田街道社区卫生服务中心
             ContentDic.Add("1100937", typeof(BuwenContent)); // 漳州高新技术产业开发区颜厝卫生院
             ContentDic.Add("1094218", typeof(YuhuaKaifaqu1099108)); // 南京西善桥
             ContentDic.Add("1050391", typeof(YuhuaKaifaqu1099108)); // 南京岱山
