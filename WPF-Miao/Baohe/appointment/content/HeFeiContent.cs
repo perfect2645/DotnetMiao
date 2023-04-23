@@ -27,7 +27,7 @@ namespace Baohe.appointment.content
         protected override void BuildNumberDoctorOrder()
         {
             base.BuildNumberDoctorOrder();
-            DoctorOrder.AddOrUpdate(Constant.WaterId, MiaoInfo["NumberSN"]);
+            //DoctorOrder.AddOrUpdate(Constant.WaterId, MiaoInfo["NumberSN"]);
 
             try
             {
