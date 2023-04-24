@@ -76,11 +76,11 @@ namespace Tongzhou.search
             {
                 defaultUser = familyMembers.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("patientName_Sort");
-            var userId = defaultUser.GetString("hospitalUserID");
+            //var userName = defaultUser.GetString("patientName_Sort");
+            //var userId = defaultUser.GetString("hospitalUserID");
 
-            user.UserId = userId;
-            user.UserName = userName;
+            //user.UserId = userId;
+            //user.UserName = userName;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

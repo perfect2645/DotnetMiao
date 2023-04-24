@@ -238,6 +238,13 @@ namespace Tongzhou.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<TongzhouLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
+                var timestampController = HttpServiceController.GetService<TimestampController>();
+                var isTimestampGet = timestampController.GetHeaderTimestamp(user);
+                if (!isTimestampGet)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"{user.UserName} get timestamp failed!");
+                    continue;
+                }
                 var userController = HttpServiceController.GetService<UserController>();
                 userController.GetUserAsync(user);
             }
@@ -460,18 +467,7 @@ namespace Tongzhou.viewmodel
                 {
                     var order = new Order
                     {
-                        ResourceID = template.ResourceID,
-                        RegistDate = template.RegistDate,
-                        HospitalUserID = user.UserId,
-                        HospitalID = template.HospitalID,
-                        HospitalName = template.HospitalName,
-                        DeptCode = template.DeptCode,
-                        DeptName = template.DeptName,
-                        DocCode = template.DocCode,
-                        DocName = template.DocName,
-                        DocDuty = template.DocDuty,
-                        UserName = user.UserName,
-                        User = user,
+
                     };
 
                     orderList.Add(order);

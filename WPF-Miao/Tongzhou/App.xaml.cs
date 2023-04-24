@@ -27,6 +27,7 @@ namespace Tongzhou
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<TimestampController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();

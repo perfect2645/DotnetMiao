@@ -1,8 +1,8 @@
-﻿using Base.session;
-using Base.viewmodel.status;
+﻿using Base.viewmodel.status;
 using Tongzhou.appointment;
 using System.Collections.Generic;
 using Tongzhou.login;
+using Base.session;
 
 namespace Tongzhou.session
 {
@@ -48,5 +48,19 @@ namespace Tongzhou.session
         }
 
         #endregion MiaoStatus
+
+
+        #region Timestamp
+
+        private static int _localTimeOffset = 0;
+        public static int LocalTimeOffset
+        {
+            get
+            {
+                return ++_localTimeOffset;
+            }
+        }
+
+        #endregion Timestamp
     }
 }
