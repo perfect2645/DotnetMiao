@@ -20,6 +20,11 @@ namespace Tongzhou.search
         {
         }
 
+        public async Task<bool> GetGetHeaderTimestampAsync(TongzhouLogin user)
+        {
+            return await Task.Factory.StartNew(() => GetHeaderTimestamp(user));
+        }
+
         public bool GetHeaderTimestamp(TongzhouLogin user)
         {
             try
@@ -35,7 +40,7 @@ namespace Tongzhou.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetString();
+                var code = root.GetStringValue("code");
                 if (code != "200")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取HeaderTimestamp失败: code = {code}");
@@ -54,7 +59,7 @@ namespace Tongzhou.search
 
         private void BuildTimestamp(JsonElement root, TongzhouLogin user)
         {
-            user.Timestamp = root.GetProperty("body").GetString();
+            user.Timestamp = root.GetStringValue("body");
             user.Uuid = root.GetStringValue("uuid");
             user.XCaNonce = $"{user.Uuid}{user.Timestamp}{MainSession.LocalTimeOffset}";
         }

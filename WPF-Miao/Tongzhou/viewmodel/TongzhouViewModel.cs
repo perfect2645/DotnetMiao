@@ -238,15 +238,18 @@ namespace Tongzhou.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<TongzhouLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
-                var timestampController = HttpServiceController.GetService<TimestampController>();
-                var isTimestampGet = timestampController.GetHeaderTimestamp(user);
-                if (!isTimestampGet)
+                Task.Factory.StartNew(async () =>
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"{user.UserName} get timestamp failed!");
-                    continue;
-                }
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
+                    var timestampController = HttpServiceController.GetService<TimestampController>();
+                    var isTimestampGet = await timestampController.GetGetHeaderTimestampAsync(user);
+                    if (!isTimestampGet)
+                    {
+                        MainSession.PrintLogEvent.Publish(this, $"{user.UserName} get timestamp failed!");
+                        return;
+                    }
+                    var userController = HttpServiceController.GetService<UserController>();
+                    userController.GetUserAsync(user);
+                });
             }
 
             MainSession.InitSession();
