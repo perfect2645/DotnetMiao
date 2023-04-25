@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Tongzhou.appointment;
 using Tongzhou.cancel;
+using Tongzhou.common;
 using Tongzhou.login;
 using Tongzhou.search;
 using Tongzhou.session;
@@ -134,9 +135,6 @@ namespace Tongzhou.viewmodel
         {
             Interval = 1000;
             StartTime = DateTime.Now.AddSeconds(20);
-
-
-
 
         }
 
