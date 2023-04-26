@@ -139,7 +139,7 @@ namespace Tianhe.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(59);
 
             var dateRange = DateTimeUtil.GetDateRange("2023-04-27", "2023-04-27");
             DateList = new List<DspVal>();
@@ -154,16 +154,16 @@ namespace Tianhe.viewmodel
             TimeList = new List<DspVal>
             {
                 //new DspVal("08:00:00-11:00:00", "1"),
-                //new DspVal("14:00:00-16:00:00", "2"),
+                new DspVal("14:00:00-16:00:00", "2"),
                 //new DspVal("08:00:00-08:30:00", "3"),
                 //new DspVal("08:30:00-09:00:00", "4"),
                 //new DspVal("09:00:00-09:30:00", "5"),
                 //new DspVal("14:00:00-14:30:00", "9"),
                 //new DspVal("14:30:00-15:00:00", "10"),
-                //new DspVal("14:00:00-15:00:00", "13"),
-                //new DspVal("15:00:00-16:00:00", "14"),
+                new DspVal("14:00:00-15:00:00", "13"),
+                new DspVal("15:00:00-16:00:00", "14"),
 
-                new DspVal("14:00:00-16:00:00", "10"),
+                //new DspVal("14:00:00-16:00:00", "10"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
@@ -172,19 +172,19 @@ namespace Tianhe.viewmodel
             {
                 new TianheHospital
                 {
+                    HospitalPrefix = "ldsq",
+                    HospitalId = "4",
+                    HospitalName = "天河区龙洞街社区卫生服务中心",
+                    DepartmentName = "九价",
+                    DepartmentId = "10",
+                },
+                new TianheHospital
+                {
                     HospitalPrefix = "cxsq",
                     HospitalId = "1",
                     HospitalName = "天河区长兴街社区卫生服务中心",
                     DepartmentName = "九价",
                     DepartmentId = "20",
-                },
-                new TianheHospital
-                {
-                    HospitalPrefix = "ldsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
                 },
                 new TianheHospital
                 {
