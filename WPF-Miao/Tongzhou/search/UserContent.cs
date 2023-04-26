@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Tongzhou.search
 {
-    internal class UserContent : TongzhouContent
+    internal class UserContent : TongzhongPostContent
     {
-        private static string baseUrl = "https://fwcs.linkingcloud.cn/card/GetBindLst";
-        public UserContent(TongzhouLogin user) : base(baseUrl, user)
+        public UserContent(TongzhouLogin user) : base("familyMemberListWithOrganDS", "eh.familyMemberService", user)
         {
             BuildContent();
+            BuildSignHeaders();
         }
 
         private void BuildContent()

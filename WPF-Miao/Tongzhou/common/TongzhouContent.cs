@@ -10,6 +10,15 @@ namespace Tongzhou.common
     {
         public TongzhouLogin User { get; private set; }
 
+        public TongzhouContent(TongzhouLogin user) : base(null)
+        {
+            User = user;
+
+            RequestUrl = $"https://weixin.ngarihealth.com/weixin/wx/mp/{user.WxId}/gateway";
+            ContentType = "application/json";
+            BuildHeader();
+        }
+
         public TongzhouContent(string baseUrl, TongzhouLogin user) : base(baseUrl)
         {
             User = user;

@@ -16,34 +16,37 @@ namespace Tongzhou.common
     internal class TongzhongPostContent : TongzhouContent
     {
         public string XCaMethod { get; set; }
+        public string XCaMethodId { get; set; }
         public Dictionary<string, string> SecurityHeaderDic = new Dictionary<string, string>();
 
-        public TongzhongPostContent(string baseUrl, string method, string methodId, TongzhouLogin user) : base(baseUrl, user)
+        public TongzhongPostContent(string method, string methodId, TongzhouLogin user) : base(user)
         {
             XCaMethod = method;
-            BuildSignHeaders();
+            XCaMethodId= methodId;
         }
 
-        private void BuildSignHeaders()
+        protected void BuildSignHeaders()
         {
+            var jsonContents = GetJsonContent(Content);
+
             AddHeader("X-Ca-Signature", "");
-            AddHeader("X-Ca-Nonce", "");
-            AddHeader("X-Ca-Timestamp", "");
+            AddHeader("X-Ca-Nonce", User.XCaNonce);
+            AddHeader("X-Ca-Timestamp", User.Timestamp);
             AddHeader("X-Service-Encrypt", "1");
             AddHeader("X-Service-Method", XCaMethod);
             AddHeader("X-Ca-Key", "ngari-wx");
             AddHeader("X-Content-MD5", "");
             AddHeader("encoding", "utf-8");
-            AddHeader("X-Service-Id", "eh.familyMemberService");
+            AddHeader("X-Service-Id", XCaMethodId);
         }
 
-        public void SetXContentMD5(string contentJson)
+        protected void SetXContentMD5(string contentJson)
         {
             var base64Md5 = Encryptor.ToBase64Md5(contentJson);
-            SecurityHeaderDic["X-Content-MD5"] = base64Md5;
+            SecurityHeaderDic[Constants.XContentMD5] = base64Md5;
         }
 
-        public void BuildXCaSignature()
+        protected void BuildXCaSignature()
         {
             var sb = new StringBuilder();
             foreach (var header in SecurityHeaderDic)
@@ -60,14 +63,15 @@ namespace Tongzhou.common
             SecurityHeaderDic.Add(Constants.XCaSignature, signature);
         }
 
-        public StringContent GetJsonContent(Dictionary<string, object> contents, bool isArr = false)
+        public string GetJsonContent(Dictionary<string, object> contents, bool isArr = false)
         {
             var jsonContent = JsonSerializer.Serialize(contents, JsonEncoder.JsonOption);
             if (isArr)
             {
                 jsonContent = $"[{jsonContent}]";
             }
-            return new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            return jsonContent;
         }
     }
 }
