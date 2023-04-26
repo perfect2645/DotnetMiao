@@ -18,6 +18,7 @@ using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
 using static System.Net.WebRequestMethods;
+using System.Threading;
 
 namespace Ych.viewmodel
 {
@@ -122,14 +123,14 @@ namespace Ych.viewmodel
         {
             Interval = 200;
 
-            //OpenId = "o4oPojnR7mXgRMmDGP1YVbVfebbo";
+            //OpenId = "otb-s51iVtgqsv_ti0MI9PQdNpJM"; fawei 0426 17:25
 
             //StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(14).AddMinutes(29).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(13).AddMinutes(29).AddSeconds(55);
             MainSession.StartTime = StartTime;
 
             DateList = new List<DspVal>
@@ -140,7 +141,14 @@ namespace Ych.viewmodel
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
-            {
+            {      
+                new YchHospital
+                {
+                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
+                    HospitalName = "漕湖街道社区卫生服务中心",
+                    DepartmentId = "1220",
+                    DepartmentName = "九价",
+                },
                            new YchHospital
                 {
                     HospitalId = "http://caohuhospital.com",
@@ -150,23 +158,9 @@ namespace Ych.viewmodel
                 },
                 new YchHospital
                 {
-                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
-                    HospitalName = "漕湖街道社区卫生服务中心",
-                    DepartmentId = "1220",
-                    DepartmentName = "九价",
-                },
-                new YchHospital
-                {
                     HospitalId = "http://www.sz-tpwsy.com",
                     HospitalName = "太平街道卫生院",
                     DepartmentId = "1218",
-                    DepartmentName = "九价",
-                },
-                new YchHospital
-                {
-                    HospitalId = "http://caohuhospital.com",
-                    HospitalName = "漕湖人民医院",
-                    DepartmentId = "1216",
                     DepartmentName = "九价",
                 },
                 new YchHospital
@@ -335,6 +329,7 @@ namespace Ych.viewmodel
                         var key = $"{order.ScheduleDate}";
                         var yuyueController = MainSession.AppointSession.GetController(key);
                         yuyueController.YuyueAsync(order);
+                        Thread.Sleep(100);
                     }
                 }
             }

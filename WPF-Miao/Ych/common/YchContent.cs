@@ -32,7 +32,8 @@ namespace Ych.common
             AddHeader("Accept", "application/json, text/plain, */*");
             AddHeader("Origin", baseUrl);
             AddHeader("openId", MainSession.OpenId);
-            AddHeader("X-Access-Token", "bd7d3998d67b4cd58a8f884cd1ca7277");
+            //AddHeader("X-Access-Token", "bd7d3998d67b4cd58a8f884cd1ca7277");
+            AddHeader("X-Access-Token", "5845df5db5a348dc89684c99813424fa"); //漕湖街道社区卫生服务中心
             AddHeader("User-Agent", "Mozilla/5.0 AppleWebKit/605.1.15 Chrome/81.0.4044.138 Safari/537.36");
             AddHeader("Referer", $"{baseUrl}/wechatclient/?openId={MainSession.OpenId}");
             AddHeader("Accept-Encoding", "gzip, deflate");
