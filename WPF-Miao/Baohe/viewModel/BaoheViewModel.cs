@@ -29,7 +29,6 @@ namespace Baohe.viewModel
     {
         #region Properties
 
-        public ICommand AppointmentCommand { get; set; }
         public ICommand SearchCommand { get; set; }
 
         public ICommand AutoRunCommand { get; set; }
@@ -95,7 +94,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.PreSendVerify;
+            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
@@ -103,9 +102,9 @@ namespace Baohe.viewModel
             //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
-            StartTime = DateTime.Today.AddHours(12).AddMinutes(59).AddSeconds(57);
+            //StartTime = DateTime.Today.AddHours(12).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
 
@@ -151,7 +150,6 @@ namespace Baohe.viewModel
 
         private void InitCommands()
         {
-            AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
 
             AutoRunCommand = new DelegateCommand(ExecuteAutoRun);
@@ -211,15 +209,6 @@ namespace Baohe.viewModel
         {
             return true;
         }
-
-        private void ExecuteAppointment()
-        {
-
-            var appRouter = new AppointmentRouter(SessionItem, UserName);
-
-            appRouter.AppointTickAsync(UserName);
-        }
-
 
         #endregion Appointment
 

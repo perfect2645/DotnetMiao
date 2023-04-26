@@ -169,7 +169,11 @@ namespace Baohe.search
                 {
                     index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
                 }
-                MainSession.DefaultWater = arrangeWaterList[index]!;
+
+                if (!MainSession.DefaultWater.HasItem())
+                {
+                    MainSession.DefaultWater = arrangeWaterList[index]!;
+                }
 
                 if (!MainSession.IsYzmChecked)
                 {
