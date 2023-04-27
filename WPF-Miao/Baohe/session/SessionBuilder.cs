@@ -24,6 +24,7 @@ namespace Baohe.session
             var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
             var availableWater = arrangeWaterList?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
             && x["availablenum"].NotNullString().ToLong() > 0
+            && x["ArrangeStatus"].NotNullString().ToLong() == 1
                 && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
 
             return availableWater ?? new List<Dictionary<string, object>>();
@@ -33,6 +34,7 @@ namespace Baohe.session
         {
             var availableWater = originalWaters?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
             && x["availablenum"].NotNullString().ToLong() > 0
+            && x["ArrangeStatus"].NotNullString().ToLong() == 1
                 && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
 
             return availableWater;
