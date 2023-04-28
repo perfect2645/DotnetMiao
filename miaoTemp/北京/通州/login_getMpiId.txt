@@ -1,0 +1,38 @@
+POST https://weixin.ngarihealth.com/weixin/wx/mp/wx45b57abae69e92e6/gateway HTTP/1.1
+Host: weixin.ngarihealth.com
+Connection: keep-alive
+Content-Length: 2
+Origin: https://weixin.ngarihealth.com
+X-Ca-Signature: rOpRHmWzF1+MpVbKvOr0oQYPnh7WlnmPC4m9bfBxtPo=
+X-Ca-Nonce: 644be04a508b0230b9238b51168269421941910
+X-Ca-Timestamp: 1682694219419
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+content-Type: application/json
+X-Service-Method: current
+X-Ca-Key: ngari-wx
+X-Content-MD5: 11FxOYiYfpMxmANj4kGJzg==
+encoding: utf-8
+X-Service-Id: account.baseUserMvcService
+Accept: */*
+Cookie: client-id=114859471; isNewUser=false; api=WX; tk=23eee61d-a2a1-467e-bc79-8c7935ae7f71; acw_tc=ac11000116826942076436625e00d1e660580846c4303513159ef2c248e24e; initArgs=%22%7B%5C%22module%5C%22%3A%5C%22appointHomePage%5C%22%2C%5C%22code%5C%22%3A%5C%22041EP8ll2Pwwcb4weMll2msk9A2EP8l7%5C%22%2C%5C%22state%5C%22%3A%5C%22STATE%5C%22%7D%22; initClz=eh.wx.health.doctFinder.Reservation
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://weixin.ngarihealth.com/weixin/wx/mp/wx45b57abae69e92e6/index.html?module=appointHomePage&code=041EP8ll2Pwwcb4weMll2msk9A2EP8l7&state=STATE
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+[]
+HTTP/1.1 200 OK
+Date: Fri, 28 Apr 2023 15:03:39 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 1149
+Connection: keep-alive
+X-Coded-JSON-Message: true
+Vary: Accept-Encoding
+Cache-Control: no-cache, no-store
+X-Orange-Upstream-Latency: 13
+X-Orange-Proxy-Latency: 0
+Strict-Transport-Security: max-age=31536000
+
+{"code":200,"body":{"userRoleToken":{"properties":{"patient":{"mpiId":"2c90823f877b4d0d01879433435c4fdb","loginId":"643e83e814d34b5feab3ed9f","isOwn":true,"authStatus":0,"patientName":"周珊","patientSex":"0","patientType":"1","mobile":"139****7525","homeArea":"110112","linkRation":"1","createDate":"2023-04-18 19:50:00","lastModify":"2023-04-18 19:50:00","status":1,"guardianFlag":false,"healthProfileFlag":false,"clientConfigId":21,"age":0,"fullHomeArea":"北京市 市辖区 通州区","urt":82078463,"defaultPatient":false}},"id":82078463,"userId":"643e83e814d34b5feab3ed9f","roleId":"patient","tenantId":"eh","manageUnit":"eh","lastLoginTime":"2023-04-28 23:03:38","lastIPAddress":"2409:8a15:1e67:400:7184:8426:77db:42eb","lastUserAgent":"CHROME8,81.0.4044.138,WINDOWS_7","createDt":"2023-04-18 19:50:00","userName":"周珊","ownMpiId":"2c90823f877b4d0d01879433435c4fdb","doctor":false,"patient":true,"chemist":false,"tenantName":"eHealthCloud","manageUnitName":"","roleName":"患者","admin":false,"displayName":"eHealthCloud-患者"},"properties":{"homeArea":"110112","fullHomeArea":"北京市 市辖区 通州区","mobile":"13940897525"}}}

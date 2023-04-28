@@ -23,4 +23,7 @@ var cs7result = cs7.DeCodePkcs7("oSpLZsv5cKfTiMnUWDqkuEh_zOGM");
 
 var httpEncode = new HttpEncode();
 
+
+var ngarihealth = new Ngarihealth();
+
 Console.ReadLine();
