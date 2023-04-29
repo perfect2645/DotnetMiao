@@ -11,6 +11,7 @@ using Utils.json;
 using Utils.stringBuilder;
 using Tongzhou.login;
 using System;
+using System.Collections.Generic;
 
 namespace Tongzhou.search
 {
@@ -31,30 +32,17 @@ namespace Tongzhou.search
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
-                if (response?.Body == null)
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Array).Result;
+                if (response?.ContentStr == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return;
                 }
-                var root = response.JsonBody.RootElement;
 
-                var responseResult = root.GetProperty("responseResult");
-                if (responseResult.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
-                    return;
-                }
-                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
-                if (isSuccess != "1")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
-                    return;
-                }
+                var dicResultDe = Encrypt.Decrypt22(response?.ContentStr);
+                var dicResult = JsonAnalysis.JsonToDic(dicResultDe);
 
-                var bindCardList = root.GetProperty("bindCardList");
-
-                SaveUser(bindCardList, user);
+                CheckSaveUser(dicResult, user);
             }
             catch (Exception ex)
             {
@@ -62,27 +50,19 @@ namespace Tongzhou.search
             }
         }
 
-        private void SaveUser(JsonElement data, TongzhouLogin user)
+        private bool CheckSaveUser(Dictionary<string, object> dicResult, TongzhouLogin user)
         {
-            var familyMembers = JsonAnalysis.JsonToDicList(data);
-            if (!familyMembers.HasItem())
+            var code = dicResult.GetString("code").ToInt();
+            if (code != 200)
             {
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
-                return;
+                var msg = dicResult.GetString("msg");
+                MainSession.PrintLogEvent.Publish(this, $"Get Userinfo Failed.code={code}, msg={msg}");
+                return false;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault(x => x["patientName_Sort"].NotNullString() == user.UserName);
-            if (defaultUser == null)
-            {
-                defaultUser = familyMembers.FirstOrDefault();
-            }
-            //var userName = defaultUser.GetString("patientName_Sort");
-            //var userId = defaultUser.GetString("hospitalUserID");
 
-            //user.UserId = userId;
-            //user.UserName = userName;
-
-            MainSession.PrintLogEvent.Publish(this, defaultUser);
+            return true;
+            //MainSession.PrintLogEvent.Publish(this, defaultUser);
         }
     }
 }

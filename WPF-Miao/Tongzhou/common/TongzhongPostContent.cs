@@ -15,33 +15,41 @@ namespace Tongzhou.common
 {
     internal class TongzhongPostContent : TongzhouContent
     {
-        public string XCaMethod { get; set; }
-        public string XCaMethodId { get; set; }
         public Dictionary<string, string> SecurityHeaderDic = new Dictionary<string, string>();
 
         public TongzhongPostContent(string method, string methodId, TongzhouLogin user) : base(user)
         {
-            XCaMethod = method;
-            XCaMethodId= methodId;
+            SecurityHeaderDic.Add(Constants.XCaKey, Constants.CAKEY);
+            SecurityHeaderDic.Add(Constants.XCaNonce, user.XCaNonce);
+            SecurityHeaderDic.Add(Constants.XCaTimestamp, user.Timestamp);
+            SecurityHeaderDic.Add(Constants.XContentMD5, string.Empty);
+            SecurityHeaderDic.Add(Constants.XServiceId, methodId);
+            SecurityHeaderDic.Add(Constants.XServiceMethod, method);
         }
 
         protected void BuildSignHeaders()
         {
             var jsonContents = GetJsonContent(Content);
+            SetXContentMD5(jsonContents);
+            BuildXCaSignature();
 
-            AddHeader("X-Ca-Signature", "");
+            AddHeader("X-Ca-Signature", SecurityHeaderDic[Constants.XCaSignature]);
             AddHeader("X-Ca-Nonce", User.XCaNonce);
             AddHeader("X-Ca-Timestamp", User.Timestamp);
             AddHeader("X-Service-Encrypt", "1");
-            AddHeader("X-Service-Method", XCaMethod);
+            AddHeader("X-Service-Method", SecurityHeaderDic[Constants.XServiceMethod]);
             AddHeader("X-Ca-Key", "ngari-wx");
-            AddHeader("X-Content-MD5", "");
+            AddHeader("X-Content-MD5", SecurityHeaderDic[Constants.XContentMD5]);
             AddHeader("encoding", "utf-8");
-            AddHeader("X-Service-Id", XCaMethodId);
+            AddHeader("X-Service-Id", SecurityHeaderDic[Constants.XServiceId]);
         }
 
         protected void SetXContentMD5(string contentJson)
         {
+            if (contentJson.Equals("{}"))
+            {
+                contentJson = "[]";
+            }
             var base64Md5 = Encryptor.ToBase64Md5(contentJson);
             SecurityHeaderDic[Constants.XContentMD5] = base64Md5;
         }

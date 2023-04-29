@@ -9,6 +9,7 @@ namespace Tongzhou.session
         public const string DocDuty = "docDuty";
         public const string CryptoValue = "vss7db748e839799";
         public const string CASECRET = "a9d4eb7841b1ba47";
+        public const string CAKEY = "ngari-wx";
         public const string XContentMD5 = "X-Content-MD5";
         public const string XCaKey = "X-Ca-Key";
         public const string XCaNonce = "X-Ca-Nonce";

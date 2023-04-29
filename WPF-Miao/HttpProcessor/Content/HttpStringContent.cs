@@ -128,6 +128,19 @@ namespace HttpProcessor.Content
             return new StringContent(stringContent, Encoding.UTF8, ContentType);
         }
 
+        public virtual StringContent GetArrayContent()
+        {
+            var sb = new StringBuilder();
+            foreach (var value in Content.Values)
+            {
+                sb.Append($"{value},");
+            }
+            var stringContent = sb.ToString().TrimEnd(',');
+            stringContent = $"[{stringContent}]";
+
+            return new StringContent(stringContent, Encoding.UTF8, ContentType);
+        }
+
         public virtual StringContent GetRichStringContent()
         {
             var sb = new StringBuilder();

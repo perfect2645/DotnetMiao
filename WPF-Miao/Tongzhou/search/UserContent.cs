@@ -10,7 +10,7 @@ namespace Tongzhou.search
 {
     internal class UserContent : TongzhongPostContent
     {
-        public UserContent(TongzhouLogin user) : base("familyMemberListWithOrganDS", "eh.familyMemberService", user)
+        public UserContent(TongzhouLogin user) : base("current", "account.baseUserMvcService", user)
         {
             BuildContent();
             BuildSignHeaders();
@@ -18,9 +18,7 @@ namespace Tongzhou.search
 
         private void BuildContent()
         {
-            AddContent("dataSource", "yuyue");
-            AddContent("cardTag", string.Empty);
-            AddContent("t", 1);
+
         }
     }
 }
