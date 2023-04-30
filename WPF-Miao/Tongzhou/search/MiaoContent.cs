@@ -18,7 +18,7 @@ namespace Tongzhou.search
 
         private void BuildContent()
         {
-            var docCode = MainSession.PlatformSession.GetString(Constants.DocCode);
+            var docCode = MainSession.PlatformSession.GetString(Constants.DoctorId);
             var docCodeEncode = UnicodeConverter.EncodeOriginal(docCode, true);
             AddContent("docCode", docCodeEncode);
             AddContent("dataSource", string.Empty);

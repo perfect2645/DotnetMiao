@@ -115,7 +115,7 @@ namespace Tongzhou.search
             var hospitalName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var docId = MainSession.PlatformSession.GetString(Constants.DocCode);
+            var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
             var docName = MainSession.PlatformSession.GetString(Constants.DocName);
             var docDuty = MainSession.PlatformSession.GetString(Constants.DocDuty);
 

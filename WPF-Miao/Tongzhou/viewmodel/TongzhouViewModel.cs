@@ -164,13 +164,12 @@ namespace Tongzhou.viewmodel
             {
                 new TongzhouHospital
                 {
-                    HospitalId = "01",
+                    HospitalId = "1000668",
                     HospitalName = "北京通州区妇幼保健院",
-                    DepartmentName = "疫苗接种高级专家门诊",
-                    DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
-                    DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
-                    DocName = "疫苗接种高级专家门诊",
-                    DocDuty = string.Empty
+                    DepartmentName = "成人疫苗门诊",
+                    DepartmentId = "311c",
+                    DoctorId = "388268",
+                    DoctorName = "成人疫苗门诊",
                 },
                 new TongzhouHospital
                 {
@@ -178,9 +177,8 @@ namespace Tongzhou.viewmodel
                     HospitalName = "上海市第四人民医院",
                     DepartmentName = "儿科门诊",
                     DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
-                    DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
-                    DocName = "儿科门诊普通号",
-                    DocDuty = string.Empty
+                    DoctorId = "0400||儿科门诊普通号|儿科门诊|普通门诊",
+                    DoctorName = "儿科门诊普通号",
                 }
             };
 
@@ -589,9 +587,8 @@ namespace Tongzhou.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocCode, selectedDept.DocCode);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocName, selectedDept.DocName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocDuty, selectedDept.DocDuty);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }
