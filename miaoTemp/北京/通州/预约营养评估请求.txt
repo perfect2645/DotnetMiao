@@ -36,3 +36,45 @@ X-Orange-Proxy-Latency: 0
 Strict-Transport-Security: max-age=31536000
 
 {"code":200,"body":163286177}
+
+
+[
+    {
+        "mpiid": "2c908223877b51a301879464282e5538",
+        "patientName": "冯闻",
+        "organAppointId": "",
+        "scheduleId": 36410158,
+        "scheduleTimeId": "25",
+        "orderNumSopt": "14:50",
+        "organId": 1000668,
+        "appointDepartId": "3127",
+        "appointDepartName": "营养评估指导",
+        "doctorId": 16807,
+        "workDate": "2023-04-25 00:00:00",
+        "workType": 25,
+        "startTime": "2023-04-25 14:30:00",
+        "endTime": "2023-04-25 15:00:00",
+        "orderNum": 1013,
+        "appointRoad": 5,
+        "appointStatus": 0,
+        "appointPath": 9,
+        "appointUser": "2c90823f877b4d0d01879433435c4fdb",
+        "appointName": "周珊",
+        "appointOragn": "",
+        "clinicPrice": 60,
+        "transferId": 0,
+        "sourceLevel": 1,
+        "clinicId": "",
+        "ifCreateFollowPlan": 1,
+        "cardId": "",
+        "triggerId": null,
+        "appointRecordExt": {
+            "illSummaryTxt": "",
+            "thirdChannel": null
+        },
+        "analyzeNvcData": "",
+        "ruleString": "",
+        "isRealTime": 0,
+        "cardType": ""
+    }
+]

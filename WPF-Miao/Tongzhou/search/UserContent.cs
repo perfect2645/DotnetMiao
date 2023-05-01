@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Tongzhou.search
 {
-    internal class UserContent : TongzhongPostContent
+    internal class UserContent : TongzhouPostContent
     {
         public UserContent(TongzhouLogin user) : base("current", "account.baseUserMvcService", user)
         {

@@ -13,11 +13,11 @@ using System.Text.Json;
 
 namespace Tongzhou.common
 {
-    internal class TongzhongPostContent : TongzhouContent
+    internal class TongzhouPostContent : TongzhouContent
     {
         public Dictionary<string, string> SecurityHeaderDic = new Dictionary<string, string>();
 
-        public TongzhongPostContent(string method, string methodId, TongzhouLogin user) : base(user)
+        public TongzhouPostContent(string method, string methodId, TongzhouLogin user) : base(user)
         {
             SecurityHeaderDic.Add(Constants.XCaKey, Constants.CAKEY);
             SecurityHeaderDic.Add(Constants.XCaNonce, user.XCaNonce);

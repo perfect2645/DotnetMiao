@@ -51,26 +51,15 @@ namespace Tongzhou.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var responseResult = root.GetProperty("responseResult");
-                if (responseResult.ValueKind == JsonValueKind.Null)
+                var code = root.GetProperty("code").GetInt16();
+                var body = root.GetProperty("body").GetString();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
-                    return false;
-                }
-                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
-                var message = responseResult.GetProperty("message").GetString();
-                if (isSuccess != "1")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: isSuccess = {isSuccess}, message = {message}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code = {code}, body = {body}");
                     return false;
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"预约成功: message = {message}");
-
-                var bookingResult = root.GetProperty("bookingResult");
-
-                CheckOrder(bookingResult, content.Order);
-
+                MainSession.PrintLogEvent.Publish(this, $"预约成功: code = {code}, body = {body}");
                 return true;
             }
             catch (Exception ex)
@@ -78,18 +67,6 @@ namespace Tongzhou.appointment
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }
-        }
-
-        private void CheckOrder(JsonElement bookingResult, Order order)
-        {
-            var bookingId = bookingResult.GetProperty("bookingID").GetString();
-
-            if (!string.IsNullOrEmpty(bookingId))
-            {
-                order.BookingID = bookingId;
-            }
-
-            MainSession.PrintLogEvent.Publish(this, order.ToLogString());
         }
     }
 }
