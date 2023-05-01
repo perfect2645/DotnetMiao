@@ -11,6 +11,7 @@ using Longchi.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -115,7 +116,7 @@ namespace Longchi.viewmodel
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(17).AddMinutes(30).AddSeconds(10);
+            StartTime = DateTime.Today.AddHours(16).AddMinutes(29).AddSeconds(58);
 
             DateList = new List<DspVal>
             {
@@ -124,8 +125,8 @@ namespace Longchi.viewmodel
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
@@ -368,10 +369,11 @@ namespace Longchi.viewmodel
             try
             {
                 bool isSuccess = false;
-                //while (!isSuccess)
-                //{
-                    foreach(var order in orders)
+                while (!isSuccess)
+                {
+                    foreach (var order in orders)
                     {
+                        Thread.Sleep(3000);
                         var appointController = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
@@ -381,7 +383,7 @@ namespace Longchi.viewmodel
                             break;
                         }
                     }
-                //}
+                }
             }
             catch (HttpException ex)
             {
