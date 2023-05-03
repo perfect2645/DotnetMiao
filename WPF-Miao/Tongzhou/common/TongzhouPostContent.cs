@@ -10,6 +10,7 @@ using Utils;
 using Utils.json;
 using Tongzhou.session;
 using System.Text.Json;
+using Utils.datetime;
 
 namespace Tongzhou.common
 {
@@ -19,9 +20,10 @@ namespace Tongzhou.common
 
         public TongzhouPostContent(string method, string methodId, TongzhouLogin user) : base(user)
         {
+            var timestamp = User.Timestamp;
             SecurityHeaderDic.Add(Constants.XCaKey, Constants.CAKEY);
-            SecurityHeaderDic.Add(Constants.XCaNonce, user.XCaNonce);
-            SecurityHeaderDic.Add(Constants.XCaTimestamp, user.Timestamp);
+            SecurityHeaderDic.Add(Constants.XCaNonce, BuildXCaNonce(timestamp));
+            SecurityHeaderDic.Add(Constants.XCaTimestamp, timestamp);
             SecurityHeaderDic.Add(Constants.XContentMD5, string.Empty);
             SecurityHeaderDic.Add(Constants.XServiceId, methodId);
             SecurityHeaderDic.Add(Constants.XServiceMethod, method);
@@ -34,14 +36,20 @@ namespace Tongzhou.common
             BuildXCaSignature();
 
             AddHeader("X-Ca-Signature", SecurityHeaderDic[Constants.XCaSignature]);
-            AddHeader("X-Ca-Nonce", User.XCaNonce);
-            AddHeader("X-Ca-Timestamp", User.Timestamp);
+            AddHeader("X-Ca-Nonce", SecurityHeaderDic[Constants.XCaNonce]);
+            AddHeader("X-Ca-Timestamp", SecurityHeaderDic[Constants.XCaTimestamp]);
             AddHeader("X-Service-Encrypt", "1");
             AddHeader("X-Service-Method", SecurityHeaderDic[Constants.XServiceMethod]);
             AddHeader("X-Ca-Key", "ngari-wx");
             AddHeader("X-Content-MD5", SecurityHeaderDic[Constants.XContentMD5]);
             AddHeader("encoding", "utf-8");
             AddHeader("X-Service-Id", SecurityHeaderDic[Constants.XServiceId]);
+        }
+
+        protected string BuildXCaNonce(string timestamp)
+        {
+            var xCaNonce = $"{User.Uuid}{timestamp}{MainSession.LocalTimeOffset}";
+            return xCaNonce;
         }
 
         protected void SetXContentMD5(string contentJson)

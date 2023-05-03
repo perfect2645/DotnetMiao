@@ -134,7 +134,7 @@ namespace Tongzhou.viewmodel
         private void TestData()
         {
             Interval = 1000;
-            StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(10);
 
         }
 
