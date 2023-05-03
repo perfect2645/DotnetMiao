@@ -1,5 +1,6 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Container;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -19,9 +20,14 @@ namespace Tongzhou.search
         public void SearchMiao()
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
-            var defaultDate = DateTimeUtil.GetTomorrow();
             var defaultUser = MainSession.Users.FirstOrDefault();
-            GetMiao(defaultDate);
+            GetSchedule(defaultUser);
+        }
+
+        private void GetSchedule(TongzhouLogin? defaultUser)
+        {
+            var scheduleController = HttpServiceController.GetService<ScheduleController>();
+            scheduleController.GetScheduleAsync(defaultUser);
         }
 
         private void GetMiao(string date)

@@ -27,9 +27,9 @@ namespace Tongzhou.search
         {
             try
             {
-                var content = new UserContent(user);
+                var content = new ScheduleContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Array).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.ContentStr == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");

@@ -35,4 +35,58 @@ X-Orange-Upstream-Latency: 13
 X-Orange-Proxy-Latency: 0
 Strict-Transport-Security: max-age=31536000
 
-{"code":200,"body":{"userRoleToken":{"properties":{"patient":{"mpiId":"2c90823f877b4d0d01879433435c4fdb","loginId":"643e83e814d34b5feab3ed9f","isOwn":true,"authStatus":0,"patientName":"周珊","patientSex":"0","patientType":"1","mobile":"139****7525","homeArea":"110112","linkRation":"1","createDate":"2023-04-18 19:50:00","lastModify":"2023-04-18 19:50:00","status":1,"guardianFlag":false,"healthProfileFlag":false,"clientConfigId":21,"age":0,"fullHomeArea":"北京市 市辖区 通州区","urt":82078463,"defaultPatient":false}},"id":82078463,"userId":"643e83e814d34b5feab3ed9f","roleId":"patient","tenantId":"eh","manageUnit":"eh","lastLoginTime":"2023-04-28 23:03:38","lastIPAddress":"2409:8a15:1e67:400:7184:8426:77db:42eb","lastUserAgent":"CHROME8,81.0.4044.138,WINDOWS_7","createDt":"2023-04-18 19:50:00","userName":"周珊","ownMpiId":"2c90823f877b4d0d01879433435c4fdb","doctor":false,"patient":true,"chemist":false,"tenantName":"eHealthCloud","manageUnitName":"","roleName":"患者","admin":false,"displayName":"eHealthCloud-患者"},"properties":{"homeArea":"110112","fullHomeArea":"北京市 市辖区 通州区","mobile":"13940897525"}}}
+{
+    "code": 200,
+    "body": {
+        "userRoleToken": {
+            "properties": {
+                "patient": {
+                    "mpiId": "2c90823f877b4d0d01879433435c4fdb",
+                    "loginId": "643e83e814d34b5feab3ed9f",
+                    "isOwn": true,
+                    "authStatus": 0,
+                    "patientName": "周珊",
+                    "patientSex": "0",
+                    "patientType": "1",
+                    "mobile": "139****7525",
+                    "homeArea": "110112",
+                    "linkRation": "1",
+                    "createDate": "2023-04-18 19:50:00",
+                    "lastModify": "2023-04-18 19:50:00",
+                    "status": 1,
+                    "guardianFlag": false,
+                    "healthProfileFlag": false,
+                    "clientConfigId": 21,
+                    "age": 0,
+                    "fullHomeArea": "北京市 市辖区 通州区",
+                    "urt": 82078463,
+                    "defaultPatient": false
+                }
+            },
+            "id": 82078463,
+            "userId": "643e83e814d34b5feab3ed9f",
+            "roleId": "patient",
+            "tenantId": "eh",
+            "manageUnit": "eh",
+            "lastLoginTime": "2023-04-28 23:03:38",
+            "lastIPAddress": "2409:8a15:1e67:400:7184:8426:77db:42eb",
+            "lastUserAgent": "CHROME8,81.0.4044.138,WINDOWS_7",
+            "createDt": "2023-04-18 19:50:00",
+            "userName": "周珊",
+            "ownMpiId": "2c90823f877b4d0d01879433435c4fdb",
+            "doctor": false,
+            "patient": true,
+            "chemist": false,
+            "tenantName": "eHealthCloud",
+            "manageUnitName": "",
+            "roleName": "患者",
+            "admin": false,
+            "displayName": "eHealthCloud-患者"
+        },
+        "properties": {
+            "homeArea": "110112",
+            "fullHomeArea": "北京市 市辖区 通州区",
+            "mobile": "13940897525"
+        }
+    }
+}

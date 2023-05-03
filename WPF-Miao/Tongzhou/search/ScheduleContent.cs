@@ -9,16 +9,19 @@ namespace Tongzhou.search
     {
         public ScheduleContent(TongzhouLogin user) : base("queryDoctorSchedulingByDateV2", "appoint.scheduleService", user)
         {
+            ContentPrefix = "[";
+            ContentSuffix = "]";
             BuildContent();
             BuildSignHeaders();
         }
 
         private void BuildContent()
         {
-            var organId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var organId = MainSession.PlatformSession.GetString(Constants.HospitalId).ToInt();
+            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId).ToInt();
 
             AddContent("organId", organId);
+            AddContent("depart", null);
             AddContent("appointDepartCodes", new string[]{ });
             AddContent("sourceLevel", null);
             AddContent("hisSourceLevelText", null);

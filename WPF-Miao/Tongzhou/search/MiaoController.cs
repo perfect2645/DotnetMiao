@@ -116,8 +116,7 @@ namespace Tongzhou.search
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
             var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var docName = MainSession.PlatformSession.GetString(Constants.DocName);
-            var docDuty = MainSession.PlatformSession.GetString(Constants.DocDuty);
+            var docName = MainSession.PlatformSession.GetString(Constants.DoctorName);
 
             var day = resource.GetString("day");
             var timeEnd = resource.GetString("timeEnd");
@@ -125,15 +124,7 @@ namespace Tongzhou.search
 
             return new Order
             {
-                ResourceID = resource.GetString("resourceID"),
-                RegistDate = $"{day} {timeEnd}",
-                HospitalID = hospitalId,
-                HospitalName = hospitalName,
-                DeptCode = deptId,
-                DeptName = deptName,
-                DocCode = docId,
-                DocName = docName,
-                DocDuty = docDuty,
+
             };
         }
     }

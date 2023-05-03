@@ -71,14 +71,10 @@ namespace Tongzhou.common
             SecurityHeaderDic.Add(Constants.XCaSignature, signature);
         }
 
-        public string GetJsonContent(Dictionary<string, object> contents, bool isArr = false)
+        public string GetJsonContent(Dictionary<string, object> contents)
         {
             var jsonContent = JsonSerializer.Serialize(contents, JsonEncoder.JsonOption);
-            if (isArr)
-            {
-                jsonContent = $"[{jsonContent}]";
-            }
-
+            jsonContent = $"{ContentPrefix}{jsonContent}{ContentSuffix}";
             return jsonContent;
         }
     }

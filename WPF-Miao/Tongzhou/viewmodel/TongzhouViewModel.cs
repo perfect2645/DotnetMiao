@@ -271,7 +271,7 @@ namespace Tongzhou.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
                     StartOnTimeTimer();
