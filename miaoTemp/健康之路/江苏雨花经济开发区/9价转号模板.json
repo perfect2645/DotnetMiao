@@ -1,0 +1,104 @@
+{
+    "memberSn": "57179685",
+    "memberName": "徐裕博",
+    "memberPhone": "13998021788",
+    "memberAddress": "1",
+    "memberBirthday": "1996-05-19",
+    "memberSex": "2",
+    "memberId": "57179685",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "3206**********5020",
+    "memberIdcard": "3206**********5020",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "13998021788",
+    "accountSn": 156721564,
+    "cardNumber": "2086805827",
+    "hosDeptId": "7235364",
+    "doctorService_gh": "2",
+    "doctorUid": "710796399",
+    "doctorName": "九价疫苗",
+    "doctorPic": "",
+    "doctorClinicName": "医师",
+    "GH_HosProId": "10",
+    "GH_HosProName": "江苏",
+    "GH_HosCityId": "77",
+    "GH_HosCityName": "南京",
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "store": "",
+    "UnOpened": false,
+    "loginId": "off6ts_jIRHxcY_nQK1tX3vGlmP8",
+    "channelId": "1000031",
+    "doctorOfficeName": "",
+    "isread": "1",
+    "retid": "",
+    "birthday": "1996-05-19",
+    "registerDate": "2023-05-12",
+    "hosDeptName": "宫颈癌疫苗接种门诊（首针）",
+    "hospitalId": "1099108",
+    "hospitalName": "雨花经济开发区社区卫生服务中心",
+    "availablenum": 50,
+    "FHTimes": "08:00",
+    "FHDays": "7",
+    "waterId": 813603194,
+    "waitingInfor": "08:30-09:00",
+    "serialNo": "36",
+    "doctorSn": "711230166",
+    "arrangeId": 171000457,
+    "timeId": "1"
+}
+[
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "3206**********5020",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "13998021788",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "1996-05-19",
+        "keyName": "birthday"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "isread"
+    }
+]
