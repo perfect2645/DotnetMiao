@@ -1,0 +1,11 @@
+﻿<Window x:Class="HosTwo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:HosTwo.view"
+        Title="大连二院" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:HosTwoConsole x:Name="mainConsole">
+
+    </view:HosTwoConsole>
+</Window>

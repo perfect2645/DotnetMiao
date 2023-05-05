@@ -30,7 +30,7 @@ namespace Baohe.viewModel
         {
             try
             {
-                VerifyCode.ArrangeSn = "169666337";
+                VerifyCode.ArrangeSn = "170654943";
                 UserName = "肖丽媛";
                 StartTime = DateTime.Now.AddSeconds(20);
                 MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
