@@ -88,7 +88,7 @@ namespace Baohe.viewModel
 
             //VerifyCode.ArrangeSn = "169149843";
             //VerifyCode.Phone = "18301135103";
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
             //StartTime = DateTime.Today.AddMinutes(3);
         }
 
@@ -104,8 +104,8 @@ namespace Baohe.viewModel
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(12).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
 
             if (Application.Current.Properties.Contains("UserName"))
