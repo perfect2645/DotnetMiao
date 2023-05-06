@@ -77,7 +77,7 @@ namespace Baohe.viewModel
             MainSession.UpdateUiEvent = UpdateUiEvent;
 
             TestData();
-            LoginFromConfig();
+            //LoginFromConfig();
             MainSession.PrintLogEvent.Publish(this, StartTime.ToString());
             MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
         }
@@ -86,10 +86,12 @@ namespace Baohe.viewModel
         {
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7231670&doctorId=710791067&hospitalInternal=1&showMultiDept=0&platformType=9000981&exConsult=&consultHosId=1094367&utm_source=0.0.h.1026.bus010.0";
 
-            //VerifyCode.ArrangeSn = "169149843";
+            //VerifyCode.ArrangeSn = "170654946";
             //VerifyCode.Phone = "18301135103";
-            //StartTime = DateTime.Now.AddSeconds(20);
-            //StartTime = DateTime.Today.AddMinutes(3);
+            StartTime = DateTime.Now.AddSeconds(20);
+            Cookie = "jkzlAn_uuid=06063330-A203-4D12-8280-B2E000B2FD50; jkzlAn_c=-1; jkzlAn_p=-1; TOKEN_C7468BDAF6775C16167024C13B05DA1E=740790B7D895474383BADC2CC9667C3B; TOKEN_814953DC967D0DD9ABCD951393D78A8C=598A8D87AAD4432E8BCA1334961AF046; TOKEN_00B86EA55CDE196D347EB2B14817296A=A12D3468DD134ECC8B73EA630802C616; TOKEN_7900775EFB4E88DDBD7D810CA5EE1AA6=C7D97D5170D543D08DD929CE9E83C1A0; TOKEN_E5F030EBAE56BBD52C8D763AD0712D49=EB984D5BAFC745549833440E6283F095; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; TOKEN_C74D88F1C321E224961BC00375EDCD10=3CAA0DA289CA4B1E9E1D695F08DB5B7D; TOKEN_FB5A200594A8979BB0B27C1C70B28FBD=BFCEDF4A160441E8B2B46287CD859DA6; TOKEN_6317FBF5579509A10F191D4231E6B42C=72CB283F1D5C4270AD88DB012A79CAC9; TOKEN_26B85F817FF5A3EA2593ACA8ED99D4F8=F1A31AE406DB4CEC8D3131B9B7EA3E93; TOKEN_193D9A39836E4D78216F4D3E85816C5F=F35D781849A1484FA77B2CC19998BD40; jkzlAn_sid=35B1C80F-7A1E-4BC2-BF6E-1354B5B21282; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHN6TlVYenNsanhrZ2YzLUVXclpIYV9JIiwiU2VjU3RyIjoiRTdENzgxNTlGQkVFNTNDOUUxRjE5RDA3QjRDN0Y0NUUifQ%3D%3D; loginid=off6tszNUXzsljxkgf3-EWrZHa_I; OpenID=off6tszNUXzsljxkgf3-EWrZHa_I; LoginChannel=1000031; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTY1NTI3ODAiLCJDYXJkTnVtYmVyIjoiMjA4NjYzNzMxMiIsIkxvZ2luSWQiOiJvZmY2dHN6TlVYenNsanhrZ2YzLUVXclpIYV9JIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI1Qjc3NjU2Q0VDNzE0MUNDOTdFQURCRTlBQjZGQjY5OCJ9; TOKEN_5A4DB2C36B748DAB92696C9301F2A51B=8F2DE8824A5949E9A9D990A97235FDB2; _YyghSysTrackUUID=06174146128; jkzlAn_channelid=1000031; jkzlAn_userid=156552780; platformJson=%7bplatformType%3a1000031%2csourceType%3a0%2csourceId%3a0%2cclientId%3a1000031%7d; jkzlAn_ct=1683366159820";
+
+            UserName = "陈钰鸿";
         }
 
         private void InitStaticData()

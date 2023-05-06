@@ -19,6 +19,8 @@ namespace Baohe.session
             }
         }
 
+        #region Water
+
         public static List<Dictionary<string, object>> GetAvailableArrangeWater()
         {
             var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
@@ -39,6 +41,19 @@ namespace Baohe.session
 
             return availableWater;
         }
+
+        public static Dictionary<string, object> GetTargetWater(List<Dictionary<string, object>> originalWaters, string arrangeId)
+        {
+            var matchedWater = originalWaters?.FirstOrDefault(x => x.GetString(Constant.ArrangeId) == arrangeId);
+            if (matchedWater == null)
+            {
+                matchedWater = originalWaters.FirstOrDefault();
+            }
+
+            return matchedWater ?? new Dictionary<string, object>();
+        }
+
+        #endregion Water
 
         public static Dictionary<string, object> GetDefaultMember(string userName)
         {

@@ -123,8 +123,9 @@ namespace Baohe.search
 
                 switch(MainSession.YzmMode)
                 {
-                    case YzmMode.PreSendOnTimeVerify: 
-                        await SearchMiaoInfoAutoYzm(); break;
+                    case YzmMode.PreSendOnTimeVerify:
+                    case YzmMode.ExchangePreSendOnTimeVerify:
+                        await ExchangeSearch(); break;
                     case YzmMode.OnTimeSendVerify: 
                         await SearchMiaoInfo(); break;
                     case YzmMode.PreSendVerify:
@@ -144,6 +145,8 @@ namespace Baohe.search
         }
 
         #endregion AutoRun
+
+        #region Search Miao
 
         private async Task SearchMiaoInfoAutoYzm()
         {
@@ -257,6 +260,106 @@ namespace Baohe.search
             }
         }
 
+        #endregion Search Miao
+
+        #region Exchange Search
+
+        private async Task ExchangeSearch()
+        {
+            if (SearchStatus == SearchStatus.Start)
+            {
+                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+                var isWaterGet = await arrangeWater.GetExchangeWaterAsync(MainSession.ExchangeInfo.ArrangeId);
+                if (isWaterGet)
+                {
+                    SearchStatus = SearchStatus.WaterGet;
+                }
+            }
+
+            if (SearchStatus != SearchStatus.WaterGet)
+            {
+                return;
+            }
+
+            var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
+            if (arrangeWaterList.Count <= 0)
+            {
+                return;
+            }
+            var index = 0;
+            if (arrangeWaterList.Count > 0)
+            {
+                index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+            }
+
+            if (!MainSession.DefaultWater.HasItem())
+            {
+                MainSession.DefaultWater = arrangeWaterList[index]!;
+            }
+
+            if (!MainSession.IsYzmChecked)
+            {
+                CheckYzmAction?.Invoke();
+            }
+
+            var isNumbersGet = BuildExchangeNumbers();
+
+            MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+            lock (OrderLock)
+            {
+                if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
+                {
+                    SearchStatus = SearchStatus.NumbersGet;
+
+                    lock (OrderLock)
+                    {
+                        BuildExchangeOrder();
+                    }
+                }
+            }
+        }
+
+        private bool BuildExchangeNumbers()
+        {
+            var numbers = new List<Dictionary<string, object>>();
+            var exchangeNumber = new Dictionary<string, object>();
+
+            var doctorSn = MainSession.PlatformSesstion.GetString(Constant.DoctorSn);
+
+            exchangeNumber.AddOrUpdate("arrangeWater", MainSession.DefaultWater);
+            exchangeNumber.Add("ArrangeID", MainSession.ExchangeInfo.ArrangeId);
+            exchangeNumber.Add("NumberSN", MainSession.ExchangeInfo.NumberId);
+            exchangeNumber.Add("SerialNo", MainSession.ExchangeInfo.SerialNo);
+            exchangeNumber.Add("CommendScope", MainSession.ExchangeInfo.CommendScope);
+            exchangeNumber.Add("DoctorSN", doctorSn);
+
+            numbers.Add(exchangeNumber);
+
+            MainSession.AddMiaoSession(Constant.Numbers, numbers);
+            return true;
+        }
+
+        private void BuildExchangeOrder()
+        {
+            var orders = MainSession.OrderSession.GetOrders();
+            var numberCount = (MainSession.MiaoSession["Numbers"] as IList).Count;
+
+            var appContr = HttpServiceController.GetService<AppointmentController>();
+
+            for (int i = 0; i < 100; i ++)
+            {
+                foreach (var order in orders)
+                {
+                    order.FillContent(MainSession.MiaoSession);
+                    Thread.Sleep(2500);
+                }
+            }
+        }
+
+        #endregion Exchange Search
+
+        #region User Doc
+
         private async Task SearchUserInfo(string userName)
         {
             try
@@ -293,6 +396,10 @@ namespace Baohe.search
             }
         }
 
+        #endregion User Doc
+
+        #region Build Order
+
         private void BuildMemberOrder(Dictionary<string, object> defaultMember)
         {
             if (!defaultMember.HasItem())
@@ -326,5 +433,7 @@ namespace Baohe.search
                 Thread.Sleep(3000);
             }
         }
+
+        #endregion Build Order
     }
 }
