@@ -297,6 +297,11 @@ namespace Baohe.search
                 MainSession.DefaultWater = arrangeWaterList[index]!;
             }
 
+            if (!MainSession.IsYzmSent)
+            {
+                return;
+            }
+
             if (!MainSession.IsYzmChecked)
             {
                 CheckYzmAction?.Invoke();
@@ -351,7 +356,7 @@ namespace Baohe.search
                 foreach (var order in orders)
                 {
                     order.FillContent(MainSession.MiaoSession);
-                    Thread.Sleep(2500);
+                    Thread.Sleep(3000);
                 }
             }
         }
