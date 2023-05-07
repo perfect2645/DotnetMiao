@@ -46,7 +46,6 @@ namespace Baohe.viewModel
                 Task.Factory.StartNew(async () =>
                 {
                     await AutoRunAsync();
-                    await BuildExchangeOrderAsync();
                     //VerifyCode.ExecuteVerifyYzmAsync();
                 });
             }
@@ -58,19 +57,6 @@ namespace Baohe.viewModel
             {
                 Log(ex);
             }
-        }
-
-        private async Task BuildExchangeOrderAsync()
-        {
-            await Task.Factory.StartNew(() =>
-            {
-                BuildExchangeOrder();
-            });
-        }
-
-        private void BuildExchangeOrder()
-        {
-
         }
     }
 }
