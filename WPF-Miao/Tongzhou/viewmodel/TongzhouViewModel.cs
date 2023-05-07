@@ -134,7 +134,7 @@ namespace Tongzhou.viewmodel
         private void TestData()
         {
             Interval = 1000;
-            StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(10);
 
         }
 
@@ -170,15 +170,6 @@ namespace Tongzhou.viewmodel
                     DepartmentId = "311c",
                     DoctorId = "388268",
                     DoctorName = "成人疫苗门诊",
-                },
-                new TongzhouHospital
-                {
-                    HospitalId = "01",
-                    HospitalName = "上海市第四人民医院",
-                    DepartmentName = "儿科门诊",
-                    DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
-                    DoctorId = "0400||儿科门诊普通号|儿科门诊|普通门诊",
-                    DoctorName = "儿科门诊普通号",
                 }
             };
 
@@ -280,7 +271,7 @@ namespace Tongzhou.viewmodel
 
         protected override void StartAutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
                     StartOnTimeTimer();
@@ -405,7 +396,7 @@ namespace Tongzhou.viewmodel
                 bool isSuccess = false;
                 foreach (var order in orders)
                 {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
+                    var appointController = MainSession.AppointSession.GetController($"{userName}");
                     isSuccess = appointController.YuyueAsync(order);
                     if (isSuccess)
                     {
@@ -434,7 +425,7 @@ namespace Tongzhou.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {

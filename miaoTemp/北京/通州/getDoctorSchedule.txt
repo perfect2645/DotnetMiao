@@ -1,0 +1,57 @@
+POST https://weixin.ngarihealth.com/weixin/wx/mp/wx45b57abae69e92e6/gateway HTTP/1.1
+Host: weixin.ngarihealth.com
+Connection: keep-alive
+Content-Length: 184
+Origin: https://weixin.ngarihealth.com
+X-Ca-Signature: zW0rUJJgiGI9X7RWMOookK99BiW/0kbuduwvOwn01JM=
+X-Ca-Nonce: 6451155c508b0230b94c6b1e168303551173264
+X-Ca-Timestamp: 1683035511732
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+content-Type: application/json
+X-Service-Method: queryDoctorSchedulingByDateV2
+X-Ca-Key: ngari-wx
+X-Content-MD5: s1DtfAOrXjqwrdihuTGjCA==
+encoding: utf-8
+X-Service-Id: appoint.scheduleService
+Accept: */*
+Cookie: tk=599207f8-538e-47ef-989c-7360de6960fe; client-id=114859471; isNewUser=false; api=WX; acw_tc=ac11000116830354823893285e00cf9307b4c9a5e6607255c056ab84a20fe9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://weixin.ngarihealth.com/weixin/wx/mp/wx45b57abae69e92e6/index.html?module=appointHomePage&code=08149a100FfYUP1MvD200ltGgB249a1k&state=STATE
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+[{"organId":1000668,"depart":null,"appointDepartCodes":[],"sourceLevel":null,"hisSourceLevelText":null,"busType":null,"sourceType":1,"doctorId":388268,"date":null,"scheduleDesc":null}]
+HTTP/1.1 200 OK
+Date: Tue, 02 May 2023 13:51:52 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 2180
+Connection: keep-alive
+X-Coded-JSON-Message: true
+Vary: Accept-Encoding
+Cache-Control: no-cache, no-store
+X-Orange-Upstream-Latency: 954
+X-Orange-Proxy-Latency: 0
+Strict-Transport-Security: max-age=31536000
+
+{"code":200,"body":[{"organName":"通州区妇幼保健院","address":"北京市通州区玉桥中路124号","appointDepartCode":"311c","doctorId":388268,"schedules":[{"scheduleId":37099622,"doctorId":388268,"doctorName":"成人疫苗门诊","organId":1000668,"organSchedulingId":"552563","scheduleTimeId":"27","workDate":"2023-05-04 00:00:00","workTimeType":"27","workTimeTypeName":"下午","sourceNum":20,"usedNum":20,"unUsedNum":0,"usableNum":0,"price":0.0,"medicalCarePrice":0.0,"totalPrice":0.0,"hospCode":"01","hospName":"北京市通州区妇幼保健院","status":0,"createDate":"2023-04-26 00:01:32","updateDate":"2023-05-02 21:51:53","hisScheduleFrom":1,"jobNumber":"PT_311c","appointDepartCode":"311c","scheduleType":1,"appointDepartName":"成人疫苗门诊","scheduleFrom":1,"ngariBusType":1,"sourceLevel":1,"startTime":"2023-05-04 14:00:00","endTime":"2023-05-04 14:30:00","stopFlag":0,"week":"星期四","scheduleTimeIdNum":4,"appointAble":true,"appointAbleMsg":"","stopFlagText":"正常","cloudClinicTypeText":"","organIdText":"通州区妇幼保健院","sourceTypeText":"","sourceLevelText":"普通门诊"},{"scheduleId":37529332,"doctorId":388268,"doctorName":"成人疫苗门诊","organId":1000668,"organSchedulingId":"552564","scheduleTimeId":"27","workDate":"2023-05-09 00:00:00","workTimeType":"27","workTimeTypeName":"下午","sourceNum":20,"usedNum":20,"unUsedNum":0,"usableNum":1,"price":0.0,"medicalCarePrice":0.0,"totalPrice":0.0,"hospCode":"01","hospName":"北京市通州区妇幼保健院","status":0,"createDate":"2023-05-01 00:01:36","updateDate":"2023-05-02 21:51:53","hisScheduleFrom":1,"jobNumber":"PT_311c","appointDepartCode":"311c","scheduleType":1,"appointDepartName":"成人疫苗门诊","scheduleFrom":1,"ngariBusType":1,"sourceLevel":1,"startTime":"2023-05-09 14:00:00","endTime":"2023-05-09 14:30:00","stopFlag":0,"week":"星期二","scheduleTimeIdNum":4,"appointAble":true,"appointAbleMsg":"","stopFlagText":"正常","cloudClinicTypeText":"","organIdText":"通州区妇幼保健院","sourceTypeText":"","sourceLevelText":"普通门诊"}],"organId":1000668,"departId":109600,"appointDepartName":"成人疫苗门诊","couponFlag":false}]}
+
+
+[
+    {
+        "organId": 1000668,
+        "depart": null,
+        "appointDepartCodes": [],
+        "sourceLevel": null,
+        "hisSourceLevelText": null,
+        "busType": null,
+        "sourceType": 1,
+        "doctorId": 388268,
+        "date": null,
+        "scheduleDesc": null
+    }
+]
+
+645277767b3c6f663ecd8e2d168313116831279
+64528c5e503de94f045ae8ab16831027055052

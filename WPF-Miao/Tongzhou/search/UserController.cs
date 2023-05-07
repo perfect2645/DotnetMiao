@@ -12,6 +12,7 @@ using Utils.stringBuilder;
 using Tongzhou.login;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Tongzhou.search
 {
@@ -60,9 +61,14 @@ namespace Tongzhou.search
                 return false;
             }
 
+            var bodyDic = dicResult.GetString("body").ToObjDic();
 
+            var bodyObj = JsonConvert.DeserializeObject<dynamic>(dicResult.GetString("body"));
+            var patient = bodyObj.userRoleToken.properties.patient as object;
+            var patientDic = patient.NotNullString().ToDic();
+            MainSession.PlatformSession.AddOrUpdate("patient", patientDic);
+            MainSession.PrintLogEvent.Publish(this, patientDic);
             return true;
-            //MainSession.PrintLogEvent.Publish(this, defaultUser);
         }
     }
 }

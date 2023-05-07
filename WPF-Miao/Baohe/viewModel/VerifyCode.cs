@@ -171,7 +171,7 @@ namespace Baohe.viewModel
                 _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
                 var isYzmSent = await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
-                if (MainSession.YzmMode == YzmMode.OnTimeSendVerify)
+                if (MainSession.YzmMode == YzmMode.OnTimeSendVerify || MainSession.YzmMode == YzmMode.ExchangePreSendOnTimeVerify)
                 {
                     MainSession.IsYzmSent= isYzmSent;
                 }

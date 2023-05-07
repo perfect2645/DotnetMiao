@@ -76,12 +76,6 @@ namespace Baohe.appointment
 
         private void Appoint()
         {
-            if (Status != OrderStatus.Pending)
-            {
-                return;
-            }
-            Status = OrderStatus.Running;
-
             var orderArgs = new OrderArgs(OrderKey, Content);
             OrderEvent.Publish(OrderKey, orderArgs);
         }
