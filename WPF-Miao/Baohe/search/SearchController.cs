@@ -34,6 +34,7 @@ namespace Baohe.search
         Start,
         WaterGet,
         NumbersGet,
+        ExchangeOrderBuilt,
     }
     internal class SearchController : HttpClientBase
     {
@@ -269,58 +270,57 @@ namespace Baohe.search
             if (SearchStatus == SearchStatus.Start)
             {
                 var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
-                var isWaterGet = await arrangeWater.GetExchangeWaterAsync(MainSession.ExchangeInfo.ArrangeId);
+                var isExchangeWaterGet = await arrangeWater.GetExchangeWaterAsync(MainSession.ExchangeInfo.ArrangeId);
+                if (!isExchangeWaterGet)
+                {
+                    return;
+                }
+
+                var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
+                if (arrangeWaterList.Count <= 0)
+                {
+                    return;
+                }
+                var index = 0;
+                if (arrangeWaterList.Count > 0)
+                {
+                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                }
+
+                if (!MainSession.DefaultWater.HasItem())
+                {
+                    MainSession.DefaultWater = arrangeWaterList[index]!;
+                }
+
+                if (!MainSession.IsYzmSent)
+                {
+                    return;
+                }
+
+                BuildExchangeNumbers();
+                SearchStatus = SearchStatus.ExchangeOrderBuilt;
+            }
+
+            MainSession.PrintLogEvent.Publish(this, $"Order is built,开始捡漏");
+
+            if (SearchStatus == SearchStatus.ExchangeOrderBuilt)
+            {
+                var arrangeWater = HttpServiceController.GetService<ArrangeWaterController>();
+                var isWaterGet = await arrangeWater.GetArrangeWaterAsync();
                 if (isWaterGet)
                 {
-                    SearchStatus = SearchStatus.WaterGet;
-                }
-            }
-
-            if (SearchStatus != SearchStatus.WaterGet)
-            {
-                return;
-            }
-
-            var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
-            if (arrangeWaterList.Count <= 0)
-            {
-                return;
-            }
-            var index = 0;
-            if (arrangeWaterList.Count > 0)
-            {
-                index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
-            }
-
-            if (!MainSession.DefaultWater.HasItem())
-            {
-                MainSession.DefaultWater = arrangeWaterList[index]!;
-            }
-
-            if (!MainSession.IsYzmSent)
-            {
-                return;
-            }
-
-            if (!MainSession.IsYzmChecked)
-            {
-                CheckYzmAction?.Invoke();
-            }
-
-            var isNumbersGet = BuildExchangeNumbers();
-
-            MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
-            lock (OrderLock)
-            {
-                if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
-                {
                     SearchStatus = SearchStatus.NumbersGet;
-
-                    lock (OrderLock)
+                    if (!MainSession.IsYzmChecked)
                     {
-                        BuildExchangeOrder();
+                        CheckYzmAction?.Invoke();
                     }
                 }
+            }
+
+            if (SearchStatus == SearchStatus.NumbersGet)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"查到苗-开始预约");
+                BuildExchangeOrder();
             }
         }
 
@@ -351,12 +351,12 @@ namespace Baohe.search
 
             var appContr = HttpServiceController.GetService<AppointmentController>();
 
-            for (int i = 0; i < 100; i ++)
+            for (int i = 0; i < 10; i ++)
             {
                 foreach (var order in orders)
                 {
                     order.FillContent(MainSession.MiaoSession);
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                 }
             }
         }

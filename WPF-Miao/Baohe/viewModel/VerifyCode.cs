@@ -146,6 +146,11 @@ namespace Baohe.viewModel
 
         private void ProcessYzmUpdated()
         {
+            if (MainSession.YzmMode == YzmMode.ExchangePreSendOnTimeVerify)
+            {
+                return;
+            }
+
             if (!MainSession.IsYzmSent)
             {
                 return;

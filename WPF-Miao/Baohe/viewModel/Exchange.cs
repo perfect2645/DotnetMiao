@@ -30,9 +30,9 @@ namespace Baohe.viewModel
         {
             try
             {
-                VerifyCode.ArrangeSn = "170654946";
-                MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "810916951", "46", "15:00-15:30");
-                UserName = "陈钰鸿";
+                VerifyCode.ArrangeSn = "171000457";
+                MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "813603197", "39", "08:30-09:00");
+                UserName = "汤颖";
                 StartTime = DateTime.Now.AddSeconds(20);
                 MainSession.YzmMode = YzmMode.ExchangePreSendOnTimeVerify;
 
@@ -46,7 +46,6 @@ namespace Baohe.viewModel
                 Task.Factory.StartNew(async () =>
                 {
                     await AutoRunAsync();
-                    await BuildExchangeOrderAsync();
                     //VerifyCode.ExecuteVerifyYzmAsync();
                 });
             }
@@ -58,19 +57,6 @@ namespace Baohe.viewModel
             {
                 Log(ex);
             }
-        }
-
-        private async Task BuildExchangeOrderAsync()
-        {
-            await Task.Factory.StartNew(() =>
-            {
-                BuildExchangeOrder();
-            });
-        }
-
-        private void BuildExchangeOrder()
-        {
-
         }
     }
 }
