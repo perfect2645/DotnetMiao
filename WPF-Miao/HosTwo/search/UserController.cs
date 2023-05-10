@@ -39,22 +39,21 @@ namespace HosTwo.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var responseResult = root.GetProperty("responseResult");
-                if (responseResult.ValueKind == JsonValueKind.Null)
+                var code = root.GetProperty("code").GetInt16();
+                if (code != 0)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    return;
+                }
+
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
-                if (isSuccess != "1")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
-                    return;
-                }
-
-                var bindCardList = root.GetProperty("bindCardList");
-
-                SaveUser(bindCardList, user);
+                var cardList = data.GetProperty("cardList");
+                SaveUser(cardList, user);
             }
             catch (Exception ex)
             {
@@ -64,20 +63,20 @@ namespace HosTwo.search
 
         private void SaveUser(JsonElement data, HosTwoLogin user)
         {
-            var familyMembers = JsonAnalysis.JsonToDicList(data);
-            if (!familyMembers.HasItem())
+            var cardList = JsonAnalysis.JsonToDicList(data);
+            if (!cardList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault(x => x["patientName_Sort"].NotNullString() == user.UserName);
+            var defaultUser = cardList.FirstOrDefault(x => x["patientName"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
-                defaultUser = familyMembers.FirstOrDefault();
+                defaultUser = cardList.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("patientName_Sort");
-            var userId = defaultUser.GetString("hospitalUserID");
+            var userName = defaultUser.GetString("patientName");
+            var userId = defaultUser.GetString("patCardNo");
 
             user.UserId = userId;
             user.UserName = userName;

@@ -31,8 +31,8 @@ namespace Baohe.viewModel
             try
             {
                 VerifyCode.ArrangeSn = "171000457";
-                MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "813603197", "39", "08:30-09:00");
-                UserName = "汤颖";
+                MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "813603199", "42", "09:00-9:30");
+                UserName = "詹小美";
                 StartTime = DateTime.Now.AddSeconds(20);
                 MainSession.YzmMode = YzmMode.ExchangePreSendOnTimeVerify;
 

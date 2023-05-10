@@ -1,4 +1,5 @@
 ﻿using Base.viewModel.hospital;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace HosTwo.viewmodel
@@ -6,9 +7,16 @@ namespace HosTwo.viewmodel
     internal class HosTwoHospital : HospitalDept
     {
 
-        public string DocCode { get; set; }
-        public string DocName { get; set; }
-        public string DocDuty { get; set; }
+        public string DoctorId { get; set; }
+        public string DoctorName { get; set; }
+
+        public new string Display 
+        {  
+            get 
+            { 
+                return $"{HospitalName}-{DepartmentName}-{DoctorName}"; 
+            }
+        }
 
         public override string ToLogString()
         {
@@ -17,7 +25,7 @@ namespace HosTwo.viewmodel
             sb.AppendLine("********大连2院-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {HospitalId}");
             sb.AppendLine($"{DepartmentName} - {DepartmentId}");
-            sb.AppendLine($"{DocName} - {DocCode}");
+            sb.AppendLine($"{DoctorName} - {DoctorId}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

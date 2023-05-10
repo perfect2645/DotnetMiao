@@ -162,24 +162,22 @@ namespace HosTwo.viewmodel
             {
                 new HosTwoHospital
                 {
-                    HospitalId = "01",
-                    HospitalName = "上海市第四人民医院",
-                    DepartmentName = "疫苗接种高级专家门诊",
-                    DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
-                    DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
-                    DocName = "疫苗接种高级专家门诊",
-                    DocDuty = string.Empty
+                    HospitalId = "2342",
+                    HospitalName = "大连市第二人民医院",
+                    DepartmentName = "泡南预防保健部",
+                    DepartmentId = "11823-2102000501",
+                    DoctorId = "1632072",
+                    DoctorName = "国产二价预约",
                 },
                 new HosTwoHospital
                 {
-                    HospitalId = "01",
-                    HospitalName = "上海市第四人民医院",
-                    DepartmentName = "儿科门诊",
-                    DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
-                    DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
-                    DocName = "儿科门诊普通号",
-                    DocDuty = string.Empty
-                }
+                    HospitalId = "2342",
+                    HospitalName = "大连市第二人民医院",
+                    DepartmentName = "泡南预防保健部",
+                    DepartmentId = "11823-2102000501",
+                    DoctorId = "1632075",
+                    DoctorName = "进口九价预约",
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -458,7 +456,7 @@ namespace HosTwo.viewmodel
                     {
                         ResourceID = template.ResourceID,
                         RegistDate = template.RegistDate,
-                        HospitalUserID = user.UserId,
+                        HospitalUserID = user.Uid,
                         HospitalID = template.HospitalID,
                         HospitalName = template.HospitalName,
                         DeptCode = template.DeptCode,
@@ -588,9 +586,8 @@ namespace HosTwo.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocCode, selectedDept.DocCode);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocName, selectedDept.DocName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocDuty, selectedDept.DocDuty);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocCode, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }

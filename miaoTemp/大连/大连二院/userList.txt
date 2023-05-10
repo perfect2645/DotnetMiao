@@ -1,0 +1,71 @@
+POST https://mix.med.gzhc365.com/api/homepage/getpatientslist HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 111
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Hc-Src-Hisid: 2342
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: wx_xcx
+client: patient
+content-type: application/x-www-form-urlencoded
+device-id: 
+his-id: 2342
+request-id: 63fd4167-599a-4674-9142-65f50032cc0e
+uid: 4522322919844511746
+uuid: 78d1a361-a990-423a-9570-d2e8c99bd72f
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&login_access_token=1683725745042-A6478DA2F54943BB55A90C
+HTTP/1.1 200
+Content-Type: application/json;charset=UTF-8
+Content-Length: 628
+Connection: keep-alive
+Server: Tengine
+Date: Wed, 10 May 2023 16:03:00 GMT
+encrypt: false
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 41
+X-Kong-Proxy-Latency: 0
+Via: kong/1.4.0
+
+{
+    "code": 0,
+    "data": {
+        "cardList": [
+            {
+                "bindMedicareCard": 0,
+                "bindStatus": 1,
+                "birthday": "1988-11-25",
+                "healthCardFlag": 0,
+                "idNo": "2103**********0324",
+                "idNoRea": "210302198811250324",
+                "idType": 1,
+                "idTypeName": "身份证",
+                "isDefault": 1,
+                "patCardNo": "1737160",
+                "patCardNoEncry": "uefOiixxHfcyhIC6xg+b+Q==",
+                "patCardNoReal": "1737160",
+                "patCardType": 21,
+                "patCardTypeName": "院内就诊卡",
+                "patHisNo": "",
+                "patInNo": "",
+                "patientFullIdNo": "210302198811250324",
+                "patientId": "4522335220631863304",
+                "patientMobile": "*******0995",
+                "patientName": "石琳",
+                "patientRealMobile": "17709870995",
+                "patientSex": "F",
+                "relationName": "他人",
+                "relationType": 5
+            }
+        ],
+        "leftBindNum": 4
+    }
+}
