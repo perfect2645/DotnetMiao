@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Lujiazhen.login;
+using System.Text;
 
 namespace Lujiazhen.appointment
 {
@@ -11,6 +12,7 @@ namespace Lujiazhen.appointment
         public string No { get; set; }
         public string ResultCode { get; set; }
         public string ResultMsg { get; set; }
+        internal LujiazhenLogin User { get; set; }
 
         public string ToLogString()
         {

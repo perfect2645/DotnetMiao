@@ -1,25 +1,30 @@
 ﻿using HttpProcessor.Content;
+using Lujiazhen.login;
+using Lujiazhen.session;
+using System;
+using Utils;
 
 namespace Lujiazhen.common
 {
     internal class LujiazhenContent : HttpStringContent
     {
-        public LujiazhenContent(string url) : base(url)
+        public LujiazhenLogin User { get; private set; }
+
+        public LujiazhenContent(string baseUrl, LujiazhenLogin user) : base(baseUrl)
         {
-            ContentType = "application/json";
+            User = user;
+
+            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 
         private void BuildHeader()
         {
-            AddHeader("Host", "health-cn.xyz:9033");
-            AddHeader("Origin", "https://health-cn.xyz");
-            AddHeader("Accept-Encoding", "gzip, deflate, br");
+            AddHeader("Host", "ljzyyapi.yuanbaodaojia.com");
             AddHeader("Connection", "keep-alive");
-            AddHeader("Accept", "application/json, text/plain, */*");
-            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN");
-            AddHeader("Referer", $"https://health-cn.xyz/");
-            AddHeader("Accept-Language", "zh-CN,zh-Hans;q=0.9");
+            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
+            AddHeader("Referer", "https://servicewechat.com/wxcbe627ede7df27a5/1/page-frame.html");
+            AddHeader("Accept-Encoding", "gzip, deflate, br");
         }
     }
 }

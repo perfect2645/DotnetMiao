@@ -2,6 +2,7 @@
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
+using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Lujiazhen.appointment;
 using Lujiazhen.login;
@@ -109,17 +110,10 @@ namespace Lujiazhen.viewmodel
         private void LoginFromConfigAsync()
         {
             MainSession.Users = FileReader.DeserializeFile<List<LujiazhenLogin>>("Login.json");
-            foreach(var user in MainSession.Users)
+            foreach (var user in MainSession.Users)
             {
-                var order = new Order
-                {
-                    Address = SelectedDepartment.HospitalName,
-                    No = SelectedDepartment.DepartmentId,
-                    Phone = user.Phone,
-                    Type = SelectedDepartment.DepartmentName,
-                    UserName = user.Name
-                };
-                MainSession.Orders.Add(user.Name, order);
+                var userController = HttpServiceController.GetService<UserController>();
+                userController.GetUserAsync(user);
             }
 
             MainSession.InitSession();

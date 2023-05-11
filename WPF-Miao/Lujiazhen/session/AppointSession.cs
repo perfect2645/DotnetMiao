@@ -10,7 +10,7 @@ namespace Lujiazhen.session
             var userList = MainSession.Users;
             foreach(var user in userList)
             {
-                AddController($"{user.Name}");
+                AddController($"{user.UserName}");
             }
         }
     }
