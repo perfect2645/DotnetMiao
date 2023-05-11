@@ -6,6 +6,7 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Lujiazhen.appointment;
 using Lujiazhen.login;
+using Lujiazhen.search;
 using Lujiazhen.session;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace Lujiazhen.viewmodel
 
         private readonly object OrderLock = new object();
 
+        private SearchController _searchController;
+
         #endregion Properties
 
         #region Constructor
@@ -44,30 +47,26 @@ namespace Lujiazhen.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(30);
 
             Departments = new List<HospitalDept>
             {
                 new LujiazhenHospital
                 {
-                    HospitalName = "黄埭镇东桥",
-                    DepartmentName = "9价HPV（9-45周岁）",
-                    DepartmentId = "3",
-                },
-                new LujiazhenHospital
-                {
-                    HospitalName = "黄埭镇东桥",
-                    DepartmentName = "4价HPV（9-45周岁）",
-                    DepartmentId = "2",
-                },
+                    HospitalId = "1",
+                    HospitalName = "邵村院区",
+                    DepartmentName = "九价HPV首针（默沙东）",
+                    DepartmentId = "6",
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
+            _searchController = new SearchController();
         }
 
         private void InitCommands()
@@ -143,10 +142,10 @@ namespace Lujiazhen.viewmodel
 
         protected override void AutoRun()
         {
-            Task.Factory.StartNew(async () => {
+            Task.Factory.StartNew(() => {
                 try
                 {
-                    Appoint();
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -217,10 +216,60 @@ namespace Lujiazhen.viewmodel
             }
         }
 
+
+        private void StartOneOrder(string userName, List<Order> orders)
+        {
+            try
+            {
+                bool isSuccess = false;
+                while (!isSuccess)
+                {
+                    foreach (var order in orders)
+                    {
+                        var appointController = MainSession.AppointSession.GetController($"{userName}");
+                        isSuccess = appointController.YuyueAsync(order);
+                        if (isSuccess)
+                        {
+                            PrintLog("预约成功");
+                            PrintLog(order.ToLogString());
+                            return;
+                        }
+                    }
+                }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
         private void OnOrder(object? sender, OrderEventArgs e)
         {
-     
+            var orderTemplateList = e.OrderList;
+            foreach (var user in MainSession.Users)
+            {
+                var orderList = new List<Order>();
+                foreach (var template in orderTemplateList)
+                {
+                    var order = new Order
+                    {
+                        UserName = user.UserName,
+                        User = user,
+                        FamilyId = user.UserId,
+                        VaccineDayId = template.VaccineDayId,
+                        VaccineId = template.VaccineId,
+                        VaccineDayNumId = template.VaccineDayNumId,
+                    };
 
+                    orderList.Add(order);
+                }
+
+                Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
+            }
         }
 
         private void DirectlyOrder(string scheduleId)
@@ -235,6 +284,7 @@ namespace Lujiazhen.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as LujiazhenHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);

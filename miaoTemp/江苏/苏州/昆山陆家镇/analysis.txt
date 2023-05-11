@@ -1,0 +1,8 @@
+提交请求参数
+
+(local var) s: {
+    vaccineDayId: any;
+    vaccineDayNumId: any;
+    vaccineId: any;
+    familyId: any;
+}

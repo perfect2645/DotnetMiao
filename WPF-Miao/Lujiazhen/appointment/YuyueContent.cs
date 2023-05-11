@@ -5,7 +5,7 @@ namespace Lujiazhen.appointment
 {
     internal class YuyueContent : LujiazhenContent
     {
-        private static string url = "https://health-cn.xyz:9033/health_xcdp/api/hpv/save";
+        private static string url = "https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {
@@ -15,11 +15,11 @@ namespace Lujiazhen.appointment
 
         private void BuildContent()
         {
-            AddContent("name", Order.UserName);
-            AddContent("phone", Order.Phone);
-            AddContent("address", Order.Address);
-            AddContent("type", Order.Type);
-            AddContent("no", Order.No);
+            AddContent("vaccineDayId", Order.VaccineDayId);
+            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
+            AddContent("vaccineId", Order.VaccineId);
+            AddContent("familyId", Order.FamilyId);
+            AddContent("token", Order.User.Token);
         }
     }
 }

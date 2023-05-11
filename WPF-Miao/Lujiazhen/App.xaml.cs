@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Container;
 using Lujiazhen.appointment;
 using Lujiazhen.login;
+using Lujiazhen.search;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -28,6 +29,7 @@ namespace Lujiazhen
         {
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.BuidServiceProvider();
         }
     }

@@ -45,24 +45,30 @@ namespace Lujiazhen.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
                     return false;
                 }
-
                 var root = response.JsonBody.RootElement;
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                if (code != "0" || msg != "操作完成")
+
+                var code = root.GetProperty("errorCode").GetString();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != "0000")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:code={code}, message: {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
                 }
 
                 var data = root.GetProperty("data");
-                return SaveOrderResult(data);
+                if (data.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
+                    return false;
+                }
+                MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
+                return true;
             }
             catch (Exception ex)
             {

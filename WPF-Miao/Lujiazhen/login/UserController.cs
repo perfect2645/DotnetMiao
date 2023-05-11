@@ -32,7 +32,7 @@ namespace Lujiazhen.login
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
-                 if (response?.Body == null)
+                if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return;

@@ -1,0 +1,57 @@
+POST https://ljzyyapi.yuanbaodaojia.com/v1/vaccine_day_list HTTP/1.1
+Host: ljzyyapi.yuanbaodaojia.com
+Connection: keep-alive
+Content-Length: 69
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/x-www-form-urlencoded
+Referer: https://servicewechat.com/wxcbe627ede7df27a5/1/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+vaccineId=6&vaccineAddressId=1&token=9ebe42a6ce39a6d6216a5babbb185bf7
+HTTP/1.1 200 OK
+Date: Thu, 11 May 2023 17:37:51 GMT
+Server: Apache
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: x-requested-with, content-type
+Upgrade: h2
+Connection: Upgrade, close
+Vary: Accept-Encoding
+Content-Length: 51
+Content-Type: application/json; charset=utf-8
+
+{"errorCode":"4002","msg":"数据为空","data":[]}
+
+{"errorCode":"0000","msg":"获取成功","data":{"vaccineDayList":[{"id":3, "day":"2023-05-13", "vaccineDayNum":[{"id":1, "startTime":"08:00", "endTime":"08:30", "forbidden":0}, {"id":2, "startTime":"08:30", "endTime":"09:00", "forbidden":0},{"id":3, "startTime":"09:30", "endTime":"10:00", "forbidden":1}]}]}}
+
+{
+    "errorCode": "0000",
+    "msg": "获取成功",
+    "data": {
+        "vaccineDayList": [
+            {
+                "id": 3,
+                "day": "2023-05-13",
+                "vaccineDayNum": [
+                    {
+                        "id": 1,
+                        "startTime": "08:00",
+                        "endTime": "08:30",
+                        "forbidden": 0
+                    },
+                    {
+                        "id": 2,
+                        "startTime": "08:30",
+                        "endTime": "09:00",
+                        "forbidden": 0
+                    },
+                    {
+                        "id": 3,
+                        "startTime": "09:30",
+                        "endTime": "10:00",
+                        "forbidden": 1
+                    }
+                ]
+            }
+        ]
+    }
+}
