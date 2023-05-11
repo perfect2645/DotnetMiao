@@ -1,8 +1,8 @@
-﻿using Huangdai.viewmodel;
+﻿using Lujiazhen.viewmodel;
 using System;
 using System.Windows;
 
-namespace Huangdai
+namespace Lujiazhen
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -14,7 +14,7 @@ namespace Huangdai
             InitializeComponent();
             try
             {
-                DataContext = new HuangdaiViewModel(mainConsole.baseConsole.LogPanel);
+                DataContext = new LujiazhenViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {
