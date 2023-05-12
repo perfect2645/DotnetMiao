@@ -87,6 +87,12 @@ namespace HttpProcessor.Content
             Content.AddOrUpdate(key, UnicodeConverter.EncodeOriginal(value.NotNullString(), true));
         }
 
+        public void AddEncodeContent(string key, Dictionary<string, object> value)
+        {
+            var jsonStr = value.ToJson();
+            Content.AddOrUpdate(key, UnicodeConverter.EncodeOriginal(jsonStr.NotNullString(), true));
+        }
+
         public void AddContent(Dictionary<string, object> source, string key)
         {
             Content.AddOrUpdate(key, source[key]);

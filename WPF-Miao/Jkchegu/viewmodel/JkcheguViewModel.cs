@@ -116,9 +116,9 @@ namespace Jkchegu.viewmodel
         private void TestData()
         {
             //Cookie = "JSESSIONID=FD9BAF93B2B8D7D2942DA5652253939B"; //fawei
-            //Cookie = "JSESSIONID=B48D23A1D3BA62B1B3B6BF18C2E3D27E"; //2645
+            Cookie = "JSESSIONID=B48D23A1D3BA62B1B3B6BF18C2E3D27E"; //2645
             //Cookie = "JSESSIONID=94E026DC054354A9385EDCFA22BCE1DA"; //liu
-            Cookie = "JSESSIONID=7DD3C0565602F4BDC794BED46EC75A9C"; //liu 2 
+            //Cookie = "JSESSIONID=7DD3C0565602F4BDC794BED46EC75A9C"; //liu 2 
             StartTime = DateTime.Now.AddSeconds(10);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }

@@ -125,15 +125,7 @@ namespace HosTwo.search
 
             return new Order
             {
-                ResourceID = resource.GetString("resourceID"),
-                RegistDate = $"{day} {timeEnd}",
-                HospitalID = hospitalId,
-                HospitalName = hospitalName,
-                DeptCode = deptId,
-                DeptName = deptName,
-                DocCode = docId,
-                DocName = docName,
-                DocDuty = docDuty,
+
             };
         }
     }

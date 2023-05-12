@@ -1,11 +1,13 @@
 ﻿using HosTwo.common;
 using HosTwo.login;
+using System;
+using System.Collections.Generic;
 
 namespace HosTwo.appointment
 {
     internal class YuyueContent : HosTwoContent
     {
-        private static string baseUrl = "https://fwcs.linkingcloud.cn/YuYue/Alipay_BookingApply";
+        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/registerconfirm";
         public Order Order { get; private set; }
         public YuyueContent(Order order, HosTwoLogin user) : base(baseUrl, user)
         {
@@ -15,22 +17,47 @@ namespace HosTwo.appointment
 
         private void BuildContent()
         {
-            AddContent("hospitalUserID", Order.HospitalUserID);
-            AddEncodeContent("resourceID", Order.ResourceID);
-            AddEncodeContent("registDate", Order.RegistDate);
-            AddEncodeContent("url", Order.Url);
-            AddEncodeContent("docCode", Order.DocCode);
-            AddEncodeContent("hospitalID", Order.HospitalID);
-            AddEncodeContent("docCode", Order.DocCode);
-            AddEncodeContent("docName", Order.DocName);
-            AddEncodeContent("docDuty", Order.DocDuty);
-            AddEncodeContent("deptCode", Order.DeptCode);
-            AddEncodeContent("deptName", Order.DeptName);
-            AddEncodeContent("hospitalName", Order.HospitalName);
-            AddContent("docPhotoPath", string.Empty);
-            AddContent("extInfo", "{}");
-            AddContent("feeType", string.Empty);
-            AddContent("t", Order.T);
+            AddContent("hisId", Order.HisId);
+            AddContent("platformId", Order.PlatformId);
+            AddContent("platformSource", Order.PlatformSource);
+            AddContent("subSource", Order.SubSource);
+            AddContent("subHisId", Order.SubHisId);
+            AddContent("deptId", Order.DeptId);
+            AddContent("doctorId", Order.DoctorId);
+            AddContent("outExtFieldsFlag", 1);
+            AddEncodeContent("extFields", BuildExtFields());
+            AddContent("patientId", Order.PatientId);
+            AddContent("payFlag", 1);
+            AddEncodeContent("transParam", BuildTransParam());
+            AddContent("scheduleDate", Order.ScheduleDate);
+            AddContent("scheduleId", Order.ScheduleId);
+            AddContent("visitPeriod", Order.VisitPeriod);
+            AddEncodeContent("visitBeginTime", Order.VisitBeginTime);
+            AddEncodeContent("visitEndTime", Order.VisitEndTime);
+            AddContent("_hcSource", string.Empty);
+            AddContent("login_access_token", Order.Token);
+        }
+
+        private object BuildTransParam()
+        {
+            var transParam = new Dictionary<string, object>();
+            transParam.Add("type", "hcTransParam");
+            transParam.Add("plat", "gzhc365zhyy");
+            transParam.Add("birthday", User.Birthday);
+            transParam.Add("Address", User.Address);
+
+            return transParam;
+        }
+
+        private Dictionary<string, object> BuildExtFields()
+        {
+            var extFields = new Dictionary<string, object>();
+            extFields.Add("_bdaiGuide", string.Empty);
+            extFields.Add("_doctorQrGuide", string.Empty);
+            extFields.Add("_deptQrGuide", string.Empty);
+            extFields.Add("_hcSource", string.Empty);
+
+            return extFields;
         }
     }
 }
