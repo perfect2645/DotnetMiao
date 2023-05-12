@@ -79,12 +79,10 @@ namespace Lujiazhen.search
                 return false;
             }
 
-            BuildOrderList(vaccineDayList);
-
-            return true;
+            return BuildOrderList(vaccineDayList);
         }
 
-        private void BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
+        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
         {
             var orderList = new List<Order>();
 
@@ -105,6 +103,12 @@ namespace Lujiazhen.search
                 }
             }
 
+            if(!orderList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
+                return false;
+            }
+
             orderList = orderList.DisorderItems();
 
             var orderArgs = new OrderEventArgs
@@ -113,6 +117,8 @@ namespace Lujiazhen.search
             };
 
             MainSession.OrderEvent.Publish(this, orderArgs);
+
+            return true;
         }
 
         private Order BuildOneOrder(string dayId, string timeId)
