@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using HosTwo.login;
 using HosTwo.session;
 using Utils.datetime;
+using Base.model;
 
 namespace HosTwo.search
 {
@@ -20,6 +21,8 @@ namespace HosTwo.search
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
             var defaultUser = MainSession.Users.FirstOrDefault();
+            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+
             GetMiao(defaultDate);
         }
 
