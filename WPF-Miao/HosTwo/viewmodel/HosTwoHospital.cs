@@ -9,6 +9,7 @@ namespace HosTwo.viewmodel
 
         public string DoctorId { get; set; }
         public string DoctorName { get; set; }
+        public string DoctorSign { get; set; }
 
         public new string Display 
         {  

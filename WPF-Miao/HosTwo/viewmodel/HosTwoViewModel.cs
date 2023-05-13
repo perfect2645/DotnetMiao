@@ -140,23 +140,11 @@ namespace HosTwo.viewmodel
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-04-20", "2023-04-20");
             DateList = new List<DspVal>();
-            foreach (var date in dateRange)
-            {
-                var dateItem = new DspVal(date);
-                DateList.Add(dateItem);
-            }
+            DateList.Add(new DspVal(DateTime.Today.ToString("yyyyMM")));
+            DateList.Add(new DspVal(DateTime.Today.AddMonths(1).ToString("yyyyMM")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
-
-            TimeList = new List<DspVal>
-            {
-                new DspVal("08:00:00-11:00:00", "1"),
-                new DspVal("14:00:00-16:00:00", "2"),
-            };
-
-            MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
 
             Departments = new List<HospitalDept>
             {
@@ -168,6 +156,7 @@ namespace HosTwo.viewmodel
                     DepartmentId = "11823-2102000501",
                     DoctorId = "1632072",
                     DoctorName = "国产二价预约",
+                    DoctorSign = "D9B5434FBCB2CEACFC9B2769ABE0CD77"
                 },
                 new HosTwoHospital
                 {
@@ -177,6 +166,17 @@ namespace HosTwo.viewmodel
                     DepartmentId = "11823-2102000501",
                     DoctorId = "1632075",
                     DoctorName = "进口九价预约",
+                    DoctorSign = "27E51C19C31648F9BC788F064D7F0794",
+                },
+                new HosTwoHospital
+                {
+                    HospitalId = "2342",
+                    HospitalName = "大连市第二人民医院",
+                    DepartmentName = "泡南预防保健部",
+                    DepartmentId = "11823-2102000501",
+                    DoctorId = "1632074",
+                    DoctorName = "进口四价预约",
+                    DoctorSign = "420BC7D1D7953FA51F844F4FFB3E35AE",
                 },
             };
 
@@ -393,7 +393,7 @@ namespace HosTwo.viewmodel
                 bool isSuccess = false;
                 foreach (var order in orders)
                 {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
+                    var appointController = MainSession.AppointSession.GetController($"{userName}");
                     isSuccess = appointController.YuyueAsync(order);
                     if (isSuccess)
                     {
@@ -422,7 +422,7 @@ namespace HosTwo.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -454,16 +454,7 @@ namespace HosTwo.viewmodel
                 {
                     var order = new Order
                     {
-                        ResourceID = template.ResourceID,
-                        RegistDate = template.RegistDate,
-                        HospitalUserID = user.Uid,
-                        HospitalID = template.HospitalID,
-                        HospitalName = template.HospitalName,
-                        DeptCode = template.DeptCode,
-                        DeptName = template.DeptName,
-                        DocCode = template.DocCode,
-                        DocName = template.DocName,
-                        DocDuty = template.DocDuty,
+
                         UserName = user.UserName,
                         User = user,
                     };
@@ -586,8 +577,9 @@ namespace HosTwo.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocCode, selectedDept.DoctorId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DocName, selectedDept.DoctorName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorSign, selectedDept.DoctorSign);
 
             Log(selectedDept.ToLogString());
         }

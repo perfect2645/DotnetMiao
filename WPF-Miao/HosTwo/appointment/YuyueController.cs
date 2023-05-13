@@ -86,7 +86,7 @@ namespace HosTwo.appointment
 
             if (!string.IsNullOrEmpty(bookingId))
             {
-                order.BookingID = bookingId;
+                //order.BookingID = bookingId;
             }
 
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());

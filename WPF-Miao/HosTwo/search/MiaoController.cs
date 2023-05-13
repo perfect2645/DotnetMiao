@@ -16,7 +16,6 @@ namespace HosTwo.search
 {
     internal class MiaoController : HttpClientBase
     {
-
         public string Date { get; private set; }
 
         public MiaoController(HttpClient httpClient) : base(httpClient)
@@ -40,7 +39,7 @@ namespace HosTwo.search
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
@@ -48,13 +47,13 @@ namespace HosTwo.search
                 var responseResult = root.GetProperty("responseResult");
                 if (responseResult.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
                     return false;
                 }
                 var isSuccess = responseResult.GetProperty("isSuccess").GetString();
                 if (isSuccess != "1")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: isSuccess = {isSuccess}");
                     return false;
                 }
 
@@ -115,9 +114,8 @@ namespace HosTwo.search
             var hospitalName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var docId = MainSession.PlatformSession.GetString(Constants.DocCode);
-            var docName = MainSession.PlatformSession.GetString(Constants.DocName);
-            var docDuty = MainSession.PlatformSession.GetString(Constants.DocDuty);
+            var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var docName = MainSession.PlatformSession.GetString(Constants.DoctorName);
 
             var day = resource.GetString("day");
             var timeEnd = resource.GetString("timeEnd");

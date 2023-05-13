@@ -19,7 +19,6 @@ namespace HosTwo.search
         public void SearchMiao()
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
-            var defaultDate = DateTimeUtil.GetTomorrow();
             var defaultUser = MainSession.Users.FirstOrDefault();
             GetMiao(defaultDate);
         }
