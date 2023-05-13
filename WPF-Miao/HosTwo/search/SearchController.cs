@@ -23,7 +23,13 @@ namespace HosTwo.search
             var defaultUser = MainSession.Users.FirstOrDefault();
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
 
-            GetMiao(defaultDate);
+            foreach(var dateItem in dateList)
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    GetMiao(dateItem.Value);
+                });
+            }
         }
 
         private void GetMiao(string date)
