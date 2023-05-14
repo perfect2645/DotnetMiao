@@ -13,33 +13,30 @@ using Utils.number;
 
 namespace HosTwo.search
 {
-    internal class ScheduleController : HttpClientBase
+    internal class MiaoController : HttpClientBase
     {
         public string Date { get; private set; }
 
-        public ScheduleController(HttpClient httpClient) : base(httpClient)
+        public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchScheduleAsync(string date)
+        public void SearchMiaoAsync(Order scheduleOrder)
         {
-            Date = date;
-            Task.Factory.StartNew(() => SearchSchedule(date));
+            Task.Factory.StartNew(() => SearchMiao(scheduleOrder));
         }
 
-        public (bool, List<Order>) SearchSchedule(string date)
+        public bool SearchMiao(Order scheduleOrder)
         {
-            Date = date;
             try
             {
-                var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser, date);
+                var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchSchedule - {response?.Message},请检查参数");
-                    return (false, new List<Order>());
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
+                    return false;
                 }
                 var root = response.JsonBody.RootElement;
 
@@ -47,14 +44,14 @@ namespace HosTwo.search
                 if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
-                    return (false, new List<Order>());
+                    return false;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
-                    return (false, new List<Order>());
+                    return false;
                 }
                 var scheduleList = data.GetProperty("scheduleList");
 
@@ -64,32 +61,32 @@ namespace HosTwo.search
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
-                return (false, new List<Order>());
+                return false;
             }
         }
 
-        private (bool, List<Order>) CheckSaveSchedule(JsonElement scheduleListData)
+        private bool CheckSaveSchedule(JsonElement scheduleListData)
         {
             var scheduleList = JsonAnalysis.JsonToDicList(scheduleListData);
             if (!scheduleList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
-                return (false, new List<Order>());
+                return false;
             }
 
             var availableSchedules = scheduleList.Where(r => r.GetString("status") == "1").ToList();
             if (!availableSchedules.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
-                return (false, new List<Order>());
+                return false;
             }
 
-            var orderList = BuildOrderList(availableSchedules);
+            BuildOrderList(availableSchedules);
 
-            return (true, orderList);
+            return true;
         }
 
-        private List<Order> BuildOrderList(List<Dictionary<string, object>> schedules)
+        private void BuildOrderList(List<Dictionary<string, object>> schedules)
         {
             var orderList = new List<Order>();
 
@@ -105,7 +102,7 @@ namespace HosTwo.search
                 OrderList = orderList,
             };
 
-            return orderList;
+            MainSession.OrderEvent.Publish(this, orderArgs);
         }
 
         private Order BuildOneOrder(Dictionary<string, object> resource)

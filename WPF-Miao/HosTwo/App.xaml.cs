@@ -30,6 +30,7 @@ namespace HosTwo
         {
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<ScheduleController>();
+            HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();
             HttpServiceController.AddTransientService<SearchSuccessController>();

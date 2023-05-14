@@ -1,20 +1,19 @@
-﻿using HosTwo.appointment;
-using HosTwo.common;
+﻿using HosTwo.common;
 using HosTwo.login;
 using HosTwo.session;
 using Utils;
 
 namespace HosTwo.search
 {
-    internal class MiaoContent : HosTwoContent
+    internal class ScheduleContent : HosTwoContent
     {
         private static string baseUrl = "https://mix.med.gzhc365.com/api/register/dateschedulelist?_route=";
 
-        public Order ScheduleOrder { get; set; }
+        public string Date { get; set; }
 
-        public MiaoContent(HosTwoLogin user, Order scheduleOrder) : base(baseUrl, user)
+        public ScheduleContent(HosTwoLogin user, string date) : base(baseUrl, user)
         {
-            ScheduleOrder = scheduleOrder;
+            Date= date;
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             RequestUrl = $"{baseUrl}h{hosId}&";
             BuildContent();

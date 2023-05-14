@@ -8,6 +8,8 @@ using HosTwo.login;
 using HosTwo.session;
 using Utils.datetime;
 using Base.model;
+using HosTwo.appointment;
+using Utils;
 
 namespace HosTwo.search
 {
@@ -36,15 +38,25 @@ namespace HosTwo.search
         {
             var scheduleController = HttpServiceController.GetService<ScheduleController>();
 
-            var isMiaoGet = false;
-            while(!isMiaoGet)
+            var isScheduleGet = false;
+            var scheduleOrderList = new List<Order>();
+            while(!isScheduleGet)
             {
-                isMiaoGet = scheduleController.SearchSchedule(date);
+                (isScheduleGet, scheduleOrderList) = scheduleController.SearchSchedule(date);
                 Thread.Sleep(200);
             }
 
-            var 
-            while()
+            if (!scheduleOrderList.HasItem())
+            {
+                GetMiao(date);
+                return;
+            }
+
+            foreach(var schedule in scheduleOrderList)
+            {
+                var miaoController = HttpServiceController.GetService<MiaoController>();
+                miaoController.SearchMiaoAsync(schedule);
+            }
         }
     }
 }
