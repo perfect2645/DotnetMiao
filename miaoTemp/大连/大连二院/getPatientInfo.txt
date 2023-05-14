@@ -1,0 +1,38 @@
+POST https://mix.med.gzhc365.com/api/user/patientinfo HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 141
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Hc-Src-Hisid: 2342
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: wx_xcx
+client: patient
+content-type: application/x-www-form-urlencoded
+device-id: 
+his-id: 2342
+request-id: 8e0b14b4-e2a7-4e4a-8775-91b4a2b5ebeb
+uid: 4522322919844511746
+uuid: b1a16938-5c93-4886-9d71-1010eabac145
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&patientId=4522335220631863304&login_access_token=1684073659153-444AAC82CC833453B31BD2
+HTTP/1.1 200
+Content-Type: application/json;charset=UTF-8
+Content-Length: 668
+Connection: keep-alive
+Server: Tengine
+Date: Sun, 14 May 2023 14:58:36 GMT
+encrypt: false
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 35
+X-Kong-Proxy-Latency: 1
+Via: kong/1.4.0
+
+{"code":0,"data":{"bindMedicareCard":0,"bindStatus":1,"birthday":"1988-11-25","createTime":"2023-05-05 16:42:35","healthCardFlag":0,"idNo":"2103**********0324","idType":1,"idTypeName":"身份证","isDefault":1,"mobile":"c64f660c9df0801564e2bfc4f973c5db","parentIdNo":"","patCardNo":"1737160","patCardType":21,"patCardTypeName":"院内就诊卡","patHisNo":"","patInNo":"","patientAddress":"辽宁省大连市沙河口区 万科半山半海","patientId":"4522335220631863304","patientMobile":"17*******95","patientName":"石琳","patientRealName":"石琳","patientSex":"F","patientType":0,"patientTypeName":"成人","relationType":5,"updateTime":"2023-05-05 16:42:36"}}
