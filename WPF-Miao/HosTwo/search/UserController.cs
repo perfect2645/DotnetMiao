@@ -52,8 +52,7 @@ namespace HosTwo.search
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                var cardList = data.GetProperty("cardList");
-                SaveUser(cardList, user);
+                SaveUser(data, user);
             }
             catch (Exception ex)
             {
@@ -63,27 +62,24 @@ namespace HosTwo.search
 
         private void SaveUser(JsonElement data, HosTwoLogin user)
         {
-            var cardList = JsonAnalysis.JsonToDicList(data);
-            if (!cardList.HasItem())
+            var userInfo = JsonAnalysis.JsonToDic(data);
+            if (!userInfo.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var defaultUser = cardList.FirstOrDefault(x => x["patientName"].NotNullString() == user.UserName);
-            if (defaultUser == null)
-            {
-                defaultUser = cardList.FirstOrDefault();
-            }
-            var userName = defaultUser.GetString("patientName");
-            var userId = defaultUser.GetString("patCardNo");
-            var birthday = defaultUser.GetString("birthday");
-            var address = defaultUser.GetString("address");
+            var userName = userInfo.GetString("patientName");
+            var patientId = userInfo.GetString("patientId");
+            var birthday = userInfo.GetString("birthday");
+            var address = userInfo.GetString("patientAddress");
 
-            user.UserId = userId;
+            user.PatientId = patientId;
             user.UserName = userName;
+            user.Birthday = birthday;
+            user.Address = address;
 
-            MainSession.PrintLogEvent.Publish(this, defaultUser);
+            MainSession.PrintLogEvent.Publish(this, userInfo);
         }
     }
 }

@@ -34,14 +34,17 @@ namespace HosTwo.search
 
         private void GetMiao(string date)
         {
-            var miaoController = HttpServiceController.GetService<MiaoController>();
+            var scheduleController = HttpServiceController.GetService<ScheduleController>();
 
             var isMiaoGet = false;
             while(!isMiaoGet)
             {
-                isMiaoGet = miaoController.SearchMiao(date);
-                Thread.Sleep(500);
+                isMiaoGet = scheduleController.SearchSchedule(date);
+                Thread.Sleep(200);
             }
+
+            var 
+            while()
         }
     }
 }

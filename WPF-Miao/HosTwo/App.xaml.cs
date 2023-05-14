@@ -29,7 +29,7 @@ namespace HosTwo
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();
             HttpServiceController.AddTransientService<SearchSuccessController>();

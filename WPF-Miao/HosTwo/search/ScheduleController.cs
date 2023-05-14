@@ -14,21 +14,21 @@ using Utils.number;
 
 namespace HosTwo.search
 {
-    internal class MiaoController : HttpClientBase
+    internal class ScheduleController : HttpClientBase
     {
         public string Date { get; private set; }
 
-        public MiaoController(HttpClient httpClient) : base(httpClient)
+        public ScheduleController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchMiaoAsync(string date)
+        public void SearchScheduleAsync(string date)
         {
             Date = date;
-            Task.Factory.StartNew(() => SearchMiao(date));
+            Task.Factory.StartNew(() => SearchSchedule(date));
         }
 
-        public bool SearchMiao(string date)
+        public bool SearchSchedule(string date)
         {
             Date = date;
             try
@@ -39,7 +39,7 @@ namespace HosTwo.search
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchSchedule - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
@@ -60,7 +60,7 @@ namespace HosTwo.search
                 var scheduleList = data.GetProperty("scheduleList");
 
 
-                return CheckSaveResource(scheduleList);
+                return CheckSaveSchedule(scheduleList);
             }
             catch (Exception ex)
             {
@@ -69,7 +69,7 @@ namespace HosTwo.search
             }
         }
 
-        private bool CheckSaveResource(JsonElement scheduleListData)
+        private bool CheckSaveSchedule(JsonElement scheduleListData)
         {
             var scheduleList = JsonAnalysis.JsonToDicList(scheduleListData);
             if (!scheduleList.HasItem())

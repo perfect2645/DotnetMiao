@@ -7,7 +7,7 @@ namespace HosTwo.appointment
 {
     internal class YuyueContent : HosTwoContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/registerconfirm";
+        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/generatororder";
         public Order Order { get; private set; }
         public YuyueContent(Order order, HosTwoLogin user) : base(baseUrl, user)
         {
