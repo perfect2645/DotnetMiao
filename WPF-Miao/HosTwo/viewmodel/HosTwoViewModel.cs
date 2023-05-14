@@ -284,28 +284,6 @@ namespace HosTwo.viewmodel
             });
         }
 
-        private void BuildOrders()
-        {
-            MainSession.Orders = new Dictionary<string, List<Order>>();
-            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
-            var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
-
-            foreach (var user in MainSession.Users)
-            {
-                var orderList = new List<Order>();
-                var userName = user.UserName;
-                foreach (var date in dateList)
-                {
-                    foreach (var time in timeList)
-                    {
-                        Order orderWithTime = BuildOneOrder(user, date.Value, time.Value);
-                        orderList.Add(orderWithTime);
-                    }
-                }
-                orderList = orderList.DisorderItems();
-                MainSession.Orders.AddOrUpdate(userName, orderList);
-            }
-        }
 
         private Order BuildOneOrder(HosTwoLogin user, string date, string timeId)
         {
@@ -344,11 +322,7 @@ namespace HosTwo.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    BuildManualOrder();
-                    foreach (var order in MainSession.Orders)
-                    {
-                        Task.Factory.StartNew(() => StartOneManual(order.Key, order.Value));
-                    }
+
                 }
                 catch (HttpException ex)
                 {
@@ -359,58 +333,6 @@ namespace HosTwo.viewmodel
                     Log(ex);
                 }
             });
-        }
-
-        private void BuildManualOrder()
-        {
-            var defaultUser = MainSession.Users.FirstOrDefault();
-            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
-            var timeList = MainSession.PlatformSession["TimeList"] as List<DspVal>;
-
-            var defaultDate = dateList.FirstOrDefault();
-            var defaultTime = timeList.FirstOrDefault();
-            var order = BuildOneOrder(defaultUser, defaultDate.Value, defaultTime.Value);
-
-            var orderList = new List<Order>();
-            orderList.Add(order);
-
-            MainSession.Orders = new Dictionary<string, List<Order>>();
-            MainSession.Orders.Add(defaultUser.UserName, orderList);
-        }
-
-        private void Appoint()
-        {
-            foreach (var order in MainSession.Orders)
-            {
-                Task.Factory.StartNew(() => StartOneOrder(order.Key, order.Value));
-            }
-        }
-
-        private void StartOneManual(string userName, List<Order> orders)
-        {
-            try
-            {
-                bool isSuccess = false;
-                foreach (var order in orders)
-                {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}");
-                    isSuccess = appointController.YuyueAsync(order);
-                    if (isSuccess)
-                    {
-                        PrintLog("预约成功");
-                        PrintLog(order.ToLogString());
-                        return;
-                    }
-                }
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
         }
 
         private void StartOneOrder(string userName, List<Order> orders)
@@ -454,9 +376,16 @@ namespace HosTwo.viewmodel
                 {
                     var order = new Order
                     {
-
                         UserName = user.UserName,
                         User = user,
+                        Token = user.LoginAccessToken,
+                        DeptId = template.DeptId,
+                        DoctorId = template.DoctorId,
+                        HisId = template.HisId,
+                        SubSource = template.SubSource,
+                        PlatformId = template.PlatformId,
+                        PlatformSource = template.PlatformSource,
+                        ScheduleDate = template.ScheduleDate,
                     };
 
                     orderList.Add(order);
@@ -464,11 +393,6 @@ namespace HosTwo.viewmodel
 
                 Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
             }
-        }
-
-        private void DirectlyOrder(string scheduleId)
-        {
-            var order = new Order();
         }
 
         #endregion Appoint

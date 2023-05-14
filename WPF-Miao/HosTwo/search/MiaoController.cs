@@ -71,32 +71,32 @@ namespace HosTwo.search
 
         private bool CheckSaveResource(JsonElement scheduleListData)
         {
-            var resourceList = JsonAnalysis.JsonToDicList(scheduleListData);
-            if (!resourceList.HasItem())
+            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListData);
+            if (!scheduleList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            var availableResources = resourceList.Where(r => r.GetString("isAvailable") == "1").ToList();
-            if (!availableResources.HasItem())
+            var availableSchedules = scheduleList.Where(r => r.GetString("status") == "1").ToList();
+            if (!availableSchedules.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
                 return false;
             }
 
-            BuildOrderList(availableResources);
+            BuildOrderList(availableSchedules);
 
             return true;
         }
 
-        private void BuildOrderList(List<Dictionary<string, object>> resources)
+        private void BuildOrderList(List<Dictionary<string, object>> schedules)
         {
             var orderList = new List<Order>();
 
-            foreach (var resource in resources)
+            foreach (var schedule in schedules)
             {
-                Order orderWithTime = BuildOneOrder(resource);
+                Order orderWithTime = BuildOneOrder(schedule);
                 orderList.Add(orderWithTime);
             }
             orderList = orderList.DisorderItems();
@@ -112,19 +112,20 @@ namespace HosTwo.search
         private Order BuildOneOrder(Dictionary<string, object> resource)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var hospitalName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
             var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var docName = MainSession.PlatformSession.GetString(Constants.DoctorName);
 
-            var day = resource.GetString("day");
-            var timeEnd = resource.GetString("timeEnd");
-
+            var scheduleDate = resource.GetString("scheduleDate");
 
             return new Order
             {
-
+                DeptId = deptId,
+                DoctorId = docId,
+                HisId = hospitalId,
+                PlatformId = hospitalId,
+                PlatformSource = "3",
+                ScheduleDate = scheduleDate,
+                SubSource = "1",
             };
         }
     }

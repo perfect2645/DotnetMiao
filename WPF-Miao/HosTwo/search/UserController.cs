@@ -77,6 +77,8 @@ namespace HosTwo.search
             }
             var userName = defaultUser.GetString("patientName");
             var userId = defaultUser.GetString("patCardNo");
+            var birthday = defaultUser.GetString("birthday");
+            var address = defaultUser.GetString("address");
 
             user.UserId = userId;
             user.UserName = userName;
