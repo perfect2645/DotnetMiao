@@ -104,29 +104,29 @@ namespace Longchi.viewmodel
             InitStaticData();
             MainSession.PrintLogEvent = PrintLogEvent;
 
-            //TestData();
+            TestData();
             LoginFromConfig();
         }
 
         private void TestData()
         {
-            StartTime = DateTime.Now.AddSeconds(8);
+            //StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(16).AddMinutes(29).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(16).AddMinutes(59).AddSeconds(50);
 
             DateList = new List<DspVal>
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
@@ -374,6 +374,9 @@ namespace Longchi.viewmodel
                     foreach (var order in orders)
                     {
                         Thread.Sleep(3000);
+                        var defaultUser = MainSession.Users.FirstOrDefault();
+                        var confirmLoginController = HttpServiceController.GetService<ConfirmLoginController>();
+                        confirmLoginController.ConfirmLogin(defaultUser);
                         var appointController = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
