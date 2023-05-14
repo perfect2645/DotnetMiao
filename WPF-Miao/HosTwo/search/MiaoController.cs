@@ -44,22 +44,23 @@ namespace HosTwo.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var responseResult = root.GetProperty("responseResult");
-                if (responseResult.ValueKind == JsonValueKind.Null)
+                var code = root.GetProperty("code").GetInt16();
+                if (code != 0)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
+                    return false;
+                }
+
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
                     return false;
                 }
-                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
-                if (isSuccess != "1")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: isSuccess = {isSuccess}");
-                    return false;
-                }
+                var scheduleList = data.GetProperty("scheduleList");
 
-                var resourceList = root.GetProperty("docResourceResourceList");
 
-                return CheckSaveResource(resourceList);
+                return CheckSaveResource(scheduleList);
             }
             catch (Exception ex)
             {
@@ -68,9 +69,9 @@ namespace HosTwo.search
             }
         }
 
-        private bool CheckSaveResource(JsonElement resourceListData)
+        private bool CheckSaveResource(JsonElement scheduleListData)
         {
-            var resourceList = JsonAnalysis.JsonToDicList(resourceListData);
+            var resourceList = JsonAnalysis.JsonToDicList(scheduleListData);
             if (!resourceList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
