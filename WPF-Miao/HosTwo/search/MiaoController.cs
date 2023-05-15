@@ -15,7 +15,7 @@ namespace HosTwo.search
 {
     internal class MiaoController : HttpClientBase
     {
-        public string Date { get; private set; }
+        public Order ScheduleOrder { get; private set; }
 
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
@@ -23,6 +23,7 @@ namespace HosTwo.search
 
         public void SearchMiaoAsync(Order scheduleOrder)
         {
+            ScheduleOrder = scheduleOrder;
             Task.Factory.StartNew(() => SearchMiao(scheduleOrder));
         }
 
@@ -30,7 +31,8 @@ namespace HosTwo.search
         {
             try
             {
-                var content = new MiaoContent(defaultUser);
+                var defaultUser = MainSession.Users.FirstOrDefault();
+                var content = new MiaoContent(defaultUser, scheduleOrder);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
@@ -53,10 +55,9 @@ namespace HosTwo.search
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
                     return false;
                 }
-                var scheduleList = data.GetProperty("scheduleList");
+                var itemList = data.GetProperty("itemList");
 
-
-                return CheckSaveSchedule(scheduleList);
+                return CheckSaveSchedule(itemList);
             }
             catch (Exception ex)
             {
@@ -65,9 +66,9 @@ namespace HosTwo.search
             }
         }
 
-        private bool CheckSaveSchedule(JsonElement scheduleListData)
+        private bool CheckSaveSchedule(JsonElement itemListData)
         {
-            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListData);
+            var scheduleList = JsonAnalysis.JsonToDicList(itemListData);
             if (!scheduleList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
@@ -105,23 +106,24 @@ namespace HosTwo.search
             MainSession.OrderEvent.Publish(this, orderArgs);
         }
 
-        private Order BuildOneOrder(Dictionary<string, object> resource)
+        private Order BuildOneOrder(Dictionary<string, object> schedule)
         {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-
-            var scheduleDate = resource.GetString("scheduleDate");
+            var beginTime = schedule.GetString("visitBeginTime");
+            var endTime = schedule.GetString("visitEndTime");
 
             return new Order
             {
-                DeptId = deptId,
-                DoctorId = docId,
-                HisId = hospitalId,
-                PlatformId = hospitalId,
-                PlatformSource = "3",
-                ScheduleDate = scheduleDate,
-                SubSource = "1",
+                DeptId = ScheduleOrder.DeptId,
+                DoctorId = ScheduleOrder.DoctorId,
+                HisId = ScheduleOrder.HisId,
+                PlatformId = ScheduleOrder.PlatformId,
+                PlatformSource = ScheduleOrder.PlatformSource,
+                ScheduleDate = ScheduleOrder.ScheduleDate,
+                SubSource = ScheduleOrder.SubSource,
+                SearchMonth = ScheduleOrder.SearchMonth,
+                VisitBeginTime = beginTime,
+                VisitEndTime = endTime,
+                VisitPeriod = schedule.GetString("visitPeriod")
             };
         }
     }

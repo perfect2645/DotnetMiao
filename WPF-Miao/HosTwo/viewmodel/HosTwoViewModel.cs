@@ -20,6 +20,7 @@ using Utils.datetime;
 using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
+using System.Threading;
 
 namespace HosTwo.viewmodel
 {
@@ -352,6 +353,7 @@ namespace HosTwo.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
+                        Thread.Sleep(100);
                     }
                 }
             }
@@ -378,6 +380,7 @@ namespace HosTwo.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
+                        PatientId = user.PatientId,
                         Token = user.LoginAccessToken,
                         DeptId = template.DeptId,
                         DoctorId = template.DoctorId,
@@ -386,6 +389,9 @@ namespace HosTwo.viewmodel
                         PlatformId = template.PlatformId,
                         PlatformSource = template.PlatformSource,
                         ScheduleDate = template.ScheduleDate,
+                        VisitBeginTime = template.VisitBeginTime,
+                        VisitEndTime = template.VisitEndTime,
+                        VisitPeriod = template.VisitPeriod
                     };
 
                     orderList.Add(order);

@@ -8,7 +8,7 @@ namespace HosTwo.search
 {
     internal class MiaoContent : HosTwoContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/dateschedulelist?_route=";
+        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/schedulelist?_route=";
 
         public Order ScheduleOrder { get; set; }
 
@@ -31,9 +31,10 @@ namespace HosTwo.search
             AddContent("platformId", hosId);
             AddContent("platformSource", 3);
             AddContent("subSource", 1);
+            AddContent("scheduleDate", ScheduleOrder.ScheduleDate);
             AddContent("doctorId", doctorId);
             AddContent("deptId", deptId);
-            AddContent("t", Date);
+            AddContent("t", ScheduleOrder.SearchMonth);
             AddContent("sign", doctorSign);
             AddContent("login_access_token", User.LoginAccessToken);
         }
