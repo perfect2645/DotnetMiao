@@ -33,7 +33,7 @@ namespace HosTwo.search
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser, date);
+                var content = new ScheduleContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
@@ -123,6 +123,7 @@ namespace HosTwo.search
                 HisId = hospitalId,
                 PlatformId = hospitalId,
                 PlatformSource = "3",
+                SearchMonth = Date,
                 ScheduleDate = scheduleDate,
                 SubSource = "1",
             };

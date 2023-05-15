@@ -14,6 +14,7 @@ namespace HosTwo.appointment
         public string DeptId { get; set; }
         public string DoctorId { get; set; }
         public string PatientId { get; set; }
+        public string SearchMonth { get; set; }
         public string ScheduleDate { get; set; }
         public string ScheduleId { get; set; }
         public string VisitPeriod { get; set; }
