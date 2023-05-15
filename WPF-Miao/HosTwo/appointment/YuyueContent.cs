@@ -38,7 +38,7 @@ namespace HosTwo.appointment
             AddContent("login_access_token", Order.Token);
         }
 
-        private object BuildTransParam()
+        private Dictionary<string, object> BuildTransParam()
         {
             var transParam = new Dictionary<string, object>();
             transParam.Add("type", "hcTransParam");

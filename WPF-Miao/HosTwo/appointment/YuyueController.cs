@@ -51,21 +51,30 @@ namespace HosTwo.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var responseResult = root.GetProperty("responseResult");
-                if (responseResult.ValueKind == JsonValueKind.Null)
+                var msg = root.GetProperty("msg").GetString();
+                if (msg.Contains("不能重复提交") || msg.Contains("匹配不到对应的号源信息"))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
-                    return false;
+                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
+                    return true;
                 }
-                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
-                var message = responseResult.GetProperty("message").GetString();
-                if (isSuccess != "1")
+
+                var code = root.GetProperty("code").GetInt16();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: isSuccess = {isSuccess}, message = {message}");
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
                     return false;
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"预约成功: message = {message}");
+
+                MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
+
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    return false;
+                }
+
 
                 var bookingResult = root.GetProperty("bookingResult");
 
