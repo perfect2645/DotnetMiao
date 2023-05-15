@@ -43,7 +43,7 @@ namespace HosTwo.search
             while(!isScheduleGet)
             {
                 (isScheduleGet, scheduleOrderList) = scheduleController.SearchSchedule(date);
-                Thread.Sleep(200);
+                Thread.Sleep(1000);
             }
 
             if (!scheduleOrderList.HasItem())

@@ -133,7 +133,7 @@ namespace HosTwo.viewmodel
 
         private void TestData()
         {
-            Interval = 1000;
+            Interval = 200;
             StartTime = DateTime.Now.AddSeconds(20);
         }
 
@@ -143,22 +143,12 @@ namespace HosTwo.viewmodel
 
             DateList = new List<DspVal>();
             DateList.Add(new DspVal(DateTime.Today.ToString("yyyyMM")));
-            DateList.Add(new DspVal(DateTime.Today.AddMonths(1).ToString("yyyyMM")));
+            //DateList.Add(new DspVal(DateTime.Today.AddMonths(1).ToString("yyyyMM")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
-            {
-                new HosTwoHospital
-                {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632072",
-                    DoctorName = "国产二价预约",
-                    DoctorSign = "D9B5434FBCB2CEACFC9B2769ABE0CD77"
-                },
+            {   
                 new HosTwoHospital
                 {
                     HospitalId = "2342",
@@ -168,6 +158,16 @@ namespace HosTwo.viewmodel
                     DoctorId = "1632075",
                     DoctorName = "进口九价预约",
                     DoctorSign = "27E51C19C31648F9BC788F064D7F0794",
+                },
+                new HosTwoHospital
+                {
+                    HospitalId = "2342",
+                    HospitalName = "大连市第二人民医院",
+                    DepartmentName = "泡南预防保健部",
+                    DepartmentId = "11823-2102000501",
+                    DoctorId = "1632072",
+                    DoctorName = "国产二价预约",
+                    DoctorSign = "D9B5434FBCB2CEACFC9B2769ABE0CD77"
                 },
                 new HosTwoHospital
                 {
