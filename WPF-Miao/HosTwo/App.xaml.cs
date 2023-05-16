@@ -28,6 +28,7 @@ namespace HosTwo
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.AddTransientService<MiaoController>();

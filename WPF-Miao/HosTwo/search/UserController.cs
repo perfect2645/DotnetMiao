@@ -1,16 +1,12 @@
-﻿using HttpProcessor.Client;
-using HosTwo.common;
+﻿using HosTwo.login;
 using HosTwo.session;
-using System.Linq;
+using HttpProcessor.Client;
+using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Windows.Interop;
 using Utils;
 using Utils.json;
-using Utils.stringBuilder;
-using HosTwo.login;
-using System;
 
 namespace HosTwo.search
 {
