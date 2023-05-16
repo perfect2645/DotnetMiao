@@ -18,6 +18,7 @@ namespace Baohe.viewModel
             "1099560", "蜀麓苑医疗卫生服务站",
             "7235039", "九价HPV")
             {
+                HasYzm = false,
                 DoctorSn = "711296691"
             });
 
