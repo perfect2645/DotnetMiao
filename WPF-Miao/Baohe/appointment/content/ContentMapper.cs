@@ -11,6 +11,7 @@ namespace Baohe.appointment.content
         {
             ContentDic = new Dictionary<string, Type>();
             ContentDic.Add("1047063", typeof(HeFeiContent)); // 蜀山区井岗中心服务号
+            ContentDic.Add("1099560", typeof(HeFeiContent)); // 蜀麓苑医疗卫生服务站
             ContentDic.Add("1031364", typeof(HeFeiContent)); // 蜀山区西园街道
             ContentDic.Add("1031995", typeof(HeFeiContent)); // 蜀山稻香村街道
             ContentDic.Add("1038404", typeof(HeFeiContent)); // 包河区同安街道社区卫生服务中心
