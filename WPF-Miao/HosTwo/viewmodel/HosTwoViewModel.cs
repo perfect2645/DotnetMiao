@@ -278,6 +278,7 @@ namespace HosTwo.viewmodel
                 try
                 {
                     StartOnTimeTimer();
+                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
