@@ -16,9 +16,9 @@ namespace HosTwo.search
         {
         }
 
-        public void GetUserAsync(HosTwoLogin user)
+        public Task GetUserAsync(HosTwoLogin user)
         {
-            Task.Factory.StartNew(() => GetUser(user));
+            return Task.Factory.StartNew(() => GetUser(user));
         }
 
         private void GetUser(HosTwoLogin user)

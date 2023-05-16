@@ -233,8 +233,13 @@ namespace HosTwo.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<HosTwoLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
+                Task.Factory.StartNew(async () =>
+                {
+                    //var loginController = HttpServiceController.GetService<LoginController>();
+                    //await loginController.LoginAsync(user);
+                    var userController = HttpServiceController.GetService<UserController>();
+                    await userController.GetUserAsync(user);
+                });
             }
 
             MainSession.InitSession();
@@ -521,6 +526,16 @@ namespace HosTwo.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
+            foreach (var user in MainSession.Users)
+            {
+                Task.Factory.StartNew(async () =>
+                {
+                    //var loginController = HttpServiceController.GetService<LoginController>();
+                    //await loginController.LoginAsync(user);
+                    var userController = HttpServiceController.GetService<UserController>();
+                    await userController.GetUserAsync(user);
+                });
+            }
         }
 
         #endregion Resession

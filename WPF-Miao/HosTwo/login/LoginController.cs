@@ -16,21 +16,22 @@ namespace HosTwo.login
         {
         }
 
-        public void GetUserAsync(HosTwoLogin user)
+        public Task LoginAsync(HosTwoLogin user)
         {
-            Task.Factory.StartNew(() => GetUser(user));
+            return Task.Factory.StartNew(() => Login(user));
         }
 
-        private void GetUser(HosTwoLogin user)
+        private void Login(HosTwoLogin user)
         {
             try
             {
                 var content = new LoginContent(user);
+                content.AddHeader("uid", string.Empty);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Login - {response?.Message},请检查参数");
                     return;
                 }
                 var root = response.JsonBody.RootElement;
@@ -38,30 +39,30 @@ namespace HosTwo.login
                 var code = root.GetProperty("code").GetInt16();
                 if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"Login失败: code={code}");
                     return;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"Login失败: results is empty");
                     return;
                 }
-                SaveUser(data, user);
+                SaveLogin(data, user);
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息异常{ex.Message}");
+                MainSession.PrintLogEvent.Publish(this, $"Login异常{ex.Message}");
             }
         }
 
-        private void SaveUser(JsonElement data, HosTwoLogin user)
+        private void SaveLogin(JsonElement data, HosTwoLogin user)
         {
             var userInfo = JsonAnalysis.JsonToDic(data);
             if (!userInfo.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
+                MainSession.PrintLogEvent.Publish(this, $"Login失败");
                 return;
             }
 

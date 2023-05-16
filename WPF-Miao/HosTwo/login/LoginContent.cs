@@ -7,7 +7,7 @@ namespace HosTwo.login
 {
     internal class LoginContent : HosTwoContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/user/patientinfo";
+        private static string baseUrl = "https://mix.med.gzhc365.com/api/xcxcore/login";
         public LoginContent(HosTwoLogin user) : base(baseUrl, user)
         {
             BuildContent();
@@ -21,8 +21,9 @@ namespace HosTwo.login
             AddContent("platformId", hosId);
             AddContent("platformSource", 3);
             AddContent("subSource", 1);
-            AddContent("patientId", User.PatientId);
-            AddContent("login_access_token", User.LoginAccessToken);
+            AddContent("code", User.Code);
+            AddContent("silent", string.Empty);
+            AddContent("login_access_token", string.Empty);
         }
     }
 }
