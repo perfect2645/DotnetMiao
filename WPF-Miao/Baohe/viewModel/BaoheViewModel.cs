@@ -89,11 +89,14 @@ namespace Baohe.viewModel
             //VerifyCode.ArrangeSn = "170654946";
             //VerifyCode.Phone = "18301135103";
             //StartTime = DateTime.Now.AddSeconds(20);
+            Cookie = "jkzlAn_uuid=06063330-A203-4D12-8280-B2E000B2FD50; jkzlAn_p=-1; jkzlAn_c=-1; logintype=62; TOKEN_14FCC715CE30CDD8507EB8430632CEB4=A6D4F19DE8C543CAA5EAD8918B9A6EEB; _YyghSysTrackUUID=16192223774; YiHu_OpenId=eyJPcGVuSUQiOiJvSE4tdHdnNnNwVG84YWJtZU5mNVoyM3pfSHhZIiwiU2VjU3RyIjoiNzIyQzAxQ0ZERUIzRUFDNzlERTJDMUUyMDRBOEYwOTcifQ%3D%3D; loginid=oHN-twg6spTo8abmeNf5Z23z_HxY; OpenID=oHN-twg6spTo8abmeNf5Z23z_HxY; LoginChannel=9001016; TOKEN_542FCDD9CDDD3CB73109486E0F441BE6=0BB04EB2A3C7404DB2F986C845FD3BED; jkzlAn_sid=3BD6202F-5602-44BB-91A4-EAFE2987936B; jkzlAn_channelid=9001016; jkzlAn_utm_source=0.0.h.1026.bus010.0; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; platformJson=%7bplatformType%3a9001016%2csourceType%3a0%2csourceId%3a0%2cclientId%3a9001016%7d; jkzlAn_userid=157047433; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTcwNDc0MzMiLCJDYXJkTnVtYmVyIjoiMjA4NzEzMTM1NiIsIkxvZ2luSWQiOiJvSE4tdHdnNnNwVG84YWJtZU5mNVoyM3pfSHhZIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiIyOUI2Qzc0MzJFQUUwNzAxRjlBOUNCRTE2MDQwNTdFRCJ9; jkzlAn_ct=1684323765475";
+
+            UserName = "顾新涵";
         }
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.PreSendVerify;
+            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
@@ -103,8 +106,8 @@ namespace Baohe.viewModel
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(12).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
-            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
 
             if (Application.Current.Properties.Contains("UserName"))
