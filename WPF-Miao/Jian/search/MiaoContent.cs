@@ -36,7 +36,7 @@ namespace Jian.search
             AddContent("deptId", deptId);
             AddContent("t", ScheduleOrder.SearchMonth);
             AddContent("sign", doctorSign);
-            AddContent("login_access_token", User.LoginAccessToken);
+            AddContent("login_access_token", User.Authorization);
         }
     }
 }

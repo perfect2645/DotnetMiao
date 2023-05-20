@@ -1,8 +1,6 @@
 ﻿[
   {
-    "LoginAccessToken": "1684250826302-F245149F355D63406F3E67",
-    "UserName": "石琳",
-    "Uid": "4522322919844511746",
-    "PatientId": "4522335220631863304"
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQaG9uZSI6IjEzOTQwODk3NTI1IiwiTmFtZSI6IuW9reiKs-eOsiIsIklkQ2FyZCI6IjM2MDczNDIwMDAwMjI2MDUyOCIsIk1aSGFvIjoiOTAwMDAwNzgyOSIsIlpZbm8iOiIiLCJleHAiOjE2OTMyMzMwNTYsImlzcyI6ImdvY2VudC1hcGkiLCJhdWQiOiJqd3RBdWRpZW5jZSJ9.V5Y00tOFMnvr35xeacpD4X6XhKUmHQ2uBuRLbWmVaHc",
+    "UserName": "石琳"
   }
 ]

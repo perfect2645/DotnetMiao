@@ -23,7 +23,7 @@ namespace Jian.search
             AddContent("platformSource", 3);
             AddContent("subSource", 1);
             AddContent("patientId", User.PatientId);
-            AddContent("login_access_token", User.LoginAccessToken);
+            AddContent("login_access_token", User.Authorization);
         }
     }
 }

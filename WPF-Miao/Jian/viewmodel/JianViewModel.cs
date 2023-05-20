@@ -387,7 +387,7 @@ namespace Jian.viewmodel
                         UserName = user.UserName,
                         User = user,
                         PatientId = user.PatientId,
-                        Token = user.LoginAccessToken,
+                        Token = user.Authorization,
                         DeptId = template.DeptId,
                         DoctorId = template.DoctorId,
                         HisId = template.HisId,

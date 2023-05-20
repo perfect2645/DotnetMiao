@@ -34,7 +34,7 @@ namespace Jian.search
             AddContent("deptId", deptId);
             AddContent("t", Date);
             AddContent("sign", doctorSign);
-            AddContent("login_access_token", User.LoginAccessToken);
+            AddContent("login_access_token", User.Authorization);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Jian.common
         {
             User = user;
 
-            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 
@@ -22,20 +21,19 @@ namespace Jian.common
         {
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
-            AddHeader("Host", "mix.med.gzhc365.com");
+            AddHeader("Host", "app.gocent.com.cn");
             AddHeader("Connection", "keep-alive");
-            AddHeader("Hc-Proj-Info", "project/his-wxapp;type/miniapp;ch/wechat;ver/mix;");
-            AddHeader("Hc-Src-Hisid", hosId);
-            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
-            AddHeader("channel", "wx_xcx");
-            AddHeader("client", "patient");
-            AddHeader("device-id", string.Empty);
-            AddHeader("his-id", hosId);
-            AddHeader("request-id", Guid.NewGuid().ToString());
-            AddHeader("uid", User.Uid);
-            AddHeader("uuid", Guid.NewGuid().ToString());
-            AddHeader("Referer", "http://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html");
+            AddHeader("Access-Control-Allow-Origin", "*");
+            AddHeader("Accept", "application/json, text/plain, */*");
+            AddHeader("Origin", "http://app.gocent.com.cn");
+            AddHeader("Authorization", User.Authorization);
+            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)");
+            AddHeader("Sec-Fetch-Site", "cross-site");
+            AddHeader("Sec-Fetch-Mode", "cors");
+            AddHeader("Sec-Fetch-Dest", "empty");
+            AddHeader("Referer", "http://app.gocent.com.cn/unite/index.aspx");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
+            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }
     }
 }
