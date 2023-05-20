@@ -1,0 +1,26 @@
+POST http://app.gocent.com.cn/nkqzyy/api/wxpay/WxRequest HTTP/1.1
+Host: app.gocent.com.cn
+Connection: keep-alive
+Content-Length: 205
+Accept: application/json, text/plain, */*
+Origin: http://app.gocent.com.cn
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Referer: http://app.gocent.com.cn/unite/index.aspx?code=091OGJkl22eMkb4dLsol2ycJwm2OGJkX&state=STATE
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"Url":"https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxd0be50342a4912cd&secret=e7c82cb065efa6dd5f1a3bcaeefc86f9&code=091OGJkl22eMkb4dLsol2ycJwm2OGJkX&grant_type=authorization_code","Type":"GET"}
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Server: Microsoft-IIS/7.5
+Access-Control-Allow-Origin: *
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sat, 20 May 2023 06:48:21 GMT
+Content-Length: 484
+
+{"resultCode":20000,"success":true,"data":"{\"access_token\":\"68_cteh8bRxxV5dB4ZUnqVMZdiSufMR0WUL8lbHYldCLbtqc5YTRskyBO9yzYB2bLKnqg8RiHnKfqr8uTYwnngAyM1QIkWT6hxWkm6smpdrsr8\",\"expires_in\":7200,\"refresh_token\":\"68_GdYo8oAdjZhRgXLGAO1LxjzUAMRRCSjEHZb0aRZhv3YJVJWfuGVpaMpPcQuq6d5JN-PTbnxdRuQyU5guR9XXy59zN0a-gNn5zXd8R2VWsM0\",\"openid\":\"onJShw0Kl5-502MDv-tBErqehasM\",\"scope\":\"snsapi_userinfo\"}","message":"获取成功","pageInfo":null,"exceptionMsg":null,"logTraceId":null}
