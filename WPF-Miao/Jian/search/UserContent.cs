@@ -8,22 +8,15 @@ namespace Jian.search
 {
     internal class UserContent : JianContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/user/patientinfo";
+        private static string baseUrl = "https://app.gocent.com.cn/unite/api/User/GetPatientInfo?hospitalCode=";
         public UserContent(JianLogin user) : base(baseUrl, user)
         {
+            RequestUrl = $"{BaseUrl}&phone={user.Phone}";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-
-            AddContent("hisId", hosId);
-            AddContent("platformId", hosId);
-            AddContent("platformSource", 3);
-            AddContent("subSource", 1);
-            AddContent("patientId", User.PatientId);
-            AddContent("login_access_token", User.Authorization);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Jian.login
 {
     internal class LoginContent : JianContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/xcxcore/login";
+        private static string baseUrl = "https://app.gocent.com.cn/unite/api/User/GocentToken?hospitalCode=";
         public LoginContent(JianLogin user) : base(baseUrl, user)
         {
             BuildContent();
@@ -17,13 +17,8 @@ namespace Jian.login
         {
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
-            AddContent("hisId", hosId);
-            AddContent("platformId", hosId);
-            AddContent("platformSource", 3);
-            AddContent("subSource", 1);
-            AddContent("code", User.Code);
-            AddContent("silent", string.Empty);
-            AddContent("login_access_token", string.Empty);
+            AddContent("phone", User.Phone);
+            AddContent("pwd", User.Password);
         }
     }
 }

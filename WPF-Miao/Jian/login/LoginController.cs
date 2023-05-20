@@ -1,12 +1,9 @@
-﻿using Jian.login;
+﻿using HttpProcessor.Client;
 using Jian.session;
-using HttpProcessor.Client;
 using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Utils;
-using Utils.json;
 
 namespace Jian.login
 {
@@ -28,7 +25,7 @@ namespace Jian.login
                 var content = new LoginContent(user);
                 content.AddHeader("uid", string.Empty);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Login - {response?.Message},请检查参数");
@@ -36,8 +33,9 @@ namespace Jian.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
+                var code = root.GetProperty("resultCode").GetInt16();
+                var success = root.GetProperty("success").GetBoolean();
+                if (code != 20000 || !success)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Login失败: code={code}");
                     return;
@@ -59,24 +57,16 @@ namespace Jian.login
 
         private void SaveLogin(JsonElement data, JianLogin user)
         {
-            var userInfo = JsonAnalysis.JsonToDic(data);
-            if (!userInfo.HasItem())
+            var authorization = data.GetString();
+            if (string.IsNullOrEmpty(authorization))
             {
-                MainSession.PrintLogEvent.Publish(this, $"Login失败");
+                MainSession.PrintLogEvent.Publish(this, $"authorization is empty, Login失败");
                 return;
             }
 
-            var userName = userInfo.GetString("patientName");
-            var patientId = userInfo.GetString("patientId");
-            var birthday = userInfo.GetString("birthday");
-            var address = userInfo.GetString("patientAddress");
+            user.Authorization = authorization;
 
-            user.PatientId = patientId;
-            user.UserName = userName;
-            user.Birthday = birthday;
-            user.Address = address;
-
-            MainSession.PrintLogEvent.Publish(this, userInfo);
+            MainSession.PrintLogEvent.Publish(this, authorization);
         }
     }
 }

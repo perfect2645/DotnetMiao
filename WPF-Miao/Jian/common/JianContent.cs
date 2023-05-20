@@ -9,9 +9,12 @@ namespace Jian.common
     internal class JianContent : HttpStringContent
     {
         public JianLogin User { get; private set; }
+        protected string BaseUrl { get; private set; }
 
         public JianContent(string baseUrl, JianLogin user) : base(baseUrl)
         {
+            var hospitalCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            BaseUrl = $"{baseUrl}{hospitalCode}";
             User = user;
 
             BuildHeader();

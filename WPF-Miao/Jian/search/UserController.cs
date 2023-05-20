@@ -27,7 +27,7 @@ namespace Jian.search
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                  if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");

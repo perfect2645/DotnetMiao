@@ -13,8 +13,7 @@ namespace Jian.appointment
         public Order Order { get; private set; }
         public YuyueContent(Order order, JianLogin user) : base(baseUrl, user)
         {
-            var hospitalCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            RequestUrl = $"{baseUrl}{hospitalCode}";
+            RequestUrl = $"{BaseUrl}";
             Order = order;
             BuildContent();
         }
