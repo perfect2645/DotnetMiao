@@ -12,50 +12,45 @@ namespace suiyang.appointment
 {
     public class YuyueController : HttpClientBase
     {
-        public IntervalOnTime IntervalOnTime { get; set; }
         internal YuyueContent Content { get; set; }
-
-        public string Key { get; set; }
+        public bool IsSuccess { get; set; }
+        private bool IsHeaderBuilt { get; set; }
 
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
-            IntervalOnTime = new IntervalOnTime(Key, 300);
         }
 
-        public void StartInterval(Order order)
+        public bool YuyueAsync(Order order)
         {
-            //YuyueAsync(order);
-            IntervalOnTime.StartIntervalOntime(() => YuyueAsync(order));
-        }
-
-        public void YuyueAsync(Order order)
-        {
-            if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+            if (IsSuccess)
             {
-                IntervalOnTime.StopInterval();
-                return;
+                return IsSuccess;
             }
+
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
             var content = new YuyueContent(order);
-            Yuyue(content);
+            return Yuyue(content);
         }
 
-        internal void Yuyue(YuyueContent content)
+        internal bool Yuyue(YuyueContent content)
         {
             try
             {
-                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                if (IsSuccess)
                 {
-                    IntervalOnTime.StopInterval();
-                    return;
+                    return IsSuccess;
                 }
-                
-                content.BuildDefaultHeaders(Client);
+
+                if (!IsHeaderBuilt)
+                {
+                    content.BuildDefaultHeaders(Client);
+                    IsHeaderBuilt = true;
+                }
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
-                    return;
+                    return false;
                 }
 
                 var success = response.JsonBody.RootElement.GetProperty("success").NotNullString().ToBool();
@@ -63,15 +58,17 @@ namespace suiyang.appointment
                 if (!success)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:{message}");
-                    return;
+                    return false;
                 }
-                MainSession.SetStatus(MiaoProgress.AppointEnd);
                 MainSession.PrintLogEvent.Publish(this, $"预约结果:{message}");
                 MainSession.PrintLogEvent.Publish(null, $"{content.Order.ToLogString()}");
+
+                return true;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
+                return false;
             }
         }
     }

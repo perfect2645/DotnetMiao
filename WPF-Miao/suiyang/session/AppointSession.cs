@@ -10,11 +10,11 @@ namespace suiyang.session
     {
         public AppointSession() : base()
         {
-            var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
-            foreach (var date in dateList)
-            {
-                AddController(date);
-            }
+            //var dateList = (MainSession.PlatformSession["DateList"] as List<DspVal>).Select(x => x.Value).ToList();
+            //foreach (var date in dateList)
+            //{
+            //    AddController(date);
+            //}
         }
     }
 }

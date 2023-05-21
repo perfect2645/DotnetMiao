@@ -134,23 +134,20 @@ namespace suiyang.viewmodel
             DateList = new List<DspVal>
             {
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Friday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Saturday)),
+
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
-            {
+            {     
+                //new SuiyangHospital
+                //{
+                //    HospitalId = "514966",
+                //    HospitalName = "绥阳县妇幼保健院",
+                //    DepartmentId = "H",
+                //    DepartmentName = "二价宫颈癌疫苗",
+                //},
                 new SuiyangHospital
                 {
                     HospitalId = "514966",
@@ -265,28 +262,45 @@ namespace suiyang.viewmodel
 
         #region Appoint
 
-        private void OnYuyue(object? sender, AppointEventArgs e)
-        {
-            lock (OrderLock)
-            {
-                var orderList = e.OrderList;
-                Task.Factory.StartNew(() => OnAppointment(orderList));
-            }
-        }
-
-        private void OnAppointment(List<Order> orderList)
+        private void StartOneOrder(Order order)
         {
             try
             {
-                foreach (var order in orderList)
+                bool isSuccess = false;
+                while (!isSuccess)
                 {
-                    var yuyueController = MainSession.AppointSession.GetController(order.AppointDate);
-                    yuyueController.StartInterval(order);
+                    var yuyueController = MainSession.AppointSession.GetController(order.IdName);
+                    isSuccess = yuyueController.YuyueAsync(order);
+                    if (isSuccess)
+                    {
+                        PrintLog("预约成功");
+                        PrintLog(order.ToLogString());
+                        return;
+                    }
+                    Thread.Sleep(100);
                 }
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
             }
             catch (Exception ex)
             {
                 Log(ex);
+            }
+        }
+
+        private void OnYuyue(object? sender, AppointEventArgs e)
+        {
+            var orderList = e.OrderList;
+            if (orderList == null)
+            {
+                return;
+            }
+
+            foreach (var order in orderList)
+            {
+                Task.Factory.StartNew(() => StartOneOrder(order));
             }
         }
 
