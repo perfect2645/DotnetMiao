@@ -30,3 +30,16 @@ Date: Sun, 21 May 2023 16:03:14 GMT
 Content-Length: 136
 
 {"resultCode":40000,"success":false,"data":null,"message":"预约还未开启！","pageInfo":null,"exceptionMsg":null,"logTraceId":null}
+
+{
+    "DoctorId": "010006",
+    "Dept2Code": "JAFBZY09-01",
+    "ExtCol": -1,
+    "Amount": "0",
+    "IdCardNo": "360734200002260528",
+    "OutpatientNo": "9000007829",
+    "ReservationTime": "2023-05-21",
+    "SeeADoctorTime": "14:30--16:30",
+    "UserPhone": "13940897525",
+    "OrderType": 3
+}

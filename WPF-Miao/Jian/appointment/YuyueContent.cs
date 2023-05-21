@@ -9,7 +9,7 @@ namespace Jian.appointment
 {
     internal class YuyueContent : JianContent
     {
-        private static string baseUrl = "https://app.gocent.com.cn/unite/api/Reservation/Reservasion?hospitalCode=";
+        private static string baseUrl = "https://app.gocent.com.cn/unite/api/Reservation/SpecialReservasion?hospitalCode=";
         public Order Order { get; private set; }
         public YuyueContent(Order order, JianLogin user) : base(baseUrl, user)
         {
@@ -29,6 +29,7 @@ namespace Jian.appointment
             AddContent("ReservationTime", Order.ReservationTime);
             AddContent("SeeADoctorTime", Order.SeeADoctorTime);
             AddContent("UserPhone", Order.UserPhone);
+            AddContent("OrderType", 3);
         }
     }
 }
