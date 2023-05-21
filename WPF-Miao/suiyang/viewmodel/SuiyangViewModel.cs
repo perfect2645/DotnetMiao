@@ -120,8 +120,8 @@ namespace suiyang.viewmodel
         private void TestData()
         {
             Interval = 300;
-            StartTime = DateTime.Now.AddSeconds(20);
-            MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
+            //StartTime = DateTime.Now.AddSeconds(20);
+            //MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
             Auth = "Bearer e647934e-749e-4a46-9078-e8e25c9a4cf0";
             Cookie = "";
         }
@@ -151,13 +151,6 @@ namespace suiyang.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new SuiyangHospital
-                {
-                    HospitalId = "514966",
-                    HospitalName = "绥阳县妇幼保健院",
-                    DepartmentId = "H",
-                    DepartmentName = "二价宫颈癌疫苗",
-                },
                 new SuiyangHospital
                 {
                     HospitalId = "514966",
