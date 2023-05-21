@@ -21,7 +21,7 @@ namespace Jian.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********大连2院-选择医院科室*********");
+            sb.AppendLine("********吉安市妇幼保健院-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {HospitalId}");
             sb.AppendLine($"{DepartmentName} - {DepartmentId}");
             sb.AppendLine($"{DoctorName} - {DoctorId}");

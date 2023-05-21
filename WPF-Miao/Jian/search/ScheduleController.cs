@@ -78,7 +78,15 @@ namespace Jian.search
                 return (false, new List<Order>());
             }
 
-            var availableSchedules = scheduleList.Where(r => r.GetString("IsAvailable") == "1").ToList();
+            var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var availableSchedules = scheduleList.Where(r => r.GetString("IsAvailable") == "1"
+                && r.GetString("DocCode") == docId).ToList();
+
+            if (!availableSchedules.HasItem())
+            {
+                availableSchedules = scheduleList.Where(r => r.GetString("IsAvailable") == "1").ToList();
+            }
+
             if (!availableSchedules.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");

@@ -148,15 +148,21 @@ namespace Jian.viewmodel
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
-            {   
+            {
+                new JianHospital
+                {
+                    HospitalId = "360821003",
+                    HospitalName = "吉安市妇幼保健院",
+                    DepartmentName = "九价宫颈癌疫苗预约",
+                    DepartmentId = "JAFBZY09-01",
+                    DoctorId = "010006",
+                },
                 new JianHospital
                 {
                     HospitalId = "360821003",
                     HospitalName = "吉安市妇幼保健院",
                     DepartmentName = "儿科",
                     DepartmentId = "JAFBZY10-01",
-                    DoctorId = "010035",
-                    DoctorName = "进口九价预约",
                 }
             };
 
