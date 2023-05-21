@@ -30,11 +30,11 @@ namespace Baohe.viewModel
         {
             try
             {
-                VerifyCode.ArrangeSn = "171000457";
-                MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "813603199", "42", "09:00-9:30");
-                UserName = "詹小美";
+                VerifyCode.ArrangeSn = "171622234";
+                MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "819037175", "1", "第1号 08:00-11:00");
+                UserName = "黄星晨";
                 StartTime = DateTime.Now.AddSeconds(20);
-                MainSession.YzmMode = YzmMode.ExchangePreSendOnTimeVerify;
+                MainSession.YzmMode = YzmMode.ExchangePreSendVerify;
 
                 if (string.IsNullOrEmpty(VerifyCode.ArrangeSn))
                 {

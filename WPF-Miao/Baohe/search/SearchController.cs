@@ -61,7 +61,15 @@ namespace Baohe.search
         {
             AutoRunTimer = new Timer();
             AutoRunTimer.Enabled = false;
-            AutoRunTimer.Interval = 3000;
+
+            if (MainSession.YzmMode == YzmMode.ExchangePreSendVerify)
+            {
+                AutoRunTimer.Interval = 200;
+            }
+            else
+            {
+                AutoRunTimer.Interval = 3000;
+            }
 
             AutoRunTimer.AutoReset = true;
 
@@ -126,6 +134,7 @@ namespace Baohe.search
                 {
                     case YzmMode.PreSendOnTimeVerify:
                     case YzmMode.ExchangePreSendOnTimeVerify:
+                    case YzmMode.ExchangePreSendVerify:
                         await ExchangeSearch(); break;
                     case YzmMode.OnTimeSendVerify: 
                         await SearchMiaoInfo(); break;
@@ -347,11 +356,11 @@ namespace Baohe.search
         private void BuildExchangeOrder()
         {
             var orders = MainSession.OrderSession.GetOrders();
-            var numberCount = (MainSession.MiaoSession["Numbers"] as IList).Count;
+            //var numberCount = (MainSession.MiaoSession["Numbers"] as IList).Count;
 
-            var appContr = HttpServiceController.GetService<AppointmentController>();
+            //var appContr = HttpServiceController.GetService<AppointmentController>();
 
-            for (int i = 0; i < 10; i ++)
+            for (int i = 0; i < 5; i ++)
             {
                 foreach (var order in orders)
                 {

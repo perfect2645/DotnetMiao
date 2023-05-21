@@ -115,5 +115,6 @@ namespace Baohe.session
         OnTimeSendVerify = 1,
         PreSendVerify = 2,
         ExchangePreSendOnTimeVerify = 3,
+        ExchangePreSendVerify = 4,
     }
 }

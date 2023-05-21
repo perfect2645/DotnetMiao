@@ -77,9 +77,12 @@ namespace Baohe.viewModel
             MainSession.UpdateUiEvent = UpdateUiEvent;
 
             TestData();
-            LoginFromConfig();
+            //LoginFromConfig();
             MainSession.PrintLogEvent.Publish(this, StartTime.ToString());
             MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
+
+            UserName = "黄星晨";
+            Cookie = "jkzlAn_uuid=DF05E263-830B-41C9-8E0B-08CCA0983619; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; jkzlAn_p=-1; jkzlAn_c=-1; TOKEN_E6558D443C92A50A3EEA83AEEE57599F=FAE04C4EF9964990854AB517B3DF1CBF; TOKEN_EFA54E3C699F73D79CAD8AE045BE1D69=4434A1706E1B4CBFB63D4B8E0ECD7E31; TOKEN_56EE97A8CEDC2C347F0F6B4123E4D16B=B5E6718B511B40F7A2927FA03794CBC8; TOKEN_DB0DF065DCA71EC030402DBF2245D0ED=7981F07485614613B490B110AC6B5518; LoginChannel=9001478; platformJson=%7bplatformType%3a9001478%2csourceType%3a0%2csourceId%3a0%2cclientId%3a9001478%7d; jkzlAn_channelid=9001478; YiHu_OpenId=eyJPcGVuSUQiOiJvWTVUcDUydW1KZjBpdUpKZ2tKdHpNX1p6a3RzIiwiU2VjU3RyIjoiMzEzMjlDMzU0OTNDODdFRDUyNjg0RjU0RUJGRTFGMkYifQ%3D%3D; loginid=oY5Tp52umJf0iuJJgkJtzM_Zzkts; OpenID=oY5Tp52umJf0iuJJgkJtzM_Zzkts; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTc0NDk3OTciLCJDYXJkTnVtYmVyIjoiMjA4NzUzMjYyMCIsIkxvZ2luSWQiOiJvWTVUcDUydW1KZjBpdUpKZ2tKdHpNX1p6a3RzIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI5OTQyRjg5QjVGRUM0MDE0NUI4NzdEQTg3QzU5RjhEQiJ9; TOKEN_278A444FF64C86F60CD123B1D689F903=ED53855DA48C42C68383B0979966C907; jkzlAn_refercode=; jkzlAn_utm_source=; jkzlAn_sid=D2C964E0-3478-41F6-8A5B-CC776B127C25; jkzlAn_userid=157449797; jkzlAn_ct=1684597314487";
         }
 
         private void TestData()
