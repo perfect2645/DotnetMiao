@@ -52,7 +52,7 @@ namespace Jian.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("resultCode").GetInt16();
+                var code = root.GetProperty("resultCode").GetInt32();
                 var success = root.GetProperty("success").GetBoolean();
                 var message = root.GetProperty("message").GetString();
                 if (code != 20000 || !success)

@@ -1,6 +1,6 @@
-﻿using Jian.appointment;
+﻿using HttpProcessor.Client;
+using Jian.appointment;
 using Jian.session;
-using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +8,10 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
+using Utils.datetime;
 using Utils.json;
 using Utils.number;
 using Utils.stringBuilder;
-using Utils.datetime;
 
 namespace Jian.search
 {
@@ -45,7 +45,7 @@ namespace Jian.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("resultCode").GetInt16();
+                var code = root.GetProperty("resultCode").GetInt32();
                 var success = root.GetProperty("success").GetBoolean();
                 if (code != 20000 || !success)
                 {
@@ -80,7 +80,8 @@ namespace Jian.search
 
             var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
             var availableSchedules = scheduleList.Where(r => r.GetString("IsAvailable") == "1"
-                && r.GetString("DocCode") == docId).ToList();
+                && r.GetString("DocCode") == docId
+                && r.GetString("Day") == Date).ToList();
 
             if (!availableSchedules.HasItem())
             {

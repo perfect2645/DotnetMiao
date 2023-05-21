@@ -10,6 +10,7 @@ using Utils.datetime;
 using Base.model;
 using Jian.appointment;
 using Utils;
+using System;
 
 namespace Jian.search
 {
@@ -23,15 +24,12 @@ namespace Jian.search
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
             var defaultUser = MainSession.Users.FirstOrDefault();
-            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
+            var defaultDate = DateTimeUtil.GetToday();
 
-            foreach(var dateItem in dateList)
+            Task.Factory.StartNew(() =>
             {
-                Task.Factory.StartNew(() =>
-                {
-                    GetMiao(dateItem.Value);
-                });
-            }
+                GetMiao(defaultDate);
+            });
         }
 
         private void GetMiao(string date)

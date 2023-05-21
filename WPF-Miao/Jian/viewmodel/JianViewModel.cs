@@ -134,18 +134,12 @@ namespace Jian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
-
-            DateList = new List<DspVal>();
-            DateList.Add(new DspVal(DateTime.Today.ToString("yyyyMM")));
-            //DateList.Add(new DspVal(DateTime.Today.AddMonths(1).ToString("yyyyMM")));
-
-            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
             {

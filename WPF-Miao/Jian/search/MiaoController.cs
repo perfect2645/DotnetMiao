@@ -42,7 +42,7 @@ namespace Jian.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt16();
+                var code = root.GetProperty("code").GetInt32();
                 if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
