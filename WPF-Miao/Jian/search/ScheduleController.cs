@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.number;
+using Utils.stringBuilder;
+using Utils.datetime;
 
 namespace Jian.search
 {
@@ -35,7 +37,7 @@ namespace Jian.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new ScheduleContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchSchedule - {response?.Message},请检查参数");
@@ -43,8 +45,9 @@ namespace Jian.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
+                var code = root.GetProperty("resultCode").GetInt16();
+                var success = root.GetProperty("success").GetBoolean();
+                if (code != 20000 || !success)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
                     return (false, new List<Order>());
@@ -56,10 +59,8 @@ namespace Jian.search
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
                     return (false, new List<Order>());
                 }
-                var scheduleList = data.GetProperty("scheduleList");
 
-
-                return CheckSaveSchedule(scheduleList);
+                return CheckSaveSchedule(data);
             }
             catch (Exception ex)
             {
@@ -77,7 +78,7 @@ namespace Jian.search
                 return (false, new List<Order>());
             }
 
-            var availableSchedules = scheduleList.Where(r => r.GetString("status") == "1").ToList();
+            var availableSchedules = scheduleList.Where(r => r.GetString("IsAvailable") == "1").ToList();
             if (!availableSchedules.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
@@ -95,8 +96,12 @@ namespace Jian.search
 
             foreach (var schedule in schedules)
             {
-                Order orderWithTime = BuildOneOrder(schedule);
-                orderList.Add(orderWithTime);
+                var scheduleOrders = BuildOrdersFromSchedule(schedule);
+                if (!scheduleOrders.HasItem())
+                {
+                    continue;
+                }
+                orderList.AddRange(scheduleOrders);
             }
             orderList = orderList.DisorderItems();
 
@@ -105,21 +110,50 @@ namespace Jian.search
                 OrderList = orderList,
             };
 
+            MainSession.OrderEvent.Publish(this, orderArgs);
+
             return orderList;
         }
 
-        private Order BuildOneOrder(Dictionary<string, object> resource)
+        private List<Order> BuildOrdersFromSchedule(Dictionary<string, object> schedule)
         {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var orders = new List<Order>();
+
+            var scheduleInfos = schedule.GetString("SchedualInfos");
+            var scheduleInfoList = scheduleInfos.ToObjDicList();
+            if (!scheduleInfoList.HasItem())
+            {
+                return orders;
+            }
+
+            var amount = schedule.GetString("Amount");
+            var dept2 = MainSession.PlatformSession.GetString(Constants.DeptId);
             var docId = MainSession.PlatformSession.GetString(Constants.DoctorId);
 
-            var scheduleDate = resource.GetString("scheduleDate");
+            var targetDay = schedule.GetString("Day");
+            var dateRange = DateTimeUtil.GetDateRange(targetDay, DateTime.Today.ToString());
+            var extCol = (dateRange.Count - 1).ToString();
 
-            return new Order
+            foreach (var scheduleInfo in scheduleInfoList)
             {
+                var startTime = scheduleInfo.GetString("TimeStart");
+                var endTime = scheduleInfo.GetString("TimeEnd");
+                var seeADoctorTime = $"{startTime}--{endTime}";
 
-            };
+                var order = new Order
+                {
+                    Amount = amount,
+                    Dept2Code = dept2,
+                    DoctorId = docId,
+                    ExtCol = extCol,
+                    ReservationTime = targetDay,
+                    SeeADoctorTime = seeADoctorTime,
+                };
+
+                orders.Add(order);
+            }
+
+            return orders;
         }
     }
 }

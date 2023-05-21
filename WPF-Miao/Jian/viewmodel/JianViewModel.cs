@@ -338,7 +338,7 @@ namespace Jian.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(100);
+                        Thread.Sleep(500);
                     }
                 }
             }
@@ -364,8 +364,16 @@ namespace Jian.viewmodel
                     var order = new Order
                     {
                         UserName = user.UserName,
+                        IdCardNo = user.IdCardNo,
+                        OutpatientNo = user.MzNo,
+                        UserPhone = user.Phone,
                         User = user,
-
+                        Amount = template.Amount,
+                        Dept2Code = template.Dept2Code,
+                        DoctorId = template.DoctorId,
+                        ExtCol = template.ExtCol,
+                        ReservationTime = template.ReservationTime,
+                        SeeADoctorTime = template.SeeADoctorTime,
                     };
 
                     orderList.Add(order);

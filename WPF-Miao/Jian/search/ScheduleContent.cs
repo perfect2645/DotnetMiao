@@ -7,34 +7,21 @@ namespace Jian.search
 {
     internal class ScheduleContent : JianContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/dateschedulelist?_route=";
+        private static string baseUrl = "https://app.gocent.com.cn/unite/api/Schedual/SchedualInfo?hospitalCode=";
 
         public string Date { get; set; }
 
         public ScheduleContent(JianLogin user, string date) : base(baseUrl, user)
         {
             Date= date;
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            RequestUrl = $"{baseUrl}h{hosId}&";
+            var dept2 = MainSession.PlatformSession.GetString(Constants.DeptId);
+
+            RequestUrl = $"{BaseUrl}&dept2={dept2}";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var doctorSign = MainSession.PlatformSession.GetString(Constants.DoctorSign);
-
-            AddContent("hisId", hosId);
-            AddContent("platformId", hosId);
-            AddContent("platformSource", 3);
-            AddContent("subSource", 1);
-            AddContent("doctorId", doctorId);
-            AddContent("deptId", deptId);
-            AddContent("t", Date);
-            AddContent("sign", doctorSign);
-            AddContent("login_access_token", User.Authorization);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading;
 using Utils.stringBuilder;
 using System.Text.Json;
+using System.Collections.Generic;
 
 namespace Jian.appointment
 {
@@ -43,42 +44,33 @@ namespace Jian.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var msg = root.GetProperty("msg").GetString();
-                if (msg.Contains("不能重复提交") || msg.Contains("匹配不到对应的号源信息"))
+                var code = root.GetProperty("resultCode").GetInt16();
+                var success = root.GetProperty("success").GetBoolean();
+                var message = root.GetProperty("message").GetString();
+                if (code != 20000 || !success)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
-                    return true;
-                }
-
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, message={message}");
                     return false;
                 }
-
-
-                MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
                 }
 
+                MainSession.PrintLogEvent.Publish(this, $"预约成功: message = {message}");
 
-                var bookingResult = root.GetProperty("bookingResult");
-
-                CheckOrder(bookingResult, content.Order);
+                CheckOrder(data, content.Order);
 
                 return true;
             }
@@ -91,11 +83,11 @@ namespace Jian.appointment
 
         private void CheckOrder(JsonElement bookingResult, Order order)
         {
-            var bookingId = bookingResult.GetProperty("bookingID").GetString();
+            var orderId = bookingResult.GetString();
 
-            if (!string.IsNullOrEmpty(bookingId))
+            if (!string.IsNullOrEmpty(orderId))
             {
-                //order.BookingID = bookingId;
+                order.OrderId = orderId;
             }
 
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());

@@ -16,6 +16,7 @@ namespace Jian.appointment
         public string SeeADoctorTime { get; set; }
         public string UserPhone { get; set; }
         public string ResultMsg { get; set; }
+        public string OrderId { get; set; }
         internal JianLogin User { get; set; }
 
         public string ToLogString()
@@ -29,6 +30,7 @@ namespace Jian.appointment
             sb.AppendLine($"Dept2Code - {Dept2Code}");
             sb.AppendLine($"ReservationTime - {ReservationTime}");
             sb.AppendLine($"SeeADoctorTime - {SeeADoctorTime}");
+            sb.AppendLine($"OrderId - {OrderId}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

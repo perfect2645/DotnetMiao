@@ -45,18 +45,6 @@ namespace Jian.search
                 (isScheduleGet, scheduleOrderList) = scheduleController.SearchSchedule(date);
                 Thread.Sleep(1000);
             }
-
-            if (!scheduleOrderList.HasItem())
-            {
-                GetMiao(date);
-                return;
-            }
-
-            foreach(var schedule in scheduleOrderList)
-            {
-                var miaoController = HttpServiceController.GetService<MiaoController>();
-                miaoController.SearchMiaoAsync(schedule);
-            }
         }
     }
 }
