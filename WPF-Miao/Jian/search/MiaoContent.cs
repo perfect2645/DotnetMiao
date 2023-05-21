@@ -28,15 +28,7 @@ namespace Jian.search
             var doctorSign = MainSession.PlatformSession.GetString(Constants.DoctorSign);
 
             AddContent("hisId", hosId);
-            AddContent("platformId", hosId);
-            AddContent("platformSource", 3);
-            AddContent("subSource", 1);
-            AddContent("scheduleDate", ScheduleOrder.ScheduleDate);
-            AddContent("doctorId", doctorId);
-            AddContent("deptId", deptId);
-            AddContent("t", ScheduleOrder.SearchMonth);
-            AddContent("sign", doctorSign);
-            AddContent("login_access_token", User.Authorization);
+
         }
     }
 }

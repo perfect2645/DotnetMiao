@@ -113,17 +113,7 @@ namespace Jian.search
 
             return new Order
             {
-                DeptId = ScheduleOrder.DeptId,
-                DoctorId = ScheduleOrder.DoctorId,
-                HisId = ScheduleOrder.HisId,
-                PlatformId = ScheduleOrder.PlatformId,
-                PlatformSource = ScheduleOrder.PlatformSource,
-                ScheduleDate = ScheduleOrder.ScheduleDate,
-                SubSource = ScheduleOrder.SubSource,
-                SearchMonth = ScheduleOrder.SearchMonth,
-                VisitBeginTime = beginTime,
-                VisitEndTime = endTime,
-                VisitPeriod = schedule.GetString("visitPeriod")
+
             };
         }
     }

@@ -118,14 +118,7 @@ namespace Jian.search
 
             return new Order
             {
-                DeptId = deptId,
-                DoctorId = docId,
-                HisId = hospitalId,
-                PlatformId = hospitalId,
-                PlatformSource = "3",
-                SearchMonth = Date,
-                ScheduleDate = scheduleDate,
-                SubSource = "1",
+
             };
         }
     }

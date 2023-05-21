@@ -235,8 +235,8 @@ namespace Jian.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    //var loginController = HttpServiceController.GetService<LoginController>();
-                    //await loginController.LoginAsync(user);
+                    var loginController = HttpServiceController.GetService<LoginController>();
+                    await loginController.LoginAsync(user);
                     var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
@@ -386,18 +386,7 @@ namespace Jian.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        PatientId = user.PatientId,
-                        Token = user.Authorization,
-                        DeptId = template.DeptId,
-                        DoctorId = template.DoctorId,
-                        HisId = template.HisId,
-                        SubSource = template.SubSource,
-                        PlatformId = template.PlatformId,
-                        PlatformSource = template.PlatformSource,
-                        ScheduleDate = template.ScheduleDate,
-                        VisitBeginTime = template.VisitBeginTime,
-                        VisitEndTime = template.VisitEndTime,
-                        VisitPeriod = template.VisitPeriod
+
                     };
 
                     orderList.Add(order);

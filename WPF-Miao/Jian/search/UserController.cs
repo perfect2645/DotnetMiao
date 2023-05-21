@@ -70,10 +70,6 @@ namespace Jian.search
             var birthday = userInfo.GetString("birthday");
             var address = userInfo.GetString("patientAddress");
 
-            user.PatientId = patientId;
-            user.UserName = userName;
-            user.Birthday = birthday;
-            user.Address = address;
 
             MainSession.PrintLogEvent.Publish(this, userInfo);
         }
