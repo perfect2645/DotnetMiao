@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using System.Linq;
 
 namespace Jian.search
 {
@@ -35,17 +36,18 @@ namespace Jian.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
+                var code = root.GetProperty("resultCode").GetInt16();
+                var success = root.GetProperty("success").GetBoolean();
+                if (code != 20000 || !success)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"Login失败: code={code}");
                     return;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"Login失败: results is empty");
                     return;
                 }
                 SaveUser(data, user);
@@ -58,20 +60,28 @@ namespace Jian.search
 
         private void SaveUser(JsonElement data, JianLogin user)
         {
-            var userInfo = JsonAnalysis.JsonToDic(data);
-            if (!userInfo.HasItem())
+            var userInfoList = JsonAnalysis.JsonToDicList(data);
+            if (!userInfoList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var userName = userInfo.GetString("patientName");
-            var patientId = userInfo.GetString("patientId");
-            var birthday = userInfo.GetString("birthday");
-            var address = userInfo.GetString("patientAddress");
+            var defaultUser = userInfoList.FirstOrDefault(u => u.GetString("Name") == user.UserName);
+            if (defaultUser == null)
+            {
+                defaultUser = userInfoList.FirstOrDefault();
+            }
 
+            var userName = defaultUser.GetString("Name");
+            var idCardNo = defaultUser.GetString("IdCardNo");
+            var mzNo = defaultUser.GetString("MzNo");
 
-            MainSession.PrintLogEvent.Publish(this, userInfo);
+            user.UserName = userName;
+            user.IdCardNo = idCardNo;
+            user.MzNo = mzNo;
+
+            MainSession.PrintLogEvent.Publish(this, userInfoList);
         }
     }
 }

@@ -151,34 +151,13 @@ namespace Jian.viewmodel
             {   
                 new JianHospital
                 {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632075",
+                    HospitalId = "360821003",
+                    HospitalName = "吉安市妇幼保健院",
+                    DepartmentName = "儿科",
+                    DepartmentId = "JAFBZY10-01",
+                    DoctorId = "010035",
                     DoctorName = "进口九价预约",
-                    DoctorSign = "27E51C19C31648F9BC788F064D7F0794",
-                },
-                new JianHospital
-                {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632072",
-                    DoctorName = "国产二价预约",
-                    DoctorSign = "D9B5434FBCB2CEACFC9B2769ABE0CD77"
-                },
-                new JianHospital
-                {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632074",
-                    DoctorName = "进口四价预约",
-                    DoctorSign = "420BC7D1D7953FA51F844F4FFB3E35AE",
-                },
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -504,7 +483,6 @@ namespace Jian.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorSign, selectedDept.DoctorSign);
 
             Log(selectedDept.ToLogString());
         }

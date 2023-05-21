@@ -28,3 +28,21 @@ Date: Sat, 20 May 2023 14:31:47 GMT
 Content-Length: 208
 
 {"resultCode":20000,"success":true,"data":[{"IdCardNo":"360734200002260528","Name":"彭芳玲","MzNo":"9000007829","ZyNo":"","JkNo":null}],"message":"OK","pageInfo":null,"exceptionMsg":null,"logTraceId":null}
+
+{
+    "resultCode": 20000,
+    "success": true,
+    "data": [
+        {
+            "IdCardNo": "360734200002260528",
+            "Name": "彭芳玲",
+            "MzNo": "9000007829",
+            "ZyNo": "",
+            "JkNo": null
+        }
+    ],
+    "message": "OK",
+    "pageInfo": null,
+    "exceptionMsg": null,
+    "logTraceId": null
+}

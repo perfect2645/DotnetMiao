@@ -23,7 +23,6 @@ namespace Jian.login
             try
             {
                 var content = new LoginContent(user);
-                content.AddHeader("uid", string.Empty);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)

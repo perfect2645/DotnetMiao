@@ -10,6 +10,7 @@ namespace Jian.login
         private static string baseUrl = "https://app.gocent.com.cn/unite/api/User/GocentToken?hospitalCode=";
         public LoginContent(JianLogin user) : base(baseUrl, user)
         {
+            RequestUrl = $"{BaseUrl}";
             BuildContent();
         }
 
