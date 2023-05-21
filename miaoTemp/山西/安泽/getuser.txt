@@ -1,0 +1,20 @@
+POST https://yuyue.azjkzx.cn/api/index/getMemberInfo HTTP/1.1
+Host: yuyue.azjkzx.cn
+Connection: keep-alive
+Content-Length: 20
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wx9462592068e4073e/5/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"uid":"JDg74GM2Qq"}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 21 May 2023 16:44:27 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Request-ID: c856f9ab79bd5bb3005fe2170a4d8106
+Strict-Transport-Security: max-age=31536000
+Content-Length: 1020
+
+{"code":1,"msg":"请求成功","time":"1684687467","data":{"nickName":"Fawei","address":"太原","gender":"1","islocal":"2","isdisable":"1","checked":"1","avatarUrl":"https:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/Q0j4TwGTfTIWFAJGwjiadzugetaWdBQZG3kvlEUibVGdh9aGmRrlmyZCtxMyEPXjaetlzoPKbl1MYuSQXqVSxrHw\/132","recommend":"368212","truename":"崔紫琴","phoneNumber":"13940897525","idcard":"340223199711033226","image":"https:\/\/yuyue.azjkzx.cn\/upload\/m_pro\/20230522\/168468742845-2023-05-22.jpg","images":"https:\/\/yuyue.azjkzx.cn\/upload\/m_pro\/20230522\/1684687403624-2023-05-22.jpg","imagesf":"https:\/\/yuyue.azjkzx.cn\/upload\/m_pro\/20230522\/1684687419434-2023-05-22.jpg","image1":[{"url":"https:\/\/yuyue.azjkzx.cn\/upload\/m_pro\/20230522\/168468742845-2023-05-22.jpg"}],"images1":[{"url":"https:\/\/yuyue.azjkzx.cn\/upload\/m_pro\/20230522\/1684687403624-2023-05-22.jpg"}],"imagesf1":[{"url":"https:\/\/yuyue.azjkzx.cn\/upload\/m_pro\/20230522\/1684687419434-2023-05-22.jpg"}],"recommend_text":"YY_368212"}}
