@@ -32,8 +32,7 @@ namespace suiyang.search
             try
             {
                 var dept = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var dc = DateTimeUtil.GetTimeStamp();
-                var url = $"http://www.jxy-tech.com/api/v1/myAddresss?_dc={dc}&includeItems=true&page=1&limit=10";
+                var url = $"https://www.jxy-tech.com/api/v1/myAddresss";
                 var content = new SuiyangBaseContent(url);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
@@ -63,18 +62,10 @@ namespace suiyang.search
         private void SaveMiaoInfo(JsonElement data)
         {
             var userList = JsonAnalysis.JsonToDicList(data);
+
+            MainSession.PrintLogEvent.Publish(this, userList);
+
             MainSession.PlatformSession.AddOrUpdate("userList", userList);
-            //var scheduleList = JsonAnalysis.JsonToDicList(data);
-            //foreach (var schedule in scheduleList)
-            //{
-            //    var availableQty = schedule.GetString("availableQty").ToInt();
-            //    if (availableQty > 0)
-            //    {
-            //        IntervalOnTime.StopInterval();
-            //        PublishMiaoGet(Date);
-            //        MainSession.PrintLogEvent.Publish(null, $"查到苗，date={Date}");
-            //    }
-            //}
         }
     }
 }

@@ -120,9 +120,10 @@ namespace suiyang.viewmodel
         private void TestData()
         {
             Interval = 300;
-            //StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(20);
             MainSession.PlatformSession.AddOrUpdate("StartTime", StartTime);
-            Auth = "Bearer 3ad587a4-1db7-4a88-9da6-70b2f1b1c8ee";
+            Auth = "Bearer e647934e-749e-4a46-9078-e8e25c9a4cf0";
+            Cookie = "";
         }
 
         private void InitStaticData()
@@ -132,10 +133,10 @@ namespace suiyang.viewmodel
 
             DateList = new List<DspVal>
             {
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
@@ -154,6 +155,13 @@ namespace suiyang.viewmodel
                 {
                     HospitalId = "514966",
                     HospitalName = "绥阳县妇幼保健院",
+                    DepartmentId = "H",
+                    DepartmentName = "二价宫颈癌疫苗",
+                },
+                new SuiyangHospital
+                {
+                    HospitalId = "514966",
+                    HospitalName = "绥阳县妇幼保健院",
                     DepartmentId = "F",
                     DepartmentName = "九价宫颈癌疫苗",
                 },
@@ -164,6 +172,7 @@ namespace suiyang.viewmodel
                     DepartmentId = "G",
                     DepartmentName = "四价宫颈癌疫苗",
                 },
+
                 new SuiyangHospital
                 {
                     HospitalId = "514966",
