@@ -1,0 +1,143 @@
+.makeTab,.makeTab_content {
+    background-color: #2977ea;
+    height: 100rpx;
+    width: 100%;
+}
+
+.makeTab_content {
+    color: #b3cfff;
+    font-size: 30rpx;
+    margin: auto;
+}
+
+.makeTab_li {
+    float: left;
+    padding-top: 20rpx;
+    text-align: center;
+    width: 50%;
+}
+
+.white {
+    color: #fff;
+    font-weight: 700;
+}
+
+.makeTab_li_line {
+    background-color: #fff;
+    border-radius: 50rpx;
+    height: 6rpx;
+    margin: 10rpx auto auto;
+    width: 45rpx;
+}
+
+.makelist_content {
+    margin: auto;
+    min-height: 100rpx;
+    width: 95%;
+}
+
+.makelist_li {
+    background-color: #fff;
+    border-radius: 20rpx;
+    height: 285rpx;
+    margin: 40rpx auto auto;
+    width: 100%;
+}
+
+.makelist_li_content {
+    height: 248rpx;
+    margin: auto;
+    padding-top: 18rpx;
+    width: 95%;
+}
+
+.makelist_li_left {
+    float: left;
+    height: 248rpx;
+    width: 40%;
+}
+
+.makelist_li_left image {
+    height: 248rpx;
+    width: 248rpx;
+}
+
+.makelist_li_right {
+    float: left;
+    height: 248rpx;
+    position: relative;
+    width: 60%;
+}
+
+.makelist_li_right_title {
+    color: #333;
+    font-size: 30rpx;
+    font-weight: 700;
+    min-height: 60rpx;
+    text-align: left;
+    width: 100%;
+}
+
+.makelist_li_right_text {
+    color: #959595;
+    font-size: 24rpx;
+    min-height: 60rpx;
+    padding-top: 5rpx;
+    text-align: left;
+    width: 100%;
+}
+
+.makelist_li_right_image {
+    bottom: 0;
+    height: 128rpx;
+    position: absolute;
+    right: 35rpx;
+    width: 128rpx;
+    z-index: 1;
+}
+
+.makelist_li_right_image image {
+    height: 128rpx;
+    margin: auto;
+    width: 128rpx;
+}
+
+.makelist_li_price {
+    bottom: 0;
+    height: 80rpx;
+    left: 0rpx;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.price_hx {
+    color: #979797;
+    display: none;
+    font-size: 24rpx;
+    text-decoration: line-through;
+}
+
+.price {
+    bottom: 0;
+    color: #3773d3;
+    font-size: 30rpx;
+    font-weight: 700;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.bottom-button {
+    background-color: #3078e6;
+    border-radius: 999px;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    text-align: center;
+    width: 160px;
+}

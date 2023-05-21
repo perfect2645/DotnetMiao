@@ -1,0 +1,65 @@
+<block wx:if="{{code==10}}">
+    <import src="../../wxParse/wxParse.wxml"></import>
+    <view>
+        <view class="banner_content">
+            <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="{{duration}}" indicatorActiveColor="{{indicatorActiveColor}}" indicatorColor="{{indicatorColor}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}" style="height:{{Height}}">
+                <swiper-item>
+                    <image bindload="imgHeight" mode="widthFix" src="{{result.image}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="makeDetail_top">
+            <view class="makeDetail_top_center">
+                <view class="makeDetail_title">{{result.title}}</view>
+                <view class="makeDetail_text">{{result.tags}}</view>
+                <view class="makeDetail_button">{{result.type_id}}</view>
+                <view class="makeDetail_price">
+                    <text class="price">￥{{result.price}}</text>
+                    <text class="price_hx">￥3009</text>
+                    <text class="makeDetail_time">{{result.startdate}} - {{result.activitytime}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="makeDetail_content">
+            <view class="makeDetail_content_top">疫苗详情</view>
+            <view class="makeDetail_content_bottom">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+            </view>
+        </view>
+        <view class="makeDetail_bottom_line"></view>
+        <view class="makeDetail_bottom">
+            <view bindtap="getAddInfo" class="makeDetail_bottom_button" data-id="{{result.id}}" wx:if="{{result.currentstate==1}}">
+                <image mode="aspectFit" src="../../images/s_biao.png"></image>
+                <text>立即预约</text>
+            </view>
+            <view class="makeDetail_bottom_button n_huise" wx:if="{{result.currentstate==0}}">
+                <image mode="aspectFit" src="../../images/s_biao.png"></image>
+                <text>即将开始</text>
+            </view>
+            <view class="makeDetail_bottom_button n_huise" wx:if="{{result.currentstate==2||result.currentstate==4}}">
+                <image mode="aspectFit" src="../../images/s_biao.png"></image>
+                <text>已结束</text>
+            </view>
+        </view>
+    </view>
+</block>
+<view class="makeState_content" wx:elif="{{code==200}}">
+    <image class="makeState_image" mode="widthFix" src="../../images/success.png"></image>
+    <view class="makeState_title">预约成功</view>
+    <view class="makeState_text">{{successInfo}}</view>
+    <view bindtap="urlTab" class="makeState_home" data-url="../index/index">返回首页</view>
+</view>
+<view class="makeState_content" wx:else>
+    <image class="makeState_image" mode="widthFix" src="../../images/error.png"></image>
+    <view class="makeState_title">预约失败</view>
+    <view class="makeState_text">很遗憾预约失败，请您稍后再试。</view>
+    <view bindtap="urlTab" class="makeState_home" data-url="../index/index">返回首页</view>
+</view>
+<view class="bg" wx:if="{{isSuccess==true}}"></view>
+<view class="tanchuangyzm" wx:if="{{isSuccess==true}}">
+    <view class="tanchuangyzm_content">
+        <input bindinput="codeImg" class="yzminput" placeholder="请输入图形验证码" type="text" value="{{imgCode}}"></input>
+        <canvas bindtap="change" canvasId="canvas" class="yzm"></canvas>
+    </view>
+    <view bindtap="getYzm" class="tanchuangyzm_bottom" data-id="{{result.id}}"> 确定 </view>
+</view>

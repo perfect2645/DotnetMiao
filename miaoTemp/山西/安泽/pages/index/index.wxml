@@ -1,0 +1,83 @@
+<view class="headbg">
+    <image src="/images/banner.png"></image>
+    <view class="type">
+        <block wx:for="{{type}}" wx:key="unique">
+            <view class="type_li white" wx:if="{{item.id==ids}}">{{item.title}}<view class="makeTab_li_line"></view>
+            </view>
+            <view bindtap="getTypeTab" class="type_li" data-id="{{item.id}}" wx:else>{{item.title}}</view>
+        </block>
+    </view>
+    <view class="banner_box">
+        <swiper autoplay="{{autoplay}}" class="banner" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+            <swiper-item wx:for="{{banner}}" wx:key="unique">
+                <navigator>
+                    <view bindtap="getLinkurl">
+                        <image src="{{item.image}}"></image>
+                    </view>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+<view class="banner_line"></view>
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="s_gg_content">
+    <view class="s_gg_content2">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+    </view>
+</view>
+<view class="s_list">
+    <view class="s_list_content">
+        <view class="s_list_top">
+            <image mode="aspectFit" src="../../images/s_list.png"></image>疫苗列表 </view>
+        <view wx:if="{{makeList.length>0}}">
+            <view bindtap="getUrl" class="makelist_li" data-id="{{item.id}}" data-status="{{item.currentstate}}" wx:for="{{makeList}}" wx:key="unique">
+                <view class="makelist_li_content">
+                    <view class="makelist_li_left">
+                        <image mode="aspectFit" src="{{item.image}}"></image>
+                    </view>
+                    <view class="makelist_li_right">
+                        <view class="makelist_li_right_title">{{item.title}}</view>
+                        <view class="makelist_li_right_text">{{item.tags}}</view>
+                        <view class="makelist_li_time" wx:if="{{item.currentstate==0}}">{{item.startdate}}开始</view>
+                        <view class="makelist_li_price">
+                            <view class="price_hx">￥3009</view>
+                            <view class="price">￥{{item.price}}</view>
+                        </view>
+                        <view class="makelist_li_right_image n_lanse" wx:if="{{item.currentstate==1}}">
+                            <image mode="aspectFit" src="../../images/s_biao.png"></image>
+                            <text>立即预约</text>
+                        </view>
+                        <view class="makelist_li_right_image n_huise" wx:if="{{item.currentstate==0}}">
+                            <image mode="aspectFit" src="../../images/s_biao.png"></image>
+                            <text>即将开始</text>
+                        </view>
+                        <view class="makelist_li_right_image n_huise" wx:if="{{item.currentstate==2||item.currentstate==4}}">
+                            <image mode="aspectFit" src="../../images/s_biao.png"></image>
+                            <text>已结束</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:else>
+            <van-empty description="暂无疫苗"></van-empty>
+        </view>
+    </view>
+</view>
+<view class="s_bottom"></view>
+<view class="bg" wx:if="{{kefuAct==1}}"></view>
+<block wx:if="{{kefuAct==1}}">
+    <import src="../../wxParse/wxParse.wxml"></import>
+    <view class="tanchuang">
+        <view class="tanchuang_top">
+            <image mode="widthFix" src="../../images/dwgg.jpg"></image>
+        </view>
+        <view class="tanchuang_content">
+            <scroll-view class="tanchuang_content" scrollY="{{true}}">
+                <template is="wxParse" data="{{wxParseData:article2.nodes}}"></template>
+            </scroll-view>
+        </view>
+        <view bindtap="getZx" class="tanchuang_bottom"> 我已知晓 </view>
+    </view>
+</block>

@@ -1,0 +1,13 @@
+<view>
+    <view>
+        <view class="header">
+            <image src="../../images/logo.png"></image>
+        </view>
+        <view class="content">
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+        <button bindgetphonenumber="getPhoneNumber" class="bottom" lang="zh_CN" openType="getPhoneNumber" type="primary" wx:if="{{showphonebtn}}"> 绑定手机号 </button>
+        <button bindtap="getUserInfo" class="bottom" lang="zh_CN" type="primary" wx:else> 授权登录 </button>
+    </view>
+</view>

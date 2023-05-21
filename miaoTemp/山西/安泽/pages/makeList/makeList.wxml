@@ -1,0 +1,37 @@
+<view>
+    <view class="makeTab">
+        <view class="makeTab_content">
+            <view class="makeTab_li white" wx:if="{{status==1}}">预约成功<view class="makeTab_li_line"></view>
+            </view>
+            <view bindtap="getTab" class="makeTab_li" data-status="1" wx:else>预约成功</view>
+            <view class="makeTab_li white" wx:if="{{status==2}}">预约失败<view class="makeTab_li_line"></view>
+            </view>
+            <view bindtap="getTab" class="makeTab_li" data-status="2" wx:else>预约失败</view>
+        </view>
+    </view>
+    <view class="makelist_content" wx:if="{{count>0}}">
+        <view class="makelist_li" wx:for="{{makeList}}" wx:key="unique">
+            <view class="makelist_li_content">
+                <view class="makelist_li_left">
+                    <image mode="aspectFit" src="{{item.yimiao.image}}"></image>
+                </view>
+                <view class="makelist_li_right">
+                    <view class="makelist_li_right_title">{{item.yimiao.title}}</view>
+                    <view class="makelist_li_right_text">{{item.truename}}{{item.idcard}}</view>
+                    <view class="makelist_li_right_text">状态:{{item.statusstr}}</view>
+                    <view class="makelist_li_right_text" wx:if="{{item.status==2}}"> 接种时间:{{item.yimiaodate}} </view>
+                    <view class="makelist_li_right_text" wx:if="{{item.status==3}}"> 失败原因:{{item.remarks}} </view>
+                    <view class="makelist_li_right_text" wx:if="{{item.status==1}}">预约时间:{{item.createtime}}</view>
+                    <view class="makelist_li_right_image">
+                        <image mode="aspectFit" src="../../images/wgq.jpg" wx:if="{{item.status==1}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="getUrl" wx:else>
+        <van-empty description="暂无预约">
+            <van-button round class="bottom-button" type="danger">返回首页</van-button>
+        </van-empty>
+    </view>
+</view>

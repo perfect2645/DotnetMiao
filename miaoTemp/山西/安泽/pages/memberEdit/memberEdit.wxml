@@ -1,0 +1,86 @@
+<view>
+    <view class="memberInfo">
+        <view class="info_f_hy">
+            <view class="info_f_hy_1">{{numberlimitnutips}}</view>
+        </view>
+        <view class="info_title">
+            <image mode="aspectFit" src="../../images/info_dian.jpg"></image>个人信息 </view>
+        <view class="info_li">
+            <view class="info_li_left">
+                <text>*</text>姓 名：</view>
+            <view class="info_li_right">
+                <input bindinput="bindUsernameInput" placeholder="请输入姓名..." type="text" value="{{username}}"></input>
+            </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">
+                <text>*</text>性 别：</view>
+            <view class="info_li_right">
+                <van-radio-group bind:change="onChange" value="{{gender}}">
+                    <van-radio name="1">女</van-radio>
+                    <van-radio name="2">男</van-radio>
+                </van-radio-group>
+            </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">
+                <text>*</text>手机号：</view>
+            <view class="info_li_right">
+                <input re bindinput="bindPhoneInput" disabled="true" placeholder="请输入手机号..." type="number" value="{{phone}}"></input>
+            </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">
+                <text>*</text>身份证号：</view>
+            <view class="info_li_right">
+                <input bindinput="bindIdNumberInput" placeholder="请输入身份证号..." type="text" value="{{idNumber}}"></input>
+            </view>
+        </view>
+        <view class="info_li wu_line">
+            <view class="info_li_left">
+                <text>*</text>地 址：</view>
+            <view class="info_li_right">
+                <input bindinput="bindAddressInput" placeholder="请填写工作单位或家庭地址" type="text" value="{{address}}"></input>
+            </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">
+                <text>*</text>是否本地：</view>
+            <view class="info_li_right">
+                <van-radio-group bind:change="onChangelocal" value="{{islocal}}">
+                    <van-radio name="1">是</van-radio>
+                    <van-radio name="2">否</van-radio>
+                </van-radio-group>
+            </view>
+        </view>
+        <view class="info_f_hy" wx:if="{{islocal==2}}">
+            <view class="info_f_hy_1">非本地身份证号,请上传本地户籍证明或本地工作单位证明</view>
+            <view class="info_f_hy_2">
+                <view class="info_li_left">上传证明：</view>
+                <view class="info_li_right">
+                    <van-uploader bind:after-read="afterReadFile" bind:delete="deleteFileClick" data-idx="{{index}}" deletable="{{true}}" fileList="{{fileList}}" maxCount="1"></van-uploader>
+                </view>
+            </view>
+        </view>
+        <view class="info_title">
+            <image mode="aspectFit" src="../../images/info_dian.jpg"></image>身份证正反面 </view>
+        <view class="info_f_hy">
+            <view class="info_f_hy_2">
+                <view class="info_li_left">头像面：</view>
+                <view class="info_li_right">
+                    <van-uploader bind:after-read="afterReadFace" bind:delete="deleteFaceClick" data-idx="{{index}}" deletable="{{true}}" fileList="{{facePhoto}}" maxCount="1"></van-uploader>
+                </view>
+            </view>
+            <view class="info_f_hy_2">
+                <view class="info_li_left">国徽面：</view>
+                <view class="info_li_right">
+                    <van-uploader bind:after-read="afterReadBack" bind:delete="deleteBackClick" data-idx="{{index}}" deletable="{{true}}" fileList="{{backPhoto}}" maxCount="1"></van-uploader>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="member_tj_top"></view>
+<view class="member_tj">
+    <view bindtap="signSubmit" class="member_submint">立即提交</view>
+</view>
