@@ -7,7 +7,7 @@ namespace Anze.search
 {
     internal class MiaoContent : AnzeContent
     {
-        private static string baseUrl = "https://ljzyyapi.yuanbaodaojia.com/v1/vaccine_day_list";
+        private static string baseUrl = "https://yuyue.azjkzx.cn/api/index/yimiaolist?ids=1";
 
         public MiaoContent(AnzeLogin user) : base(baseUrl, user)
         {
@@ -16,11 +16,6 @@ namespace Anze.search
 
         private void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            AddContent("vaccineId", deptId);
-            AddContent("vaccineAddressId", hosId);
-            AddContent("token", User.Token);
         }
     }
 }

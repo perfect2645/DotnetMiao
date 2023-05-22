@@ -1,5 +1,7 @@
 ﻿using Anze.common;
 using Anze.login;
+using Anze.session;
+using Utils;
 
 namespace Anze.appointment
 {
@@ -15,11 +17,9 @@ namespace Anze.appointment
 
         private void BuildContent()
         {
-            AddContent("vaccineDayId", Order.VaccineDayId);
-            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
-            AddContent("vaccineId", Order.VaccineId);
-            AddContent("familyId", Order.FamilyId);
-            AddContent("token", Order.User.Token);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            AddContent("ids", deptId);
+            AddContent("uid", User.UserId);
         }
     }
 }

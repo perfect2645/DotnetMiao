@@ -12,7 +12,7 @@ namespace Anze.login
 {
     internal class UserContent : AnzeContent
     {
-        private static string baseUrl = "https://ljzyyapi.yuanbaodaojia.com/v1/family_list";
+        private static string baseUrl = "https://yuyue.azjkzx.cn/api/index/getMemberInfo";
         public UserContent(AnzeLogin user) : base(baseUrl, user)
         {
             BuildContent();
@@ -20,10 +20,7 @@ namespace Anze.login
 
         private void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-
-            AddContent("page", 1);
-            AddContent("token", User.Token);
+            AddContent("uid", User.UserId);
         }
     }
 }

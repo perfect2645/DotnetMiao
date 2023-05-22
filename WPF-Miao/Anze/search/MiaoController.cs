@@ -37,31 +37,29 @@ namespace Anze.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != 1)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao: code={code}, msg={msg}");
                     return false;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: data is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao: results is empty");
                     return false;
                 }
-
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return CheckBuildOrder(data);
             }
             catch (Exception ex)
             {
@@ -70,46 +68,44 @@ namespace Anze.search
             }
         }
 
-        private bool CheckSaveResource(JsonElement dataElement)
+        private bool CheckBuildOrder(JsonElement dataElement)
         {
-            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
-            if (!vaccineDayList.HasItem())
+            var miaoList = JsonAnalysis.JsonToDicList(dataElement);
+            if (!miaoList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
-        }
-
-        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
-        {
-            var orderList = new List<Order>();
-
-            foreach (var vaccineDay in vaccineDayList)
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var targetMiao = miaoList.FirstOrDefault(x => x.GetString("id") == deptId);
+            if (targetMiao == null)
             {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
-                foreach (var timeItem in timeList)
-                {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
-                    {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是Id没有{deptId}");
             }
+            targetMiao = miaoList.FirstOrDefault();
 
-            if(!orderList.HasItem())
+            var currentstate = targetMiao.GetString("currentstate"); //0 未开始, 1 开始了
+            if (!"1".Equals(currentstate))
             {
-                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
+                MainSession.PrintLogEvent.Publish(this, $"没开始{currentstate}");
                 return false;
             }
 
-            orderList = orderList.DisorderItems();
+            MainSession.PrintLogEvent.Publish(this, $"开始了");
+            return BuildOrderList(targetMiao);
+        }
+
+        private bool BuildOrderList(Dictionary<string, object> miaoInfo)
+        {
+            var orderList = new List<Order>();
+
+            var miaoId = miaoInfo.GetString("id");
+
+            orderList.Add(new Order
+            {
+                Ids = miaoId,
+            });
 
             var orderArgs = new OrderEventArgs
             {
@@ -119,18 +115,6 @@ namespace Anze.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-                VaccineDayId = dayId,
-                VaccineDayNumId = timeId,
-                VaccineId = deptId
-            };
         }
     }
 }

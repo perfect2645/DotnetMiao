@@ -18,7 +18,7 @@ namespace Anze.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********武汉疾控-选择医院科室*********");
+            sb.AppendLine("********安泽疾控-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {DepartmentName}");
             sb.AppendLine($"Department : {DepartmentId} - {DepartmentName}");
             sb.AppendLine($"Doctor : {DoctorId} - {DoctorName}");

@@ -47,21 +47,24 @@ namespace Anze.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(30);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(10);
 
             Departments = new List<HospitalDept>
             {
                 new AnzeHospital
                 {
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（默沙东）",
-                    DepartmentId = "6",
+                    DepartmentName = "九价HPV扩龄",
+                    DepartmentId = "16",
+                },
+                new AnzeHospital
+                {
+                    DepartmentName = "四价Hpv",
+                    DepartmentId = "17",
                 }
             };
 
@@ -259,10 +262,8 @@ namespace Anze.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
+                        Ids= template.Ids,
+                        Uid= user.UserId,
                     };
 
                     orderList.Add(order);
