@@ -64,7 +64,7 @@ namespace Baohe.search
 
             if (MainSession.YzmMode == YzmMode.ExchangePreSendVerify)
             {
-                AutoRunTimer.Interval = 200;
+                AutoRunTimer.Interval = 2800;
             }
             else
             {
