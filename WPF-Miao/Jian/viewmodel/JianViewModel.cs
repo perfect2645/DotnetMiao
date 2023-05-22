@@ -139,7 +139,7 @@ namespace Jian.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(30);
 
             Departments = new List<HospitalDept>
             {
