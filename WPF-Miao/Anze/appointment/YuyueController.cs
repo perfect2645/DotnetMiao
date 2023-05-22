@@ -45,7 +45,7 @@ namespace Anze.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
@@ -53,9 +53,9 @@ namespace Anze.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
+                var code = root.GetProperty("code").GetInt32();
                 var msg = root.GetProperty("msg").GetString();
-                if (code != "0000")
+                if (code != 1)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
@@ -73,29 +73,6 @@ namespace Anze.appointment
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
-                return false;
-            }
-        }
-
-        private bool SaveOrderResult(JsonElement data)
-        {
-            try
-            {
-                var orderData = JsonAnalysis.JsonToDic(data);
-
-                MainSession.PrintLogEvent.Publish(this, orderData);
-
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
-                {
-                    return true;
-                }
-
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"解析预约结果异常{ex.Message}");
-
                 return false;
             }
         }

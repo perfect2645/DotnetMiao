@@ -7,7 +7,7 @@ namespace Anze.appointment
 {
     internal class YuyueContent : AnzeContent
     {
-        private static string url = "https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine";
+        private static string url = "https://yuyue.azjkzx.cn/api/index/addorder";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {
@@ -17,8 +17,7 @@ namespace Anze.appointment
 
         private void BuildContent()
         {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            AddContent("ids", deptId);
+            AddContent("ids", Order.Ids.ToInt());
             AddContent("uid", User.UserId);
         }
     }

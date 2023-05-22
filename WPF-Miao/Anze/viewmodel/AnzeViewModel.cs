@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.file;
+using System.Security.Cryptography;
 
 namespace Anze.viewmodel
 {
@@ -47,12 +48,12 @@ namespace Anze.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(10);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(30);
 
             Departments = new List<HospitalDept>
             {
@@ -119,6 +120,7 @@ namespace Anze.viewmodel
             }
 
             MainSession.InitSession();
+            BuildManualOrders();
         }
 
         #endregion Login
@@ -141,6 +143,22 @@ namespace Anze.viewmodel
                     Log(ex);
                 }
             });
+        }
+
+        private void BuildManualOrders()
+        {
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+
+            foreach(var user in MainSession.Users)
+            {
+                MainSession.Orders.AddOrUpdate(user.UserId, new Order
+                {
+                    Ids = deptId,
+                    Uid = user.UserId,
+                    User = user,
+                });
+            }
+
         }
 
         protected override void AutoRun()
@@ -191,14 +209,14 @@ namespace Anze.viewmodel
             }
         }
 
-        private void StartOneOrder(string userName, Order order)
+        private void StartOneOrder(string userId, Order order)
         {
             try
             {
                 bool isSuccess = false;
                 while (!isSuccess)
                 {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}");
+                    var appointController = MainSession.AppointSession.GetController($"{userId}");
                     isSuccess = appointController.YuyueAsync(order);
                     if (isSuccess)
                     {
@@ -237,6 +255,7 @@ namespace Anze.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
+                        Thread.Sleep(200);
                     }
                 }
             }

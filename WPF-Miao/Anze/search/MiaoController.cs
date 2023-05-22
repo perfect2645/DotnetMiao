@@ -81,7 +81,7 @@ namespace Anze.search
             var targetMiao = miaoList.FirstOrDefault(x => x.GetString("id") == deptId);
             if (targetMiao == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是Id没有{deptId}");
+                MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是Id没有对上{deptId}");
             }
             targetMiao = miaoList.FirstOrDefault();
 
