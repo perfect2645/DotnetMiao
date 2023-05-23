@@ -134,12 +134,12 @@ namespace Jian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(30);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(45);
 
             Departments = new List<HospitalDept>
             {
