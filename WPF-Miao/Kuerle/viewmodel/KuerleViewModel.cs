@@ -151,10 +151,10 @@ namespace Kuerle.viewmodel
 
             foreach(var user in MainSession.Users)
             {
-                MainSession.Orders.AddOrUpdate(user.UserId, new Order
+                MainSession.Orders.AddOrUpdate(user.IdCard, new Order
                 {
                     Ids = deptId,
-                    Uid = user.UserId,
+                    Uid = user.IdCard,
                     User = user,
                 });
             }
@@ -282,7 +282,7 @@ namespace Kuerle.viewmodel
                         UserName = user.UserName,
                         User = user,
                         Ids= template.Ids,
-                        Uid= user.UserId,
+                        Uid= user.IdCard,
                     };
 
                     orderList.Add(order);

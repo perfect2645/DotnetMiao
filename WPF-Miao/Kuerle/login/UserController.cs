@@ -39,21 +39,14 @@ namespace Kuerle.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                var msg = root.GetProperty("msg").GetString();
-                if (code != 1)
+                var code = root.GetProperty("ErrCode").GetInt32();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}, msg={msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
                     return;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
-                    return;
-                }
-                SaveUser(data, user);
+                SaveUser(root, user);
             }
             catch (Exception ex)
             {
@@ -70,9 +63,7 @@ namespace Kuerle.login
                 return;
             }
 
-            var userName = userInfo.GetString("truename");
-            //var phoneNumber = userInfo.GetString("phoneNumber");
-            //var idcard = userInfo.GetString("idcard");
+            var userName = userInfo.GetString("name");
 
             user.UserName = userName;
 

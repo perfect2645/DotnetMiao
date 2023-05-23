@@ -18,7 +18,6 @@ namespace Kuerle.appointment
         private void BuildContent()
         {
             AddContent("ids", Order.Ids.ToInt());
-            AddContent("uid", User.UserId);
         }
     }
 }

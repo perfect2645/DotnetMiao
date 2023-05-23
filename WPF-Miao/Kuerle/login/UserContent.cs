@@ -12,7 +12,7 @@ namespace Kuerle.login
 {
     internal class UserContent : KuerleContent
     {
-        private static string baseUrl = "https://yuyue.azjkzx.cn/api/index/getMemberInfo";
+        private static string baseUrl = "https://bzjk.qiyingtian.com/ServerCommand/chooseuser";
         public UserContent(KuerleLogin user) : base(baseUrl, user)
         {
             BuildContent();
@@ -20,7 +20,7 @@ namespace Kuerle.login
 
         private void BuildContent()
         {
-            AddContent("uid", User.UserId);
+            AddContent("IDcard", User.IdCard);
         }
     }
 }
