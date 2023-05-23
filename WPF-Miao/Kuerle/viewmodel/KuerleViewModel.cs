@@ -59,13 +59,13 @@ namespace Kuerle.viewmodel
             {
                 new KuerleHospital
                 {
-                    DepartmentName = "九价HPV扩龄",
-                    DepartmentId = "16",
+                    DepartmentName = "九价人乳头瘤病毒疫苗（酿酒酵母）",
+                    DepartmentId = "4",
                 },
                 new KuerleHospital
                 {
-                    DepartmentName = "四价Hpv",
-                    DepartmentId = "17",
+                    DepartmentName = "四价人乳头瘤病毒疫苗（酿酒酵母）",
+                    DepartmentId = "5",
                 }
             };
 
