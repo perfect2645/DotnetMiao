@@ -7,7 +7,9 @@ using Tools.Stringtest;
 
 Console.WriteLine("Hello, World!");
 
-new TestHmacSHA256();
+new DateTest();
+
+//new TestHmacSHA256();
 
 var strConvert = new StringConvert();
 
