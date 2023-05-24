@@ -61,15 +61,15 @@ namespace Kuerle.viewmodel
                 {
                     HospitalName = "库尔勒疾控",
                     DepartmentName = "九价",
-                    PidKey = "58fc6c94-8aae-4652-bc09-98ff5057b986",
-                    VidKey = "8852440a-c672-44ba-8ce0-62a8e03fdfdc",
+                    PidKey = "01c6481d-31d9-4c58-bb5a-d468dd3429fd",
+                    VidKey = "08b3f817-69cb-4028-9f2b-61e26a25e8c6",
                 },
                 new KuerleHospital
                 {
                     HospitalName = "库尔勒疾控",
                     DepartmentName = "四价",
-                    PidKey = "58fc6c94-8aae-4652-bc09-98ff5057b986",
-                    VidKey = "8852440a-c672-44ba-8ce0-62a8e03fdfdc",
+                    PidKey = "01c6481d-31d9-4c58-bb5a-d468dd3429fd",
+                    VidKey = "08b3f817-69cb-4028-9f2b-61e26a25e8c6",
                 }
             };
 
