@@ -89,7 +89,14 @@ namespace Kuerle.search
             {
                 PID = pid,
                 VID = vid,
-                Date = "45070",
+                Date = "45071",
+            });
+
+            orderList.Add(new Order
+            {
+                PID = pid,
+                VID = vid,
+                Date = "45072",
             });
 
             var orderArgs = new OrderEventArgs
