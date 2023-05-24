@@ -64,11 +64,13 @@ namespace Kuerle.appointment
                 if (code == 106 && msg.Contains("您已预约"))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约成功: code={code}, msg={msg}");
+                    content.Order.ResultMsg = msg;
                     return true;
                 }
                 if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
+                    content.Order.ResultMsg = msg;
                     return false;
                 }
 

@@ -1,7 +1,7 @@
-﻿using Kuerle.appointment;
-using Kuerle.login;
+﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
+using Kuerle.appointment;
 using Kuerle.session;
-using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
-using Utils.number;
-using Newtonsoft.Json;
-using Utils.stringBuilder;
 
 namespace Kuerle.search
 {
@@ -81,9 +78,18 @@ namespace Kuerle.search
 
             var pid = miaoInfo.GetString("value");
 
+            var vidController = HttpServiceController.GetService<VidController>();
+            var vid = vidController.GetVid(pid);
+            if (string.IsNullOrEmpty(vid))
+            {
+                return false;
+            }
+
             orderList.Add(new Order
             {
                 PID = pid,
+                VID = vid,
+                Date = "45070",
             });
 
             var orderArgs = new OrderEventArgs

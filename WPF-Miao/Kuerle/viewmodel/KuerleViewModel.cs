@@ -282,7 +282,10 @@ namespace Kuerle.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        IDcard= template.IDcard,
+                        IDcard= user.IdCard,
+                        PID = template.PID,
+                        VID = template.VID,
+                        Date = template.Date,
                     };
 
                     orderList.Add(order);
