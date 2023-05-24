@@ -18,7 +18,8 @@ namespace Kuerle.search
 
         private void BuildContent()
         {
-            AddContent("CommandId", "58fc6c94-8aae-4652-bc09-98ff5057b986");
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            AddContent("CommandId", deptId);
             AddContent("Params", new Dictionary<string, object>());
             AddContent("options", BuildOptions());
         }

@@ -67,7 +67,7 @@ namespace Kuerle.viewmodel
                 {
                     HospitalName = "库尔勒疾控",
                     DepartmentName = "九价",
-                    DepartmentId = "4",
+                    DepartmentId = "58fc6c94-8aae-4652-bc09-98ff5057b986",
                 }
             };
 

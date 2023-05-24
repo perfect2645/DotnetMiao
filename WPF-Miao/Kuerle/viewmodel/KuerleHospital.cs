@@ -7,6 +7,8 @@ namespace Kuerle.viewmodel
     {
 
         public string Keywords { get; set; }
+        public string PidKey { get; set; }
+        public string VidKey { get; set; }
         public new string Display
         {
             get { return $"{DepartmentName}- {Keywords}"; }
