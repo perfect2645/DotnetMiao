@@ -26,3 +26,14 @@ Content-Length: 64
   "ErrCode": 500,
   "Message": "未找到指定记录。"
 }
+
+
+{
+    "IDcard": "150221199805063225",
+    "PID": null,
+    "VID": {
+        "_calcError": "#N/A",
+        "_code": 42
+    },
+    "date": 45071
+}

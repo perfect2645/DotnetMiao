@@ -1,0 +1,29 @@
+GET https://bzjk.qiyingtian.com/signin-oidc?code=091sbu0002hq1Q1Gza100V2Vb10sbu0-&state=ee299b99-3af5-4ca4-9f22-8e7374aa338d HTTP/1.1
+Host: bzjk.qiyingtian.com
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: https://open.weixin.qq.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Referer: https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx55c522ef8fb1feb4&redirect_uri=https%3a%2f%2fbzjk.qiyingtian.com%2fsignin-oidc&response_type=code&scope=snsapi_userinfo&state=ee299b99-3af5-4ca4-9f22-8e7374aa338d&connect_redirect=1&uin=NDA2Mzc1MjAyMA%3D%3D&key=d299f0071c92615d34d21ab47a4b4ac4d4ce4c1b146f2591519203798eeac743158ec98ca664fa8abdc58094f8eb13461a607160536b8be4b9c07db62b9133587a809a207f41c5b5a46e6e783b54d05209ea2c4758eff1a49897e76300ba8ed091bc7fccc75cc5e17bb062608ae2d1397697cebb82f3aa9adfb24717a33bf971&version=63030073&exportkey=n_ChQIAhIQR4xtl%2F4bo1oXJbNE1ugvURLMAQIE97dBBAEAAAAAADaGBUeXgaMAAAAOpnltbLcz9gKNyK89dVj0%2BskvTWcCiLYOItAxyTWOtYsx9AA1F0CsmVueggZg7ESAnfzxUU16e5iAYELaiH5xHWILLOdPitQUF3coNrdjJkAJD5CZ8L54dGdGIsrvrImLbMZAi9lDfHqlsj7yVW7t%2B8WlzR23weAXT5FJ%2B%2BeYJBPXhWJvmox51RenJU6aj3UryNvG7ncg1rGhG7wUWl76pBP0aIbWNSyBg9y%2FmH0D3dTGv5DlZQ%3D%3D&pass_ticket=PlyYHhG1M1NwnC%2F3XqJp%2BOot%2BSNZ732GmJKR4dbMbTwlvTQ177KIBpx3SsfZ%2F%2Bjnxzc4MFjeIYKRwftTE5MsUw%3D%3D&wx_header=0
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 302 Found
+Cache-Control: no-cache,no-store
+Pragma: no-cache
+Content-Length: 0
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Location: /sys
+Server: Microsoft-HTTPAPI/2.0
+Set-Cookie: ForguncyServer_SP_5b6u5Lh5YWs5LyX5bmz5Yws=3iWSG9qq6cebNAeBiIcvPsMOt7JVz4g_n6KImSuEKpXHZuFzTzfpjFW6vzXG9oPurQLGZ4hooQql8LaCpaVZE_EwCgIdn94z-A_uZaI0sPnLL9Q42JWO7RPBLBjBy8Ikzq_3XeUldZ3tcZ9Otn7yCILHmcqaJ3W-An2zd2gD6kOeAYJKcEpYdWAsNlVzY-d-Hua_U7KUn174XKmbpxHMKemhvoIo2CQrFrVteQ69YpLUyPYrrO598lXyiRB76rJFNbs1JvDTJ1tBHJXRSmE2bwmDyVWKqcEQztK0PVLMaSYwWLxVDDUehxNzJ5tT4Q0s7N1rDujlSWEc4_YLSkufKtf54ZTz5hC7rvZ9EPviI2Yv-Ac09nWafPBbCGRU2qs7aj4FTOP0eXiY6GO5mGdcESwX-9pRn7TdPH0Bt5Sou2l4LCHQJ1Klny_SxFLmfVdKVOf5xysQawLQgddUo223dQ; path=/; secure; HttpOnly
+Set-Cookie: FGC_UserLoginToken638204735195436555=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/
+Set-Cookie: FGC_UserLoginToken638204735195436555=f939f4f2-acb7-436c-8f66-6ff46933f9de; expires=Wed, 24 May 2023 01:20:14 GMT; path=/; secure; samesite=none; httponly
+Date: Wed, 24 May 2023 01:00:14 GMT
+

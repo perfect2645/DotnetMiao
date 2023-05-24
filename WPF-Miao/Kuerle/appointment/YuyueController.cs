@@ -53,22 +53,26 @@ namespace Kuerle.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                var msg = root.GetProperty("msg").GetString();
-                if (code != 1)
+                var code = root.GetProperty("ErrCode").GetInt32();
+                if (code == 0)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约成功: code={code}, user={content.User.UserName}");
+                    return true;
+                }
+                var msg = root.GetProperty("Message").GetString();
+                MainSession.PrintLogEvent.Publish(this, $"预约结果: code={code}, msg={msg}");
+                if (code == 106 && msg.Contains("您已预约"))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约成功: code={code}, msg={msg}");
+                    return true;
+                }
+                if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
-                    return false;
-                }
-                MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
-                return true;
+                return false;
             }
             catch (Exception ex)
             {

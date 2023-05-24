@@ -48,24 +48,26 @@ namespace Kuerle.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(30);
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
 
             Departments = new List<HospitalDept>
             {
                 new KuerleHospital
                 {
-                    DepartmentName = "九价人乳头瘤病毒疫苗（酿酒酵母）",
-                    DepartmentId = "4",
+                    HospitalName = "库尔勒疾控",
+                    DepartmentName = "四价人乳头瘤病毒疫苗（酿酒酵母）",
+                    DepartmentId = "0fda8d2c-37d5-48c6-83ab-89b3824ce645",
                 },
                 new KuerleHospital
                 {
-                    DepartmentName = "四价人乳头瘤病毒疫苗（酿酒酵母）",
-                    DepartmentId = "5",
+                    HospitalName = "库尔勒疾控",
+                    DepartmentName = "九价人乳头瘤病毒疫苗（酿酒酵母）",
+                    DepartmentId = "4",
                 }
             };
 
@@ -153,8 +155,7 @@ namespace Kuerle.viewmodel
             {
                 MainSession.Orders.AddOrUpdate(user.IdCard, new Order
                 {
-                    Ids = deptId,
-                    Uid = user.IdCard,
+                    IDcard = deptId,
                     User = user,
                 });
             }
@@ -281,8 +282,7 @@ namespace Kuerle.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        Ids= template.Ids,
-                        Uid= user.IdCard,
+                        IDcard= template.IDcard,
                     };
 
                     orderList.Add(order);

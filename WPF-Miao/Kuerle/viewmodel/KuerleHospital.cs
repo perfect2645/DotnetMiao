@@ -6,22 +6,20 @@ namespace Kuerle.viewmodel
     internal class KuerleHospital : HospitalDept
     {
 
-        public string DoctorId { get; set; }
-        public string DoctorName { get; set; }
-
+        public string Keywords { get; set; }
         public new string Display
         {
-            get { return $"{DepartmentName}-{DoctorName}"; }
+            get { return $"{DepartmentName}- {Keywords}"; }
         }
 
         public override string ToLogString()
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********安泽疾控-选择医院科室*********");
-            sb.AppendLine($"{HospitalName}- {DepartmentName}");
-            sb.AppendLine($"Department : {DepartmentId} - {DepartmentName}");
-            sb.AppendLine($"Doctor : {DoctorId} - {DoctorName}");
+            sb.AppendLine("********库尔勒疾控-选择医院科室*********");
+            sb.AppendLine($"{HospitalName}");
+            sb.AppendLine($"Department : {DepartmentName} - {DepartmentName}");
+            sb.AppendLine($"Doctor : {Keywords} - {Keywords}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

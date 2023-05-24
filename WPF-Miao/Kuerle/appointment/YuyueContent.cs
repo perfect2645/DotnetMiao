@@ -1,13 +1,15 @@
 ﻿using Kuerle.common;
 using Kuerle.login;
 using Kuerle.session;
+using System;
+using System.Collections.Generic;
 using Utils;
 
 namespace Kuerle.appointment
 {
     internal class YuyueContent : KuerleContent
     {
-        private static string url = "https://yuyue.azjkzx.cn/api/index/addorder";
+        private static string url = "https://bzjk.qiyingtian.com/ServerCommand/order";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {
@@ -17,7 +19,10 @@ namespace Kuerle.appointment
 
         private void BuildContent()
         {
-            AddContent("ids", Order.Ids.ToInt());
+            AddContent("IDcard", Order.IDcard);
+            AddContent("PID", Order.PID);
+            AddContent("VID", Order.VID);
+            AddContent("date", Order.Date.ToInt());
         }
     }
 }

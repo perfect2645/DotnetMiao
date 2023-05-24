@@ -6,8 +6,10 @@ namespace Kuerle.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string Ids { get; set; }
-        public string Uid { get; set; }
+        public string IDcard { get; set; }
+        public string PID { get; set; }
+        public string VID { get; set; }
+        public string Date { get; set; }
         public string ResultMsg { get; set; }
         internal KuerleLogin User { get; set; }
 
@@ -18,8 +20,8 @@ namespace Kuerle.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {Uid}");
-            sb.AppendLine($"Ids - {Ids}");
+            sb.AppendLine($"IDcard - {IDcard}");
+            sb.AppendLine($"PID - {PID}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

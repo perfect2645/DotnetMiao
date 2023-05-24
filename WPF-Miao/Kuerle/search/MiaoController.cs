@@ -37,7 +37,7 @@ namespace Kuerle.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
@@ -45,21 +45,7 @@ namespace Kuerle.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                var msg = root.GetProperty("msg").GetString();
-                if (code != 1)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao: code={code}, msg={msg}");
-                    return false;
-                }
-
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao: results is empty");
-                    return false;
-                }
-                return CheckBuildOrder(data);
+                return CheckBuildOrder(root);
             }
             catch (Exception ex)
             {
@@ -78,18 +64,11 @@ namespace Kuerle.search
             }
 
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var targetMiao = miaoList.FirstOrDefault(x => x.GetString("id") == deptId);
+            var targetMiao = miaoList.FirstOrDefault(x => x.GetString("value") == deptId);
             if (targetMiao == null)
             {
                 MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是Id没有对上{deptId}");
-            }
-            targetMiao = miaoList.FirstOrDefault();
-
-            var currentstate = targetMiao.GetString("currentstate"); //0 未开始, 1 开始了
-            if (!"1".Equals(currentstate))
-            {
-                MainSession.PrintLogEvent.Publish(this, $"没开始{currentstate}");
-                return false;
+                targetMiao = miaoList.FirstOrDefault();
             }
 
             MainSession.PrintLogEvent.Publish(this, $"开始了");
@@ -100,11 +79,11 @@ namespace Kuerle.search
         {
             var orderList = new List<Order>();
 
-            var miaoId = miaoInfo.GetString("id");
+            var pid = miaoInfo.GetString("value");
 
             orderList.Add(new Order
             {
-                Ids = miaoId,
+                PID = pid,
             });
 
             var orderArgs = new OrderEventArgs
