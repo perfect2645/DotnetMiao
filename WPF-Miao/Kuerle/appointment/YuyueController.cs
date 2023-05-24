@@ -67,6 +67,13 @@ namespace Kuerle.appointment
                     content.Order.ResultMsg = msg;
                     return true;
                 }
+                MainSession.PrintLogEvent.Publish(this, $"预约结果: code={code}, msg={msg}");
+                if (code == 106 && msg.Contains("现已无余量"))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
+                    content.Order.ResultMsg = msg;
+                    return true;
+                }
                 if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
