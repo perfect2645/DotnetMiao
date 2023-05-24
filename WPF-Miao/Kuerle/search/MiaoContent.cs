@@ -18,7 +18,7 @@ namespace Kuerle.search
 
         private void BuildContent()
         {
-            AddContent("CommandId", "05dd0f17-dfd4-40a2-b4ee-59128c784ab1");
+            AddContent("CommandId", "58fc6c94-8aae-4652-bc09-98ff5057b986");
             AddContent("Params", new Dictionary<string, object>());
             AddContent("options", BuildOptions());
         }

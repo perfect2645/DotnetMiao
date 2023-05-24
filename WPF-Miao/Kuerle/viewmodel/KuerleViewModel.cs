@@ -60,13 +60,13 @@ namespace Kuerle.viewmodel
                 new KuerleHospital
                 {
                     HospitalName = "库尔勒疾控",
-                    DepartmentName = "四价人乳头瘤病毒疫苗（酿酒酵母）",
-                    DepartmentId = "0fda8d2c-37d5-48c6-83ab-89b3824ce645",
+                    DepartmentName = "四价",
+                    DepartmentId = "58fc6c94-8aae-4652-bc09-98ff5057b986",
                 },
                 new KuerleHospital
                 {
                     HospitalName = "库尔勒疾控",
-                    DepartmentName = "九价人乳头瘤病毒疫苗（酿酒酵母）",
+                    DepartmentName = "九价",
                     DepartmentId = "4",
                 }
             };

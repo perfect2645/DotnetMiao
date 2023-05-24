@@ -82,8 +82,8 @@ namespace Anze.search
             if (targetMiao == null)
             {
                 MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是Id没有对上{deptId}");
+                targetMiao = miaoList.FirstOrDefault();
             }
-            targetMiao = miaoList.FirstOrDefault();
 
             var currentstate = targetMiao.GetString("currentstate"); //0 未开始, 1 开始了
             if (!"1".Equals(currentstate))

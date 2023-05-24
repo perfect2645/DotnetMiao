@@ -60,12 +60,12 @@ namespace Kuerle.search
                 return false;
             }
 
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var targetMiao = miaoList.FirstOrDefault(x => x.GetString("value") == deptId);
+            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+            var targetMiao = miaoList.FirstOrDefault(x => x.GetString("label").Contains(deptName));
             if (targetMiao == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是Id没有对上{deptId}");
-                targetMiao = miaoList.FirstOrDefault();
+                MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是疫苗名称没有对上{deptName}");
+                targetMiao = miaoList.LastOrDefault();
             }
 
             MainSession.PrintLogEvent.Publish(this, $"开始了");
