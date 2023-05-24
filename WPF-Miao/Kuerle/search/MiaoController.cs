@@ -65,7 +65,7 @@ namespace Kuerle.search
             if (targetMiao == null)
             {
                 MainSession.PrintLogEvent.Publish(this, $"查到苗信息，但是疫苗名称没有对上{deptName}");
-                targetMiao = miaoList.LastOrDefault();
+                return false;
             }
 
             MainSession.PrintLogEvent.Publish(this, $"开始了");
@@ -89,7 +89,14 @@ namespace Kuerle.search
             {
                 PID = pid,
                 VID = vid,
-                Date = "45070",
+                Date = "45071",
+            });
+
+            orderList.Add(new Order
+            {
+                PID = pid,
+                VID = vid,
+                Date = "45072",
             });
 
             var orderArgs = new OrderEventArgs

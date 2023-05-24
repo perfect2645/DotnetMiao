@@ -60,14 +60,16 @@ namespace Kuerle.viewmodel
                 new KuerleHospital
                 {
                     HospitalName = "库尔勒疾控",
-                    DepartmentName = "四价",
-                    DepartmentId = "58fc6c94-8aae-4652-bc09-98ff5057b986",
+                    DepartmentName = "九价",
+                    PidKey = "58fc6c94-8aae-4652-bc09-98ff5057b986",
+                    VidKey = "8852440a-c672-44ba-8ce0-62a8e03fdfdc",
                 },
                 new KuerleHospital
                 {
                     HospitalName = "库尔勒疾控",
-                    DepartmentName = "九价",
-                    DepartmentId = "58fc6c94-8aae-4652-bc09-98ff5057b986",
+                    DepartmentName = "四价",
+                    PidKey = "58fc6c94-8aae-4652-bc09-98ff5057b986",
+                    VidKey = "8852440a-c672-44ba-8ce0-62a8e03fdfdc",
                 }
             };
 
@@ -307,10 +309,10 @@ namespace Kuerle.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as KuerleHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.PidKey, selectedDept.PidKey);
+            MainSession.PlatformSession.AddOrUpdate(Constants.VidKey, selectedDept.VidKey);
 
             Log(selectedDept.ToLogString());
         }
