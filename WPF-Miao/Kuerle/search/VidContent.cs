@@ -1,5 +1,6 @@
 ﻿using Kuerle.common;
 using Kuerle.login;
+using Kuerle.session;
 using System.Collections.Generic;
 using Utils;
 
@@ -18,7 +19,8 @@ namespace Kuerle.search
 
         private void BuildContent()
         {
-            AddContent("GUID", "e69af53a-7a14-4e36-bb3e-0c741dcdf844");
+            var vidKey = MainSession.PlatformSession.GetString(Constants.VidKey);
+            AddContent("GUID", vidKey);
             AddContent("PageName", "book");
             AddContent("Params", BuildParams());
         }
