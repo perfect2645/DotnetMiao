@@ -21,7 +21,7 @@ namespace Lzy.login
             AddContent("platformId", hosId);
             AddContent("platformSource", 3);
             AddContent("subSource", 1);
-            AddContent("code", User.Code);
+            AddContent("code", User.Cookie);
             AddContent("silent", string.Empty);
             AddContent("login_access_token", string.Empty);
         }

@@ -1,0 +1,176 @@
+POST http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&id=44&date=2023-05-27&week=6 HTTP/1.1
+Host: wechat.yunhebj.com
+Connection: keep-alive
+Content-Length: 76
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://wechat.yunhebj.com
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: PHPSESSID=16e18af1bd074fd659a8aaa6d78a2502
+Referer: http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&id=44&date=2023-05-27&week=6
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+op=post&time_id=549&user_name=%E5%91%A8%E7%91%A0%E5%A4%8F&mobile=17615102645
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 26 May 2023 16:15:46 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Powered-By: PHP/7.0.30
+Set-Cookie: PHPSESSID=16e18af1bd074fd659a8aaa6d78a2502; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Set-Cookie: 956d_logout=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+Set-Cookie: 956d___multiid=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+Content-Length: 6032
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>
+	 
+		龙泽园社区卫生服务中心 -
+	 
+			龙泽园社区卫生服务中心 
+	 
+		</title>
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="shortcut icon" href="http://wechat.yunhebj.com/attachment/images/global/wechat.jpg" />
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script type="text/javascript" src="http://wechat.yunhebj.com/app/resource/js/app/util.js"></script>
+	<script src="http://wechat.yunhebj.com/app/resource/js/require.js"></script>
+	<script type="text/javascript" src="http://wechat.yunhebj.com/app/resource/js/lib/jquery-1.11.1.min.js?v=20160906"></script>
+	<script type="text/javascript" src="http://wechat.yunhebj.com/app/resource/js/lib/mui.min.js?v=20160906"></script>
+	<script type="text/javascript" src="http://wechat.yunhebj.com/app/resource/js/app/common.js?v=20160906"></script>
+	<link href="http://wechat.yunhebj.com/app/resource/css/bootstrap.min.css?v=20160906" rel="stylesheet">
+	<link href="http://wechat.yunhebj.com/app/resource/css/common.min.css?v=20160906" rel="stylesheet">
+	<script type="text/javascript">
+	if(navigator.appName == 'Microsoft Internet Explorer'){
+		if(navigator.userAgent.indexOf("MSIE 5.0")>0 || navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0) {
+			alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+		}
+	}
+	window.sysinfo = {
+		'uniacid': '30',		'acid': '30','openid': 'o1iwz5y_upiuWrRNCCWiX6vijygM',				'siteroot': 'http://wechat.yunhebj.com/',
+		'siteurl': 'http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&id=44&date=2023-05-27&week=6',
+		'attachurl': 'http://wechat.yunhebj.com/attachment/',
+		'attachurl_local': 'http://wechat.yunhebj.com/attachment/',
+		'attachurl_remote': '',
+		'MODULE_URL': 'http://wechat.yunhebj.com/addons/lzl_course/',		'cookie' : {'pre': '956d_'}
+	};
+	// jssdk config 对象
+	jssdkconfig = {"appId":"wxa6494c8d0242ff6a","nonceStr":"qzK7qAOO69WQzhHm","timestamp":"1685117746","signature":"1d65f1c274936ced412a6bf32a2351b19967030f"} || {};
+	// 是否启用调试
+	jssdkconfig.debug = false;
+	jssdkconfig.jsApiList = [
+		'checkJsApi',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'onMenuShareQQ',
+		'onMenuShareWeibo',
+		'hideMenuItems',
+		'showMenuItems',
+		'hideAllNonBaseMenuItem',
+		'showAllNonBaseMenuItem',
+		'translateVoice',
+		'startRecord',
+		'stopRecord',
+		'onRecordEnd',
+		'playVoice',
+		'pauseVoice',
+		'stopVoice',
+		'uploadVoice',
+		'downloadVoice',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+		'downloadImage',
+		'getNetworkType',
+		'openLocation',
+		'getLocation',
+		'hideOptionMenu',
+		'showOptionMenu',
+		'closeWindow',
+		'scanQRCode',
+		'chooseWXPay',
+		'openProductSpecificView',
+		'addCard',
+		'chooseCard',
+		'openCard',
+		'openAddress'
+	];
+	</script>
+</head>
+<body>
+<div class="container container-fill">
+		<script type="text/javascript">
+		util.message('预约成功！', 'http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=user_order&m=lzl_course', 'success');
+	</script>
+						<div class="text-center footer" style="margin:10px 0; width:100%; text-align:center; word-break:break-all;">
+																	&nbsp;&nbsp;			</div>
+																	</div>
+	<style>
+		h5{color:#555;}
+	</style>
+		<script type="text/javascript">
+	$(function(){
+		wx.config(jssdkconfig);
+		var $_share = {"title":"\u9f99\u6cfd\u56ed\u793e\u533a\u536b\u751f\u670d\u52a1\u4e2d\u5fc3","imgUrl":"","desc":"","link":"http:\/\/wechat.yunhebj.com\/app\/index.php?i=30&c=entry&do=course&m=lzl_course&id=44&date=2023-05-27&week=6&u=433632"};
+		if(typeof sharedata == 'undefined'){
+			sharedata = $_share;
+		} else {
+			sharedata['title'] = sharedata['title'] || $_share['title'];
+			sharedata['desc'] = sharedata['desc'] || $_share['desc'];
+			sharedata['link'] = sharedata['link'] || $_share['link'];
+			sharedata['imgUrl'] = sharedata['imgUrl'] || $_share['imgUrl'];
+		}
+		if(sharedata.imgUrl == ''){
+			var _share_img = $('body img:eq(0)').attr("src");
+			if(_share_img){
+				sharedata['imgUrl'] = util.tomedia(_share_img);
+			}
+		}
+		if(sharedata.imgUrl == ""){
+			sharedata.imgUrl = window.sysinfo.attachurl + 'images/global/wechat_share.jpg';
+		}
+		if(sharedata.desc == ''){
+			var _share_content = util.removeHTMLTag($('body').html());
+			if(typeof _share_content == 'string'){
+				sharedata.desc = _share_content.replace($_share['title'], '')
+			}
+		}
+		wx.ready(function () {
+			wx.onMenuShareAppMessage(sharedata);
+			wx.onMenuShareTimeline(sharedata);
+			wx.onMenuShareQQ(sharedata);
+			wx.onMenuShareWeibo(sharedata);
+		});
+				if ($('.js-quickmenu').size() > 0) {
+			// var h = $('.js-quickmenu .nav-home').height()+20+'px';
+			// $('body').css("padding-bottom",h);
+			// $('body .mui-content').css("bottom",h);
+		} else if($('.nav-menu-app').size() > 0) {
+			var h = $('.nav-menu-app').height()+'px';
+			$('body').css("padding-bottom",h);
+			$('.mui-content').css('bottom',h);
+		} else {
+			$('body').css("padding-bottom", "0");
+			$('.mui-content').css('bottom', "0");
+		}
+	});
+	</script>
+	<script type="text/javascript" src="http://wechat.yunhebj.com/app/index.php?i=30&c=utility&a=visit&do=showjs&m=lzl_course"></script>
+<script>;</script><script type="text/javascript" src="http://wechat.yunhebj.com/app/index.php?i=30&c=utility&a=visit&do=showjs&m=lzl_course"></script></body>
+</html>

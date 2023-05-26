@@ -139,45 +139,33 @@ namespace Lzy.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(57);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal(DateTime.Today.ToString("yyyyMM")));
-            //DateList.Add(new DspVal(DateTime.Today.AddMonths(1).ToString("yyyyMM")));
+            DateList.Add(new DspVal("2023-06-03"));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
+
+            TimeList = new List<DspVal>();
+            TimeList.Add(new DspVal("08:00~09:00","543"));
+            TimeList.Add(new DspVal("09:00~10:00", "541"));
+            TimeList.Add(new DspVal("10:00~10:20", "542"));
 
             Departments = new List<HospitalDept>
             {   
                 new LzyHospital
                 {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632075",
-                    DoctorName = "进口九价预约",
-                    DoctorSign = "27E51C19C31648F9BC788F064D7F0794",
+                    HospitalId = "30",
+                    HospitalName = "龙跃四预防保健门诊",
+                    DepartmentName = "HPV九价",
+                    DepartmentId = "32",
                 },
                 new LzyHospital
                 {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632072",
-                    DoctorName = "国产二价预约",
-                    DoctorSign = "D9B5434FBCB2CEACFC9B2769ABE0CD77"
-                },
-                new LzyHospital
-                {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632074",
-                    DoctorName = "进口四价预约",
-                    DoctorSign = "420BC7D1D7953FA51F844F4FFB3E35AE",
+                    HospitalId = "30",
+                    HospitalName = "国风美唐预防保健门诊",
+                    DepartmentName = "HPV九价",
+                    DepartmentId = "44",
                 },
             };
 
@@ -231,16 +219,7 @@ namespace Lzy.viewmodel
         private void LoginFromConfig()
         {
             MainSession.Users = FileReader.DeserializeFile<List<LzyLogin>>("Login.json");
-            foreach(var user in MainSession.Users)
-            {
-                Task.Factory.StartNew(async () =>
-                {
-                    //var loginController = HttpServiceController.GetService<LoginController>();
-                    //await loginController.LoginAsync(user);
-                    var userController = HttpServiceController.GetService<UserController>();
-                    await userController.GetUserAsync(user);
-                });
-            }
+
 
             MainSession.InitSession();
         }
@@ -277,8 +256,9 @@ namespace Lzy.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
+
+                    BuildOrders();
                     StartOnTimeTimer();
-                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -290,7 +270,6 @@ namespace Lzy.viewmodel
                 }
             });
         }
-
 
         private Order BuildOneOrder(LzyLogin user, string date, string timeId)
         {
@@ -323,6 +302,20 @@ namespace Lzy.viewmodel
         #endregion AutoRun
 
         #region Appoint
+
+        private void BuildOrders()
+        {
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            foreach(var user in MainSession.Users)
+            {
+                var order = new Order
+                {
+                    Date = SelectedDate.Value,
+                    DeptId = deptId
+                };
+            }
+        }
+
 
         private void ExecuteManual()
         {
