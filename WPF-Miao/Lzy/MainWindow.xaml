@@ -1,0 +1,11 @@
+﻿<Window x:Class="Lzy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Lzy.view"
+        Title="龙泽园" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:LzyConsole x:Name="mainConsole">
+
+    </view:LzyConsole>
+</Window>
