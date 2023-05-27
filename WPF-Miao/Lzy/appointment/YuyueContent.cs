@@ -12,7 +12,7 @@ namespace Lzy.appointment
         public YuyueContent(Order order, LzyLogin user) : base(baseUrl, user)
         {
             Order = order;
-            RequestUrl = $"id={order.DeptId}&date={order.Date}&week={order.Week}";
+            RequestUrl = $"{baseUrl}id={order.DeptId}&date={order.Date}&week={order.Week}";
             BuildContent();
         }
 

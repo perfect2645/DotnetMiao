@@ -44,43 +44,23 @@ namespace Lzy.appointment
                     IsHeaderBuilt = true;
                 }
                 HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
-                if (response?.Body == null)
+                if (string.IsNullOrEmpty(response?.ContentStr))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return false;
                 }
-                var root = response.JsonBody.RootElement;
+                var root = response.ContentStr;
 
-                var msg = root.GetProperty("msg").GetString();
-                if (msg.Contains("不能重复提交") || msg.Contains("匹配不到对应的号源信息"))
+                var msgStartIndex = root.IndexOf("util.message('");
+                var message = root.Substring(msgStartIndex, 30);
+                MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {message}");
+                if (message.Contains("预约成功"))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
+
                     return true;
                 }
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
-                    return false;
-                }
-
-
-                MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
-
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
-                    return false;
-                }
-
-
-                var bookingResult = root.GetProperty("bookingResult");
-
-                CheckOrder(bookingResult, content.Order);
-
-                return true;
+                return false;
             }
             catch (Exception ex)
             {

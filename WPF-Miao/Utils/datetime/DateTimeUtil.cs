@@ -165,5 +165,11 @@ namespace Utils.datetime
 
             return dateList;
         }
+
+        public static int GetWeek(string date)
+        {
+            var dayOfWeek = Convert.ToDateTime(date);
+            return dayOfWeek.DayOfWeek.ToInt();
+        }
     }
 }
