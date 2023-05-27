@@ -259,7 +259,6 @@ namespace Lzy.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-
                     BuildOrders();
                     StartOnTimeTimer();
                 }
@@ -529,16 +528,6 @@ namespace Lzy.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
-            foreach (var user in MainSession.Users)
-            {
-                Task.Factory.StartNew(async () =>
-                {
-                    //var loginController = HttpServiceController.GetService<LoginController>();
-                    //await loginController.LoginAsync(user);
-                    var userController = HttpServiceController.GetService<UserController>();
-                    await userController.GetUserAsync(user);
-                });
-            }
         }
 
         #endregion Resession

@@ -18,13 +18,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="view\HosTwoConsole.xaml.cs">
+    <ProjectReference Include="..\Base\Base.csproj" />
+    <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
+    <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\Utils\Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="view\LzyConsole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="view\HosTwoConsole.xaml">
+    <Page Update="view\LzyConsole.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
   </ItemGroup>

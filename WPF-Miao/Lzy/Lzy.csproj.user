@@ -10,7 +10,7 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="view\HosTwoConsole.xaml">
+    <Page Update="view\LzyConsole.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -28,7 +28,6 @@ namespace Lzy
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();

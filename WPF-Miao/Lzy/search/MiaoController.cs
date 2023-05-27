@@ -15,24 +15,21 @@ namespace Lzy.search
 {
     internal class MiaoController : HttpClientBase
     {
-        public Order ScheduleOrder { get; private set; }
-
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchMiaoAsync(Order scheduleOrder)
+        public async Task<bool> SearchMiaoAsync()
         {
-            ScheduleOrder = scheduleOrder;
-            Task.Factory.StartNew(() => SearchMiao(scheduleOrder));
+            return await Task.Factory.StartNew(() => SearchMiao());
         }
 
-        public bool SearchMiao(Order scheduleOrder)
+        public bool SearchMiao()
         {
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser, scheduleOrder);
+                var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
@@ -113,17 +110,7 @@ namespace Lzy.search
 
             return new Order
             {
-                DeptId = ScheduleOrder.DeptId,
-                DoctorId = ScheduleOrder.DoctorId,
-                HisId = ScheduleOrder.HisId,
-                PlatformId = ScheduleOrder.PlatformId,
-                PlatformSource = ScheduleOrder.PlatformSource,
-                ScheduleDate = ScheduleOrder.ScheduleDate,
-                SubSource = ScheduleOrder.SubSource,
-                SearchMonth = ScheduleOrder.SearchMonth,
-                VisitBeginTime = beginTime,
-                VisitEndTime = endTime,
-                VisitPeriod = schedule.GetString("visitPeriod")
+
             };
         }
     }
