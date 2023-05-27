@@ -19,42 +19,33 @@ namespace Lzy.search
         {
         }
 
-        public async Task<bool> SearchMiaoAsync()
+        public async Task<bool> SearchMiaoAsync(string date)
         {
-            return await Task.Factory.StartNew(() => SearchMiao());
+            return await Task.Factory.StartNew(() => SearchMiao(date));
         }
 
-        public bool SearchMiao()
+        public bool SearchMiao(string date)
         {
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+                var tempOrder = new Order
+                {
+                    Date = date,
+                    DeptId = deptId,
+                };
+                var content = new MiaoContent(defaultUser, tempOrder);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
-                if (response?.Body == null)
+                var response = GetStringAsync(content).Result;
+                if (response?.ContentStr == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
-                var root = response.JsonBody.RootElement;
+                var root = response.ContentStr;
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
-                    return false;
-                }
-
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
-                    return false;
-                }
-                var itemList = data.GetProperty("itemList");
-
-                return CheckSaveSchedule(itemList);
+                return CheckSaveSchedule();
             }
             catch (Exception ex)
             {
@@ -63,23 +54,10 @@ namespace Lzy.search
             }
         }
 
-        private bool CheckSaveSchedule(JsonElement itemListData)
+        private bool CheckSaveSchedule()
         {
-            var scheduleList = JsonAnalysis.JsonToDicList(itemListData);
-            if (!scheduleList.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
-                return false;
-            }
 
-            var availableSchedules = scheduleList.Where(r => r.GetString("status") == "1").ToList();
-            if (!availableSchedules.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
-                return false;
-            }
-
-            BuildOrderList(availableSchedules);
+            //BuildOrderList(availableSchedules);
 
             return true;
         }

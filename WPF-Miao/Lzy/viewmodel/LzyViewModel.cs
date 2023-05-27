@@ -21,6 +21,7 @@ using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
 using System.Threading;
+using Base.viewmodel.status;
 
 namespace Lzy.viewmodel
 {
@@ -133,7 +134,7 @@ namespace Lzy.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
+            Interval = 800;
             StartTime = DateTime.Now.AddSeconds(20);
         }
 
@@ -259,7 +260,7 @@ namespace Lzy.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    BuildOrders();
+                    MainSession.SetStatus(MiaoProgress.GettingMiao);
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -273,22 +274,16 @@ namespace Lzy.viewmodel
             });
         }
 
-        private Order BuildOneOrder(LzyLogin user, string date, string timeId)
-        {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            return new Order
-            {
-
-            };
-        }
-
         protected override void AutoRun()
         {
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchMiao();
+                    if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
+                    {
+                        return;
+                    }
+                    _searchController.SearchMiao(SelectedDate);
                 }
                 catch (HttpException ex)
                 {

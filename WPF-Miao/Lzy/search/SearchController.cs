@@ -1,15 +1,10 @@
-﻿using Base.viewmodel.status;
+﻿using Base.model;
 using HttpProcessor.Container;
+using Lzy.session;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Lzy.login;
-using Lzy.session;
-using Utils.datetime;
-using Base.model;
-using Lzy.appointment;
-using Utils;
 
 namespace Lzy.search
 {
@@ -19,9 +14,8 @@ namespace Lzy.search
         {
         }
 
-        public void SearchMiao()
+        public void SearchMiao(DspVal selectedDate)
         {
-            MainSession.SetStatus(MiaoProgress.GettingMiao);
             var defaultUser = MainSession.Users.FirstOrDefault();
             var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
 
@@ -41,7 +35,7 @@ namespace Lzy.search
             var isMiaoGet = false;
             while(!isMiaoGet)
             {
-                isMiaoGet =  miaoController.SearchMiao();
+                isMiaoGet =  miaoController.SearchMiao(date);
                 Thread.Sleep(1000);
             }
         }

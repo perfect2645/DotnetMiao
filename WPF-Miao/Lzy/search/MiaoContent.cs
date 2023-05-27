@@ -8,27 +8,16 @@ namespace Lzy.search
 {
     internal class MiaoContent : LzyContent
     {
-        private static string baseUrl = "https://mix.med.gzhc365.com/api/register/schedulelist?_route=";
+        private static string baseUrl = "http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&";
 
-        public MiaoContent(LzyLogin user) : base(baseUrl, user)
+        public MiaoContent(LzyLogin user, Order order) : base(baseUrl, user)
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            RequestUrl = $"{baseUrl}h{hosId}&";
+            RequestUrl = $"{baseUrl}id={order.DeptId}&date={order.Date}&week={order.Week}";
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
-            var doctorSign = MainSession.PlatformSession.GetString(Constants.DoctorSign);
-
-            AddContent("hisId", hosId);
-            AddContent("platformId", hosId);
-            AddContent("platformSource", 3);
-            AddContent("subSource", 1);
-
         }
     }
 }

@@ -56,7 +56,6 @@ namespace Lzy.appointment
                 MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {message}");
                 if (message.Contains("预约成功"))
                 {
-
                     return true;
                 }
 
