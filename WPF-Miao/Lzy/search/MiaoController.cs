@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.number;
+using HttpProcessor.HtmlAnalysis;
 
 namespace Lzy.search
 {
@@ -45,7 +46,7 @@ namespace Lzy.search
                 }
                 var root = response.ContentStr;
 
-                return CheckSaveSchedule();
+                return CheckSaveSchedule(root, tempOrder);
             }
             catch (Exception ex)
             {
@@ -54,24 +55,53 @@ namespace Lzy.search
             }
         }
 
-        private bool CheckSaveSchedule()
+        private bool CheckSaveSchedule(string htmlStr, Order tempOrder)
         {
+            var htmlDoc = new HtmlDoc(htmlStr);
 
-            //BuildOrderList(availableSchedules);
+            var timeBoxXpath = "//div[@class=\"time-box\"]";
+            var timeBoxDoc = htmlDoc.GetInnerDoc(timeBoxXpath);
+            if (timeBoxDoc == null)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"SearchMiao - cannot get [timeBoxDoc]");
+                return false;
+            }
 
-            return true;
+            var timeItemXpath = "//div[@class=\"time-item\"]";
+            var timeItems = timeBoxDoc.SearchNodes(timeItemXpath);
+            if (!timeItems.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"SearchMiao - cannot get [timeItems]");
+                return false;
+            }
+
+            bool hasMiao = false;
+            foreach(var timeItem in timeItems)
+            {
+                var miaoSchedule = new MiaoSchedule(timeItem.InnerHtml);
+                if (miaoSchedule.IsAvailable)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"查到苗 - timeid = {miaoSchedule.TimeId}");
+                    BuildOrderList(miaoSchedule, tempOrder);
+                    hasMiao = true;
+                }
+            }
+
+            return hasMiao;
         }
 
-        private void BuildOrderList(List<Dictionary<string, object>> schedules)
+        private void BuildOrderList(MiaoSchedule miaoSchedule, Order tempOrder)
         {
             var orderList = new List<Order>();
 
-            foreach (var schedule in schedules)
+            var order = new Order()
             {
-                Order orderWithTime = BuildOneOrder(schedule);
-                orderList.Add(orderWithTime);
-            }
-            orderList = orderList.DisorderItems();
+                TimeId = miaoSchedule.TimeId,
+                Date = tempOrder.Date,
+                DeptId = tempOrder.DeptId,
+            };
+
+            orderList.Add(order);
 
             var orderArgs = new OrderEventArgs
             {
@@ -79,17 +109,6 @@ namespace Lzy.search
             };
 
             MainSession.OrderEvent.Publish(this, orderArgs);
-        }
-
-        private Order BuildOneOrder(Dictionary<string, object> schedule)
-        {
-            var beginTime = schedule.GetString("visitBeginTime");
-            var endTime = schedule.GetString("visitEndTime");
-
-            return new Order
-            {
-
-            };
         }
     }
 }

@@ -17,9 +17,8 @@ namespace Lzy.search
         public void SearchMiao(DspVal selectedDate)
         {
             var defaultUser = MainSession.Users.FirstOrDefault();
-            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
 
-            foreach(var dateItem in dateList)
+            foreach(var dateItem in MainSession.DateList)
             {
                 Task.Factory.StartNew(() =>
                 {
