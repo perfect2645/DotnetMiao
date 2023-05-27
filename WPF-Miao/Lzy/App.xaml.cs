@@ -1,10 +1,10 @@
 ﻿using HttpProcessor.Container;
-using System.Threading.Tasks;
-using System.Windows;
 using Lzy.appointment;
 using Lzy.cancel;
 using Lzy.login;
 using Lzy.search;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace Lzy
 {
@@ -29,8 +29,6 @@ namespace Lzy
         private void InitController()
         {
             HttpServiceController.AddTransientService<LoginController>();
-            HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();

@@ -144,12 +144,16 @@ namespace Lzy.viewmodel
             DateList = new List<DspVal>();
             DateList.Add(new DspVal("2023-06-03"));
 
-            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
+            MainSession.DateList = DateList;
+            SelectedDate = DateList.FirstOrDefault();
 
             TimeList = new List<DspVal>();
             TimeList.Add(new DspVal("08:00~09:00","543"));
             TimeList.Add(new DspVal("09:00~10:00", "541"));
             TimeList.Add(new DspVal("10:00~10:20", "542"));
+
+            MainSession.TimeList = TimeList;
+            SelectedTime = TimeList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
             {   
@@ -219,7 +223,6 @@ namespace Lzy.viewmodel
         private void LoginFromConfig()
         {
             MainSession.Users = FileReader.DeserializeFile<List<LzyLogin>>("Login.json");
-
 
             MainSession.InitSession();
         }
@@ -308,11 +311,21 @@ namespace Lzy.viewmodel
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             foreach(var user in MainSession.Users)
             {
-                var order = new Order
+                var userOrders = new List<Order>();
+                foreach(var timeInfo in MainSession.TimeList)
                 {
-                    Date = SelectedDate.Value,
-                    DeptId = deptId
-                };
+                    var order = new Order
+                    {
+                        Date = SelectedDate.Value,
+                        DeptId = deptId,
+                        Mobile = user.Mobile,
+                        TimeId = timeInfo.Value,
+                        UserName = user.UserName,
+                        User = user,
+                    };
+                    userOrders.Add(order);
+                }
+                MainSession.Orders.AddOrUpdate(user.UserName, userOrders);
             }
         }
 
@@ -322,7 +335,14 @@ namespace Lzy.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-
+                    BuildOrders();
+                    foreach(var userOrder in MainSession.Orders)
+                    {
+                        Task.Factory.StartNew(() =>
+                        {
+                            StartOneOrder(userOrder.Key, userOrder.Value);
+                        });
+                    }
                 }
                 catch (HttpException ex)
                 {
@@ -352,7 +372,7 @@ namespace Lzy.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(100);
+                        Thread.Sleep(500);
                     }
                 }
             }
@@ -379,18 +399,7 @@ namespace Lzy.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        PatientId = user.PatientId,
-                        Token = user.LoginAccessToken,
-                        DeptId = template.DeptId,
-                        DoctorId = template.DoctorId,
-                        HisId = template.HisId,
-                        SubSource = template.SubSource,
-                        PlatformId = template.PlatformId,
-                        PlatformSource = template.PlatformSource,
-                        ScheduleDate = template.ScheduleDate,
-                        VisitBeginTime = template.VisitBeginTime,
-                        VisitEndTime = template.VisitEndTime,
-                        VisitPeriod = template.VisitPeriod
+                        
                     };
 
                     orderList.Add(order);

@@ -3,6 +3,7 @@ using Base.viewmodel.status;
 using Lzy.appointment;
 using System.Collections.Generic;
 using Lzy.login;
+using Base.model;
 
 namespace Lzy.session
 {
@@ -15,6 +16,8 @@ namespace Lzy.session
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
         internal static Dictionary<string, List<Order>> Orders { get; set; }
+        public static List<DspVal> DateList { get; set; }
+        public static List<DspVal> TimeList { get; set; }
 
         static MainSession()
         {
