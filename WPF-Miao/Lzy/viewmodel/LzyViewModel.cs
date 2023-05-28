@@ -215,6 +215,7 @@ namespace Lzy.viewmodel
 
         protected override void OnMiaoGetAsync(object data)
         {
+            StopIntervalTimer();
         }
 
         #endregion Status Control
@@ -261,7 +262,7 @@ namespace Lzy.viewmodel
                 try
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
-                    StartOnTimeTimer();
+                    StartIntervalTimer();
                 }
                 catch (HttpException ex)
                 {
@@ -392,8 +393,11 @@ namespace Lzy.viewmodel
                     var order = new Order
                     {
                         UserName = user.UserName,
+                        Mobile = user.Mobile,
                         User = user,
-                        
+                        Date = template.Date,
+                        DeptId = template.DeptId,
+                        TimeId = template.TimeId,
                     };
 
                     orderList.Add(order);

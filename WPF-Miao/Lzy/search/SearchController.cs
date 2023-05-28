@@ -31,12 +31,7 @@ namespace Lzy.search
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
 
-            var isMiaoGet = false;
-            while(!isMiaoGet)
-            {
-                isMiaoGet =  miaoController.SearchMiao(date);
-                Thread.Sleep(1000);
-            }
+            var isMiaoGet =  miaoController.SearchMiao(date);
         }
     }
 }

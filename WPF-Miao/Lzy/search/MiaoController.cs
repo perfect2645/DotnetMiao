@@ -84,6 +84,7 @@ namespace Lzy.search
                     MainSession.PrintLogEvent.Publish(this, $"查到苗 - timeid = {miaoSchedule.TimeId}");
                     BuildOrderList(miaoSchedule, tempOrder);
                     hasMiao = true;
+                    MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
                 }
             }
 
