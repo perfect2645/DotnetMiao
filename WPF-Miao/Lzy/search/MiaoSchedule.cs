@@ -31,7 +31,7 @@ namespace Lzy.search
                 var itemStateXpath = "//div[@class=\"item-state\"]//span";
                 var itemStateNode = TimeItem.GetDefaultNode(itemStateXpath);
                 var itemState = itemStateNode.InnerText;
-                if ("可以约".Equals(itemState))
+                if ("可预约".Equals(itemState))
                 {
                     IsAvailable = true;
                 }

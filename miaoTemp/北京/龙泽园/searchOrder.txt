@@ -1,0 +1,886 @@
+GET http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=user_order&m=lzl_course HTTP/1.1
+Host: wechat.yunhebj.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: PHPSESSID=16e18af1bd074fd659a8aaa6d78a2502
+Referer: http://wechat.yunhebj.com/app/index.php?i=30&c=entry&order_id=6101&do=user_order_cancel&m=lzl_course
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 28 May 2023 11:36:00 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Powered-By: PHP/7.0.30
+Set-Cookie: PHPSESSID=16e18af1bd074fd659a8aaa6d78a2502; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Set-Cookie: 956d_logout=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+Content-Length: 21129
+
+<html>
+	<head>
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=640,user-scalable=no">
+		<title>龙泽园社区卫生服务中心</title>
+		<link rel="stylesheet" type="text/css" href="../addons/lzl_course/template/css/style.css?2">
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_783249_m0o84fh4fi.css">
+		<script type="text/javascript" src="../addons/lzl_course/template/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../addons/lzl_course/template/js/modal_dialog.js"></script>
+		<style>
+			.disclaimers-fixed{
+				background: #df334b;
+				position: fixed;
+				right: 0;
+				bottom: 350px;
+				font-size: 24px;
+				color: #fff;
+				width: 100px;
+				padding: 12px 12px 12px 16px;
+				text-align: center;
+				z-index: 9999;
+				border-top-left-radius: 30px;
+				border-bottom-left-radius: 30px;
+				box-shadow: 0px 0px 10px grey;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.disclaimers-box {
+				visibility: hidden;
+			}
+
+			.disclaimers-box.disclaimers-show {
+				visibility: visible;
+			}
+
+			.disclaimers-box .disclaimers-mask {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 99998;
+				background: rgba(0, 0, 0, 0.6);
+				display: none;
+			}
+
+			.disclaimers-box.disclaimers-show .disclaimers-mask {
+				display: block;
+			}
+
+			.disclaimers-box .disclaimers-content {
+				width: 80%;
+				/* height:700px; */
+				padding: 20px;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 99999;
+				background: #fff;
+				-webkit-border-radius: 8px 8px;
+				border-radius: 20px;
+				padding-bottom: 60px;
+				-webkit-transform: translate3d(-50%, -50%, 0);
+				transform: translate3d(-50%, -50%, 0);
+				-webkit-transform-origin: center;
+				transform-origin: center;
+				-webkit-transition: all 0.2s ease;
+				transition: all 0.2s ease;
+				opacity: 0;
+			}
+
+			.disclaimers-box.disclaimers-show .disclaimers-content {
+				opacity: 1;
+			}
+
+			.disclaimers-top{
+				font-size: 32px;
+				font-weight: 600;
+				text-align: center;
+				letter-spacing: 10px;
+				margin-bottom: 20px;
+			}
+
+			.disclaimers-box .disclaimers-content .disclaimers-text{
+				font-size: 24px;
+				padding: 28px;
+				line-height: 50px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: justify;
+				height: 77%;
+				overflow-y: scroll;
+			}
+
+			.disclaimers-box .disclaimers-content .disclaimers-text::after{
+				content:"";
+				display: inline-block;
+				overflow:hidden;
+				height:0;
+			}
+
+			.disclaimers-btn{
+				width: 100%;
+				display: flex;
+				margin: 0 auto;
+				align-items: center;
+				align-content: center;
+				justify-content: center;
+			}
+		</style>
+					<style>
+				.menu .hover{color: #028c7c!important;}
+				.calendar_header{background-color: #028c7c!important;}
+				.calendar_tr .calendar_day_act{border-bottom: 3px #028c7c solid!important;}
+				.control > button{background-color: #028c7c!important;}
+				.setjc_btn{background-color: #028c7c!important;}
+				.list_r span{ background-color: #028c7c!important;}
+				.course_top{background-color: #028c7c!important;}
+				.course_form_desc{ color: #028c7c!important;}
+				.submit{ background-color: #028c7c!important;}
+				.user_top{ background-color: #028c7c!important;}
+				.user_tab .hover{ border-bottom: 3px #028c7c solid!important;color: #028c7c!important;}
+				.vip_main label input:checked~span{border:1px #028c7c solid;}
+				.vip_main label span:before{background-color:#028c7c;}
+				.cue a{ background-color:#028c7c;}
+			</style>
+				<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+		
+		 
+		<script>
+			var more_url = "";
+			var qr_url = "";
+			var appIdstr = "wxa6494c8d0242ff6a";
+			var timestampstr = "1685273760";
+			var nonceStrstr = "H593EedU0j9Gfi0F";
+			var signaturestr = "a3643d67b0c07ede5278c5316a56fe6ee2f62051";
+
+			wx.config({
+				debug: false,
+				appId: appIdstr,
+				timestamp: timestampstr,
+				nonceStr: nonceStrstr,
+				signature: signaturestr,
+				jsApiList: [
+					'checkJsApi',
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'onMenuShareQQ',
+					'onMenuShareWeibo',
+					'hideMenuItems',
+					'showMenuItems',
+					'hideAllNonBaseMenuItem',
+					'showAllNonBaseMenuItem',
+					'translateVoice',
+					'startRecord',
+					'stopRecord',
+					'onRecordEnd',
+					'playVoice',
+					'pauseVoice',
+					'stopVoice',
+					'uploadVoice',
+					'downloadVoice',
+					'chooseImage',
+					'previewImage',
+					'uploadImage',
+					'downloadImage',
+					'getNetworkType',
+					'openLocation',
+					'getLocation',
+					'hideOptionMenu',
+					'showOptionMenu',
+					'closeWindow',
+					'scanQRCode',
+					'chooseWXPay',
+					'openProductSpecificView',
+					'addCard',
+					'chooseCard',
+					'openCard'
+				]
+			});
+
+			wx.ready(function () {
+				var shareData = {
+					title:"",
+					desc: "",
+					link:"http://wechat.yunhebj.com/app/./index.php?i=30&c=entry&do=home&m=lzl_course",
+					imgUrl:"http://wechat.yunhebj.com/attachment/images/30/2023/01/Rpo9b0BZ0919O9z9PBe1LP5cq399Zm.png",
+					type:'',
+					dataUrl:'',
+				};
+
+				wx.onMenuShareAppMessage({
+					title: shareData.title,
+					desc: shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					type: shareData.type,
+					dataUrl: shareData.dataUrl,
+					trigger: function (res) {
+						
+					},
+					success: function (res) {
+						
+					},
+					cancel: function (res) {
+						
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					},
+					complete:function(res){
+					
+					},
+				});	
+
+				wx.onMenuShareTimeline({
+					title: shareData.title+shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					trigger: function (res) {
+						
+					},
+					success: function (res) {
+						
+					},
+					cancel: function (res) {
+					
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					},
+					complete:function(res){
+						
+					},
+				});	
+
+				wx.onMenuShareQQ({
+					title: shareData.title,
+					desc: shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					trigger: function (res) {
+					
+					},
+					complete: function (res) {
+					
+					},
+					success: function (res) {
+						
+					},
+					cancel: function (res) {
+						
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					}
+				});	
+					
+				wx.onMenuShareWeibo({
+					title: shareData.title,
+					desc: shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					trigger: function (res) {
+					
+					},
+					complete: function (res) {
+						
+					},
+					success: function (res) {
+					
+					},
+					cancel: function (res) {
+					
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					}
+				});
+			});
+
+			// $(function(){
+			// 	$('.disclaimers-box').toggleClass('disclaimers-show');
+			// })
+
+			function handleDisclaimers(){
+
+				$('.disclaimers-box').toggleClass('disclaimers-show');
+			}
+
+			$(document).on('click','.disclaimers-btn',function(){
+
+				$('.disclaimers-box').toggleClass('disclaimers-show');
+			})
+
+			$(document).on('click','.disclaimers-mask',function(){
+
+				$('.disclaimers-box').toggleClass('disclaimers-show');
+			})
+		</script>
+	</head>
+	<body>
+					<div class="disclaimers-fixed" onClick="handleDisclaimers()">温馨提示</div>
+			<div class="disclaimers-box">
+				<div class="disclaimers-mask"></div>
+				<div class="disclaimers-content">
+					<div class="disclaimers-top">温馨提示</div>
+					<div class="disclaimers-text">
+						<p>我院公众号只限本人预约，接种当天现场查验微信公众号“我的预约”记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</p>					</div>
+					<div class="disclaimers-btn">
+						<div class="submit" style="width: 560px;height: 60px;line-height: 60px;font-size: 24px;margin: 20px 20px auto 20px;border-radius: 5px;">确定</div>
+					</div>
+				</div>
+			</div>
+		<style type="text/css">
+	img {
+	    width: 100%;
+	    height: 100%;
+	    display: block;
+	    object-fit: contain;
+	}
+
+	a {
+	    text-decoration: none;
+	    outline: none;
+	}
+
+	input {
+	    border: none;
+	    outline: none;
+	}
+
+	ul, li {
+	    list-style: none;
+	}
+
+	.d-f{
+
+	    display: flex; 
+	}
+	.a-c{
+
+		align-content: center;
+	    align-items: center;
+	}
+
+	.text-default {
+	 	color:#333;
+	}
+
+	.text-primary {
+	 	color:#3296fa;
+	}
+
+	.text-success {
+	 	color:#079200;
+	}
+
+	.text-warning {
+		color:#f0ad4e;
+	}
+
+	.text-danger {
+	 	color:#cf1010;
+	}
+
+	.user_tab {
+	    width: 640px;
+	    height: 100px;
+	    background-color: #fff;
+	    overflow: hidden;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    z-index: 999;
+	    display: flex;
+	    justify-content: space-between;
+	}
+
+	.user_tab a{
+		width: 50%;
+	}
+
+	.tab-panel{
+		margin: 0 auto;
+	    overflow: hidden;
+	    width: 600px;
+	    height: auto;
+	    margin-top: 100px;
+	}
+
+	.list-group{
+		margin-top: 20px;
+	    border-radius: 15px;
+	    overflow: hidden;
+	    background-color: #fff;
+	    width: 600px;
+	}
+
+	.list-group-title{
+	    overflow: hidden;
+	    width: 580px;
+	    margin: 10px auto;
+	    line-height: 40px;
+	    position: relative
+	}
+
+	.list-group-title:after{
+	    content: '';
+	    width: 100%;
+	    height: 1px;
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    -webkit-transform: scaleY(.5);
+	    transform: scaleY(.5);
+	    background-color: #e3e5e9;
+	}
+
+	.list-group-main{
+		overflow: hidden;
+	    width: 580px;
+	    margin: 10px auto;
+	    line-height: 40px;
+	}
+
+	.hosp-info{
+		padding: 15px 20px;
+		position: relative;
+	}
+
+	.hosp-info:after{
+	    content: '';
+	    width: 100%;
+	    height: 1px;
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    -webkit-transform: scaleY(.5);
+	    transform: scaleY(.5);
+	    background-color: #e3e5e9;
+	}
+
+	.hosp-info .media-row{
+		margin-right: 20px;
+		width: 100px;
+		height: 100px;
+	}
+
+	.hosp-info .media-row img{
+		border-radius: 10px;
+	}
+
+	.hosp-info .text-info{
+		font-size: 24px;
+	    color: #333;
+	    padding: 10px 0 0;
+    	position: relative;
+	}
+
+	.hosp-info .text-info div:nth-child(1){
+	    color: #666;
+	    width: 17.5%;
+	}
+
+	.hosp-info .text-info div:nth-child(2){
+	    width: 82.5%;
+	    line-height: 1.5;
+	}
+
+	.info-row {
+	    font-size: 24px;
+	    color: #333;
+	    padding: 15px 20px;
+    	position: relative;
+	}
+
+	.info-row:after{
+	    content: '';
+	    width: 100%;
+	    height: 1px;
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    -webkit-transform: scaleY(.5);
+	    transform: scaleY(.5);
+	    background-color: #e3e5e9;
+	}
+
+	.info-row div:nth-child(1){
+	    color: #666;
+	    width: 22.5%;
+	}
+
+	.info-row div:nth-child(2){
+	    width: 77.5%;
+	    line-height: 1.5;
+	}
+
+	.list-group-other{
+		overflow: hidden;
+	    width: 580px;
+	    margin: 10px auto;
+	    line-height: 40px;
+	    display: flex;
+	    justify-content: space-between;
+	}
+
+	.rect-block{
+		width: 50%;
+	    padding: 0 10px;
+	    margin: 10px 0;
+	    box-sizing: border-box;
+	    text-align: center;
+	    position: relative;
+	}
+
+	.rect-block:after{
+	    content: '';
+	    width: 1px;
+	    height: 100%;
+	    position: absolute;
+	    bottom: 0;
+	    right: 0;
+	    -webkit-transform: scaleY(.5);
+	    transform: scaleY(.5);
+	    background-color: #e3e5e9;
+	}
+
+	.rect-block:last-child:after{
+	    content: '';
+	    width: 0px;
+	    height: 0px;
+	}
+
+	.rect-block p:nth-child(1){
+	    color: #666;
+	    margin-bottom: 10px;
+	}
+
+	.rect-block .qrcode{
+	    width: 40px;
+	    height: 40px;
+	    position: absolute;
+	    top: 50px;
+	    left: 76px;
+	}
+
+	.rect-block .qrcode img{
+		border-radius: 5px;
+	}
+
+	.rect-block .cancel-btn{
+	    display: block;
+	    position: absolute;
+	    width: 80px;
+	    height: 40px;
+	    line-height: 40px;
+	    top: 50px;
+	    left: 55px;
+	    text-align: center;
+	    background-color: #eee;
+	    font-size: 22px;
+	    border-radius: 5px;
+	}
+</style>
+<div class="user_tab">
+	<a href="./index.php?i=30&c=entry&type=-1&do=user_order&m=lzl_course" class="hover">全部</a>
+	<a href="./index.php?i=30&c=entry&type=1&do=user_order&m=lzl_course" >已预约</a>
+	<a href="./index.php?i=30&c=entry&type=0&do=user_order&m=lzl_course" >未预约</a>
+</div>
+	<div class="tab-panel">
+				<style type="text/css">
+			.d-f{
+				display: flex;
+			}
+			.item-main{
+				width: 100%;
+				height: auto;
+				margin: 0 auto;
+				margin-top: 10px;
+				border-radius: 10px;
+				padding-bottom: 10px;
+				background: #fff;
+			}
+	
+			.item-title{
+				text-align: center;
+				align-content: center;
+				align-items: center;
+				padding: 10px 20px;
+				font-size: 26px;
+				font-weight: bold;
+				position: relative;
+			}
+	
+			.item-title:after{
+				content: '';
+				width: 100%;
+				height: 1px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #e3e5e9;
+			}
+			.item-title img{
+				width: 53px;
+				height: 48px;
+			}
+			.item-content{
+				background: #f1f1f157;
+				border-radius: 10px;
+				width: 85%;
+				margin: 0 auto;
+				padding: 10px 20px;
+				line-height: 1.7; 
+				letter-spacing: 1px;
+				text-align: justify;
+				color: #333;
+				font-size: 24px;
+			}
+		</style>
+		<div class="item-main">
+			<div class="item-title d-f">
+				<img src="../addons/lzl_course/template/images/item-icon.png" class="item-icon">
+				<span>温 馨 提 示</span>
+			</div>
+			<div class="item-content">
+				<p>我院公众号只限本人预约，接种当天现场查验微信公众号“我的预约”记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</p>			</div>
+		</div>
+							<div class="list-group">
+				<div class="list-group-title">
+					<div class="info-row d-f">
+						<div>疫苗名称：</div>
+						<div>HPV九价</div>
+					</div>
+				</div>
+
+				<div class="list-group-main">
+											<div class="hosp-info d-f a-c">
+							<div class="media-row">
+								<img src="http://wechat.yunhebj.com/attachment/images/30/2023/01/Rpo9b0BZ0919O9z9PBe1LP5cq399Zm.png" class="">
+							</div>
+							<div class="text-row">
+								<div class="text-info d-f a-c">
+									<div>门诊：</div>
+									<div>龙跃四预防保健门诊</div>
+								</div>
+								<div class="text-info d-f a-c">
+									<div>地址：</div>
+									<div>北京市昌平区龙泽园街道龙跃苑四区东南门-文华东路31 号（预防保健门诊）</div>
+								</div>
+							</div>
+						</div>
+					
+					<div class="info-row d-f a-c">
+						<div>接种人：</div>
+						<div>周瑠夏（17615102645）</div>
+					</div>
+
+					<div class="info-row d-f a-c">
+						<div>预约时间：</div>
+						<div>2023-05-31（14:15~15:00）</div>
+					</div>
+
+					<div class="info-row d-f a-c">
+						<div>申请时间：</div>
+						<div>2023-05-27 17:09:47</div>
+					</div>
+				</div>
+
+				<div class="list-group-other d-f">
+					<div class="rect-block">
+						<p>预约状态</p>
+																					<p class="text-success">已预约</p>
+																		</div>
+
+					<div class="rect-block">
+						<p>核销状态</p>
+													<p class="text-warning">未核销</p>
+											</div>
+
+											<div class="rect-block">
+							<p>核销码</p>
+							<a class="qrcode " onClick="qrcode(6531)">
+								<img src="../addons/lzl_course/template/images/qr.jpg">
+							</a>
+						</div>
+					
+											<div class="rect-block">
+							<p>取消预约</p>
+															<a class="cancel-btn" href="./index.php?i=30&c=entry&order_id=6531&do=user_order_cancel&m=lzl_course" onClick="return confirm('确定取消预约?');" style="background-color: #028c7c!important;color: #fff;">取消</a>
+													</div>
+									</div>
+			</div>
+					<div class="list-group">
+				<div class="list-group-title">
+					<div class="info-row d-f">
+						<div>疫苗名称：</div>
+						<div>九价HPV</div>
+					</div>
+				</div>
+
+				<div class="list-group-main">
+											<div class="hosp-info d-f a-c">
+							<div class="media-row">
+								<img src="http://wechat.yunhebj.com/attachment/images/30/2023/01/Rpo9b0BZ0919O9z9PBe1LP5cq399Zm.png" class="">
+							</div>
+							<div class="text-row">
+								<div class="text-info d-f a-c">
+									<div>门诊：</div>
+									<div>国风美唐预防保健门诊</div>
+								</div>
+								<div class="text-info d-f a-c">
+									<div>地址：</div>
+									<div>北京市昌平区龙泽园街道龙跃街10号院3号楼（霍营小学北门旁边）</div>
+								</div>
+							</div>
+						</div>
+					
+					<div class="info-row d-f a-c">
+						<div>接种人：</div>
+						<div>周瑠夏（17615102645）</div>
+					</div>
+
+					<div class="info-row d-f a-c">
+						<div>预约时间：</div>
+						<div>2023-05-27（09:00~10:00）</div>
+					</div>
+
+					<div class="info-row d-f a-c">
+						<div>申请时间：</div>
+						<div>2023-05-27 00:15:46</div>
+					</div>
+				</div>
+
+				<div class="list-group-other d-f">
+					<div class="rect-block">
+						<p>预约状态</p>
+																					<p class="text-success">已预约</p>
+																		</div>
+
+					<div class="rect-block">
+						<p>核销状态</p>
+													<p class="text-warning">未核销</p>
+											</div>
+
+											<div class="rect-block">
+							<p>核销码</p>
+							<a class="qrcode " onClick="qrcode(6135)">
+								<img src="../addons/lzl_course/template/images/qr.jpg">
+							</a>
+						</div>
+					
+									</div>
+			</div>
+					<div class="list-group">
+				<div class="list-group-title">
+					<div class="info-row d-f">
+						<div>疫苗名称：</div>
+						<div>23价肺炎</div>
+					</div>
+				</div>
+
+				<div class="list-group-main">
+											<div class="hosp-info d-f a-c">
+							<div class="media-row">
+								<img src="http://wechat.yunhebj.com/attachment/images/30/2023/01/Rpo9b0BZ0919O9z9PBe1LP5cq399Zm.png" class="">
+							</div>
+							<div class="text-row">
+								<div class="text-info d-f a-c">
+									<div>门诊：</div>
+									<div>龙跃四预防保健门诊</div>
+								</div>
+								<div class="text-info d-f a-c">
+									<div>地址：</div>
+									<div>北京市昌平区龙泽园街道龙跃苑四区东南门-文华东路31 号（预防保健门诊）</div>
+								</div>
+							</div>
+						</div>
+					
+					<div class="info-row d-f a-c">
+						<div>接种人：</div>
+						<div>周瑠夏（17615102645）</div>
+					</div>
+
+					<div class="info-row d-f a-c">
+						<div>预约时间：</div>
+						<div>2023-05-30（09:00~10:00）</div>
+					</div>
+
+					<div class="info-row d-f a-c">
+						<div>申请时间：</div>
+						<div>2023-05-26 21:54:01</div>
+					</div>
+				</div>
+
+				<div class="list-group-other d-f">
+					<div class="rect-block">
+						<p>预约状态</p>
+													<p class="text-danger">已取消</p>
+											</div>
+
+					<div class="rect-block">
+						<p>核销状态</p>
+													<p class="text-warning">未核销</p>
+											</div>
+
+					
+									</div>
+			</div>
+			</div>
+
+	<div class="cue_bg" id="cue_bg">
+		<div class="cue">
+			<img src="" id="qr_img" width="100%">
+			<p>长按保存活码图片</p>
+			<a onclick="cue_bg.style.display='none'">关闭</a>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		function qrcode(id){
+
+			document.getElementById("qr_img").src = "./index.php?i=30&c=entry&do=qr&m=lzl_course&id="+id;
+
+			document.getElementById("cue_bg").style.display="block";
+		}
+	</script>
+
+		<div class="menu_top"></div>
+		<div class="menu">
+            <a style="width: 33.33%" href="./index.php?i=30&c=entry&do=home&m=lzl_course" >
+				<i class="iconfont icon-home"></i>
+				<p>首页</p>
+			</a>
+			<a style="width: 33.33%" href="./index.php?i=30&c=entry&do=index&m=lzl_course" >
+				<i class="iconfont icon-rili"></i>
+				<p>预约</p>
+			</a>
+			<a style="width: 33.33%" href="./index.php?i=30&c=entry&do=user&m=lzl_course" class="hover">
+				<i class="iconfont icon-wode"></i>
+				<p>我的</p>
+			</a>
+								</div>
+
+								<script>;</script><script type="text/javascript" src="http://wechat.yunhebj.com/app/index.php?i=30&c=utility&a=visit&do=showjs&m=lzl_course"></script></body>
+</html>

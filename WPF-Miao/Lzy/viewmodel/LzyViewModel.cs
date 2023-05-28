@@ -135,7 +135,7 @@ namespace Lzy.viewmodel
         private void TestData()
         {
             Interval = 800;
-            StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -157,19 +157,33 @@ namespace Lzy.viewmodel
             SelectedTime = TimeList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {   
+            {
                 new LzyHospital
                 {
                     HospitalId = "30",
                     HospitalName = "龙跃四预防保健门诊",
-                    DepartmentName = "HPV九价",
+                    DepartmentName = "HPV九价周三",
+                    DepartmentId = "19",
+                },
+                new LzyHospital
+                {
+                    HospitalId = "30",
+                    HospitalName = "龙跃四预防保健门诊",
+                    DepartmentName = "HPV九价周六",
                     DepartmentId = "32",
                 },
                 new LzyHospital
                 {
                     HospitalId = "30",
                     HospitalName = "国风美唐预防保健门诊",
-                    DepartmentName = "HPV九价",
+                    DepartmentName = "HPV九价周三",
+                    DepartmentId = "42",
+                },                
+                new LzyHospital
+                {
+                    HospitalId = "30",
+                    HospitalName = "国风美唐预防保健门诊",
+                    DepartmentName = "HPV九价周六",
                     DepartmentId = "44",
                 },
             };

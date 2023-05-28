@@ -32,6 +32,11 @@ namespace Lzy.search
             var miaoController = HttpServiceController.GetService<MiaoController>();
 
             var isMiaoGet =  miaoController.SearchMiao(date);
+
+            if (!isMiaoGet)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗date={date}");
+            }
         }
     }
 }

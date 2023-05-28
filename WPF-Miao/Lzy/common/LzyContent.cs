@@ -20,8 +20,6 @@ namespace Lzy.common
 
         private void BuildHeader()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-
             AddHeader("Host", "wechat.yunhebj.com");
             AddHeader("Connection", "keep-alive");
             AddHeader("Cache-Control", "max-age=0");
@@ -32,7 +30,7 @@ namespace Lzy.common
             AddHeader("Cookie", User.Cookie);
 
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            AddHeader("Referer", $"http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&id={deptId}&date=2023-05-27&week=6");
+            AddHeader("Referer", $"http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&id={deptId}&date=2023-06-03&week=6");
             AddHeader("Accept-Encoding", "gzip, deflate");
             AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }
