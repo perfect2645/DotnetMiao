@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+﻿using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
+using Dxm.appointment;
+using Dxm.cancel;
+using Dxm.login;
+using Dxm.search;
+
 
 namespace Dxm
 {
@@ -13,5 +14,30 @@ namespace Dxm
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            InitControllerAsync();
+        }
+
+        private void InitControllerAsync()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                InitController();
+            });
+        }
+        private void InitController()
+        {
+            HttpServiceController.AddTransientService<LoginController>();
+            HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<ScheduleController>();
+            HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<CancelController>();
+            HttpServiceController.AddTransientService<SearchSuccessController>();
+
+            HttpServiceController.BuidServiceProvider();
+        }
     }
 }
