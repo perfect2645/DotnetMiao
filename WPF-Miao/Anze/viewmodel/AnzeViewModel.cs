@@ -1,13 +1,13 @@
-﻿using Base.viewModel;
+﻿using Anze.appointment;
+using Anze.login;
+using Anze.search;
+using Anze.session;
+using Base.viewModel;
 using Base.viewModel.hospital;
 using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
-using Anze.appointment;
-using Anze.login;
-using Anze.search;
-using Anze.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.file;
-using System.Security.Cryptography;
 
 namespace Anze.viewmodel
 {
@@ -53,7 +52,7 @@ namespace Anze.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(30);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(45);
 
             Departments = new List<HospitalDept>
             {
