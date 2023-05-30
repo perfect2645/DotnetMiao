@@ -91,5 +91,14 @@
             NameList.Add("悦悦");
             NameList.Add("悦");
         }
+
+        public static string GetRandomName()
+        {
+            var lastName = LastNameList.GetRandomMember();
+            var name = NameList.GetRandomMember();
+            var fullName = $"{lastName}{name}";
+
+            return fullName;
+        }
     }
 }

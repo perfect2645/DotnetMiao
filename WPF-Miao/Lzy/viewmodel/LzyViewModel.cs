@@ -22,6 +22,7 @@ using Utils.number;
 using Utils.stringBuilder;
 using System.Threading;
 using Base.viewmodel.status;
+using Utils.Rdom;
 
 namespace Lzy.viewmodel
 {
@@ -135,15 +136,15 @@ namespace Lzy.viewmodel
         private void TestData()
         {
             Interval = 800;
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(57);
+            StartTime = DateTime.Today.AddHours(4).AddMinutes(59).AddSeconds(55);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-03"));
+            DateList.Add(new DspVal("2023-06-07"));
 
             MainSession.DateList = DateList;
             SelectedDate = DateList.FirstOrDefault();
@@ -239,6 +240,15 @@ namespace Lzy.viewmodel
         private void LoginFromConfig()
         {
             MainSession.Users = FileReader.DeserializeFile<List<LzyLogin>>("Login.json");
+            foreach(var user in MainSession.Users)
+            {
+                if (string.IsNullOrEmpty(user.UserName))
+                {
+                    user.UserName = StringRandom.GetRandomName();
+                    user.Mobile = NumberUtil.GetRandomPhone().NotNullString();
+                    MainSession.PrintLogEvent.Publish(user, user.ToLogString());
+                }
+            }
 
             MainSession.InitSession();
         }
@@ -541,6 +551,14 @@ namespace Lzy.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
+            foreach (var user in MainSession.Users)
+            {
+                Task.Factory.StartNew(async () =>
+                {
+                    var userController = HttpServiceController.GetService<MiaoController>();
+                    await userController.SearchMiaoAsync(SelectedDate.Value);
+                });
+            }
         }
 
         #endregion Resession
