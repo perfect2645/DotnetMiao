@@ -287,6 +287,7 @@ namespace Lzy.viewmodel
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                     StartIntervalTimer();
+                    StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
