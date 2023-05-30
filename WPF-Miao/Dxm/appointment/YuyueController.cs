@@ -1,10 +1,8 @@
-﻿using HttpProcessor.Client;
+﻿using Dxm.session;
+using HttpProcessor.Client;
 using HttpProcessor.Content;
-using Dxm.session;
 using System;
 using System.Net.Http;
-using System.Threading;
-using Utils.stringBuilder;
 using System.Text.Json;
 
 namespace Dxm.appointment
@@ -43,7 +41,7 @@ namespace Dxm.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -51,36 +49,30 @@ namespace Dxm.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var msg = root.GetProperty("msg").GetString();
-                if (msg.Contains("不能重复提交") || msg.Contains("匹配不到对应的号源信息"))
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
-                    return true;
-                }
+                var message = root.GetProperty("message").GetString();
+                //if (message.Contains("不能重复提交") || msg.Contains("匹配不到对应的号源信息"))
+                //{
+                //    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
+                //    return true;
+                //}
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
+                var code = root.GetProperty("code").GetInt32();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}");
                     return false;
                 }
 
-
-                MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
-
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var result = root.GetProperty("result");
+                if (result.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
                 }
 
+                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {message}");
 
-                var bookingResult = root.GetProperty("bookingResult");
-
-                CheckOrder(bookingResult, content.Order);
-
-                return true;
+                return CheckOrder(result, content.Order);
             }
             catch (Exception ex)
             {
@@ -89,16 +81,19 @@ namespace Dxm.appointment
             }
         }
 
-        private void CheckOrder(JsonElement bookingResult, Order order)
+        private bool CheckOrder(JsonElement bookingResult, Order order)
         {
-            var bookingId = bookingResult.GetProperty("bookingID").GetString();
+            var vaccineInfoId = bookingResult.GetProperty("vaccineInfoId").GetString();
 
-            if (!string.IsNullOrEmpty(bookingId))
+            if (string.IsNullOrEmpty(vaccineInfoId))
             {
-                //order.BookingID = bookingId;
+                return false;
             }
 
+            order.OrderId = vaccineInfoId;
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
+
+            return true;
         }
     }
 }

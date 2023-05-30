@@ -1,0 +1,80 @@
+GET https://dm.cdpc.org.cn/dmxcx/out/province/person/list HTTP/1.1
+Host: dm.cdpc.org.cn
+Connection: keep-alive
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVJekhxdmY5VDZpc3c2RHJmNHA4LXQ0IiwiVXNlcklkIjoibzJmcWQ2bjJWRlV4YlFkdVNIZkMyZmp6M1dBZyIsInRpbWVzdGFtcCI6MTY4NTM0ODc1NzkzOH0.-5hX6OEcwb1l0JQAa3EQEsQrosK5NKvIWRDPQB2dhm8
+content-type: application/json
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.37(0x1800252c) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wx51500ac89206cb24/4/page-frame.html
+
+
+HTTP/1.1 200
+Server: nginx/1.21.3
+Date: Tue, 30 May 2023 14:04:12 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 886
+
+{
+    "code": 200,
+    "message": "操作成功",
+    "result": [
+        {
+            "id": "90241",
+            "booName": "周瑠夏",
+            "genderId": 2,
+            "genderText": "女",
+            "paperCode": "32072120030821****",
+            "paperCodeStr": null,
+            "unicode": null,
+            "vaccinationCode": "168535275879224513",
+            "vaccinationCodeUrl": "https://saitron-dmxcx-public.oss-cn-beijing.aliyuncs.com/image/20230529/168535275879837124.jpg",
+            "idStr": "90241",
+            "area": [
+                {
+                    "id": "1300",
+                    "name": "河北省"
+                },
+                {
+                    "id": "1302",
+                    "name": "唐山市"
+                },
+                {
+                    "id": "13024",
+                    "name": "路南区"
+                }
+            ]
+        },
+        {
+            "id": "90290",
+            "booName": "徐明月",
+            "genderId": 2,
+            "genderText": "女",
+            "paperCode": "65412219980820****",
+            "paperCodeStr": null,
+            "unicode": null,
+            "vaccinationCode": "168536108879811",
+            "vaccinationCodeUrl": "https://saitron-dmxcx-public.oss-cn-beijing.aliyuncs.com/image/20230529/168536108880332907.jpg",
+            "idStr": "90290",
+            "area": [
+                {
+                    "id": "1300",
+                    "name": "河北省"
+                },
+                {
+                    "id": "1301",
+                    "name": "石家庄市"
+                },
+                {
+                    "id": "13013",
+                    "name": "长安区"
+                }
+            ]
+        }
+    ]
+}

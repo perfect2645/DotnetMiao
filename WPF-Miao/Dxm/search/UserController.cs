@@ -2,6 +2,7 @@
 using Dxm.session;
 using HttpProcessor.Client;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace Dxm.search
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                  if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -35,20 +36,20 @@ namespace Dxm.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
+                var code = root.GetProperty("code").GetInt32();
+                if (code != 200)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
                     return;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var result = root.GetProperty("result");
+                if (result.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(data, user);
+                SaveUser(result, user);
             }
             catch (Exception ex)
             {
@@ -58,24 +59,27 @@ namespace Dxm.search
 
         private void SaveUser(JsonElement data, DxmLogin user)
         {
-            var userInfo = JsonAnalysis.JsonToDic(data);
-            if (!userInfo.HasItem())
+            var userInfoList = JsonAnalysis.JsonToDicList(data);
+            if (!userInfoList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var userName = userInfo.GetString("patientName");
-            var patientId = userInfo.GetString("patientId");
-            var birthday = userInfo.GetString("birthday");
-            var address = userInfo.GetString("patientAddress");
 
-            user.PatientId = patientId;
+            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("booName") == user.UserName);
+            if (targetUser == null)
+            {
+                targetUser = userInfoList.FirstOrDefault();
+            }
+
+            var userName = targetUser.GetString("booName");
+            var patientId = targetUser.GetString("id");
+
+            user.UserId = patientId;
             user.UserName = userName;
-            user.Birthday = birthday;
-            user.Address = address;
 
-            MainSession.PrintLogEvent.Publish(this, userInfo);
+            MainSession.PrintLogEvent.Publish(this, targetUser);
         }
     }
 }
