@@ -142,8 +142,7 @@ namespace Dxm.viewmodel
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal(DateTime.Today.ToString("yyyyMM")));
-            //DateList.Add(new DspVal(DateTime.Today.AddMonths(1).ToString("yyyyMM")));
+
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
@@ -154,31 +153,8 @@ namespace Dxm.viewmodel
                     HospitalId = "2342",
                     HospitalName = "大连市第二人民医院",
                     DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632075",
-                    DoctorName = "进口九价预约",
-                    DoctorSign = "27E51C19C31648F9BC788F064D7F0794",
-                },
-                new DxmHospital
-                {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632072",
-                    DoctorName = "国产二价预约",
-                    DoctorSign = "D9B5434FBCB2CEACFC9B2769ABE0CD77"
-                },
-                new DxmHospital
-                {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "11823-2102000501",
-                    DoctorId = "1632074",
-                    DoctorName = "进口四价预约",
-                    DoctorSign = "420BC7D1D7953FA51F844F4FFB3E35AE",
-                },
+                    DepartmentId = "1301030504",
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -386,18 +362,6 @@ namespace Dxm.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        PatientId = user.PatientId,
-                        Token = user.LoginAccessToken,
-                        DeptId = template.DeptId,
-                        DoctorId = template.DoctorId,
-                        HisId = template.HisId,
-                        SubSource = template.SubSource,
-                        PlatformId = template.PlatformId,
-                        PlatformSource = template.PlatformSource,
-                        ScheduleDate = template.ScheduleDate,
-                        VisitBeginTime = template.VisitBeginTime,
-                        VisitEndTime = template.VisitEndTime,
-                        VisitPeriod = template.VisitPeriod
                     };
 
                     orderList.Add(order);
@@ -513,9 +477,6 @@ namespace Dxm.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorSign, selectedDept.DoctorSign);
 
             Log(selectedDept.ToLogString());
         }

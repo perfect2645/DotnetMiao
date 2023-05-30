@@ -8,12 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Login - 复制.json" />
+    <None Remove="Login - tun.json" />
     <None Remove="Login.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Login - 复制.json">
+    <Content Include="Login - tun.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">
