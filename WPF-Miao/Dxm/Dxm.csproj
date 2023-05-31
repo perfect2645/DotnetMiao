@@ -8,12 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Login - tun.json" />
     <None Remove="Login.json" />
+    <None Remove="Login16537555128.json" />
+    <None Remove="Login16791014827.json" />
+    <None Remove="Login17143794175.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Login - tun.json">
+    <Content Include="Login16537555128.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login16791014827.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login17143794175.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">
