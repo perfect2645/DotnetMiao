@@ -134,15 +134,16 @@ namespace Dxm.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(10);
+            MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(55);
 
             DateList = new List<DspVal>();
-
+            DateList.Add(new DspVal("2023-06-01 00:00:00"));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
@@ -150,16 +151,15 @@ namespace Dxm.viewmodel
             {   
                 new DxmHospital
                 {
-                    HospitalId = "2342",
-                    HospitalName = "大连市第二人民医院",
-                    DepartmentName = "泡南预防保健部",
-                    DepartmentId = "1301030504",
+                    HospitalId = "1301030504",
+                    HospitalName = "光华西路社区卫生服务站",
+                    DepartmentName = "双价人乳头瘤病毒吸附疫苗",
+                    DepartmentId = "474",
                 }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
             _searchController = new SearchController();
-
         }
 
         private void InitCommands()
@@ -211,8 +211,6 @@ namespace Dxm.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    //var loginController = HttpServiceController.GetService<LoginController>();
-                    //await loginController.LoginAsync(user);
                     var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
@@ -267,17 +265,6 @@ namespace Dxm.viewmodel
             });
         }
 
-
-        private Order BuildOneOrder(DxmLogin user, string date, string timeId)
-        {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            return new Order
-            {
-
-            };
-        }
-
         protected override void AutoRun()
         {
             Task.Factory.StartNew(() => {
@@ -305,7 +292,7 @@ namespace Dxm.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -331,11 +318,11 @@ namespace Dxm.viewmodel
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
-                            PrintLog("预约成功");
+                            PrintLog($"{order.UserName}-预约成功");
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(100);
+                        Thread.Sleep(500);
                     }
                 }
             }
@@ -362,6 +349,11 @@ namespace Dxm.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
+                        HospitalCode = template.HospitalCode,
+                        MakeAnAppointment = template.MakeAnAppointment,
+                        TimeNo = template.TimeNo,
+                        UserId = template.UserId,
+                        VaccineInfoId = template.VaccineInfoId,
                     };
 
                     orderList.Add(order);
@@ -490,6 +482,7 @@ namespace Dxm.viewmodel
             Log("ression invoke");
             foreach (var user in MainSession.Users)
             {
+                Thread.Sleep(1000);
                 Task.Factory.StartNew(async () =>
                 {
                     //var loginController = HttpServiceController.GetService<LoginController>();

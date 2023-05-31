@@ -50,11 +50,11 @@ namespace Dxm.appointment
                 var root = response.JsonBody.RootElement;
 
                 var message = root.GetProperty("message").GetString();
-                //if (message.Contains("不能重复提交") || msg.Contains("匹配不到对应的号源信息"))
-                //{
-                //    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {msg}");
-                //    return true;
-                //}
+                if (message.Contains("重复预约"))
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {message}");
+                    return true;
+                }
 
                 var code = root.GetProperty("code").GetInt32();
                 if (code != 200)
@@ -83,14 +83,14 @@ namespace Dxm.appointment
 
         private bool CheckOrder(JsonElement bookingResult, Order order)
         {
-            var vaccineInfoId = bookingResult.GetProperty("vaccineInfoId").GetString();
+            var address = bookingResult.GetProperty("address").GetString();
 
-            if (string.IsNullOrEmpty(vaccineInfoId))
+            if (string.IsNullOrEmpty(address))
             {
                 return false;
             }
 
-            order.OrderId = vaccineInfoId;
+            order.Address = address;
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
 
             return true;

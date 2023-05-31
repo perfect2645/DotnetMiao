@@ -1,0 +1,135 @@
+POST https://dm.cdpc.org.cn/dmxcx/make/appointment/details HTTP/1.1
+Host: dm.cdpc.org.cn
+Connection: keep-alive
+Content-Length: 93
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVJekhxdmY5VDZpc3c2RHJmNHA4LXQ0IiwiVXNlcklkIjoibzJmcWQ2bjJWRlV4YlFkdVNIZkMyZmp6M1dBZyIsInRpbWVzdGFtcCI6MTY4NTM0ODc1NzkzOH0.-5hX6OEcwb1l0JQAa3EQEsQrosK5NKvIWRDPQB2dhm8
+content-type: application/json
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.37(0x1800252c) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wx51500ac89206cb24/4/page-frame.html
+
+{"vaccineInfoId":"534","hospitalCode":"1301030504","makeAnAppointment":"2023-05-30 00:00:00"}
+HTTP/1.1 200
+Server: nginx/1.21.3
+Date: Mon, 29 May 2023 09:32:41 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 1421
+
+{
+    "code": 200,
+    "message": "操作成功",
+    "result": {
+        "vaccineInfoId": "534",
+        "medName": "九价人乳头瘤病毒疫苗（酿酒酵母）",
+        "vaccObject": "",
+        "factoryName": "默沙东",
+        "medSType": "0.5ml/支，盒1支",
+        "medPackContainer": "预充式",
+        "price": 1308,
+        "servicePrice": 25,
+        "makeAppointmentTime": "2023-05-30",
+        "hospitalName": "光华西路社区卫生服务站",
+        "medArrt": 2,
+        "tel": null,
+        "address": null,
+        "amList": [
+            {
+                "peopleNumber": 1,
+                "timeNo": "8:20",
+                "timeNoVal": "820",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 0,
+                "timeNo": "8:30",
+                "timeNoVal": "830",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "8:40",
+                "timeNoVal": "840",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "8:50",
+                "timeNoVal": "850",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 0,
+                "timeNo": "9:00",
+                "timeNoVal": "900",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "9:10",
+                "timeNoVal": "910",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "9:20",
+                "timeNoVal": "920",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "9:30",
+                "timeNoVal": "930",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "9:40",
+                "timeNoVal": "940",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "9:50",
+                "timeNoVal": "950",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 1,
+                "timeNo": "10:00",
+                "timeNoVal": "1000",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 0,
+                "timeNo": "10:10",
+                "timeNoVal": "1010",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 0,
+                "timeNo": "10:20",
+                "timeNoVal": "1020",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 0,
+                "timeNo": "10:30",
+                "timeNoVal": "1030",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 0,
+                "timeNo": "10:40",
+                "timeNoVal": "1040",
+                "timeType": 1
+            }
+        ],
+        "pmList": []
+    }
+}

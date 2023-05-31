@@ -36,26 +36,13 @@ namespace Dxm.search
 
         private void GetMiao(string date)
         {
-            var scheduleController = HttpServiceController.GetService<ScheduleController>();
+            var miaoController = HttpServiceController.GetService<MiaoController>();
 
             var isScheduleGet = false;
-            var scheduleOrderList = new List<Order>();
             while(!isScheduleGet)
             {
-                (isScheduleGet, scheduleOrderList) = scheduleController.SearchSchedule(date);
+                isScheduleGet = miaoController.SearchMiao(date);
                 Thread.Sleep(1000);
-            }
-
-            if (!scheduleOrderList.HasItem())
-            {
-                GetMiao(date);
-                return;
-            }
-
-            foreach(var schedule in scheduleOrderList)
-            {
-                var miaoController = HttpServiceController.GetService<MiaoController>();
-                miaoController.SearchMiaoAsync(schedule);
             }
         }
     }

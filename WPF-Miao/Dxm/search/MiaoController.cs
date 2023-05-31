@@ -15,26 +15,21 @@ namespace Dxm.search
 {
     internal class MiaoController : HttpClientBase
     {
-        public Order ScheduleOrder { get; private set; }
+        public string Date { get; set; }
 
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchMiaoAsync(Order scheduleOrder)
-        {
-            ScheduleOrder = scheduleOrder;
-            Task.Factory.StartNew(() => SearchMiao(scheduleOrder));
-        }
-
-        public bool SearchMiao(Order scheduleOrder)
+        public bool SearchMiao(string date)
         {
             try
             {
+                Date = date;
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser, scheduleOrder);
+                var content = new MiaoContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
@@ -42,22 +37,21 @@ namespace Dxm.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt16();
-                if (code != 0)
+                var code = root.GetProperty("code").GetInt32();
+                if (code != 200)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var result = root.GetProperty("result");
+                if (result.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
                     return false;
                 }
-                var itemList = data.GetProperty("itemList");
 
-                return CheckSaveSchedule(itemList);
+                return CheckSaveSchedule(result);
             }
             catch (Exception ex)
             {
@@ -66,36 +60,32 @@ namespace Dxm.search
             }
         }
 
-        private bool CheckSaveSchedule(JsonElement itemListData)
+        private bool CheckSaveSchedule(JsonElement scheduleInfoData)
         {
-            var scheduleList = JsonAnalysis.JsonToDicList(itemListData);
-            if (!scheduleList.HasItem())
+            var scheduleInfo = JsonAnalysis.JsonToDic(scheduleInfoData);
+
+            var orderList = new List<Order>();
+
+            var amListStr = scheduleInfo.GetString("amList");
+            if (!string.IsNullOrEmpty(amListStr))
             {
-                MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
-                return false;
+                var amOrderList = BuildOrderList(amListStr);
+                orderList.AddRange(amOrderList);
             }
 
-            var availableSchedules = scheduleList.Where(r => r.GetString("status") == "1").ToList();
-            if (!availableSchedules.HasItem())
+            var pmListStr = scheduleInfo.GetString("pmList");
+            if (!string.IsNullOrEmpty(pmListStr))
+            {
+                var pmOrderList = BuildOrderList(pmListStr);
+                orderList.AddRange(pmOrderList);
+            }
+
+            if (!orderList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
                 return false;
             }
 
-            BuildOrderList(availableSchedules);
-
-            return true;
-        }
-
-        private void BuildOrderList(List<Dictionary<string, object>> schedules)
-        {
-            var orderList = new List<Order>();
-
-            foreach (var schedule in schedules)
-            {
-                Order orderWithTime = BuildOneOrder(schedule);
-                orderList.Add(orderWithTime);
-            }
             orderList = orderList.DisorderItems();
 
             var orderArgs = new OrderEventArgs
@@ -104,27 +94,37 @@ namespace Dxm.search
             };
 
             MainSession.OrderEvent.Publish(this, orderArgs);
+
+            return true;
         }
 
-        private Order BuildOneOrder(Dictionary<string, object> schedule)
+        private List<Order> BuildOrderList(string scheduleListStr)
         {
-            var beginTime = schedule.GetString("visitBeginTime");
-            var endTime = schedule.GetString("visitEndTime");
-
-            return new Order
+            var orderList = new List<Order>();
+            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListStr);
+            if (!scheduleList.HasItem())
             {
-                DeptId = ScheduleOrder.DeptId,
-                DoctorId = ScheduleOrder.DoctorId,
-                HisId = ScheduleOrder.HisId,
-                PlatformId = ScheduleOrder.PlatformId,
-                PlatformSource = ScheduleOrder.PlatformSource,
-                ScheduleDate = ScheduleOrder.ScheduleDate,
-                SubSource = ScheduleOrder.SubSource,
-                SearchMonth = ScheduleOrder.SearchMonth,
-                VisitBeginTime = beginTime,
-                VisitEndTime = endTime,
-                VisitPeriod = schedule.GetString("visitPeriod")
-            };
+                return orderList;
+            }
+
+            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            foreach (var schedule in scheduleList)
+            {
+                var timeNo = schedule.GetString("timeNo");
+                var order = new Order
+                {
+                    HospitalCode = hosId,
+                    MakeAnAppointment = Date,
+                    TimeNo = timeNo,
+                    VaccineInfoId = deptId,
+                    Address = hosName
+                };
+                orderList.Add(order);
+            }
+
+            return orderList;
         }
     }
 }
