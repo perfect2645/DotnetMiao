@@ -30,6 +30,7 @@ namespace Dxm
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<CancelController>();

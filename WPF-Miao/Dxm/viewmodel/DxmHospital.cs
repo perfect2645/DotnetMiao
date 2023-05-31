@@ -6,6 +6,8 @@ namespace Dxm.viewmodel
 {
     internal class DxmHospital : HospitalDept
     {
+        public string AreaId { get; set; }
+
         public new string Display 
         {  
             get 

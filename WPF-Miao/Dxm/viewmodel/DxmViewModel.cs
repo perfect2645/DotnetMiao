@@ -144,18 +144,29 @@ namespace Dxm.viewmodel
 
             DateList = new List<DspVal>();
             DateList.Add(new DspVal("2023-06-01 00:00:00"));
+            DateList.Add(new DspVal("2023-06-02 00:00:00"));
+            DateList.Add(new DspVal("2023-06-03 00:00:00"));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
+            SelectedDate = DateList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {   
+            {                
+                new DxmHospital
+                {
+                    AreaId = "13022",
+                    HospitalId = "1302301601",
+                    HospitalName = "曹妃甸区新城医院预防接种门诊",
+                    DepartmentName = "九价",
+                    DepartmentId = "",
+                },
                 new DxmHospital
                 {
                     HospitalId = "1301030504",
                     HospitalName = "光华西路社区卫生服务站",
-                    DepartmentName = "双价人乳头瘤病毒吸附疫苗",
-                    DepartmentId = "474",
-                }
+                    DepartmentName = "双价",
+                    DepartmentId = "",
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -251,6 +262,7 @@ namespace Dxm.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
+                    MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.ReadyForSearch);
                     StartOnTimeTimer();
                     StartReSessionTimer();
                 }
@@ -292,6 +304,7 @@ namespace Dxm.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
+                    MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.ReadyForSearch);
                     _searchController.SearchMiao();
                 }
                 catch (HttpException ex)

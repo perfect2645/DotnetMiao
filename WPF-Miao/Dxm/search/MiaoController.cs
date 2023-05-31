@@ -1,4 +1,5 @@
-﻿using Dxm.appointment;
+﻿using Base.viewmodel.status;
+using Dxm.appointment;
 using Dxm.session;
 using HttpProcessor.Client;
 using System;
@@ -85,6 +86,8 @@ namespace Dxm.search
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
                 return false;
             }
+
+            MainSession.SetStatus(MiaoProgress.MiaoDetailGet);
 
             orderList = orderList.DisorderItems();
 

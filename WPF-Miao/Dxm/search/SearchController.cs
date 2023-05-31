@@ -27,6 +27,7 @@ namespace Dxm.search
 
             foreach(var dateItem in dateList)
             {
+                Thread.Sleep(300);
                 Task.Factory.StartNew(() =>
                 {
                     GetMiao(dateItem.Value);
@@ -36,8 +37,23 @@ namespace Dxm.search
 
         private void GetMiao(string date)
         {
-            var miaoController = HttpServiceController.GetService<MiaoController>();
+            var vaccineController = HttpServiceController.GetService<VaccineController>();
+            var isVaccineGet = false;
+            while (!isVaccineGet)
+            {
+                if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
+                {
+                    break;
+                }
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                {
+                    break;
+                }
+                isVaccineGet = vaccineController.SearchVaccine(date);
+                Thread.Sleep(600);
+            }
 
+            var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
             while(!isScheduleGet)
             {
