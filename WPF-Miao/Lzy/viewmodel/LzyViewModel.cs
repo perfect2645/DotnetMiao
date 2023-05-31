@@ -136,7 +136,7 @@ namespace Lzy.viewmodel
         private void TestData()
         {
             Interval = 800;
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -144,7 +144,7 @@ namespace Lzy.viewmodel
             StartTime = DateTime.Today.AddHours(4).AddMinutes(59).AddSeconds(55);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-07"));
+            DateList.Add(new DspVal("2023-06-03"));
 
             MainSession.DateList = DateList;
             SelectedDate = DateList.FirstOrDefault();
@@ -163,15 +163,15 @@ namespace Lzy.viewmodel
                 {
                     HospitalId = "30",
                     HospitalName = "龙跃四预防保健门诊",
-                    DepartmentName = "HPV九价周三",
-                    DepartmentId = "19",
+                    DepartmentName = "HPV九价周六",
+                    DepartmentId = "32",
                 },
                 new LzyHospital
                 {
                     HospitalId = "30",
                     HospitalName = "龙跃四预防保健门诊",
-                    DepartmentName = "HPV九价周六",
-                    DepartmentId = "32",
+                    DepartmentName = "HPV九价周三",
+                    DepartmentId = "19",
                 },
                 new LzyHospital
                 {
@@ -287,7 +287,7 @@ namespace Lzy.viewmodel
                 {
                     MainSession.SetStatus(MiaoProgress.GettingMiao);
                     StartIntervalTimer();
-                    StartReSessionTimer();
+                    //StartReSessionTimer();
                 }
                 catch (HttpException ex)
                 {
