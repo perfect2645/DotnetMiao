@@ -1,0 +1,28 @@
+POST https://mp.dywrbt.com/vac/wechat/smallRoutine/getVaccinateList HTTP/1.1
+Host: mp.dywrbt.com
+Connection: keep-alive
+Content-Length: 45
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+apptype: DYM
+birthdayDate: 2000-04-08
+content-type: application/json
+id: 1664295338979098624
+openId: oWCb35Z49sTNUwvJFiTBkMkTwmsQ
+os: applet
+phone: 17615102645
+roletype: vac
+Referer: https://servicewechat.com/wx1cf50c2a73c08a5d/35/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"isVaccinate":"1","pageNum":1,"pageSize":10}
+HTTP/1.1 200
+Server: nginx/1.16.1
+Date: Thu, 01 Jun 2023 15:57:42 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+5ad
+{"code":"0","message":"","data":[{"address":"北京市海淀区北下关街道交大东路3号","endDate":"2023-06-02 00:13:10","sex":"2","bvaccinTypeId":"1326346365879083008","vacPeoId":"1664296479011897344","notesList":[{"vaccinateTimeDetailId":"1655833088719060992","dosage":"1","isPay":"0","isVaccinate":"0","reserveGapStr":"2023-6-15 14:00-16:00","isPayStr":"未缴费","id":"1664296537706987520","payId":"1664296537627295744","reserveGap":"2023-06-15","isVaccinateStr":"未接种"},{"dosage":"2","isPay":"0","isVaccinate":"0","isPayStr":"未缴费","id":"1664296538596179968","payId":"1664296537627295744","isVaccinateStr":"未接种"},{"dosage":"3","isPay":"0","isVaccinate":"0","isPayStr":"未缴费","id":"1664296538814283776","payId":"1664296537627295744","isVaccinateStr":"未接种"}],"mode":"1","specs":"03","vacNameId":"1402074611755798528","phone":"01062255863","isVaccinate":"0","name":"刘欣渝","entCompanyName":"北下关社区卫生服务中心","stockId":"1655832909047660544","entCompany":{"id":"1433385388453474304","isNewRecord":false,"companyCode":"1433385388453474304","companyName":"北下关社区卫生服务中心","studioPhone":"01062255863","address":"北京市海淀区北下关街道交大东路3号","companyOfficeList":[],"isTreeLeaf":false,"isRoot":true},"id":"1664296537706987520","payId":"1664296537627295744","vaccinName":"2价HPV疫苗(国产)","startDate":"2023-06-01 23:43:10","vacId":"1655832909102186496"}]}
+0
+
