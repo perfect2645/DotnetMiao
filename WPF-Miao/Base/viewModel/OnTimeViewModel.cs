@@ -168,12 +168,12 @@ namespace Base.viewModel
             {
                 if (ReSessionTimer == null)
                 {
-                    ReSessionTimer = new IntervalOnTime(ReSession, "刷新登录信息", DateTime.Now, 600000);
+                    ReSessionTimer = new IntervalOnTime(ReSession, "刷新登录信息", DateTime.Now, 600000 * 6);
                     return;
                 }
 
                 ReSessionTimer.StopInterval();
-                ReSessionTimer.ResetTimer(DateTime.Now, 600000);
+                ReSessionTimer.ResetTimer(DateTime.Now, 600000 * 6);
             }
             catch (Exception ex)
             {
