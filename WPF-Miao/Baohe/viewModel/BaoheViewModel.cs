@@ -77,7 +77,7 @@ namespace Baohe.viewModel
             MainSession.UpdateUiEvent = UpdateUiEvent;
 
             TestData();
-            //LoginFromConfig();
+            LoginFromConfig();
             MainSession.PrintLogEvent.Publish(this, StartTime.ToString());
             MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
 
@@ -91,17 +91,17 @@ namespace Baohe.viewModel
 
             //VerifyCode.ArrangeSn = "170654946";
             //VerifyCode.Phone = "18301135103";
-            StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.PreSendVerify;
+            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(12).AddMinutes(29).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(13).AddMinutes(13).AddSeconds(57);
@@ -332,6 +332,12 @@ namespace Baohe.viewModel
             if ("phone".Equals(field, StringComparison.OrdinalIgnoreCase))
             {
                 VerifyCode.Phone = e.Value.NotNullString();
+                return;
+            }
+
+            if ("ArrangeId".Equals(field, StringComparison.OrdinalIgnoreCase))
+            {
+                VerifyCode.ArrangeSn = e.Value.NotNullString();
                 return;
             }
         }

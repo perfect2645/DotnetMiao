@@ -225,45 +225,51 @@ namespace Baohe.search
                 }
             }
 
-            if (SearchStatus == SearchStatus.WaterGet)
+            if (SearchStatus != SearchStatus.WaterGet)
             {
-                var yzmController = HttpServiceController.GetService<YzmController>();
+                return;
+            }
 
-                var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+            var yzmController = HttpServiceController.GetService<YzmController>();
 
-                var index = 0;
-                if (arrangeWaterList.Count > 0)
+            var arrangeWaterList = SessionBuilder.GetAvailableArrangeWater();
+
+            var index = 0;
+            if (arrangeWaterList.Count > 0)
+            {
+                index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+            }
+            MainSession.DefaultWater = arrangeWaterList[index]!;
+            var arrangeId = MainSession.DefaultWater["ArrangeID"].NotNullString();
+            MainSession.UpdateUI("ArrangeId", arrangeId);
+
+            if (!MainSession.IsYzmSent)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"Pre Send Yzm. phone:{UserPhone}, arrangeID:{arrangeId}");
+
+                var isYzmSent = await yzmController.SendYzmAsync(UserName, UserPhone, arrangeId);
+                if (isYzmSent)
                 {
-                    index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
+                    MainSession.IsYzmSent = true;
                 }
-                MainSession.DefaultWater = arrangeWaterList[index]!;
+            }
 
-                if (!MainSession.IsYzmSent)
+            if (MainSession.IsYzmSent)
+            {
+                var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
+                var isNumbersGet = await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
+
+                MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
+
+                lock (OrderLock)
                 {
-                    var isYzmSent = await yzmController.SendYzmAsync(UserName, UserPhone, MainSession.DefaultWater["ArrangeID"].NotNullString());
-                    if (isYzmSent)
+                    if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
                     {
-                        MainSession.IsYzmSent = true;
-                    }
-                }
+                        SearchStatus = SearchStatus.NumbersGet;
 
-                if (MainSession.IsYzmSent)
-                {
-                    var appointNumbers = HttpServiceController.GetService<AppointNumbersController>();
-                    var isNumbersGet = await appointNumbers.GetNumbersAsync(MainSession.DefaultWater);
-
-                    MainSession.PrintLogEvent.Publish(this, $"isNumbersGet={isNumbersGet}");
-
-                    lock (OrderLock)
-                    {
-                        if (isNumbersGet && SearchStatus == SearchStatus.WaterGet && MainSession.IsYzmChecked)
+                        lock (OrderLock)
                         {
-                            SearchStatus = SearchStatus.NumbersGet;
-
-                            lock (OrderLock)
-                            {
-                                BuildMiaoOrder();
-                            }
+                            BuildMiaoOrder();
                         }
                     }
                 }

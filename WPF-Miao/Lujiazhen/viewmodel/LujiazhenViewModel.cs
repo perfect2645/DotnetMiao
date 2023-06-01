@@ -52,7 +52,7 @@ namespace Lujiazhen.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(30);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {

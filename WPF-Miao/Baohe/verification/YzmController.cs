@@ -5,6 +5,7 @@ using HttpProcessor.ExceptionManager;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Utils;
 using Utils.datetime;
 
 namespace Baohe.verification
@@ -25,7 +26,7 @@ namespace Baohe.verification
             return Task.Factory.StartNew(() => CheckYzm(yzm, userName, phone, arrangeId));
         }
 
-        private bool SendYzm(string userName, string phone = "", string arrangeId = "")
+        private bool SendYzm(string userName, string phone, string arrangeId)
         {
             var url = "https://appoint.yihu.com/appoint/do/registerAuth/sendYzm";
             var content = new SendYzmContent(url, userName, phone, arrangeId);
@@ -58,7 +59,12 @@ namespace Baohe.verification
             var code = response.Body.FirstOrDefault(x => x.Key == Constant.StatusCode).Value?.ToString();
             if (code == null || code != "10000")
             {
-                throw new HttpException($"{Constant.ProjectName}: {response.Body["Message"]}", "check Yzm");
+                var message = response.Body.GetString("Message");
+                //if (message.Contains("失效"))
+                //{
+                //    MainSession.IsYzmSent = false;
+                //}
+                throw new HttpException($"{Constant.ProjectName}: {message}", "check Yzm");
             }
 
             MainSession.PrintLogEvent.Publish(this, $"验证码验证成功 Tel={content.Tel}");

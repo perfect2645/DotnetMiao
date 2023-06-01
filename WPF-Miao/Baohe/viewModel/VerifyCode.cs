@@ -210,11 +210,6 @@ namespace Baohe.viewModel
                     ArrangeSn = MainSession.DefaultWater["ArrangeID"].NotNullString();
                 }
 
-                if (string.IsNullOrEmpty(ArrangeSn))
-                {
-                    ArrangeSn = "169301668";
-                }
-
                 var yzmController = HttpServiceController.GetService<YzmController>();
                 await yzmController.CheckYzmAsync(Yzm, UserName, Phone, ArrangeSn);
             }
