@@ -110,10 +110,17 @@ namespace Dxm.search
                 return orderList;
             }
 
+            var availableScheduleList = scheduleList.Where(x => x.GetString("peopleNumber").ToInt() > 0).ToList();
+            if (!availableScheduleList.HasItem())
+            {
+                return orderList;
+            }
+
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            foreach (var schedule in scheduleList)
+
+            foreach (var schedule in availableScheduleList)
             {
                 var timeNo = schedule.GetString("timeNo");
                 var order = new Order
