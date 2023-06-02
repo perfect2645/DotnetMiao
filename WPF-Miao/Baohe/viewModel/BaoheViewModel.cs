@@ -88,7 +88,7 @@ namespace Baohe.viewModel
 
             //VerifyCode.ArrangeSn = "170654946";
             //VerifyCode.Phone = "18301135103";
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
