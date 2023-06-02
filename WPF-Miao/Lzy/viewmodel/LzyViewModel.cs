@@ -141,10 +141,10 @@ namespace Lzy.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(4).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(4).AddMinutes(59).AddSeconds(58);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-03"));
+            DateList.Add(new DspVal("2023-06-10"));
 
             MainSession.DateList = DateList;
             SelectedDate = DateList.FirstOrDefault();
@@ -158,7 +158,14 @@ namespace Lzy.viewmodel
             SelectedTime = TimeList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {
+            {                
+                new LzyHospital
+                {
+                    HospitalId = "30",
+                    HospitalName = "国风美唐预防保健门诊",
+                    DepartmentName = "HPV九价周六",
+                    DepartmentId = "44",
+                },
                 new LzyHospital
                 {
                     HospitalId = "30",
@@ -180,13 +187,7 @@ namespace Lzy.viewmodel
                     DepartmentName = "HPV九价周三",
                     DepartmentId = "42",
                 },                
-                new LzyHospital
-                {
-                    HospitalId = "30",
-                    HospitalName = "国风美唐预防保健门诊",
-                    DepartmentName = "HPV九价周六",
-                    DepartmentId = "44",
-                },
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -240,6 +241,8 @@ namespace Lzy.viewmodel
         private void LoginFromConfig()
         {
             MainSession.Users = FileReader.DeserializeFile<List<LzyLogin>>("Login.json");
+
+            /*
             foreach(var user in MainSession.Users)
             {
                 if (string.IsNullOrEmpty(user.UserName))
@@ -249,6 +252,7 @@ namespace Lzy.viewmodel
                     MainSession.PrintLogEvent.Publish(user, user.ToLogString());
                 }
             }
+            */
 
             MainSession.InitSession();
         }
@@ -334,13 +338,22 @@ namespace Lzy.viewmodel
                 var userOrders = new List<Order>();
                 foreach(var timeInfo in MainSession.TimeList)
                 {
+                    var userName = user.UserName;
+                    var phone = user.Mobile;
+                    if (string.IsNullOrEmpty(userName))
+                    {
+                        userName = StringRandom.GetRandomName();
+                        phone = NumberUtil.GetRandomPhone().NotNullString();
+                        MainSession.PrintLogEvent.Publish(user, $"Random user - name:{userName}, phone={phone}");
+                    }
+
                     var order = new Order
                     {
                         Date = SelectedDate.Value,
                         DeptId = deptId,
-                        Mobile = user.Mobile,
+                        Mobile = phone,
                         TimeId = timeInfo.Value,
-                        UserName = user.UserName,
+                        UserName = userName,
                         User = user,
                     };
                     userOrders.Add(order);
@@ -355,7 +368,7 @@ namespace Lzy.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    BuildOrders();
+                    //BuildOrders();
                     foreach(var userOrder in MainSession.Orders)
                     {
                         Task.Factory.StartNew(() =>
@@ -380,8 +393,13 @@ namespace Lzy.viewmodel
             try
             {
                 bool isSuccess = false;
+                var cnt = 0;
                 while (!isSuccess)
                 {
+                    if (cnt > 5)
+                    {
+                        return;
+                    }
                     foreach (var order in orders)
                     {
                         var appointController = MainSession.AppointSession.GetController($"{userName}");
@@ -394,6 +412,7 @@ namespace Lzy.viewmodel
                         }
                         Thread.Sleep(500);
                     }
+                    cnt++;
                 }
             }
             catch (HttpException ex)
@@ -415,10 +434,18 @@ namespace Lzy.viewmodel
                 var orderList = new List<Order>();
                 foreach (var template in orderTemplateList)
                 {
+                    var userName = user.UserName;
+                    var phone = user.Mobile;
+                    if (string.IsNullOrEmpty(userName))
+                    {
+                        userName = StringRandom.GetRandomName();
+                        phone = NumberUtil.GetRandomPhone().NotNullString();
+                        MainSession.PrintLogEvent.Publish(user, $"Random user - name:{userName}, phone={phone}");
+                    }
                     var order = new Order
                     {
-                        UserName = user.UserName,
-                        Mobile = user.Mobile,
+                        UserName = userName,
+                        Mobile = phone,
                         User = user,
                         Date = template.Date,
                         DeptId = template.DeptId,
