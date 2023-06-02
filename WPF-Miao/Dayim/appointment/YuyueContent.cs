@@ -6,7 +6,7 @@ namespace Dayim.appointment
 {
     internal class YuyueContent : DayimContent
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/make/appointment/affirm";
+        private static string baseUrl = "https://mp.dywrbt.com/vac/wechat/smallRoutine/pay";
         public Order Order { get; private set; }
         public YuyueContent(Order order, DayimLogin user) : base(baseUrl, user)
         {
@@ -16,19 +16,24 @@ namespace Dayim.appointment
 
         private void BuildContent()
         {
-            AddContent("hospitalCode", Order.HospitalCode);
-            AddContent("list", BuildUserIdList());
-            AddContent("makeAnAppointment", Order.MakeAnAppointment);
-            AddContent("timeNo", Order.TimeNo);
-            AddContent("vaccineInfoId", Order.VaccineInfoId);
+            AddContent("vaccinPeopleId", Order.UserId);
+            AddContent("stockId", Order.StockId);
+            AddContent("vaccinateTimeDetailId", Order.VaccinateTimeDetailId);
+            AddContent("entCompanyId", Order.EntCompanyId);
+            AddContent("vacId", Order.VacId);
+            AddContent("reserveDate", Order.ReserveDate);
+            AddContent("reserveDateList", BuildDateList());
+            AddContent("mode", "1");
+            AddContent("vacTypeId", Order.VacTypeId);
+            AddContent("queueId", Order.QueueId);
         }
 
-        private string[] BuildUserIdList()
+        private string[] BuildDateList()
         {
-            var userIdList = new List<string>();
-            userIdList.Add(User.UserId);
+            var dateList = new List<string>();
+            dateList.Add(Order.ReserveDate);
 
-            return userIdList.ToArray();
+            return dateList.ToArray();
         }
 
     }

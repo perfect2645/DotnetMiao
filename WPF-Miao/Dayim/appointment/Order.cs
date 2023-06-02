@@ -7,12 +7,13 @@ namespace Dayim.appointment
     {
         public string UserName { get; set; }
         public string UserId { get; set; }
-        public string MakeAnAppointment { get; set; }
-        public string TimeNo { get; set; }
-        public string VaccineInfoId { get; set; }
-        public string OrderId { get; set; }
-        public string Address { get; set; }
-        public string HospitalCode { get; set; }
+        public string StockId { get; set; }
+        public string VaccinateTimeDetailId { get; set; }
+        public string EntCompanyId { get; set; }
+        public string VacId { get; set; }
+        public string VacTypeId { get; set; }
+        public string QueueId { get; set; }
+        public string ReserveDate { get; set; }
         public string ResultMsg { get; set; }
 
         internal DayimLogin User { get; set; }
@@ -25,11 +26,13 @@ namespace Dayim.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"Date - {MakeAnAppointment}");
-            sb.AppendLine($"Time - {TimeNo}");
-            sb.AppendLine($"HospitalCode - {HospitalCode}");
-            sb.AppendLine($"VaccineInfoId - {VaccineInfoId}");
-            sb.AppendLine($"OrderId - {OrderId}");
+            sb.AppendLine($"StockId - {StockId}");
+            sb.AppendLine($"ReserveDate - {ReserveDate}");
+            sb.AppendLine($"VaccinateTimeDetailId - {VaccinateTimeDetailId}");
+            sb.AppendLine($"EntCompanyId - {EntCompanyId}");
+            sb.AppendLine($"VacId - {VacId}");
+            sb.AppendLine($"VacTypeId - {VacTypeId}");
+            sb.AppendLine($"QueueId - {QueueId}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

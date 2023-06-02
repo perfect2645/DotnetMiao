@@ -57,43 +57,26 @@ namespace Dayim.appointment
                 }
 
                 var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}");
                     return false;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : code={code}, msg = {message}");
+
+                if (code == 0 && message == "预约成功")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
-                    return false;
+                    return true;
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {message}");
-
-                return CheckOrder(result, content.Order);
+                return false;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }
-        }
-
-        private bool CheckOrder(JsonElement bookingResult, Order order)
-        {
-            var address = bookingResult.GetProperty("address").GetString();
-
-            if (string.IsNullOrEmpty(address))
-            {
-                return false;
-            }
-
-            order.Address = address;
-            MainSession.PrintLogEvent.Publish(this, order.ToLogString());
-
-            return true;
         }
     }
 }
