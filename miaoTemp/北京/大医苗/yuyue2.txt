@@ -23,3 +23,18 @@ Connection: keep-alive
 Content-Length: 37
 
 {"code":"0","message":"预约成功"}
+
+{
+    "vaccinPeopleId": "1664296479011897344",
+    "stockId": "1655832909047660544",
+    "vaccinateTimeDetailId": "1655833088719060992",
+    "entCompanyId": "1433385388453474304",
+    "vacId": "1655832909102186496",
+    "reserveDate": "2023-6-15",
+    "reserveDateList": [
+        "2023-6-15"
+    ],
+    "mode": "1",
+    "vacTypeId": "1326346365879083008",
+    "queueId": ""
+}

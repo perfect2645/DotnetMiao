@@ -239,7 +239,12 @@ namespace Baohe.search
             {
                 index = NumberUtil.IntRandom(0, arrangeWaterList.Count - 1);
             }
-            MainSession.DefaultWater = arrangeWaterList[index]!;
+
+            if (!MainSession.DefaultWater.HasItem())
+            {
+                MainSession.DefaultWater = arrangeWaterList[index]!;
+            }
+
             var arrangeId = MainSession.DefaultWater["ArrangeID"].NotNullString();
             MainSession.UpdateUI("ArrangeId", arrangeId);
 
