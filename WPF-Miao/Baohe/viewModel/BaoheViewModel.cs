@@ -80,9 +80,6 @@ namespace Baohe.viewModel
             LoginFromConfig();
             MainSession.PrintLogEvent.Publish(this, StartTime.ToString());
             MainSession.PrintLogEvent.Publish(this, MainSession.YzmMode.ToString());
-
-            UserName = "何晶晶";
-            Cookie = "jkzlAn_uuid=06063330-A203-4D12-8280-B2E000B2FD50; jkzlAn_p=-1; jkzlAn_c=-1; logintype=62; loginprovinceid=0; logincityid=0; BaseDoctorUid=0; BaseUserType=0; LoginChannel=1000031; TOKEN_2FA74D100E25D8A8C928D1F1C45CCDD5=9D11E8CAA996493C87C9D5643324F3E9; platformJson=%7bplatformType%3a1000031%2csourceType%3a0%2csourceId%3a0%2cclientId%3a1000031%7d; jkzlAn_channelid=1000031; jkzlAn_sid=3AEC37DA-B481-48C6-80A9-DD3C6BBDABB6; YiHu_OpenId=eyJPcGVuSUQiOiJvZmY2dHNfaV9tQXVMeHlaNVY3bDNVbUF2bFM0IiwiU2VjU3RyIjoiRjgzODE1NTI1MjIwMjczM0EwMEJGNUM2MjU2OUM2MTMifQ%3D%3D; loginid=off6ts_i_mAuLxyZ5V7l3UmAvlS4; OpenID=off6ts_i_mAuLxyZ5V7l3UmAvlS4; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTY3MjE2NTciLCJDYXJkTnVtYmVyIjoiMjA4NjgwNTkyMCIsIkxvZ2luSWQiOiJvZmY2dHNfaV9tQXVMeHlaNVY3bDNVbUF2bFM0IiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI0OTAyQzY2NEQzQUFEQzVCRkZFNjU3NUI4ODFDM0RFOCJ9; TOKEN_494AA2954BFE679B68583BE733B7B347=019664DB76AD4D41816EDD6D4A3C6316; jkzlAn_userid=156721657; _YyghSysTrackUUID=24201145016; jkzlAn_ct=1684930362903";
         }
 
         private void TestData()
