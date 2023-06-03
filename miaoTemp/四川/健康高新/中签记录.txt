@@ -1,0 +1,21 @@
+POST https://jkgxas.care4u.cn/nApi/lotteryRecord/selectListByCondition HTTP/1.1
+Host: jkgxas.care4u.cn
+Connection: keep-alive
+Content-Length: 72
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8,application/x-www-form-urlencggoded;charset=UTF-8
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODU4Njc4NTQxNzEsInBheWxvYWQiOiJ7XCJpZFwiOlwiN2M5MTdjNTVjMjNhMGQyYjc5MjdhYzI5OWE3MWQyZWRcIixcInVzZXJJZFwiOlwiNTg2NjU2MzllZTc5OTg4NmM0ZDE5NTJiNDU2ZDUzMTRcIixcImFwcGxldElkXCI6bnVsbCxcImNvbmZpZ09yZ0lkXCI6XCIwXCIsXCJ0eXBlXCI6MSxcImRhdGVcIjoxNjg1NzgxNDU0MTcxfSJ9.HlMxdfYoOEQmzFV-ShlgnuZuH-cPVPsVsb6-iMBgw04
+Referer: https://servicewechat.com/wxb0a4150e1afbf8a6/21/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"userId":"58665639ee799886c4d1952b456d5314","pageIndex":1,"pageSize":5}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Sat, 03 Jun 2023 08:37:36 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 88
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+lpklEBvry7LYTNrPchHySrvYnAvGI4+DumoPjFzG4fPPkj5UDziGgEqvEGWrwBbmV4s6HBE2RZhL3Ku1uhs/XA==

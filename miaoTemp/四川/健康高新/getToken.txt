@@ -1,0 +1,20 @@
+POST https://jkgxas.care4u.cn/nApi/userWechat/getAppletToken HTTP/1.1
+Host: jkgxas.care4u.cn
+Connection: keep-alive
+Content-Length: 43
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json;charset=UTF-8,application/x-www-form-urlencggoded;charset=UTF-8
+Referer: https://servicewechat.com/wxb0a4150e1afbf8a6/21/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"code":"0e367e000rt85Q1qNZ3002hlc6167e0Y"}
+HTTP/1.1 200
+Server: nginx/1.20.1
+Date: Sat, 03 Jun 2023 08:16:11 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 1152
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+
+HTx7Z8VfeugcBEpzgw7zD7/5LGgXc5y1U2AL+y0KJXUnNIPNGJ6ADnO47XeP9yW8NCsiwR2IZ45XhRiSO7OLzwzc+UJTF9TB5yMumLG4OhXmTz8Czjyznlej5ORCpug7KMDusNv987+whIcwqf6cGWvxB/RIlZNUjgRV3jQnDxJ+btokVWgg+Ajp666fSwm8xhz9A6oZ/Ohx+80hsaYkTaClyd3kI2Htt2bvGTmdhuS8n3VX8ogDLvW02YkzNtR/Md1960EwYgvDVlC88R66ZDdOS7dpOputB7QIHzcdVpOp7gYsdo7QA9gQx68yN9uGgUshpGKyFADSBHvXIveAt/ZK6sppWJXKkzlUbQj+7aNvhqF/+uFLervPtUa0Fxdt60RhjCmjkRPfG7MZfSfbI6tWamiCFVbiYcfVWxc7ArEiZQDTJhe1VsKt4W01fNQk0pX5tnDsbuhGguGCndDxUR0p5rXEQv1q1ngBy4Dw2XO8QPF2794GEYp3GoUdMJlK0v7dJJS4xNWIltVy+RPUsd8Grd785aYqB+6BBKaBtxhMnSrToFfVhIw+UtntO9xpN3ut5gVtixdihysYFxFxXwmxfuzpYbbq01KzDxQlW18lDpK2zyK4zWIR0JBpI1nmY3bAtgmb63FqMsCWCOFwoefwPFL166VKmX5q7dvzOOHZ5XUtQDmctIhLZxGopgB/2Gr5WNs+4SGqQGJp2l2j889Ox0L+WEf/jVxJKsZjZ0hzSbi+25X7Wt9i4sLPDgWWjVzlOxxCsWNIPcTO//Ca1511t99UGtKgiGlAGMAnIbm6Y9aODcWyAZd31VOXFb/RmOhmqmUkfnwGbOemfxY6jzjG7F39qmGJI2qAtQY8ym6TKTG2mqMMu/GIkex7yHtOqPB5yd8KMMgolKGGZZu/sxQCsfTtDnVMEDbPBuDsG3Pxjvrn6w3yteoP0eik0GKMm91s24rq4TE3E22TeOQdKrqOT2u38gjr3OKCMR//POvXetAajrsqsAWlahNYen/CJJfb9gorQ3rHb65V7PMlMA7niCsV8yEqUl2kf4TjtsnPEz5c/bmeidBsQryTEseKY2gA9RZUlQZrm2bO+a9vdtHcLcqKltHO92Jt5K3MJYjvTZBamxWMtze1s0cjYpRT
