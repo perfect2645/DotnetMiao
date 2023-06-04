@@ -434,7 +434,7 @@ namespace Baohe.search
 
             MainSession.OrderSession.Clear();
 
-            for(var i = 0; i < 10; i++)
+            for(var i = 0; i < 4; i++)
             {
                 var order = new Order(defaultMember, i);
                 MainSession.OrderSession.AddOrder(order);
@@ -455,7 +455,7 @@ namespace Baohe.search
             foreach (var order in orders)
             {
                 order.FillContent(MainSession.MiaoSession);
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
             }
         }
 
