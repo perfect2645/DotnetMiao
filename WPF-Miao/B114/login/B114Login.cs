@@ -1,0 +1,9 @@
+﻿namespace B114.login
+{
+    internal class B114Login
+    {
+        public string DmxcxToken { get; set; }
+        public string UserId { get; set; }
+        public string UserName { get; set; }
+    }
+}
