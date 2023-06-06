@@ -7,12 +7,22 @@ namespace B114.appointment
     {
         public string UserName { get; set; }
         public string UserId { get; set; }
-        public string MakeAnAppointment { get; set; }
-        public string TimeNo { get; set; }
-        public string VaccineInfoId { get; set; }
-        public string OrderId { get; set; }
-        public string Address { get; set; }
-        public string HospitalCode { get; set; }
+
+        public string HosCode { get; set; }
+        public string FirstDeptCode { get; set; }
+        public string SecondDeptCode { get; set; }
+        public string TreatmentDay { get; set; }
+        public string UniqProductKey { get; set; }
+        public string CardType { get; set; }
+        public string CardNo { get; set; }
+        public string SmsCode { get; set; }
+        public string JytCardId { get; set; }
+        public string HospitalCardId { get; set; }
+        public string Phone { get; set; }
+        public string DutyTime { get; set; }
+        public string OrderFrom { get; set; }
+        public string OrderNo { get; set; }
+
         public string ResultMsg { get; set; }
 
         internal B114Login User { get; set; }
@@ -25,11 +35,12 @@ namespace B114.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"Date - {MakeAnAppointment}");
-            sb.AppendLine($"Time - {TimeNo}");
-            sb.AppendLine($"HospitalCode - {HospitalCode}");
-            sb.AppendLine($"VaccineInfoId - {VaccineInfoId}");
-            sb.AppendLine($"OrderId - {OrderId}");
+            sb.AppendLine($"Phone - {Phone}");
+            sb.AppendLine($"SecondDeptCode - {SecondDeptCode}");
+            sb.AppendLine($"TreatmentDay - {TreatmentDay}");
+            sb.AppendLine($"DutyTime - {DutyTime}");
+            sb.AppendLine($"UniqProductKey - {UniqProductKey}");
+            sb.AppendLine($"OrderNo - {OrderNo}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

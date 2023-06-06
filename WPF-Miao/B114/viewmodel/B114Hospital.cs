@@ -6,7 +6,7 @@ namespace B114.viewmodel
 {
     internal class B114Hospital : HospitalDept
     {
-        public string AreaId { get; set; }
+        public string FirstDeptCode { get; set; }
 
         public new string Display 
         {  

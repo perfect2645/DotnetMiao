@@ -149,22 +149,23 @@ namespace B114.viewmodel
             SelectedDate = DateList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {                
+            {
                 new B114Hospital
                 {
-                    AreaId = "13022",
-                    HospitalId = "1302301601",
-                    HospitalName = "曹妃甸区新城医院预防接种门诊",
-                    DepartmentName = "九价",
-                    DepartmentId = "534",
+                    HospitalId = "H08110008",
+                    HospitalName = "航天中心医院",
+                    DepartmentName = "消化科门诊",
+                    FirstDeptCode = "mn_fst_xhk_93dfee",
+                    DepartmentId = "1243",
                 },
                 new B114Hospital
                 {
-                    HospitalId = "1301030504",
-                    HospitalName = "光华西路社区卫生服务站",
-                    DepartmentName = "双价",
-                    DepartmentId = "",
-                },
+                    HospitalId = "H08110008",
+                    HospitalName = "航天中心医院",
+                    DepartmentName = "九价HPV疫苗预约",
+                    FirstDeptCode = "",
+                    DepartmentId = "6125",
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -479,6 +480,7 @@ namespace B114.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.FirstDeptCode, selectedDept.FirstDeptCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
 
             Log(selectedDept.ToLogString());

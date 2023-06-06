@@ -1,0 +1,33 @@
+POST https://www.114yygh.com/mobile/product/detail?_time=1686064199619 HTTP/1.1
+Host: www.114yygh.com
+Connection: keep-alive
+Content-Length: 105
+Accept: application/json, text/plain, */*
+Origin: https://www.114yygh.com
+Request-Source: WE_CHAT
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Cookie: imed_session=uCa4HDxzhhgJ6HMUJv2BlayA1EkyMGLB_5620209; imed_session=uCa4HDxzhhgJ6HMUJv2BlayA1EkyMGLB_5620209; _opt=mobile_wxauth_2969dc8bc36a5b17920891be6632253e; imed_session=uCa4HDxzhhgJ6HMUJv2BlayA1EkyMGLB_5620209; cmi-user-ticket=Lc4WelepmUs0Y-0aylvOt8ZdvPu4ainkMXWKlQ..; imed_session_tm=1686064196045
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://www.114yygh.com/wechat/hospital/source/date?hosCode=H08110008&firstDeptCode=mn_fst_xhk_93dfee&secondDeptCode=1243&code=1243
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"hosCode":"H08110008","firstDeptCode":"mn_fst_xhk_93dfee","secondDeptCode":"1243","target":"2023-06-10"}
+HTTP/1.1 200
+Server: unicom
+Date: Tue, 06 Jun 2023 15:10:00 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 1494
+Connection: keep-alive
+Set-Cookie: imed_session=uCa4HDxzhhgJ6HMUJv2BlayA1EkyMGLB_5620209; HttpOnly
+Set-Cookie: imed_session_tm=1686064200137; Domain=.114yygh.com; Path=/; HttpOnly
+Content-Security-Policy: : default-src *.114yygh.com *.qq.com *.baidu.com; font-src * data:
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+X-Cache: BYPASS from c73edeea8d1bfc99a8bb55deab32074d
+
+{"resCode":0,"msg":null,"data":[{"dutyCode":"MORNING","dutyImgUrl":"//img.114yygh.com/fe/home/iconfont/e4da3b7fbbce2345d7772b0674a318d5","detail":[{"uniqProductKey":"8fc2787244c919f5f45caec7c9867e5d7d32075e","doctorName":"傅怡","doctorTitleName":"副主任医师","skill":"-","period":[{"uniqProductKey":"8fc2787244c919f5f45caec7c9867e5d7d32075e","dutyTime":"202306100839-202306101045","dutyTimeView":"08:39-10:45","ncode":"&#xf7a4;"}],"fcode":"&#xf1b2;&#xf42c;","ncode":"&#xf7a4;","wnumber":1,"znumber":16},{"uniqProductKey":"dbba47579d52e2f749f3fe1593c54da5e24affdd","doctorName":"","doctorTitleName":"节假日门诊","skill":"-","period":[{"uniqProductKey":"dbba47579d52e2f749f3fe1593c54da5e24affdd","dutyTime":"202306100802-202306101125","dutyTimeView":"08:02-11:25","ncode":"&#xf5a2;&#xf7a4;"}],"fcode":"&#xf5a2;&#xf42c;","ncode":"&#xf5a2;&#xf7a4;","wnumber":17,"znumber":20}],"showIndexPosition":1,"showNumber":true,"showPrice":true},{"dutyCode":"AFTERNOON","dutyImgUrl":"//img.114yygh.com/fe/home/iconfont/e4da3b7fbbce2345d7772b0674a318d5","detail":[{"uniqProductKey":"f5abc2f6c489c5c8d4084a3d7ff3556e3636fd4f","doctorName":"","doctorTitleName":"节假日门诊","skill":"-","period":[{"uniqProductKey":"f5abc2f6c489c5c8d4084a3d7ff3556e3636fd4f","dutyTime":"202306101304-202306101620","dutyTimeView":"13:04-16:20","ncode":"&#xf28e;&#xf7a7;"}],"fcode":"&#xf5a2;&#xf42c;","ncode":"&#xf28e;&#xf7a7;","wnumber":31,"znumber":24}],"showIndexPosition":0,"showNumber":true,"showPrice":true}]}

@@ -1,35 +1,46 @@
 ﻿using B114.common;
 using B114.login;
-using System.Collections.Generic;
+using B114.session;
+using System;
+using System.Reflection.Emit;
+using Utils;
 
 namespace B114.appointment
 {
     internal class YuyueContent : B114Content
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/make/appointment/affirm";
+        private static string baseUrl = "https://www.114yygh.com/mobile/order/save?_time=";
         public Order Order { get; private set; }
         public YuyueContent(Order order, B114Login user) : base(baseUrl, user)
         {
             Order = order;
+            BuildReferer();
             BuildContent();
+        }
+
+        private void BuildReferer()
+        {
+            var hosCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var firstDept = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
+            var secondDept = MainSession.PlatformSession.GetString(Constants.DeptId);
+            AddHeader("Referer", $"https://www.114yygh.com/wechat/hospital/submission?hosCode={hosCode}&firstDeptCode={firstDept}&secondDeptCode={secondDept}&target={Order.TreatmentDay}&uniqProductKey={Order.UniqProductKey}&dutyTime={Order.DutyTime}");
         }
 
         private void BuildContent()
         {
-            AddContent("hospitalCode", Order.HospitalCode);
-            AddContent("list", BuildUserIdList());
-            AddContent("makeAnAppointment", Order.MakeAnAppointment);
-            AddContent("timeNo", Order.TimeNo);
-            AddContent("vaccineInfoId", Order.VaccineInfoId);
+            AddContent("hosCode", Order.HosCode);
+            AddContent("firstDeptCode", Order.FirstDeptCode);
+            AddContent("secondDeptCode", Order.SecondDeptCode);
+            AddContent("treatmentDay", Order.TreatmentDay);
+            AddContent("uniqProductKey", Order.UniqProductKey);
+            AddContent("cardType", Order.CardType);
+            AddContent("cardNo", Order.CardNo);
+            AddContent("smsCode", Order.SmsCode);
+            AddContent("jytCardId", Order.JytCardId);
+            AddContent("hospitalCardId", Order.HospitalCardId);
+            AddContent("phone", Order.Phone);
+            AddContent("dutyTime", Order.DutyTime);
+            AddContent("orderFrom", Order.OrderFrom);
         }
-
-        private string[] BuildUserIdList()
-        {
-            var userIdList = new List<string>();
-            userIdList.Add(User.UserId);
-
-            return userIdList.ToArray();
-        }
-
     }
 }

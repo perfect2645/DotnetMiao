@@ -4,6 +4,6 @@ namespace B114.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string DoctorSign = "DoctorSign";
+        public const string FirstDeptCode = "FirstDeptCode";
     }
 }
