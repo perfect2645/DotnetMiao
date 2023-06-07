@@ -28,6 +28,7 @@ namespace B114
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();

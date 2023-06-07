@@ -90,7 +90,6 @@ namespace B114.appointment
                 return false;
             }
 
-            order.Address = address;
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
 
             return true;

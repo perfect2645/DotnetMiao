@@ -2,8 +2,10 @@
 {
     internal class B114Login
     {
-        public string DmxcxToken { get; set; }
+        public string OptToken { get; set; }
         public string UserId { get; set; }
+        public string Session { get; set; }
+        public string SessionTime { get; set; }
         public string UserName { get; set; }
     }
 }

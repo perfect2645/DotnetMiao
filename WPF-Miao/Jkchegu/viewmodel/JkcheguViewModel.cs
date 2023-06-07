@@ -116,7 +116,7 @@ namespace Jkchegu.viewmodel
         private void TestData()
         {
             //Cookie = "JSESSIONID=FD9BAF93B2B8D7D2942DA5652253939B"; //fawei
-            Cookie = "JSESSIONID=DA0C1D0AF8CFA642E5D809D476593BD8"; //2645
+            Cookie = "JSESSIONID=137B7587B76B8C8E005217045B7FA79B"; //2645
             //Cookie = "JSESSIONID=94E026DC054354A9385EDCFA22BCE1DA"; //liu
             //Cookie = "JSESSIONID=7DD3C0565602F4BDC794BED46EC75A9C"; //liu 2 
             StartTime = DateTime.Now.AddSeconds(10);
@@ -131,10 +131,10 @@ namespace Jkchegu.viewmodel
             DateList = new List<DspVal>
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
-                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),

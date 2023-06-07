@@ -221,6 +221,8 @@ namespace B114.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
+                    var tokenController = HttpServiceController.GetService<TokenController>();
+                    await tokenController.GetTokenAsync(user);
                     var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
@@ -361,11 +363,7 @@ namespace B114.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        HospitalCode = template.HospitalCode,
-                        MakeAnAppointment = template.MakeAnAppointment,
-                        TimeNo = template.TimeNo,
-                        UserId = template.UserId,
-                        VaccineInfoId = template.VaccineInfoId,
+
                     };
 
                     orderList.Add(order);
