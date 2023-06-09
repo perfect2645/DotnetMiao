@@ -5,6 +5,7 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Lujiazhen.appointment;
+using Lujiazhen.Encrypt;
 using Lujiazhen.login;
 using Lujiazhen.search;
 using Lujiazhen.session;
@@ -47,7 +48,13 @@ namespace Lujiazhen.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(5);
+
+            var signEncode = "NppGiLPT4gCYwLoP1mXYcgViRWY2vutb5AwhyT5sJBE5FQbEjUZl8+7uW0UGunWiAvMxQv6krHrCQKk4aj0nX9WjqCoJNPKspIJFmNx/SXnYXkePRFaMaz0HbjcrZXKJp7D4IqpKrYRrJ1heyeygSNfSy2iTuAqK2QO3PE1FF0eFsgqVM4cB6SgsvpJ3u/Jx2VEOwKV5unj0LJ96eOLQi2xc7m5GrAb9Y2my5LseU1hWJFvsJrS+WTyiugnyMAxjesBpIR+yYKTgt8FB24QW1GR8E2G4gWIsuyDLM+he4YCJIIqesMSIFFmAHfw4eNJ82Skkame8lxPxX1qcht1qBQ==";
+
+
+            //var sign = JsReader.Decrypt(signEncode);
+
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
