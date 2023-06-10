@@ -5,15 +5,22 @@ namespace B114.search
 {
     internal class UserContent : B114Content
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/out/province/person/list";
+        private static string baseUrl = "https://www.114yygh.com/mobile/patient/list?_time=";
         public UserContent(B114Login user) : base(baseUrl, user)
         {
+            BuildHeader();
             BuildContent();
         }
 
         private void BuildContent()
         {
 
+        }
+
+        protected override void BuildHeader()
+        {
+            base.BuildHeader();
+            AddHeader("Referer", "https://www.114yygh.com/wechat/personal/patient");
         }
     }
 }

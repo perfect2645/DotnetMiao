@@ -1,4 +1,5 @@
-﻿using B114.login;
+﻿using B114.common;
+using B114.login;
 using B114.session;
 using HttpProcessor.Client;
 using System;
@@ -11,7 +12,7 @@ using Utils.json;
 
 namespace B114.search
 {
-    internal class UserController : HttpClientBase
+    internal class UserController : B114Controller
     {
         public UserController(HttpClient httpClient) : base(httpClient)
         {
@@ -28,28 +29,34 @@ namespace B114.search
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
-                 if (response?.Body == null)
+                var response = PostStringAsync(content).Result;
+                if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return;
                 }
+
+                SaveSessionTime(response, user);
+
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                var code = root.GetProperty("resCode").GetInt32();
+                if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
                     return;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(result, user);
+
+                var userList = data.GetProperty("list");
+
+                SaveUser(userList, user);
             }
             catch (Exception ex)
             {
@@ -67,17 +74,21 @@ namespace B114.search
             }
 
 
-            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("booName") == user.UserName);
+            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("patientName") == user.UserName);
             if (targetUser == null)
             {
                 targetUser = userInfoList.FirstOrDefault();
             }
 
-            var userName = targetUser.GetString("booName");
-            var patientId = targetUser.GetString("id");
+            var userName = targetUser.GetString("patientName");
+            var cardType = targetUser.GetString("idCardType");
+            var cardNo = targetUser.GetString("idCardNo");
+            var phone = targetUser.GetString("phone");
 
-            user.UserId = patientId;
             user.UserName = userName;
+            user.CardType = cardType;
+            user.CardNo = cardNo;
+            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, targetUser);
         }

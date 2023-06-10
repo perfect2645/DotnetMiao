@@ -163,7 +163,7 @@ namespace B114.viewmodel
                     HospitalId = "H08110008",
                     HospitalName = "航天中心医院",
                     DepartmentName = "九价HPV疫苗预约",
-                    FirstDeptCode = "",
+                    FirstDeptCode = "hyde_CRMYJZMZ_e15685d5_vir",
                     DepartmentId = "6125",
                 }
             };

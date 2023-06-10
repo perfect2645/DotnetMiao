@@ -144,18 +144,10 @@ namespace Lzy.viewmodel
             StartTime = DateTime.Today.AddHours(4).AddMinutes(59).AddSeconds(58);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-07"));
+            DateList.Add(new DspVal("2023-06-17"));
 
             MainSession.DateList = DateList;
             SelectedDate = DateList.FirstOrDefault();
-
-            TimeList = new List<DspVal>();
-            TimeList.Add(new DspVal("08:00~09:00","543"));
-            TimeList.Add(new DspVal("09:00~10:00", "541"));
-            TimeList.Add(new DspVal("10:00~10:20", "542"));
-
-            MainSession.TimeList = TimeList;
-            SelectedTime = TimeList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
             {
@@ -163,8 +155,8 @@ namespace Lzy.viewmodel
                 {
                     HospitalId = "30",
                     HospitalName = "龙跃四预防保健门诊",
-                    DepartmentName = "HPV九价周三",
-                    DepartmentId = "19",
+                    DepartmentName = "HPV九价周六",
+                    DepartmentId = "32",
                 },
                 new LzyHospital
                 {
@@ -172,13 +164,6 @@ namespace Lzy.viewmodel
                     HospitalName = "国风美唐预防保健门诊",
                     DepartmentName = "HPV九价周六",
                     DepartmentId = "44",
-                },
-                new LzyHospital
-                {
-                    HospitalId = "30",
-                    HospitalName = "龙跃四预防保健门诊",
-                    DepartmentName = "HPV九价周六",
-                    DepartmentId = "32",
                 },
                 new LzyHospital
                 {

@@ -7,5 +7,8 @@
         public string Session { get; set; }
         public string SessionTime { get; set; }
         public string UserName { get; set; }
+        public string CardType { get; set; }
+        public string CardNo { get; set; }
+        public string Phone { get; set; }
     }
 }
