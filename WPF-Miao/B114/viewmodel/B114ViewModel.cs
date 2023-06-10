@@ -143,7 +143,7 @@ namespace B114.viewmodel
             StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(55);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-01 00:00:00"));
+            DateList.Add(new DspVal("2023-06-19"));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();

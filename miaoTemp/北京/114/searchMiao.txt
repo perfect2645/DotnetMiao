@@ -30,4 +30,81 @@ X-XSS-Protection: 1; mode=block
 X-Frame-Options: SAMEORIGIN
 X-Cache: BYPASS from c73edeea8d1bfc99a8bb55deab32074d
 
-{"resCode":0,"msg":null,"data":[{"dutyCode":"MORNING","dutyImgUrl":"//img.114yygh.com/fe/home/iconfont/e4da3b7fbbce2345d7772b0674a318d5","detail":[{"uniqProductKey":"8fc2787244c919f5f45caec7c9867e5d7d32075e","doctorName":"傅怡","doctorTitleName":"副主任医师","skill":"-","period":[{"uniqProductKey":"8fc2787244c919f5f45caec7c9867e5d7d32075e","dutyTime":"202306100839-202306101045","dutyTimeView":"08:39-10:45","ncode":"&#xf7a4;"}],"fcode":"&#xf1b2;&#xf42c;","ncode":"&#xf7a4;","wnumber":1,"znumber":16},{"uniqProductKey":"dbba47579d52e2f749f3fe1593c54da5e24affdd","doctorName":"","doctorTitleName":"节假日门诊","skill":"-","period":[{"uniqProductKey":"dbba47579d52e2f749f3fe1593c54da5e24affdd","dutyTime":"202306100802-202306101125","dutyTimeView":"08:02-11:25","ncode":"&#xf5a2;&#xf7a4;"}],"fcode":"&#xf5a2;&#xf42c;","ncode":"&#xf5a2;&#xf7a4;","wnumber":17,"znumber":20}],"showIndexPosition":1,"showNumber":true,"showPrice":true},{"dutyCode":"AFTERNOON","dutyImgUrl":"//img.114yygh.com/fe/home/iconfont/e4da3b7fbbce2345d7772b0674a318d5","detail":[{"uniqProductKey":"f5abc2f6c489c5c8d4084a3d7ff3556e3636fd4f","doctorName":"","doctorTitleName":"节假日门诊","skill":"-","period":[{"uniqProductKey":"f5abc2f6c489c5c8d4084a3d7ff3556e3636fd4f","dutyTime":"202306101304-202306101620","dutyTimeView":"13:04-16:20","ncode":"&#xf28e;&#xf7a7;"}],"fcode":"&#xf5a2;&#xf42c;","ncode":"&#xf28e;&#xf7a7;","wnumber":31,"znumber":24}],"showIndexPosition":0,"showNumber":true,"showPrice":true}]}
+{
+    "resCode": 0,
+    "msg": null,
+    "data": [
+        {
+            "dutyCode": "MORNING",
+            "dutyImgUrl": "//img.114yygh.com/fe/home/iconfont/e4da3b7fbbce2345d7772b0674a318d5",
+            "detail": [
+                {
+                    "uniqProductKey": "8fc2787244c919f5f45caec7c9867e5d7d32075e",
+                    "doctorName": "傅怡",
+                    "doctorTitleName": "副主任医师",
+                    "skill": "-",
+                    "period": [
+                        {
+                            "uniqProductKey": "8fc2787244c919f5f45caec7c9867e5d7d32075e",
+                            "dutyTime": "202306100839-202306101045",
+                            "dutyTimeView": "08:39-10:45",
+                            "ncode": "&#xf7a4;"
+                        }
+                    ],
+                    "fcode": "&#xf1b2;&#xf42c;",
+                    "ncode": "&#xf7a4;",
+                    "wnumber": 1,
+                    "znumber": 16
+                },
+                {
+                    "uniqProductKey": "dbba47579d52e2f749f3fe1593c54da5e24affdd",
+                    "doctorName": "",
+                    "doctorTitleName": "节假日门诊",
+                    "skill": "-",
+                    "period": [
+                        {
+                            "uniqProductKey": "dbba47579d52e2f749f3fe1593c54da5e24affdd",
+                            "dutyTime": "202306100802-202306101125",
+                            "dutyTimeView": "08:02-11:25",
+                            "ncode": "&#xf5a2;&#xf7a4;"
+                        }
+                    ],
+                    "fcode": "&#xf5a2;&#xf42c;",
+                    "ncode": "&#xf5a2;&#xf7a4;",
+                    "wnumber": 17,
+                    "znumber": 20
+                }
+            ],
+            "showIndexPosition": 1,
+            "showNumber": true,
+            "showPrice": true
+        },
+        {
+            "dutyCode": "AFTERNOON",
+            "dutyImgUrl": "//img.114yygh.com/fe/home/iconfont/e4da3b7fbbce2345d7772b0674a318d5",
+            "detail": [
+                {
+                    "uniqProductKey": "f5abc2f6c489c5c8d4084a3d7ff3556e3636fd4f",
+                    "doctorName": "",
+                    "doctorTitleName": "节假日门诊",
+                    "skill": "-",
+                    "period": [
+                        {
+                            "uniqProductKey": "f5abc2f6c489c5c8d4084a3d7ff3556e3636fd4f",
+                            "dutyTime": "202306101304-202306101620",
+                            "dutyTimeView": "13:04-16:20",
+                            "ncode": "&#xf28e;&#xf7a7;"
+                        }
+                    ],
+                    "fcode": "&#xf5a2;&#xf42c;",
+                    "ncode": "&#xf28e;&#xf7a7;",
+                    "wnumber": 31,
+                    "znumber": 24
+                }
+            ],
+            "showIndexPosition": 0,
+            "showNumber": true,
+            "showPrice": true
+        }
+    ]
+}

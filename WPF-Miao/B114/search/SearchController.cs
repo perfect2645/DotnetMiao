@@ -37,22 +37,6 @@ namespace B114.search
 
         private void GetMiao(string date)
         {
-            var vaccineController = HttpServiceController.GetService<VaccineController>();
-            var isVaccineGet = false;
-            while (!isVaccineGet)
-            {
-                if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
-                {
-                    break;
-                }
-                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
-                {
-                    break;
-                }
-                isVaccineGet = vaccineController.SearchVaccine(date);
-                Thread.Sleep(600);
-            }
-
             var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
             while(!isScheduleGet)

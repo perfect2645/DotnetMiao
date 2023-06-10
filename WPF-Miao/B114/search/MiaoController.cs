@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.number;
+using B114.common;
 
 namespace B114.search
 {
-    internal class MiaoController : HttpClientBase
+    internal class MiaoController : B114Controller
     {
         public string Date { get; set; }
 
@@ -36,23 +37,26 @@ namespace B114.search
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
+
+                SaveSessionTime(response, defaultUser);
+
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                var code = root.GetProperty("resCode").GetInt32();
+                if (code != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
                     return false;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
                     return false;
                 }
 
-                return CheckSaveSchedule(result);
+                return CheckSaveSchedule(data);
             }
             catch (Exception ex)
             {
@@ -63,22 +67,22 @@ namespace B114.search
 
         private bool CheckSaveSchedule(JsonElement scheduleInfoData)
         {
-            var scheduleInfo = JsonAnalysis.JsonToDic(scheduleInfoData);
+            var scheduleInfoList = JsonAnalysis.JsonToDicList(scheduleInfoData);
+            if (!scheduleInfoList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"未查到苗");
+            }
 
             var orderList = new List<Order>();
 
-            var amListStr = scheduleInfo.GetString("amList");
-            if (!string.IsNullOrEmpty(amListStr))
+            foreach(var schedule in scheduleInfoList)
             {
-                var amOrderList = BuildOrderList(amListStr);
-                orderList.AddRange(amOrderList);
-            }
-
-            var pmListStr = scheduleInfo.GetString("pmList");
-            if (!string.IsNullOrEmpty(pmListStr))
-            {
-                var pmOrderList = BuildOrderList(pmListStr);
-                orderList.AddRange(pmOrderList);
+                var detailListStr = schedule.GetString("detail");
+                if (!string.IsNullOrEmpty(detailListStr))
+                {
+                    var scheduleOrderList = BuildOrderList(detailListStr);
+                    orderList.AddRange(scheduleOrderList);
+                }
             }
 
             if (!orderList.HasItem())
