@@ -14,8 +14,14 @@ namespace B114.appointment
         public YuyueContent(Order order, B114Login user) : base(baseUrl, user)
         {
             Order = order;
-            BuildReferer();
+            BuildHeader();
             BuildContent();
+        }
+
+        protected override void BuildHeader()
+        {
+            base.BuildHeader();
+            BuildReferer();
         }
 
         private void BuildReferer()

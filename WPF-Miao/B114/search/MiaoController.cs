@@ -114,24 +114,39 @@ namespace B114.search
                 return orderList;
             }
 
-            var availableScheduleList = scheduleList.Where(x => x.GetString("peopleNumber").ToInt() > 0).ToList();
-            if (!availableScheduleList.HasItem())
-            {
-                return orderList;
-            }
+            //var availableScheduleList = scheduleList.Where(x => x.GetString("peopleNumber").ToInt() > 0).ToList();
+            //if (!availableScheduleList.HasItem())
+            //{
+            //    return orderList;
+            //}
 
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
+            var firstDept = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 
-            foreach (var schedule in availableScheduleList)
+            foreach (var schedule in scheduleList)
             {
-                var timeNo = schedule.GetString("timeNo");
-                var order = new Order
+                var uniqProductKey = schedule.GetString("uniqProductKey");
+                var period = schedule.GetString("period");
+                var periodList = JsonAnalysis.JsonToDicList(period);
+                if (!periodList.HasItem())
                 {
-
-                };
-                orderList.Add(order);
+                    continue;
+                }
+                foreach(var p in periodList)
+                {
+                    var dutyTime = p.GetString("dutyTime");
+                    var order = new Order
+                    {
+                        DutyTime = dutyTime,
+                        UniqProductKey = uniqProductKey,
+                        FirstDeptCode = firstDept,
+                        HosCode = hosId,
+                        SecondDeptCode = deptId,
+                        TreatmentDay = Date,
+                    };
+                    orderList.Add(order);
+                }
             }
 
             return orderList;

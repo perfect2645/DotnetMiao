@@ -147,6 +147,16 @@ namespace Utils.datetime
             return date.ToString(format);
         }
 
+        public static string GetNextWeekday(DayOfWeek dayOfWeek)
+        {
+            var dayToday = (int)DateTime.Today.DayOfWeek;
+            if ((int)dayOfWeek <= dayToday)
+            {
+                return GetDayOfNextWeek(dayOfWeek);
+            }
+            return GetDayOfWeek(dayOfWeek);
+        }
+
         public static List<string> GetFutureDays(params DayOfWeek[] days)
         {
             var dayToday = (int)DateTime.Today.DayOfWeek;

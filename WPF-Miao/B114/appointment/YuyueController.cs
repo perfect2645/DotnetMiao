@@ -49,22 +49,22 @@ namespace B114.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var message = root.GetProperty("message").GetString();
-                if (message.Contains("重复预约"))
+                var message = root.GetProperty("msg").GetString() ?? string.Empty;
+                if (message.Contains("已存在相同订单"))
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {message}");
                     return true;
                 }
 
-                var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                var code = root.GetProperty("resCode").GetInt32();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg = {message}");
                     return false;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
@@ -72,7 +72,7 @@ namespace B114.appointment
 
                 MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {message}");
 
-                return CheckOrder(result, content.Order);
+                return CheckOrder(data, content.Order);
             }
             catch (Exception ex)
             {
@@ -83,13 +83,14 @@ namespace B114.appointment
 
         private bool CheckOrder(JsonElement bookingResult, Order order)
         {
-            var address = bookingResult.GetProperty("address").GetString();
+            var orderNo = bookingResult.GetProperty("orderNo").GetString();
 
-            if (string.IsNullOrEmpty(address))
+            if (string.IsNullOrEmpty(orderNo))
             {
                 return false;
             }
 
+            order.OrderNo = orderNo;
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
 
             return true;

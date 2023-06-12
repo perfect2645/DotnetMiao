@@ -143,7 +143,7 @@ namespace B114.viewmodel
             StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(55);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-19"));
+            DateList.Add(new DspVal(DateTimeUtil.GetNextWeekday(DayOfWeek.Thursday)));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();
@@ -154,17 +154,17 @@ namespace B114.viewmodel
                 {
                     HospitalId = "H08110008",
                     HospitalName = "航天中心医院",
-                    DepartmentName = "消化科门诊",
-                    FirstDeptCode = "mn_fst_xhk_93dfee",
-                    DepartmentId = "1243",
+                    DepartmentName = "九价HPV疫苗预约",
+                    FirstDeptCode = "hyde_CRMYJZMZ_e15685d5_vir",
+                    DepartmentId = "6125",
                 },
                 new B114Hospital
                 {
                     HospitalId = "H08110008",
                     HospitalName = "航天中心医院",
-                    DepartmentName = "九价HPV疫苗预约",
-                    FirstDeptCode = "hyde_CRMYJZMZ_e15685d5_vir",
-                    DepartmentId = "6125",
+                    DepartmentName = "消化科门诊",
+                    FirstDeptCode = "mn_fst_xhk_93dfee",
+                    DepartmentId = "1243",
                 }
             };
 
@@ -363,7 +363,16 @@ namespace B114.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-
+                        CardNo = user.CardNo,
+                        CardType = user.CardType,
+                        DutyTime = template.DutyTime,
+                        FirstDeptCode = template.FirstDeptCode,
+                        SecondDeptCode = template.SecondDeptCode,
+                        HosCode = template.HosCode,
+                        OrderFrom = template.OrderFrom,
+                        Phone = user.Phone,
+                        TreatmentDay = template.TreatmentDay,
+                        UniqProductKey = template.UniqProductKey,
                     };
 
                     orderList.Add(order);

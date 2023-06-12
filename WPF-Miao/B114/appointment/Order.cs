@@ -20,7 +20,7 @@ namespace B114.appointment
         public string HospitalCardId { get; set; }
         public string Phone { get; set; }
         public string DutyTime { get; set; }
-        public string OrderFrom { get; set; }
+        public string OrderFrom { get; set; } = "OTHER";
         public string OrderNo { get; set; }
 
         public string ResultMsg { get; set; }
