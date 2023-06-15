@@ -1,0 +1,34 @@
+POST http://syfb2.syhic.cn/api/ym/ymhy/listQc HTTP/1.1
+Host: syfb2.syhic.cn
+Connection: keep-alive
+Content-Length: 59
+Origin: http://syfb2.syhic.cn
+CZPT: 2
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+AUTH-TOKEN: 57b6313abd1b442887ea1cbd8a86fea5
+Content-Type: application/json
+Accept: */*
+Cookie: __jsluid_h=c55c5fa2fb8266db255885eb9995af43
+Referer: http://syfb2.syhic.cn/?code=041oMd0w3c1uO0367e1w3xryGJ3oMd0s&state=FEIT
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"current":1,"size":10,"yhid":36881,"sfqc":1,"ymbqbm":"11"}
+HTTP/1.1 200
+Date: Wed, 14 Jun 2023 15:37:51 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Accept-Encoding
+SS: s
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: http://syfb2.syhic.cn
+Access-Control-Allow-Credentials: true
+X-Frame-Options: SAMEORIGIN
+X-Via-JSL: e0e190f,-
+X-Cache: bypass
+Content-Length: 55
+
+{"code":"-1","msg":"目前无可用号源","data":null}

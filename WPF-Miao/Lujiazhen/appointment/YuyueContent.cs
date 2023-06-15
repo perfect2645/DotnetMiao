@@ -5,7 +5,7 @@ namespace Lujiazhen.appointment
 {
     internal class YuyueContent : LujiazhenContent
     {
-        private static string url = "https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine";
+        private static string url = "https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine_new";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {
@@ -20,6 +20,7 @@ namespace Lujiazhen.appointment
             AddContent("vaccineId", Order.VaccineId);
             AddContent("familyId", Order.FamilyId);
             AddContent("token", Order.User.Token);
+            AddContent("sign", Order.User.Sign);
         }
     }
 }

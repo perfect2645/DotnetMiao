@@ -134,7 +134,7 @@ namespace B114.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
@@ -143,8 +143,8 @@ namespace B114.viewmodel
             StartTime = DateTime.Today.AddHours(16).AddMinutes(30);
 
             DateList = new List<DspVal>();
-            //DateList.Add(new DspVal(DateTimeUtil.GetNextWeekday(DayOfWeek.Thursday)));
-            DateList.Add(new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)));
+            DateList.Add(new DspVal(DateTimeUtil.GetNextWeekday(DayOfWeek.Monday)));
+            //DateList.Add(new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();
