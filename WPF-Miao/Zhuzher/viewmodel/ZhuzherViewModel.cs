@@ -66,7 +66,7 @@ namespace Zhuzher.viewmodel
             var mslist = new MiaoshaItemList();
             MiaoshaList = mslist.MiaoshaList;
 
-            ActivityId = "865";
+            ActivityId = "896";
             ZhuzherSession.InviteCode = "ADA2PV";
         }
 
