@@ -1,0 +1,31 @@
+GET https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/project/list/drop?hos_id=10001&open=2 HTTP/1.1
+Host: zsyy.wzlwpz.nbnfsoft.com:7073
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Authorization: micor-2416a080da9c4f57a7ade1f322fd3107
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Cookie: token=%22micor-2416a080da9c4f57a7ade1f322fd3107%22
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 18 Jun 2023 14:14:31 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 44
+Connection: keep-alive
+Content-Security-Policy: font-src * data:
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Referrer-Policy: no-referrer
+X-Download-Options: noopen
+X-Frame-Options: DENY
+X-Permitted-Cross-Domain-Policies: none
+Cache-Control: no-cache
+
+{"success":true,"msg":"","data":{"list":[]}}

@@ -1,0 +1,36 @@
+GET https://zsyy.wzlwpz.nbnfsoft.com:7073/v2/microapi/patient/list HTTP/1.1
+Host: zsyy.wzlwpz.nbnfsoft.com:7073
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+Authorization: micor-2416a080da9c4f57a7ade1f322fd3107
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Cookie: token=%22micor-2416a080da9c4f57a7ade1f322fd3107%22
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: openresty
+Date: Sun, 18 Jun 2023 14:13:44 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Pragma: no-cache
+Expires: 0
+Content-Security-Policy: font-src * data:
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Referrer-Policy: no-referrer
+X-Download-Options: noopen
+X-Frame-Options: DENY
+X-Permitted-Cross-Domain-Policies: none
+Cache-Control: no-cache
+
+459
+{"success":true,"data":[{"family_id":18059,"openid":"oPAsp1oYEZv5QsdZKZNRap7wl67I","person_id":18059,"tag":"其他","default_str":"Y","validate_str":"Y","name":"李彤","sex":2,"idcard":"110103198211290041","tel":"18840842645","sex_name":"女","age":40,"origin":2,"birth":"1982-11-29 00:00:00","card_type":1,"user_id":null,"notify":"Y","is_default":true,"is_validate":true},{"family_id":15999,"openid":"oPAsp1oYEZv5QsdZKZNRap7wl67I","person_id":15999,"tag":"自己","default_str":"N","validate_str":"N","name":"崔紫琴","sex":2,"idcard":"522123199906130544","tel":"18840842645","sex_name":"女","age":24,"origin":2,"birth":"1999-06-13 00:00:00","card_type":1,"user_id":null,"notify":"Y","is_default":false,"is_validate":false},{"family_id":18052,"openid":"oPAsp1oYEZv5QsdZKZNRap7wl67I","person_id":18052,"tag":"其他","default_str":"N","validate_str":"N","name":"石琳","sex":2,"idcard":"210302198811250324","tel":"18840842645","sex_name":"女","age":34,"origin":2,"birth":"1988-11-25 00:00:00","card_type":1,"user_id":null,"notify":"Y","is_default":false,"is_validate":false}],"msg":null,"sm":false,"code":0}
+0
+
