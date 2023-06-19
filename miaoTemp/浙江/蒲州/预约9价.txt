@@ -1,20 +1,17 @@
-POST https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/reservation HTTP/1.1
+GET https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/sch/date/time_list_title?hos_id=10001&project_id=10001 HTTP/1.1
 Host: zsyy.wzlwpz.nbnfsoft.com:7073
-Content-Type: application/json;charset=utf-8
-Origin: https://zsyy.wzlwpz.nbnfsoft.com:7073
-Accept-Encoding: gzip, deflate, br
-Cookie: token=%22micor-10c1770a172747cda7a0bb2e8ba5b379%22
-Connection: keep-alive
 Accept: application/json, text/plain, */*
+Connection: keep-alive
+Cookie: token=%22micor-10c1770a172747cda7a0bb2e8ba5b379%22
 User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
 Authorization: micor-10c1770a172747cda7a0bb2e8ba5b379
-Content-Length: 266
 Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
 
-{"family_id":18059,"hos_id":10001,"idcard":"110103198211290041","name":"李彤","num_id":0,"openid":"oPAsp1oYEZv5QsdZKZNRap7wl67I","phone":"18840842645","project_id":10001,"register_name":"李彤","sch_id":10201,"sex":2,"time":"2023年06月19日 周一 13:30-16:30"}
+
 HTTP/1.1 200 OK
 Server: openresty
-Date: Mon, 19 Jun 2023 01:18:08 GMT
+Date: Mon, 19 Jun 2023 01:18:01 GMT
 Content-Type: application/json; charset=utf-8
 Connection: keep-alive
 Content-Security-Policy: font-src * data:
@@ -26,6 +23,6 @@ X-Download-Options: noopen
 X-Frame-Options: DENY
 X-Permitted-Cross-Domain-Policies: none
 Cache-Control: no-cache
-Content-Length: 40
+Content-Length: 164
 
-{"success":true,"msg":"","data":11318.0}
+{"success":true,"msg":"","data":{"list":[{"date_str":"2023/06/19","date":"2023-06-19 00:00:00","week":null,"all_num_count":150.0,"last_num_count":17.0,"list":[]}]}}

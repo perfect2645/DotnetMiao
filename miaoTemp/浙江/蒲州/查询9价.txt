@@ -1,4 +1,4 @@
-GET https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/sch/date/time_list_title?hos_id=10001&project_id=10001 HTTP/1.1
+GET https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/project/list/drop?hos_id=10001&open=2 HTTP/1.1
 Host: zsyy.wzlwpz.nbnfsoft.com:7073
 Accept: application/json, text/plain, */*
 Connection: keep-alive
@@ -11,7 +11,7 @@ Accept-Encoding: gzip, deflate, br
 
 HTTP/1.1 200 OK
 Server: openresty
-Date: Mon, 19 Jun 2023 01:18:01 GMT
+Date: Mon, 19 Jun 2023 01:17:58 GMT
 Content-Type: application/json; charset=utf-8
 Connection: keep-alive
 Content-Security-Policy: font-src * data:
@@ -23,7 +23,7 @@ X-Download-Options: noopen
 X-Frame-Options: DENY
 X-Permitted-Cross-Domain-Policies: none
 Cache-Control: no-cache
-Content-Length: 164
+Content-Length: 279
 
 {
     "success": true,
@@ -31,12 +31,17 @@ Content-Length: 164
     "data": {
         "list": [
             {
-                "date_str": "2023/06/19",
-                "date": "2023-06-19 00:00:00",
-                "week": null,
-                "all_num_count": 150,
-                "last_num_count": 17,
-                "list": []
+                "id": 10001,
+                "project_code": "101",
+                "project_name": "九价疫苗预约",
+                "is_show_remark": 0,
+                "remark_name": null,
+                "pc_open": 1,
+                "app_open": 1,
+                "project_type_code": "project_type_pt",
+                "allow_min_age": "9",
+                "allow_max_age": "45",
+                "allow_sex": 2
             }
         ]
     }

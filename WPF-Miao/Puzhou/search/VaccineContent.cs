@@ -7,22 +7,10 @@ namespace Puzhou.search
 {
     internal class VaccineContent : PuzhouContent
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/make/find/vaccine/by/hospital";
+        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/project/list/drop?hos_id=10001&open=2";
 
-        public string Date { get; set; }
-
-        public VaccineContent(PuzhouLogin user, string date) : base(baseUrl, user)
+        public VaccineContent(PuzhouLogin user) : base(baseUrl, user)
         {
-            Date = date;
-            BuildContent();
-        }
-
-        private void BuildContent()
-        {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-
-            AddContent("hospitalCode", hosId);
-            AddContent("makeAnAppointment", Date);
         }
     }
 }

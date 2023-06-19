@@ -16,7 +16,6 @@ namespace Puzhou.search
     internal class VaccineController : HttpClientBase
     {
         public string Date { get; set; }
-
         public VaccineController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -25,11 +24,10 @@ namespace Puzhou.search
         {
             try
             {
-                Date = date;
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new VaccineContent(defaultUser, date);
+                var content = new VaccineContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
@@ -37,28 +35,24 @@ namespace Puzhou.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                var success = root.GetProperty("success").GetBoolean();
+                var msg = root.GetProperty("msg").GetString();
+                if (!success)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: success={success}, msg = {msg}");
                     return false;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
                     return false;
                 }
 
-                var vaccineListData = result.GetProperty("list");
-                if (result.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine: vaccineListData is empty");
-                    return false;
-                }
+                var list = data.GetProperty("list");
 
-                return CheckSaveVaccine(vaccineListData);
+                return CheckSaveVaccine(list);
             }
             catch (Exception ex)
             {
@@ -73,25 +67,19 @@ namespace Puzhou.search
 
             if (!vaccineList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"{Date} 还没开始");
+                MainSession.PrintLogEvent.Publish(this, $"还没开始");
                 return false;
             }
 
-            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("name").Contains(deptName));
-            if (targetVaccine == null)
+            var defaultVaccine = vaccineList.LastOrDefault(x => x.GetString("last_num_count").ToInt() > 0);
+            if (defaultVaccine == null)
             {
-                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("name").Contains("九价"));
-            }
-
-            if (targetVaccine == null)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"{Date} Not match the expect vaccine [{deptName}] ");
+                MainSession.PrintLogEvent.Publish(this, $"抢光了");
                 return false;
             }
 
-            var vaccineId = targetVaccine.GetString("vaccineInfoId");
-            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, vaccineId);
+            Date = defaultVaccine.GetString("date");
+
             MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
 
             return true;

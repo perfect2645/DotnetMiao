@@ -6,7 +6,6 @@ namespace Puzhou.viewmodel
 {
     internal class PuzhouHospital : HospitalDept
     {
-        public string AreaId { get; set; }
 
         public new string Display 
         {  

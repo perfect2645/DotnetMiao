@@ -16,43 +16,43 @@ namespace Puzhou.search
 {
     internal class MiaoController : HttpClientBase
     {
-        public string Date { get; set; }
-
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public bool SearchMiao(string date)
+        public bool SearchMiao()
         {
             try
             {
-                Date = date;
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser, date);
+                var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                var success = root.GetProperty("success").GetBoolean();
+                var msg = root.GetProperty("msg").GetString();
+                if (!success)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: success={success}, msg = {msg}");
                     return false;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
                     return false;
                 }
 
-                return CheckSaveSchedule(result);
+                var list = data.GetProperty("list");
+
+                return CheckSaveSchedule(list);
             }
             catch (Exception ex)
             {
