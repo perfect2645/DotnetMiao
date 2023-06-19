@@ -49,30 +49,25 @@ namespace Puzhou.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var message = root.GetProperty("message").GetString();
-                if (message.Contains("重复预约"))
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {message}");
-                    return true;
-                }
+                var msg = root.GetProperty("msg").GetString();
 
-                var code = root.GetProperty("code").GetInt32();
-                if (code != 200)
+                var success = root.GetProperty("success").GetBoolean();
+                if (!success)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: success={success}, msg = {msg}");
                     return false;
                 }
 
-                var result = root.GetProperty("result");
-                if (result.ValueKind == JsonValueKind.Null)
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {message}");
+                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {msg}");
 
-                return CheckOrder(result, content.Order);
+                return CheckOrder(data, content.Order);
             }
             catch (Exception ex)
             {
@@ -81,16 +76,16 @@ namespace Puzhou.appointment
             }
         }
 
-        private bool CheckOrder(JsonElement bookingResult, Order order)
+        private bool CheckOrder(JsonElement data, Order order)
         {
-            var address = bookingResult.GetProperty("address").GetString();
+            var dataDouble = data.GetDouble();
 
-            if (string.IsNullOrEmpty(address))
+            if (dataDouble > 0)
             {
-                return false;
+                return true;
             }
 
-            order.Address = address;
+            order.ResultMsg = dataDouble.ToString();
             MainSession.PrintLogEvent.Publish(this, order.ToLogString());
 
             return true;

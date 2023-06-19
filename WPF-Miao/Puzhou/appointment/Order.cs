@@ -7,12 +7,16 @@ namespace Puzhou.appointment
     {
         public string UserName { get; set; }
         public string UserId { get; set; }
-        public string MakeAnAppointment { get; set; }
-        public string TimeNo { get; set; }
-        public string VaccineInfoId { get; set; }
-        public string OrderId { get; set; }
-        public string Address { get; set; }
-        public string HospitalCode { get; set; }
+        public string FamilyId { get; set; }
+        public string HosId { get; set; }
+        public string IdCard { get; set; }
+        public string NumId { get; set; }
+        public string OpenId { get; set; }
+        public string Phone { get; set; }
+        public string ProjectId { get; set; }
+        public string SchId { get; set; }
+        public string Time { get; set; }
+
         public string ResultMsg { get; set; }
 
         internal PuzhouLogin User { get; set; }
@@ -25,11 +29,10 @@ namespace Puzhou.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"Date - {MakeAnAppointment}");
-            sb.AppendLine($"Time - {TimeNo}");
-            sb.AppendLine($"HospitalCode - {HospitalCode}");
-            sb.AppendLine($"VaccineInfoId - {VaccineInfoId}");
-            sb.AppendLine($"OrderId - {OrderId}");
+            sb.AppendLine($"Phone - {Phone}");
+            sb.AppendLine($"IdCard - {IdCard}");
+            sb.AppendLine($"Time - {Time}");
+            sb.AppendLine($"SchId - {SchId}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

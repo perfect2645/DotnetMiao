@@ -5,7 +5,7 @@ namespace Puzhou.search
 {
     internal class UserContent : PuzhouContent
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/out/province/person/list";
+        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/v2/microapi/patient/list";
         public UserContent(PuzhouLogin user) : base(baseUrl, user)
         {
             BuildContent();
