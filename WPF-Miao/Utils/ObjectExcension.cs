@@ -63,6 +63,16 @@ namespace Utils
             {
                 return 0;
             }
+
+            var intResult = int.TryParse(obj.ToString(), out int result);
+            if (!intResult)
+            {
+                var doubleResult = double.TryParse(obj.ToString(), out double doubleTry);
+                if (doubleResult)
+                {
+                    return Convert.ToInt32(doubleTry);
+                }
+            }
             return Convert.ToInt32(obj);
         }
     }

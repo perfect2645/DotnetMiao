@@ -28,7 +28,7 @@ namespace Puzhou.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
@@ -76,6 +76,7 @@ namespace Puzhou.search
             foreach(var schedule in scheduleList)
             {
                 var order = BuildOrder(schedule, date);
+                orderList.Add(order);
             }
             
 
@@ -104,7 +105,12 @@ namespace Puzhou.search
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            var time = DateTimeUtil.GetDateTime(date, "g");
+
+            var dateLoacal = DateTimeUtil.GetDateTime(date, "D");
+
+            var startTime = schedule.GetString("start_time");
+            var endTime = schedule.GetString("end_time");
+            var time = $"{dateLoacal} {startTime}-{endTime}";
 
 
             var order = new Order

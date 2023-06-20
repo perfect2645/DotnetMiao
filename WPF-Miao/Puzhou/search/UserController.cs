@@ -80,6 +80,7 @@ namespace Puzhou.search
             user.UserName = userName;
             user.Phone = targetUser.GetString("tel");
             user.Idcard = targetUser.GetString("idcard");
+            user.OpenId = targetUser.GetString("openid");
 
             MainSession.PrintLogEvent.Publish(this, targetUser);
         }

@@ -11,8 +11,8 @@ namespace Puzhou.search
 
         public MiaoContent(PuzhouLogin user, string date) : base(baseUrl, user)
         {
-            var dateEncode = UnicodeConverter.Encode(date);
-            RequestUrl = $"{baseUrl}{dateEncode}&hos_id=10001&project_id=10001";
+            var dateWithFormat = date.Replace(' ', '+');
+            RequestUrl = $"{baseUrl}{dateWithFormat}&hos_id=10001&project_id=10001";
         }
     }
 }
