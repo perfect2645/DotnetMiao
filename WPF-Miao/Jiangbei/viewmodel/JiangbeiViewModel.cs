@@ -10,11 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using B114.appointment;
-using B114.cancel;
-using B114.login;
-using B114.search;
-using B114.session;
+using Jiangbei.appointment;
+using Jiangbei.login;
+using Jiangbei.search;
+using Jiangbei.session;
 using Utils;
 using Utils.datetime;
 using Utils.file;
@@ -22,9 +21,9 @@ using Utils.number;
 using Utils.stringBuilder;
 using System.Threading;
 
-namespace B114.viewmodel
+namespace Jiangbei.viewmodel
 {
-    internal class B114ViewModel : OnTimeViewModel
+    internal class JiangbeiViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -121,7 +120,7 @@ namespace B114.viewmodel
 
         #region Constructor
 
-        public B114ViewModel(LogPanel logPanel) : base(logPanel)
+        public JiangbeiViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -134,39 +133,25 @@ namespace B114.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(16).AddMinutes(30);
+            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(55);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal(DateTimeUtil.GetNextWeekday(DayOfWeek.Tuesday)));
-            //DateList.Add(new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)));
-
-            MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
-            SelectedDate = DateList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {
-                new B114Hospital
+            {                
+                new JiangbeiHospital
                 {
-                    HospitalId = "H08110008",
-                    HospitalName = "航天中心医院",
-                    DepartmentName = "九价HPV疫苗预约",
-                    FirstDeptCode = "hyde_CRMYJZMZ_e15685d5_vir",
-                    DepartmentId = "6125",
+                    HospitalId = "10001",
+                    HospitalName = "龙湾蒲州街道社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                    DepartmentId = "101",
                 },
-                new B114Hospital
-                {
-                    HospitalId = "H08110008",
-                    HospitalName = "航天中心医院",
-                    DepartmentName = "消化科门诊",
-                    FirstDeptCode = "mn_fst_xhk_93dfee",
-                    DepartmentId = "1243",
-                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -177,9 +162,6 @@ namespace B114.viewmodel
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
             ManualCommand = new RelayCommand(ExecuteManual);
-            RefreshHistoryCommand = new AsyncRelayCommand(ExecuteSearchHistory);
-            CancelCommand = new AsyncRelayCommand(ExecuteCancel);
-            CancelOneCommand = new AsyncRelayCommand(ExecuteCancelOne);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
             MainSession.OrderEvent.Subscribe(OnOrder);
@@ -217,13 +199,11 @@ namespace B114.viewmodel
 
         private void LoginFromConfig()
         {
-            MainSession.Users = FileReader.DeserializeFile<List<B114Login>>("Login.json");
+            MainSession.Users = FileReader.DeserializeFile<List<JiangbeiLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    var tokenController = HttpServiceController.GetService<TokenController>();
-                    await tokenController.GetTokenAsync(user);
                     var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
@@ -240,7 +220,7 @@ namespace B114.viewmodel
                 return;
             }
 
-            var loginData = new B114Login()
+            var loginData = new JiangbeiLogin()
             {
                 
             };
@@ -364,16 +344,15 @@ namespace B114.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        CardNo = user.CardNo,
-                        CardType = user.CardType,
-                        DutyTime = template.DutyTime,
-                        FirstDeptCode = template.FirstDeptCode,
-                        SecondDeptCode = template.SecondDeptCode,
-                        HosCode = template.HosCode,
-                        OrderFrom = template.OrderFrom,
+                        FamilyId = user.FamilyId,
+                        HosId = template.HosId,
+                        IdCard = user.Idcard,
+                        NumId = template.NumId,
+                        OpenId = user.OpenId,
                         Phone = user.Phone,
-                        TreatmentDay = template.TreatmentDay,
-                        UniqProductKey = template.UniqProductKey,
+                        ProjectId = template.ProjectId,
+                        SchId = template.SchId,
+                        Time = template.Time,
                     };
 
                     orderList.Add(order);
@@ -386,109 +365,16 @@ namespace B114.viewmodel
         #endregion Appoint
 
         #region Cancel
-
-        private async Task ExecuteSearchHistory()
-        {
-            try
-            {
-                var defaultUser = MainSession.Users.FirstOrDefault();
-                var historyController = HttpServiceController.GetService<SearchSuccessController>();
-                await historyController.SearchHistoryAsync(defaultUser);
-
-                var historyList = MainSession.PlatformSession["history"] as List<History>;
-                var historyGroup = historyList.GroupBy(x => x.Key);
-
-                var orderHistories = new List<DspVal>();
-                foreach(var history in historyGroup)
-                {
-                    var valList = history.Select(x => x.id).ToArray();
-                    if (!valList.HasItem())
-                    {
-                        continue;
-                    }
-                    var val = string.Join(",", valList);
-                    var dsp = $"{history.Key} 数量{valList.Count()}";
-                    orderHistories.Add(new DspVal(dsp, val));
-                }
-
-                HistoryList = orderHistories;
-                PrintLog($"查询预约记录成功-数据量:{HistoryList.Count}");
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
-        private async Task ExecuteCancelOne()
-        {
-            try
-            {
-                if (SelectedHistory == null)
-                {
-                    PrintLog("请选择一个取消时间");
-                    return;
-                }
-                await Task.Factory.StartNew(() =>
-                {
-                    var cancelController = HttpServiceController.GetService<CancelController>();
-                    var defaultOrderId = SelectedHistory.Value.SplitToList(",").FirstOrDefault();
-                    var defaultUser = MainSession.Users.FirstOrDefault();
-                    cancelController.CancelAsync(defaultUser, defaultOrderId);
-                });
-
-                await ExecuteSearchHistory();
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
-        private async Task ExecuteCancel()
-        {
-            try
-            {
-                if (SelectedHistory == null)
-                {
-                    PrintLog("请选择一个取消时间");
-                    return;
-                }
-                var cancelIdList = SelectedHistory.Value.SplitToList(",");
-                var defaultUser = MainSession.Users.FirstOrDefault();
-
-                var cancelTasks = new List<Task>();
-                foreach(var cancelId in cancelIdList)
-                {
-                    var cancelTask = Task.Factory.StartNew(() =>
-                    {
-                        var cancelController = HttpServiceController.GetService<CancelController>();
-                        cancelController.CancelAsync(defaultUser, cancelId);
-                    });
-                    cancelTasks.Add(cancelTask);
-                }
-
-                Task.WaitAll(cancelTasks.ToArray());
-
-                await ExecuteSearchHistory();
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
         #endregion Cancel
 
         #region Hospital Dept
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as B114Hospital;
+            var selectedDept = SelectedDepartment as JiangbeiHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.FirstDeptCode, selectedDept.FirstDeptCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
 
             Log(selectedDept.ToLogString());
