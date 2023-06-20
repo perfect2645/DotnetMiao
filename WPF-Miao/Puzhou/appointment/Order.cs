@@ -6,7 +6,6 @@ namespace Puzhou.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string UserId { get; set; }
         public string FamilyId { get; set; }
         public string HosId { get; set; }
         public string IdCard { get; set; }
@@ -28,7 +27,7 @@ namespace Puzhou.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {UserId}");
+            sb.AppendLine($"FamilyId - {FamilyId}");
             sb.AppendLine($"Phone - {Phone}");
             sb.AppendLine($"IdCard - {IdCard}");
             sb.AppendLine($"Time - {Time}");

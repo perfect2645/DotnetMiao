@@ -7,7 +7,7 @@ namespace Puzhou.search
 {
     internal class VaccineContent : PuzhouContent
     {
-        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/project/list/drop?hos_id=10001&open=2";
+        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/sch/date/time_list_title?hos_id=10001&project_id=10001";
 
         public VaccineContent(PuzhouLogin user) : base(baseUrl, user)
         {

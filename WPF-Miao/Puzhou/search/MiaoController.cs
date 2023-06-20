@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.number;
+using Utils.datetime;
 
 namespace Puzhou.search
 {
@@ -20,12 +21,12 @@ namespace Puzhou.search
         {
         }
 
-        public bool SearchMiao()
+        public bool SearchMiao(string date)
         {
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var content = new MiaoContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)
@@ -52,7 +53,7 @@ namespace Puzhou.search
 
                 var list = data.GetProperty("list");
 
-                return CheckSaveSchedule(list);
+                return CheckSaveSchedule(list, date);
             }
             catch (Exception ex)
             {
@@ -61,25 +62,22 @@ namespace Puzhou.search
             }
         }
 
-        private bool CheckSaveSchedule(JsonElement scheduleInfoData)
+        private bool CheckSaveSchedule(JsonElement scheduleListData, string date)
         {
-            var scheduleInfo = JsonAnalysis.JsonToDic(scheduleInfoData);
+            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListData);
+            if (!scheduleList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没有库存了");
+                return false;
+            }
 
             var orderList = new List<Order>();
 
-            var amListStr = scheduleInfo.GetString("amList");
-            if (!string.IsNullOrEmpty(amListStr))
+            foreach(var schedule in scheduleList)
             {
-                var amOrderList = BuildOrderList(amListStr);
-                orderList.AddRange(amOrderList);
+                var order = BuildOrder(schedule, date);
             }
-
-            var pmListStr = scheduleInfo.GetString("pmList");
-            if (!string.IsNullOrEmpty(pmListStr))
-            {
-                var pmOrderList = BuildOrderList(pmListStr);
-                orderList.AddRange(pmOrderList);
-            }
+            
 
             if (!orderList.HasItem())
             {
@@ -101,40 +99,24 @@ namespace Puzhou.search
             return true;
         }
 
-        private List<Order> BuildOrderList(string scheduleListStr)
+        private Order BuildOrder(Dictionary<string, object> schedule, string date)
         {
-            var orderList = new List<Order>();
-            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListStr);
-            if (!scheduleList.HasItem())
-            {
-                return orderList;
-            }
-
-            var availableScheduleList = scheduleList.Where(x => x.GetString("peopleNumber").ToInt() > 0).ToList();
-            if (!availableScheduleList.HasItem())
-            {
-                return orderList;
-            }
-
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var time = DateTimeUtil.GetDateTime(date, "g");
 
-            foreach (var schedule in availableScheduleList)
+
+            var order = new Order
             {
-                var timeNo = schedule.GetString("timeNo");
-                var order = new Order
-                {
-                    HospitalCode = hosId,
-                    MakeAnAppointment = Date,
-                    TimeNo = timeNo,
-                    VaccineInfoId = deptId,
-                    Address = hosName
-                };
-                orderList.Add(order);
-            }
+                HosId = hosId,
+                NumId = schedule.GetString("num_id"),
+                ProjectId = hosId,
+                SchId = schedule.GetString("sch_id"),
+                Time = time,
+            };
 
-            return orderList;
+            return order;
         }
     }
 }

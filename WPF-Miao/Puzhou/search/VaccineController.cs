@@ -20,7 +20,7 @@ namespace Puzhou.search
         {
         }
 
-        public bool SearchVaccine(string date)
+        public bool SearchVaccine()
         {
             try
             {

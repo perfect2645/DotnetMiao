@@ -1,0 +1,47 @@
+GET https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/mobile/sch/date/time_list_deatil?date=2023-06-19+00:00:00&hos_id=10001&project_id=10001 HTTP/1.1
+Host: zsyy.wzlwpz.nbnfsoft.com:7073
+Accept: application/json, text/plain, */*
+Connection: keep-alive
+Cookie: token=%22micor-10c1770a172747cda7a0bb2e8ba5b379%22
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Authorization: micor-10c1770a172747cda7a0bb2e8ba5b379
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Mon, 19 Jun 2023 01:18:02 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Content-Security-Policy: font-src * data:
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Referrer-Policy: no-referrer
+X-Download-Options: noopen
+X-Frame-Options: DENY
+X-Permitted-Cross-Domain-Policies: none
+Cache-Control: no-cache
+Content-Length: 237
+
+{
+    "success": true,
+    "msg": "",
+    "data": {
+        "date_str": "2023/06/19",
+        "date": "2023-06-19 00:00:00",
+        "week": "周一",
+        "all_num_count": null,
+        "last_num_count": 0,
+        "list": [
+            {
+                "sch_id": 10201,
+                "start_time": "13:30",
+                "end_time": "16:30",
+                "num": 17,
+                "num_id": 0
+            }
+        ]
+    }
+}

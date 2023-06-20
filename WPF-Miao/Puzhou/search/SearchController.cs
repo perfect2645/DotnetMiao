@@ -23,19 +23,14 @@ namespace Puzhou.search
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
             var defaultUser = MainSession.Users.FirstOrDefault();
-            var dateList = MainSession.PlatformSession["DateList"] as List<DspVal>;
 
-            foreach(var dateItem in dateList)
+            Task.Factory.StartNew(() =>
             {
-                Thread.Sleep(300);
-                Task.Factory.StartNew(() =>
-                {
-                    GetMiao(dateItem.Value);
-                });
-            }
+                GetMiao();
+            });
         }
 
-        private void GetMiao(string date)
+        private void GetMiao()
         {
             var vaccineController = HttpServiceController.GetService<VaccineController>();
             var isVaccineGet = false;
@@ -49,9 +44,10 @@ namespace Puzhou.search
                 {
                     break;
                 }
-                isVaccineGet = vaccineController.SearchVaccine(date);
+                isVaccineGet = vaccineController.SearchVaccine();
                 Thread.Sleep(600);
             }
+            var date = vaccineController.Date;
 
             var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
