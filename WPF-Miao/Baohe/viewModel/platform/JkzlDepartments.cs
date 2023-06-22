@@ -13,12 +13,12 @@ namespace Baohe.viewModel
         internal void BuildDepartments()
         {
             Departments = new List<HospitalDept>();
-
-            Departments.Add(new Jiankangzhilu("9000370", "蜀山区南岗镇卫生院",
-    "1040231", "蜀山区南岗镇卫生院",
-    "7211903", "九价Hpv")
+            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
+    "1101614", "龙文区碧湖街道社区卫生服务中心",
+    "7248104", "九价Hpv")
             {
-                DoctorSn = "711091344"
+                HasYzm = false,
+                DoctorSn = "711288413"
             });
 
             #region 漳州
