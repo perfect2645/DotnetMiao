@@ -6,7 +6,7 @@ namespace Sanya.appointment
 {
     internal class YuyueContent : SanyaContent
     {
-        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/reservation";
+        private static string baseUrl = "https://public.health.zoenet.cn/business-service/mask-appointment/save";
         public Order Order { get; private set; }
         public YuyueContent(Order order, SanyaLogin user) : base(baseUrl, user)
         {

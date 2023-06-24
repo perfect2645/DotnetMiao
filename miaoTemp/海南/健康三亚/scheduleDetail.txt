@@ -1,0 +1,38 @@
+POST https://public.health.zoenet.cn/medical/appoint/selectDocSourceDetails HTTP/1.1
+Host: public.health.zoenet.cn
+Connection: keep-alive
+Content-Length: 194
+noncePf: 9EF5FDC714E641BDB5F6C1FD803EC492
+level: 
+Origin: https://public.health.zoenet.cn
+headersign: 8E99BA344537655EC86D096BFAD4B8AC
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+node: open
+Content-Type: application/json; charset=utf-8
+Accept: */*
+Cookie: HWWAFSESID=5398273034a1ae9a26; HWWAFSESTIME=1687532757068; appcode=HC_SANYA_WX; connect.sid=s%3AGU19qBfNRGE2-uXKKcISY9iKnQB9U0a6.k%2FXEsHadBV8ScRjYOC6mXusyV1qcsDQ1YSkjRvREOlI
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://public.health.zoenet.cn/medical/appoint/doctor-detail?
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"beginDate":"","branch":"","deptCode":"152","deptName":"儿科门诊2","endDate":"","hosCode":"A572000A004","queryDate":"2023-06-29","regType":"","roomCode":"","staffNo":"1088","week":"周四"}
+HTTP/1.1 200 OK
+Date: Fri, 23 Jun 2023 15:09:04 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Server: openresty
+X-Powered-By: Express
+X-Frame-Options: DENY
+ETag: W/"514-49I2y4RCziwTj/N7NqBFwOZmeB4"
+Vary: Accept-Encoding
+X-CCDN-Origin-Time: 437
+via: CHN-LNshenyang-AREACMCC1-CACHE43[477],CHN-LNshenyang-AREACMCC1-CACHE9[473,TCP_MISS,474],CHN-TJ-GLOBAL1-CACHE66[443],CHN-TJ-GLOBAL1-CACHE66[437,TCP_MISS,438]
+x-hcs-proxy-type: 0
+X-CCDN-CacheTTL: 0
+alt-svc: h3=":443"; ma=2592000
+Content-Length: 1300
+
+{"code":0,"data":[{"clinicFee":null,"dateTypeCode":1,"dateTypeName":"上午","dateTypeStatus":null,"departmentCode":null,"departmentName":null,"deptName":null,"deptPosition":null,"dispSourceRecList":[{"afterStatusCode":null,"availableSourceNum":39,"beforeStatusCode":null,"bookDate":null,"branch":null,"dateTypeCode":1,"dateTypeName":"上午","departmentCode":null,"departmentName":null,"deptName":null,"deptPosition":null,"dispSourceTypeCode":null,"doctorName":null,"id":null,"jsSourceTimePoint":null,"needMotherInfoFlag":null,"regFeeQueryWay":null,"regType":null,"registerPrice":19.3,"sequence":null,"sourceDate":"2023-06-29","sourceEndTime":"2023-06-29 12:00:00","sourceId":"1111||1689","sourceName":null,"sourceStartTime":"2023-06-29 08:00:00","sourceTimePoint":"08:00-12:00","specialSourceFlag":null,"staffNo":"1088","statusCode":"0","titleName":null,"totleSourceNum":40,"workSourceId":null}],"dispSourceTypeCode":"3","displayStr":"06月29日 周四 上午","jsSource":[],"needMotherInfoFlag":null,"orgName":null,"payMethod":null,"registerFee":null,"registerPrice":"19.3","sourceId":null,"staffName":null,"staffNo":null,"statusCode":1,"workDate":"2023-06-29"}],"exChangeMessage":null,"integralRid":"E265700633D84CEF8C684EF6C1C5CBD6","message":null,"popUpType":null,"success":true,"traceId":null}
