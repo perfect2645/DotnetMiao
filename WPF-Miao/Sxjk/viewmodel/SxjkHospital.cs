@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Puzhou.viewmodel
+namespace Sxjk.viewmodel
 {
-    internal class GzjkHospital : HospitalDept
+    internal class SxjkHospital : HospitalDept
     {
 
         public new string Display 
@@ -19,7 +19,7 @@ namespace Puzhou.viewmodel
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********Puzhou-选择医院科室*********");
+            sb.AppendLine("********Sxjk-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {HospitalId}");
             sb.AppendLine($"{DepartmentName} - {DepartmentId}");
             sb.AppendLine("**************************************");

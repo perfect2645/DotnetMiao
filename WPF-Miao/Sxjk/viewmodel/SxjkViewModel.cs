@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Puzhou.appointment;
-using Puzhou.login;
-using Puzhou.search;
-using Puzhou.session;
+using Sxjk.appointment;
+using Sxjk.login;
+using Sxjk.search;
+using Sxjk.session;
 using Utils;
 using Utils.datetime;
 using Utils.file;
@@ -21,9 +21,9 @@ using Utils.number;
 using Utils.stringBuilder;
 using System.Threading;
 
-namespace Puzhou.viewmodel
+namespace Sxjk.viewmodel
 {
-    internal class GzjkViewModel : OnTimeViewModel
+    internal class SxjkViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -120,7 +120,7 @@ namespace Puzhou.viewmodel
 
         #region Constructor
 
-        public GzjkViewModel(LogPanel logPanel) : base(logPanel)
+        public SxjkViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -145,7 +145,7 @@ namespace Puzhou.viewmodel
 
             Departments = new List<HospitalDept>
             {                
-                new GzjkHospital
+                new SxjkHospital
                 {
                     HospitalId = "10001",
                     HospitalName = "龙湾蒲州街道社区卫生服务中心",
@@ -199,7 +199,7 @@ namespace Puzhou.viewmodel
 
         private void LoginFromConfig()
         {
-            MainSession.Users = FileReader.DeserializeFile<List<GzjkLogin>>("Login.json");
+            MainSession.Users = FileReader.DeserializeFile<List<SxjkLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
                 Task.Factory.StartNew(async () =>
@@ -220,7 +220,7 @@ namespace Puzhou.viewmodel
                 return;
             }
 
-            var loginData = new GzjkLogin()
+            var loginData = new SxjkLogin()
             {
                 
             };
@@ -371,7 +371,7 @@ namespace Puzhou.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as GzjkHospital;
+            var selectedDept = SelectedDepartment as SxjkHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);

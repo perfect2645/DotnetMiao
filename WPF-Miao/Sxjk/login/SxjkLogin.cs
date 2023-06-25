@@ -1,6 +1,6 @@
-﻿namespace Puzhou.login
+﻿namespace Sxjk.login
 {
-    internal class GzjkLogin
+    internal class SxjkLogin
     {
         public string Authorization { get; set; }
         public string UserName { get; set; }

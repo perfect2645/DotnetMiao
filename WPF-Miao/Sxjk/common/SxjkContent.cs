@@ -1,13 +1,13 @@
-﻿using Puzhou.login;
+﻿using Sxjk.login;
 using HttpProcessor.Content;
 
-namespace Puzhou.common
+namespace Sxjk.common
 {
-    internal class GzjkContent : HttpStringContent
+    internal class SxjkContent : HttpStringContent
     {
-        public GzjkLogin User { get; private set; }
+        public SxjkLogin User { get; private set; }
 
-        public GzjkContent(string baseUrl, GzjkLogin user) : base(baseUrl)
+        public SxjkContent(string baseUrl, SxjkLogin user) : base(baseUrl)
         {
             User = user;
 
