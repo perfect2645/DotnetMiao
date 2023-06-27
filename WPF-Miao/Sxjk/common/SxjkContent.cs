@@ -1,18 +1,66 @@
 ﻿using Sxjk.login;
 using HttpProcessor.Content;
+using System.Collections.Generic;
+using Utils;
+using System.Text;
+using System;
+using System.Reflection.Metadata;
+using Sxjk.session;
+using Utils.datetime;
 
 namespace Sxjk.common
 {
     internal class SxjkContent : HttpStringContent
     {
         public SxjkLogin User { get; private set; }
+        protected string Parameters { get; private set; }
+        protected string ParameterEncode { get; private set; }
+        protected string SignMD5 { get; private set; }
+        protected string BaseUrl { get; }
+
+        public Dictionary<string, string> UrlDic { get; private set; }
 
         public SxjkContent(string baseUrl, SxjkLogin user) : base(baseUrl)
         {
+            BaseUrl = baseUrl;
             User = user;
-
+            UrlDic = new Dictionary<string, string>();
             BuildHeader();
         }
+
+        protected virtual void BuildUrl()
+        {
+            UrlDic.AddOrUpdate("version_name", "6.6.0");
+            UrlDic.AddOrUpdate("os", "web");
+
+            BuildParameters();
+            BuildSign();
+
+            var timestamp = DateTimeUtil.GetTimeStamp();
+
+            var urlEncodeParameters = UnicodeConverter.EncodeOriginal(ParameterEncode, true);
+            RequestUrl = $"{BaseUrl}parameters={urlEncodeParameters}&sign={SignMD5}&timestamp={timestamp}";
+
+            MainSession.PrintLogEvent.Publish(this, $"Build Url:{RequestUrl}");
+        }
+
+        private void BuildParameters()
+        {
+            var sb = new StringBuilder();
+            foreach (var item in UrlDic)
+            {
+                sb.Append($"{item.Key}={item.Value}&");
+            }
+            Parameters = sb.ToString().TrimEnd('&');
+            ParameterEncode = Encrypt.EncryptAes(Parameters);
+        }
+
+        private void BuildSign()
+        {
+            var md5Source = $"{ParameterEncode}{Constants.Md5Key}";
+            SignMD5 = Encryptor.GetMD5_32(md5Source);
+        }
+
 
         protected virtual void BuildHeader()
         {

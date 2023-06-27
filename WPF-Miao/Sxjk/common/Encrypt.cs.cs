@@ -24,19 +24,19 @@ namespace Sxjk.common
             return _str;
         }
 
-        public static string EncryptAes(string _str)
+        public static string EncryptAes(string source)
         {
             byte[] keyArray = UTF8Encoding.UTF8.GetBytes("shen=new#su@app-");
+            byte[] sourceArray = UTF8Encoding.UTF8.GetBytes(source);
 
             Aes rm = Aes.Create();
             rm.Key = keyArray;
             rm.Mode = CipherMode.ECB;
             rm.Padding = PaddingMode.PKCS7;
-            ICryptoTransform cTransform = rm.CreateDecryptor();
-            byte[] bytes = Convert.FromBase64String(_str);
-            byte[] encryptArray = cTransform.TransformFinalBlock(bytes, 0, bytes.Length);
-            _str = UTF8Encoding.UTF8.GetString(encryptArray, 0, encryptArray.Length);
-            return _str;
+            ICryptoTransform cTransform = rm.CreateEncryptor();
+            byte[] encryptArray = cTransform.TransformFinalBlock(sourceArray, 0, sourceArray.Length);
+            var enSource = Convert.ToBase64String(encryptArray, 0, encryptArray.Length);
+            return enSource;
         }
     }
 }

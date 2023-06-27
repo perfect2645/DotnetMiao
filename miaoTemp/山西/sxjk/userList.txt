@@ -1,4 +1,5 @@
 GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetAdultList?parameters=WzlQfudS%2FH%2FsTsqY8wX2Hfeqw7kY53wHQQ%2BX7mlI2E281WfXVdfZ6qkQbxf%2F%2B50G9nBTVFVwNWztHbCzgDdav9JOklvK60VXBMTrPzY1l2XIqtt%2FizaePI42GWUMpHsR&sign=3bdb087c0c1572b27678e487964670fd&timestamp=1687778672288 HTTP/1.1
+
 Host: ymjz.sxcdc.cn
 Connection: keep-alive
 Accept: application/json, text/plain, */*

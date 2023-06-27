@@ -144,9 +144,10 @@ namespace Sxjk.viewmodel
             DateList = new List<DspVal>();
 
             Departments = new List<HospitalDept>
-            {                
+            {
                 new SxjkHospital
                 {
+                    CityCode = "140100000000",
                     HospitalId = "10001",
                     HospitalName = "龙湾蒲州街道社区卫生服务中心",
                     DepartmentName = "九价疫苗预约",
@@ -348,7 +349,6 @@ namespace Sxjk.viewmodel
                         HosId = template.HosId,
                         IdCard = user.Idcard,
                         NumId = template.NumId,
-                        OpenId = user.OpenId,
                         Phone = user.Phone,
                         ProjectId = template.ProjectId,
                         SchId = template.SchId,
@@ -372,6 +372,7 @@ namespace Sxjk.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as SxjkHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.CityCode, selectedDept.CityCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
