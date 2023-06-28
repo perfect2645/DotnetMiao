@@ -345,7 +345,7 @@ namespace Sxjk.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.FamilyId,
+                        FamilyId = user.UserId,
                         HosId = template.HosId,
                         IdCard = user.Idcard,
                         NumId = template.NumId,

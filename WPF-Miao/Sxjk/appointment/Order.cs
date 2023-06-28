@@ -27,7 +27,7 @@ namespace Sxjk.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"FamilyId - {FamilyId}");
+            sb.AppendLine($"UserId - {FamilyId}");
             sb.AppendLine($"Phone - {Phone}");
             sb.AppendLine($"IdCard - {IdCard}");
             sb.AppendLine($"Time - {Time}");

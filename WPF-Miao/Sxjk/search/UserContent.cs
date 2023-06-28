@@ -11,7 +11,6 @@ namespace Sxjk.search
         private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetAdultList?";
         public UserContent(SxjkLogin user) : base(baseUrl, user)
         {
-            ContentType= "application/json";
             BuildUrl();
             AddReferer();
             BuildContent();

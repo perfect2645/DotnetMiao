@@ -22,6 +22,7 @@ namespace Sxjk.common
 
         public SxjkContent(string baseUrl, SxjkLogin user) : base(baseUrl)
         {
+            ContentType = "application/json";
             BaseUrl = baseUrl;
             User = user;
             UrlDic = new Dictionary<string, string>();

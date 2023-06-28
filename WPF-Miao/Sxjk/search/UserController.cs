@@ -8,10 +8,12 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using System.Collections.Generic;
+using Sxjk.common;
 
 namespace Sxjk.search
 {
-    internal class UserController : HttpClientBase
+    internal class UserController : SxjkController
     {
         public UserController(HttpClient httpClient) : base(httpClient)
         {
@@ -36,20 +38,23 @@ namespace Sxjk.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                
+                var resultDic = CheckResult(root);
+                if (!resultDic.HasItem())
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser失败 - {response?.Message}");
                     return;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var success = resultDic.GetString("success");
+                if ("False".Equals(success, StringComparison.OrdinalIgnoreCase))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser失败 - {resultDic.GetString("message")}");
                     return;
                 }
+
+                var data = resultDic.GetString("data");
+
                 SaveUser(data, user);
             }
             catch (Exception ex)
@@ -58,7 +63,7 @@ namespace Sxjk.search
             }
         }
 
-        private void SaveUser(JsonElement data, SxjkLogin user)
+        private void SaveUser(string data, SxjkLogin user)
         {
             var userInfoList = JsonAnalysis.JsonToDicList(data);
             if (!userInfoList.HasItem())
@@ -67,19 +72,17 @@ namespace Sxjk.search
                 return;
             }
 
-            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("name") == user.UserName);
+            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("child_name") == user.UserName);
             if (targetUser == null)
             {
                 targetUser = userInfoList.FirstOrDefault();
             }
 
-            var userName = targetUser.GetString("name");
-            var familyId = targetUser.GetString("family_id");
+            var userName = targetUser.GetString("child_name");
+            var userId = targetUser.GetString("child_code");
 
-            user.FamilyId = familyId;
+            user.UserId = userId;
             user.UserName = userName;
-            user.Phone = targetUser.GetString("tel");
-            user.Idcard = targetUser.GetString("idcard");
 
             MainSession.PrintLogEvent.Publish(this, targetUser);
         }
