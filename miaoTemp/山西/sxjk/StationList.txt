@@ -1,0 +1,574 @@
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Station/GetStationList?parameters=EiVopIlLWxrcnucFNfEdExDenc3yHT2gxOyamF0UK1iGm0%2B3GPYsW26eC4k1vKdwGL5mfW4weX0rAL%2BlgYzEb5sZfOW2sxF%2F%2BBvoGrzSf4UqujuOo3tvvUfLwvQv1ZMlEbaEyhe5wv0vl5lYdkP6OxAymedHP76qMgAxJ4CJI%2FKPs%2B7yqRpLFTPIWVWE%2Fh1M&sign=8d182e63c902859a39b57da05c460650&timestamp=1687739764350 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Accept: application/json, text/plain, */*
+Connection: keep-alive
+Cookie: SESSION=MzMwZDU1MDItNmE3Ny00ZWM4LWFiZWYtMjUyODNlMzdiOTcx
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.38(0x1800262a) NetType/4G Language/zh_CN
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Referer: https://ymjz.sxcdc.cn/SXJKWX/main.html?version=2.0.0
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200
+Server: ssservice/2.0.0
+Date: Mon, 26 Jun 2023 00:35:31 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: https://ymjz.sxcdc.cn
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
+Expires: Mon, 26 Jun 2023 00:35:41 GMT
+Cache-Control: max-age=10
+Content-Length: 18851
+
+{
+    "code": 0,
+    "data": [
+        {
+            "station_name": "小店区人民医院",
+            "station_address": "小店区人民医院",
+            "station_lng": "112.556166",
+            "station_lat": "37.708653",
+            "station_code": "140105010100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "铁十七局中心医院",
+            "station_address": "中铁十七局中心医院",
+            "station_lng": "112.572022",
+            "station_lat": "37.752371",
+            "station_code": "140105010300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店社区卫生服务中心",
+            "station_address": "小店社区卫生服务中心",
+            "station_lng": "112.574823",
+            "station_lat": "37.740401",
+            "station_code": "140105010400",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区唐槐社区卫生服务中心",
+            "station_address": "太原市小店区唐槐社区卫生服务中心",
+            "station_lng": "112.599334",
+            "station_lat": "37.743374",
+            "station_code": "140105010500",
+            "is_number": "1",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区星河湾社区卫生服务站",
+            "station_address": "太原市小店区星河湾社区卫生服务站",
+            "station_lng": "112.559263",
+            "station_lat": "37.77745",
+            "station_code": "140105010700",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "平阳街办小马社区卫生服务站",
+            "station_address": "平阳街办小马社区卫生服务站",
+            "station_lng": "112.548536",
+            "station_lat": "37.784106",
+            "station_code": "140105010800",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "易城社区卫生服务站",
+            "station_address": "易城社区卫生服务站",
+            "station_lng": "112.567808",
+            "station_lat": "37.76126",
+            "station_code": "140105010900",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "康宁社区卫生服务站",
+            "station_address": "康宁社区卫生服务站",
+            "station_lng": "112.574364",
+            "station_lat": "37.754445",
+            "station_code": "140105011000",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区巩家堡社区卫生服务站",
+            "station_address": "太原市小店区巩家堡社区卫生服务站",
+            "station_lng": "112.582544",
+            "station_lat": "37.733167",
+            "station_code": "140105011100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区唐槐社区卫生服务中心（富士康门诊）",
+            "station_address": "富士康招募",
+            "station_lng": "112.576375",
+            "station_lat": "37.736222",
+            "station_code": "140105014100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区妇幼保健计划生育服务中心新冠疫苗移动接种门诊",
+            "station_address": "小店永康南路13号",
+            "station_lng": "112.569579",
+            "station_lat": "37.739364",
+            "station_code": "140105014500",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "经济区社区卫生服务中心新冠疫苗移动接种门诊",
+            "station_address": "经济区社区卫生服务中心新冠疫苗移动接种门诊",
+            "station_lng": "112.599334",
+            "station_lat": "37.743374",
+            "station_code": "140105014700",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区新冠疫苗移动接种 门诊",
+            "station_address": "小店区新冠疫苗移动接种门诊",
+            "station_lng": "112.574823",
+            "station_lat": "37.740401",
+            "station_code": "140105014900",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "平阳社区卫生服务中心",
+            "station_address": "平阳景苑21号楼",
+            "station_lng": "112.558938",
+            "station_lat": "37.821607",
+            "station_code": "140105020100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "水总医院",
+            "station_address": "太原市小店区亲贤北街368号水工花园1号高层西北侧",
+            "station_lng": "112.562352",
+            "station_lat": "37.829372",
+            "station_code": "140105020200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "煤炭医院",
+            "station_address": "煤炭医院",
+            "station_lng": "112.574549",
+            "station_lat": "37.814955",
+            "station_code": "140105020300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "山西白求恩医院",
+            "station_address": "小店区龙城大街99号",
+            "station_lng": "112.561609",
+            "station_lat": "37.783715",
+            "station_code": "140105020500",
+            "is_number": "1",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区学府社区卫生服务中心",
+            "station_address": "山西综改示范区太原学府园区创新街3号",
+            "station_lng": "112.553132",
+            "station_lat": "37.803255",
+            "station_code": "140105020600",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区亲贤社区卫生服务站",
+            "station_address": "太原市小店区体育西路193号",
+            "station_lng": "112.560189",
+            "station_lat": "37.827542",
+            "station_code": "140105020700",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原宜百家综合门诊部",
+            "station_address": "太原市小店区平阳路1号金茂大厦1幢裙楼1层C层",
+            "station_lng": "112.572396",
+            "station_lat": "37.742323",
+            "station_code": "140105020900",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区207社区卫生服务站",
+            "station_address": "太原市小店区长治路196号上街小区4幢1层1012号",
+            "station_lng": "112.56926",
+            "station_lat": "37.816966",
+            "station_code": "140105021000",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区长治路社区卫生服务站",
+            "station_address": "太原市小店区长风街108-8号",
+            "station_lng": "112.571038",
+            "station_lat": "37.821463",
+            "station_code": "140105021300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区南环社区卫生服务站",
+            "station_address": "太原市小店区南环四巷黄河大酒店后门北100米",
+            "station_lng": "112.557943",
+            "station_lat": "37.841781",
+            "station_code": "140105021700",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区滨东社区卫生服务站",
+            "station_address": "太原市小店区长风南二巷御公馆3-6号楼17号商铺",
+            "station_lng": "112.556458",
+            "station_lat": "37.81939",
+            "station_code": "140105021800",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区前进社区卫生服务站",
+            "station_address": "太原市小店区前进社区卫生服务站",
+            "station_lng": "112.564032",
+            "station_lat": "37.819954",
+            "station_code": "140105021900",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区文化苑社区卫生服务站",
+            "station_address": "小店区长治路199号",
+            "station_lng": "112.566124",
+            "station_lat": "37.820607",
+            "station_code": "140105022000",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区大马社区卫生服务站",
+            "station_address": "太原市小店区大马中路大马大马北高层门口门面房二层",
+            "station_lng": "112.555085",
+            "station_lat": "37.809549",
+            "station_code": "140105022100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区6904社区卫生服务站",
+            "station_address": "太原市小店区平阳路132号6904小区内",
+            "station_lng": "112.561101",
+            "station_lat": "37.804603",
+            "station_code": "140105022200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区平北西一社区卫生服务站",
+            "station_address": "太原市小店区平阳路西二巷御龙庭9005",
+            "station_lng": "112.558081",
+            "station_lat": "37.834629",
+            "station_code": "140105022300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区平北西二社区卫生服务站",
+            "station_address": "平阳路南内环街南四巷36号万厦华府3幢2单元1层0102号",
+            "station_lng": "112.556367",
+            "station_lat": "37.832801",
+            "station_code": "140105022400",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区体育路社区卫生服务站",
+            "station_address": "太原市小店区体育路215号",
+            "station_lng": "112.575509",
+            "station_lat": "37.82894",
+            "station_code": "140105022500",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "山西和谐医疗健康中心",
+            "station_address": "山西综改示范区太原学府园区晋阳街200号和谐大厦1-8层",
+            "station_lng": "112.551265",
+            "station_lat": "37.79462",
+            "station_code": "140105024100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "坞城社区卫生服务中心",
+            "station_address": "坞城社区卫生服务中心",
+            "station_lng": "112.588059",
+            "station_lat": "37.796531",
+            "station_code": "140105030100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太航医院",
+            "station_address": "太原市太航医院",
+            "station_lng": "112.582155",
+            "station_lat": "37.828506",
+            "station_code": "140105030200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "通用环球中铁太原医院",
+            "station_address": "太原市小店区坞城东街2号",
+            "station_lng": "112.595354",
+            "station_lat": "37.818228",
+            "station_code": "140105030300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "省妇幼云水院区预防接种门诊",
+            "station_address": "太原市小店区长治路310号",
+            "station_lng": "112.568911",
+            "station_lat": "37.797081",
+            "station_code": "140105030400",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "山西贞德妇儿医院",
+            "station_address": "小店区坞城路99号",
+            "station_lng": "112.590848",
+            "station_lat": "37.805498",
+            "station_code": "140105030800",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区开元社区卫生服务站",
+            "station_address": "太原市小店区开元社区卫生服务站",
+            "station_lng": "112.57768",
+            "station_lat": "37.807547",
+            "station_code": "140105030900",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区八一社区卫生服务站",
+            "station_address": "小店区坞城北街63军大门西南4号楼",
+            "station_lng": "112.58351",
+            "station_lat": "37.821935",
+            "station_code": "140105031000",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区锦绣苑社区卫生服务站",
+            "station_address": "南中环千禧锦绣苑18号楼商铺",
+            "station_lng": "112.576741",
+            "station_lat": "37.801794",
+            "station_code": "140105031100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "山西工商学院",
+            "station_address": "经济区开新街",
+            "station_lng": "112.587875",
+            "station_lat": "37.773653",
+            "station_code": "140105034100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "山西财经大学",
+            "station_address": "经济区开新街",
+            "station_lng": "112.595713",
+            "station_lat": "37.797364",
+            "station_code": "140105034200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "营盘社区卫生服务中心",
+            "station_address": "山西省太原市小店区营盘街办狄公巷2号",
+            "station_lng": "112.588945",
+            "station_lat": "37.836889",
+            "station_code": "140105040100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区长治路三社区卫生服务站",
+            "station_address": "太原市小店区长治路72-2号阳光华庭1号楼2号商铺",
+            "station_lng": "112.56828",
+            "station_lat": "37.83792",
+            "station_code": "140105040200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区并南西一社区卫生服务站",
+            "station_address": "太原市小店区并州南路西一巷12号",
+            "station_lng": "112.57964",
+            "station_lat": "37.834668",
+            "station_code": "140105040300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区南内环二社区卫生服务站",
+            "station_address": "小店区寇庄北街10号裕华苑底商1号",
+            "station_lng": "112.57063",
+            "station_lat": "37.842075",
+            "station_code": "140105040400",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "黄陵社区卫生服务中心",
+            "station_address": "黄陵路西二巷",
+            "station_lng": "112.61459",
+            "station_lat": "37.786856",
+            "station_code": "140105050100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "荣军医院",
+            "station_address": "山西省太原市的小店区荣军南街11号",
+            "station_lng": "112.610812",
+            "station_lat": "37.785854",
+            "station_code": "140105050200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "民航防疫站",
+            "station_address": "山西省太原市小店区太榆路199号",
+            "station_lng": "112.647449",
+            "station_lat": "37.766778",
+            "station_code": "140105050300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区小吴社区卫生服务站",
+            "station_address": "太原市小店区颐龙佳园C区1号楼4单元102、5单元101号门面房",
+            "station_lng": "112.607318",
+            "station_lat": "37.784827",
+            "station_code": "140105050400",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "小店区煤机社区卫生服务站",
+            "station_address": "太原市小店区北营南路37号",
+            "station_lng": "112.643466",
+            "station_lat": "37.788801",
+            "station_code": "140105050500",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市急救中心（太原市第九人民医院）",
+            "station_address": "太原市急救中心太原市第九人民医院",
+            "station_lng": "112.553975",
+            "station_lat": "37.980438",
+            "station_code": "140105054100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "北营社区卫生服务中心",
+            "station_address": "小店区许坦东街府园东居1号楼商铺东一号",
+            "station_lng": "112.610839",
+            "station_lat": "37.8098",
+            "station_code": "140105060100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区许坦一社区卫生服务中心",
+            "station_address": "小店区许坦东街26-2号1幢1层1001.1002.1003号",
+            "station_lng": "112.625043",
+            "station_lat": "37.806894",
+            "station_code": "140105060200",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区北营街道肉联社区卫生服务站",
+            "station_address": "太原市小店区太榆路73号学府逸居小区B座4.5.6号商铺",
+            "station_lng": "112.599119",
+            "station_lat": "37.808879",
+            "station_code": "140105060300",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区许西社区卫生服务站",
+            "station_address": "许西南商业街东12号",
+            "station_lng": "112.599918",
+            "station_lat": "37.803918",
+            "station_code": "140105060400",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "太原市小店区山针社区卫生服务站",
+            "station_address": "太原市小店区晋阳街115号",
+            "station_lng": "112.604867",
+            "station_lat": "37.795835",
+            "station_code": "140105060500",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "北格中心医院",
+            "station_address": "太原市小店区北格镇新建街北段路东",
+            "station_lng": "112.547928",
+            "station_lat": "37.654839",
+            "station_code": "140105070100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "刘家堡医院",
+            "station_address": "太原市小店区刘家堡乡刘家堡村",
+            "station_lng": "112.486157",
+            "station_lat": "37.649872",
+            "station_code": "140105080100",
+            "is_number": "0",
+            "is_smart": "0"
+        },
+        {
+            "station_name": "西温庄卫生院",
+            "station_address": "太原市小店区西温庄乡西温庄村西",
+            "station_lng": "112.633811",
+            "station_lat": "37.733624",
+            "station_code": "140105090100",
+            "is_number": "0",
+            "is_smart": "0"
+        }
+    ],
+    "message": "获取接种地点列表成功！",
+    "success": true
+}
