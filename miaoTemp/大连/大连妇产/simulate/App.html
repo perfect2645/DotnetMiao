@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./common.js"></script>
+</head>
+<body>
+    <script>
+        const path = "/home/homePage";
+        const parameters = {pageSize: "2", annPageSize: "1"};
+
+        const callback = function(a, b){
+            console.log(1);
+        }
+
+        miniRequest(path, parameters, callback);
+    </script>
+</body>
+</html>
