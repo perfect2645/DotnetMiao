@@ -4,7 +4,7 @@ function r(r, n) {
       ((r[(a + e) % c] << o) & 255) + ((r[(a + e + 1) % c] >>> (8 - o)) & 255);
   return t;
 }
-function n(r, n) {
+function sm3N(r, n) {
   for (var t = [], e = r.length - 1; e >= 0; e--) t[e] = 255 & (r[e] ^ n[e]);
   return t;
 }
@@ -16,7 +16,7 @@ function e(r, n) {
   for (var t = [], e = r.length - 1; e >= 0; e--) t[e] = 255 & (r[e] | n[e]);
   return t;
 }
-function o(r, n) {
+function sm3O(r, n) {
   for (var t = [], e = 0, o = r.length - 1; o >= 0; o--) {
     var a = r[o] + n[o] + e;
     a > 255 ? ((e = 1), (t[o] = 255 & a)) : ((e = 0), (t[o] = 255 & a));
@@ -24,14 +24,16 @@ function o(r, n) {
   return t;
 }
 function a(t) {
-  return n(n(t, r(t, 9)), r(t, 17));
+  return sm3N(sm3N(t, r(t, 9)), r(t, 17));
 }
 function c(r, o, a, c) {
-  return c >= 0 && c <= 15 ? n(n(r, o), a) : e(e(t(r, o), t(r, a)), t(o, a));
+  return c >= 0 && c <= 15
+    ? sm3N(sm3N(r, o), a)
+    : e(e(t(r, o), t(r, a)), t(o, a));
 }
 function u(r, o, a, c) {
   return c >= 0 && c <= 15
-    ? n(n(r, o), a)
+    ? sm3N(sm3N(r, o), a)
     : e(
         t(r, o),
         t(
@@ -43,23 +45,23 @@ function u(r, o, a, c) {
         )
       );
 }
-function f(t, e) {
+function sm3f(t, e) {
   for (var f, l = [], i = [], s = 0; s < 16; s++) {
     var v = 4 * s;
     l.push(e.slice(v, v + 4));
   }
   for (var h = 16; h < 68; h++)
     l.push(
-      n(
-        n(
-          ((f = n(n(l[h - 16], l[h - 9]), r(l[h - 3], 15))),
-          n(n(f, r(f, 15)), r(f, 23))),
+      sm3N(
+        sm3N(
+          ((f = sm3N(sm3N(l[h - 16], l[h - 9]), r(l[h - 3], 15))),
+          sm3N(sm3N(f, r(f, 15)), r(f, 23))),
           r(l[h - 13], 7)
         ),
         l[h - 6]
       )
     );
-  for (var g = 0; g < 64; g++) i.push(n(l[g], l[g + 4]));
+  for (var g = 0; g < 64; g++) i.push(sm3N(l[g], l[g + 4]));
   for (
     var p,
       m,
@@ -80,9 +82,9 @@ function f(t, e) {
     B++
   ) {
     var C = B >= 0 && B <= 15 ? A : b;
-    (m = n((p = r(o(o(r(I, 12), j), r(C, B)), 7)), r(I, 12))),
-      (w = o(o(o(c(I, d, x, B), S), m), i[B])),
-      (y = o(o(o(u(j, k, q, B), z), p), l[B])),
+    (m = sm3N((p = r(sm3O(sm3O(r(I, 12), j), r(C, B)), 7)), r(I, 12))),
+      (w = sm3O(sm3O(sm3O(c(I, d, x, B), S), m), i[B])),
+      (y = sm3O(sm3O(sm3O(u(j, k, q, B), z), p), l[B])),
       (S = x),
       (x = r(d, 9)),
       (d = I),
@@ -92,7 +94,7 @@ function f(t, e) {
       (k = j),
       (j = a(y));
   }
-  return n([].concat(I, d, x, S, j, k, q, z), t);
+  return sm3N([].concat(I, d, x, S, j, k, q, z), t);
 }
 var sm3 = function (r) {
   var n = 8 * r.length,
@@ -119,7 +121,7 @@ var sm3 = function (r) {
     h++
   ) {
     var g = 64 * h;
-    v = f(v, i.slice(g, g + 64));
+    v = sm3f(v, i.slice(g, g + 64));
   }
   return v;
 };
@@ -128,6 +130,6 @@ for (var i = new Array(64), s = new Array(64), v = 0; v < 64; v++)
 
 var hmac = function (r, t) {
   for (t.length > 64 && (t = sm3(t)); t.length < 64; ) t.push(0);
-  var e = n(t, i).concat(r);
-  return (e = sm3(e)), (e = sm3((e = n(t, s).concat(e))));
+  var e = sm3N(t, i).concat(r);
+  return (e = sm3(e)), (e = sm3((e = sm3N(t, s).concat(e))));
 };

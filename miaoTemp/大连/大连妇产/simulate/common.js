@@ -91,8 +91,8 @@ function miniRequest(e, t, o) {
         : (s = l());
       var c, u;
       var d = e[r(315)](5),
-        f = i(req);
-      return i(s + e + d + f);
+        f = sm3index(req);
+      return sm3index(s + e + d + f);
     })(x, 0, t, y);
   y >= 0
     ? ((w = 0), (h = 99))

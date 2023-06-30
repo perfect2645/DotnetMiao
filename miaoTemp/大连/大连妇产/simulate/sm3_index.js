@@ -1,6 +1,6 @@
 var e = sm3;
 var t = hmac;
-function n(r) {
+function sm3IndexN(r) {
   return r
     .map(function (r) {
       return 1 === (r = r.toString(16)).length ? "0" + r : r;
@@ -53,8 +53,8 @@ var sm3index = function (r, s) {
     if (!u) throw new Error("invalid key");
     return (
       (u = "string" == typeof u ? o(u) : Array.prototype.slice.call(u)),
-      n(t(r, u))
+      sm3IndexN(t(r, u))
     );
   }
-  return n(e(r));
+  return sm3IndexN(e(r));
 };
