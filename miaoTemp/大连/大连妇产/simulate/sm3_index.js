@@ -1,6 +1,5 @@
-var r = require("./sm3"),
-  e = r.sm3,
-  t = r.hmac;
+var e = sm3;
+var t = hmac;
 function n(r) {
   return r
     .map(function (r) {
@@ -20,7 +19,7 @@ function o(r) {
   for (var s = 0; s < o; s += 2) n.push(parseInt(r.substr(s, 2), 16));
   return n;
 }
-module.exports = function (r, s) {
+var sm3index = function (r, s) {
   if (
     ((r =
       "string" == typeof r

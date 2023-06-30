@@ -94,7 +94,7 @@ function f(t, e) {
   }
   return n([].concat(I, d, x, S, j, k, q, z), t);
 }
-function l(r) {
+var sm3 = function (r) {
   var n = 8 * r.length,
     t = n % 512;
   t = t >= 448 ? 512 - (t % 448) - 1 : 448 - t - 1;
@@ -122,12 +122,12 @@ function l(r) {
     v = f(v, i.slice(g, g + 64));
   }
   return v;
-}
+};
 for (var i = new Array(64), s = new Array(64), v = 0; v < 64; v++)
   (i[v] = 54), (s[v] = 92);
 
 var hmac = function (r, t) {
-  for (t.length > 64 && (t = l(t)); t.length < 64; ) t.push(0);
+  for (t.length > 64 && (t = sm3(t)); t.length < 64; ) t.push(0);
   var e = n(t, i).concat(r);
-  return (e = l(e)), (e = l((e = n(t, s).concat(e))));
+  return (e = sm3(e)), (e = sm3((e = n(t, s).concat(e))));
 };

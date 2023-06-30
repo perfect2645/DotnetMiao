@@ -1,4 +1,4 @@
-var parameters =
+var req =
   '{"appId":"wxa794c2a4fcfeb7f4","openId":null,"hospId":10018,"hospitalId":10018}';
 
 var e = function _typeof(o) {
@@ -46,7 +46,7 @@ function t(e, a) {
       o.push(o.shift());
     }
 })();
-var n = {
+var nGlobalData = {
   globalData: {
     appid: "wxa794c2a4fcfeb7f4",
     appointmentCancleTmpl: "XkV9bhx48huOPgvXtkZXRsi3xhruS0yFCME9FXkc9Jo",
@@ -63,10 +63,10 @@ var n = {
 // r = require(a(220));
 function miniRequest(e, t, o) {
   var r = a;
-  (t[r(318)] = n.globalData[r(319)]),
-    (t[r(277)] = n[r(279)].openId),
-    (t.hospId = n[r(279)][r(306)]),
-    (t[r(306)] = n[r(279)].hospitalId);
+  (t[r(318)] = nGlobalData.globalData.appid),
+    (t[r(277)] = nGlobalData[r(279)].openId),
+    (t.hospId = nGlobalData[r(279)][r(306)]),
+    (t[r(306)] = nGlobalData[r(279)].hospitalId);
   var i,
     s,
     c,
@@ -75,10 +75,10 @@ function miniRequest(e, t, o) {
     g = new Date()[r(231)](),
     h = 5,
     v = r(248),
-    w = n[r(279)][r(246)],
+    w = nGlobalData[r(279)][r(246)],
     x = d(),
     m = e[r(301)]("/"),
-    I = n[r(279)][r(323)][r(301)]("/"),
+    I = nGlobalData[r(279)][r(323)][r(301)]("/"),
     y = m[r(312)]("d3"),
     S = I.indexOf("v1"),
     b = (function (e, t, n, o) {
@@ -91,7 +91,7 @@ function miniRequest(e, t, o) {
         : (s = l());
       var c, u;
       var d = e[r(315)](5),
-        f = i(parameters);
+        f = i(req);
       return i(s + e + d + f);
     })(x, 0, t, y);
   y >= 0
@@ -112,7 +112,7 @@ function miniRequest(e, t, o) {
     D,
     T,
     P = "";
-  n[r(279)][r(244)]
+  nGlobalData[r(279)][r(244)]
     ? ((k = w),
       (q = a),
       (D = require(q(327))),
@@ -123,7 +123,7 @@ function miniRequest(e, t, o) {
     : (P = w),
     console[r(274)](r(314), P),
     wx[r(219)]({
-      url: n.globalData.baseUrl + e,
+      url: nGlobalData.globalData.baseUrl + e,
       data: t,
       header: {
         "content-type": r(255),
@@ -134,10 +134,10 @@ function miniRequest(e, t, o) {
         appVersion: v,
         nonce: x,
         signature: b,
-        hospitalId: n[r(279)][r(306)],
+        hospitalId: nGlobalData[r(279)][r(306)],
         userId: P,
-        token: n[r(279)].token ? n[r(279)].token : "",
-        appId: n[r(279)].appid,
+        token: nGlobalData[r(279)].token ? nGlobalData[r(279)].token : "",
+        appId: nGlobalData[r(279)].appid,
       },
       method: r(252),
       dataType: r(305),
@@ -172,7 +172,7 @@ function s(e, t) {
         (p = (l = a)(263)),
         (f = {
           code: s,
-          appId: n[l(279)][l(319)],
+          appId: nGlobalData[l(279)][l(319)],
         }),
         i(p, f, function (e, a) {
           var t = l;
@@ -180,8 +180,8 @@ function s(e, t) {
             var o,
               r = a[t(321)][t(321)];
             r[t(254)]
-              ? ((n[t(279)][t(277)] = r.openid), (o = r.openid))
-              : ((n[t(279)][t(277)] = a[t(321)][t(321)]), (o = r)),
+              ? ((nGlobalData[t(279)][t(277)] = r.openid), (o = r.openid))
+              : ((nGlobalData[t(279)][t(277)] = a[t(321)][t(321)]), (o = r)),
               wx[t(264)]({
                 key: t(277),
                 data: o,
@@ -203,21 +203,22 @@ function s(e, t) {
 function c(e, t) {
   var o = a,
     r = {};
-  (r[o(318)] = n[o(279)][o(319)]),
-    (r[o(277)] = n[o(279)][o(277)]),
+  (r[o(318)] = nGlobalData[o(279)][o(319)]),
+    (r[o(277)] = nGlobalData[o(279)][o(277)]),
     (r[o(229)] = new Date()[o(231)]()),
     i(o(232), r, function (e, a) {
       var r = o;
       0 == a[r(321)][r(266)]
-        ? ((n[r(279)][r(236)] = a[r(321)][r(321)][r(302)].phoneNo),
-          (n.globalData[r(246)] = a.data.data[r(302)].userId),
-          (n[r(279)][r(332)] = a[r(321)].data[r(302)][r(332)]),
-          (n[r(279)][r(270)] = a[r(321)][r(321)].h5SignInResp[r(270)]),
-          (n[r(279)].txAccountId = a[r(321)][r(321)][r(302)][r(329)]),
-          (n[r(279)][r(246)] = a[r(321)].data[r(302)].userId),
-          (n.globalData.token = a[r(321)].data[r(302)][r(215)]),
+        ? ((nGlobalData[r(279)][r(236)] = a[r(321)][r(321)][r(302)].phoneNo),
+          (nGlobalData.globalData[r(246)] = a.data.data[r(302)].userId),
+          (nGlobalData[r(279)][r(332)] = a[r(321)].data[r(302)][r(332)]),
+          (nGlobalData[r(279)][r(270)] =
+            a[r(321)][r(321)].h5SignInResp[r(270)]),
+          (nGlobalData[r(279)].txAccountId = a[r(321)][r(321)][r(302)][r(329)]),
+          (nGlobalData[r(279)][r(246)] = a[r(321)].data[r(302)].userId),
+          (nGlobalData.globalData.token = a[r(321)].data[r(302)][r(215)]),
           console[r(274)]("app.globalData.patientId"),
-          console.log(n[r(279)].patientId),
+          console.log(nGlobalData[r(279)].patientId),
           wx[r(264)]({
             key: r(309),
             data: a[r(321)][r(321)][r(221)],
@@ -234,7 +235,7 @@ function u(e) {
   wx[t(217)]({
     title: e,
     icon: t(298),
-    duration: n[t(279)][t(340)],
+    duration: nGlobalData[t(279)][t(340)],
   });
 }
 function d() {
@@ -415,14 +416,14 @@ function f() {
 }
 function g(e) {
   var t = a;
-  n.globalData[t(242)] && e("0", n[t(279)][t(242)]),
+  nGlobalData.globalData[t(242)] && e("0", nGlobalData[t(279)][t(242)]),
     new r({
-      key: n[t(279)][t(256)],
+      key: nGlobalData[t(279)][t(256)],
     })[t(211)]({
-      sig: n[t(279)][t(269)],
+      sig: nGlobalData[t(279)][t(269)],
       success: function (a) {
         var o = t;
-        (n[o(279)][o(242)] = a), e("0", a);
+        (nGlobalData[o(279)][o(242)] = a), e("0", a);
       },
       fail: function (e) {},
       complete: function (e) {},
