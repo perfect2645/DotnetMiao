@@ -8,11 +8,11 @@ function sm3N(r, n) {
   for (var t = [], e = r.length - 1; e >= 0; e--) t[e] = 255 & (r[e] ^ n[e]);
   return t;
 }
-function t(r, n) {
+function sm3T(r, n) {
   for (var t = [], e = r.length - 1; e >= 0; e--) t[e] = r[e] & n[e] & 255;
   return t;
 }
-function e(r, n) {
+function sm3E(r, n) {
   for (var t = [], e = r.length - 1; e >= 0; e--) t[e] = 255 & (r[e] | n[e]);
   return t;
 }
@@ -23,20 +23,20 @@ function sm3O(r, n) {
   }
   return t;
 }
-function a(t) {
+function sm3A(t) {
   return sm3N(sm3N(t, r(t, 9)), r(t, 17));
 }
-function c(r, o, a, c) {
+function sm3C(r, o, a, c) {
   return c >= 0 && c <= 15
     ? sm3N(sm3N(r, o), a)
-    : e(e(t(r, o), t(r, a)), t(o, a));
+    : sm3E(sm3E(sm3T(r, o), sm3T(r, a)), sm3T(o, a));
 }
-function u(r, o, a, c) {
+function sm3U(r, o, a, c) {
   return c >= 0 && c <= 15
     ? sm3N(sm3N(r, o), a)
-    : e(
-        t(r, o),
-        t(
+    : sm3E(
+        sm3T(r, o),
+        sm3T(
           (function (r) {
             for (var n = [], t = r.length - 1; t >= 0; t--) n[t] = 255 & ~r[t];
             return n;
@@ -83,8 +83,8 @@ function sm3f(t, e) {
   ) {
     var C = B >= 0 && B <= 15 ? A : b;
     (m = sm3N((p = r(sm3O(sm3O(r(I, 12), j), r(C, B)), 7)), r(I, 12))),
-      (w = sm3O(sm3O(sm3O(c(I, d, x, B), S), m), i[B])),
-      (y = sm3O(sm3O(sm3O(u(j, k, q, B), z), p), l[B])),
+      (w = sm3O(sm3O(sm3O(sm3C(I, d, x, B), S), m), i[B])),
+      (y = sm3O(sm3O(sm3O(sm3U(j, k, q, B), z), p), l[B])),
       (S = x),
       (x = r(d, 9)),
       (d = I),
@@ -92,7 +92,7 @@ function sm3f(t, e) {
       (z = q),
       (q = r(k, 19)),
       (k = j),
-      (j = a(y));
+      (j = sm3A(y));
   }
   return sm3N([].concat(I, d, x, S, j, k, q, z), t);
 }
