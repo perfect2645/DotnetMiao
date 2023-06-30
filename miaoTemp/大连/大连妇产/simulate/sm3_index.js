@@ -7,7 +7,7 @@ function sm3IndexN(r) {
     })
     .join("");
 }
-function o(r) {
+function ms3O(r) {
   var e,
     t,
     n = [],
@@ -52,7 +52,7 @@ var sm3index = function (r, s) {
     var u = s.key;
     if (!u) throw new Error("invalid key");
     return (
-      (u = "string" == typeof u ? o(u) : Array.prototype.slice.call(u)),
+      (u = "string" == typeof u ? ms3O(u) : Array.prototype.slice.call(u)),
       sm3IndexN(t(r, u))
     );
   }
