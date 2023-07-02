@@ -99,12 +99,12 @@ function miniRequest(e, t, o) {
     : S > 0 &&
       ((i = t),
       (s = a),
-      (c = require("sm4_index.js")),
-      require(s(238)),
+      // (c = require("sm4_index.js")),
+      // require(s(238)),
       (u = p()),
       (f = JSON.stringify(i)),
       (t = {
-        requestData: c[s(303)](f, u),
+        requestData: encrypt(f, u),
       })),
     console[r(274)](r(246), w);
   var k,
