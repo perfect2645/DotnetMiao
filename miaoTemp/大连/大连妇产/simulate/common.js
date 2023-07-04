@@ -1,3 +1,4 @@
+var requestResult = {};
 var req =
   '{"appId":"wxa794c2a4fcfeb7f4","openId":null,"hospId":10018,"hospitalId":10018}';
 
@@ -105,8 +106,12 @@ function miniRequest(e, t, o) {
       (f = JSON.stringify(i)),
       (t = {
         requestData: encrypt(f, u),
-      })),
-    console[r(274)](r(246), w);
+      }),
+      (enc = t));
+  requestResult.request = enc;
+  requestResult.timestamp = g;
+  requestResult.nonce = x;
+  return requestResult;
   var k,
     q,
     D,
