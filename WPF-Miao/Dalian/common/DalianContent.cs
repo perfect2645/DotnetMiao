@@ -1,6 +1,8 @@
 ﻿using Dalian.login;
 using Dalian.session;
 using HttpProcessor.Content;
+using System;
+using System.Collections.Generic;
 using Utils;
 using Utils.datetime;
 
@@ -9,38 +11,48 @@ namespace Dalian.common
     internal class DalianContent : HttpStringContent
     {
         public DalianLogin User { get; private set; }
+        public Dictionary<string, string> Parameters { get; private set; }
+        public Dictionary<string, object> RequestData { get; private set; }
 
         public DalianContent(string baseUrl, DalianLogin user) : base(baseUrl)
         {
+            ContentType= "application/json";
             User = user;
-            var timestamp = DateTimeUtil.GetTimeStamp();
-            RequestUrl = $"{baseUrl}{timestamp}";
+            Parameters = new Dictionary<string, string>();
+            RequestData = new Dictionary<string, object>();
+            BuildRequestData();
+            BuildHeader();
+        }
+
+        protected virtual void BuildRequestData()
+        {
+
+
+            AddContent("requestData", RequestData.GetString("requestData"));
         }
 
         protected virtual void BuildHeader()
         {
             var appid = MainSession.PlatformSession.GetString(Constants.AppId);
+            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
             AddHeader("Host", "hlwyy.dlfeyljt.com");
             AddHeader("Connection", "keep-alive");
             AddHeader("Accept", "application/json, text/plain, */*");
             AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
             AddHeader("appId", appid);
-
-
-
-
-            AddHeader("Cookie", $"{User.Session} imed_session_tm={User.SessionTime}");
-            AddHeader("Sec-Fetch-Site", "same-origin");
-            AddHeader("Sec-Fetch-Mode", "cors");
-            AddHeader("Sec-Fetch-Dest", "empty");
-
-            //var hosCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            //var firstDept = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
-            //var secondDept = MainSession.PlatformSession.GetString(Constants.DeptId);
-            //AddHeader("Referer", $"https://www.114yygh.com/wechat/hospital/submission?hosCode={hosCode}&firstDeptCode={firstDept}&secondDeptCode={secondDept}&target=2023-06-07&uniqProductKey=d1df4e7ea2a52c67dd66aa07ef5dee19b79d358e&dutyTime=202306071302-202306071626");
+            AddHeader("appKind", "1");
+            AddHeader("appMark", "1");
+            AddHeader("appType", "5");
+            AddHeader("appVersion", "1.0");
+            AddHeader("hospitalId", hosId);
+            AddHeader("token", User.Token);
+            AddHeader("userId", User.UserId);
+            AddHeader("Referer", "https://servicewechat.com/wxa794c2a4fcfeb7f4/44/page-frame.html");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+            AddHeader("nonce", RequestData.GetString("nonce"));
+            AddHeader("signature", RequestData.GetString("signature"));
+            AddHeader("timestamp", RequestData.GetString("timestamp"));
         }
     }
 }

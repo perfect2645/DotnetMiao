@@ -14,39 +14,34 @@ namespace Dalian.appointment
         public YuyueContent(Order order, DalianLogin user) : base(baseUrl, user)
         {
             Order = order;
-            BuildHeader();
-            BuildContent();
         }
 
-        protected override void BuildHeader()
+        protected override void BuildRequestData()
         {
-            base.BuildHeader();
-            BuildReferer();
-        }
-
-        private void BuildReferer()
-        {
-            var hosCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var firstDept = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
-            var secondDept = MainSession.PlatformSession.GetString(Constants.DeptId);
-            AddHeader("Referer", $"https://www.114yygh.com/wechat/hospital/submission?hosCode={hosCode}&firstDeptCode={firstDept}&secondDeptCode={secondDept}&target={Order.TreatmentDay}&uniqProductKey={Order.UniqProductKey}&dutyTime={Order.DutyTime}");
-        }
-
-        private void BuildContent()
-        {
-            AddContent("hosCode", Order.HosCode);
-            AddContent("firstDeptCode", Order.FirstDeptCode);
-            AddContent("secondDeptCode", Order.SecondDeptCode);
-            AddContent("treatmentDay", Order.TreatmentDay);
-            AddContent("uniqProductKey", Order.UniqProductKey);
-            AddContent("cardType", Order.CardType);
-            AddContent("cardNo", Order.CardNo);
-            AddContent("smsCode", Order.SmsCode);
-            AddContent("jytCardId", Order.JytCardId);
-            AddContent("hospitalCardId", Order.HospitalCardId);
-            AddContent("phone", Order.Phone);
-            AddContent("dutyTime", Order.DutyTime);
-            AddContent("orderFrom", Order.OrderFrom);
+            Parameters.AddOrUpdate("pointId", Order.PointId);
+            Parameters.AddOrUpdate("pointName", Order.PointName);
+            Parameters.AddOrUpdate("pointDate", Order.PointDate);
+            Parameters.AddOrUpdate("regLevelId", Order.RegLevelId);
+            Parameters.AddOrUpdate("regLevelName", Order.RegLevelName);
+            Parameters.AddOrUpdate("patientId", Order.UserId);
+            Parameters.AddOrUpdate("drId", Order.DrId);
+            Parameters.AddOrUpdate("visitTime", Order.VisitTime);
+            Parameters.AddOrUpdate("medInsType", string.Empty);
+            Parameters.AddOrUpdate("specialDeptType", string.Empty);
+            Parameters.AddOrUpdate("beginTime", Order.BeginTime);
+            Parameters.AddOrUpdate("endTime", Order.EndTime);
+            Parameters.AddOrUpdate("diagnoseFee", Order.DiagnoseFee);
+            Parameters.AddOrUpdate("noonId", Order.NoonId);
+            Parameters.AddOrUpdate("noonName", Order.NoonName);
+            Parameters.AddOrUpdate("regFee", string.Empty);
+            Parameters.AddOrUpdate("inspectFee", string.Empty);
+            Parameters.AddOrUpdate("hisDeptId", string.Empty);
+            Parameters.AddOrUpdate("referenceCode", string.Empty);
+            Parameters.AddOrUpdate("appId", Order.AppId);
+            Parameters.AddOrUpdate("openId", Order.OpenId);
+            Parameters.AddOrUpdate("hospId", Order.HospId);
+            Parameters.AddOrUpdate("hospitalId", Order.HospId);
+            base.BuildRequestData();
         }
     }
 }
