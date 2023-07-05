@@ -19,12 +19,16 @@ namespace Dalian.common
 
         protected virtual void BuildHeader()
         {
-            AddHeader("Host", "www.114yygh.com");
+            var appid = MainSession.PlatformSession.GetString(Constants.AppId);
+
+            AddHeader("Host", "hlwyy.dlfeyljt.com");
             AddHeader("Connection", "keep-alive");
             AddHeader("Accept", "application/json, text/plain, */*");
-            AddHeader("Origin", "https://www.114yygh.com");
-            AddHeader("Request-Source", "WE_CHAT");
-            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)");
+            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
+            AddHeader("appId", appid);
+
+
+
 
             AddHeader("Cookie", $"{User.Session} imed_session_tm={User.SessionTime}");
             AddHeader("Sec-Fetch-Site", "same-origin");

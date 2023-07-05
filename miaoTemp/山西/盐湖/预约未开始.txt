@@ -1,0 +1,22 @@
+GET https://hpvapi.yhqcdc.cn/qw/tech/checkOk?idCard=142601199505174448&name=%E5%8D%A2%E5%AF%86%E5%AF%86&protype=1676125913636573185&mobile=18535992259 HTTP/1.1
+Host: hpvapi.yhqcdc.cn
+Origin: http://hpv.yhqcdc.cn
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/WIFI Language/zh_CN
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Referer: http://hpv.yhqcdc.cn/
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200
+Server: nginx/1.21.3
+Date: Wed, 05 Jul 2023 13:40:55 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: http://hpv.yhqcdc.cn
+Access-Control-Allow-Credentials: true
+Content-Length: 97
+
+{"success":false,"message":"预约未开始！","code":0,"result":null,"timestamp":1688564455952}

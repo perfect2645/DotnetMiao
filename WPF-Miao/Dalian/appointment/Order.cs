@@ -8,19 +8,23 @@ namespace Dalian.appointment
         public string UserName { get; set; }
         public string UserId { get; set; }
 
-        public string HosCode { get; set; }
-        public string FirstDeptCode { get; set; }
-        public string SecondDeptCode { get; set; }
-        public string TreatmentDay { get; set; }
-        public string UniqProductKey { get; set; }
-        public string CardType { get; set; }
-        public string CardNo { get; set; }
-        public string SmsCode { get; set; }
-        public string JytCardId { get; set; }
-        public string HospitalCardId { get; set; }
-        public string Phone { get; set; }
-        public string DutyTime { get; set; }
-        public string OrderFrom { get; set; } = "OTHER";
+        public string PointId { get; set; }
+        public string PointName { get; set; }
+        public string PointDate { get; set; }
+        public string RegLevelId { get; set; }
+        public string RegLevelName { get; set; }
+        public string DeptId { get; set; }
+        public string DrId { get; set; }
+        public string VisitTime { get; set; }
+        public string BeginTime { get; set; }
+        public string EndTime { get; set; }
+        public string DiagnoseFee { get; set; } = "8.00";
+        public string NoonId { get; set; }
+        public string NoonName { get; set; }
+        public string AppId { get; set; }
+        public string OpenId { get; set; }
+        public string HospId { get; set; }
+
         public string OrderNo { get; set; }
 
         public string ResultMsg { get; set; }
@@ -35,11 +39,13 @@ namespace Dalian.appointment
 
             sb.AppendLine($"姓名 - {UserName}");
             sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"SecondDeptCode - {SecondDeptCode}");
-            sb.AppendLine($"TreatmentDay - {TreatmentDay}");
-            sb.AppendLine($"DutyTime - {DutyTime}");
-            sb.AppendLine($"UniqProductKey - {UniqProductKey}");
+            sb.AppendLine($"PointId - {PointId}");
+            sb.AppendLine($"RegLevelName - {RegLevelName}");
+            sb.AppendLine($"PointName - {PointName}");
+            sb.AppendLine($"PointDate - {PointDate}");
+            sb.AppendLine($"VisitTime - {VisitTime}");
+            sb.AppendLine($"Time - {BeginTime}-{EndTime}");
+            sb.AppendLine($"VisitTime - {VisitTime}");
             sb.AppendLine($"OrderNo - {OrderNo}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");

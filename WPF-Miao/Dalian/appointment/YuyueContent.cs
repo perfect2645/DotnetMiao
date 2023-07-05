@@ -9,7 +9,7 @@ namespace Dalian.appointment
 {
     internal class YuyueContent : DalianContent
     {
-        private static string baseUrl = "https://www.114yygh.com/mobile/order/save?_time=";
+        private static string baseUrl = "https://hlwyy.dlfeyljt.com/patient/v1/appoint/regPoint";
         public Order Order { get; private set; }
         public YuyueContent(Order order, DalianLogin user) : base(baseUrl, user)
         {

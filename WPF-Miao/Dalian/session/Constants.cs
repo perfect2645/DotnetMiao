@@ -4,6 +4,6 @@ namespace Dalian.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string FirstDeptCode = "FirstDeptCode";
+        public const string AppId = "appId";
     }
 }

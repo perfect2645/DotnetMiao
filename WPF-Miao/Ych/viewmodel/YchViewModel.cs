@@ -130,7 +130,7 @@ namespace Ych.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(14).AddMinutes(29).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(13).AddMinutes(29).AddSeconds(55);
             MainSession.StartTime = StartTime;
 
             DateList = new List<DspVal>
@@ -141,19 +141,19 @@ namespace Ych.viewmodel
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
-            {   
-                new YchHospital
-                {
-                    HospitalId = "http://caohuhospital.com",
-                    HospitalName = "漕湖人民医院",
-                    DepartmentId = "1216",
-                    DepartmentName = "九价",
-                },
+            {
                 new YchHospital
                 {
                     HospitalId = "http://www.sz-tpwsy.com",
                     HospitalName = "太平街道卫生院",
                     DepartmentId = "1218",
+                    DepartmentName = "九价",
+                },
+                new YchHospital
+                {
+                    HospitalId = "http://caohuhospital.com",
+                    HospitalName = "漕湖人民医院",
+                    DepartmentId = "1216",
                     DepartmentName = "九价",
                 },
                 new YchHospital
@@ -315,6 +315,7 @@ namespace Ych.viewmodel
                 {
                     foreach (var order in orderList)
                     {
+                        Thread.Sleep(200);
                         if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
                         {
                             return;

@@ -134,12 +134,12 @@ namespace HosTwo.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(20);
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(40);
 
             DateList = new List<DspVal>();
             DateList.Add(new DspVal(DateTime.Today.ToString("yyyyMM")));
