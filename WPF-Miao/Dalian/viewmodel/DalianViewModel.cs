@@ -222,8 +222,8 @@ namespace Dalian.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    var tokenController = HttpServiceController.GetService<TokenController>();
-                    await tokenController.GetTokenAsync(user);
+                    //var tokenController = HttpServiceController.GetService<TokenController>();
+                    //await tokenController.GetTokenAsync(user);
                     var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
@@ -364,16 +364,6 @@ namespace Dalian.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        CardNo = user.CardNo,
-                        CardType = user.CardType,
-                        DutyTime = template.DutyTime,
-                        FirstDeptCode = template.FirstDeptCode,
-                        SecondDeptCode = template.SecondDeptCode,
-                        HosCode = template.HosCode,
-                        OrderFrom = template.OrderFrom,
-                        Phone = user.Phone,
-                        TreatmentDay = template.TreatmentDay,
-                        UniqProductKey = template.UniqProductKey,
                     };
 
                     orderList.Add(order);
@@ -488,7 +478,6 @@ namespace Dalian.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.FirstDeptCode, selectedDept.FirstDeptCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
 
             Log(selectedDept.ToLogString());

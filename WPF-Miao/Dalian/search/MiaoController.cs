@@ -121,7 +121,6 @@ namespace Dalian.search
             //}
 
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var firstDept = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 
             foreach (var schedule in scheduleList)
@@ -138,12 +137,7 @@ namespace Dalian.search
                     var dutyTime = p.GetString("dutyTime");
                     var order = new Order
                     {
-                        DutyTime = dutyTime,
-                        UniqProductKey = uniqProductKey,
-                        FirstDeptCode = firstDept,
-                        HosCode = hosId,
-                        SecondDeptCode = deptId,
-                        TreatmentDay = Date,
+
                     };
                     orderList.Add(order);
                 }

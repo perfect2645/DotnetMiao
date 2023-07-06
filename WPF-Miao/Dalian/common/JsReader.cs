@@ -16,8 +16,9 @@ namespace Dalian.common
             string encodeJs = File.ReadAllText(@"common/encode.js");
             ScriptControl.AddCode(encodeJs);
 
-            string commonJs = File.ReadAllText(@"common/common.js");
-            ScriptControl.AddCode(commonJs);
+            string sm4_index = File.ReadAllText(@"common/sm4_index.js");
+            ScriptControl.AddCode(sm4_index);
+
 
             string sm3 = File.ReadAllText(@"common/sm3.js");
             ScriptControl.AddCode(sm3);
@@ -25,15 +26,16 @@ namespace Dalian.common
             string sm3_index = File.ReadAllText(@"common/sm3_index.js");
             ScriptControl.AddCode(sm3_index);
 
-            string sm4_index = File.ReadAllText(@"common/sm4_index.js");
-            ScriptControl.AddCode(sm4_index);
+            string commonJs = File.ReadAllText(@"common/common.js");
+            ScriptControl.AddCode(commonJs);
+
         }
 
-        public static string GetEncodeString(string path, string parameters )
+        public static object GetEncodeString(string path, string parameters )
         {
             var result = RunScript("Encode", new string[] { path, parameters });
 
-            return result.NotNullString();
+            return result;
         }
 
         private static object RunScript(string method, string[] pars)

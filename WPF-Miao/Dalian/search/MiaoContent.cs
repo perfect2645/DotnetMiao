@@ -22,20 +22,15 @@ namespace Dalian.search
         {
             base.BuildHeader();
 
-            var hosCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var firstDept = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
-            var secondDept = MainSession.PlatformSession.GetString(Constants.DeptId);
-            AddHeader("Referer", $"https://www.114yygh.com/wechat/hospital/source/date?hosCode={hosCode}&firstDeptCode={firstDept}&secondDeptCode={secondDept}&code={secondDept}");
+            
         }
 
         private void BuildContent()
         {
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var firstDeptId = MainSession.PlatformSession.GetString(Constants.FirstDeptCode);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 
             AddContent("hosCode", hosId);
-            AddContent("firstDeptCode", firstDeptId);
             AddContent("secondDeptCode", deptId);
             AddContent("target", Date);
         }

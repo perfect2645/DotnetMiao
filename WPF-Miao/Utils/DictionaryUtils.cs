@@ -65,6 +65,13 @@ namespace Utils
             return json;
         }
 
+        public static string ToJson(this Dictionary<string, string> dic)
+        {
+            var json = JsonSerializer.Serialize(dic, JsonEncoder.JsonOption);
+
+            return json;
+        }
+
         public static bool HasItem(this Dictionary<string, object> dic)
         {
             if (dic == null)

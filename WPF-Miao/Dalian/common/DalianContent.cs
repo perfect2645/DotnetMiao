@@ -11,14 +11,15 @@ namespace Dalian.common
     internal class DalianContent : HttpStringContent
     {
         public DalianLogin User { get; private set; }
-        public Dictionary<string, string> Parameters { get; private set; }
+        public string Path { get; set; }
+        public Dictionary<string, object> Parameters { get; private set; }
         public Dictionary<string, object> RequestData { get; private set; }
 
         public DalianContent(string baseUrl, DalianLogin user) : base(baseUrl)
         {
             ContentType= "application/json";
             User = user;
-            Parameters = new Dictionary<string, string>();
+            Parameters = new Dictionary<string, object>();
             RequestData = new Dictionary<string, object>();
             BuildRequestData();
             BuildHeader();
@@ -26,7 +27,8 @@ namespace Dalian.common
 
         protected virtual void BuildRequestData()
         {
-
+            var jsonParam = Parameters.ToJson();
+            var encodeReq = JsReader.GetEncodeString(Path, jsonParam);
 
             AddContent("requestData", RequestData.GetString("requestData"));
         }
