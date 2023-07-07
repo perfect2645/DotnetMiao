@@ -13,13 +13,14 @@
 <body>
     <script>
         const path = "/other/getStartPics";
-        const parameters = {appId: "wxa794c2a4fcfeb7f4", openId: null, hospId: 10018, hospitalId: 10018};
+        var parameterObj = {appId: "wxa794c2a4fcfeb7f4", openId: null, hospId: 10018, hospitalId: 10018};
+        const req = JSON.stringify(parameterObj);
 
         const callback = function(a, b){
             console.log(1);
         }
 
-        var miniRequestRes = miniRequest(path, parameters, callback);
+        var miniRequestRes = miniRequest(path, parameterObj, callback);
         console.log(miniRequestRes);
 
         // const dec = dec(dec);

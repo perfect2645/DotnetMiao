@@ -1,6 +1,4 @@
 var requestResult = {};
-var req =
-  '{"appId":"wxa794c2a4fcfeb7f4","openId":null,"hospId":10018,"hospitalId":10018}';
 
 a = t;
 function t(e, a) {
@@ -45,10 +43,10 @@ var nGlobalData = {
 // r = require(a(220));
 function miniRequest(e, t, o) {
   var r = a;
-  (t[r(318)] = nGlobalData.globalData.appid),
-    (t[r(277)] = nGlobalData[r(279)].openId),
-    (t.hospId = nGlobalData[r(279)][r(306)]),
-    (t[r(306)] = nGlobalData[r(279)].hospitalId);
+  t[r(318)] = parameterObj.appId;
+  t[r(277)] = parameterObj.openId;
+  t.hospId = parameterObj.hospId;
+  t[r(306)] = parameterObj.hospitalId;
   var i,
     s,
     c,
