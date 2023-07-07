@@ -7,7 +7,7 @@ function t(e, a) {
     return n[(e -= 207)];
   })(e, a);
 }
-!(function (e, a) {
+(function (e, a) {
   for (var n = t, o = f(); ; )
     try {
       if (
