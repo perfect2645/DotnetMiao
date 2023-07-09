@@ -1,7 +1,7 @@
 var requestResult = {};
 
 var nGlobalData = {
-    globalData: {
+    "globalData": {
         appid: "wxa794c2a4fcfeb7f4",
         appointmentCancleTmpl: "XkV9bhx48huOPgvXtkZXRsi3xhruS0yFCME9FXkc9Jo",
         appointmentSuccessTmpl: "HwY-pBZH7gSSE6txEgyUDErtKnrkDtK51letwiPACDk",
@@ -11,10 +11,10 @@ var nGlobalData = {
         cloudLongTmpl: "-DNbE99GuHRXbIs1ZA5ozWMhQzdoLl2ES6_qEgQFCnc",
         compoundName: "",
         consultLongTmpl: "-DNbE99GuHRXbIs1ZA5ozWMhQzdoLl2ES6_qEgQFCnc",
-        escortReviewTmpl: "",
-    },
-}; // o = requirePlugin(a(207)),
-// r = require(a(220));
+        escortReviewTmpl: ""
+    }
+};
+
 function miniRequest(e, t, o) {
     t["appId"] = parameterObj.appId;
     t["openId"] = parameterObj.openId;
@@ -56,73 +56,16 @@ function miniRequest(e, t, o) {
         ? ((w = 0), (h = 99))
         : S > 0 &&
         ((i = t),
-            // (c = require("sm4_index.js")),
-            // require(s(238)),
             (u = p()),
             (f = JSON.stringify(i)),
             (t = {
-                requestData: encrypt(f, u),
+                requestData: encrypt(f, u)
             }),
             (enc = t));
     requestResult.request = enc;
     requestResult.timestamp = g;
     requestResult.nonce = x;
     return requestResult;
-    var k,
-        q,
-        D,
-        T,
-        P = "";
-    nGlobalData["globalData"]["encryptionUserId"]
-        ? ((k = w),
-            (q = a),
-            (D = require(q(327))),
-            require(q(238)),
-            (T = p()),
-            console[q(274)](q(324), T),
-            (P = 0 == k ? "" : D[q(303)](k, T)))
-        : (P = w),
-        console["log"]("userIdEncry", P),
-        wx["request"]({
-            url: nGlobalData.globalData.baseUrl + e,
-            data: t,
-            header: {
-                "content-type": "application/json;charset=UTF-8",
-                timestamp: g,
-                appType: h,
-                appMark: "1",
-                appKind: 1,
-                appVersion: v,
-                nonce: x,
-                signature: b,
-                hospitalId: nGlobalData["globalData"]["hospitalId"],
-                userId: P,
-                token: nGlobalData["globalData"].token
-                    ? nGlobalData["globalData"].token
-                    : "",
-                appId: nGlobalData["globalData"].appid,
-            },
-            method: "POST",
-            dataType: "json",
-            success: function (e) {
-                var a = r;
-                if (-3 == e.data[a(266)])
-                    return (
-                        wx[a(264)]({
-                            key: a(309),
-                            data: "2",
-                        }),
-                        wx[a(289)](),
-                        void wx[a(250)]({
-                            url: a(326),
-                        })
-                    );
-                o(0, e);
-            },
-            fail: function (e) {
-                o(1, e);
-            },
-        });
 }
 
 function d() {
