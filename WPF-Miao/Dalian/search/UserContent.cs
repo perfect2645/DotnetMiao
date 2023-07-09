@@ -17,6 +17,7 @@ namespace Dalian.search
 
         public UserContent(DalianLogin user) : base(baseUrl, user)
         {
+            Path = "/myself/queryPatients";
         }
 
         protected override void BuildHeader()

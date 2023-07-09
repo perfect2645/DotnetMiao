@@ -6,7 +6,7 @@ namespace Dalian.viewmodel
 {
     internal class DalianHospital : HospitalDept
     {
-        public string FirstDeptCode { get; set; }
+        public string AppId { get; set; }
 
         public new string Display 
         {  

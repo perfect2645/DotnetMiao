@@ -153,10 +153,10 @@ namespace Dalian.viewmodel
             {
                 new DalianHospital
                 {
-                    HospitalId = "H08110008",
-                    HospitalName = "航天中心医院",
+                    AppId = "wxa794c2a4fcfeb7f4",
+                    HospitalId = "10018",
+                    HospitalName = "大连妇幼",
                     DepartmentName = "九价HPV疫苗预约",
-                    FirstDeptCode = "hyde_CRMYJZMZ_e15685d5_vir",
                     DepartmentId = "6125",
                 },
                 new DalianHospital
@@ -164,7 +164,6 @@ namespace Dalian.viewmodel
                     HospitalId = "H08110008",
                     HospitalName = "航天中心医院",
                     DepartmentName = "消化科门诊",
-                    FirstDeptCode = "mn_fst_xhk_93dfee",
                     DepartmentId = "1243",
                 }
             };
