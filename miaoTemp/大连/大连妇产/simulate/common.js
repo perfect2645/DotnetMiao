@@ -1,31 +1,5 @@
 var requestResult = {};
 
-a = t;
-function t(e, a) {
-  var n = f();
-  return (t = function (e, a) {
-    return n[(e -= 207)];
-  })(e, a);
-}
-(function (e, a) {
-  for (var n = t, o = f(); ; )
-    try {
-      if (
-        685483 ===
-        parseInt(n(267)) / 1 +
-          -parseInt(n(292)) / 2 +
-          parseInt(n(265)) / 3 +
-          parseInt(n(297)) / 4 +
-          parseInt(n(287)) / 5 +
-          parseInt(n(272)) / 6 +
-          -parseInt(n(245)) / 7
-      )
-        break;
-      o.push(o.shift());
-    } catch (e) {
-      o.push(o.shift());
-    }
-})();
 var nGlobalData = {
   globalData: {
     appid: "wxa794c2a4fcfeb7f4",
@@ -42,35 +16,39 @@ var nGlobalData = {
 }; // o = requirePlugin(a(207)),
 // r = require(a(220));
 function miniRequest(e, t, o) {
-  var r = a;
-  t[r(318)] = parameterObj.appId;
-  t[r(277)] = parameterObj.openId;
+  t["appId"] = parameterObj.appId;
+  t["openId"] = parameterObj.openId;
   t.hospId = parameterObj.hospId;
-  t[r(306)] = parameterObj.hospitalId;
+  t["hospitalId"] = parameterObj.hospitalId;
   var i,
     s,
     c,
     u,
     f,
-    g = new Date()[r(231)](),
+    g = new Date()["getTime"](),
     h = 5,
-    v = r(248),
-    w = nGlobalData[r(279)][r(246)],
+    v = "1.0",
+    w = nGlobalData["globalData"]["userId"],
     x = d(),
-    m = e[r(301)]("/"),
-    I = nGlobalData[r(279)][r(323)][r(301)]("/"),
-    y = m[r(312)]("d3"),
+    m = e["split"]("/"),
+    I = nGlobalData["globalData"]["baseUrl"]["split"]("/"),
+    y = m["indexOf"]("d3"),
     S = I.indexOf("v1"),
     b = (function (e, t, n, o) {
-      var r = a,
-        s = "";
+      var s = "";
       o >= 0
-        ? ((c = a),
-          (u = ["Ycde", c(258), c(239), c(317), "czO", c(336)]),
-          (s = (u = u[c(283)](1, 5))[c(299)]("")))
+        ? ((u = [
+            "Ycde",
+            "NBME",
+            "xPe9iO{WXsAxZM",
+            "RhYqRedo=K7JvcuyjpbyppnZr7qQGs21JQsTNSp5TJm",
+            "czO",
+            "Tyrcs",
+          ]),
+          (s = (u = u["slice"](1, 5))["join"]("")))
         : (s = l());
       var c, u;
-      var d = e[r(315)](5),
+      var d = e["substring"](5),
         f = sm3index(req);
       return sm3index(s + e + d + f);
     })(x, 0, t, y);
@@ -78,7 +56,6 @@ function miniRequest(e, t, o) {
     ? ((w = 0), (h = 99))
     : S > 0 &&
       ((i = t),
-      (s = a),
       // (c = require("sm4_index.js")),
       // require(s(238)),
       (u = p()),
@@ -96,7 +73,7 @@ function miniRequest(e, t, o) {
     D,
     T,
     P = "";
-  nGlobalData[r(279)][r(244)]
+  nGlobalData["globalData"]["encryptionUserId"]
     ? ((k = w),
       (q = a),
       (D = require(q(327))),
@@ -105,12 +82,12 @@ function miniRequest(e, t, o) {
       console[q(274)](q(324), T),
       (P = 0 == k ? "" : D[q(303)](k, T)))
     : (P = w),
-    console[r(274)](r(314), P),
-    wx[r(219)]({
+    console["log"]("userIdEncry", P),
+    wx["request"]({
       url: nGlobalData.globalData.baseUrl + e,
       data: t,
       header: {
-        "content-type": r(255),
+        "content-type": "application/json;charset=UTF-8",
         timestamp: g,
         appType: h,
         appMark: "1",
@@ -118,13 +95,15 @@ function miniRequest(e, t, o) {
         appVersion: v,
         nonce: x,
         signature: b,
-        hospitalId: nGlobalData[r(279)][r(306)],
+        hospitalId: nGlobalData["globalData"]["hospitalId"],
         userId: P,
-        token: nGlobalData[r(279)].token ? nGlobalData[r(279)].token : "",
-        appId: nGlobalData[r(279)].appid,
+        token: nGlobalData["globalData"].token
+          ? nGlobalData["globalData"].token
+          : "",
+        appId: nGlobalData["globalData"].appid,
       },
-      method: r(252),
-      dataType: r(305),
+      method: "POST",
+      dataType: "json",
       success: function (e) {
         var a = r;
         if (-3 == e.data[a(266)])
@@ -147,178 +126,33 @@ function miniRequest(e, t, o) {
 }
 
 function d() {
-  for (var e = a, t = [], n = e(280), o = 0; o < 36; o++)
-    t[o] = n[e(251)](Math.floor(16 * Math[e(290)]()), 1);
+  for (t = [], n = "0123456789abcdef", o = 0; o < 36; o++)
+    t[o] = n["substr"](Math.floor(16 * Math["random"]()), 1);
   return (
     (t[14] = "4"),
-    (t[19] = n[e(251)]((3 & t[19]) | 8, 1)),
+    (t[19] = n["substr"]((3 & t[19]) | 8, 1)),
     (t[8] = t[13] = t[18] = t[23] = "-"),
     t.join("").replace("-", "")
   );
 }
 function l() {
-  var e = a,
-    t = [
-      "PGyMh",
-      "Ev",
-      e(241),
-      e(291),
-      "XB23hw8w",
-      "Pw",
-      e(240),
-      e(213),
-      e(333),
-      e(328),
-      e(208),
-      "GyTsHpMh",
-    ];
-  return (t = t[e(283)](1, 11))[e(299)]("");
+  t = [
+    "PGyMh",
+    "Ev",
+    "Aucy",
+    "QXqhNr",
+    "XB23hw8w",
+    "Pw",
+    "73xHz",
+    "AHNqipm",
+    "BFKJTHGzBX",
+    "TsHpNxR9",
+    "PGyMhErNEvAu",
+    "GyTsHpMh",
+  ];
+  return (t = t["slice"](1, 11))["join"]("");
 }
 function p() {
-  var e = a,
-    t = [e(281), e(325), e(282), e(296), "522a3433", e(234), "ic190"];
-  return (t = t[e(283)](1, 6)).join("");
-}
-function f() {
-  var e = [
-    "txSig",
-    "/pages/personal_center/health_card_login/healthCardLogin?path=",
-    "6689442JtHbKJ",
-    "getPatientsResp",
-    "log",
-    "/common/getHospConfSrv",
-    "sm3_index.js",
-    "openId",
-    "getSetting",
-    "globalData",
-    "0123456789abcdef",
-    "ed367",
-    "696f4c",
-    "slice",
-    "onCheckForUpdate",
-    "数据上传中",
-    "getInfo",
-    "5823930JuXlYU",
-    "?jsonParm=",
-    "hideLoading",
-    "random",
-    "QXqhNr",
-    "2091132HkRgVE",
-    "hospitalName",
-    "currentDto",
-    "url",
-    "6e5659",
-    "2315904OvlFeq",
-    "none",
-    "join",
-    "新版本已经准备好，是否重启应用？",
-    "split",
-    "h5SignInResp",
-    "encrypt",
-    "code",
-    "json",
-    "hospitalId",
-    "&jsonParm=",
-    "onUpdateFailed",
-    "loginStatus",
-    "forEach",
-    "decrypt",
-    "indexOf",
-    "wechatCode",
-    "userIdEncry",
-    "substring",
-    "parse",
-    "RhYqRedo=K7JvcuyjpbyppnZr7qQGs21JQsTNSp5TJm",
-    "appId",
-    "appid",
-    "msg",
-    "data",
-    "scope.userLocation",
-    "baseUrl",
-    "signKey",
-    "3879",
-    "/pages/login/login/login?from=noLogin",
-    "sm4_index.js",
-    "TsHpNxR9",
-    "txAccountId",
-    "/pages/personal_center/add_health_card/addHealthCard?path=",
-    "result",
-    "patientId",
-    "BFKJTHGzBX",
-    "getStorageSync",
-    "健康卡登录接口res",
-    "Tyrcs",
-    "&back=",
-    "showModal",
-    "file",
-    "showToastTime",
-    "needunionId",
-    "/pages/login/login/login?path=",
-    "healthCard",
-    "PGyMhErNEvAu",
-    "authSetting",
-    "uploadFile",
-    "reverseGeocoder",
-    "onUpdateReady",
-    "AHNqipm",
-    "&wechatCode=",
-    "token",
-    "获取位置信息失败，请授权后再试",
-    "showToast",
-    "当前配置",
-    "request",
-    "qqmap-wx-jssdk.min.js",
-    "type",
-    "setStorageSync",
-    "/common/uploadFileToServer",
-    "stringify",
-    "/pages/personal_center/add_patient/addPatient?path=",
-    "boolean",
-    "checkSession",
-    "isEleHealthCard",
-    "times",
-    "getUpdateManager",
-    "getTime",
-    "/login/openIdFromWxCallBack",
-    "length",
-    "266f2e33",
-    "patients",
-    "phoneNo",
-    "unionid",
-    "Base64.js",
-    "xPe9iO{WXsAxZM",
-    "73xHz",
-    "Aucy",
-    "location",
-    "unionId",
-    "encryptionUserId",
-    "23393972SVALfZ",
-    "userId",
-    "miniRequest",
-    "1.0",
-    "未配置",
-    "navigateTo",
-    "substr",
-    "POST",
-    "exports",
-    "openid",
-    "application/json;charset=UTF-8",
-    "qqmapKey",
-    "login",
-    "NBME",
-    "confirm",
-    "errcode",
-    "showLoading",
-    "/other/getNoticeMessages",
-    "/login/getOpenId",
-    "setStorage",
-    "3051279JQvxXe",
-    "status",
-    "1197283NbpLFp",
-    "srvKey",
-    "qqmapSigKey",
-  ];
-  return (f = function () {
-    return e;
-  })();
+  t = ["ed367", "3879", "696f4c", "6e5659", "522a3433", "266f2e33", "ic190"];
+  return (t = t["slice"](1, 6)).join("");
 }

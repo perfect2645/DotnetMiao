@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./sm3.js"></script>
+    <script src="./commonBack.js"></script>
+    <script src="./sm3_index.js"></script>
+    <script src="./sm4_index.js"></script>
+</head>
+<body>
+    <script>
+        const path = "/other/getStartPics";
+        var parameterObj = {appId: "wxa794c2a4fcfeb7f4", openId: null, hospId: 10018, hospitalId: 10018};
+        const req = JSON.stringify(parameterObj);
+
+        const callback = function(a, b){
+            console.log(1);
+        }
+
+        var miniRequestRes = miniRequest(path, parameterObj, callback);
+        console.log(miniRequestRes);
+
+        // const dec = dec(dec);
+    </script>
+</body>
+</html>
