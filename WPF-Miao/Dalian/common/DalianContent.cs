@@ -27,6 +27,13 @@ namespace Dalian.common
 
         protected virtual void BuildRequestData()
         {
+            var appid = MainSession.PlatformSession.GetString(Constants.AppId);
+            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            Parameters.Add(Constants.AppId, appid);
+            Parameters.Add("openId", User.OpenId);
+            Parameters.Add("hospId", hosId.ToInt());
+            Parameters.Add("hospitalId", hosId.ToInt());
+
             var jsonParam = Parameters.ToJson();
             var encodeReq = JsReader.GetEncodeString(Path, jsonParam);
 

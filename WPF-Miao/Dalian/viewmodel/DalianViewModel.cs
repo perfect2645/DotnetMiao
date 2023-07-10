@@ -474,6 +474,7 @@ namespace Dalian.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as DalianHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.AppId, selectedDept.AppId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);

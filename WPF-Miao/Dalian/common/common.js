@@ -15,7 +15,7 @@ var nGlobalData = {
     }
 };
 
-function miniRequest(e, t, o) {
+function miniRequest(e, t) {
     t["appId"] = parameterObj.appId;
     t["openId"] = parameterObj.openId;
     t.hospId = parameterObj.hospId;
