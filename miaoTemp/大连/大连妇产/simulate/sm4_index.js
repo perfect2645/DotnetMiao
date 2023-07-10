@@ -159,7 +159,7 @@ function sm4V(n, t, f) {
   if (("string" == typeof t && (t = ms4O(t)), 16 !== t.length))
     throw new Error("key is invalid");
   if (
-    ((n = "string" == typeof n ? (0 !== f ? e(n) : ms4O(n)) : r(n)),
+    ((n = "string" == typeof n ? (0 !== f ? ms4E(n) : ms4O(n)) : r(n)),
     ("pkcs#5" === a || "pkcs#7" === a) && 0 !== f)
   )
     for (var y = 16 - (n.length % 16), m = 0; m < y; m++) n.push(y);
@@ -184,10 +184,7 @@ function sm4V(n, t, f) {
 
 var encrypt = function (r, n, t) {
   var enResult = sm4V(r, n, 1, t);
-
-  var enStr =
-    "124d58047a2311c87b8f10057d6df02bcb881a0f783e59b3c2b0347a0a19025896d74dc89243c5956bcae40dec60b053a32035782856236de595c12bfc07da07bf856f340d158625cb5b2c8c4cdc61600d72a37b943c2a81033f20b1340c265e4159026ce04549451f4b0d439b8d8597";
-  var deTestResult = sm4V(enStr, n, 0, t);
+  var deTestResult = sm4V(enResult, n, 0, t);
 
   return enResult;
 

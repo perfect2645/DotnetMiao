@@ -159,7 +159,7 @@ function sm4V(n, t, f) {
   if (("string" == typeof t && (t = ms4O(t)), 16 !== t.length))
     throw new Error("key is invalid");
   if (
-    ((n = "string" == typeof n ? (0 !== f ? e(n) : ms4O(n)) : r(n)),
+      ((n = "string" == typeof n ? (0 !== f ? ms4E(n) : ms4O(n)) : r(n)),
     ("pkcs#5" === a || "pkcs#7" === a) && 0 !== f)
   )
     for (var y = 16 - (n.length % 16), m = 0; m < y; m++) n.push(y);
