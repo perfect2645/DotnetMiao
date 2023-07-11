@@ -32,7 +32,7 @@ function miniRequest(e, t) {
         x = d(),
         m = e["split"]("/"),
         I = nGlobalData["globalData"]["baseUrl"]["split"]("/"),
-        y = m["indexOf"]("d3"),
+        y = m.indexOf("d3"),
         S = I.indexOf("v1"),
         b = (function (e, t, n, o) {
             var s = "";
