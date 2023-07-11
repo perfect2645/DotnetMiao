@@ -49,7 +49,7 @@ function miniRequest(e, t) {
                 : (s = l());
             var c, u;
             var d = e["substring"](5),
-                f = sm3index(req);
+                f = sm3index(reqObj);
             return sm3index(s + e + d + f);
         })(x, 0, t, y);
     y >= 0

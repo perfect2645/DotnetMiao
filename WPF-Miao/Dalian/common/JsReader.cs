@@ -13,6 +13,10 @@ namespace Dalian.common
         {
             ScriptControl = new ScriptControl();
             ScriptControl.Language = "javascript";
+
+            string json2 = File.ReadAllText(@"common/json2.js");
+            ScriptControl.AddCode(json2);
+
             string encodeJs = File.ReadAllText(@"common/encode.js");
             ScriptControl.AddCode(encodeJs);
 
