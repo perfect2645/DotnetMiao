@@ -148,7 +148,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gzjk", "Gzjk\Gzjk.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sxjk", "Sxjk\Sxjk.csproj", "{4050AC0D-112D-4BAD-A6D1-EF818E0F3A0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dalian", "Dalian\Dalian.csproj", "{670DC6C5-F9CD-4599-8F24-4A1DB7870D0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalian", "Dalian\Dalian.csproj", "{670DC6C5-F9CD-4599-8F24-4A1DB7870D0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsInteract", "JsInteract\JsInteract.csproj", "{B40B6FD9-0991-4209-B371-978A01DA3AAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -368,6 +370,10 @@ Global
 		{670DC6C5-F9CD-4599-8F24-4A1DB7870D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670DC6C5-F9CD-4599-8F24-4A1DB7870D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670DC6C5-F9CD-4599-8F24-4A1DB7870D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B40B6FD9-0991-4209-B371-978A01DA3AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B40B6FD9-0991-4209-B371-978A01DA3AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B40B6FD9-0991-4209-B371-978A01DA3AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B40B6FD9-0991-4209-B371-978A01DA3AAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
