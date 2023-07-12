@@ -1,7 +1,7 @@
 var requestResult = {};
 
 var nGlobalData = {
-    "globalData": {
+    globalData: {
         appid: "wxa794c2a4fcfeb7f4",
         appointmentCancleTmpl: "XkV9bhx48huOPgvXtkZXRsi3xhruS0yFCME9FXkc9Jo",
         appointmentSuccessTmpl: "HwY-pBZH7gSSE6txEgyUDErtKnrkDtK51letwiPACDk",
@@ -11,8 +11,8 @@ var nGlobalData = {
         cloudLongTmpl: "-DNbE99GuHRXbIs1ZA5ozWMhQzdoLl2ES6_qEgQFCnc",
         compoundName: "",
         consultLongTmpl: "-DNbE99GuHRXbIs1ZA5ozWMhQzdoLl2ES6_qEgQFCnc",
-        escortReviewTmpl: ""
-    }
+        escortReviewTmpl: "",
+    },
 };
 
 function miniRequest(e, t) {
@@ -21,8 +21,6 @@ function miniRequest(e, t) {
     t.hospId = parameterObj.hospId;
     t["hospitalId"] = parameterObj.hospitalId;
     var i,
-        s,
-        c,
         u,
         f,
         g = new Date()["getTime"](),
@@ -32,7 +30,7 @@ function miniRequest(e, t) {
         x = d(),
         m = e["split"]("/"),
         I = nGlobalData["globalData"]["baseUrl"]["split"]("/"),
-        y = m.indexOf("d3"),
+        y = m["indexOf"]("d3"),
         S = I.indexOf("v1"),
         b = (function (e, t, n, o) {
             var s = "";
@@ -49,17 +47,19 @@ function miniRequest(e, t) {
                 : (s = l());
             var c, u;
             var d = e["substring"](5),
-                f = sm3index(reqObj);
+                f = sm3index(req);
             return sm3index(s + e + d + f);
         })(x, 0, t, y);
     y >= 0
         ? ((w = 0), (h = 99))
         : S > 0 &&
         ((i = t),
+            // (c = require("sm4_index.js")),
+            // require(s(238)),
             (u = p()),
             (f = JSON.stringify(i)),
             (t = {
-                requestData: encrypt(f, u)
+                requestData: encrypt(f, u),
             }),
             (enc = t));
     requestResult.request = enc;

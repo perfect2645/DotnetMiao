@@ -34,8 +34,8 @@ namespace Dalian.common
             Parameters.Add("hospId", hosId.ToInt());
             Parameters.Add("hospitalId", hosId.ToInt());
 
-            var jsonParam = Parameters.ToJson();
-            var encodeReq = JsReader.GetERequestData(Path, jsonParam);
+            //var jsonParam = Parameters.ToJson();
+            var encodeReq = JsReader.GetERequestData(Path, Parameters);
 
             AddContent("requestData", RequestData.GetString("requestData"));
         }

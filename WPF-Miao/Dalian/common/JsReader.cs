@@ -21,8 +21,7 @@ namespace Dalian.common
 
         public static object GetERequestData(string path, Dictionary<string, object> parameters)
         {
-            var result = RunScript("Encode", new string[] { path, parameters });
-
+            var result = JsEngine.Engine.Script.GetERequestData(path, parameters);
             return result;
         }
 

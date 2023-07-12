@@ -1,8 +1,8 @@
 ﻿
-var parameterObj = {};
+var req;
 var reqObj = {};
-function Encode(path, parameters) {
-
+function GetRequestData(path, parameters) {
+    req = parameters;
     reqObj = JSON.parse(parameters);
 
     var miniRequestRes = miniRequest(path, parameters);
