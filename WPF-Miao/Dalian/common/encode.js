@@ -1,10 +1,11 @@
 ﻿
 var req;
-var reqObj = {};
-function GetRequestData(path, parameters) {
+var parameterObj = {};
+var UserId;
+function GetRequestData(path, userId, parameters) {
     req = parameters;
-    reqObj = JSON.parse(parameters);
-
-    var miniRequestRes = miniRequest(path, parameters);
+    UserId = userId;
+    parameterObj = JSON.parse(parameters);
+    var miniRequestRes = miniRequest(path, parameterObj);
     return miniRequestRes;
 }

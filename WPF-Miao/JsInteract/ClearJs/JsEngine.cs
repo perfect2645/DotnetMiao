@@ -6,6 +6,8 @@
         {
             try
             {
+                Engine.DocumentSettings.AccessFlags = Microsoft.ClearScript.DocumentAccessFlags.EnableFileLoading;
+                Engine.DefaultAccess = Microsoft.ClearScript.ScriptAccess.Full;
                 foreach(var file in files)
                 {
                     Engine.ExecuteDocument(file);

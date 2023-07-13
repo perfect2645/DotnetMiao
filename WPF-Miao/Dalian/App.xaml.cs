@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Windows;
 using Dalian.appointment;
-using Dalian.cancel;
 using Dalian.login;
 using Dalian.search;
 
@@ -32,8 +31,6 @@ namespace Dalian
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
-            HttpServiceController.AddTransientService<CancelController>();
-            HttpServiceController.AddTransientService<SearchSuccessController>();
 
             HttpServiceController.BuidServiceProvider();
         }

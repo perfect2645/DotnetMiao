@@ -8,10 +8,11 @@ namespace Dalian.search
     internal class MiaoContent : DalianContent
     {
         private static string baseUrl = "https://www.114yygh.com/mobile/product/detail?_time=";
+        private static string path = "/myself/queryPatients";
 
         public string Date { get; set; }
 
-        public MiaoContent(DalianLogin user, string date) : base(baseUrl, user)
+        public MiaoContent(DalianLogin user, string date) : base(baseUrl, path, user)
         {
             Date = date;
             BuildHeader();

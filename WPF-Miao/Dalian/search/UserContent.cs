@@ -8,16 +8,15 @@ namespace Dalian.search
     internal class UserContent : DalianContent
     {
         private static string baseUrl = "https://hlwyy.dlfeyljt.com/patient/v1/myself/queryPatients";
-
+        private static string path = "/myself/queryPatients";
 
         protected override void BuildRequestData()
         {
             base.BuildRequestData();
         }
 
-        public UserContent(DalianLogin user) : base(baseUrl, user)
+        public UserContent(DalianLogin user) : base(baseUrl, path, user)
         {
-            Path = "/myself/queryPatients";
         }
 
         protected override void BuildHeader()

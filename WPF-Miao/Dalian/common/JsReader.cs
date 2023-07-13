@@ -2,6 +2,7 @@
 
 using JsInteract.ClearJs;
 using System.Collections.Generic;
+using Utils;
 
 namespace Dalian.common
 {
@@ -19,10 +20,22 @@ namespace Dalian.common
                "common/common.js");
         }
 
-        public static object GetERequestData(string path, Dictionary<string, object> parameters)
+        public static Dictionary<string, object> GetRequestData(string path, string userId, Dictionary<string, object> parameters)
         {
-            var result = JsEngine.Engine.Script.GetERequestData(path, parameters);
-            return result;
+            var jsonParameters = parameters.ToJson();
+            var result = JsEngine.Engine.Script.GetRequestData(path, userId, jsonParameters);
+
+            var requestDataDic = new Dictionary<string, object>();
+            var requestData = (string)result.request.requestData;
+            var nonce = (string)result.nonce;
+            var timestamp = (long)result.timestamp;
+            var signature = (string)result.signature;
+            requestDataDic.AddOrUpdate("requestData", requestData);
+            requestDataDic.AddOrUpdate("nonce", nonce);
+            requestDataDic.AddOrUpdate("timestamp", timestamp);
+            requestDataDic.AddOrUpdate("signature", signature);
+
+            return requestDataDic;
         }
 
     }

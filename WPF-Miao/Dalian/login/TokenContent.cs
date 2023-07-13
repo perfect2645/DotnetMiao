@@ -7,7 +7,9 @@ namespace Dalian.login
     internal class TokenContent : DalianContent
     {
         private static string baseUrl = "https://www.114yygh.com/mobile/token/accredit?_time=";
-        public TokenContent(DalianLogin user) : base(baseUrl, user)
+        private static string path = "/myself/queryPatients";
+
+        public TokenContent(DalianLogin user) : base(baseUrl, path, user)
         {
             BuildContent();
         }

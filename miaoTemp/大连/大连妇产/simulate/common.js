@@ -26,7 +26,7 @@ function miniRequest(e, t) {
     g = new Date()["getTime"](),
     h = 5,
     v = "1.0",
-    w = nGlobalData["globalData"]["userId"],
+    w = userId,
     x = d(),
     m = e["split"]("/"),
     I = nGlobalData["globalData"]["baseUrl"]["split"]("/"),
@@ -65,6 +65,7 @@ function miniRequest(e, t) {
   requestResult.request = enc;
   requestResult.timestamp = g;
   requestResult.nonce = x;
+  requestResult.signature = b;
   return requestResult;
 }
 
