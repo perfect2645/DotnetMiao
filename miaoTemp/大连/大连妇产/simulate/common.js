@@ -23,7 +23,7 @@ function miniRequest(e, t) {
   var i,
     u,
     f,
-    g = new Date()["getTime"](),
+    g = 1689255964239,
     h = 5,
     v = "1.0",
     w = userId,
@@ -48,7 +48,9 @@ function miniRequest(e, t) {
       var c, u;
       var d = e["substring"](5),
         f = sm3index(req);
-      return sm3index(s + e + d + f);
+      return sm3index(
+        "EvAucyQXqhNrXB23hw8wPw73xHzAHNqipmBFKJTHGzBXTsHpNxR9PGyMhErNEvAueb2522dbf163-4d7e-8427-a9c205ecc1152dbf163-4d7e-8427-a9c205ecc1153ab2ffc4f27d2b6a7efce40f6b9226faa026374c808a67ae4f207bf502d49f95"
+      );
     })(x, 0, t, y);
   y >= 0
     ? ((w = 0), (h = 99))

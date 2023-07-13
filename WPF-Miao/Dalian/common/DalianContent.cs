@@ -55,6 +55,7 @@ namespace Dalian.common
             AddHeader("appMark", "1");
             AddHeader("appType", "5");
             AddHeader("appVersion", "1.0");
+            //AddHeader("content-type", "application/json;charset=UTF-8");
             AddHeader("hospitalId", hosId);
             AddHeader("token", User.Token);
             AddHeader("userId", User.UserId);

@@ -127,7 +127,7 @@ namespace HttpProcessor.Content
             if (IsContentTypeNoSpace)
             {
                 stringContent.Headers.ContentType = new MediaTypeHeaderNoSpace("application/json");
-                stringContent.Headers.ContentType.CharSet = "utf-8";
+                stringContent.Headers.ContentType.CharSet = "UTF-8";
             }
 
             return stringContent;
