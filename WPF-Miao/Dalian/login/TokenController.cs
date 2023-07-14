@@ -78,12 +78,10 @@ namespace Dalian.login
                 var imed_session = cookieDic.GetString("imed_session");
                 if (!string.IsNullOrEmpty(imed_session))
                 {
-                    user.Session = imed_session;
                 }
                 var imed_session_tm = cookieDic.GetString("imed_session_tm");
                 if (!string.IsNullOrEmpty(imed_session_tm))
                 {
-                    user.SessionTime = imed_session_tm;
                 }
             }
 

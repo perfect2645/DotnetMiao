@@ -133,7 +133,7 @@ namespace Dalian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
@@ -142,7 +142,8 @@ namespace Dalian.viewmodel
             StartTime = DateTime.Today.AddHours(16).AddMinutes(30);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal(DateTimeUtil.GetNextWeekday(DayOfWeek.Tuesday)));
+            var nextTuesday = DateTimeUtil.GetNextWeekday(DayOfWeek.Tuesday);
+            DateList.Add(new DspVal(nextTuesday, DateTimeUtil.GetDateTime(nextTuesday, "yyyyMMdd")));
             //DateList.Add(new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -154,17 +155,24 @@ namespace Dalian.viewmodel
                 {
                     AppId = "wxa794c2a4fcfeb7f4",
                     HospitalId = "10018",
-                    HospitalName = "大连妇幼",
-                    DepartmentName = "九价HPV疫苗预约",
-                    DepartmentId = "6125",
+                    HospitalName = "大连市妇女儿童医疗中心（集团）",
+                    DepartmentId = "139253",
+                    DepartmentName = "长江路预防接种门诊（妇产院区）",
+                    HisDeptId = "3978",
+                    RegLevelId = "67",
+                    RegLevelName = "进口九价（9-45岁）"
                 },
                 new DalianHospital
                 {
-                    HospitalId = "H08110008",
-                    HospitalName = "航天中心医院",
-                    DepartmentName = "消化科门诊",
-                    DepartmentId = "1243",
-                }
+                    AppId = "wxa794c2a4fcfeb7f4",
+                    HospitalId = "10018",
+                    HospitalName = "大连市妇女儿童医疗中心（集团）",
+                    DepartmentId = "139253",
+                    DepartmentName = "长江路预防接种门诊（妇产院区）",
+                    HisDeptId = "3978",
+                    RegLevelId = "65",
+                    RegLevelName = "国产二价（9-45岁）"
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -380,6 +388,9 @@ namespace Dalian.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.RegLevelId, selectedDept.RegLevelId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.RegLevelName, selectedDept.RegLevelName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.HisDeptId, selectedDept.HisDeptId);
 
             Log(selectedDept.ToLogString());
         }

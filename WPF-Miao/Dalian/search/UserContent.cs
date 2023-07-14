@@ -17,6 +17,8 @@ namespace Dalian.search
 
         public UserContent(DalianLogin user) : base(baseUrl, path, user)
         {
+            BuildRequestData();
+            BuildHeader();
         }
 
         protected override void BuildHeader()

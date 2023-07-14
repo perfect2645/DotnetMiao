@@ -7,6 +7,9 @@ namespace Dalian.viewmodel
     internal class DalianHospital : HospitalDept
     {
         public string AppId { get; set; }
+        public string HisDeptId { get; set; }
+        public string RegLevelId { get; set; }
+        public string RegLevelName { get; set; }
 
         public new string Display 
         {  
@@ -21,8 +24,10 @@ namespace Dalian.viewmodel
             var sb = new StringBuilder();
 
             sb.AppendLine("********Dalian-选择医院科室*********");
-            sb.AppendLine($"{HospitalName}- {HospitalId}");
-            sb.AppendLine($"{DepartmentName} - {DepartmentId}");
+            sb.AppendLine($"{HospitalId} - {HospitalName}");
+            sb.AppendLine($"{DepartmentId} - {DepartmentName}");
+            sb.AppendLine($"RegLevelId - {RegLevelId}");
+            sb.AppendLine($"RegLevelName - {RegLevelName}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

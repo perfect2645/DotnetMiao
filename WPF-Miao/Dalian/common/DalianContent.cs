@@ -23,8 +23,6 @@ namespace Dalian.common
             User = user;
             Parameters = new Dictionary<string, object>();
             RequestData = new Dictionary<string, object>();
-            BuildRequestData();
-            BuildHeader();
         }
 
         protected virtual void BuildRequestData()

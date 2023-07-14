@@ -184,7 +184,14 @@ function sm4V(n, t, f) {
 
 var encrypt = function (r, n, t) {
   var enResult = sm4V(r, n, 1, t);
-  // var deTestResult = sm4V(enResult, n, 0, t);
+  var deTestResult = sm4V(
+    "c0b4fcfe9730d95d870d89d6e6df19204e02e13fa0e7928790bff80c67d50d771622bf063e127f20466258eeaf812a20ec382630e513d6f8e7d9abcf7e732f850160c0a4f9e75b0c706e992afdce534ba13e4aa9a73f087d6f11e1888e4d9c13be365cd239b4cb568164cbd9e7f25dce65e18802e7d2e0eb3bb149ae3ff5646772c7e9e5e3b115a8640411c8ef461c4105ee16793bf5f23c67445b65a4ab20a68ad23a3ef80d40b27d2df7a1cc71e02490b2ee2bd861b20f3bcd3e36690bfb7861dc514b0d95c01ac5a14b8a6203d28a64ccdc5669f8c52bf892f01d6721d9ab",
+    n,
+    0,
+    t
+  );
+
+  console.log(deTestResult);
 
   return enResult;
 

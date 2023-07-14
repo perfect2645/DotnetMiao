@@ -38,14 +38,13 @@ namespace Dalian.search
                     return false;
                 }
 
-                SaveSessionTime(response, defaultUser);
-
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("resCode").GetInt32();
-                if (code != 0)
+                var status = root.GetProperty("status").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (status != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: status={status}, msg={msg}");
                     return false;
                 }
 
