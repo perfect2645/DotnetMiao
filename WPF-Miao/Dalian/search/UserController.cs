@@ -36,14 +36,13 @@ namespace Dalian.search
                     return;
                 }
 
-                SaveSessionTime(response, user);
-
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("resCode").GetInt32();
-                if (code != 0)
+                var status = root.GetProperty("status").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (status != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: status={status}, msg={msg}");
                     return;
                 }
 
@@ -54,7 +53,7 @@ namespace Dalian.search
                     return;
                 }
 
-                var userList = data.GetProperty("list");
+                var userList = data.GetProperty("getPatientsResp").GetProperty("patients");
 
                 SaveUser(userList, user);
             }
@@ -73,22 +72,21 @@ namespace Dalian.search
                 return;
             }
 
-
-            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("patientName") == user.UserName);
+            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("name") == user.UserName);
             if (targetUser == null)
             {
                 targetUser = userInfoList.FirstOrDefault();
             }
 
-            var userName = targetUser.GetString("patientName");
-            var cardType = targetUser.GetString("idCardType");
-            var cardNo = targetUser.GetString("idCardNo");
-            var phone = targetUser.GetString("phone");
+            var userName = targetUser.GetString("name");
+            var patientId = targetUser.GetString("patientId");
+            var userId = targetUser.GetString("userId");
+            var phoneNo = targetUser.GetString("phoneNo");
 
             user.UserName = userName;
-            user.CardType = cardType;
-            user.CardNo = cardNo;
-            user.Phone = phone;
+            user.Phone = phoneNo;
+            user.UserId = userId;
+            user.PatientId = patientId;
 
             MainSession.PrintLogEvent.Publish(this, targetUser);
         }
