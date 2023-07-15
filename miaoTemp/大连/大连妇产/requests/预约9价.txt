@@ -58,3 +58,30 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
     "hospId": 10018,
     "hospitalId": 10018
 }
+
+{
+    "pointId": "947803_22298526",
+    "pointName": "PA11(14:00-15:00)",
+    "pointDate": "20230720",
+    "regLevelId": "67",
+    "regLevelName": "进口九价（9-45岁）",
+    "patientId": "22912851",
+    "deptId": "139253",
+    "drId": null,
+    "visitTime": "20230720140000",
+    "medInsType": "",
+    "specialDeptType": "",
+    "beginTime": "20230720140000",
+    "endTime": "20230720140000",
+    "diagnoseFee": "8.00",
+    "noonId": "3",
+    "noonName": "PA11(14:00-15:00)",
+    "regFee": "",
+    "inspectFee": "",
+    "hisDeptId": "",
+    "referenceCode": "",
+    "appId": "wxa794c2a4fcfeb7f4",
+    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
+    "hospId": 10018,
+    "hospitalId": 10018
+}

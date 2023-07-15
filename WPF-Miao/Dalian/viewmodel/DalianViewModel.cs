@@ -235,6 +235,7 @@ namespace Dalian.viewmodel
             MainSession.Users = FileReader.DeserializeFile<List<DalianLogin>>("Login.json");
             foreach(var user in MainSession.Users)
             {
+                Thread.Sleep(1000);
                 Task.Factory.StartNew(async () =>
                 {
                     //var tokenController = HttpServiceController.GetService<TokenController>();
