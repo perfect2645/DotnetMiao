@@ -42,24 +42,13 @@ namespace Dalian.appointment
                     IsHeaderBuilt = true;
                 }
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
-                if (response?.Body == null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
-                    return false;
-                }
                 var root = response.JsonBody.RootElement;
 
-                var message = root.GetProperty("msg").GetString() ?? string.Empty;
-                if (message.Contains("已存在相同订单"))
+                var status = root.GetProperty("status").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (status != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约成功: msg = {message}");
-                    return true;
-                }
-
-                var code = root.GetProperty("resCode").GetInt32();
-                if (code != 0)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg = {message}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: status={status}, msg={msg}");
                     return false;
                 }
 
@@ -70,7 +59,7 @@ namespace Dalian.appointment
                     return false;
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {message}");
+                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功");
 
                 return CheckOrder(data, content.Order);
             }

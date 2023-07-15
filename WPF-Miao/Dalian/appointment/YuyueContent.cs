@@ -15,6 +15,8 @@ namespace Dalian.appointment
         public YuyueContent(Order order, DalianLogin user) : base(baseUrl, path, user)
         {
             Order = order;
+            BuildRequestData();
+            BuildHeader();
         }
 
         protected override void BuildRequestData()
@@ -24,7 +26,8 @@ namespace Dalian.appointment
             Parameters.AddOrUpdate("pointDate", Order.PointDate);
             Parameters.AddOrUpdate("regLevelId", Order.RegLevelId);
             Parameters.AddOrUpdate("regLevelName", Order.RegLevelName);
-            Parameters.AddOrUpdate("patientId", Order.UserId);
+            Parameters.AddOrUpdate("patientId", User.PatientId);
+            Parameters.AddOrUpdate("deptId", Order.DeptId);
             Parameters.AddOrUpdate("drId", Order.DrId);
             Parameters.AddOrUpdate("visitTime", Order.VisitTime);
             Parameters.AddOrUpdate("medInsType", string.Empty);
@@ -38,10 +41,6 @@ namespace Dalian.appointment
             Parameters.AddOrUpdate("inspectFee", string.Empty);
             Parameters.AddOrUpdate("hisDeptId", string.Empty);
             Parameters.AddOrUpdate("referenceCode", string.Empty);
-            Parameters.AddOrUpdate("appId", Order.AppId);
-            Parameters.AddOrUpdate("openId", Order.OpenId);
-            Parameters.AddOrUpdate("hospId", Order.HospId);
-            Parameters.AddOrUpdate("hospitalId", Order.HospId);
             base.BuildRequestData();
         }
     }

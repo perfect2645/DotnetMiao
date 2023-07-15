@@ -12,6 +12,7 @@ using Utils;
 using Utils.json;
 using Utils.number;
 using Dalian.common;
+using Newtonsoft.Json;
 
 namespace Dalian.search
 {
@@ -72,24 +73,22 @@ namespace Dalian.search
             if (!scheduleInfoList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"未查到苗");
+                return false;
+            }
+
+            var avaliableSchedules = scheduleInfoList.Where(s => s.GetString("rmngNum").ToInt() > 0).ToList();
+            if (!avaliableSchedules.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"{Date} - 没有可用苗");
+                return false;
             }
 
             var orderList = new List<Order>();
 
-            foreach(var schedule in scheduleInfoList)
+            foreach (var schedule in scheduleInfoList)
             {
-                var detailListStr = schedule.GetString("detail");
-                if (!string.IsNullOrEmpty(detailListStr))
-                {
-                    var scheduleOrderList = BuildOrderList(detailListStr);
-                    orderList.AddRange(scheduleOrderList);
-                }
-            }
-
-            if (!orderList.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
-                return false;
+                var order = BuildOrder(schedule);
+                orderList.Add(order);
             }
 
             MainSession.SetStatus(MiaoProgress.MiaoDetailGet);
@@ -106,45 +105,32 @@ namespace Dalian.search
             return true;
         }
 
-        private List<Order> BuildOrderList(string scheduleListStr)
+        private Order BuildOrder(Dictionary<string, object> schedule)
         {
-            var orderList = new List<Order>();
-            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListStr);
-            if (!scheduleList.HasItem())
-            {
-                return orderList;
-            }
-
-            //var availableScheduleList = scheduleList.Where(x => x.GetString("peopleNumber").ToInt() > 0).ToList();
-            //if (!availableScheduleList.HasItem())
-            //{
-            //    return orderList;
-            //}
-
+            var regLevelId = MainSession.PlatformSession.GetString(Constants.RegLevelId);
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 
-            foreach (var schedule in scheduleList)
+            var feeInfo = JsonConvert.DeserializeObject<dynamic>(schedule.GetString("regFeeDetails"));
+            var fee = feeInfo[0].fee;
+
+            var order = new Order
             {
-                var uniqProductKey = schedule.GetString("uniqProductKey");
-                var period = schedule.GetString("period");
-                var periodList = JsonAnalysis.JsonToDicList(period);
-                if (!periodList.HasItem())
-                {
-                    continue;
-                }
-                foreach(var p in periodList)
-                {
-                    var dutyTime = p.GetString("dutyTime");
-                    var order = new Order
-                    {
+                PointId = schedule.GetString("pointId"),
+                PointName = schedule.GetString("pointName"),
+                PointDate = schedule.GetString("pointDate"),
+                RegLevelId = regLevelId,
+                RegLevelName = schedule.GetString("regLevelName"),
+                DeptId = deptId,
+                VisitTime = schedule.GetString("startTime"),
+                BeginTime = schedule.GetString("startTime"),
+                EndTime = schedule.GetString("endTime"),
+                DiagnoseFee = fee,
+                NoonId = schedule.GetString("noonId"),
+                NoonName = schedule.GetString("noonName"),
+            };
 
-                    };
-                    orderList.Add(order);
-                }
-            }
-
-            return orderList;
+            return order;
         }
     }
 }

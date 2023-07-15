@@ -28,3 +28,33 @@ Connection: keep-alive
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 {"status":-9,"msg":"获取不到有效号点或排班信息！"}
+
+
+
+{
+    "pointId": "947796_22259862",
+    "pointName": "PA1(13:00-14:00)",
+    "pointDate": "20230718",
+    "regLevelId": "67",
+    "regLevelName": "进口九价（9-45岁）",
+    "patientId": "23025009",
+    "deptId": "139253",
+    "drId": "",
+    "visitTime": "20230718130000",
+    "medInsType": "",
+    "specialDeptType": "",
+    "beginTime": "20230718130000",
+    "endTime": "20230718130000",
+    "diagnoseFee": "8.00",
+    "noonId": "3",
+    "noonName": "PA1(13:00-14:00)",
+    "regFee": "",
+    "inspectFee": "",
+    "hisDeptId": "",
+    "referenceCode": "",
+    "mbFlag": "",
+    "appId": "wxa794c2a4fcfeb7f4",
+    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
+    "hospId": 10018,
+    "hospitalId": 10018
+}

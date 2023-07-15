@@ -150,7 +150,8 @@ namespace Dalian.viewmodel
             SelectedDate = DateList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {
+            {                
+
                 new DalianHospital
                 {
                     AppId = "wxa794c2a4fcfeb7f4",
@@ -172,6 +173,17 @@ namespace Dalian.viewmodel
                     HisDeptId = "3978",
                     RegLevelId = "65",
                     RegLevelName = "国产二价（9-45岁）"
+                },
+                new DalianHospital
+                {
+                    AppId = "wxa794c2a4fcfeb7f4",
+                    HospitalId = "10018",
+                    HospitalName = "大连市妇女儿童医疗中心（集团）",
+                    DepartmentId = "139372",
+                    DepartmentName = "长江路中医门诊（妇产院区）",
+                    HisDeptId = "3985",
+                    RegLevelId = "29",
+                    RegLevelName = "专科平诊"
                 },
             };
 
@@ -367,6 +379,18 @@ namespace Dalian.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
+                        PointId = template.PointId,
+                        PointName = template.PointName,
+                        PointDate = template.PointDate,
+                        RegLevelId = template.RegLevelId,
+                        RegLevelName = template.RegLevelName,
+                        DeptId = template.DeptId,
+                        VisitTime = template.VisitTime,
+                        BeginTime = template.BeginTime,
+                        EndTime = template.EndTime,
+                        DiagnoseFee = template.DiagnoseFee,
+                        NoonId = template.NoonId,
+                        NoonName = template.NoonName,
                     };
 
                     orderList.Add(order);

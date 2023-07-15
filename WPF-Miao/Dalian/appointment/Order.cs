@@ -21,10 +21,7 @@ namespace Dalian.appointment
         public string DiagnoseFee { get; set; } = "8.00";
         public string NoonId { get; set; }
         public string NoonName { get; set; }
-        public string AppId { get; set; }
-        public string OpenId { get; set; }
         public string HospId { get; set; }
-
         public string OrderNo { get; set; }
 
         public string ResultMsg { get; set; }
