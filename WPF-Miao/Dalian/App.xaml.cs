@@ -29,6 +29,7 @@ namespace Dalian
         {
             HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
 

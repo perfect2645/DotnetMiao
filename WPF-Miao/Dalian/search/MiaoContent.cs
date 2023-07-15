@@ -21,20 +21,17 @@ namespace Dalian.search
 
         protected override void BuildRequestData()
         {
-            var appId = MainSession.PlatformSession.GetString(Constants.AppId);
-            var hisDeptId = MainSession.PlatformSession.GetString(Constants.HisDeptId);
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var levelId = MainSession.PlatformSession.GetString(Constants.RegLevelId);
 
-            Parameters.AddOrUpdate("hisDeptId", hisDeptId);
-            Parameters.AddOrUpdate("scheduleDate", Date);
-            Parameters.AddOrUpdate("targetType", 0);
-            Parameters.AddOrUpdate("patientId", string.Empty);
-            Parameters.AddOrUpdate("pageSize", 9999);
-            Parameters.AddOrUpdate("pageNo", 1);
-            //Parameters.AddOrUpdate("appId", appId);
-            //Parameters.AddOrUpdate("openId", User.OpenId);
-            //Parameters.AddOrUpdate("hospId", hosId);
-            //Parameters.AddOrUpdate("hospitalId", hosId);
+            Parameters.AddOrUpdate("deptId", deptId);
+            Parameters.AddOrUpdate("targetId", deptId);
+            Parameters.AddOrUpdate("targetType", "0");
+            Parameters.AddOrUpdate("startDate", Date);
+            Parameters.AddOrUpdate("endDate", Date);
+            Parameters.AddOrUpdate("pageNo", "1");
+            Parameters.AddOrUpdate("pageSize", "999");
+            Parameters.AddOrUpdate("regLevelId", levelId);
           
             base.BuildRequestData();
         }

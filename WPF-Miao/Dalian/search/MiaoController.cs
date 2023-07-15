@@ -34,7 +34,7 @@ namespace Dalian.search
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchDates - {response?.Message},请检查参数");
                     return false;
                 }
 
@@ -55,7 +55,9 @@ namespace Dalian.search
                     return false;
                 }
 
-                return CheckSaveSchedule(data);
+                var dateMiaoList = data.GetProperty("regPoints").GetProperty(date);
+
+                return CheckSaveSchedule(dateMiaoList);
             }
             catch (Exception ex)
             {

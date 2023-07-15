@@ -1,0 +1,43 @@
+POST https://hlwyy.dlfeyljt.com/patient/v1/appoint/getRegDates HTTP/1.1
+Host: hlwyy.dlfeyljt.com
+Connection: keep-alive
+Content-Length: 402
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+appId: wxa794c2a4fcfeb7f4
+appKind: 1
+appMark: 1
+appType: 5
+appVersion: 1.0
+content-type: application/json;charset=UTF-8
+hospitalId: 10018
+nonce: 04f9ac8a250e-4c2e-8b77-23e58c9da965
+signature: 16d4296b5f3e81faced206e308d819935e2302924624cc4c6d286df8092a4b97
+timestamp: 1689388510598
+token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNDMwMTQ1MyIsImV4cCI6MTcyMTAxMDIzOX0.i16kSXUFwOnIyalAG58RehXF-PkZnW-QwC6PR2-miFk
+userId: 14301453
+Referer: https://servicewechat.com/wxa794c2a4fcfeb7f4/47/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"requestData":"97b842c0c6216dca22fbfb33ea55771067f5bc3f62fc2632b29bbe74b841f43ca94ecdc43a341b9e90826339e871556a0961a3166d56d2812613f671473eef2a616d740f6cc5da2cd6024f01fdd596e958296733c91bb3d8f5a97fe0a8d26fedd1e28006f7187d269bbff74d41247b13a1131231ec9dcd6a76a88a15fc0efb9d009f37cb046b5b6b5c7133a8e2aa4c880656499c14dc6f457cbf18c5f6e1db558bcce670ecf489538b08f52ba949e5eaa4205de604dbb0079cc871cbc503b2b8"}
+
+
+{
+    "deptId": "139253",
+    "targetType": "0",
+    "startDate": "20230715",
+    "endDate": "20230729",
+    "appId": "wxa794c2a4fcfeb7f4",
+    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
+    "hospId": 10018,
+    "hospitalId": 10018
+}
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 15 Jul 2023 02:35:12 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Content-Length: 240
+
+{"status":0,"msg":"","data":{"regDates":["20230717","20230718","20230720"],"regDateInfos":[{"scheduleDate":"20230717","scheduleStatus":"1"},{"scheduleDate":"20230718","scheduleStatus":"1"},{"scheduleDate":"20230720","scheduleStatus":"0"}]}}
