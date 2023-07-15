@@ -344,7 +344,7 @@ namespace Dalian.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}");
+                        var appointController = HttpServiceController.GetService<YuyueController>();
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {

@@ -28,7 +28,7 @@ namespace Dalian.appointment
             Parameters.AddOrUpdate("regLevelName", Order.RegLevelName);
             Parameters.AddOrUpdate("patientId", User.PatientId);
             Parameters.AddOrUpdate("deptId", Order.DeptId);
-            Parameters.AddOrUpdate("drId", Order.DrId);
+            Parameters.AddOrUpdate("drId", string.Empty);
             Parameters.AddOrUpdate("visitTime", Order.VisitTime);
             Parameters.AddOrUpdate("medInsType", string.Empty);
             Parameters.AddOrUpdate("specialDeptType", string.Empty);

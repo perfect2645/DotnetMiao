@@ -72,7 +72,7 @@ namespace Dalian.search
             }
 
             var dateList = new List<string>();
-            var avaliableDateList = dateInfoList.Where(x => x.GetString("scheduleStatus") == "1").ToList();
+            var avaliableDateList = dateInfoList.Where(x => x.GetString("scheduleStatus") == "0").ToList();
             if (!avaliableDateList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
