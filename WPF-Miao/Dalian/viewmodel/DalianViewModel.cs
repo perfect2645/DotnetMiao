@@ -133,13 +133,13 @@ namespace Dalian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(16).AddMinutes(30);
+            StartTime = DateTime.Today.AddHours(18).AddMinutes(58);
 
             DateList = new List<DspVal>();
             var nextTuesday = DateTimeUtil.GetNextWeekday(DayOfWeek.Tuesday);

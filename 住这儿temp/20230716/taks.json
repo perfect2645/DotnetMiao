@@ -17,10 +17,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hd0714",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -43,10 +43,10 @@
                     "sceneDesc": "邻里互助话题贴投票",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=431&from=activity914",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -69,10 +69,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=430&from=activity",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -99,7 +99,7 @@
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
                     "processValue": "0",
-                    "requiredValue": "1"
+                    "requiredValue": "100"
                 }
             ],
             "taskGameList": null,
@@ -125,7 +125,7 @@
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
                     "processValue": "0",
-                    "requiredValue": "0"
+                    "requiredValue": "50"
                 }
             ],
             "taskGameList": null,
@@ -199,10 +199,10 @@
                     "sceneDesc": "车位/房屋管理费，支付成功后触发上报金额，包括预缴/普通缴费",
                     "url": "https://enterprise.4009515151.com/payment-center/home",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "SERVICE:PAY:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -225,10 +225,10 @@
                     "sceneDesc": "",
                     "url": "zze://vanke.com/property/opendoor/list",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.4",
                     "eventCode": "KEY:KEY:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -251,10 +251,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],

@@ -1,0 +1,28 @@
+POST https://tjzsprod.tsxcx.xyz/tjzs/v1/formValue/publish HTTP/1.1
+Host: tjzsprod.tsxcx.xyz
+Connection: keep-alive
+Content-Length: 1158
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk1MjUwOTIsIlVzZXJJZCI6NjExNTI0OTQsIlVVc2VySWQiOjU0MzY4ODgwLCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.SxXqhW4SuZ6MK7JZKr19LiO4t-y7-vYKI_tYuVrih6Cijaubbwl8ykVT61uC7cHYt5RWSF234xZdUtxMdboN5eI52PMLtM4S_cdshTm-AfegG8QrLJxfEem9SxRvQgyB0tblx7vC9qbqWhvJiX6O6Px4z9u_lUgbeBZ-xlfkkrHek9n-dbCuIzqYqr77Y19BRbjOPhpcKpfgbRbCLhcAZCDgRZY-bW1GHPLyGyA4PJ-vxT1fS7AOcZWbgnRS3OXdtiKaTIsHdVhQhF7Ht-hmaq9hphtsJXwPVU9_5aoAolJf2nXdxGlGEhAONfDYk7w-jwF3XFpabc8sDoE651P2Fw
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wx98122c90f1630e04/347/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"seq_num":"61152494_1001_1689517951vr","item":{"id":0,"form_user_id":27322417,"form_u_user_id":51904751,"form_id":8221493,"user_id":0,"u_user_id":0,"user":null,"status":1,"audit_status":1,"audit_at":0,"audit_op_user_id":0,"publish_item":null,"draft_item":{"section":[],"p_section":[{"id":47825033,"type":1,"uit":2,"photo_values":[],"content_values":["5byg5pWP"],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1},{"id":47825034,"type":5,"uit":4,"photo_values":[],"content_values":["MTY1MjEwMjQ1Njg="],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1},{"id":47825035,"type":9,"uit":8,"photo_values":[],"content_values":["NTAwMzIyMTk5OTAyMDEyMzIx"],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1}],"ms":[],"remark":"","n":"","ip":0,"l":0},"publish_at":0,"create_at":0,"update_at":0,"version":0,"seq_num":"61152494_1001_1689517951vr"},"pay_type":0,"sys_id":1001}
+HTTP/1.1 200 OK
+Date: Sun, 16 Jul 2023 14:32:32 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 187
+Connection: keep-alive
+Set-Cookie: tgw_l7_route=1559df5c4db01ce7e6d4e50052499899; Expires=Sun, 16-Jul-2023 15:02:32 GMT; Path=/
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Content-Type, Accept
+Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Content-Range
+Access-Control-Request-Methods: POST,GET,PUT,DELETE,OPTIONS
+P3p: CP=CAO PSA OUR
+A: B
+xxx: yyy
+
+{"result_code":61004,"result_message":"表单还未开始,请稍后再来填值","api_state":"","item":null,"form_item":null,"order_item":null,"pay_info":null,"msg_tps":null,"is_queue":0}

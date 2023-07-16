@@ -8,10 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="common\77template.txt" />
     <None Remove="Login.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="common\77template.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Login.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
