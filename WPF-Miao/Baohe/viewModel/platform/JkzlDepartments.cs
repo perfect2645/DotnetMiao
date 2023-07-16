@@ -14,12 +14,11 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
-    "1047032", "常青街道薛河湾社区卫生服务站",
-    "7237655", "四价HPV疫苗")
+            Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
+    "1094367", "包河区万年埠街道社区卫生服务中心",
+    "7231670", "九价Hpv")
             {
-                HasYzm = false,
-                DoctorSn = "711247350"
+                DoctorSn = "711212600"
             });
 
             #region 漳州

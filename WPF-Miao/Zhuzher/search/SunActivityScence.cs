@@ -22,16 +22,15 @@ namespace Zhuzher.search
         private void InitSceneList()
         {
             AddScene("app-startapp", 1, "1");
-            AddScene("app-act-invite&view", 3, "1");
-            AddScene("puli-daka", 1, "https://enterprise.4009515151.com/marketing-pages/integral");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=djsyyxhdxrq");
-            AddScene("5thzone-convenience-pay", 1, "https://blackpearl.4009515151.com/interfaces/share/show/topic/new/f1d439d387744f9095db179ce86a1333?from=sys");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5127?pageMark=bbyhzzznzt5127");
-            AddScene("app-act-share&view", 6, "1");
-            AddScene("app-post", 2, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=384");
-            AddScene("puli-daka", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=384");
-            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
+            AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hd0714");
+            AddScene("app-post-vote", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=431&from=activity914");
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=430&from=activity");
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=51hd");
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=jzbjyxhd");
+            AddScene("5thzone-convenience-pay", 1, "https://uiis.4009515151.com/product/171910/projectCode/0?pageMark=bbyhzz17110tf");
             AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");
+            AddScene("app-keyforfree", 1, @"zze://vanke.com/property/opendoor/list");
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
         }
 
         private void AddScene(string code, int time, string? url=null)

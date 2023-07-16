@@ -86,7 +86,7 @@ namespace Baohe.viewModel
         {
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
             VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
-            YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
+            //YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
         }
 
         #endregion Constructor
