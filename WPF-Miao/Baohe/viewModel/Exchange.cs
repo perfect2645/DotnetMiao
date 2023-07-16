@@ -32,7 +32,7 @@ namespace Baohe.viewModel
             {
                 VerifyCode.ArrangeSn = "173902390";
                 MainSession.ExchangeInfo = new ExchangeInfo(VerifyCode.ArrangeSn, "837285164", "34", "15:36-15:38");
-                UserName = "何晶晶";
+                UserName = "张海丽";
                 StartTime = DateTime.Now.AddSeconds(20);
                 MainSession.YzmMode = YzmMode.ExchangePreSendOnTimeVerify;
 

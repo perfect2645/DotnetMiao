@@ -1,7 +1,114 @@
 ﻿[
   {
-    "Name": "周瑠夏",
-    "Phone": "17615102645",
-    "Address": "黄埭镇东桥"
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk1MjUwOTIsIlVzZXJJZCI6NjExNTI0OTQsIlVVc2VySWQiOjU0MzY4ODgwLCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.SxXqhW4SuZ6MK7JZKr19LiO4t-y7-vYKI_tYuVrih6Cijaubbwl8ykVT61uC7cHYt5RWSF234xZdUtxMdboN5eI52PMLtM4S_cdshTm-AfegG8QrLJxfEem9SxRvQgyB0tblx7vC9qbqWhvJiX6O6Px4z9u_lUgbeBZ-xlfkkrHek9n-dbCuIzqYqr77Y19BRbjOPhpcKpfgbRbCLhcAZCDgRZY-bW1GHPLyGyA4PJ-vxT1fS7AOcZWbgnRS3OXdtiKaTIsHdVhQhF7Ht-hmaq9hphtsJXwPVU9_5aoAolJf2nXdxGlGEhAONfDYk7w-jwF3XFpabc8sDoE651P2Fw",
+    "Content": {
+      "seq_num": "60661079_1001_1689428677at",
+      "item": {
+        "id": 0,
+        "form_user_id": 27322417,
+        "form_u_user_id": 51904751,
+        "form_id": 8221493,
+        "user_id": 0,
+        "u_user_id": 0,
+        "user": null,
+        "status": 1,
+        "audit_status": 1,
+        "audit_at": 0,
+        "audit_op_user_id": 0,
+        "publish_item": null,
+        "draft_item": {
+          "section": [],
+          "p_section": [
+            {
+              "id": 47825033,
+              "type": 1,
+              "uit": 2,
+              "photo_values": [],
+              "content_values": [
+                "6a2P5Yeh5rGQ"
+              ],
+              "index_values": [],
+              "gps_values": [],
+              "fs": [],
+              "icc": [],
+              "cc": [],
+              "mvs": [],
+              "av": {},
+              "mis": [],
+              "ccv": {
+                "v": [],
+                "ov": ""
+              },
+              "_status": 1,
+              "status": 1,
+              "_init_status": 1
+            },
+            {
+              "id": 47825034,
+              "type": 5,
+              "uit": 4,
+              "photo_values": [],
+              "content_values": [
+                "MTcxNDM3OTQxNzQ="
+              ],
+              "index_values": [],
+              "gps_values": [],
+              "fs": [],
+              "icc": [],
+              "cc": [],
+              "mvs": [],
+              "av": {},
+              "mis": [],
+              "ccv": {
+                "v": [],
+                "ov": ""
+              },
+              "_status": 1,
+              "status": 1,
+              "_init_status": 1
+            },
+            {
+              "id": 47825035,
+              "type": 9,
+              "uit": 8,
+              "photo_values": [],
+              "content_values": [
+                "NjEwOTAyMjAwNDEwMjAwNTQy"
+              ],
+              "index_values": [],
+              "gps_values": [],
+              "fs": [],
+              "icc": [],
+              "cc": [],
+              "mvs": [],
+              "av": {},
+              "mis": [],
+              "ccv": {
+                "v": [],
+                "ov": ""
+              },
+              "_status": 1,
+              "status": 1,
+              "_init_status": 1
+            }
+          ],
+          "ms": [],
+          "remark": "",
+          "n": "",
+          "ip": 0,
+          "l": 0
+        },
+        "publish_at": 0,
+        "create_at": 0,
+        "update_at": 0,
+        "version": 0,
+        "seq_num": "60661079_1001_1689428677at"
+      },
+      "pay_type": 0,
+      "sys_id": 1001
+    }
   }
 ]
+
+
+

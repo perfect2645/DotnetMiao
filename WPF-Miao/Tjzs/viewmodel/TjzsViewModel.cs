@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.file;
+using Utils.json;
 
 namespace Tjzs.viewmodel
 {
@@ -54,16 +55,10 @@ namespace Tjzs.viewmodel
             {
                 new TjzsHospital
                 {
-                    HospitalName = "黄埭镇东桥",
+                    HospitalName = "统计助手",
                     DepartmentName = "9价HPV（9-45周岁）",
                     DepartmentId = "3",
-                },
-                new TjzsHospital
-                {
-                    HospitalName = "黄埭镇东桥",
-                    DepartmentName = "4价HPV（9-45周岁）",
-                    DepartmentId = "2",
-                },
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -109,18 +104,15 @@ namespace Tjzs.viewmodel
         private void LoginFromConfigAsync()
         {
             MainSession.Users = FileReader.DeserializeFile<List<TjzsLogin>>("Login.json");
-            foreach(var user in MainSession.Users)
+            foreach (var user in MainSession.Users)
             {
+                var contentJson = FileSerializer.Serialize(user.Content);
                 var order = new Order
                 {
                     Authorization = user.Authorization,
-                    Address = SelectedDepartment.HospitalName,
-                    No = SelectedDepartment.DepartmentId,
-                    Phone = user.Phone,
-                    Type = SelectedDepartment.DepartmentName,
-                    UserName = user.Name
+                    Content= contentJson
                 };
-                MainSession.Orders.Add(user.Name, order);
+                MainSession.Orders.Add(user.Authorization, order);
             }
 
             MainSession.InitSession();
@@ -211,7 +203,7 @@ namespace Tjzs.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(200);
+                    Thread.Sleep(2000);
                 }
             }
             catch (HttpException ex)

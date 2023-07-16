@@ -1,4 +1,8 @@
-﻿using Tjzs.common;
+﻿using System.Net.Http;
+using System.Text;
+using Tjzs.common;
+using Tjzs.session;
+using Utils;
 
 namespace Tjzs.appointment
 {
@@ -13,11 +17,12 @@ namespace Tjzs.appointment
 
         private void BuildContent()
         {
-            AddContent("name", Order.UserName);
-            AddContent("phone", Order.Phone);
-            AddContent("address", Order.Address);
-            AddContent("type", Order.Type);
-            AddContent("no", Order.No);
+            Content.AddOrUpdate(string.Empty, Order.Content);
+        }
+
+        public override StringContent GetJsonContent()
+        {
+            return new StringContent(Order.Content, Encoding.UTF8, ContentType);
         }
     }
 }

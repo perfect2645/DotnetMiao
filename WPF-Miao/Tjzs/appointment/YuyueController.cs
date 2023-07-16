@@ -53,15 +53,15 @@ namespace Tjzs.appointment
                 }
 
                 var root = response.JsonBody.RootElement;
-                var code = root.GetProperty("code").NotNullString();
-                var msg = root.GetProperty("msg").NotNullString();
-                if (code != "0" || msg != "操作完成")
+                var code = root.GetProperty("result_code").NotNullString();
+                var msg = root.GetProperty("result_message").NotNullString();
+                if (code != "0" || msg != "成功")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败:code={code}, message: {msg}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
+                var data = root.GetProperty("item");
                 return SaveOrderResult(data);
             }
             catch (Exception ex)
@@ -79,7 +79,7 @@ namespace Tjzs.appointment
 
                 MainSession.PrintLogEvent.Publish(this, orderData);
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                if (!string.IsNullOrEmpty(orderData.GetString("id")))
                 {
                     return true;
                 }

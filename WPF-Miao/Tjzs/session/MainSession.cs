@@ -13,7 +13,6 @@ namespace Tjzs.session
         internal static List<TjzsLogin> Users { get; set; }
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
-        
         internal static Dictionary<string, Order> Orders { get; set; }
 
         static MainSession()
