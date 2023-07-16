@@ -4,11 +4,10 @@ namespace Tjzs.appointment
 {
     internal class YuyueContent : TjzsContent
     {
-        private static string url = "https://health-cn.xyz:9033/health_xcdp/api/hpv/save";
-        public Order Order { get; private set; }
-        public YuyueContent(Order order) : base(url)
+        private static string url = "https://tjzsprod.tsxcx.xyz/tjzs/v1/formValue/publish";
+
+        public YuyueContent(Order order) : base(url, order)
         {
-            Order = order;
             BuildContent();
         }
 

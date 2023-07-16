@@ -113,6 +113,7 @@ namespace Tjzs.viewmodel
             {
                 var order = new Order
                 {
+                    Authorization = user.Authorization,
                     Address = SelectedDepartment.HospitalName,
                     No = SelectedDepartment.DepartmentId,
                     Phone = user.Phone,
