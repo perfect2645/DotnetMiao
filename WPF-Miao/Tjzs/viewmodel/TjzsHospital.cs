@@ -5,9 +5,7 @@ namespace Tjzs.viewmodel
 {
     internal class TjzsHospital : HospitalDept
     {
-
-        public string DoctorId { get; set; }
-        public string DoctorName { get; set; }
+        public string Template { get; set; }
 
         public new string Display
         {
