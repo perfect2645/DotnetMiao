@@ -1,13 +1,13 @@
 ﻿[
   {
-    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2MDIyMDgsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.k-CUIs1X8EQgh20gPgdGM9Tx2TWh5gQPXLZLQjaqCWFd4WEVRhtxnIiJMa-F2NsgmgYSsIkYTr3IJt8k7vrQGD-UR4aSWXUUJf7PnUu5VDJgTECDoYhlKcByjeZswGfJu9sQa8K7uoyRSOx_2rJrQsbW95C6dD5QK6Iv-3Ru_DbfZVJwxgB4VRxqjQsKL1pWiJVvXt9wD9A7ByfF4ezPFMqNngkS6vLYplqlmNGyjB1rDOMQR4HtN1IVDfgHMhdAJigIJOjKsVdxeh5c7YWdQmRaTSd0cVL466akiblFAYl6oQH8tOiztu2V11v9iJ6MkmbBSIUlWsEUrDLCfwXghw",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2MTA3ODYsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.GNUm0m1Kgfe-FzWVKHSWzplMj8lDkdiUSX1bEotpm33i2V9vAcQAKyXQtWZJ2A3Kb0QuW0wV0yGG5soatRg8VZHW-Pyq59Ia-GoM8YX5V3mIlrmEwT0pLifhJ24yg8TVXwV0h9GIpXcuT0CD6zLmyOzC3jzoKqE90FifyZ5aN4Y0HXXYg7z_Hp-suXOnTpyBRYzIRbZ7LP-UKtt_W3kyzOU1mpwx61yiuuZq5UPCIByAlhhIhml4NhTxduFrzOZFHxUb8GtI2UH2XWE4x-2zLJGzxdoBbrNSWB1yM6gyuLvMvF6eEPkIkNDfDebp-78DNJT7HD8c48--2xHHU3CwaQ",
     "Content": {
-      "seq_num": "60661079_1001_1689428677at",
+      "seq_num": "60661079_1001_16896035973y",
       "item": {
         "id": 0,
-        "form_user_id": 27322417,
-        "form_u_user_id": 51904751,
-        "form_id": 8221493,
+        "form_user_id": 58920625,
+        "form_u_user_id": 52009049,
+        "form_id": 8226476,
         "user_id": 0,
         "u_user_id": 0,
         "user": null,
@@ -17,40 +17,12 @@
         "audit_op_user_id": 0,
         "publish_item": null,
         "draft_item": {
-          "section": [],
-          "p_section": [
+          "section": [
             {
-              "id": 47825033,
-              "type": 1,
-              "uit": 2,
-              "photo_values": [],
-              "content_values": [
-                "6a2P5Yeh5rGQ"
-              ],
-              "index_values": [],
-              "gps_values": [],
-              "fs": [],
-              "icc": [],
-              "cc": [],
-              "mvs": [],
-              "av": {},
-              "mis": [],
-              "ccv": {
-                "v": [],
-                "ov": ""
-              },
-              "_status": 1,
-              "status": 1,
-              "_init_status": 1
-            },
-            {
-              "id": 47825034,
+              "id": 47848382,
               "type": 5,
-              "uit": 4,
               "photo_values": [],
-              "content_values": [
-                "MTcxNDM3OTQxNzQ="
-              ],
+              "content_values": [ "MTc2MTUxMDI2NDU=" ],
               "index_values": [],
               "gps_values": [],
               "fs": [],
@@ -68,13 +40,10 @@
               "_init_status": 1
             },
             {
-              "id": 47825035,
-              "type": 9,
-              "uit": 8,
+              "id": 47848383,
+              "type": 1,
               "photo_values": [],
-              "content_values": [
-                "NjEwOTAyMjAwNDEwMjAwNTQy"
-              ],
+              "content_values": [ "5rWL6K+V" ],
               "index_values": [],
               "gps_values": [],
               "fs": [],
@@ -92,6 +61,7 @@
               "_init_status": 1
             }
           ],
+          "p_section": [],
           "ms": [],
           "remark": "",
           "n": "",
@@ -102,13 +72,11 @@
         "create_at": 0,
         "update_at": 0,
         "version": 0,
-        "seq_num": "60661079_1001_1689428677at"
+        "seq_num": "60661079_1001_16896035973y"
       },
       "pay_type": 0,
       "sys_id": 1001
     }
   }
 ]
-
-
 
