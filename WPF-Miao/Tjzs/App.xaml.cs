@@ -2,6 +2,7 @@
 using Tjzs.appointment;
 using System.Threading.Tasks;
 using System.Windows;
+using Tjzs.login;
 
 namespace Tjzs
 {
@@ -26,6 +27,7 @@ namespace Tjzs
         private void InitController()
         {
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<TokenController>();
             HttpServiceController.BuidServiceProvider();
         }
     }

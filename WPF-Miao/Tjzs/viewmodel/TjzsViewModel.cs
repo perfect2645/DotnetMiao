@@ -15,6 +15,7 @@ using System.Windows.Input;
 using Utils;
 using Utils.file;
 using Utils.json;
+using HttpProcessor.Container;
 
 namespace Tjzs.viewmodel
 {
@@ -110,10 +111,13 @@ namespace Tjzs.viewmodel
                 var order = new Order
                 {
                     Authorization = user.Authorization,
-                    Content= contentJson
+                    RefreshToken = user.RefreshToken,
+                    Content = contentJson
                 };
                 MainSession.Orders.Add(user.Authorization, order);
             }
+
+            ReSession();
 
             MainSession.InitSession();
         }
@@ -203,7 +207,7 @@ namespace Tjzs.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(200000);
+                    Thread.Sleep(2000);
                 }
             }
             catch (HttpException ex)
@@ -248,6 +252,15 @@ namespace Tjzs.viewmodel
         protected override void ReSession()
         {
             Log("ression invoke");
+            foreach (var order in MainSession.Orders)
+            {
+                Thread.Sleep(1000);
+                Task.Factory.StartNew(() =>
+                {
+                    var tokenController = HttpServiceController.GetService<TokenController>();
+                    tokenController.RefreshToken(order.Value);
+                });
+            }
         }
 
         #endregion Resession

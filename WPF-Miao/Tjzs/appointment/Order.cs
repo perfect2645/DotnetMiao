@@ -5,6 +5,7 @@ namespace Tjzs.appointment
     public class Order
     {
         public string Authorization { get; set; }
+        public string RefreshToken { get; set; }
         public string Content { get; set; }
         public string UserId { get; set; }
         public string UserName { get; set; }
