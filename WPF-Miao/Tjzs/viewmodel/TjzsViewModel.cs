@@ -203,7 +203,7 @@ namespace Tjzs.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(2000);
+                    Thread.Sleep(200000);
                 }
             }
             catch (HttpException ex)

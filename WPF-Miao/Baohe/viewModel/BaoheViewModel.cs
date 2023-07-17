@@ -93,7 +93,7 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.PreSendOnTimeVerify;
+            MainSession.YzmMode = YzmMode.PreSendVerify;
 
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
@@ -101,11 +101,11 @@ namespace Baohe.viewModel
             //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(40);
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
-            StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(13).AddMinutes(13).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(14).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(55);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(57);
 
             if (Application.Current.Properties.Contains("UserName"))
