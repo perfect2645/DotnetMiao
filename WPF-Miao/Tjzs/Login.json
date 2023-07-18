@@ -1,14 +1,13 @@
 ﻿[
   {
-    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2MTcyMTIsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.VANcXwQU_JIVnAAkhxvrjkrrGew0RSoIvC4nxt_157_JRG4RxTZk8f0yBjltnpVE7uuN7GhTT9_DUtHYDpVbZor1OtWBFnDs0hO-IGJtYHw15F8Gzxmtt6hLdKKe8JeGNAF9lP94SAB9KVfPz5Jg95HrTWwT1GTK3muoYnfIUMMDr0r-KxAo4kiJiIKSZyuWaYFaICpWjtF4ZnOmj_pnEmxM_5tC__0dIbzxv0-cledTsFk_ImJxqAaBPZOLtN6r8PZ7MWCs_VG90cBin0mxLvLREUoHF9JQVfYwSpJUlIS21LJFINMD_BhyDFfiUI44JExY33GgvmXM5ozqr8nF8A",
-    "RefreshToken": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAyMTQ4MTIsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.aJPwlR-LVTxMRW2lh4VfHpQx0JqTyFDXNDCmA-e8-wUwUqR4LcZZ6kpmQ-yXRsaMT7i2nDaiOGx4fwSMxibQipmvX55eWFFYrHTiCNFebF5TMtgmOuc8c0eTSQ0Rq2mZN7J5OdkQgXY9CKlZJtTQQ0Y17Ydmaul5vT9yLyL_iZIonzVrZxG2P4LFolEtn_ITWVBJO5pSmi8V6Z-IIZK496mDT_X04IRCiD7kVRl88qkISnYBE-k-bmngt1j951-t1BqG3IqQk9LLAKN-VDw1K0SGwFfoHGJdeNaQ67_P5fL2XjzfE4kj5WYqm6QkQvViJ7dnAsX9edLM_ofyikbbpg",
+    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2NjYxNjMsIlVzZXJJZCI6NjExNzY1ODcsIlVVc2VySWQiOjU0Mzk0MjM4LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.EQ0qpJZv5V9iDdemU54b6pOT_Whr_TdCqv2vyIsaiPaupBsc9V8B8V7akn5ujtVN0DBAT-lG64LLL3uJyFBdAwH-PEYygQqiczHEb-HlppqATB4j_ly1te31i_89u6ThBWD_BmD65u1KTklicucQip_A7bs_Gl-_MCfFQXRHl5LaGhleuSRz28mt3AQB_hpMHDeEOvZNmXzW-hRPOmtiAqiLDRXVIKTu4A9dH86Mg1JwDUnDa4zyMX9WiUIki4jqZaNHwbEdwIu77v7OYcTRlw8w0JW0FJFZCYFhNd-8mNpu03PsPI8dBhHhRW7kmxf14H9gKxJ2g_jWQu6abFsPNQ",
     "Content": {
-      "seq_num": "60661079_1001_16896035973y",
+      "seq_num": "61176587_1001_1689658997fj",
       "item": {
         "id": 0,
-        "form_user_id": 58920625,
-        "form_u_user_id": 52009049,
-        "form_id": 8226476,
+        "form_user_id": 27322417,
+        "form_u_user_id": 51904751,
+        "form_id": 8221493,
         "user_id": 0,
         "u_user_id": 0,
         "user": null,
@@ -18,12 +17,14 @@
         "audit_op_user_id": 0,
         "publish_item": null,
         "draft_item": {
-          "section": [
+          "section": [],
+          "p_section": [
             {
-              "id": 47848382,
-              "type": 5,
+              "id": 47825033,
+              "type": 1,
+              "uit": 2,
               "photo_values": [],
-              "content_values": [ "MTc2MTUxMDI2NDU=" ],
+              "content_values": [ "6LW15paw6ZOt" ],
               "index_values": [],
               "gps_values": [],
               "fs": [],
@@ -41,10 +42,33 @@
               "_init_status": 1
             },
             {
-              "id": 47848383,
-              "type": 1,
+              "id": 47825034,
+              "type": 5,
+              "uit": 4,
               "photo_values": [],
-              "content_values": [ "5rWL6K+V" ],
+              "content_values": [ "MTU4NDkwNzIyOTk=" ],
+              "index_values": [],
+              "gps_values": [],
+              "fs": [],
+              "icc": [],
+              "cc": [],
+              "mvs": [],
+              "av": {},
+              "mis": [],
+              "ccv": {
+                "v": [],
+                "ov": ""
+              },
+              "_status": 1,
+              "status": 1,
+              "_init_status": 1
+            },
+            {
+              "id": 47825035,
+              "type": 9,
+              "uit": 8,
+              "photo_values": [],
+              "content_values": [ "MTUyMTAzMTk5ODExMjQwNjIz" ],
               "index_values": [],
               "gps_values": [],
               "fs": [],
@@ -62,7 +86,6 @@
               "_init_status": 1
             }
           ],
-          "p_section": [],
           "ms": [],
           "remark": "",
           "n": "",
@@ -73,7 +96,7 @@
         "create_at": 0,
         "update_at": 0,
         "version": 0,
-        "seq_num": "60661079_1001_16896035973y"
+        "seq_num": "61176587_1001_1689658997fj"
       },
       "pay_type": 0,
       "sys_id": 1001

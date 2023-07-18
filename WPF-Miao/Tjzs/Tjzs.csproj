@@ -10,10 +10,14 @@
   <ItemGroup>
     <None Remove="common\77template.txt" />
     <None Remove="Login.json" />
+    <None Remove="loginTemp.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="common\77template.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="loginTemp.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">

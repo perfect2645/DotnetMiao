@@ -50,7 +50,7 @@ namespace Tjzs.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(13).AddMinutes(59).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {
@@ -111,13 +111,11 @@ namespace Tjzs.viewmodel
                 var order = new Order
                 {
                     Authorization = user.Authorization,
-                    RefreshToken = user.RefreshToken,
+                    //RefreshToken = user.RefreshToken,
                     Content = contentJson
                 };
                 MainSession.Orders.Add(user.Authorization, order);
             }
-
-            ReSession();
 
             MainSession.InitSession();
         }
