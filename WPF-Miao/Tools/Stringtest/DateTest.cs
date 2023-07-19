@@ -15,10 +15,11 @@ namespace Tools.Stringtest
 
         private void DateSubstract()
         {
-            var currentDate = DateTime.Today;
-            var gap = 45070;
+            //var offset = 45070;
 
-            var targetDate = currentDate.AddDays(-gap);
+            var offset = 45125;
+            var initDate = new DateTime(1900, 1, 1);
+            var targetDate = initDate.AddDays(offset);
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Kuerle.viewmodel
                 {
                     HospitalName = "库尔勒疾控",
                     DepartmentName = "九价",
-                    PidKey = "01c6481d-31d9-4c58-bb5a-d468dd3429fd",
+                    PidKey = "ebfd956b-db84-48f2-bf44-b70ca4024fc8",
                     VidKey = "08b3f817-69cb-4028-9f2b-61e26a25e8c6",
                 },
                 new KuerleHospital

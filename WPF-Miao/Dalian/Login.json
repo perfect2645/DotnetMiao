@@ -1,14 +1,9 @@
 ﻿[
+
   {
-    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
-    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNDMwMTQ1MyIsImV4cCI6MTcyMTI4NjUzN30.6CYY7H3eqWWknTbKTQgWHNV1TVHYTHmk2m7zfB3qYj0",
-    "userId": "14301453",
-    "UserName": "黄秋凤"
-  },
-  {
-    "openId": "oxdpl5VYXMSjAqFsVZbkB5OmO-mM",
-    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNDM3NjcyNCIsImV4cCI6MTcyMTI4NjQ5Mn0.K4shSxYq6LQxQ_qbMSL92t0o0ti-BWzb9krccmtCQPA",
-    "userId": "14376724",
-    "UserName": "罗庆"
+    "openId": "oxdpl5Qqk08OYEcgvhZqnhCBnaaI",
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMDUxMzM1IiwiZXhwIjoxNzIxNDAxMDg3fQ.fr8afle-nrIKuvzS6MD9_mb1xgoAawrJXEv5qGiMtYY",
+    "userId": "3051335",
+    "UserName": "李倩"
   }
 ]

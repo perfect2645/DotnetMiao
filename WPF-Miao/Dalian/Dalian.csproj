@@ -14,6 +14,7 @@
     <None Remove="common\sm3.js" />
     <None Remove="common\sm3_index.js" />
     <None Remove="common\sm4_index.js" />
+    <None Remove="Login - 复制.json" />
     <None Remove="Login.json" />
   </ItemGroup>
 
@@ -31,6 +32,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="common\sm4_index.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login - 复制.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">
