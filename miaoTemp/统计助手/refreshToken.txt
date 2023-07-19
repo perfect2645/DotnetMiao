@@ -18,4 +18,58 @@ Set-Cookie: tgw_l7_route=aa69044f7e07ef0b3186080b8f04b5bd; Expires=Mon, 17-Jul-2
 A: B
 xxx: yyy
 
-{"result_code":0,"result_message":"成功","api_state":"","User":{"seq_page_id":0,"id":60661079,"s_id":"649240108d9995000127f2ed","u_user_id":53851427,"wx_sa_id":1000,"system_id":0,"wx_open_id":"oOVKt4gXz-zLE6PGWXbcz4fJF_O4","wx_info":{"session_key":"","open_id":"oOVKt4gXz-zLE6PGWXbcz4fJF_O4","subscribe":0,"status":2,"nick_name":"55Sc55Sc","sex":0,"language":"","province":"","city":"","country":"","avatar":"cosfile.tsxcx.xyz/user/202307/05f0fa04202fde92b64a16cc42a8b7e2.jpg","access_token":"","expires_at":0,"refresh_token":"","receiver":"","address":"","zip":"","subscribe_time":0,"union_id":"ogOkowWf-mOlLmwwPmD2ltKRUfeQ","remark":"","group_id":0,"update_at":0},"name":"","show_name":"","show_name_gbk":"","sex":0,"status":1,"audit_status":1,"audit_at":0,"audit_op_user_id":0,"last_login_at":0,"last_visit_at":0,"create_at":1687306256,"update_at":1687306256,"version":0,"special_status":0},"auth_token":"Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2MTY2MDMsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.KB0x3LRi49tWC9Keofy2TpV86_xjjm0GIJy6AwnMF_tqm5e3dVRMopP0vJ1Ciav1z3K-rn1rorsUcBtKvkAuseYfXuLRofhmIKmG2u8ZWxHFN0EWvy_mSObDRLStilcVfcXXeoasJ5YhAZwygABxvRlb8i96EbGwEuN1iwE82MJtNf5Ro70zxC9Z383JvI1Y--uweA7Xqx4Umyi9IBdvBhXCvgDXPTtOIupTR87Ksk05Hr7ZpLFmdw4PPPZDmIeddx_X44Z121_f6eH6cmYUN7to-SxcBY8gWNvhbRPssqpnLEOyTeZiEWqjq56ZNimMxTIywss6ZwfAlobDtvjdhg","auth_refresh_token":"Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAyMTQyMDMsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.gV_XeIJZC1IWK_-yyXN5I9ObgMQufy8aLe3SmkbmkYyVqBGPq4yUey5qWllGKusOTpjJLsAFXBFWH8zhwWMfILNFxA7dwVra-Kq3Y63eRqdwhmqh-t9Z3SCXgUb5SA3urKMmYsqr9qPoLiRFw27zH6qQHEefQmZSfcxR7P-xjIN17_k_l7JppIBQjmdPreg_p6sagEildpskBVFA-g8RYYizvGA0JOXuMZj3i6SUQ4BPaWb_uW5tWLqdJ3AwgKp0j0osZ9lUFL-zOEwL5FZ-XLOu1FufzI6PWhsFTxoCB1YzptfP8u0smWCT_a-eB49s24EpVLqt_CP9LoD9lHkVbA","phone":""}
+{
+    "result_code": 0,
+    "result_message": "成功",
+    "api_state": "",
+    "User": {
+        "seq_page_id": 0,
+        "id": 60661079,
+        "s_id": "649240108d9995000127f2ed",
+        "u_user_id": 53851427,
+        "wx_sa_id": 1000,
+        "system_id": 0,
+        "wx_open_id": "oOVKt4gXz-zLE6PGWXbcz4fJF_O4",
+        "wx_info": {
+            "session_key": "",
+            "open_id": "oOVKt4gXz-zLE6PGWXbcz4fJF_O4",
+            "subscribe": 0,
+            "status": 2,
+            "nick_name": "55Sc55Sc",
+            "sex": 0,
+            "language": "",
+            "province": "",
+            "city": "",
+            "country": "",
+            "avatar": "cosfile.tsxcx.xyz/user/202307/05f0fa04202fde92b64a16cc42a8b7e2.jpg",
+            "access_token": "",
+            "expires_at": 0,
+            "refresh_token": "",
+            "receiver": "",
+            "address": "",
+            "zip": "",
+            "subscribe_time": 0,
+            "union_id": "ogOkowWf-mOlLmwwPmD2ltKRUfeQ",
+            "remark": "",
+            "group_id": 0,
+            "update_at": 0
+        },
+        "name": "",
+        "show_name": "",
+        "show_name_gbk": "",
+        "sex": 0,
+        "status": 1,
+        "audit_status": 1,
+        "audit_at": 0,
+        "audit_op_user_id": 0,
+        "last_login_at": 0,
+        "last_visit_at": 0,
+        "create_at": 1687306256,
+        "update_at": 1687306256,
+        "version": 0,
+        "special_status": 0
+    },
+    "auth_token": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2MTY2MDMsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.KB0x3LRi49tWC9Keofy2TpV86_xjjm0GIJy6AwnMF_tqm5e3dVRMopP0vJ1Ciav1z3K-rn1rorsUcBtKvkAuseYfXuLRofhmIKmG2u8ZWxHFN0EWvy_mSObDRLStilcVfcXXeoasJ5YhAZwygABxvRlb8i96EbGwEuN1iwE82MJtNf5Ro70zxC9Z383JvI1Y--uweA7Xqx4Umyi9IBdvBhXCvgDXPTtOIupTR87Ksk05Hr7ZpLFmdw4PPPZDmIeddx_X44Z121_f6eH6cmYUN7to-SxcBY8gWNvhbRPssqpnLEOyTeZiEWqjq56ZNimMxTIywss6ZwfAlobDtvjdhg",
+    "auth_refresh_token": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAyMTQyMDMsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.gV_XeIJZC1IWK_-yyXN5I9ObgMQufy8aLe3SmkbmkYyVqBGPq4yUey5qWllGKusOTpjJLsAFXBFWH8zhwWMfILNFxA7dwVra-Kq3Y63eRqdwhmqh-t9Z3SCXgUb5SA3urKMmYsqr9qPoLiRFw27zH6qQHEefQmZSfcxR7P-xjIN17_k_l7JppIBQjmdPreg_p6sagEildpskBVFA-g8RYYizvGA0JOXuMZj3i6SUQ4BPaWb_uW5tWLqdJ3AwgKp0j0osZ9lUFL-zOEwL5FZ-XLOu1FufzI6PWhsFTxoCB1YzptfP8u0smWCT_a-eB49s24EpVLqt_CP9LoD9lHkVbA",
+    "phone": ""
+}
