@@ -31,6 +31,7 @@ namespace Kuerle
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<VidController>();
+            HttpServiceController.AddTransientService<IndexController>();
             HttpServiceController.BuidServiceProvider();
         }
     }

@@ -24,10 +24,17 @@ namespace Kuerle.search
         private void GetMiao()
         {
             var miaoController = HttpServiceController.GetService<MiaoController>();
+            var indexController = HttpServiceController.GetService<IndexController>();
 
             var isMiaoGet = false;
             while (!isMiaoGet)
             {
+                (string pidKey, string vidKey) = indexController.GetIndex();
+                if(string.IsNullOrEmpty(pidKey) || string.IsNullOrEmpty(vidKey))
+                {
+                    MainSession.PrintLogEvent.Publish(this, "pid & vid not get, continue");
+                }
+
                 isMiaoGet = miaoController.SearchMiao();
                 Thread.Sleep(1000);
             }
