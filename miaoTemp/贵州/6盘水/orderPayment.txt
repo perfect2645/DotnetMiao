@@ -1,0 +1,29 @@
+POST https://oss.zsqrmyy.com:8443/patient/register/payment HTTP/1.1
+Host: oss.zsqrmyy.com:8443
+Connection: keep-alive
+Content-Length: 66
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGlfYWNjZXNzX3Rva2VuIjpudWxsLCJwYXRpZW50X2lkIjoiMTY4MTIwMTY4OTUzNDY4OTI4MiIsInd4X3Nlc3Npb25fa2V5IjoiSGhWMlFHTktHZHpCYmt6RC9wWFROdz09IiwiYWxpX29wZW5faWQiOm51bGwsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3NjE2NjQ2OTIsInd4X3VuaW9uX2lkIjpudWxsLCJ3eF9vcGVuX2lkIjoibzUyaVg0bGVvWW1TSWNwZUxGWXpkZWNEZkFOayIsImp0aSI6ImF4WVBjMzhwckNfM3Z4VFUxWGY0YWZzSGlCbyIsImNsaWVudF9pZCI6InBhdGllbnQifQ.CIvf0ti2Gb4Vm7Pr61WZqAfkdCAXpsL9w4awJBgjU-O4yoWN6BSh_GLqgn5nKOBz6Ozyf_Yzkf9FY0VfCIsRcub1L6ChcjBt6S-gOogW9eIgCo-T4MzHqYg_4dZNKAbuheA4D7lakB-1O5Yf0aYJ6RwPrGT6Dc4TUe7z5WaebQXRww3JDudvt3eSc0Gp4461XlR0MPPbyEYn_9FKyir9luaodq9IvglHe-KLYHSkeLzUWosAjMLJoZCNRVCgg9U7yWJC-h7tGRxsBaVHxvhxOfH-Jn-XJrRtmN760jy9M3JaVcOApWXNZjQ1WWy934SxjNOc1RAM-OdyJKpAy49WSw
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+X-Request-Uuid: 16896646895223196565
+content-type: application/json
+Referer: https://servicewechat.com/wxf07924550288e202/18/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"id":"1681203847927721986","payMethod":"a","serviceProvider":"a"}
+HTTP/1.1 200 OK
+Server: nginx/1.20.2
+Date: Tue, 18 Jul 2023 07:26:51 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1 ; mode=block
+Referrer-Policy: no-referrer
+Content-Length: 382
+
+{"code":0,"message":"操作成功！","data":{"timeStamp":"1689665211","package":"prepay_id=wx1815265161330231f8fae3234389cc0000","paySign":"D8F0179B6BF7478C8B6BB57B02516C84","paymentId":"PWM20230718152651213011057382510","appId":"wxf07924550288e202","businessKey":"pat_register_pay","businessId":"1681203847927721986","signType":"MD5","selfFee":2.50,"nonceStr":"6zKmM4Qs4odAjQYK"}}

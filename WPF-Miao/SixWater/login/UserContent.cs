@@ -23,7 +23,7 @@ namespace SixWater.login
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
             AddContent("page", 1);
-            AddContent("token", User.Token);
+            AddContent("token", User.Authorization);
         }
     }
 }

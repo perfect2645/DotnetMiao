@@ -20,7 +20,7 @@ namespace SixWater.search
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             AddContent("vaccineId", deptId);
             AddContent("vaccineAddressId", hosId);
-            AddContent("token", User.Token);
+            AddContent("token", User.Authorization);
         }
     }
 }
