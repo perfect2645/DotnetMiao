@@ -29,7 +29,7 @@ namespace Kuerle.search
             while (!isMiaoGet)
             {
                 isMiaoGet = miaoController.SearchMiao();
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }
         }
     }
