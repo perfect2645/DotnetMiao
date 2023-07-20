@@ -53,7 +53,7 @@ namespace Kuerle.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {
@@ -61,8 +61,8 @@ namespace Kuerle.viewmodel
                 {
                     HospitalName = "库尔勒疾控",
                     DepartmentName = "九价",
-                    PidKey = "ebfd956b-db84-48f2-bf44-b70ca4024fc8",
-                    VidKey = "08b3f817-69cb-4028-9f2b-61e26a25e8c6",
+                    PidKey = "93855146-9fc2-4cf3-86f7-f096b95105df",
+                    VidKey = "e5001788-6e49-4f90-adf8-122558b345ff",
                 },
                 new KuerleHospital
                 {

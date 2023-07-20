@@ -15,9 +15,9 @@ namespace Tools.Stringtest
 
         private void DateSubstract()
         {
-            //var offset = 45070;
+            //var offset = 45070;// 0524
 
-            var offset = 45125;
+            var offset = 45127;
             var initDate = new DateTime(1900, 1, 1);
             var targetDate = initDate.AddDays(offset);
         }

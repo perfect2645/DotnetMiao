@@ -89,13 +89,6 @@ namespace Kuerle.search
             {
                 PID = pid,
                 VID = vid,
-                Date = "45126",
-            });
-
-            orderList.Add(new Order
-            {
-                PID = pid,
-                VID = vid,
                 Date = "45127",
             });
 
