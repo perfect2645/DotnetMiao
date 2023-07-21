@@ -56,9 +56,14 @@ namespace Dalian.search
                     return false;
                 }
 
-                var dateMiaoList = data.GetProperty("regPoints").GetProperty(date);
+                JsonElement dateMiaoList = default(JsonElement);
+                if (data.GetProperty("regPoints").TryGetProperty(date, out dateMiaoList))
+                {
+                    return CheckSaveSchedule(dateMiaoList);
+                }
 
-                return CheckSaveSchedule(dateMiaoList);
+                MainSession.PrintLogEvent.Publish(this, $"查苗失败: 有返回，没数据");
+                return false;
             }
             catch (Exception ex)
             {

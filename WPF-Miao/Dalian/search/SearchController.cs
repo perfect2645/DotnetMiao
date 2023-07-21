@@ -46,12 +46,15 @@ namespace Dalian.search
                 GetMiao();
                 return;
             }
-            var miaoController = HttpServiceController.GetService<MiaoController>();
+
             var isMiaoGet = false;
-            while (!isMiaoGet)
+            var miaoController = HttpServiceController.GetService<MiaoController>();
+            isMiaoGet = miaoController.SearchMiao(dateList.LastOrDefault());
+            if (!isMiaoGet)
             {
-                isMiaoGet = miaoController.SearchMiao(dateList.LastOrDefault());
                 Thread.Sleep(1000);
+                GetMiao();
+                return;
             }
         }
     }
