@@ -54,7 +54,7 @@ namespace Lujiazhen.viewmodel
 
             //var sign = JsReader.Decrypt(signEncode);
 
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
