@@ -31,7 +31,7 @@ namespace SixWater.login
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -39,10 +39,11 @@ namespace SixWater.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}, message={msg}");
                     return;
                 }
 
@@ -69,16 +70,20 @@ namespace SixWater.login
                 return;
             }
 
-            var defaultUser = userList.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = userList.FirstOrDefault(x => x.GetString("name") == user.UserName);
             if (defaultUser == null)
             {
                 defaultUser = userList.FirstOrDefault();
             }
             var userName = defaultUser.GetString("name");
             var userId = defaultUser.GetString("id");
+            var idCard = defaultUser.GetString("certificateNo");
+            var phone = defaultUser.GetString("mobilePhone");
 
             user.UserId = userId;
             user.UserName = userName;
+            user.IdCard = idCard;
+            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

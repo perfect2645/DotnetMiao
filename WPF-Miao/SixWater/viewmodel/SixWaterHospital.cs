@@ -19,7 +19,7 @@ namespace SixWater.viewmodel
             var sb = new StringBuilder();
 
             sb.AppendLine("********武汉疾控-选择医院科室*********");
-            sb.AppendLine($"{HospitalName}- {DepartmentName}");
+            sb.AppendLine($"Hospital {HospitalId}- {HospitalName}");
             sb.AppendLine($"Department : {DepartmentId} - {DepartmentName}");
             sb.AppendLine($"Doctor : {DoctorId} - {DoctorName}");
             sb.AppendLine("**************************************");

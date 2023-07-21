@@ -127,9 +127,6 @@ namespace SixWater.search
 
             return new Order
             {
-                VaccineDayId = dayId,
-                VaccineDayNumId = timeId,
-                VaccineId = deptId
             };
         }
     }

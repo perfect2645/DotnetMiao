@@ -44,7 +44,7 @@ namespace SixWater.appointment
         private string BuildJsonContent()
         {
             var contentDic = new Dictionary<string, object>();
-            var orgName = MainSession.PlatformSession.GetString(Constants.OrgName);
+            var orgName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
             var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);

@@ -5,7 +5,6 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using SixWater.appointment;
-using SixWater.Encrypt;
 using SixWater.login;
 using SixWater.search;
 using SixWater.session;
@@ -65,10 +64,12 @@ namespace SixWater.viewmodel
             {
                 new SixWaterHospital
                 {
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（默沙东）",
-                    DepartmentId = "6",
+                    HospitalId = "1478314809638342658",
+                    HospitalName = "六盘水市钟山人民医院",
+                    DepartmentId = "781",
+                    DepartmentName = "预防接种门诊",
+                    DoctorId = "",
+                    DoctorName = "普通号费",
                 }
             };
 
@@ -266,10 +267,6 @@ namespace SixWater.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
                     };
 
                     orderList.Add(order);
@@ -295,6 +292,8 @@ namespace SixWater.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DepartmentId);
 
             Log(selectedDept.ToLogString());
         }
