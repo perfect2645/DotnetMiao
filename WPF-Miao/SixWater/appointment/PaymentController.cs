@@ -12,59 +12,42 @@ namespace SixWater.appointment
 {
     public class PaymentController : HttpClientBase
     {
-        public bool IsSuccess { get; set; }
-        private bool IsHeaderBuilt { get; set; }
         public PaymentController(HttpClient httpClient) : base(httpClient)
         {
-            IsSuccess = false;
         }
 
-        public bool YuyueAsync(Order order)
+        public bool PaymentAsync(Order order)
         {
-            if (IsSuccess)
-            {
-                return IsSuccess;
-            }
-
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
-            var content = new YuyueContent(order);
-            return Yuyue(content);
+            var content = new PaymentContent(order);
+            content.BuildDefaultHeaders(Client);
+            return Payment(content);
         }
 
-        internal bool Yuyue(YuyueContent content)
+        internal bool Payment(PaymentContent content)
         {
             try
             {
-                if (IsSuccess)
-                {
-                    return IsSuccess;
-                }
-                
-                if (!IsHeaderBuilt)
-                {
-                    content.BuildDefaultHeaders(Client);
-                    IsHeaderBuilt = true;
-                }
-                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
+                HttpDicResponse response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Payment - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                var msg = root.GetProperty("msg").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"Payment: code={code}, message={msg}");
                     return false;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"Payment失败: data is empty");
                     return false;
                 }
                 MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
