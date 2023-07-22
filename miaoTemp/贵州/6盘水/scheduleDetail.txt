@@ -1,0 +1,28 @@
+GET https://oss.zsqrmyy.com:8443/patient/register/doctorScheduledRecords?doctorId=&deptId=781&doctorScheduleId=50628&orgId=1478314809638342658&dateDivision=&scheduleDate=2023-07-22 HTTP/1.1
+Host: oss.zsqrmyy.com:8443
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGlfYWNjZXNzX3Rva2VuIjpudWxsLCJwYXRpZW50X2lkIjoiMTY4MTIwMTY4OTUzNDY4OTI4MiIsInd4X3Nlc3Npb25fa2V5IjoiSGhWMlFHTktHZHpCYmt6RC9wWFROdz09IiwiYWxpX29wZW5faWQiOm51bGwsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3NjE2NjQ2OTIsInd4X3VuaW9uX2lkIjpudWxsLCJ3eF9vcGVuX2lkIjoibzUyaVg0bGVvWW1TSWNwZUxGWXpkZWNEZkFOayIsImp0aSI6ImF4WVBjMzhwckNfM3Z4VFUxWGY0YWZzSGlCbyIsImNsaWVudF9pZCI6InBhdGllbnQifQ.CIvf0ti2Gb4Vm7Pr61WZqAfkdCAXpsL9w4awJBgjU-O4yoWN6BSh_GLqgn5nKOBz6Ozyf_Yzkf9FY0VfCIsRcub1L6ChcjBt6S-gOogW9eIgCo-T4MzHqYg_4dZNKAbuheA4D7lakB-1O5Yf0aYJ6RwPrGT6Dc4TUe7z5WaebQXRww3JDudvt3eSc0Gp4461XlR0MPPbyEYn_9FKyir9luaodq9IvglHe-KLYHSkeLzUWosAjMLJoZCNRVCgg9U7yWJC-h7tGRxsBaVHxvhxOfH-Jn-XJrRtmN760jy9M3JaVcOApWXNZjQ1WWy934SxjNOc1RAM-OdyJKpAy49WSw
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+X-Request-Uuid: 16896646895223196565
+content-type: application/json
+Referer: https://servicewechat.com/wxf07924550288e202/18/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.20.2
+Date: Tue, 18 Jul 2023 07:26:41 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1 ; mode=block
+Referrer-Policy: no-referrer
+Content-Length: 910
+
+{"code":0,"message":"操作成功！","data":[{"deptId":"781","deptName":"预防接种门诊","deptLocation":"","doctorId":"","doctorName":"","doctorTitle":"","pic":"","introduction":"暂无简介","scheduleFlag":"1","regLeaveCount":100,"regCount":100,"totalFee":2.50,"doctorScheduleId":"50628","limitRegistration":100,"limitReservation":100,"registrationCountForToday":0,"registrationCountForReservation":0,"regTotal":0,"registerTypeId":"01","registerTypeName":"普通","genderName":"","itemName":"普通号费","dateDivision":"白天","emergency":"0","mornRegisterNumber":-1,"afternoonRegisterNumber":-1,"beginTime":"08:00:00","endTime":"17:00:00","registerFee":0.50,"examinationFee":2.00,"registerDate":"2023-07-22","registerWeek":"星期六","timeInterval":0,"doctorSign":0,"tips":"","registerTips":"您当前选择的是2023-07-22白天的号段,就诊时间:08:00:00~17:00:00,是否确定继续挂号"}]}
