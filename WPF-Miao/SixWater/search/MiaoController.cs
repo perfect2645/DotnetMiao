@@ -81,7 +81,7 @@ namespace SixWater.search
             var orderList = new List<Order>();
 
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var targetSchedule = scheduleList.FirstOrDefault(s => s.GetString("deptName").Contains("deptName"));
+            var targetSchedule = scheduleList.FirstOrDefault(s => s.GetString("deptName").Contains(deptName));
             if (targetSchedule == null)
             {
                 targetSchedule = scheduleList.FirstOrDefault(s => s.GetString("deptName").Contains("九价"));

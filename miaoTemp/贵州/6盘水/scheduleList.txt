@@ -25,4 +25,69 @@ X-XSS-Protection: 1 ; mode=block
 Referrer-Policy: no-referrer
 Content-Length: 1267
 
-{"code":0,"message":"操作成功！","data":[{"deptId":"781","deptName":"预防接种门诊","deptLocation":"","doctorId":"","doctorName":"免费号费(限70岁及以上)","doctorTitle":"","pic":"","introduction":"","scheduleFlag":"1","regLeaveCount":30,"regCount":30,"totalFee":0.00,"doctorScheduleId":"50671","limitRegistration":30,"limitReservation":30,"registrationCountForToday":0,"registrationCountForReservation":0,"regTotal":0,"registerTypeId":"04","registerTypeName":"特诊","genderName":"","itemName":"免费号费(限70岁及以上)","scheduleDate":"2023-07-22","dateDivision":"","emergency":"0","mornRegisterNumber":-1,"afternoonRegisterNumber":-1,"seq":999},{"deptId":"781","deptName":"预防接种门诊","deptLocation":"","doctorId":"","doctorName":"普通号费","doctorTitle":"","pic":"","introduction":"","scheduleFlag":"1","regLeaveCount":100,"regCount":100,"totalFee":2.50,"doctorScheduleId":"50628","limitRegistration":100,"limitReservation":100,"registrationCountForToday":0,"registrationCountForReservation":0,"regTotal":0,"registerTypeId":"01","registerTypeName":"普通","genderName":"","itemName":"普通号费","scheduleDate":"2023-07-22","dateDivision":"","emergency":"0","mornRegisterNumber":-1,"afternoonRegisterNumber":-1,"seq":999}]}
+{
+    "code": 0,
+    "message": "操作成功！",
+    "data": [
+        {
+            "deptId": "781",
+            "deptName": "预防接种门诊",
+            "deptLocation": "",
+            "doctorId": "",
+            "doctorName": "免费号费(限70岁及以上)",
+            "doctorTitle": "",
+            "pic": "",
+            "introduction": "",
+            "scheduleFlag": "1",
+            "regLeaveCount": 30,
+            "regCount": 30,
+            "totalFee": 0,
+            "doctorScheduleId": "50671",
+            "limitRegistration": 30,
+            "limitReservation": 30,
+            "registrationCountForToday": 0,
+            "registrationCountForReservation": 0,
+            "regTotal": 0,
+            "registerTypeId": "04",
+            "registerTypeName": "特诊",
+            "genderName": "",
+            "itemName": "免费号费(限70岁及以上)",
+            "scheduleDate": "2023-07-22",
+            "dateDivision": "",
+            "emergency": "0",
+            "mornRegisterNumber": -1,
+            "afternoonRegisterNumber": -1,
+            "seq": 999
+        },
+        {
+            "deptId": "781",
+            "deptName": "预防接种门诊",
+            "deptLocation": "",
+            "doctorId": "",
+            "doctorName": "普通号费",
+            "doctorTitle": "",
+            "pic": "",
+            "introduction": "",
+            "scheduleFlag": "1",
+            "regLeaveCount": 100,
+            "regCount": 100,
+            "totalFee": 2.5,
+            "doctorScheduleId": "50628",
+            "limitRegistration": 100,
+            "limitReservation": 100,
+            "registrationCountForToday": 0,
+            "registrationCountForReservation": 0,
+            "regTotal": 0,
+            "registerTypeId": "01",
+            "registerTypeName": "普通",
+            "genderName": "",
+            "itemName": "普通号费",
+            "scheduleDate": "2023-07-22",
+            "dateDivision": "",
+            "emergency": "0",
+            "mornRegisterNumber": -1,
+            "afternoonRegisterNumber": -1,
+            "seq": 999
+        }
+    ]
+}

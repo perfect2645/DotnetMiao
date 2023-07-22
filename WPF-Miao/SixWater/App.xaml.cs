@@ -29,6 +29,7 @@ namespace SixWater
         {
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.BuidServiceProvider();
         }

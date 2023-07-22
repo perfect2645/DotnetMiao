@@ -17,7 +17,7 @@ namespace SixWater.appointment
         public string BeginTime { get; set; }
         public string EndTime { get; set; }
         public string Emergency { get; set; }
-        public string RegisterCategory { get; set; }
+        public string RegisterCategory { get; set; } = "b";
         public string FamilyMemberId { get; set; }
         public string JsonContent { get; set; }
         public string OrderId { get; set; }

@@ -26,7 +26,7 @@ namespace SixWater.appointment
             AddContent("orgId", Order.OrgId);
 
 
-            AddContent("orderNumber", Order.OrderNumber);
+            AddContent("orderNumber", string.Empty);
             AddContent("registerTypeId", Order.RegisterTypeId);
             AddContent("doctorScheduleId", Order.DoctorScheduleId);
             AddContent("totalFee", Order.TotalFee);
@@ -38,7 +38,7 @@ namespace SixWater.appointment
             AddContent("jsonContent", BuildJsonContent());
             AddContent("attachInfo", new object());
             AddContent("insuranceType", string.Empty);
-            AddContent("payMethod", Order.PayMethod);
+            AddContent("payMethod", "a");
         }
 
         private string BuildJsonContent()
@@ -77,7 +77,7 @@ namespace SixWater.appointment
             contentDic.AddOrUpdate("name", Order.UserName);
             contentDic.AddOrUpdate("familyMemberId", Order.FamilyMemberId);
             contentDic.AddOrUpdate("phone", User.Phone);
-            contentDic.AddOrUpdate("payMethod", Order.PayMethod);
+            contentDic.AddOrUpdate("payMethod", "a");
 
             var contentJson = contentDic.ToJson();
 
