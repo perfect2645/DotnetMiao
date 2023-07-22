@@ -75,5 +75,20 @@ namespace Utils
             }
             return Convert.ToInt32(obj);
         }
+
+        public static double ToDouble(this object obj)
+        {
+            if (obj == null)
+            {
+                return 0;
+            }
+
+            var doubleResult = double.TryParse(obj.ToString(), out double result);
+            if (doubleResult)
+            {
+                return result;
+            }
+            return Convert.ToDouble(obj);
+        }
     }
 }

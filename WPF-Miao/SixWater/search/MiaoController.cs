@@ -106,7 +106,7 @@ namespace SixWater.search
                 OrgId = hosId,
                 RegisterTypeId = targetSchedule.GetString("registerTypeId"),
                 ScheduleDate = Date,
-                TotalFee = targetSchedule.GetString("totalFee"),
+                TotalFee = targetSchedule.GetString("totalFee").ToDouble().ToString(),
             };
 
             orderList.Add(defaultOrder);

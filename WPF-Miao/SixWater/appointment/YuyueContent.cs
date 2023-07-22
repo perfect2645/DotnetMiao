@@ -1,9 +1,13 @@
-﻿using SixWater.common;
+﻿using Newtonsoft.Json;
+using SixWater.common;
 using SixWater.login;
 using SixWater.session;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using Utils;
+using Utils.json;
 
 namespace SixWater.appointment
 {
@@ -39,7 +43,7 @@ namespace SixWater.appointment
             AddContent("payMethod", "a");
         }
 
-        private Dictionary<string, object> BuildJsonContent()
+        private string BuildJsonContent()
         {
             var contentDic = new Dictionary<string, object>();
             var orgName = MainSession.PlatformSession.GetString(Constants.HospitalName);
@@ -77,9 +81,17 @@ namespace SixWater.appointment
             contentDic.AddOrUpdate("phone", User.Phone);
             contentDic.AddOrUpdate("payMethod", "a");
 
-            var contentJson = contentDic.ToJson();
+            //var contentJson = contentDic.ToJson();
+            var contentJson = JsonConvert.SerializeObject(contentDic);
 
-            return contentDic;
+            return contentJson;
+        }
+
+        public override StringContent GetJsonContent()
+        {
+            var jsonContent = JsonConvert.SerializeObject(Content);
+            var stringContent = new StringContent(jsonContent, Encoding.UTF8, ContentType);
+            return stringContent;
         }
     }
 }
