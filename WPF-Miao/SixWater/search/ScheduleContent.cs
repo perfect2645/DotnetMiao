@@ -1,22 +1,20 @@
 ﻿using SixWater.common;
 using SixWater.login;
 using SixWater.session;
-using System;
 using Utils;
 
 namespace SixWater.search
 {
-    internal class MiaoContent : SixWaterContent
+    internal class ScheduleContent : SixWaterContent
     {
-        private static string baseUrl = "https://oss.zsqrmyy.com:8443/patient/register/doctorScheduledRecords?";
+        private static string baseUrl = "https://oss.zsqrmyy.com:8443/patient/register/scheduledDoctorInfos?";
 
         internal string Date { get; private set; }
         internal string ScheduleId { get; private set; }
 
-        public MiaoContent(SixWaterLogin user, string date, string scheduleId) : base(baseUrl, user)
+        public ScheduleContent(SixWaterLogin user, string date) : base(baseUrl, user)
         {
             Date = date;
-            ScheduleId = scheduleId;
             BuildUrl();
         }
 
@@ -25,7 +23,7 @@ namespace SixWater.search
             var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             var orgId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            RequestUrl = $"{baseUrl}doctorId={doctorId}&deptId={deptId}&doctorScheduleId={ScheduleId}&orgId={orgId}&dateDivision=&scheduleDate={Date}";
+            RequestUrl = $"{baseUrl}doctorId={doctorId}&deptId={deptId}&orgId={orgId}&keyWrod=&scheduleDate={Date}&familyMemberId={User.UserId}";
         }
     }
 }

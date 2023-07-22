@@ -20,8 +20,8 @@ namespace SixWater.appointment
         private void BuildContent()
         {
             AddContent("id", Order.OrderId);
-            AddContent("payMethod", Order.PayMethod);
-            AddContent("serviceProvider", Order.PayMethod);
+            AddContent("payMethod", "a");
+            AddContent("serviceProvider", "a");
 
         }
     }

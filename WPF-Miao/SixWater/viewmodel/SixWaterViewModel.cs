@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
+using Utils.datetime;
 using Utils.file;
 
 namespace SixWater.viewmodel
@@ -48,12 +49,7 @@ namespace SixWater.viewmodel
         {
             Interval = 200;
 
-            var signEncode = "NppGiLPT4gCYwLoP1mXYcgViRWY2vutb5AwhyT5sJBE5FQbEjUZl8+7uW0UGunWiAvMxQv6krHrCQKk4aj0nX9WjqCoJNPKspIJFmNx/SXnYXkePRFaMaz0HbjcrZXKJp7D4IqpKrYRrJ1heyeygSNfSy2iTuAqK2QO3PE1FF0eFsgqVM4cB6SgsvpJ3u/Jx2VEOwKV5unj0LJ96eOLQi2xc7m5GrAb9Y2my5LseU1hWJFvsJrS+WTyiugnyMAxjesBpIR+yYKTgt8FB24QW1GR8E2G4gWIsuyDLM+he4YCJIIqesMSIFFmAHfw4eNJ82Skkame8lxPxX1qcht1qBQ==";
-
-
-            //var sign = JsReader.Decrypt(signEncode);
-
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -70,7 +66,16 @@ namespace SixWater.viewmodel
                     DepartmentName = "预防接种门诊",
                     DoctorId = "",
                     DoctorName = "普通号费",
-                }
+                },
+                new SixWaterHospital
+                {
+                    HospitalId = "1478314809638342658",
+                    HospitalName = "六盘水市钟山人民医院",
+                    DepartmentId = "781",
+                    DepartmentName = "预防接种门诊",
+                    DoctorId = "",
+                    DoctorName = "九价",
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -153,7 +158,8 @@ namespace SixWater.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchMiao();
+                    var today = DateTimeUtil.GetToday();
+                    _searchController.SearchMiao(today);
                 }
                 catch (HttpException ex)
                 {
@@ -293,7 +299,7 @@ namespace SixWater.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }
