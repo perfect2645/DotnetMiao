@@ -40,15 +40,16 @@ namespace SixWater.search
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao: code={code}, message={msg}");
                     return false;
                 }
 

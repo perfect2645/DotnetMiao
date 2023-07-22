@@ -21,6 +21,7 @@ namespace SixWater.appointment
         public string FamilyMemberId { get; set; }
         public string JsonContent { get; set; }
         public string PayMethod { get; set; }
+        public string OrderId { get; set; }
         public string ResultMsg { get; set; }
         internal SixWaterLogin User { get; set; }
 
