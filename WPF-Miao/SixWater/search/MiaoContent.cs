@@ -8,16 +8,24 @@ namespace SixWater.search
 {
     internal class MiaoContent : SixWaterContent
     {
-        private static string baseUrl = "https://oss.zsqrmyy.com:8443/patient/register/doctorScheduledRecords?doctorId=&deptId=781&doctorScheduleId=50628&orgId=1478314809638342658&dateDivision=&scheduleDate=2023-07-22";
+        private static string baseUrl = "https://oss.zsqrmyy.com:8443/patient/register/doctorScheduledRecords?";
+
+        internal string Date { get; private set; }
+        internal string ScheduleId { get; private set; }
 
         public MiaoContent(SixWaterLogin user, string date, string scheduleId) : base(baseUrl, user)
         {
+            Date = date;
+            ScheduleId = scheduleId;
             BuildUrl();
         }
 
         private void BuildUrl()
         {
             var doctorId = MainSession.PlatformSession.GetString(Constants.DoctorId);
+            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var orgId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            RequestUrl = $"{baseUrl}doctorId={doctorId}&deptId={deptId}&doctorScheduleId={ScheduleId}&orgId={orgId}&dateDivision=&scheduleDate={Date}";
         }
     }
 }

@@ -25,4 +25,47 @@ X-XSS-Protection: 1 ; mode=block
 Referrer-Policy: no-referrer
 Content-Length: 910
 
-{"code":0,"message":"操作成功！","data":[{"deptId":"781","deptName":"预防接种门诊","deptLocation":"","doctorId":"","doctorName":"","doctorTitle":"","pic":"","introduction":"暂无简介","scheduleFlag":"1","regLeaveCount":100,"regCount":100,"totalFee":2.50,"doctorScheduleId":"50628","limitRegistration":100,"limitReservation":100,"registrationCountForToday":0,"registrationCountForReservation":0,"regTotal":0,"registerTypeId":"01","registerTypeName":"普通","genderName":"","itemName":"普通号费","dateDivision":"白天","emergency":"0","mornRegisterNumber":-1,"afternoonRegisterNumber":-1,"beginTime":"08:00:00","endTime":"17:00:00","registerFee":0.50,"examinationFee":2.00,"registerDate":"2023-07-22","registerWeek":"星期六","timeInterval":0,"doctorSign":0,"tips":"","registerTips":"您当前选择的是2023-07-22白天的号段,就诊时间:08:00:00~17:00:00,是否确定继续挂号"}]}
+{
+    "code": 0,
+    "message": "操作成功！",
+    "data": [
+        {
+            "deptId": "781",
+            "deptName": "预防接种门诊",
+            "deptLocation": "",
+            "doctorId": "",
+            "doctorName": "",
+            "doctorTitle": "",
+            "pic": "",
+            "introduction": "暂无简介",
+            "scheduleFlag": "1",
+            "regLeaveCount": 100,
+            "regCount": 100,
+            "totalFee": 2.5,
+            "doctorScheduleId": "50628",
+            "limitRegistration": 100,
+            "limitReservation": 100,
+            "registrationCountForToday": 0,
+            "registrationCountForReservation": 0,
+            "regTotal": 0,
+            "registerTypeId": "01",
+            "registerTypeName": "普通",
+            "genderName": "",
+            "itemName": "普通号费",
+            "dateDivision": "白天",
+            "emergency": "0",
+            "mornRegisterNumber": -1,
+            "afternoonRegisterNumber": -1,
+            "beginTime": "08:00:00",
+            "endTime": "17:00:00",
+            "registerFee": 0.5,
+            "examinationFee": 2,
+            "registerDate": "2023-07-22",
+            "registerWeek": "星期六",
+            "timeInterval": 0,
+            "doctorSign": 0,
+            "tips": "",
+            "registerTips": "您当前选择的是2023-07-22白天的号段,就诊时间:08:00:00~17:00:00,是否确定继续挂号"
+        }
+    ]
+}

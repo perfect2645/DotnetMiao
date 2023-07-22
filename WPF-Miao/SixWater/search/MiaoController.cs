@@ -1,7 +1,6 @@
-﻿using SixWater.appointment;
-using SixWater.login;
+﻿using HttpProcessor.Client;
+using SixWater.appointment;
 using SixWater.session;
-using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,34 +9,30 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
-using Utils.number;
-using Newtonsoft.Json;
-using Utils.stringBuilder;
 
 namespace SixWater.search
 {
     internal class MiaoController : HttpClientBase
     {
-
         public string Date { get; private set; }
 
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchMiaoAsync()
+        public void SearchMiaoAsync(string date, string scheduleId)
         {
-            Task.Factory.StartNew(() => SearchMiao());
+            Task.Factory.StartNew(() => SearchMiao(date, scheduleId));
         }
 
-        public bool SearchMiao()
+        public bool SearchMiao(string date, string scheduleId)
         {
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var content = new MiaoContent(defaultUser, date, scheduleId);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
@@ -60,9 +55,7 @@ namespace SixWater.search
                     return false;
                 }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return CheckSaveOrder(data);
             }
             catch (Exception ex)
             {
@@ -71,46 +64,49 @@ namespace SixWater.search
             }
         }
 
-        private bool CheckSaveResource(JsonElement dataElement)
+        private bool CheckSaveOrder(JsonElement dataElement)
         {
-            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
-            if (!vaccineDayList.HasItem())
+            var scheduleList = JsonAnalysis.JsonToDicList(dataElement);
+            if (!scheduleList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
+            return BuildOrderList(scheduleList);
         }
 
-        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
+        private bool BuildOrderList(List<Dictionary<string, object>> scheduleList)
         {
             var orderList = new List<Order>();
 
-            foreach (var vaccineDay in vaccineDayList)
+            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+            var targetSchedule = scheduleList.FirstOrDefault(s => s.GetString("deptName").Contains("deptName"));
+            if (targetSchedule == null)
             {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
-                foreach (var timeItem in timeList)
-                {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
-                    {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                targetSchedule = scheduleList.FirstOrDefault(s => s.GetString("deptName").Contains("九价"));
             }
 
-            if(!orderList.HasItem())
+            if (targetSchedule == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
-                return false;
+                targetSchedule = scheduleList.LastOrDefault();
             }
 
-            orderList = orderList.DisorderItems();
+            var defaultOrder = new Order
+            {
+                BeginTime = targetSchedule.GetString("beginTime"),
+                EndTime = targetSchedule.GetString("endTime"),
+                DeptId = targetSchedule.GetString("deptId"),
+                DoctorId = targetSchedule.GetString("doctorId"),
+                DoctorScheduleId = targetSchedule.GetString("doctorScheduleId"),
+                Emergency = targetSchedule.GetString("emergency"),
+                OrgId = targetSchedule.GetString("orgId"),
+                RegisterTypeId = targetSchedule.GetString("registerTypeId"),
+                ScheduleDate = Date,
+                TotalFee = targetSchedule.GetString("totalFee"),
+            };
+
+            orderList.Add(defaultOrder);
 
             var orderArgs = new OrderEventArgs
             {
@@ -120,15 +116,6 @@ namespace SixWater.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-            };
         }
     }
 }

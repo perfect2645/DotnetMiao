@@ -11,7 +11,7 @@ namespace SixWater.appointment
         public string DoctorScheduleId { get; set; }
         public string ScheduleDate { get; set; }
         public string OrgId { get; set; }
-        public string OrderNumber { get; set; }
+        //public string OrderNumber { get; set; }
         public string RegisterTypeId { get; set; }
         public string TotalFee { get; set; }
         public string BeginTime { get; set; }
@@ -20,7 +20,6 @@ namespace SixWater.appointment
         public string RegisterCategory { get; set; }
         public string FamilyMemberId { get; set; }
         public string JsonContent { get; set; }
-        public string PayMethod { get; set; }
         public string OrderId { get; set; }
         public string ResultMsg { get; set; }
         internal SixWaterLogin User { get; set; }
