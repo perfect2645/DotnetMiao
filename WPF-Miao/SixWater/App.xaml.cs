@@ -28,6 +28,7 @@ namespace SixWater
         private void InitController()
         {
             HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<PaymentController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.AddTransientService<MiaoController>();

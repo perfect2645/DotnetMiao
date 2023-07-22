@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using SixWater.session;
 using System;
@@ -68,7 +69,7 @@ namespace SixWater.appointment
                     return false;
                 }
                 MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
-                return true;
+                return CheckPayment(data, content.Order);
             }
             catch (Exception ex)
             {
@@ -77,20 +78,27 @@ namespace SixWater.appointment
             }
         }
 
-        private bool SaveOrderResult(JsonElement data)
+        private bool CheckPayment(JsonElement data, Order order)
         {
             try
             {
                 var orderData = JsonAnalysis.JsonToDic(data);
 
-                MainSession.PrintLogEvent.Publish(this, orderData);
+                var orderId = orderData.GetString("id");
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                if (string.IsNullOrEmpty(orderId))
                 {
-                    return true;
+                    return false;
                 }
 
-                return false;
+                order.OrderId = orderId;
+
+                MainSession.PrintLogEvent.Publish(null, $"开始payment：{order.ToLogString()}");
+                var paymentController = HttpServiceController.GetService<PaymentController>();
+
+                var isSuccess = paymentController.PaymentAsync(order);
+
+                return isSuccess;
             }
             catch (Exception ex)
             {

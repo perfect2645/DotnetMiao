@@ -24,8 +24,6 @@ namespace SixWater.appointment
             AddContent("doctorScheduleId", Order.DoctorScheduleId);
             AddContent("scheduleDate", Order.ScheduleDate);
             AddContent("orgId", Order.OrgId);
-
-
             AddContent("orderNumber", string.Empty);
             AddContent("registerTypeId", Order.RegisterTypeId);
             AddContent("doctorScheduleId", Order.DoctorScheduleId);
@@ -41,7 +39,7 @@ namespace SixWater.appointment
             AddContent("payMethod", "a");
         }
 
-        private string BuildJsonContent()
+        private Dictionary<string, object> BuildJsonContent()
         {
             var contentDic = new Dictionary<string, object>();
             var orgName = MainSession.PlatformSession.GetString(Constants.HospitalName);
@@ -81,7 +79,7 @@ namespace SixWater.appointment
 
             var contentJson = contentDic.ToJson();
 
-            return contentJson;
+            return contentDic;
         }
     }
 }

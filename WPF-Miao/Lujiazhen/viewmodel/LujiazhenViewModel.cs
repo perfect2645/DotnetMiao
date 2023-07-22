@@ -210,7 +210,7 @@ namespace Lujiazhen.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(200);
+                    Thread.Sleep(800);
                 }
             }
             catch (HttpException ex)
@@ -241,6 +241,7 @@ namespace Lujiazhen.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
+                        Thread.Sleep(800);
                     }
                 }
             }
