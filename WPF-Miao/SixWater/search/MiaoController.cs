@@ -29,6 +29,7 @@ namespace SixWater.search
         {
             try
             {
+                Date = date;
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser, date, scheduleId);
                 content.BuildDefaultHeaders(Client);
@@ -92,6 +93,8 @@ namespace SixWater.search
                 targetSchedule = scheduleList.LastOrDefault();
             }
 
+            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+
             var defaultOrder = new Order
             {
                 BeginTime = targetSchedule.GetString("beginTime"),
@@ -100,10 +103,10 @@ namespace SixWater.search
                 DoctorId = targetSchedule.GetString("doctorId"),
                 DoctorScheduleId = targetSchedule.GetString("doctorScheduleId"),
                 Emergency = targetSchedule.GetString("emergency"),
-                OrgId = targetSchedule.GetString("orgId"),
+                OrgId = hosId,
                 RegisterTypeId = targetSchedule.GetString("registerTypeId"),
                 ScheduleDate = Date,
-                TotalFee = targetSchedule.GetString("totalFee"),
+                TotalFee = targetSchedule.GetString("totalFee").ToDouble().ToString(),
             };
 
             orderList.Add(defaultOrder);

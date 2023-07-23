@@ -217,7 +217,7 @@ namespace SixWater.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(200);
+                    Thread.Sleep(800);
                 }
             }
             catch (HttpException ex)
@@ -248,6 +248,7 @@ namespace SixWater.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
+                        Thread.Sleep(800);
                     }
                 }
             }
@@ -272,7 +273,18 @@ namespace SixWater.viewmodel
                     var order = new Order
                     {
                         UserName = user.UserName,
+                        FamilyMemberId = user.UserId,
                         User = user,
+                        BeginTime = template.BeginTime,
+                        EndTime = template.EndTime,
+                        DeptId = template.DeptId,
+                        DoctorId = template.DoctorId,
+                        DoctorScheduleId = template.DoctorScheduleId,
+                        Emergency = template.Emergency,
+                        OrgId = template.OrgId,
+                        RegisterTypeId = template.RegisterTypeId,
+                        ScheduleDate = template.ScheduleDate,
+                        TotalFee = template.TotalFee,
                     };
 
                     orderList.Add(order);
