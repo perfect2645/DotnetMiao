@@ -139,11 +139,13 @@ namespace Dalian.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(18).AddMinutes(58);
+            StartTime = DateTime.Today.AddHours(18).AddMinutes(59);
 
             DateList = new List<DspVal>();
-            var nextTuesday = DateTimeUtil.GetNextWeekday(DayOfWeek.Tuesday);
-            DateList.Add(new DspVal(nextTuesday, DateTimeUtil.GetDateTime(nextTuesday, "yyyyMMdd")));
+
+            var targetDate = DateTimeUtil.GetTargetDate(7);
+
+            DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
             //DateList.Add(new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);

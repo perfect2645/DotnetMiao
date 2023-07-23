@@ -31,30 +31,31 @@ namespace Dalian.search
 
         private void GetMiao()
         {
-            var scheduleController = HttpServiceController.GetService<ScheduleController>();
+            //var scheduleController = HttpServiceController.GetService<ScheduleController>();
 
-            var isScheduleGet = false;
-            var dateList = new List<string>();
-            while (!isScheduleGet)
-            {
-                (isScheduleGet, dateList) = scheduleController.SearchSchedule();
-                Thread.Sleep(1000);
-            }
+            //var isScheduleGet = false;
+            //var dateList = new List<string>();
+            //while (!isScheduleGet)
+            //{
+            //    (isScheduleGet, dateList) = scheduleController.SearchSchedule();
+            //    Thread.Sleep(1000);
+            //}
 
-            if (!dateList.HasItem())
-            {
-                GetMiao();
-                return;
-            }
+            //if (!dateList.HasItem())
+            //{
+            //    GetMiao();
+            //    return;
+            //}
 
             var isMiaoGet = false;
             var miaoController = HttpServiceController.GetService<MiaoController>();
-            isMiaoGet = miaoController.SearchMiao(dateList.LastOrDefault());
-            if (!isMiaoGet)
+
+            var dateList1 = MainSession.PlatformSession["DateList"] as List<DspVal>;
+
+            while (!isMiaoGet)
             {
+                isMiaoGet = miaoController.SearchMiao(dateList1.LastOrDefault().Value);
                 Thread.Sleep(1000);
-                GetMiao();
-                return;
             }
         }
     }

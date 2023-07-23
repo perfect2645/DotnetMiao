@@ -13,6 +13,7 @@ using Utils.json;
 using Utils.number;
 using Dalian.common;
 using Newtonsoft.Json;
+using Dalian.login;
 
 namespace Dalian.search
 {
