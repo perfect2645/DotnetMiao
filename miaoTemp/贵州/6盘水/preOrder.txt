@@ -12,8 +12,8 @@ Accept-Encoding: gzip, deflate, br
 {
     "deptId": "781",
     "doctorId": "",
-    "doctorScheduleId": "50628",
-    "scheduleDate": "2023-07-22",
+    "doctorScheduleId": "51286",
+    "scheduleDate": "2023-07-23",
     "orgId": "1478314809638342658",
     "orderNumber": "",
     "registerTypeId": "01",
@@ -21,16 +21,16 @@ Accept-Encoding: gzip, deflate, br
     "beginTime": "08:00:00",
     "endTime": "17:00:00",
     "emergency": "0",
-    "registerCategory": "b",
-    "familyMemberId": "1681202428885143553",
-    "jsonContent": "{\"orgId\":\"1478314809638342658\",\"orgName\":\"六盘水市钟山人民医院\",\"deptId\":\"781\",\"deptName\":\"预防接种门诊\",\"examinationFeeId\":\"\",\"doctorScheduleId\":\"50628\",\"orderNumber\":\"\",\"deptLocation\":\"\",\"patientCardNo\":\"\",\"doctorId\":\"\",\"doctorName\":\"普通号费\",\"genderName\":\"\",\"scheduleDate\":\"2023-07-22\",\"totalFee\":\"2.5\",\"registerTypeId\":\"01\",\"registerTypeName\":\"普通\",\"doctorTitle\":\"\",\"introduction\":\"暂无简介\",\"beginTime\":\"08:00:00\",\"endTime\":\"17:00:00\",\"emergency\":\"0\",\"attachInfo\":{},\"url\":\"/patient/register/payment\",\"preUrl\":\"/patient/register/preRegistration\",\"registerCategory\":\"b\",\"name\":\"邓雨婷\",\"familyMemberId\":\"1681202428885143553\",\"phone\":\"188****2645\",\"payMethod\":\"a\"}",
+    "registerCategory": "a",
+    "familyMemberId": "1682398898150207490",
+    "jsonContent": "{\"orgId\":\"1478314809638342658\",\"orgName\":\"六盘水市钟山人民医院\",\"deptId\":\"781\",\"deptName\":\"预防接种门诊\",\"examinationFeeId\":\"\",\"doctorScheduleId\":\"51286\",\"orderNumber\":\"\",\"deptLocation\":\"\",\"patientCardNo\":\"\",\"doctorId\":\"\",\"doctorName\":\"普通号费\",\"genderName\":\"\",\"scheduleDate\":\"2023-07-23\",\"totalFee\":\"2.5\",\"registerTypeId\":\"01\",\"registerTypeName\":\"普通\",\"doctorTitle\":\"\",\"introduction\":\"暂无简介\",\"beginTime\":\"08:00:00\",\"endTime\":\"17:00:00\",\"emergency\":\"0\",\"attachInfo\":{},\"url\":\"/patient/register/payment\",\"preUrl\":\"/patient/register/preRegistration\",\"registerCategory\":\"a\",\"name\":\"刘婷婷\",\"familyMemberId\":\"1682398898150207490\",\"phone\":\"165****9956\",\"payMethod\":\"a\"}",
     "attachInfo": {},
     "insuranceType": "",
     "payMethod": "a"
 }
 HTTP/1.1 200 OK
 Server: nginx/1.20.2
-Date: Tue, 18 Jul 2023 07:26:47 GMT
+Date: Sun, 23 Jul 2023 07:04:26 GMT
 Content-Type: application/json
 Connection: keep-alive
 Vary: Origin
@@ -42,39 +42,6 @@ Expires: 0
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1 ; mode=block
 Referrer-Policy: no-referrer
-Content-Length: 1506
+Content-Length: 1473
 
-{
-    "code": 0,
-    "message": "操作成功！",
-    "data": {
-        "createdBy": "1681201689534689282",
-        "createdDatetime": "2023-07-18 15:26:47",
-        "lastModifiedBy": "1681201689534689282",
-        "lastModifiedDatetime": "2023-07-18 15:26:47",
-        "id": "1681203847927721986",
-        "orgId": "1478314809638342658",
-        "patientId": "1681201689534689282",
-        "familyMemberId": "1681202428885143553",
-        "hisPatientId": "563687",
-        "registerId": "X0163230",
-        "reservationRecordId": "X0163230",
-        "hisPaymentId": "-",
-        "discountFee": 0,
-        "fee": 2.5,
-        "selfFee": 2.5,
-        "insuranceFee": 0,
-        "insuranceType": "",
-        "refundWaitingTime": 0,
-        "type": "b",
-        "typeName": "预约",
-        "status": "a",
-        "statusName": "待支付",
-        "useStatus": "a",
-        "useStatusName": "待使用",
-        "seq": 0,
-        "info": "{\"orgId\":\"1478314809638342658\",\"orgName\":\"六盘水市钟山人民医院\",\"deptId\":\"781\",\"deptName\":\"预防接种门诊\",\"examinationFeeId\":\"\",\"doctorScheduleId\":\"50628\",\"orderNumber\":\"\",\"deptLocation\":\"\",\"patientCardNo\":\"\",\"doctorId\":\"\",\"doctorName\":\"普通号费\",\"genderName\":\"\",\"scheduleDate\":\"2023-07-22\",\"totalFee\":\"2.5\",\"registerTypeId\":\"01\",\"registerTypeName\":\"普通\",\"doctorTitle\":\"\",\"introduction\":\"暂无简介\",\"beginTime\":\"08:00:00\",\"endTime\":\"17:00:00\",\"emergency\":\"0\",\"attachInfo\":{},\"url\":\"/patient/register/payment\",\"preUrl\":\"/patient/register/preRegistration\",\"registerCategory\":\"b\",\"name\":\"邓雨婷\",\"familyMemberId\":\"1681202428885143553\",\"phone\":\"188****2645\",\"payMethod\":\"a\"}",
-        "payMethod": "a",
-        "source": "{}"
-    }
-}
+{"code":0,"message":"操作成功！","data":{"createdBy":"1681201689534689282","createdDatetime":"2023-07-23 15:04:26","lastModifiedBy":"1681201689534689282","lastModifiedDatetime":"2023-07-23 15:04:26","id":"1683010152446889985","orgId":"1478314809638342658","patientId":"1681201689534689282","familyMemberId":"1682398898150207490","hisPatientId":"566153","registerId":"X0167853","hisPaymentId":"-","discountFee":0,"fee":2.5,"selfFee":2.5,"insuranceFee":0,"insuranceType":"","refundWaitingTime":0,"type":"a","typeName":"当天","status":"a","statusName":"待支付","useStatus":"a","useStatusName":"待使用","seq":0,"info":"{\"orgId\":\"1478314809638342658\",\"orgName\":\"六盘水市钟山人民医院\",\"deptId\":\"781\",\"deptName\":\"预防接种门诊\",\"examinationFeeId\":\"\",\"doctorScheduleId\":\"51286\",\"orderNumber\":\"\",\"deptLocation\":\"\",\"patientCardNo\":\"\",\"doctorId\":\"\",\"doctorName\":\"普通号费\",\"genderName\":\"\",\"scheduleDate\":\"2023-07-23\",\"totalFee\":\"2.5\",\"registerTypeId\":\"01\",\"registerTypeName\":\"普通\",\"doctorTitle\":\"\",\"introduction\":\"暂无简介\",\"beginTime\":\"08:00:00\",\"endTime\":\"17:00:00\",\"emergency\":\"0\",\"attachInfo\":{},\"url\":\"/patient/register/payment\",\"preUrl\":\"/patient/register/preRegistration\",\"registerCategory\":\"a\",\"name\":\"刘婷婷\",\"familyMemberId\":\"1682398898150207490\",\"phone\":\"165****9956\",\"payMethod\":\"a\"}","payMethod":"a","source":"{}"}}

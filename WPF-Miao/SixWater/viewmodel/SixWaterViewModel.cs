@@ -158,8 +158,9 @@ namespace SixWater.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    var today = DateTimeUtil.GetToday();
-                    _searchController.SearchMiao(today);
+                    //var targetDate = DateTimeUtil.GetToday();
+                    var targetDate = DateTimeUtil.GetTomorrow();
+                    _searchController.SearchMiao(targetDate);
                 }
                 catch (HttpException ex)
                 {

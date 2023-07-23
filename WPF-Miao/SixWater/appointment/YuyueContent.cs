@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HttpProcessor.Request;
+using Newtonsoft.Json;
 using SixWater.common;
 using SixWater.login;
 using SixWater.session;
@@ -90,7 +91,8 @@ namespace SixWater.appointment
         public override StringContent GetJsonContent()
         {
             var jsonContent = JsonConvert.SerializeObject(Content);
-            var stringContent = new StringContent(jsonContent, Encoding.UTF8, ContentType);
+            var stringContent = new StringContent(jsonContent, Encoding.Default, ContentType);
+            stringContent.Headers.ContentType = new FreeContentType("application/json");
             return stringContent;
         }
     }

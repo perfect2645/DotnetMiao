@@ -9,6 +9,7 @@ namespace SixWater.common
 
         public SixWaterContent(string baseUrl, SixWaterLogin user) : base(baseUrl)
         {
+            ContentType = "application/json";
             User = user;
             BuildHeader();
         }
