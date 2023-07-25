@@ -49,12 +49,12 @@ namespace SixWater.viewmodel
         {
             Interval = 200;
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
+            StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {
@@ -65,7 +65,7 @@ namespace SixWater.viewmodel
                     DepartmentId = "781",
                     DepartmentName = "预防接种门诊",
                     DoctorId = "",
-                    DoctorName = "普通号费",
+                    DoctorName = "九价",
                 },
                 new SixWaterHospital
                 {
@@ -74,8 +74,8 @@ namespace SixWater.viewmodel
                     DepartmentId = "781",
                     DepartmentName = "预防接种门诊",
                     DoctorId = "",
-                    DoctorName = "九价",
-                },
+                    DoctorName = "普通号费",
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -158,8 +158,8 @@ namespace SixWater.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //var targetDate = DateTimeUtil.GetToday();
-                    var targetDate = DateTimeUtil.GetTomorrow();
+                    var targetDate = DateTimeUtil.GetToday();
+                    //var targetDate = DateTimeUtil.GetTomorrow();
                     _searchController.SearchMiao(targetDate);
                 }
                 catch (HttpException ex)
