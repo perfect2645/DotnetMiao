@@ -1,0 +1,22 @@
+GET https://api.cn2030.com/sc/wx/HandlerSubscribe.ashx?act=UserSubcribeList HTTP/1.1
+Host: api.cn2030.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTAyOTYxMDYuMTExMjA1MSwiZXhwIjoxNjkwMjk5NzA2LjExMTIwNTEsInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMDcyNTIyNDEyOCIsInZhbCI6Im9USE1BUlFBQUFBRWJtOXVaUnh2UzNCamVUUTRSeTE1WmpWaGJFWjNkVVoyWW05bU5XSm9WelZCQUFBTU1USTBMamt6TGpFNU55NDJcclxuQUN0cVJHYzVSMnhtUjFOVWIxWTRjV0p2VVhWdmJXWmhjazlaV0ZkM1lUVnJlbkZxYTBkRFdUZFZNbU5OQVFBQUFBQT0ifQ.mrmemoyDfQhYIuU_7wTXDtn7hjPUD3GyyyCf7375KJY; path=/
+zftsl: af2f129cc1ff5875a158b6d3e1f330cb
+Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Tue, 25 Jul 2023 14:42:28 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 413
+Connection: keep-alive
+Cache-Control: private
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+
+{"status":200,"list":[{"id":"x8apb8pb","cname":"贵州省疾控中心门诊","cdate":"2023-07-25 22:41:44","username":"刘丹丹","Fnumber":23070024,"product":"重组戊型肝炎疫苗（大肠埃希菌）","VaccineDate":"2023-07-28 08:40-17:00","isCancel":false,"isFinished":false,"mxid":73407,"vdate":"2023-07-28 00:00:00","EndTime":"1900-01-01 17:00:00","StartTime":"1900-01-01 08:40:00","finishedBtn":false}]}

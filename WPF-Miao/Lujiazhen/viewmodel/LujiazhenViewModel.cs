@@ -54,7 +54,7 @@ namespace Lujiazhen.viewmodel
 
             //var sign = JsReader.Decrypt(signEncode);
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -67,7 +67,14 @@ namespace Lujiazhen.viewmodel
                 {
                     HospitalId = "1",
                     HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（默沙东）",
+                    DepartmentName = "九价HPV首针（＜16周岁）",
+                    DepartmentId = "7",
+                },
+                new LujiazhenHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "邵村院区",
+                    DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "6",
                 }
             };
