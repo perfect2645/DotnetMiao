@@ -1,11 +1,11 @@
-﻿using Puzhou.session;
+﻿using Gzjk.session;
 using HttpProcessor.Client;
 using HttpProcessor.Content;
 using System;
 using System.Net.Http;
 using System.Text.Json;
 
-namespace Puzhou.appointment
+namespace Gzjk.appointment
 {
     public class YuyueController : HttpClientBase
     {

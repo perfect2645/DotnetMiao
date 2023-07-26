@@ -1,10 +1,10 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
-using Puzhou.appointment;
+using Gzjk.appointment;
 using System.Collections.Generic;
-using Puzhou.login;
+using Gzjk.login;
 
-namespace Puzhou.session
+namespace Gzjk.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {

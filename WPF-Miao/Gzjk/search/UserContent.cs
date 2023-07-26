@@ -1,19 +1,19 @@
-﻿using Puzhou.common;
-using Puzhou.login;
+﻿using Gzjk.common;
+using Gzjk.login;
 
-namespace Puzhou.search
+namespace Gzjk.search
 {
     internal class UserContent : GzjkContent
     {
-        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/v2/microapi/patient/list";
+        private static string baseUrl = "https://api.cn2030.com/sc/wx/HandlerSubscribe.ashx?act=User";
         public UserContent(GzjkLogin user) : base(baseUrl, user)
         {
-            BuildContent();
+            BuildHeader();
         }
 
-        private void BuildContent()
+        private void BuildHeader()
         {
-
+            AddHeader("zftsl", User.Zftsl);
         }
     }
 }

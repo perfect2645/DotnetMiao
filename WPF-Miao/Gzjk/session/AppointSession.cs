@@ -1,9 +1,9 @@
 ﻿using Base.model;
 using Base.session;
-using Puzhou.appointment;
+using Gzjk.appointment;
 using System.Collections.Generic;
 
-namespace Puzhou.session
+namespace Gzjk.session
 {
     public class AppointSession : ControllerSession<YuyueController>
     {

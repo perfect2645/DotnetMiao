@@ -1,8 +1,8 @@
-﻿using Puzhou.appointment;
+﻿using Gzjk.appointment;
 using System;
 using System.Collections.Generic;
 
-namespace Puzhou.session
+namespace Gzjk.session
 {
     public class ReSessionEvent
     {

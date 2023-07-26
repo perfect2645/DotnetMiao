@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Puzhou.appointment;
-using Puzhou.login;
-using Puzhou.search;
-using Puzhou.session;
+using Gzjk.appointment;
+using Gzjk.login;
+using Gzjk.search;
+using Gzjk.session;
 using Utils;
 using Utils.datetime;
 using Utils.file;
@@ -21,7 +21,7 @@ using Utils.number;
 using Utils.stringBuilder;
 using System.Threading;
 
-namespace Puzhou.viewmodel
+namespace Gzjk.viewmodel
 {
     internal class GzjkViewModel : OnTimeViewModel
     {
@@ -344,11 +344,9 @@ namespace Puzhou.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.FamilyId,
                         HosId = template.HosId,
                         IdCard = user.Idcard,
                         NumId = template.NumId,
-                        OpenId = user.OpenId,
                         Phone = user.Phone,
                         ProjectId = template.ProjectId,
                         SchId = template.SchId,

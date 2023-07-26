@@ -1,8 +1,8 @@
-﻿using Puzhou.common;
-using Puzhou.login;
+﻿using Gzjk.common;
+using Gzjk.login;
 using System.Collections.Generic;
 
-namespace Puzhou.appointment
+namespace Gzjk.appointment
 {
     internal class YuyueContent : GzjkContent
     {

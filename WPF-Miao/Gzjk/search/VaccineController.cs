@@ -1,5 +1,5 @@
-﻿using Puzhou.appointment;
-using Puzhou.session;
+﻿using Gzjk.appointment;
+using Gzjk.session;
 using HttpProcessor.Client;
 using NLog.Targets;
 using System;
@@ -11,7 +11,7 @@ using Utils;
 using Utils.json;
 using Utils.number;
 
-namespace Puzhou.search
+namespace Gzjk.search
 {
     internal class VaccineController : HttpClientBase
     {

@@ -1,6 +1,6 @@
 ﻿using Base.viewmodel.status;
-using Puzhou.appointment;
-using Puzhou.session;
+using Gzjk.appointment;
+using Gzjk.session;
 using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using Utils.json;
 using Utils.number;
 using Utils.datetime;
 
-namespace Puzhou.search
+namespace Gzjk.search
 {
     internal class MiaoController : HttpClientBase
     {

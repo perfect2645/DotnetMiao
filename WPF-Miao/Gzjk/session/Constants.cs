@@ -1,6 +1,6 @@
 ﻿using Base.session;
 
-namespace Puzhou.session
+namespace Gzjk.session
 {
     internal class Constants : MiaoConstants
     {

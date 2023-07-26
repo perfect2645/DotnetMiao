@@ -1,7 +1,7 @@
-﻿using Puzhou.login;
+﻿using Gzjk.login;
 using HttpProcessor.Content;
 
-namespace Puzhou.common
+namespace Gzjk.common
 {
     internal class GzjkContent : HttpStringContent
     {
@@ -16,17 +16,13 @@ namespace Puzhou.common
 
         private void BuildHeader()
         {
-            AddHeader("Host", "zsyy.wzlwpz.nbnfsoft.com:7073");
+            AddHeader("Host", "api.cn2030.com");
             AddHeader("Connection", "keep-alive");
             AddHeader("Accept", "application/json, text/plain, */*");
-            AddHeader("Authorization", User.Authorization);
-            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)");
-            AddHeader("Cookie", $"token=%22{User.Authorization}%22");
-            AddHeader("Sec-Fetch-Site", "same-origin");
-            AddHeader("Sec-Fetch-Mode", "cors");
-            AddHeader("Sec-Fetch-Dest", "empty");
+            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
+            AddHeader("cookie", User.Cookie);
+            AddHeader("Referer", "https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }
     }
 }

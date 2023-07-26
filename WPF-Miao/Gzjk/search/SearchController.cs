@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Puzhou.login;
-using Puzhou.session;
+using Gzjk.login;
+using Gzjk.session;
 using Utils.datetime;
 using Base.model;
-using Puzhou.appointment;
+using Gzjk.appointment;
 using Utils;
 
-namespace Puzhou.search
+namespace Gzjk.search
 {
     internal class SearchController
     {

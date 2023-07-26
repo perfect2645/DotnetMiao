@@ -1,9 +1,9 @@
-﻿using Puzhou.common;
-using Puzhou.login;
-using Puzhou.session;
+﻿using Gzjk.common;
+using Gzjk.login;
+using Gzjk.session;
 using Utils;
 
-namespace Puzhou.search
+namespace Gzjk.search
 {
     internal class VaccineContent : GzjkContent
     {

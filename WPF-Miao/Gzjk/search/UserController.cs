@@ -1,5 +1,5 @@
-﻿using Puzhou.login;
-using Puzhou.session;
+﻿using Gzjk.login;
+using Gzjk.session;
 using HttpProcessor.Client;
 using System;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 
-namespace Puzhou.search
+namespace Gzjk.search
 {
     internal class UserController : HttpClientBase
     {
@@ -36,21 +36,20 @@ namespace Puzhou.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                var status = root.GetProperty("status").GetInt32();
+                if (status != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: status={status}");
                     return;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var userElement = root.GetProperty("user");
+                if (userElement.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(data, user);
+                SaveUser(userElement, user);
             }
             catch (Exception ex)
             {
@@ -58,31 +57,22 @@ namespace Puzhou.search
             }
         }
 
-        private void SaveUser(JsonElement data, GzjkLogin user)
+        private void SaveUser(JsonElement userElement, GzjkLogin user)
         {
-            var userInfoList = JsonAnalysis.JsonToDicList(data);
-            if (!userInfoList.HasItem())
+            var userInfo = JsonAnalysis.JsonToDic(userElement);
+            if (!userInfo.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("name") == user.UserName);
-            if (targetUser == null)
-            {
-                targetUser = userInfoList.FirstOrDefault();
-            }
+            var birthday = userInfo.GetString("birthday");
+            user.Birthday = birthday;
+            user.Phone = userInfo.GetString("tel");
+            user.Idcard = userInfo.GetString("idcard");
+            user.UserName = userInfo.GetString("cname");
 
-            var userName = targetUser.GetString("name");
-            var familyId = targetUser.GetString("family_id");
-
-            user.FamilyId = familyId;
-            user.UserName = userName;
-            user.Phone = targetUser.GetString("tel");
-            user.Idcard = targetUser.GetString("idcard");
-            user.OpenId = targetUser.GetString("openid");
-
-            MainSession.PrintLogEvent.Publish(this, targetUser);
+            MainSession.PrintLogEvent.Publish(this, userInfo);
         }
     }
 }

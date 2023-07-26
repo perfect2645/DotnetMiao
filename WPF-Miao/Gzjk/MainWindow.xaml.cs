@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using Puzhou.viewmodel;
+using Gzjk.viewmodel;
 
 namespace Gzjk
 {

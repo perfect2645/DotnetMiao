@@ -1,7 +1,7 @@
-﻿using Puzhou.login;
+﻿using Gzjk.login;
 using System.Text;
 
-namespace Puzhou.appointment
+namespace Gzjk.appointment
 {
     public class Order
     {

@@ -19,7 +19,10 @@ namespace Sanya.common
         {
             AddHeader("Host", "public.health.zoenet.cn");
             AddHeader("Connection", "keep-alive");
-            AddHeader("noncePf", Guid.NewGuid().ToString());
+
+            var uuid = Guid.NewGuid().ToString().Replace("-", string.Empty);
+
+            AddHeader("noncePf", uuid);
             AddHeader("level", string.Empty);
             AddHeader("Origin", "https://public.health.zoenet.cn");
             AddHeader("headersign", Guid.NewGuid().ToString());

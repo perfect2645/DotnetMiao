@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Puzhou.view
+namespace Gzjk.view
 {
     public partial class MainConsole : Page
     {
