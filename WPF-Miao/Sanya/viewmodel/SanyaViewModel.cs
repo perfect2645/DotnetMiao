@@ -144,13 +144,13 @@ namespace Sanya.viewmodel
             DateList = new List<DspVal>();
 
             Departments = new List<HospitalDept>
-            {                
+            {
                 new SanyaHospital
                 {
-                    HospitalId = "10001",
-                    HospitalName = "龙湾蒲州街道社区卫生服务中心",
-                    DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
+                    OrgCode = "460200",
+                    ZoneCode = "460200",
+                    ZoneName = "5LiJ5Lqa5biC",
+                    AppCode = "HC_SANYA_WX"
                 },
             };
 
@@ -204,7 +204,7 @@ namespace Sanya.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    var userController = HttpServiceController.GetService<UserController>();
+                    var userController = HttpServiceController.GetService<LoginController>();
                     await userController.GetUserAsync(user);
                 });
             }
@@ -376,6 +376,10 @@ namespace Sanya.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.OrgCode, selectedDept.OrgCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.ZoneCode, selectedDept.ZoneCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.ZoneName, selectedDept.ZoneName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.AppCode, selectedDept.AppCode);
 
             Log(selectedDept.ToLogString());
         }
@@ -394,7 +398,7 @@ namespace Sanya.viewmodel
                 {
                     //var loginController = HttpServiceController.GetService<LoginController>();
                     //await loginController.LoginAsync(user);
-                    var userController = HttpServiceController.GetService<UserController>();
+                    var userController = HttpServiceController.GetService<LoginController>();
                     await userController.GetUserAsync(user);
                 });
             }

@@ -27,6 +27,7 @@ namespace Sanya
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();
