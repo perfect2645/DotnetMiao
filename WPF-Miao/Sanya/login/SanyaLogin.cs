@@ -5,6 +5,7 @@
         public string Cookie { get; set; }
         public string Token { get; set; }
         public string ZoeUuid { get; set; }
+        public string ZoeParams { get; set; }
         public string UserName { get; set; }
         public string FamilyId { get; set; }
         public string Idcard { get; set; }

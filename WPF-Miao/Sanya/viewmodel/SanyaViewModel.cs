@@ -204,8 +204,8 @@ namespace Sanya.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
-                    var userController = HttpServiceController.GetService<LoginController>();
-                    await userController.GetUserAsync(user);
+                    var loginController = HttpServiceController.GetService<LoginController>();
+                    await loginController.LoginAsync(user);
                 });
             }
 
@@ -398,7 +398,7 @@ namespace Sanya.viewmodel
                 {
                     //var loginController = HttpServiceController.GetService<LoginController>();
                     //await loginController.LoginAsync(user);
-                    var userController = HttpServiceController.GetService<LoginController>();
+                    var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
             }

@@ -49,6 +49,11 @@ namespace Utils
             return sb.ToString();
         }
 
+        public static string Base64Decode(string code)
+        {
+            return (Encoding.Default.GetString(Convert.FromBase64String(code)));
+        }
+
         public static string EncryptBase64(string source)
         {
             if (string.IsNullOrEmpty(source))
