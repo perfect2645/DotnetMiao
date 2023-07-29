@@ -70,7 +70,7 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            AddMiaoshaItem(7431, 1, "10枚土鸡蛋免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(7426, 1, "鲁花花生油5L免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
