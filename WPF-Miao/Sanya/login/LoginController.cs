@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Sanya.common;
+using Utils.stringBuilder;
 
 namespace Sanya.login
 {
@@ -29,6 +30,9 @@ namespace Sanya.login
             {
                 //var zoeParams = JsReader.GetZoeParams(user.ZoeParams);
                 var zoeParams = Encryptor.Base64Decode(user.ZoeParams);
+                var zoeDic = zoeParams.ToObjDic();
+                var zoeUuid = zoeDic.GetString("zoeUuid");
+                user.ZoeUuid = zoeUuid;
             }
             catch (Exception ex)
             {

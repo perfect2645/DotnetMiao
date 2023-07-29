@@ -206,6 +206,9 @@ namespace Sanya.viewmodel
                 {
                     var loginController = HttpServiceController.GetService<LoginController>();
                     await loginController.LoginAsync(user);
+
+                    var userController = HttpServiceController.GetService<UserController>();
+                    await userController.GetUserAsync(user);
                 });
             }
 
