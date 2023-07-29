@@ -45,12 +45,12 @@ namespace Tjzs.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(13).AddMinutes(59).AddSeconds(50);
+            StartTime = DateTime.Today.AddHours(13).AddMinutes(57).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {
