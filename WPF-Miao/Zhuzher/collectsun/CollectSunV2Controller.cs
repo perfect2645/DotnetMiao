@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
 using System;
@@ -13,7 +14,7 @@ using Zhuzher.session;
 
 namespace Zhuzher.collectsun
 {
-    internal class CollectSunController : HttpClientBase
+    internal class CollectSunV2Controller : HttpClientBase
     {
 
         #region Properties
@@ -25,7 +26,7 @@ namespace Zhuzher.collectsun
 
         #endregion Properties
 
-        public CollectSunController(HttpClient httpClient) : base(httpClient)
+        public CollectSunV2Controller(HttpClient httpClient) : base(httpClient)
         {
         }
 
@@ -44,8 +45,16 @@ namespace Zhuzher.collectsun
             {
                 foreach (var scene in ScenceList.ScenceList)
                 {
+                    var apiVersion = scene.Version;
+                    var v1Controller = HttpServiceController.GetService<CollectSunController>();
+                    if (apiVersion == 1)
+                    {
+                        v1Controller.CollectSun(user, scene);
+                        continue;
+                    }
                     for (var i = 0; i < scene.SceneTimes; i++)
                     {
+  
                         Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
                         Thread.Sleep(5000);
                     }
@@ -53,25 +62,10 @@ namespace Zhuzher.collectsun
             }
         }
 
-        public void CollectSun(UserProject user, SunActivityScence scene)
-        {
-            for (var i = 0; i < scene.SceneTimes; i++)
-            {
-                Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                Thread.Sleep(5000);
-            }
-        }
-
         private void CollectSunForEachScene(UserProject user, SunActivityScence scene)
         {
-            var content = new CollectSunContent();
-            content.AddHeader("Cookie", ZhuzherSession.Cookie);
-            content.AddHeader("Authorization", user.Authorization);
-            content.AddContent("userId", user.UserId);
-            content.AddContent("projectCode", user.ProjectCode);
-            content.AddContent("sceneCode", scene.SceneCode);
-            var defaultUrl = @"https:\/\/uiis.4009515151.com\/fg_activity\/template?id=2180";
-            content.AddContent("matchParam", scene.Url ?? defaultUrl);
+            var content = new CollectSunV2Content(user, scene);
+
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;

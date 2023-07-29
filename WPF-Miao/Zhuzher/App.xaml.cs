@@ -28,6 +28,7 @@ namespace Zhuzher
         private void InitController()
         {
             HttpServiceController.AddTransientService<CollectSunController>();
+            HttpServiceController.AddTransientService<CollectSunV2Controller>();
             HttpServiceController.AddTransientService<JoinTeamController>();
             HttpServiceController.AddTransientService<ExchangeController>();
             HttpServiceController.AddTransientService<SeckillController>();

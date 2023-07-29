@@ -94,7 +94,7 @@ namespace Zhuzher.viewmodel
             try
             {
                 ZhuzherSession.Cookie = Cookie;
-                var searchController = HttpServiceController.GetService<CollectSunController>();
+                var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
             }
             catch (HttpException ex)

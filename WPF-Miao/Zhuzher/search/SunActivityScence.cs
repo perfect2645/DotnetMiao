@@ -9,6 +9,8 @@ namespace Zhuzher.search
         public int SceneTimes { get; set; }
 
         public string Url { get; set; }
+
+        public int Version { get; set; } 
     }
 
     internal class SunActivityScenceList
@@ -22,7 +24,7 @@ namespace Zhuzher.search
         private void InitSceneList()
         {
             AddScene("app-startapp", 1, "1");
-            AddScene("puli-daka", 1, "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=pages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA");
+            AddScene("puli-daka", 1, "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=pages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA", 2);
             AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hd0714");
             AddScene("app-post-vote", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=431&from=activity914");
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=430&from=activity");
@@ -34,13 +36,14 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
         }
 
-        private void AddScene(string code, int time, string? url=null)
+        private void AddScene(string code, int time, string? url=null, int version = 1)
         {
             ScenceList.Add(new SunActivityScence
             {
                 SceneCode = code,
                 SceneTimes = time,
-                Url = url
+                Url = url,
+                Version = version
             });
         }
     }
