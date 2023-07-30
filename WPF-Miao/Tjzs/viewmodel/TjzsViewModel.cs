@@ -50,7 +50,7 @@ namespace Tjzs.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(13).AddMinutes(57).AddSeconds(50);
+            StartTime = DateTime.Today.AddHours(13).AddMinutes(57).AddSeconds(30);
 
             Departments = new List<HospitalDept>
             {
