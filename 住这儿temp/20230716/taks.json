@@ -17,10 +17,10 @@
                     "sceneDesc": "匹配参数为scene=xxx",
                     "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=pages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
