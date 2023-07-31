@@ -7,6 +7,8 @@ using System.Text.Json;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
+using Yongding.search;
+using HttpProcessor.Container;
 
 namespace Yongding.appointment
 {
@@ -24,6 +26,13 @@ namespace Yongding.appointment
             if (IsSuccess)
             {
                 return IsSuccess;
+            }
+            MainSession.PrintLogEvent.Publish(null, $"GetTime");
+            var timeController = HttpServiceController.GetService<MiaoController>();
+            var isTimeGet = timeController.SearchMiao(order);
+            if (!isTimeGet)
+            {
+                return false;
             }
 
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");

@@ -25,30 +25,25 @@ namespace Yongding.search
         {
         }
 
-        public void SearchMiaoAsync()
-        {
-            Task.Factory.StartNew(() => SearchMiao());
-        }
-
-        public bool SearchMiao()
+        public bool SearchMiao(Order order)
         {
             try
             {
-                var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var content = new MiaoContent(order);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var message = root.GetProperty("message").GetInt32();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}, message={message}");
                     return false;
                 }
 
@@ -59,9 +54,7 @@ namespace Yongding.search
                     return false;
                 }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return SaveTime(data, order);
             }
             catch (Exception ex)
             {
@@ -70,65 +63,16 @@ namespace Yongding.search
             }
         }
 
-        private bool CheckSaveResource(JsonElement dataElement)
+        private bool SaveTime(JsonElement dataElement, Order order)
         {
-            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
-            if (!vaccineDayList.HasItem())
+            var timeList = JsonAnalysis.JsonToDicList(dataElement);
+            if (!timeList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
-        }
-
-        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
-        {
-            var orderList = new List<Order>();
-
-            foreach (var vaccineDay in vaccineDayList)
-            {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
-                foreach (var timeItem in timeList)
-                {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
-                    {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
-                }
-            }
-
-            if(!orderList.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
-                return false;
-            }
-
-            orderList = orderList.DisorderItems();
-
-            var orderArgs = new OrderEventArgs
-            {
-                OrderList = orderList,
-            };
-
-            MainSession.OrderEvent.Publish(this, orderArgs);
-
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-
-            };
         }
     }
 }

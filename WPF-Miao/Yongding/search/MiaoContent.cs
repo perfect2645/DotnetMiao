@@ -10,7 +10,7 @@ namespace Yongding.search
     {
         private static string baseUrl = "http://yiliao2.lefeiniu.com:8081/resource/get_time?id=28&riqi=2023-08-03";
 
-        public MiaoContent(YongdingLogin user, Order order) : base(baseUrl, user)
+        public MiaoContent(Order order) : base(baseUrl, order.User)
         {
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 

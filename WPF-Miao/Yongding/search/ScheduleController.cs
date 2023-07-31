@@ -15,7 +15,6 @@ namespace Yongding.search
 {
     internal class ScheduleController : HttpClientBase
     {
-
         public DspVal Date { get; private set; }
 
         public ScheduleController(HttpClient httpClient) : base(httpClient)
@@ -35,7 +34,7 @@ namespace Yongding.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new ScheduleContent(defaultUser, Date);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchSchedule - {response?.Message},请检查参数");

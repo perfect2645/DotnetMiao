@@ -5,7 +5,7 @@ namespace Yongding.appointment
 {
     internal class YuyueContent : YongdingContent
     {
-        private static string url = "https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine_new";
+        private static string url = "http://yiliao2.lefeiniu.com:8081/resource/add_yuyue";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {
