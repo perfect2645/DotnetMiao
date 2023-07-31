@@ -40,7 +40,7 @@ namespace Yongding.search
                 var root = response.JsonBody.RootElement;
 
                 var code = root.GetProperty("code").GetInt32();
-                var message = root.GetProperty("message").GetInt32();
+                var message = root.GetProperty("message").GetString();
                 if (code != 200)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}, message={message}");
@@ -68,9 +68,12 @@ namespace Yongding.search
             var timeList = JsonAnalysis.JsonToDicList(dataElement);
             if (!timeList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
+                MainSession.PrintLogEvent.Publish(this, $"time list is empty");
                 return false;
             }
+
+            var defauleTime = timeList.FirstOrDefault().GetString("no");
+            order.No = defauleTime ?? "1";
 
             return true;
         }

@@ -62,11 +62,11 @@ namespace Yongding.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                var msg = root.GetProperty("msg").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var message = root.GetProperty("message").GetString();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={message}");
                     return false;
                 }
 
@@ -76,8 +76,8 @@ namespace Yongding.appointment
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
                 }
-                MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
-                return true;
+                MainSession.PrintLogEvent.Publish(this, $"msg={message}");
+                return SaveOrderResult(data, content.Order);
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace Yongding.appointment
             }
         }
 
-        private bool SaveOrderResult(JsonElement data)
+        private bool SaveOrderResult(JsonElement data, Order order)
         {
             try
             {
@@ -94,8 +94,9 @@ namespace Yongding.appointment
 
                 MainSession.PrintLogEvent.Publish(this, orderData);
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                if (!string.IsNullOrEmpty(orderData.GetString("id")))
                 {
+                    order.OrderId = orderData.GetString("id");
                     return true;
                 }
 

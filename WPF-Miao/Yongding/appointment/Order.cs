@@ -12,6 +12,7 @@ namespace Yongding.appointment
         public string Time { get; set; }
         public string No { get; set; }
         public string Cardid { get; set; }
+        public string OrderId { get; set; }
         internal YongdingLogin User { get; set; }
 
         public string ToLogString()
@@ -25,6 +26,7 @@ namespace Yongding.appointment
             sb.AppendLine($"Date - {Riqi}-{Time}");
             sb.AppendLine($"Number - {No}");
             sb.AppendLine($"Cardid - {Cardid}");
+            sb.AppendLine($"OrderId - {OrderId}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

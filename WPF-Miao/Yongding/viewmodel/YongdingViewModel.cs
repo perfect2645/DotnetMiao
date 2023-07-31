@@ -52,7 +52,7 @@ namespace Yongding.viewmodel
         {
             Interval = 200;
 
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -61,10 +61,17 @@ namespace Yongding.viewmodel
 
             var dayOfWeek = DayOfWeek.Thursday;
             var targetDay = DateTimeUtil.GetDayOfWeek(dayOfWeek);
-            TargetDate = new DspVal(targetDay, dayOfWeek.ToString());
+            TargetDate = new DspVal(targetDay, $"{(int)dayOfWeek}");
 
             Departments = new List<HospitalDept>
             {
+                new YongdingHospital
+                {
+                    HospitalId = "1",
+                    HospitalName = "永定疾控",
+                    DepartmentName = "九",
+                    DepartmentId = "8",
+                },
                 new YongdingHospital
                 {
                     HospitalId = "1",
@@ -74,13 +81,7 @@ namespace Yongding.viewmodel
                     DoctorId = "28",
                     DoctorName = "23价肺炎球菌多糖疫苗",
                 },
-                new YongdingHospital
-                {
-                    HospitalId = "1",
-                    HospitalName = "永定疾控",
-                    DepartmentName = "预防接种科",
-                    DepartmentId = "8",
-                },
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();

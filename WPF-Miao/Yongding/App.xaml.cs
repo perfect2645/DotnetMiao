@@ -30,6 +30,7 @@ namespace Yongding
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<ScheduleController>();
             HttpServiceController.BuidServiceProvider();
         }
     }
