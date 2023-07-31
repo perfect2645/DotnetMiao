@@ -1,0 +1,32 @@
+POST http://yiliao2.lefeiniu.com:8081/resource/sendmsg HTTP/1.1
+Host: yiliao2.lefeiniu.com:8081
+Connection: keep-alive
+Content-Length: 29
+Origin: http://yiliao2.lefeiniu.com:8081
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded
+Accept: */*
+Cookie: PHPSESSID=2fae4085c9c45cf80b2ffdfb30873fe3
+Referer: http://yiliao2.lefeiniu.com:8081/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+mobile=16790467719&type=login
+HTTP/1.1 200 OK
+Date: Mon, 31 Jul 2023 13:35:53 GMT
+Server: Apache/2.4.54 (Win64) OpenSSL/1.1.1p mod_fcgid/2.3.9a
+X-Powered-By: PHP/7.3.33
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1800
+Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-CSRF-TOKEN, X-Requested-With
+Access-Control-Allow-Origin: http://yiliao2.lefeiniu.com:8081
+Set-Cookie: PHPSESSID=2fae4085c9c45cf80b2ffdfb30873fe3; path=/
+Upgrade: h2,h2c
+Connection: Upgrade, Keep-Alive
+Vary: Accept-Encoding
+Content-Length: 47
+Keep-Alive: timeout=5, max=1000
+Content-Type: application/json; charset=utf-8
+
+{"message":"发送成功","data":[],"code":200}
