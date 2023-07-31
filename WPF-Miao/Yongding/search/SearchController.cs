@@ -8,27 +8,28 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Utils.datetime;
+using Base.model;
 
 namespace Yongding.search
 {
     internal class SearchController
     {
 
-        public void SearchMiao()
+        public void SearchMiao(DspVal date)
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
             var defaultUser = MainSession.Users.FirstOrDefault();
-            GetMiao();
+            GetMiao(date);
         }
 
-        private void GetMiao()
+        private void GetMiao(DspVal date)
         {
-            var miaoController = HttpServiceController.GetService<MiaoController>();
+            var scheduleController = HttpServiceController.GetService<ScheduleController>();
 
             var isMiaoGet = false;
             while (!isMiaoGet)
             {
-                isMiaoGet = miaoController.SearchMiao();
+                isMiaoGet = scheduleController.SearchSchedule(date);
                 Thread.Sleep(500);
             }
         }

@@ -12,7 +12,6 @@ namespace Yongding.appointment
         public string Time { get; set; }
         public string No { get; set; }
         public string Cardid { get; set; }
-        public string Token { get; set; }
         internal YongdingLogin User { get; set; }
 
         public string ToLogString()

@@ -1,6 +1,4 @@
-﻿using Yongding.appointment;
-using Yongding.login;
-using Yongding.session;
+﻿using Base.model;
 using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
@@ -10,58 +8,57 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
-using Utils.number;
-using Newtonsoft.Json;
-using Utils.stringBuilder;
+using Yongding.appointment;
+using Yongding.session;
 
 namespace Yongding.search
 {
     internal class ScheduleController : HttpClientBase
     {
 
-        public string Date { get; private set; }
+        public DspVal Date { get; private set; }
 
         public ScheduleController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchScheduleAsync()
+        public void SearchScheduleAsync(DspVal date)
         {
-            Task.Factory.StartNew(() => SearchMiao());
+            Task.Factory.StartNew(() => SearchSchedule(date));
         }
 
-        public bool SearchMiao()
+        public bool SearchSchedule(DspVal date)
         {
+            Date = date;
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var content = new ScheduleContent(defaultUser, Date);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchSchedule - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var message = root.GetProperty("message").GetString();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchSchedule失败: code={code}, message={message}");
                     return false;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: data is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchSchedule失败: data is empty");
                     return false;
                 }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return CheckSaveResource(data);
             }
             catch (Exception ex)
             {
@@ -72,44 +69,43 @@ namespace Yongding.search
 
         private bool CheckSaveResource(JsonElement dataElement)
         {
-            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
-            if (!vaccineDayList.HasItem())
+            var scheduleList = JsonAnalysis.JsonToDicList(dataElement);
+            if (!scheduleList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
-        }
-
-        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
-        {
-            var orderList = new List<Order>();
-
-            foreach (var vaccineDay in vaccineDayList)
+            var doctorName = MainSession.PlatformSession.GetString(Constants.DoctorName);
+            var targetSchedule = scheduleList.FirstOrDefault(x => x.GetString("title").Contains(doctorName));
+            if (targetSchedule == null)
             {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
-                foreach (var timeItem in timeList)
-                {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
-                    {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                MainSession.PrintLogEvent.Publish(this, $"没有匹配的科室-{doctorName}，自动匹配9");
+                targetSchedule = scheduleList.FirstOrDefault(x => x.GetString("title").Contains("九") || x.GetString("title").Contains("9"));
             }
 
-            if(!orderList.HasItem())
+            if (targetSchedule == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
+                MainSession.PrintLogEvent.Publish(this, $"没有匹配的科室-{doctorName}");
                 return false;
             }
 
-            orderList = orderList.DisorderItems();
+            return BuildOrder(targetSchedule);
+        }
+
+        private bool BuildOrder(Dictionary<string, object> targetSchedule)
+        {
+            var orderList = new List<Order>();
+
+            var scheduleOrder = new Order
+            {
+                Id = targetSchedule.GetString("list_id"),
+                Riqi = Date.Display,
+                Time = targetSchedule.GetString("t_val"),
+                Timeid = targetSchedule.GetString("id"),
+            };
+
+            orderList.Add(scheduleOrder);
 
             var orderArgs = new OrderEventArgs
             {
@@ -119,16 +115,6 @@ namespace Yongding.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-
-            };
         }
     }
 }

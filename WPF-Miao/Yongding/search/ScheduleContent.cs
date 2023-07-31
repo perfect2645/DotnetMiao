@@ -1,26 +1,23 @@
-﻿using Yongding.common;
+﻿using Base.model;
+using Utils;
+using Yongding.common;
 using Yongding.login;
 using Yongding.session;
-using Utils;
 
 namespace Yongding.search
 {
     internal class ScheduleContent : YongdingContent
     {
-        private static string baseUrl = "http://yiliao2.lefeiniu.com:8081/resource/get_list?id=8&wek=4&riqi=2023-08-03";
+        private static string baseUrl = "http://yiliao2.lefeiniu.com:8081/resource/get_list?";
+        public DspVal Date { get; set; }
 
-        public ScheduleContent(YongdingLogin user) : base(baseUrl, user)
+        public ScheduleContent(YongdingLogin user, DspVal date) : base(baseUrl, user)
         {
-            BuildContent();
-        }
+            Date = date;
 
-        private void BuildContent()
-        {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-            AddContent("vaccineId", deptId);
-            AddContent("vaccineAddressId", hosId);
-            AddContent("token", User.Token);
+
+            RequestUrl = $"{baseUrl}id={deptId}&wek={Date.Value}&riqi={Date.Display}";
         }
     }
 }

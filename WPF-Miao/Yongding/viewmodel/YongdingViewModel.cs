@@ -16,6 +16,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
 using Utils.file;
+using Utils.datetime;
+using Base.model;
 
 namespace Yongding.viewmodel
 {
@@ -25,6 +27,8 @@ namespace Yongding.viewmodel
 
         public ICommand SearchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
+
+        public DspVal TargetDate { get; set; }
 
         private readonly object OrderLock = new object();
 
@@ -48,11 +52,6 @@ namespace Yongding.viewmodel
         {
             Interval = 200;
 
-            var signEncode = "NppGiLPT4gCYwLoP1mXYcgViRWY2vutb5AwhyT5sJBE5FQbEjUZl8+7uW0UGunWiAvMxQv6krHrCQKk4aj0nX9WjqCoJNPKspIJFmNx/SXnYXkePRFaMaz0HbjcrZXKJp7D4IqpKrYRrJ1heyeygSNfSy2iTuAqK2QO3PE1FF0eFsgqVM4cB6SgsvpJ3u/Jx2VEOwKV5unj0LJ96eOLQi2xc7m5GrAb9Y2my5LseU1hWJFvsJrS+WTyiugnyMAxjesBpIR+yYKTgt8FB24QW1GR8E2G4gWIsuyDLM+he4YCJIIqesMSIFFmAHfw4eNJ82Skkame8lxPxX1qcht1qBQ==";
-
-
-            //var sign = JsReader.Decrypt(signEncode);
-
             //StartTime = DateTime.Now.AddSeconds(5);
         }
 
@@ -60,22 +59,28 @@ namespace Yongding.viewmodel
         {
             StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
 
+            var dayOfWeek = DayOfWeek.Thursday;
+            var targetDay = DateTimeUtil.GetDayOfWeek(dayOfWeek);
+            TargetDate = new DspVal(targetDay, dayOfWeek.ToString());
+
             Departments = new List<HospitalDept>
             {
                 new YongdingHospital
                 {
                     HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（＜16周岁）",
-                    DepartmentId = "7",
+                    HospitalName = "永定疾控",
+                    DepartmentName = "预防接种科",
+                    DepartmentId = "8",
+                    DoctorId = "28",
+                    DoctorName = "23价肺炎球菌多糖疫苗",
                 },
                 new YongdingHospital
                 {
                     HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "6",
-                }
+                    HospitalName = "永定疾控",
+                    DepartmentName = "预防接种科",
+                    DepartmentId = "8",
+                },
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -158,7 +163,7 @@ namespace Yongding.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchMiao();
+                    _searchController.SearchMiao(TargetDate);
                 }
                 catch (HttpException ex)
                 {
@@ -273,7 +278,11 @@ namespace Yongding.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-
+                        Cardid = user.UserId,
+                        Id = template.Id,
+                        Riqi = template.Riqi,
+                        Time = template.Time,
+                        Timeid = template.Timeid,
                     };
 
                     orderList.Add(order);
@@ -283,11 +292,6 @@ namespace Yongding.viewmodel
             }
         }
 
-        private void DirectlyOrder(string scheduleId)
-        {
-            var order = new Order();
-        }
-
         #endregion Appoint
 
         #region Hospital Dept
@@ -295,10 +299,10 @@ namespace Yongding.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as YongdingHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }
