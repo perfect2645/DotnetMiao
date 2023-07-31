@@ -31,7 +31,7 @@ namespace Yongding.login
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -39,20 +39,23 @@ namespace Yongding.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var message = root.GetProperty("message").GetString();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}, message={message}");
                     return;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty, message={message}");
                     return;
                 }
-                SaveUser(data, user);
+                var list = data.GetProperty("list");
+
+                SaveUser(list, user);
             }
             catch (Exception ex)
             {

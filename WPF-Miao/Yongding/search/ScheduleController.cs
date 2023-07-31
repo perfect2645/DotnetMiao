@@ -16,16 +16,16 @@ using Utils.stringBuilder;
 
 namespace Yongding.search
 {
-    internal class MiaoController : HttpClientBase
+    internal class ScheduleController : HttpClientBase
     {
 
         public string Date { get; private set; }
 
-        public MiaoController(HttpClient httpClient) : base(httpClient)
+        public ScheduleController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void SearchMiaoAsync()
+        public void SearchScheduleAsync()
         {
             Task.Factory.StartNew(() => SearchMiao());
         }

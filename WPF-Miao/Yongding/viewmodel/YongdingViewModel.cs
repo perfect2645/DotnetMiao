@@ -5,7 +5,6 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Yongding.appointment;
-using Yongding.Encrypt;
 using Yongding.login;
 using Yongding.search;
 using Yongding.session;
@@ -274,10 +273,7 @@ namespace Yongding.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
+
                     };
 
                     orderList.Add(order);

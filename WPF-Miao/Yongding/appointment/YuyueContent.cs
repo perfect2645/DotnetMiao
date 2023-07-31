@@ -15,12 +15,16 @@ namespace Yongding.appointment
 
         private void BuildContent()
         {
-            AddContent("vaccineDayId", Order.VaccineDayId);
-            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
-            AddContent("vaccineId", Order.VaccineId);
-            AddContent("familyId", Order.FamilyId);
+            AddContent("id", Order.Id);
+            AddContent("timeid", Order.Timeid);
+            AddEncodeContent("time", Order.Time);
+            AddContent("no", Order.No);
+            AddContent("cardid", Order.User.UserId);
             AddContent("token", Order.User.Token);
-            AddContent("sign", Order.User.Sign);
+            AddContent("riqi", Order.Riqi);
+            AddContent("gongzhong", string.Empty);
+            AddContent("hy", string.Empty);
+            AddContent("picture", string.Empty);
         }
     }
 }
