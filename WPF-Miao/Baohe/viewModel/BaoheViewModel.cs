@@ -93,12 +93,12 @@ namespace Baohe.viewModel
 
         private void InitStaticData()
         {
-            MainSession.YzmMode = YzmMode.OnTimeSendVerify;
+            MainSession.YzmMode = YzmMode.PreSendVerify;
 
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(50);
             //StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(40);
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(50);

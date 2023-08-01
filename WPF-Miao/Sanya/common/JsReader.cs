@@ -1,8 +1,11 @@
 ﻿
 
 using JsInteract.ClearJs;
+using Sanya.session;
+using System;
 using System.Collections.Generic;
 using Utils;
+using Utils.stringBuilder;
 
 namespace Sanya.common
 {
@@ -19,9 +22,16 @@ namespace Sanya.common
 
         public static Dictionary<string, object> DecodeAesCbc(string input)
         {
-            var result = JsEngine.Engine.Script.decryptByAes(input);
-
             var requestDataDic = new Dictionary<string, object>();
+            try
+            {
+                var result = JsEngine.Engine.Script.decryptByAes(input) as string;
+                requestDataDic = result.ToObjDic();
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(input, $"DecodeAesCbc异常:{ex.Message}");
+            }
 
             return requestDataDic;
         }

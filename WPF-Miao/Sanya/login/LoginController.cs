@@ -32,7 +32,9 @@ namespace Sanya.login
                 var zoeParams = Encryptor.Base64Decode(user.ZoeParams);
                 var zoeDic = zoeParams.ToObjDic();
                 var zoeUuid = zoeDic.GetString("zoeUuid");
+                var token = zoeDic.GetString("token");
                 user.ZoeUuid = zoeUuid;
+                user.Token = token;
             }
             catch (Exception ex)
             {

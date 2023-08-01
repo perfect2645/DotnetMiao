@@ -4,6 +4,8 @@ using System;
 using Sanya.session;
 using Utils;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Sanya.common
 {
@@ -11,10 +13,12 @@ namespace Sanya.common
     {
         public SanyaLogin User { get; private set; }
 
+        public Dictionary<string, object>  HeaderSignDic { get; private set; }
+
         public SanyaContent(string baseUrl, SanyaLogin user) : base(baseUrl)
         {
             User = user;
-
+            HeaderSignDic = new Dictionary<string, object>();
             BuildHeader();
         }
 
@@ -46,13 +50,26 @@ namespace Sanya.common
 
         protected virtual void BuildHeaderSign()
         {
-            var headerSignDic = new Dictionary<string, object>();
-
             var appCode = MainSession.PlatformSession.GetString(Constants.AppCode);
-            headerSignDic.AddOrUpdate(Constants.AppCode, appCode);
-            headerSignDic.AddOrUpdate("appCode", appCode);
+            HeaderSignDic.AddOrUpdate(Constants.ZoeUuid, User.ZoeUuid);
+            HeaderSignDic.AddOrUpdate(Constants.AppCode, appCode);
+            HeaderSignDic.AddOrUpdate(Constants.Token, User.Token);
+            HeaderSignDic.AddOrUpdate(Constants.TokenId, User.Token);
 
-            AddHeader("headersign", "");
+            HeaderSignDic = HeaderSignDic.OrderBy(x => x.Key).ToDictionary(k => k.Key, v => v.Value);
+
+
+            var headerSb = new StringBuilder();
+            foreach (var header in HeaderSignDic)
+            {
+                headerSb.Append(header.Key).Append("=").Append(header.Value);
+            }
+
+            var headerSignStr = headerSb.ToString();
+
+            var headerSignMD5 = Encryptor.GetMD5_32(headerSignStr).ToUpper();
+
+            AddHeader("headersign", headerSignMD5);
         }
     }
 }

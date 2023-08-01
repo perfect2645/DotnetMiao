@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Sanya.common;
 
 namespace Sanya.search
 {
@@ -28,7 +29,7 @@ namespace Sanya.search
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -36,11 +37,12 @@ namespace Sanya.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                var code = root.GetProperty("code").GetInt32();
+                
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: success={success}, msg = {msg}");
+                    var message = root.GetProperty("message").GetString();
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败[{user.UserName}]: code={code}, message = {message}");
                     return;
                 }
 
@@ -50,7 +52,7 @@ namespace Sanya.search
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(data, user);
+                SaveUser(data.GetString(), user);
             }
             catch (Exception ex)
             {
@@ -58,9 +60,10 @@ namespace Sanya.search
             }
         }
 
-        private void SaveUser(JsonElement data, SanyaLogin user)
+        private void SaveUser(string dataEncode, SanyaLogin user)
         {
-            var userInfoList = JsonAnalysis.JsonToDicList(data);
+            var dataDecode = JsReader.DecodeAesCbc(dataEncode);
+            var userInfoList = JsonAnalysis.JsonToDicList(dataEncode);
             if (!userInfoList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");

@@ -1,5 +1,6 @@
 ﻿using Sanya.common;
 using Sanya.login;
+using Utils;
 
 namespace Sanya.search
 {
@@ -9,11 +10,18 @@ namespace Sanya.search
         public UserContent(SanyaLogin user) : base(baseUrl, user)
         {
             BuildContent();
+            BuildHeaderSign();
         }
 
         private void BuildContent()
         {
             AddContent("encryptFlag", 1);
+        }
+
+        protected override void BuildHeaderSign()
+        {
+            HeaderSignDic.AddOrUpdate("encryptFlag", 1);
+            base.BuildHeaderSign();
         }
     }
 }
