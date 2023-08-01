@@ -13,18 +13,15 @@ namespace Sanya.common
         static JsReader()
         {
             JsEngine = new JsEngine();
+            JsEngine.InitEngine("common/crypto-js.min.js");
             JsEngine.InitEngine("common/encode.js");
         }
 
-        public static Dictionary<string, object> GetZoeParams(string encodeZoe)
+        public static Dictionary<string, object> DecodeAesCbc(string input)
         {
-            var result = JsEngine.Engine.Script.GetZoeParams(encodeZoe);
+            var result = JsEngine.Engine.Script.decryptByAes(input);
 
             var requestDataDic = new Dictionary<string, object>();
-            //requestDataDic.AddOrUpdate("requestData", requestData);
-            //requestDataDic.AddOrUpdate("nonce", nonce);
-            //requestDataDic.AddOrUpdate("timestamp", timestamp);
-            //requestDataDic.AddOrUpdate("signature", signature);
 
             return requestDataDic;
         }

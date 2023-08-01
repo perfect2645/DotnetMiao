@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="common\crypto-js.min.js" />
     <None Remove="common\encode.js" />
     <None Remove="Login.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="common\crypto-js.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="common\encode.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

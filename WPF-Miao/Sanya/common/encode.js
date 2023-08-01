@@ -1,26 +1,33 @@
-﻿global.Buffer = global.Buffer || require('buffer').Buffer;
+﻿function decryptByAes(t) {
+    // var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "3132333435363738393041424344454631323334353637383930414243444566"
+    //   , n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "30313233343536373839414243444546";
+    let key = "3132333435363738393041424344454631323334353637383930414243444566";
+    let n = "30313233343536373839414243444546";
 
-if (typeof btoa === 'undefined') {
-    global.btoa = function (str) {
-        return new Buffer.from(str).toString('base64');
-    };
+    key = CryptoJS.enc.Hex.parse(key);
+    var iv = CryptoJS.enc.Hex.parse(n),
+        i = CryptoJS.AES.decrypt(CryptoJS.format.Hex.parse(t), key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7,
+        }),
+        o = CryptoJS.enc.Utf8.stringify(i);
+    return o;
 }
-if (typeof atob === 'undefined') {
-    global.atob = function (b64Encoded) {
-        return new Buffer.from(b64Encoded, 'base64').toString();
-    };
-}
 
-function GetZoeParams(encodeParam) {
-    var decodeParams = JSON.parse(
-        decodeURIComponent(
-            escape(
-                atob(
-                    encodeParam
-                )
-            )
-        )
-    );
+function decryptByDes(t) {
+    // var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "2f6e34b30461730b62e50d64d0fd26132f6e34b30461730b"
+    //   , n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "79647779736f6674";
+    let e = "2f6e34b30461730b62e50d64d0fd26132f6e34b30461730b";
+    let n = "79647779736f6674";
 
-    return decodeParams;
+    e = CryptoJS.enc.Hex.parse(e);
+    var r = CryptoJS.enc.Hex.parse(n),
+        i = CryptoJS.TripleDES.decrypt(CryptoJS.format.Hex.parse(t), e, {
+            iv: r,
+            mode: CryptoJS.mode.CFB,
+            padding: CryptoJS.pad.NoPadding,
+        }),
+        o = CryptoJS.enc.Utf8.stringify(i);
+    return o;
 }
