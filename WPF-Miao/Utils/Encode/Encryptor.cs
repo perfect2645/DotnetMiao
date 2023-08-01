@@ -18,7 +18,7 @@ namespace Utils
             return hashValue;
         }
 
-        public static string ToMD5String(string source, int length = 32)
+        public static string ToBase64String(string source, int length = 32)
         {
             var hashValue = ToMD5Hash(source);
 

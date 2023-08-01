@@ -69,8 +69,10 @@ namespace Yongding.viewmodel
                 {
                     HospitalId = "1",
                     HospitalName = "永定疾控",
-                    DepartmentName = "九",
+                    DepartmentName = "预防接种科",
                     DepartmentId = "8",
+                    DoctorId = "17",
+                    DoctorName = "九价疫苗",
                 },
                 new YongdingHospital
                 {

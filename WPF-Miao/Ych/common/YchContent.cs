@@ -48,7 +48,7 @@ namespace Ych.common
                 var contentValues = Content.Values.Select(x => x.NotNullString()).ToArray();
                 var contentValuesString = string.Join(string.Empty, contentValues);
 
-                var contentsMD5 = Encryptor.ToMD5String(contentValuesString).ToLower();
+                var contentsMD5 = Encryptor.ToBase64String(contentValuesString).ToLower();
 
                 return contentsMD5;
             }
