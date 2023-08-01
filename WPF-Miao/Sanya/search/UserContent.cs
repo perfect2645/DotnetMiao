@@ -5,7 +5,7 @@ namespace Sanya.search
 {
     internal class UserContent : SanyaContent
     {
-        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/v2/microapi/patient/list";
+        private static string baseUrl = "https://public.health.zoenet.cn/medical/medical-card-manage/getUserInfoByUserIdOrToken";
         public UserContent(SanyaLogin user) : base(baseUrl, user)
         {
             BuildContent();
@@ -13,7 +13,7 @@ namespace Sanya.search
 
         private void BuildContent()
         {
-
+            AddContent("encryptFlag", 1);
         }
     }
 }

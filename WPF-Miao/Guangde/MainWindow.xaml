@@ -1,8 +1,8 @@
-﻿<Window x:Class="Lujiazhen.MainWindow"
+﻿<Window x:Class="Guangde.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:view="clr-namespace:Lujiazhen.view"
-        Title="安徽广德" 
+        xmlns:view="clr-namespace:Guangde.view"
+        Title="昆山陆家镇" 
         Height="800" MinWidth="830" 
         WindowState="Normal">
     <view:MainConsole x:Name="mainConsole">

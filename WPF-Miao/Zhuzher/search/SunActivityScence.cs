@@ -28,7 +28,7 @@ namespace Zhuzher.search
             AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hd0714");
             AddScene("app-post-vote", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=431&from=activity914");
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=430&from=activity");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=51hd", 2);
+            //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=51hd", 2);
             //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=jzbjyxhd");
             //AddScene("5thzone-convenience-pay", 1, "https://uiis.4009515151.com/product/171910/projectCode/0?pageMark=bbyhzz17110tf");
             AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");

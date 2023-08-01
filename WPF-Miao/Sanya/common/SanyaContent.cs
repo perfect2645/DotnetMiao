@@ -3,6 +3,7 @@ using HttpProcessor.Content;
 using System;
 using Sanya.session;
 using Utils;
+using System.Collections.Generic;
 
 namespace Sanya.common
 {
@@ -45,6 +46,12 @@ namespace Sanya.common
 
         protected virtual void BuildHeaderSign()
         {
+            var headerSignDic = new Dictionary<string, object>();
+
+            var appCode = MainSession.PlatformSession.GetString(Constants.AppCode);
+            headerSignDic.AddOrUpdate(Constants.AppCode, appCode);
+            headerSignDic.AddOrUpdate("appCode", appCode);
+
             AddHeader("headersign", "");
         }
     }

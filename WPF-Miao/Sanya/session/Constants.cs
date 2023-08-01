@@ -7,6 +7,6 @@ namespace Sanya.session
         public const string OrgCode = "OrgCode";
         public const string ZoneCode = "ZoneCode";
         public const string ZoneName = "ZoneName";
-        public const string AppCode = "AppCode";
+        public const string AppCode = "appCode";
     }
 }
