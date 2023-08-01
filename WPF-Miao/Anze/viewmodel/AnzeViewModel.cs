@@ -47,7 +47,7 @@ namespace Anze.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
@@ -59,7 +59,7 @@ namespace Anze.viewmodel
                 new AnzeHospital
                 {
                     DepartmentName = "九价HPV扩龄",
-                    DepartmentId = "16",
+                    DepartmentId = "22",
                 },
                 new AnzeHospital
                 {

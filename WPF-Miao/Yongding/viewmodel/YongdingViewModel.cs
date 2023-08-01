@@ -52,14 +52,14 @@ namespace Yongding.viewmodel
         {
             Interval = 200;
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
+            StartTime = DateTime.Today.AddHours(11).AddMinutes(29).AddSeconds(50);
 
-            var dayOfWeek = DayOfWeek.Thursday;
+            var dayOfWeek = DayOfWeek.Friday;
             var targetDay = DateTimeUtil.GetDayOfWeek(dayOfWeek);
             TargetDate = new DspVal(targetDay, $"{(int)dayOfWeek}");
 
