@@ -62,7 +62,7 @@ namespace Sanya.search
 
         private void SaveUser(string dataEncode, SanyaLogin user)
         {
-            var dataDecode = JsReader.DecodeAesCbc(dataEncode);
+            var userInfo = JsReader.DecodeAesCbc(dataEncode);
             var userInfoList = JsonAnalysis.JsonToDicList(dataEncode);
             if (!userInfoList.HasItem())
             {

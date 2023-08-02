@@ -6,7 +6,6 @@ namespace Sanya.viewmodel
 {
     internal class SanyaHospital : HospitalDept
     {
-
         public string OrgCode { get; set; }
         public string ZoneCode { get; set; }
         public string ZoneName { get; set; }

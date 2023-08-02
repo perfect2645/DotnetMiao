@@ -6,15 +6,16 @@ namespace Sanya.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string FamilyId { get; set; }
-        public string HosId { get; set; }
-        public string IdCard { get; set; }
-        public string NumId { get; set; }
-        public string OpenId { get; set; }
-        public string Phone { get; set; }
-        public string ProjectId { get; set; }
-        public string SchId { get; set; }
-        public string Time { get; set; }
+        public string IdCardNo { get; set; }
+        public string IcCardNo { get; set; }
+        public string GoodsId { get; set; }
+        public string OrgCode { get; set; }
+        public string TimeStr { get; set; }
+        public string ServiceId { get; set; }
+        public string GoodsDetailId { get; set; }
+        public string SubscribeType { get; set; }
+        public string ProvideAddress { get; set; }
+        public string Age { get; set; }
 
         public string ResultMsg { get; set; }
 
@@ -27,11 +28,11 @@ namespace Sanya.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"FamilyId - {FamilyId}");
-            sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"IdCard - {IdCard}");
-            sb.AppendLine($"Time - {Time}");
-            sb.AppendLine($"SchId - {SchId}");
+            sb.AppendLine($"IdCardNo - {IdCardNo}");
+            sb.AppendLine($"Age - {Age}");
+            sb.AppendLine($"Time - {TimeStr}");
+            sb.AppendLine($"GoodsId - {GoodsId}");
+            sb.AppendLine($"GoodsDetailId - {GoodsDetailId}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

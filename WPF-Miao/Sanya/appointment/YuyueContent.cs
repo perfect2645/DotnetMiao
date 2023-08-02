@@ -1,6 +1,7 @@
 ﻿using Sanya.common;
 using Sanya.login;
 using System.Collections.Generic;
+using Utils;
 
 namespace Sanya.appointment
 {
@@ -12,22 +13,43 @@ namespace Sanya.appointment
         {
             Order = order;
             BuildContent();
+            BuildHeaderSign();
         }
 
         private void BuildContent()
         {
-            AddContent("family_id", Order.FamilyId);
-            AddContent("hos_id", Order.HosId);
-            AddContent("idcard", Order.IdCard);
             AddContent("name", Order.UserName);
-            AddContent("num_id", Order.NumId);
-            AddContent("openid", Order.OpenId);
-            AddContent("phone", Order.Phone);
-            AddContent("project_id", Order.ProjectId);
-            AddContent("register_name", Order.UserName);
-            AddContent("sch_id", Order.SchId);
-            AddContent("sex", 2);
-            AddContent("time", Order.Time);
+            AddContent("idCardNo", Order.IdCardNo);
+            AddContent("icCardNo", Order.IcCardNo);
+            AddContent("goodsId", Order.GoodsId);
+            AddContent("orgCode", Order.OrgCode);
+            AddContent("timeStr", Order.TimeStr);
+            AddContent("serviceId", Order.ServiceId);
+            AddContent("goodsDetailId", Order.GoodsDetailId);
+            AddContent("subscribeType", Order.SubscribeType);
+            AddContent("provideAddress", Order.ProvideAddress);
+            AddContent("certificateType", string.Empty);
+            AddContent("transactTypeCode", string.Empty);
+            AddContent("transactTypeName", string.Empty);
+            AddContent("specialRegistrationCode", string.Empty);
+            AddContent("specialRegistrationName", string.Empty);
+            AddContent("nationality", string.Empty);
+            AddContent("businessContent", string.Empty);
+            AddContent("sex", string.Empty);
+            AddContent("telephone", string.Empty);
+            AddContent("babyName", string.Empty);
+            AddContent("babyRelation", string.Empty);
+            AddContent("babyBirthday", string.Empty);
+            AddContent("age", Order.Age);
+        }
+
+        protected override void BuildHeaderSign()
+        {
+            foreach(var content in Content)
+            {
+                HeaderSignDic.AddOrUpdate(content.Key, content.Value);
+            }
+            base.BuildHeaderSign();
         }
     }
 }

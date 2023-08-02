@@ -150,7 +150,11 @@ namespace Sanya.viewmodel
                     OrgCode = "460200",
                     ZoneCode = "460200",
                     ZoneName = "5LiJ5Lqa5biC",
-                    AppCode = "HC_SANYA_WX"
+                    AppCode = "HC_SANYA_WX",
+                    HospitalId = "A572000A001",
+                    HospitalName = "三亚市人民医院",
+                    DepartmentId = "10222",
+                    DepartmentName = "儿科 陈凯"
                 },
             };
 
