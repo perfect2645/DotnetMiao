@@ -351,15 +351,7 @@ namespace Sanya.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.FamilyId,
-                        HosId = template.HosId,
-                        IdCard = user.Idcard,
-                        NumId = template.NumId,
-                        OpenId = user.OpenId,
-                        Phone = user.Phone,
-                        ProjectId = template.ProjectId,
-                        SchId = template.SchId,
-                        Time = template.Time,
+
                     };
 
                     orderList.Add(order);

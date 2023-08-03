@@ -4,6 +4,7 @@ using HttpProcessor.Content;
 using System;
 using System.Net.Http;
 using System.Text.Json;
+using System.Windows.Interop;
 
 namespace Sanya.appointment
 {
@@ -49,25 +50,23 @@ namespace Sanya.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var msg = root.GetProperty("msg").GetString();
+                var code = root.GetProperty("code").GetInt32();
+                if (code != 0)
+                {
+                    var message = root.GetProperty("message").GetString();
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: success={code}, msg = {message}");
+                    return false;
+                }
 
                 var success = root.GetProperty("success").GetBoolean();
                 if (!success)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: success={success}, msg = {msg}");
+                    var message = root.GetProperty("message").GetString();
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: success={success}, msg = {message}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
-                    return false;
-                }
-
-                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {msg}");
-
-                return CheckOrder(data, content.Order);
+                return true;
             }
             catch (Exception ex)
             {
