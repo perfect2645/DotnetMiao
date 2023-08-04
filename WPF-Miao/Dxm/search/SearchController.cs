@@ -49,8 +49,8 @@ namespace Dxm.search
                 {
                     break;
                 }
-                isVaccineGet = vaccineController.SearchVaccine(date);
-                Thread.Sleep(600);
+                isVaccineGet = vaccineController.SearchVaccine();
+                Thread.Sleep(800);
             }
 
             var miaoController = HttpServiceController.GetService<MiaoController>();

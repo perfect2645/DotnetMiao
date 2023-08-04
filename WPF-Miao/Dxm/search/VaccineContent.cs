@@ -7,22 +7,13 @@ namespace Dxm.search
 {
     internal class VaccineContent : DxmContent
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/make/find/vaccine/by/hospital";
+        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/appointment/unFreeVaccine/list/down?";
 
-        public string Date { get; set; }
 
-        public VaccineContent(DxmLogin user, string date) : base(baseUrl, user)
-        {
-            Date = date;
-            BuildContent();
-        }
-
-        private void BuildContent()
+        public VaccineContent(DxmLogin user) : base(baseUrl, user)
         {
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-
-            AddContent("hospitalCode", hosId);
-            AddContent("makeAnAppointment", Date);
+            RequestUrl = $"{baseUrl}hospitalCode={hosId}";
         }
     }
 }

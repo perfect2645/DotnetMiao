@@ -10,26 +10,24 @@ using System.Text.Json;
 using Utils;
 using Utils.json;
 using Utils.number;
+using Utils.stringBuilder;
 
 namespace Dxm.search
 {
     internal class VaccineController : HttpClientBase
     {
-        public string Date { get; set; }
-
         public VaccineController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public bool SearchVaccine(string date)
+        public bool SearchVaccine()
         {
             try
             {
-                Date = date;
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new VaccineContent(defaultUser, date);
+                var content = new VaccineContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
@@ -51,14 +49,7 @@ namespace Dxm.search
                     return false;
                 }
 
-                var vaccineListData = result.GetProperty("list");
-                if (result.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine: vaccineListData is empty");
-                    return false;
-                }
-
-                return CheckSaveVaccine(vaccineListData);
+                return CheckSaveVaccine(result);
             }
             catch (Exception ex)
             {
@@ -73,25 +64,32 @@ namespace Dxm.search
 
             if (!vaccineList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"{Date} 还没开始");
+                MainSession.PrintLogEvent.Publish(this, $"还没开始");
                 return false;
             }
 
             var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("name").Contains(deptName));
+            var targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("vaccineName").Contains(deptName));
             if (targetVaccine == null)
             {
-                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("name").Contains("九价"));
+                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("vaccineName").Contains("九价"));
+            }
+            if (targetVaccine == null)
+            {
+                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("vaccineName").Contains("9价"));
             }
 
             if (targetVaccine == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"{Date} Not match the expect vaccine [{deptName}] ");
+                MainSession.PrintLogEvent.Publish(this, $"Not match the expect vaccine [{deptName}] ");
                 return false;
             }
 
-            var vaccineId = targetVaccine.GetString("vaccineInfoId");
-            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, vaccineId);
+            var vaccinesStr = targetVaccine.GetString("vaccines");
+            var vaccines = vaccinesStr.ToObjDicList();
+            var vaccineDetail = vaccines.FirstOrDefault();
+            var vaccineId = vaccineDetail.GetString("vaccineId");
+            //MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, vaccineId);
             MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
 
             return true;

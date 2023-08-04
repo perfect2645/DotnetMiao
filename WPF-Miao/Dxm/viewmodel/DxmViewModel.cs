@@ -140,22 +140,40 @@ namespace Dxm.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(10);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-06-01 00:00:00"));
+            DateList.Add(new DspVal("2023-08-05 00:00:00"));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {                
+            {
+                new DxmHospital
+                {
+                    AreaId = "130229",
+                    HospitalId = "1302290103",
+                    HospitalName = "玉田县中医院",
+                    DepartmentName = "2价",
+                    DepartmentId = "573",
+                    // 每周六10点放
+                },
+                new DxmHospital
+                {
+                    AreaId = "130229",
+                    HospitalId = "1302290103",
+                    HospitalName = "玉田县中医院",
+                    DepartmentName = "9价",
+                    DepartmentId = "",
+                    // 每周六10点放
+                },
                 new DxmHospital
                 {
                     AreaId = "13022",
                     HospitalId = "1302301601",
                     HospitalName = "曹妃甸区新城医院预防接种门诊",
-                    DepartmentName = "九价",
+                    DepartmentName = "9价",
                     DepartmentId = "534",
                 },
                 new DxmHospital

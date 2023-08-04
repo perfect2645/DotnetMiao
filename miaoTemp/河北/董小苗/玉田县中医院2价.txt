@@ -1,0 +1,11 @@
+POST https://dm.cdpc.org.cn/dmxcx/appointmentlog/save HTTP/1.1
+Host: dm.cdpc.org.cn
+Connection: keep-alive
+Content-Length: 449
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVBZ0Zxc2g3YzdmWnpWeklkaFN2b2dRIiwidGltZXN0YW1wIjoxNjkxMTQ2MzczODM3fQ.A1TX7eMmk_WLMOaC0V0EkYQBrFt8Pk_7t_wxcWicTgk
+Referer: https://servicewechat.com/wx51500ac89206cb24/13/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"hospitalCode":"1302290103","makeAnAppointment":"2023-08-05","vaccines":[{"vaccineId":"573","vaccineName":"2价HPV疫苗（大肠杆菌）","dose":null,"facName":"厦门万泰","spec":"0.5ml/瓶，盒1瓶","price":339,"priceTxt":"364.00元左右（含服务费25.00元）","vaccineType":2,"beginCountTime":null}],"list":["658278"],"phone":"18840842645","medName":"2价HPV疫苗（大肠杆菌）(厦门万泰 339.00)","timeNo":"09:20","timeType":1}

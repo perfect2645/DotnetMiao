@@ -5,7 +5,7 @@ namespace Dxm.search
 {
     internal class UserContent : DxmContent
     {
-        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/out/province/person/list";
+        private static string baseUrl = "https://dm.cdpc.org.cn/dmxcx/person/list";
         public UserContent(DxmLogin user) : base(baseUrl, user)
         {
             BuildContent();
