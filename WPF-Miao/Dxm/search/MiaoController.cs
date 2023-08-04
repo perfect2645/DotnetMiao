@@ -17,16 +17,18 @@ namespace Dxm.search
     internal class MiaoController : HttpClientBase
     {
         public string Date { get; set; }
+        public Order OrderTemplate { get; set; }
 
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public bool SearchMiao(string date)
+        public bool SearchMiao(string date, Order orderTemplate)
         {
+            OrderTemplate = orderTemplate;
+            Date = date;
             try
             {
-                Date = date;
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
@@ -66,6 +68,9 @@ namespace Dxm.search
             var scheduleInfo = JsonAnalysis.JsonToDic(scheduleInfoData);
 
             var orderList = new List<Order>();
+
+            var medName = scheduleInfo.GetString("medName");
+            MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, medName);
 
             var amListStr = scheduleInfo.GetString("amList");
             if (!string.IsNullOrEmpty(amListStr))
@@ -118,7 +123,7 @@ namespace Dxm.search
 
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
 
             foreach (var schedule in availableScheduleList)
             {
@@ -128,8 +133,15 @@ namespace Dxm.search
                     HospitalCode = hosId,
                     MakeAnAppointment = Date,
                     TimeNo = timeNo,
-                    VaccineInfoId = deptId,
-                    Address = hosName
+                    Address = hosName,
+                    DeptId = OrderTemplate.DeptId,
+                    DeptName = deptName,
+                    FacName = OrderTemplate.FacName,
+                    Price = OrderTemplate.Price,
+                    PriceTxt = OrderTemplate.PriceTxt,
+                    Spec = OrderTemplate.Spec,
+                    TimeType = schedule.GetString("timeType"),
+                    VaccineType = OrderTemplate.VaccineType
                 };
                 orderList.Add(order);
             }

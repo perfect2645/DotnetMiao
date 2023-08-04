@@ -20,8 +20,12 @@ namespace Dxm.search
         {
         }
 
-        public bool SearchVaccine()
+        public Order Order { get; set; }
+
+        public bool SearchVaccine(Order orderTemplate)
         {
+            Order = orderTemplate;
+
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
@@ -87,8 +91,16 @@ namespace Dxm.search
 
             var vaccinesStr = targetVaccine.GetString("vaccines");
             var vaccines = vaccinesStr.ToObjDicList();
+
             var vaccineDetail = vaccines.FirstOrDefault();
             var vaccineId = vaccineDetail.GetString("vaccineId");
+            Order.DeptId = vaccineId;
+            Order.Price = vaccineDetail.GetString("price");
+            Order.PriceTxt = vaccineDetail.GetString("priceTxt");
+            Order.Spec = vaccineDetail.GetString("spec");
+            Order.FacName = vaccineDetail.GetString("facName");
+            Order.VaccineType = vaccineDetail.GetString("vaccineType");
+
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, vaccineId);
             MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
 

@@ -38,6 +38,9 @@ namespace Dxm.search
         private void GetMiao(string date)
         {
             var vaccineController = HttpServiceController.GetService<VaccineController>();
+
+            var orderTemplate = new Order();
+
             var isVaccineGet = false;
             while (!isVaccineGet)
             {
@@ -50,7 +53,7 @@ namespace Dxm.search
                 {
                     break;
                 }
-                isVaccineGet = vaccineController.SearchVaccine();
+                isVaccineGet = vaccineController.SearchVaccine(orderTemplate);
             }
 
             var dateController = HttpServiceController.GetService<DateController>();
@@ -70,7 +73,7 @@ namespace Dxm.search
             var isScheduleGet = false;
             while(!isScheduleGet)
             {
-                isScheduleGet = miaoController.SearchMiao(targetDate);
+                isScheduleGet = miaoController.SearchMiao(targetDate, orderTemplate);
                 Thread.Sleep(1000);
             }
         }

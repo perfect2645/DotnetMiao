@@ -155,8 +155,8 @@ namespace Dxm.viewmodel
                     AreaId = "130229",
                     HospitalId = "1302290103",
                     HospitalName = "玉田县中医院",
-                    DepartmentName = "2价",
-                    DepartmentId = "573",
+                    DepartmentName = "9价",
+                    DepartmentId = "",
                     // 每周六10点放
                 },
                 new DxmHospital
@@ -164,9 +164,8 @@ namespace Dxm.viewmodel
                     AreaId = "130229",
                     HospitalId = "1302290103",
                     HospitalName = "玉田县中医院",
-                    DepartmentName = "9价",
-                    DepartmentId = "",
-                    // 每周六10点放
+                    DepartmentName = "2价",
+                    DepartmentId = "573",
                 },
                 new DxmHospital
                 {
@@ -351,7 +350,7 @@ namespace Dxm.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(500);
+                        Thread.Sleep(800);
                     }
                 }
             }
@@ -382,7 +381,14 @@ namespace Dxm.viewmodel
                         MakeAnAppointment = template.MakeAnAppointment,
                         TimeNo = template.TimeNo,
                         UserId = template.UserId,
-                        VaccineInfoId = template.VaccineInfoId,
+                        DeptId = template.DeptId,
+                        DeptName = template.DeptName,
+                        FacName = template.FacName,
+                        Price = template.Price,
+                        PriceTxt = template.PriceTxt,
+                        Spec = template.Spec,
+                        TimeType = template.TimeType,
+                        VaccineType = template.VaccineType,
                     };
 
                     orderList.Add(order);

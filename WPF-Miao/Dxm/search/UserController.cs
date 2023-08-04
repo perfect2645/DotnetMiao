@@ -67,17 +67,19 @@ namespace Dxm.search
             }
 
 
-            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("booName") == user.UserName);
+            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("name") == user.UserName);
             if (targetUser == null)
             {
                 targetUser = userInfoList.FirstOrDefault();
             }
 
-            var userName = targetUser.GetString("booName");
+            var userName = targetUser.GetString("name");
             var patientId = targetUser.GetString("id");
+            var phone = targetUser.GetString("phone");
 
             user.UserId = patientId;
             user.UserName = userName;
+            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, targetUser);
         }
