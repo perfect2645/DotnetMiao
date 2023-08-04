@@ -1,0 +1,25 @@
+POST https://dm.cdpc.org.cn/dmxcx/appointment/date HTTP/1.1
+Host: dm.cdpc.org.cn
+Connection: keep-alive
+Content-Length: 98
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVBZ0Zxc2g3YzdmWnpWeklkaFN2b2dRIiwidGltZXN0YW1wIjoxNjkxMTQ2MzczODM3fQ.A1TX7eMmk_WLMOaC0V0EkYQBrFt8Pk_7t_wxcWicTgk
+Referer: https://servicewechat.com/wx51500ac89206cb24/13/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"hospitalCode":"1302290103","vaccines":[{"vaccineId":573,"vaccineType":2}],"year":2023,"month":8}
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Content-Type: application/json;charset=UTF-8
+Date: Fri, 04 Aug 2023 15:02:03 GMT
+Expires: 0
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Transfer-Encoding: chunked
+
+cb5
+{"code":200,"message":"操作成功","result":{"year":2023,"month":8,"details":[{"makeAnAppointment":"2023-08-01","week":2,"day":1,"chineseDay":"十五","status":9,"today":false},{"makeAnAppointment":"2023-08-02","week":3,"day":2,"chineseDay":"十六","status":9,"today":false},{"makeAnAppointment":"2023-08-03","week":4,"day":3,"chineseDay":"十七","status":9,"today":false},{"makeAnAppointment":"2023-08-04","week":5,"day":4,"chineseDay":"十八","status":2,"today":true},{"makeAnAppointment":"2023-08-05","week":6,"day":5,"chineseDay":"十九","status":0,"today":false},{"makeAnAppointment":"2023-08-06","week":0,"day":6,"chineseDay":"二十","status":2,"today":false},{"makeAnAppointment":"2023-08-07","week":1,"day":7,"chineseDay":"廿一","status":2,"today":false},{"makeAnAppointment":"2023-08-08","week":2,"day":8,"chineseDay":"廿二","status":2,"today":false},{"makeAnAppointment":"2023-08-09","week":3,"day":9,"chineseDay":"廿三","status":2,"today":false},{"makeAnAppointment":"2023-08-10","week":4,"day":10,"chineseDay":"廿四","status":2,"today":false},{"makeAnAppointment":"2023-08-11","week":5,"day":11,"chineseDay":"廿五","status":2,"today":false},{"makeAnAppointment":"2023-08-12","week":6,"day":12,"chineseDay":"廿六","status":2,"today":false},{"makeAnAppointment":"2023-08-13","week":0,"day":13,"chineseDay":"廿七","status":2,"today":false},{"makeAnAppointment":"2023-08-14","week":1,"day":14,"chineseDay":"廿八","status":2,"today":false},{"makeAnAppointment":"2023-08-15","week":2,"day":15,"chineseDay":"廿九","status":2,"today":false},{"makeAnAppointment":"2023-08-16","week":3,"day":16,"chineseDay":"七月","status":2,"today":false},{"makeAnAppointment":"2023-08-17","week":4,"day":17,"chineseDay":"初二","status":2,"today":false},{"makeAnAppointment":"2023-08-18","week":5,"day":18,"chineseDay":"初三","status":2,"today":false},{"makeAnAppointment":"2023-08-19","week":6,"day":19,"chineseDay":"初四","status":2,"today":false},{"makeAnAppointment":"2023-08-20","week":0,"day":20,"chineseDay":"初五","status":2,"today":false},{"makeAnAppointment":"2023-08-21","week":1,"day":21,"chineseDay":"初六","status":2,"today":false},{"makeAnAppointment":"2023-08-22","week":2,"day":22,"chineseDay":"初七","status":2,"today":false},{"makeAnAppointment":"2023-08-23","week":3,"day":23,"chineseDay":"初八","status":2,"today":false},{"makeAnAppointment":"2023-08-24","week":4,"day":24,"chineseDay":"初九","status":2,"today":false},{"makeAnAppointment":"2023-08-25","week":5,"day":25,"chineseDay":"初十","status":2,"today":false},{"makeAnAppointment":"2023-08-26","week":6,"day":26,"chineseDay":"十一","status":2,"today":false},{"makeAnAppointment":"2023-08-27","week":0,"day":27,"chineseDay":"十二","status":2,"today":false},{"makeAnAppointment":"2023-08-28","week":1,"day":28,"chineseDay":"十三","status":2,"today":false},{"makeAnAppointment":"2023-08-29","week":2,"day":29,"chineseDay":"十四","status":2,"today":false},{"makeAnAppointment":"2023-08-30","week":3,"day":30,"chineseDay":"十五","status":2,"today":false},{"makeAnAppointment":"2023-08-31","week":4,"day":31,"chineseDay":"十六","status":2,"today":false}],"vaccines":[{"vaccineId":"573","dose":null,"vaccineType":2,"date":"2023-08-04"}]}}
+0
+

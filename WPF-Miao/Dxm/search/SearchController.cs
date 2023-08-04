@@ -41,6 +41,7 @@ namespace Dxm.search
             var isVaccineGet = false;
             while (!isVaccineGet)
             {
+                Thread.Sleep(800);
                 if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
                 {
                     break;
@@ -50,14 +51,26 @@ namespace Dxm.search
                     break;
                 }
                 isVaccineGet = vaccineController.SearchVaccine();
-                Thread.Sleep(800);
             }
 
+            var dateController = HttpServiceController.GetService<DateController>();
+            var isDateGet = false;
+            while (!isDateGet)
+            {
+                Thread.Sleep(500);
+                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
+                {
+                    break;
+                }
+                isVaccineGet = dateController.SearchDate(date);
+            }
+
+            var targetDate = dateController.Date;
             var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
             while(!isScheduleGet)
             {
-                isScheduleGet = miaoController.SearchMiao(date);
+                isScheduleGet = miaoController.SearchMiao(targetDate);
                 Thread.Sleep(1000);
             }
         }

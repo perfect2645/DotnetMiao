@@ -10,24 +10,28 @@ using System.Text.Json;
 using Utils;
 using Utils.json;
 using Utils.number;
+using Utils.Rdom;
 using Utils.stringBuilder;
 
 namespace Dxm.search
 {
-    internal class VaccineController : HttpClientBase
+    internal class DateController : HttpClientBase
     {
-        public VaccineController(HttpClient httpClient) : base(httpClient)
+        public string Date { get; set; }
+        public DateController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public bool SearchVaccine()
+        public bool SearchDate(string date)
         {
+            Date = date;
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new VaccineContent(defaultUser);
+                var vaccineId = MainSession.PlatformSession.GetString(Constants.DeptId);
+                var content = new DateContent(defaultUser, vaccineId);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchDate - {response?.Message},请检查参数");
@@ -49,7 +53,14 @@ namespace Dxm.search
                     return false;
                 }
 
-                return CheckSaveVaccine(result);
+                var dateDetails = result.GetProperty("details");
+                if (dateDetails.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"SearchDate: dateDetails is empty");
+                    return false;
+                }
+
+                return CheckSaveDate(dateDetails);
             }
             catch (Exception ex)
             {
@@ -58,39 +69,31 @@ namespace Dxm.search
             }
         }
 
-        private bool CheckSaveVaccine(JsonElement vaccineListData)
+        private bool CheckSaveDate(JsonElement dateListData)
         {
-            var vaccineList = JsonAnalysis.JsonToDicList(vaccineListData);
+            var dateList = JsonAnalysis.JsonToDicList(dateListData);
 
-            if (!vaccineList.HasItem())
+            if (!dateList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"还没开始");
                 return false;
             }
 
-            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
-            var targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("vaccineName").Contains(deptName));
-            if (targetVaccine == null)
+            var validDateList = dateList.Where(d => d.GetString("status") == "0").ToList();
+            if (!validDateList.HasItem())
             {
-                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("vaccineName").Contains("九价"));
-            }
-            if (targetVaccine == null)
-            {
-                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("vaccineName").Contains("9价"));
-            }
-
-            if (targetVaccine == null)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"Not match the expect vaccine [{deptName}] ");
+                MainSession.PrintLogEvent.Publish(this, $"没有可用日期");
                 return false;
             }
 
-            var vaccinesStr = targetVaccine.GetString("vaccines");
-            var vaccines = vaccinesStr.ToObjDicList();
-            var vaccineDetail = vaccines.FirstOrDefault();
-            var vaccineId = vaccineDetail.GetString("vaccineId");
-            MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, vaccineId);
-            MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
+            var matchedDate = validDateList.FirstOrDefault(d => d.GetString("makeAnAppointment") == Date);
+            if (matchedDate == null)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没有指定日期，随机选择");
+                matchedDate = validDateList.GetRandomMember();
+            }
+
+            Date = matchedDate.GetString("makeAnAppointment");
 
             return true;
         }
