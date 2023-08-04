@@ -1,135 +1,255 @@
-POST https://dm.cdpc.org.cn/dmxcx/make/appointment/details HTTP/1.1
+POST https://dm.cdpc.org.cn/dmxcx/appointment/details HTTP/1.1
 Host: dm.cdpc.org.cn
 Connection: keep-alive
-Content-Length: 93
-dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVJekhxdmY5VDZpc3c2RHJmNHA4LXQ0IiwiVXNlcklkIjoibzJmcWQ2bjJWRlV4YlFkdVNIZkMyZmp6M1dBZyIsInRpbWVzdGFtcCI6MTY4NTM0ODc1NzkzOH0.-5hX6OEcwb1l0JQAa3EQEsQrosK5NKvIWRDPQB2dhm8
+Content-Length: 109
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
 content-type: application/json
-Accept-Encoding: gzip,compress,br,deflate
-User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.37(0x1800252c) NetType/4G Language/zh_CN
-Referer: https://servicewechat.com/wx51500ac89206cb24/4/page-frame.html
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVBZ0Zxc2g3YzdmWnpWeklkaFN2b2dRIiwidGltZXN0YW1wIjoxNjkxMTQ2MzczODM3fQ.A1TX7eMmk_WLMOaC0V0EkYQBrFt8Pk_7t_wxcWicTgk
+Referer: https://servicewechat.com/wx51500ac89206cb24/13/page-frame.html
+Accept-Encoding: gzip, deflate, br
 
-{"vaccineInfoId":"534","hospitalCode":"1301030504","makeAnAppointment":"2023-05-30 00:00:00"}
-HTTP/1.1 200
-Server: nginx/1.21.3
-Date: Mon, 29 May 2023 09:32:41 GMT
-Content-Type: application/json;charset=UTF-8
-Connection: keep-alive
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
+{"hospitalCode":"1302290103","makeAnAppointment":"2023-08-05","vaccines":[{"vaccineId":573,"vaccineType":2}]}
+HTTP/1.1 200 OK
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
+Content-Type: application/json;charset=UTF-8
+Date: Fri, 04 Aug 2023 15:34:16 GMT
 Expires: 0
-Content-Length: 1421
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Content-Length: 2883
 
 {
     "code": 200,
     "message": "操作成功",
     "result": {
-        "vaccineInfoId": "534",
-        "medName": "九价人乳头瘤病毒疫苗（酿酒酵母）",
-        "vaccObject": "",
-        "factoryName": "默沙东",
-        "medSType": "0.5ml/支，盒1支",
-        "medPackContainer": "预充式",
-        "price": 1308,
-        "servicePrice": 25,
-        "makeAppointmentTime": "2023-05-30",
-        "hospitalName": "光华西路社区卫生服务站",
-        "medArrt": 2,
-        "tel": null,
-        "address": null,
+        "hospitalName": "玉田县中医院",
+        "hospitalCode": "1302290103",
+        "tel": "6159701",
+        "address": "玉田县中医医院妇女儿童医院",
+        "medName": "2价HPV疫苗（大肠杆菌）(厦门万泰 339.00)",
+        "phone": "18840842645",
+        "makeAppointmentTime": "2023-08-05",
         "amList": [
             {
-                "peopleNumber": 1,
-                "timeNo": "8:20",
+                "peopleNumber": 3,
+                "timeNo": "08:10",
+                "timeNoVal": "810",
+                "timeType": 1
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "08:20",
                 "timeNoVal": "820",
                 "timeType": 1
             },
             {
-                "peopleNumber": 0,
-                "timeNo": "8:30",
+                "peopleNumber": 2,
+                "timeNo": "08:30",
                 "timeNoVal": "830",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "8:40",
+                "peopleNumber": 4,
+                "timeNo": "08:40",
                 "timeNoVal": "840",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "8:50",
+                "peopleNumber": 4,
+                "timeNo": "08:50",
                 "timeNoVal": "850",
                 "timeType": 1
             },
             {
-                "peopleNumber": 0,
-                "timeNo": "9:00",
+                "peopleNumber": 3,
+                "timeNo": "09:00",
                 "timeNoVal": "900",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "9:10",
+                "peopleNumber": 4,
+                "timeNo": "09:10",
                 "timeNoVal": "910",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "9:20",
+                "peopleNumber": 4,
+                "timeNo": "09:20",
                 "timeNoVal": "920",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "9:30",
+                "peopleNumber": 2,
+                "timeNo": "09:30",
                 "timeNoVal": "930",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "9:40",
+                "peopleNumber": 4,
+                "timeNo": "09:40",
                 "timeNoVal": "940",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
-                "timeNo": "9:50",
+                "peopleNumber": 4,
+                "timeNo": "09:50",
                 "timeNoVal": "950",
                 "timeType": 1
             },
             {
-                "peopleNumber": 1,
+                "peopleNumber": 4,
                 "timeNo": "10:00",
                 "timeNoVal": "1000",
                 "timeType": 1
             },
             {
-                "peopleNumber": 0,
+                "peopleNumber": 4,
                 "timeNo": "10:10",
                 "timeNoVal": "1010",
                 "timeType": 1
             },
             {
-                "peopleNumber": 0,
+                "peopleNumber": 4,
                 "timeNo": "10:20",
                 "timeNoVal": "1020",
                 "timeType": 1
             },
             {
-                "peopleNumber": 0,
+                "peopleNumber": 4,
                 "timeNo": "10:30",
                 "timeNoVal": "1030",
                 "timeType": 1
             },
             {
-                "peopleNumber": 0,
+                "peopleNumber": 4,
                 "timeNo": "10:40",
                 "timeNoVal": "1040",
                 "timeType": 1
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "10:50",
+                "timeNoVal": "1050",
+                "timeType": 1
             }
         ],
-        "pmList": []
+        "pmList": [
+            {
+                "peopleNumber": 4,
+                "timeNo": "14:10",
+                "timeNoVal": "1410",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "14:20",
+                "timeNoVal": "1420",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "14:30",
+                "timeNoVal": "1430",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "14:40",
+                "timeNoVal": "1440",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "14:50",
+                "timeNoVal": "1450",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "15:00",
+                "timeNoVal": "1500",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "15:10",
+                "timeNoVal": "1510",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "15:20",
+                "timeNoVal": "1520",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "15:30",
+                "timeNoVal": "1530",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "15:40",
+                "timeNoVal": "1540",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "15:50",
+                "timeNoVal": "1550",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 3,
+                "timeNo": "16:00",
+                "timeNoVal": "1600",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "16:10",
+                "timeNoVal": "1610",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "16:20",
+                "timeNoVal": "1620",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "16:30",
+                "timeNoVal": "1630",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "16:40",
+                "timeNoVal": "1640",
+                "timeType": 2
+            },
+            {
+                "peopleNumber": 4,
+                "timeNo": "16:50",
+                "timeNoVal": "1650",
+                "timeType": 2
+            }
+        ],
+        "vaccineData": [
+            {
+                "vaccineId": "573",
+                "vaccineName": "2价HPV疫苗（大肠杆菌）",
+                "dose": null,
+                "facName": "厦门万泰",
+                "spec": "0.5ml/瓶，盒1瓶",
+                "price": 339,
+                "priceTxt": "364.00元左右（含服务费25.00元）",
+                "vaccineType": 2,
+                "beginCountTime": null
+            }
+        ]
     }
 }

@@ -62,7 +62,7 @@ namespace Dxm.search
                 {
                     break;
                 }
-                isVaccineGet = dateController.SearchDate(date);
+                isDateGet = dateController.SearchDate(date);
             }
 
             var targetDate = dateController.Date;
