@@ -15,38 +15,12 @@
                     "sceneName": "渠道访问立即获得",
                     "sceneCode": "puli-daka",
                     "sceneDesc": "匹配参数为scene=xxx",
-                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=pages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=/pages/MilkBook/index.html?url=https://mp.weixin.qq.com/s/r2PD_utrd1ekaAv3sflCjA",
                     "detailDesc": "",
                     "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
                     "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4848,
-            "taskId": 669,
-            "taskName": "参与超级积分日抽金条",
-            "chanceNumber": 10,
-            "taskDesc": "",
-            "tips": "积分当前花，抽奖得金条！点击去玩，可以攒金豆",
-            "detail": [
-                {
-                    "taskDetailId": 670,
-                    "sceneName": "消耗积分",
-                    "sceneCode": "app-points",
-                    "sceneDesc": "",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hd0714",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -68,32 +42,6 @@
                     "sceneCode": "app-post-vote",
                     "sceneDesc": "邻里互助话题贴投票",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=431&from=activity914",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4850,
-            "taskId": 668,
-            "taskName": "拍拍家里最难洗的地方",
-            "chanceNumber": 10,
-            "taskDesc": "",
-            "tips": "拍拍家里最难洗的地方，发帖可以攒金豆",
-            "detail": [
-                {
-                    "taskDetailId": 669,
-                    "sceneName": "发帖成功",
-                    "sceneCode": "app-post",
-                    "sceneDesc": "邻居团队使用",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=430&from=activity",
                     "detailDesc": "",
                     "finished": false,
                     "minVersion": "",
@@ -237,36 +185,10 @@
             "finishCount": null
         },
         {
-            "activityTaskId": 4866,
-            "taskId": 681,
-            "taskName": "参与开门见喜活动抽奖",
-            "chanceNumber": 10,
-            "taskDesc": "",
-            "tips": "每日参与开门见喜活动，完成1次抽奖即可获得金豆",
-            "detail": [
-                {
-                    "taskDetailId": 682,
-                    "sceneName": "参与营销活动的游戏",
-                    "sceneCode": "app-playgames",
-                    "sceneDesc": "",
-                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=918",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
             "activityTaskId": 4863,
             "taskId": 194,
             "taskName": "每天使用手机开门",
-            "chanceNumber": 10,
+            "chanceNumber": 50,
             "taskDesc": "512",
             "tips": "每天首次用手机开门，即可完成任务",
             "detail": [
