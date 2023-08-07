@@ -1,15 +1,13 @@
 ﻿using Jksx.common;
 using Jksx.login;
-using Jksx.session;
-using Utils;
 
 namespace Jksx.appointment
 {
     internal class YuyueContent : JksxContent
     {
-        private static string baseUrl = "ldrmyy120.com/rest/v1/api/examine/vaccine_created/";
+        private static string url = "https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine_new";
         public Order Order { get; private set; }
-        public YuyueContent(Order order, JksxLogin user) : base(baseUrl, user)
+        public YuyueContent(Order order) : base(url, order.User)
         {
             Order = order;
             BuildContent();
@@ -17,13 +15,12 @@ namespace Jksx.appointment
 
         private void BuildContent()
         {
-            AddContent("duty_time_id", Order.DutyTimeId);
-            AddContent("vaccine_id", Order.VaccineId);
-            AddContent("hospital", Order.HosipitalId);
-            AddContent("inoculate_times", Order.InoculateTimes);
-            AddContent("patient", Order.UserId);
-            AddContent("see_date", Order.SeeDate);
-            AddContent("address", Order.Address);
+            AddContent("vaccineDayId", Order.VaccineDayId);
+            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
+            AddContent("vaccineId", Order.VaccineId);
+            AddContent("familyId", Order.FamilyId);
+            AddContent("token", Order.User.Token);
+            AddContent("sign", Order.User.Sign);
         }
     }
 }

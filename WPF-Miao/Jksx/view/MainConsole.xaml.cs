@@ -2,9 +2,9 @@
 
 namespace Jksx.view
 {
-    public partial class JksxConsole : Page
+    public partial class MainConsole : Page
     {
-        public JksxConsole()
+        public MainConsole()
         {
             InitializeComponent();
         }

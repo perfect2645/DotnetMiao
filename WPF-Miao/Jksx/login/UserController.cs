@@ -12,7 +12,7 @@ using Utils.stringBuilder;
 using Jksx.login;
 using System;
 
-namespace Jksx.search
+namespace Jksx.login
 {
     internal class UserController : HttpClientBase
     {
@@ -29,11 +29,9 @@ namespace Jksx.search
         {
             try
             {
-                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
-                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/patient/list/?limit=100&offset=0";
-                var content = new JksxContent(url, user);
+                var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -41,13 +39,20 @@ namespace Jksx.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var results = root.GetProperty("results");
-                if (results.ValueKind == JsonValueKind.Null)
+                var code = root.GetProperty("errorCode").GetString();
+                if (code != "0000")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    return;
+                }
+
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(results, user);
+                SaveUser(data, user);
             }
             catch (Exception ex)
             {
@@ -57,27 +62,23 @@ namespace Jksx.search
 
         private void SaveUser(JsonElement data, JksxLogin user)
         {
-            var familyMembers = JsonAnalysis.JsonToDicList(data);
-            if (!familyMembers.HasItem())
+            var userList = JsonAnalysis.JsonToDicList(data);
+            if (!userList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = userList.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
-                defaultUser = familyMembers.FirstOrDefault();
+                defaultUser = userList.FirstOrDefault();
             }
             var userName = defaultUser.GetString("name");
             var userId = defaultUser.GetString("id");
-            var idcard = defaultUser.GetString("idno");
-            var phone = defaultUser.GetString("mobile");
 
             user.UserId = userId;
             user.UserName = userName;
-            user.IdCard = idcard;
-            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

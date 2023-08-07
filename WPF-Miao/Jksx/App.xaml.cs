@@ -1,10 +1,9 @@
 ﻿using HttpProcessor.Container;
-using System.Threading.Tasks;
-using System.Windows;
 using Jksx.appointment;
-using Jksx.cancel;
 using Jksx.login;
 using Jksx.search;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace Jksx
 {
@@ -28,13 +27,9 @@ namespace Jksx
         }
         private void InitController()
         {
-            HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<DateController>();
-            HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
-            HttpServiceController.AddTransientService<CancelController>();
-            HttpServiceController.AddTransientService<SearchSuccessController>();
-
+            HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.BuidServiceProvider();
         }
     }
