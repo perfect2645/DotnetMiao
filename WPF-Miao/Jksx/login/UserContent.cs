@@ -12,7 +12,7 @@ namespace Jksx.login
 {
     internal class UserContent : JksxContent
     {
-        private static string baseUrl = "https://ljzyyapi.yuanbaodaojia.com/v1/family_list";
+        private static string baseUrl = "https://uhapi.sxyygh.com/patient/app/commonpeople/getCommonpeoplesByharsuserId";
         public UserContent(JksxLogin user) : base(baseUrl, user)
         {
             BuildContent();
@@ -23,7 +23,6 @@ namespace Jksx.login
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
             AddContent("page", 1);
-            AddContent("token", User.Token);
         }
     }
 }

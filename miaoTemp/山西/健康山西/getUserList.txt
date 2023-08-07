@@ -1,0 +1,92 @@
+POST https://uhapi.sxyygh.com/patient/app/commonpeople/getCommonpeoplesByharsuserId HTTP/1.1
+Host: uhapi.sxyygh.com
+Connection: keep-alive
+Content-Length: 149
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: UH_RDSP_HOSPXCX
+content-type: application/json
+Referer: https://servicewechat.com/wx2184acfbec0b5f08/290/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"params":"8W+cV5WbPYW+V2ObcAGiS8njR+loHc9tLk2/3PuqSduyxIKAULHlFNJUJIluGKcZv+oXyotV12GKTkLy0U96sda6RcTwnPaHpsQhS/x6BWE=","endec":"on","token":"v110"}
+
+"{\"currentPageNo\":1,\"userid\":\"20b9194b0eca42d6a24049702e60af5f\",\"pageSize\":20}"
+
+
+HTTP/1.1 200 OK
+Date: Mon, 07 Aug 2023 14:34:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 1539
+Connection: keep-alive
+Set-Cookie: acw_tc=2760820216914188734203311e80adc8f23a3f0f07a914d7937bdcb5c2ce3a;path=/;HttpOnly;Max-Age=1800
+Server: nginx/1.24.0
+X-Powered-By: 3.2.1
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: X-Requested-With,content-type,X-Token,Authorization,channel
+Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS
+ETag: W/"603-cvhv/MqdqzjoJw6SVFBVoYkRyXU"
+
+{"code":1,"msg":"加密完成","result":"pZXJhJQOFGGrbY0XMmafPr64MlFlEHuJfSj56TGeQqEA19D2IV2b0peYbO9RbFLnCu559HmBsbrso8BTIMUyFCXr+gd/J4enHC8V30krCmaZXsqVpxNaOgtUzZwSz5FBctPYGlTiZrDKp0aApbgm7JxG3SerugPcoNFecpaAIDZM/Rt1EJaCt4+8ygynopToB3/g5IzVQ6oF0L3NHn9wWgqv9wSZPdy7Bdu5VER3F1ijg/COp8KNeHe9ees3AeX8JPw2Hm6sOLYp0WHGE3+46PKVHL7h2y6sY6uKdPxXdsnHhoqR7/IB5EJsoTvcKGlUJZWgBuTrMxBHWEySqzxZEZ4ok6xODYdC5mxXb+a8B8dRb7zsLnpyxZ12TVanq7VB6VOPzCwUuWx6JVuooQbSTcoPPAaofSmEY2PxvcrvEhPfYgYu1HIdmRKGFBTLz1Dh9wi787SiBYkPTVLbkHw7NE8tP0FuU34KU38FYnh6AxKsrWIbPblT8DCb5WCner9k2fEf4tC/3RWyU7t7I2HJzc4ydNURSe+OhMZ9nC4IT0QtDaal23gVrakeTl4H5X8mMJDy6f7ZNnDMxKGsgirEVxhbUBi7lXVHiNQ+OwZqlcu0vtcqTBkVJ9H0+kIuYPa7zKJ885f9GpuL3LyHppvyBV8c2IFn5jlUKKW6BTYDNEvB4VueZHS6Gg9gVt0sfMsppDy52kX8gTO3fqRIxmKo2SiwhLsvKilSQtrXK0mYXvl1QeRr2Y2xs+CvgQPSqpulTlkg45JlXCY9V8mFSQYSDJHA7oHxaODpw7f1BBDCb3fsD5IJcGGcDJOuKWzEzekJEIIW20lF/h5haovMU+JcdqwfRq6FT5SAf+8/I0CSOdRyJSHz3/3pCj13/Qh2qoJmfWPDXEIj9CPIe6kDZNCT4JEIw/cRKjrW4SLNZ3K4KIBWwPoU5rT3vxwi1jr9Hg93JX3h6ix5IfGfGMB8Jbfa3AGCPWUvPxCUyOcsy+X5VUroqjrOmkb3xJOWDUSsmgING+NkGL2Die3o057xo9ts0g5lxj4X/OJyOpCnttGbpniXyWGVbMDisEeQBDvXWBBfajPB8Ut3l7O8tZ9shpOVTeFR9kapiFg+QhLL9e7S25Eh/1ZtTYbZQgT0CtTzbeCURw3/yHM2C4P+ZtK3tKqyFxruO6ClsYj7PYG0RhUbENPoGFclve6ty730L8qJXNvIh/cAV9q5PDjDQh7jqyc8AjnbgrlJbqd0qL7ThVqeQ7meEq/4R6imqju444PIpSzd4VtsBCCPFH/vswT6hRpiCGoubh4Nap3ZBTqLR7uXfyujGkxpJ3C9OuZ0ySs2j52i6U/lNKEaNC7U7j6TkXv3iFl53Wn9PHfr+j43mTm6DxX7sKYmgG0JalGCQUOFK9Kqz+kerTuFdArfoiI2yE3zwMPbHcFqK4f1bXv43Vb4jpf1zAHa7JKmAWjpQpWImWUcCuhvSpjKry037vlTsJ0wCQ=="}
+
+[
+    {
+        "usersex": "女",
+        "birthdate": "1999-09-29",
+        "education": "",
+        "pullblack": 0,
+        "nation": "",
+        "addrcity": "太原市",
+        "ptype": 1,
+        "babyorder": "",
+        "userid": "5a1158fd0d54479fa6294c8e13eec248",
+        "ssn": null,
+        "addrprovince": "山西省",
+        "isdefault": 0,
+        "mainid": "20b9194b0eca42d6a24049702e60af5f",
+        "guardianidcard": "",
+        "profession": "",
+        "address": "太原",
+        "guardianname": "",
+        "patientcode": 0,
+        "pinfoupdatetime": "0",
+        "idtype": "1",
+        "userelation": "其他",
+        "phone": "171******03",
+        "addrcountry": "小店区",
+        "idcard": "4****************5",
+        "workunit": "",
+        "isrealname": "0",
+        "age": 23,
+        "username": "曹湘婧"
+    },
+    {
+        "usersex": "女",
+        "birthdate": "2003-11-02",
+        "education": "",
+        "pullblack": 0,
+        "nation": "",
+        "addrcity": "太原市",
+        "ptype": 1,
+        "babyorder": "",
+        "userid": "f4042e2b405348aa9e71ddd997c1b76b",
+        "ssn": null,
+        "addrprovince": "山西省",
+        "isdefault": 1,
+        "mainid": "20b9194b0eca42d6a24049702e60af5f",
+        "guardianidcard": "",
+        "profession": "",
+        "address": " ",
+        "guardianname": "",
+        "patientcode": 0,
+        "pinfoupdatetime": "0",
+        "idtype": null,
+        "userelation": "本人",
+        "phone": "188******45",
+        "addrcountry": "迎泽区",
+        "idcard": "1****************9",
+        "workunit": "",
+        "isrealname": "0",
+        "age": 19,
+        "username": "秦佳乐"
+    }
+]

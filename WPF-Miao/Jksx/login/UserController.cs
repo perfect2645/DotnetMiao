@@ -20,9 +20,9 @@ namespace Jksx.login
         {
         }
 
-        public void GetUserAsync(JksxLogin user)
+        public Task GetUserAsync(JksxLogin user)
         {
-            Task.Factory.StartNew(() => GetUser(user));
+            return Task.Factory.StartNew(() => GetUser(user));
         }
 
         private void GetUser(JksxLogin user)

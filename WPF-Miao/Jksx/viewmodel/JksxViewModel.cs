@@ -5,7 +5,6 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jksx.appointment;
-using Jksx.Encrypt;
 using Jksx.login;
 using Jksx.search;
 using Jksx.session;
@@ -115,13 +114,21 @@ namespace Jksx.viewmodel
 
         #region Login
 
+        private LoginController LoginController;
+
         private void LoginFromConfigAsync()
         {
+            LoginController = new LoginController();
             MainSession.Users = FileReader.DeserializeFile<List<JksxLogin>>("Login.json");
             foreach (var user in MainSession.Users)
             {
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
+                Task.Factory.StartNew(async () =>
+                {
+                    LoginController.DecodeLoginData(user);
+
+                    var userController = HttpServiceController.GetService<UserController>();
+                    await userController.GetUserAsync(user);
+                });
             }
 
             MainSession.InitSession();
@@ -269,10 +276,7 @@ namespace Jksx.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
+
                     };
 
                     orderList.Add(order);
