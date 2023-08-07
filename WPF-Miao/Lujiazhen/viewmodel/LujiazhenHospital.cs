@@ -5,7 +5,7 @@ namespace Lujiazhen.viewmodel
 {
     internal class LujiazhenHospital : HospitalDept
     {
-
+        public string AppPrefix { get; set; }
         public string DoctorId { get; set; }
         public string DoctorName { get; set; }
 

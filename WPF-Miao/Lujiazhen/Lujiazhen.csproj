@@ -13,6 +13,7 @@
     <None Remove="common\encSource.js" />
     <None Remove="Login - liu.json" />
     <None Remove="Login.json" />
+    <None Remove="Login蓬朗.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login - liu.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login蓬朗.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">

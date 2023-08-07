@@ -4,7 +4,7 @@ namespace Lujiazhen.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string MiaoHtml = "MiaoHtml";
+        public const string AppPrefix = "AppPrefix";
 
         public const string OpenId = "openid";
 

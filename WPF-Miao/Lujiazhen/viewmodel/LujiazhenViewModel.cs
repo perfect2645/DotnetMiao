@@ -49,7 +49,7 @@ namespace Lujiazhen.viewmodel
         {
             Interval = 200;
 
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -60,6 +60,23 @@ namespace Lujiazhen.viewmodel
             {
                 new LujiazhenHospital
                 {
+                    AppPrefix = "yimiaoapi",
+                    HospitalId = "8",
+                    HospitalName = "蓬朗社区",
+                    DepartmentName = "九价HPV首针（≥16周岁）",
+                    DepartmentId = "23",
+                },
+                new LujiazhenHospital
+                {
+                    AppPrefix = "yimiaoapi",
+                    HospitalId = "9",
+                    HospitalName = "兵希社区",
+                    DepartmentName = "九价HPV首针（≥16周岁）",
+                    DepartmentId = "23",
+                },
+                new LujiazhenHospital
+                {
+                    AppPrefix = "ljzyyapi",
                     HospitalId = "1",
                     HospitalName = "邵村院区",
                     DepartmentName = "九价HPV首针（＜16周岁）",
@@ -67,6 +84,7 @@ namespace Lujiazhen.viewmodel
                 },
                 new LujiazhenHospital
                 {
+                    AppPrefix = "ljzyyapi",
                     HospitalId = "1",
                     HospitalName = "邵村院区",
                     DepartmentName = "九价HPV首针（≥16周岁）",
@@ -294,6 +312,7 @@ namespace Lujiazhen.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as LujiazhenHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.AppPrefix, selectedDept.AppPrefix);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);

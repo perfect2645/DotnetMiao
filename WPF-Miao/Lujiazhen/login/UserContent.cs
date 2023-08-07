@@ -12,9 +12,10 @@ namespace Lujiazhen.login
 {
     internal class UserContent : LujiazhenContent
     {
-        private static string baseUrl = "https://ljzyyapi.yuanbaodaojia.com/v1/family_list";
+        private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
         public UserContent(LujiazhenLogin user) : base(baseUrl, user)
         {
+            BuildUrl();
             BuildContent();
         }
 

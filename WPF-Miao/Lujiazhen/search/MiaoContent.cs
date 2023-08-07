@@ -7,10 +7,11 @@ namespace Lujiazhen.search
 {
     internal class MiaoContent : LujiazhenContent
     {
-        private static string baseUrl = "https://ljzyyapi.yuanbaodaojia.com/v1/vaccine_day_list";
+        private static string baseUrl = ".yuanbaodaojia.com/v1/vaccine_day_list";
 
         public MiaoContent(LujiazhenLogin user) : base(baseUrl, user)
         {
+            BuildUrl();
             BuildContent();
         }
 
