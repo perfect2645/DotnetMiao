@@ -1,16 +1,14 @@
 ﻿using HttpProcessor.Client;
 using Jksx.common;
 using Jksx.session;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Windows.Interop;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using Jksx.login;
-using System;
 
 namespace Jksx.login
 {
@@ -31,7 +29,7 @@ namespace Jksx.login
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -39,20 +37,24 @@ namespace Jksx.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != 1)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code} : {msg}");
                     return;
                 }
 
-                var data = root.GetProperty("data");
+                var data = root.GetProperty("result");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                SaveUser(data, user);
+                
+                var userDataEncode = data.GetString();
+
+                SaveUser(userDataEncode, user);
             }
             catch (Exception ex)
             {
@@ -60,22 +62,22 @@ namespace Jksx.login
             }
         }
 
-        private void SaveUser(JsonElement data, JksxLogin user)
+        private void SaveUser(string userDataEncode, JksxLogin user)
         {
-            var userList = JsonAnalysis.JsonToDicList(data);
+            var userList = Encotor.DecodeToDicList(userDataEncode);
             if (!userList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
                 return;
             }
 
-            var defaultUser = userList.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = userList.FirstOrDefault(x => x["username"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
                 defaultUser = userList.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("name");
-            var userId = defaultUser.GetString("id");
+            var userName = defaultUser.GetString("username");
+            var userId = defaultUser.GetString("userid");
 
             user.UserId = userId;
             user.UserName = userName;
