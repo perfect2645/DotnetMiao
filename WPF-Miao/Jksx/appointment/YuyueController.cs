@@ -53,20 +53,22 @@ namespace Jksx.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
+                var code = root.GetProperty("code").GetString();
                 var msg = root.GetProperty("msg").GetString();
-                if (code != "0000")
+                if (code != "1")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var orderinfo = root.GetProperty("orderinfo");
+                if (orderinfo.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
                 }
+
+                SaveOrderResult(orderinfo, content.Order);
                 MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
                 return true;
             }
@@ -77,15 +79,17 @@ namespace Jksx.appointment
             }
         }
 
-        private bool SaveOrderResult(JsonElement data)
+        private bool SaveOrderResult(JsonElement data, Order order)
         {
             try
             {
                 var orderData = JsonAnalysis.JsonToDic(data);
 
-                MainSession.PrintLogEvent.Publish(this, orderData);
+                var orderDate = orderData.GetString("visitdate");
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                order.Workdate = orderDate;
+
+                if (!string.IsNullOrEmpty(orderData.GetString("t_orderid")))
                 {
                     return true;
                 }
