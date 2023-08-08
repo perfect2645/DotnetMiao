@@ -144,6 +144,13 @@ namespace Ych.viewmodel
             {
                 new YchHospital
                 {
+                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
+                    HospitalName = "漕湖街道社区卫生服务中心",
+                    DepartmentId = "1220",
+                    DepartmentName = "九价",
+                },
+                new YchHospital
+                {
                     HospitalId = "http://www.sz-tpwsy.com",
                     HospitalName = "太平街道卫生院",
                     DepartmentId = "1218",
@@ -163,13 +170,7 @@ namespace Ych.viewmodel
                     DepartmentId = "1215",
                     DepartmentName = "四价",
                 },
-                new YchHospital
-                {
-                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
-                    HospitalName = "漕湖街道社区卫生服务中心",
-                    DepartmentId = "1220",
-                    DepartmentName = "九价",
-                },
+
                 new YchHospital
                 {
                     HospitalId = "http://wx.chjdsqwsfwzxwx.com",

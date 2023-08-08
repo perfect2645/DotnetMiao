@@ -61,16 +61,16 @@ namespace Lujiazhen.viewmodel
                 new LujiazhenHospital
                 {
                     AppPrefix = "yimiaoapi",
-                    HospitalId = "8",
-                    HospitalName = "蓬朗社区",
+                    HospitalId = "9",
+                    HospitalName = "兵希社区",
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "23",
                 },
                 new LujiazhenHospital
                 {
                     AppPrefix = "yimiaoapi",
-                    HospitalId = "9",
-                    HospitalName = "兵希社区",
+                    HospitalId = "8",
+                    HospitalName = "蓬朗社区",
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "23",
                 },
