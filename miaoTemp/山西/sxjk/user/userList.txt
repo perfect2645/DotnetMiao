@@ -1,0 +1,31 @@
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetAdultList?parameters=DOR%2FjXi%2BGXcdubrECbDsuaMq3uKKMFDkufh8uNd0KmMYii4%2B9uN1GXskklEYr7ljCRkonZKhyLkX%2BfEwO35YRbZpPeZZYwNGfaRnNeiE9RpZnlk08NRFDmB4N2l9Bb%2Bo&sign=052ada783a312e643d63d12fa3cbd76e&timestamp=1691513678621 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Cookie: SESSION=ZmVhZjExZTAtZTk0MS00MTc0LTg3YTktOTAxZjk1OTJjMmIx
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://ymjz.sxcdc.cn/SXJKWX/selectUser?bact_id=72
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: ssservice/2.0.0
+Date: Tue, 08 Aug 2023 16:53:05 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
+Expires: Tue, 08 Aug 2023 16:53:15 GMT
+Cache-Control: max-age=10
+Content-Length: 439
+
+{"result":"h/Ypcxg7jOYnPEcJIRBy97Umi38+7TunrkOakxNYp2mmTXAlTLS8gFgLrgQlwgCw79UIcMvrzhWAkVo/wt6bOCg+gBTIUSYDBNP7KkdQ2kTbHzRRJJ5QLcJZD3xNFarZVWNzGBdtfA51hSWLz319/zKkMUhuwT1Z5G0vw9ecLpAW3RQ0Ye50FsqtqJTXyadlTjBupmR6AnFmusdYqiikeK8kxm0eMIxFgDRi70DGeu8wZGs056NUbb0KjKr9CHnG7J0fmEHS/4kKQybRvxwKPtIHNPL20mU8LpvNoGLJGhX4H+7lVi3xn6PLnQNRrr+wk84LXmPXv7Q5pRB8nDqgyihaOQEo6aElzB+iScbo7HNKnC03trRr3vnDYwRwCFAe","sign":"848bbb969a966315931bd53d8559004b"}

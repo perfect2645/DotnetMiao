@@ -147,6 +147,14 @@ namespace Sxjk.viewmodel
             {
                 new SxjkHospital
                 {
+                    CityCode = "140802014100",
+                    HospitalId = "10001",
+                    HospitalName = "高家垣社区卫生服务站成人门诊",
+                    DepartmentName = "九价疫苗预约",
+                    DepartmentId = "101",
+                },
+                new SxjkHospital
+                {
                     CityCode = "140100000000",
                     HospitalId = "10001",
                     HospitalName = "龙湾蒲州街道社区卫生服务中心",

@@ -1,0 +1,31 @@
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetAdultStationList?parameters=EiVopIlLWxrcnucFNfEdEyKNLJZIXuyma7sLW6h%2FMmz3KeLXwRP6HboitygSRPdCT4M0ZeSCg5QyZH%2FkEZOvFSSnVMe4JemQIxAZqe73hhQ8cxv1e9v1lUqBSpEUGQPHzyzodrg7YI6gqQ3oPI%2BNn0lQIsM6JejePk%2BLya9nyI3T4Km62ZxL0GrONj7EB1Vt&sign=933b560b1f57fbf0ad0409ebbd6e8a6e&timestamp=1691512699372 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Cookie: SESSION=MmIyNWIyMmMtYjAwNC00Y2UyLTgxNjAtOTczZjA3ODZjOWQ5
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://ymjz.sxcdc.cn/SXJKWX/selectClinic?station_area_code=140802000000&child_code=000019961114000027&station_area_name=%E7%9B%90%E6%B9%96%E5%8C%BA
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: ssservice/2.0.0
+Date: Tue, 08 Aug 2023 16:36:46 GMT
+Content-Type: application/json;charset=utf-8
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
+Expires: Tue, 08 Aug 2023 16:36:56 GMT
+Cache-Control: max-age=10
+Content-Length: 547
+
+{"result":"h/Ypcxg7jOYnPEcJIRBy91BymDbyV1ObJYCTa++sHaRuzBJEjMOBrI1zulN8gR/Fvnsta0iPlHlJAz65wClWe47NUNcm6a5na4W1t7F7sqpePFFgi0l0SWSVJkdoDdnb2CEaruToK57BXVXNO0kIA+s6539J09cCX0tMTyk+MM+nA20iUorkVLaqt97q8QPfIeqj1a+hulOw2MwaByrE6foExjRxWmBMvdd0d2PCc+0c+kq3LiG1HX5VomXecz2Z1XD/zM5rNwKZDC3fSm6vM21/F0BDvyyaaqVJjlg7L5gHLO4aZ2UTyrfEYOlA6xfrBqdOCJ+vEYhn0YGMr/kOQ2ReABLSqWyvRvr6TlLtn5S+zLLGRpXy4FyalkIrhP6QCLMUc4PPyAuPA4/PF48z5csdI7PgTfTA+SNVf7c2zuCJ8IbOAuurKcJ8OJ16kgIMeB138YfjI5F3A0yKH3xhfkqcLTe2tGve+cNjBHAIUB4=","sign":"025abef7b1406dda426c3502b904ce92"}
