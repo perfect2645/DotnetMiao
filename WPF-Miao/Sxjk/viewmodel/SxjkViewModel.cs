@@ -145,9 +145,9 @@ namespace Sxjk.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new SxjkHospital
+                                new SxjkHospital
                 {
-                    CityCode = "140802014100",
+                    CityCode = "140800000000",
                     HospitalId = "10001",
                     HospitalName = "高家垣社区卫生服务站成人门诊",
                     DepartmentName = "九价疫苗预约",
@@ -161,6 +161,7 @@ namespace Sxjk.viewmodel
                     DepartmentName = "九价疫苗预约",
                     DepartmentId = "101",
                 },
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
