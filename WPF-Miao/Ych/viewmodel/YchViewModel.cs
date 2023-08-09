@@ -130,7 +130,7 @@ namespace Ych.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(13).AddMinutes(29).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(13).AddMinutes(29).AddSeconds(50);
             MainSession.StartTime = StartTime;
 
             DateList = new List<DspVal>
@@ -144,16 +144,16 @@ namespace Ych.viewmodel
             {
                 new YchHospital
                 {
-                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
-                    HospitalName = "漕湖街道社区卫生服务中心",
-                    DepartmentId = "1220",
+                    HospitalId = "http://www.sz-tpwsy.com",
+                    HospitalName = "太平街道卫生院",
+                    DepartmentId = "1218",
                     DepartmentName = "九价",
                 },
                 new YchHospital
                 {
-                    HospitalId = "http://www.sz-tpwsy.com",
-                    HospitalName = "太平街道卫生院",
-                    DepartmentId = "1218",
+                    HospitalId = "http://wx.chjdsqwsfwzxwx.com",
+                    HospitalName = "漕湖街道社区卫生服务中心",
+                    DepartmentId = "1220",
                     DepartmentName = "九价",
                 },
                 new YchHospital

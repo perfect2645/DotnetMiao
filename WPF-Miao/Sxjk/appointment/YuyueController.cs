@@ -44,7 +44,7 @@ namespace Sxjk.appointment
                 HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Login - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;

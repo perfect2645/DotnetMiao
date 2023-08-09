@@ -33,7 +33,7 @@ namespace Sxjk.search
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Login - {response?.Message},请检查参数");
                     return;
                 }
                 var root = response.JsonBody.RootElement;

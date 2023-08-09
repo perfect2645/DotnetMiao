@@ -1,5 +1,6 @@
 ﻿using HttpProcessor.Container;
 using Sxjk.appointment;
+using Sxjk.login;
 using Sxjk.search;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace Sxjk
         }
         private void InitController()
         {
+            HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();

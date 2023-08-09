@@ -31,7 +31,7 @@ namespace Sxjk.common
 
         protected virtual void BuildUrl()
         {
-            UrlDic.AddOrUpdate("version_name", "6.6.0");
+            UrlDic.AddOrUpdate("version_name", User.VersionName);
             UrlDic.AddOrUpdate("os", "web");
 
             BuildParameters();
@@ -45,7 +45,7 @@ namespace Sxjk.common
             MainSession.PrintLogEvent.Publish(this, $"Build Url:{RequestUrl}");
         }
 
-        private void BuildParameters()
+        protected void BuildParameters()
         {
             var sb = new StringBuilder();
             foreach (var item in UrlDic)
@@ -56,7 +56,7 @@ namespace Sxjk.common
             ParameterEncode = Encrypt.EncryptAes(Parameters);
         }
 
-        private void BuildSign()
+        protected void BuildSign()
         {
             var md5Source = $"{ParameterEncode}{Constants.Md5Key}";
             SignMD5 = Encryptor.GetMD5_32(md5Source);

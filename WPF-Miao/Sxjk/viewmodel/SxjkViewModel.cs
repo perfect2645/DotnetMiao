@@ -213,6 +213,9 @@ namespace Sxjk.viewmodel
             {
                 Task.Factory.StartNew(async () =>
                 {
+                    var loginController = HttpServiceController.GetService<LoginController>();
+                    await loginController.LoginAsync(user);
+
                     var userController = HttpServiceController.GetService<UserController>();
                     await userController.GetUserAsync(user);
                 });
@@ -403,8 +406,8 @@ namespace Sxjk.viewmodel
                 {
                     //var loginController = HttpServiceController.GetService<LoginController>();
                     //await loginController.LoginAsync(user);
-                    var userController = HttpServiceController.GetService<UserController>();
-                    await userController.GetUserAsync(user);
+                    var userController = HttpServiceController.GetService<LoginController>();
+                    await userController.LoginAsync(user);
                 });
             }
         }
