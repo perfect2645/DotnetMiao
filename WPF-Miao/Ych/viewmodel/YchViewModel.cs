@@ -125,7 +125,7 @@ namespace Ych.viewmodel
 
             //OpenId = "otb-s51iVtgqsv_ti0MI9PQdNpJM"; fawei 0426 17:25
 
-            //StartTime = DateTime.Now.AddSeconds(8);
+            StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
@@ -142,6 +142,13 @@ namespace Ych.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                      new YchHospital
+                {
+                    HospitalId = "http://caohuhospital.com",
+                    HospitalName = "漕湖人民医院",
+                    DepartmentId = "1216",
+                    DepartmentName = "九价",
+                },
                 new YchHospital
                 {
                     HospitalId = "http://www.sz-tpwsy.com",
@@ -156,13 +163,7 @@ namespace Ych.viewmodel
                     DepartmentId = "1220",
                     DepartmentName = "九价",
                 },
-                new YchHospital
-                {
-                    HospitalId = "http://caohuhospital.com",
-                    HospitalName = "漕湖人民医院",
-                    DepartmentId = "1216",
-                    DepartmentName = "九价",
-                },
+          
                 new YchHospital
                 {
                     HospitalId = "http://caohuhospital.com",
