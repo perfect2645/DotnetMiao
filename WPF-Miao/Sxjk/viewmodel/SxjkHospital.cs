@@ -9,6 +9,8 @@ namespace Sxjk.viewmodel
 
         public string CityCode { get; set; }
         public string CityName { get; set; }
+        public string StationCode { get; set; }
+        public string StationName { get; set; }
 
         public new string Display 
         {  

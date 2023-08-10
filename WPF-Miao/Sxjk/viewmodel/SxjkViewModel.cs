@@ -145,23 +145,14 @@ namespace Sxjk.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                                new SxjkHospital
-                {
-                    CityCode = "140800000000",
-                    HospitalId = "10001",
-                    HospitalName = "高家垣社区卫生服务站成人门诊",
-                    DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
-                },
                 new SxjkHospital
                 {
-                    CityCode = "140100000000",
-                    HospitalId = "10001",
-                    HospitalName = "龙湾蒲州街道社区卫生服务中心",
+                    CityCode = "140800000000",
+                    StationCode = "10001",
+                    StationName = "高家垣社区卫生服务站成人门诊",
                     DepartmentName = "九价疫苗预约",
                     DepartmentId = "101",
                 },
-
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -385,6 +376,7 @@ namespace Sxjk.viewmodel
         {
             var selectedDept = SelectedDepartment as SxjkHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.CityCode, selectedDept.CityCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.StationCode, selectedDept.StationCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);

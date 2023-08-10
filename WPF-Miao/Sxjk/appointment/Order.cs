@@ -6,16 +6,17 @@ namespace Sxjk.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string FamilyId { get; set; }
-        public string HosId { get; set; }
-        public string IdCard { get; set; }
-        public string NumId { get; set; }
-        public string OpenId { get; set; }
-        public string Phone { get; set; }
-        public string ProjectId { get; set; }
-        public string SchId { get; set; }
-        public string Time { get; set; }
 
+        public string Child_code { get; set; }
+        public string Station_code { get; set; }
+        public string Vaccine_code { get; set; }
+        public string Reservation_date { get; set; }
+        public string Reservation_begin_time { get; set; }
+        public string Reservation_end_time { get; set; }
+        public string Price_id { get; set; }
+        public string Address_info { get; set; } = "{\"address\":\"\",\"city\":\"测试市\",\"district\":\"\",\"latitude\":\"\",\"longitude\":\"\",\"province\":\"\",\"streetName\":\"\",\"streetNumber\":\"\"}";
+        public string LoginUser_name { get; set; }
+        public string City_code { get; set; }
         public string ResultMsg { get; set; }
 
         internal SxjkLogin User { get; set; }
@@ -27,11 +28,14 @@ namespace Sxjk.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {FamilyId}");
-            sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"IdCard - {IdCard}");
-            sb.AppendLine($"Time - {Time}");
-            sb.AppendLine($"SchId - {SchId}");
+            sb.AppendLine($"LoginUser_name - {LoginUser_name}");
+            sb.AppendLine($"Child_code - {Child_code}");
+            sb.AppendLine($"City_code - {City_code}");
+            sb.AppendLine($"Station_code - {Station_code}");
+            sb.AppendLine($"Vaccine_code - {Vaccine_code}");
+            sb.AppendLine($"Reservation_date - {Reservation_date}");
+            sb.AppendLine($"Time - {Reservation_begin_time} - {Reservation_end_time}");
+            sb.AppendLine($"Price_id - {Price_id}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 
