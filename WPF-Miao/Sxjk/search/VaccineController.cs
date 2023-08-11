@@ -10,10 +10,12 @@ using System.Text.Json;
 using Utils;
 using Utils.json;
 using Utils.number;
+using Sxjk.common;
+using Sxjk.login;
 
 namespace Sxjk.search
 {
-    internal class VaccineController : HttpClientBase
+    internal class VaccineController : SxjkController
     {
         public string Date { get; set; }
         public VaccineController(HttpClient httpClient) : base(httpClient)
@@ -35,24 +37,22 @@ namespace Sxjk.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                var resultDic = CheckResult(root);
+                if (!resultDic.HasItem())
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败 - {response?.Message}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var success = resultDic.GetString("success");
+                if ("False".Equals(success, StringComparison.OrdinalIgnoreCase))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败 - {resultDic.GetString("message")}");
                     return false;
                 }
 
-                var list = data.GetProperty("list");
-
-                return CheckSaveVaccine(list);
+                var data = resultDic.GetString("data");
+                return CheckSaveVaccine(data, defaultUser);
             }
             catch (Exception ex)
             {
@@ -61,27 +61,28 @@ namespace Sxjk.search
             }
         }
 
-        private bool CheckSaveVaccine(JsonElement vaccineListData)
+        private bool CheckSaveVaccine(string data, SxjkLogin user)
         {
-            var vaccineList = JsonAnalysis.JsonToDicList(vaccineListData);
+            var vaccineDataList = JsonAnalysis.JsonToDicList(data);
 
-            if (!vaccineList.HasItem())
+            if (!vaccineDataList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"还没开始");
+                MainSession.PrintLogEvent.Publish(this, $"没查到vaccine信息");
                 return false;
             }
 
-            var defaultVaccine = vaccineList.LastOrDefault(x => x.GetString("last_num_count").ToInt() > 0);
+            var defaultVaccine = vaccineDataList.LastOrDefault(x => x.GetString("vaccine_producer").Contains("9价"));
+
+            user.PriceId = "3902";
+            MainSession.PlatformSession.AddOrUpdate("priceId", "3902");
+
             if (defaultVaccine == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"抢光了");
-                return false;
+                MainSession.PrintLogEvent.Publish(this, $"没查到vaccine_producer， priceId 设为默认值 3902");
+                return true;
             }
 
-            Date = defaultVaccine.GetString("date");
-
-            MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
-
+            MainSession.PlatformSession.AddOrUpdate("priceId", defaultVaccine.GetString("priceId"));
             return true;
         }
     }
