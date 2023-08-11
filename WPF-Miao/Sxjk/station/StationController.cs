@@ -73,16 +73,7 @@ namespace Sxjk.station
 
             var defaultVaccine = vaccineDataList.LastOrDefault(x => x.GetString("vaccine_producer").Contains("9价"));
 
-            user.PriceId = "3902";
-            MainSession.PlatformSession.AddOrUpdate("priceId", "3902");
 
-            if (defaultVaccine == null)
-            {
-                MainSession.PrintLogEvent.Publish(this, $"没查到vaccine_producer， priceId 设为默认值 3902");
-                return true;
-            }
-
-            MainSession.PlatformSession.AddOrUpdate("priceId", defaultVaccine.GetString("priceId"));
             return true;
         }
     }

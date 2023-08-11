@@ -73,8 +73,7 @@ namespace Sxjk.search
 
             var defaultVaccine = vaccineDataList.LastOrDefault(x => x.GetString("vaccine_producer").Contains("9价"));
 
-            user.PriceId = "3902";
-            MainSession.PlatformSession.AddOrUpdate("priceId", "3902");
+            MainSession.PlatformSession.AddOrUpdate(Constants.PriceId, "3902");
 
             if (defaultVaccine == null)
             {
@@ -82,7 +81,7 @@ namespace Sxjk.search
                 return true;
             }
 
-            MainSession.PlatformSession.AddOrUpdate("priceId", defaultVaccine.GetString("priceId"));
+            MainSession.PlatformSession.AddOrUpdate(Constants.PriceId, defaultVaccine.GetString("priceId"));
             return true;
         }
     }

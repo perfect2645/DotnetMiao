@@ -19,10 +19,11 @@ namespace Sxjk.search
         {
             var cityCode = MainSession.PlatformSession.GetString(Constants.CityCode);
             var stationCode = MainSession.PlatformSession.GetString(Constants.StationCode);
+            var priceId = MainSession.PlatformSession.GetString(Constants.PriceId);
 
             UrlDic.AddOrUpdate("bact_id", User.BactId);
             UrlDic.AddOrUpdate("child_code", User.UserId);
-            UrlDic.AddOrUpdate("priceId", User.PriceId);
+            UrlDic.AddOrUpdate("priceId", priceId);
             UrlDic.AddOrUpdate("station_code", stationCode);
             UrlDic.AddOrUpdate("user_name", User.LoginUserName);
             UrlDic.AddOrUpdate("city_code", cityCode);

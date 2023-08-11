@@ -8,6 +8,7 @@ namespace Sxjk.session
         public const string CityName = "CityName";
         public const string StationCode = "StationCode";
         public const string StationName = "StationName";
+        public const string PriceId = "priceId";
         public const string Md5Key = "2~s^}0app1[md5s7";
     }
 }

@@ -340,7 +340,7 @@ namespace Sxjk.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(500);
+                        Thread.Sleep(2000);
                     }
                 }
             }
@@ -367,7 +367,14 @@ namespace Sxjk.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-
+                        Child_code = user.UserId,
+                        City_code = template.City_code,
+                        Price_id = template.Price_id,
+                        Reservation_begin_time = template.Reservation_begin_time,
+                        Reservation_date = template.Reservation_date,
+                        Reservation_end_time = template.Reservation_end_time,
+                        Station_code = template.Station_code,
+                        Vaccine_code = template.Vaccine_code
                     };
 
                     orderList.Add(order);

@@ -10,6 +10,7 @@ using Utils;
 using Utils.datetime;
 using Utils.json;
 using Utils.number;
+using Utils.stringBuilder;
 
 namespace Sxjk.search
 {
@@ -70,7 +71,7 @@ namespace Sxjk.search
 
             var vaccine_code = vaccineData.GetString("vaccine_code");
             var work_dateStr = vaccineData.GetString("work_date");
-            var scheduleList = JsonAnalysis.JsonToDicList("work_dateStr");
+            var scheduleList = JsonAnalysis.JsonToDicList(work_dateStr);
             if (!scheduleList.HasItem()) 
             {
                 MainSession.PrintLogEvent.Publish(this, $"work_date is empty 没有库存了");
@@ -81,9 +82,8 @@ namespace Sxjk.search
 
             foreach(var schedule in scheduleList)
             {
-                var order = BuildOrder(schedule, date);
-                order.Vaccine_code = vaccine_code;
-                orderList.Add(order);
+                var orders = BuildOrders(schedule, vaccine_code);
+                orderList.AddRange(orders);
             }
             
             if (!orderList.HasItem())
@@ -106,25 +106,35 @@ namespace Sxjk.search
             return true;
         }
 
-        private Order BuildOrder(Dictionary<string, object> schedule, string date)
+        private List<Order> BuildOrders(Dictionary<string, object> schedule, string vaccine_code)
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var date = schedule.GetString("date_day");
+            var timeListStr = schedule.GetString("work_time_list");
+            var timeList = timeListStr.ToObjDicList();
 
-            var dateLoacal = DateTimeUtil.GetDateTime(date, "D");
+            var citiCode = MainSession.PlatformSession.GetString(Constants.CityCode);
+            var stationCode = MainSession.PlatformSession.GetString(Constants.StationCode);
+            var priceId = MainSession.PlatformSession.GetString(Constants.PriceId);
 
-            var startTime = schedule.GetString("start_time");
-            var endTime = schedule.GetString("end_time");
-            var time = $"{dateLoacal} {startTime}-{endTime}";
+            var orders = new List<Order>();
 
-
-            var order = new Order
+            foreach (var timeItem in timeList)
             {
+                var orderTemplate = new Order
+                {
+                    City_code = citiCode,
+                    Price_id = priceId,
+                    Reservation_begin_time = timeItem.GetString("work_begin_time"),
+                    Reservation_date = date,
+                    Reservation_end_time = timeItem.GetString("work_end_time"),
+                    Station_code = stationCode,
+                    Vaccine_code = vaccine_code
+                };
 
-            };
+                orders.Add(orderTemplate);
+            }
 
-            return order;
+            return orders;
         }
     }
 }
