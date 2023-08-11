@@ -38,7 +38,6 @@ namespace Sxjk.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                
                 var resultDic = CheckResult(root);
                 if (!resultDic.HasItem())
                 {

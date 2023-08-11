@@ -1,21 +1,19 @@
 ﻿using Base.viewmodel.status;
 using Sxjk.appointment;
+using Sxjk.common;
 using Sxjk.session;
-using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
 using Utils;
+using Utils.datetime;
 using Utils.json;
 using Utils.number;
-using Utils.datetime;
 
 namespace Sxjk.search
 {
-    internal class MiaoController : HttpClientBase
+    internal class MiaoController : SxjkController
     {
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
@@ -31,29 +29,28 @@ namespace Sxjk.search
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                var resultDic = CheckResult(root);
+                if (!resultDic.HasItem())
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败 - {response?.Message}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var success = resultDic.GetString("success");
+                if ("False".Equals(success, StringComparison.OrdinalIgnoreCase))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败 - {resultDic.GetString("message")}");
                     return false;
                 }
 
-                var list = data.GetProperty("list");
+                var data = resultDic.GetString("data");
 
-                return CheckSaveSchedule(list, date);
+                return CheckSaveSchedule(data, date);
             }
             catch (Exception ex)
             {
@@ -62,12 +59,21 @@ namespace Sxjk.search
             }
         }
 
-        private bool CheckSaveSchedule(JsonElement scheduleListData, string date)
+        private bool CheckSaveSchedule(string scheduleListData, string date)
         {
-            var scheduleList = JsonAnalysis.JsonToDicList(scheduleListData);
-            if (!scheduleList.HasItem())
+            var vaccineData = JsonAnalysis.JsonToDic(scheduleListData);
+            if (!vaccineData.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有库存了");
+                return false;
+            }
+
+            var vaccine_code = vaccineData.GetString("vaccine_code");
+            var work_dateStr = vaccineData.GetString("work_date");
+            var scheduleList = JsonAnalysis.JsonToDicList("work_dateStr");
+            if (!scheduleList.HasItem()) 
+            {
+                MainSession.PrintLogEvent.Publish(this, $"work_date is empty 没有库存了");
                 return false;
             }
 
@@ -76,10 +82,10 @@ namespace Sxjk.search
             foreach(var schedule in scheduleList)
             {
                 var order = BuildOrder(schedule, date);
+                order.Vaccine_code = vaccine_code;
                 orderList.Add(order);
             }
             
-
             if (!orderList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"没有可用苗");

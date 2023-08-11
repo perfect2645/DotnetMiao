@@ -13,7 +13,6 @@ namespace Sxjk.search
         {
             BuildUrl();
             AddReferer();
-            BuildContent();
         }
 
         protected override void BuildUrl()
@@ -30,11 +29,6 @@ namespace Sxjk.search
         private void AddReferer()
         {
             AddHeader("Referer", "https://ymjz.sxcdc.cn/SXJKWX/mine/adultList");
-        }
-
-        private void BuildContent()
-        {
-
         }
     }
 }

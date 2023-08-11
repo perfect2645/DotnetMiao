@@ -147,17 +147,27 @@ namespace Sxjk.viewmodel
             {
                 new SxjkHospital
                 {
+                    CityCode = "140200000000",
+                    CityName = "大同市",
+                    StationCode = "10001",
+                    StationName = "",
+                    DepartmentName = "九价疫苗预约",
+                    DepartmentId = "101",
+                },
+                new SxjkHospital
+                {
                     CityCode = "140400000000",
                     CityName = "长治市",
                     StationCode = "10001",
-                    StationName = "高家垣社区卫生服务站成人门诊",
+                    StationName = "",
                     DepartmentName = "九价疫苗预约",
                     DepartmentId = "101",
                 },
                 new SxjkHospital
                 {
                     CityCode = "140800000000",
-                    StationCode = "10001",
+                    CityName = "运城市",
+                    StationCode = "140802014100",
                     StationName = "高家垣社区卫生服务站成人门诊",
                     DepartmentName = "九价疫苗预约",
                     DepartmentId = "101",
