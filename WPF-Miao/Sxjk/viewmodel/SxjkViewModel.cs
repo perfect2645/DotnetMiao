@@ -149,8 +149,8 @@ namespace Sxjk.viewmodel
                 {
                     CityCode = "140200000000",
                     CityName = "大同市",
-                    StationCode = "10001",
-                    StationName = "",
+                    StationCode = "140213140400",
+                    StationName = "大同市平城区大同市第一人民医院防保科",
                     DepartmentName = "九价疫苗预约",
                     DepartmentId = "101",
                 },

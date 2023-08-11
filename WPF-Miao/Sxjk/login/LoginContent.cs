@@ -50,9 +50,11 @@ namespace Sxjk.login
                 var loginDataUrlDecode = UnicodeConverter.Decode(User.LoginData);
                 var loginDataDecode = Encrypt.DecryptAes(loginDataUrlDecode);
                 var loginDataDic = UrlConverter.QueryToDic(loginDataDecode);
+                var code = loginDataDic.GetString("code");
                 var appid = loginDataDic.GetString("appid");
                 var loginUserName = loginDataDic.GetString("user_name");
 
+                User.Code = code;
                 User.Appid = appid;
                 User.LoginUserName = loginUserName;
                 User.VersionName = loginDataDic.GetString("version_name");

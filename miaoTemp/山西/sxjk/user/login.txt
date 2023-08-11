@@ -1,4 +1,4 @@
-GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/wx/toHtml5Servlet?parameters=lu1Elq8v2RgVn8l2fYou5y4XRpG5D6FB%2FrjevLCigkGIti0C0hY%2B7IrBYk8Et6Hn0yzpA3yMTKBcyr6SHZq7VrhV9bwMgFsVp9pAN3pv%2BbVTt31yO6oMBsPWQhYSdaY2Bp6oBUvFdIHUT1T7PE9WYvLe9LxBd9qUBbC%2B3nIWnUHFYzki%2F22U1Ba6egf8cq1%2FifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs%3D&sign=e1ad874e7beffeeb281d5691048cada0&timestamp=1691583736903 HTTP/1.1
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/wx/toHtml5Servlet?parameters=lu1Elq8v2RgVn8l2fYou5y4XRpG5D6FB/rjevLCigkGIti0C0hY+7IrBYk8Et6Hn0yzpA3yMTKBcyr6SHZq7VrhV9bwMgFsVp9pAN3pv+bVTt31yO6oMBsPWQhYSdaY2Bp6oBUvFdIHUT1T7PE9WYvLe9LxBd9qUBbC+3nIWnUHFYzki/22U1Ba6egf8cq1/ifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs=&sign=e1ad874e7beffeeb281d5691048cada0&timestamp=1691583736903 HTTP/1.1
 Host: ymjz.sxcdc.cn
 Connection: keep-alive
 Accept: application/json, text/plain, */*
@@ -11,21 +11,16 @@ Referer: https://ymjz.sxcdc.cn/SXJKWX/redirect.html?code=001KK1100R0OsQ1QPK100qZ
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
-
-HTTP/1.1 200
-Server: ssservice/2.0.0
-Date: Wed, 09 Aug 2023 12:20:42 GMT
-Content-Type: application/json;charset=utf-8
-Connection: keep-alive
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
-Set-Cookie: SESSION=NDQyOWJlODItODQ0Ni00MmJlLTkwYzItOGQzYjU1Yzk3N2Qy; Path=/jmbshanxi/; HttpOnly
-Expires: Wed, 09 Aug 2023 12:20:52 GMT
-Cache-Control: max-age=10
-Content-Length: 247
+lu1Elq8v2RgVn8l2fYou5y4XRpG5D6FB/rjevLCigkGIti0C0hY+7IrBYk8Et6Hn0yzpA3yMTKBcyr6SHZq7VrhV9bwMgFsVp9pAN3pv+bVTt31yO6oMBsPWQhYSdaY2Bp6oBUvFdIHUT1T7PE9WYvLe9LxBd9qUBbC+3nIWnUHFYzki/22U1Ba6egf8cq1/ifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs=
 
 {"result":"h/Ypcxg7jOYnPEcJIRBy92Ka+2dZZNWYFG8oEMHSfW1hfUecJtvyqusVPsOTdsd/UvCI/lAd0oXukOrxlL75XVcAMn/XrTOp3ZK19jVMM9LUKbrbD0hDOZ/kakH9TPoutukzTSjFHcXfGYZrOxxU996glyGLJJpnHLlBQ+YW/jhKnC03trRr3vnDYwRwCFAe","sign":"0ba0dfac2cbe6b2485a681dc214c6f75"}
+
+{
+    "code": 0,
+    "data": {
+        "user_name": "other#388418",
+        "city_code": "140800000000"
+    },
+    "message": "登录成功!",
+    "success": true
+}

@@ -6,7 +6,7 @@
         public string LoginData { get; set; }
         public string Code { get; set; }
         public string Appid { get; set; }
-        public string BactId { get; set; }
+        public string BactId { get; set; } = "72";
         public string PriceId { get; set; }
         public string UserName { get; set; }
         public string LoginUserName { get; set; }
