@@ -268,7 +268,7 @@ namespace Sxjk.viewmodel
                 try
                 {
                     MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.ReadyForSearch);
-                    //StartOnTimeTimer();
+                    StartOnTimeTimer();
                     StartReSessionTimer();
                 }
                 catch (HttpException ex)
@@ -287,7 +287,7 @@ namespace Sxjk.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    //_searchController.SearchMiao();
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
