@@ -147,6 +147,15 @@ namespace Sxjk.viewmodel
             {
                 new SxjkHospital
                 {
+                    CityCode = "140400000000",
+                    CityName = "长治市",
+                    StationCode = "10001",
+                    StationName = "高家垣社区卫生服务站成人门诊",
+                    DepartmentName = "九价疫苗预约",
+                    DepartmentId = "101",
+                },
+                new SxjkHospital
+                {
                     CityCode = "140800000000",
                     StationCode = "10001",
                     StationName = "高家垣社区卫生服务站成人门诊",
@@ -249,7 +258,7 @@ namespace Sxjk.viewmodel
                 try
                 {
                     MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.ReadyForSearch);
-                    StartOnTimeTimer();
+                    //StartOnTimeTimer();
                     StartReSessionTimer();
                 }
                 catch (HttpException ex)
@@ -268,7 +277,7 @@ namespace Sxjk.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    _searchController.SearchMiao();
+                    //_searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -348,14 +357,7 @@ namespace Sxjk.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        HosId = template.HosId,
-                        IdCard = user.Idcard,
-                        NumId = template.NumId,
-                        Phone = user.Phone,
-                        ProjectId = template.ProjectId,
-                        SchId = template.SchId,
-                        Time = template.Time,
+
                     };
 
                     orderList.Add(order);
@@ -397,10 +399,8 @@ namespace Sxjk.viewmodel
                 Thread.Sleep(1000);
                 Task.Factory.StartNew(async () =>
                 {
-                    //var loginController = HttpServiceController.GetService<LoginController>();
-                    //await loginController.LoginAsync(user);
-                    var userController = HttpServiceController.GetService<LoginController>();
-                    await userController.LoginAsync(user);
+                    var userController = HttpServiceController.GetService<UserController>();
+                    await userController.GetUserAsync(user);
                 });
             }
         }

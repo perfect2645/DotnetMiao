@@ -115,11 +115,7 @@ namespace Sxjk.search
 
             var order = new Order
             {
-                HosId = hosId,
-                NumId = schedule.GetString("num_id"),
-                ProjectId = hosId,
-                SchId = schedule.GetString("sch_id"),
-                Time = time,
+
             };
 
             return order;
