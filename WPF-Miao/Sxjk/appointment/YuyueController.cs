@@ -1,13 +1,20 @@
-﻿using Sxjk.session;
+﻿using Sxjk.login;
+using Sxjk.session;
 using HttpProcessor.Client;
-using HttpProcessor.Content;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading.Tasks;
+using Utils;
+using Utils.json;
+using System.Collections.Generic;
+using Sxjk.common;
+using Utils.stringBuilder;
 
 namespace Sxjk.appointment
 {
-    public class YuyueController : HttpClientBase
+    public class YuyueController : SxjkController
     {
         public bool IsSuccess { get; set; }
         private bool IsHeaderBuilt { get; set; }
@@ -41,31 +48,37 @@ namespace Sxjk.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
+                HttpDicResponse response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Login - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败 - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var msg = root.GetProperty("msg").GetString();
-
-                var success = root.GetProperty("success").GetBoolean();
-                if (!success)
+                var resultDic = CheckResult(root);
+                if (!resultDic.HasItem())
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败 - {response?.Message}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var success = resultDic.GetString("success");
+                if ("False".Equals(success, StringComparison.OrdinalIgnoreCase))
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败 - {resultDic.GetString("message")}");
                     return false;
                 }
 
-                MainSession.PrintLogEvent.Publish(this, $"{content.User.UserName} : 预约成功: msg = {msg}");
+                var message = resultDic.GetString("message");
+                if (message == "预订成功！")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"{content.Order.UserName} - 预订成功");
+
+                    return true;
+                }
+
+                var data = resultDic.GetString("data");
 
                 return CheckOrder(data, content.Order);
             }
@@ -76,17 +89,13 @@ namespace Sxjk.appointment
             }
         }
 
-        private bool CheckOrder(JsonElement data, Order order)
+        private bool CheckOrder(string data, Order order)
         {
-            var dataDouble = data.GetDouble();
+            var appointData = JsonAnalysis.JsonToDic(data);
+            var message = appointData.GetString("message");
+            var adultBespeakListStr = appointData.GetString("adultBespeakList");
+            var adultBespeakList = adultBespeakListStr.ToObjDicList();
 
-            if (dataDouble > 0)
-            {
-                return true;
-            }
-
-            order.ResultMsg = dataDouble.ToString();
-            MainSession.PrintLogEvent.Publish(this, order.ToLogString());
 
             return true;
         }

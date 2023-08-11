@@ -367,6 +367,7 @@ namespace Sxjk.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
+                        LoginUser_name = user.LoginUserName,
                         Child_code = user.UserId,
                         City_code = template.City_code,
                         Price_id = template.Price_id,
