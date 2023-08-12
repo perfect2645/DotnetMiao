@@ -20,6 +20,7 @@ using Utils.file;
 using Utils.number;
 using Utils.stringBuilder;
 using System.Threading;
+using Sxjk.tools;
 
 namespace Sxjk.viewmodel
 {
@@ -33,6 +34,7 @@ namespace Sxjk.viewmodel
         public ICommand CancelOneCommand { get; set; }
         
         public ICommand RefreshHistoryCommand { get; set; }
+        public ICommand BindUserCommand { get; set; }
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -101,14 +103,14 @@ namespace Sxjk.viewmodel
             }
         }
 
-        private string _authorization;
-        public string Authorization
+        private string _bindIdCard;
+        public string BindIdCard
         {
-            get { return _authorization; }
+            get { return _bindIdCard; }
             set
             {
-                _authorization = value;
-                NotifyUI(() => Authorization);
+                _bindIdCard = value;
+                NotifyUI(() => BindIdCard);
             }
         }
 
@@ -183,6 +185,7 @@ namespace Sxjk.viewmodel
             LoginCommand = new RelayCommand(ExecuteLogin);
             ManualCommand = new RelayCommand(ExecuteManual);
             RefreshHistoryCommand = new RelayCommand(RefreshHistory);
+            BindUserCommand = new RelayCommand(BindUser);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
             MainSession.OrderEvent.Subscribe(OnOrder);
@@ -238,12 +241,6 @@ namespace Sxjk.viewmodel
 
         private void ExecuteLogin()
         {
-            if (StringUtil.AnyEmpty(Authorization))
-            {
-                Log("请检查参数");
-                return;
-            }
-
             var loginData = new SxjkLogin()
             {
                 
@@ -256,7 +253,7 @@ namespace Sxjk.viewmodel
 
         private void ClearLoginData()
         {
-            Authorization = string.Empty;
+
         }
 
         #endregion Login
@@ -401,6 +398,19 @@ namespace Sxjk.viewmodel
         }
 
         #endregion History
+
+        #region Bind User
+
+        private void BindUser()
+        {
+            var bindUserController = HttpServiceController.GetService<BindUserController>();
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            defaultUser.Idcard = BindIdCard;
+            bindUserController.BindUserAsync(defaultUser);
+
+        }
+
+        #endregion Bind User
 
         #region Cancel
         #endregion Cancel
