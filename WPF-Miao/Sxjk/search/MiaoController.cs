@@ -126,6 +126,8 @@ namespace Sxjk.search
                     continue;
                 }
 
+                MainSession.PrintLogEvent.Publish(this, $"发现miao，{date}剩余{restNumber}");
+
                 var orderTemplate = new Order
                 {
                     City_code = citiCode,
