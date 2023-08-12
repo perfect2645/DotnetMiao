@@ -1,16 +1,13 @@
-GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/SearchAdultList?parameters=DNfZdrGIymhyMRbCn27AqwxF4dfX99Q/40dLvdbWZmBjSTXquGjqXP188C0ywsyUUmjzUke59tt0oxyrGl0JdfAUFENrsyAqIFxaV3vhtkNLsyX8bJj8VxpTbHI2QGnmgQix/7u3RKM3SAJcii6WT4E3njFdBGYA8AjQhgA++245ZzorZCZn9J2x70b1lKqWtmk95lljA0Z9pGc16IT1Gn38GBTGswBWRWoy4A8goS3CizP085Ff2iO8lr/X0+14mcQzOjTVoGp3mTUx854MbA==&sign=7f622df0584370e9ce75ef151aed30e0&timestamp=1691808654875 HTTP/1.1
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/wx/toHtml5Servlet?parameters=EWab4mGlTPqqc83yfqGx%2BNhvFQV4GQu%2FCIky9uKjO7H558GBYIeOh0vS8cHEldaj0yzpA3yMTKBcyr6SHZq7VrhV9bwMgFsVp9pAN3pv%2BbVTt31yO6oMBsPWQhYSdaY2lO49VanJ7vV%2FDDNTVbuNw%2FLe9LxBd9qUBbC%2B3nIWnUHFYzki%2F22U1Ba6egf8cq1%2FifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs%3D&sign=db1c8b4afba0a682b137b280c8664ddd&timestamp=1691822250937 HTTP/1.1
 Host: ymjz.sxcdc.cn
-Accept: application/json, text/plain, */*
 Connection: keep-alive
-Cookie: SESSION=OGQzNzQ3OWMtYWY1My00ODZiLTk1OTktOTJmMzhkZGI4M2Jm
-User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.40(0x1800282b) NetType/WIFI Language/zh_CN
-Accept-Language: zh-CN,zh-Hans;q=0.9
-Referer: https://ymjz.sxcdc.cn/SXJKWX/main.html?version=2.0.0
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Cookie: SESSION=OTlkZGQzZDAtNGE0Yy00YmJjLWI1NjctN2ExMTdlYzBjMzM4
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://ymjz.sxcdc.cn/SXJKWX/redirect.html?code=051ZCm100W9OtQ1RCO000xyWHu0ZCm1H&state=wx83daa62ee4b38e4b
 Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
-DNfZdrGIymhyMRbCn27AqwxF4dfX99Q/40dLvdbWZmBjSTXquGjqXP188C0ywsyUUmjzUke59tt0oxyrGl0JdfAUFENrsyAqIFxaV3vhtkNLsyX8bJj8VxpTbHI2QGnmgQix/7u3RKM3SAJcii6WT4E3njFdBGYA8AjQhgA++245ZzorZCZn9J2x70b1lKqWtmk95lljA0Z9pGc16IT1Gn38GBTGswBWRWoy4A8goS3CizP085Ff2iO8lr/X0+14mcQzOjTVoGp3mTUx854MbA==
-
-
-
-
-user_name=other#393338&child_birth_date=1980-09-14&child_password=15835219973&cid=&child_name=冯霞&operation_type=1002&city_code=140200000000&version_name=6.6.0&os=web&userId=null&timeStamp=null

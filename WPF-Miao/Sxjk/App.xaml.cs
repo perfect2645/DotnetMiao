@@ -2,6 +2,7 @@
 using Sxjk.appointment;
 using Sxjk.login;
 using Sxjk.search;
+using Sxjk.tools;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -34,6 +35,7 @@ namespace Sxjk
         {
             HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<BindUserController>();
             HttpServiceController.AddTransientService<OrderHistoryController>();
             HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();

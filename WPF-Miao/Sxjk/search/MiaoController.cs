@@ -120,6 +120,12 @@ namespace Sxjk.search
 
             foreach (var timeItem in timeList)
             {
+                var restNumber = timeItem.GetString("reservation_last_count").ToInt();
+                if (restNumber == 0)
+                {
+                    continue;
+                }
+
                 var orderTemplate = new Order
                 {
                     City_code = citiCode,

@@ -45,8 +45,13 @@ namespace Sxjk.search
                     break;
                 }
                 isVaccineGet = vaccineController.SearchVaccine();
-                Thread.Sleep(600);
+
+                if (!isVaccineGet)
+                {
+                    Thread.Sleep(500);
+                }
             }
+
             var date = vaccineController.Date;
 
             var miaoController = HttpServiceController.GetService<MiaoController>();
@@ -54,7 +59,7 @@ namespace Sxjk.search
             while(!isScheduleGet)
             {
                 isScheduleGet = miaoController.SearchMiao(date);
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
             }
         }
     }
