@@ -34,6 +34,7 @@ namespace Sxjk
         {
             HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<OrderHistoryController>();
             HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();

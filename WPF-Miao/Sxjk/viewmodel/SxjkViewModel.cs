@@ -182,6 +182,7 @@ namespace Sxjk.viewmodel
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
             ManualCommand = new RelayCommand(ExecuteManual);
+            RefreshHistoryCommand = new RelayCommand(RefreshHistory);
 
             SelectedDepartmentChanged = new Action(OnSelectedDepartmentChanged);
             MainSession.OrderEvent.Subscribe(OnOrder);
@@ -386,6 +387,20 @@ namespace Sxjk.viewmodel
         }
 
         #endregion Appoint
+
+        #region History
+
+        private void RefreshHistory()
+        {
+            var historyController = HttpServiceController.GetService<OrderHistoryController>();
+
+            foreach(var user in MainSession.Users)
+            {
+                historyController.GetOrderHistoryAsync(user);
+            }
+        }
+
+        #endregion History
 
         #region Cancel
         #endregion Cancel

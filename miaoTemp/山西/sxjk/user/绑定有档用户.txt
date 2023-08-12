@@ -1,0 +1,23 @@
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/BindAdultChild?parameters=DNfZdrGIymhyMRbCn27Aq2saj1yOVoXtF9RYLFXpU+xgS0NIRE9JPczK4FuejnoLNa7un6RSY36DJPoYPgaA1kaHf3IVt9zQx/yMaBhqSn0VoCRuiXnqw/8Z2Nn9Swv8jzkKpbI/wlTcbLhkRIije3Za8oIL0yJv01rkIZdxHtdKnC03trRr3vnDYwRwCFAe&sign=f46ec6d0599f3d4574843cbbddeac4dd&timestamp=1691808663738 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Accept: application/json, text/plain, */*
+Connection: keep-alive
+Cookie: SESSION=OGQzNzQ3OWMtYWY1My00ODZiLTk1OTktOTJmMzhkZGI4M2Jm
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.40(0x1800282b) NetType/WIFI Language/zh_CN
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Referer: https://ymjz.sxcdc.cn/SXJKWX/main.html?version=2.0.0
+Accept-Encoding: gzip, deflate, br
+
+
+DNfZdrGIymhyMRbCn27Aq2saj1yOVoXtF9RYLFXpU+xgS0NIRE9JPczK4FuejnoLNa7un6RSY36DJPoYPgaA1kaHf3IVt9zQx/yMaBhqSn0VoCRuiXnqw/8Z2Nn9Swv8jzkKpbI/wlTcbLhkRIije3Za8oIL0yJv01rkIZdxHtdKnC03trRr3vnDYwRwCFAe
+
+{"result":"NfkNa3KHZDL4uqrGTVJ9UIPgkDczC2Y7/Kddr8H58r0LZufHtxSprsm3/k+jGBXK1IRjY3fqp6BBARn9lXhIRUqcLTe2tGve+cNjBHAIUB4=","sign":"1b35435f9ba396a6678fa98362681634"}
+
+
+user_name=other#393338&child_code=140213090119800111&city_code=140200000000&version_name=6.6.0&os=web&userId=null&timeStamp=null
+
+{
+    "code": 0,
+    "message": "绑定成人成功！",
+    "success": true
+}
