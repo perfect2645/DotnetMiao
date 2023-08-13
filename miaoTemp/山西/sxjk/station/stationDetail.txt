@@ -9,21 +9,8 @@ Referer: https://ymjz.sxcdc.cn/SXJKWX/main.html?version=2.0.0
 Accept-Encoding: gzip, deflate, br
 
 
-HTTP/1.1 200
-Server: ssservice/2.0.0
-Date: Mon, 26 Jun 2023 00:35:50 GMT
-Content-Type: application/json;charset=utf-8
-Connection: keep-alive
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: https://ymjz.sxcdc.cn
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
-Expires: Mon, 26 Jun 2023 00:36:00 GMT
-Cache-Control: max-age=10
-Content-Length: 975
+
+jR1HU9FZO4LXX9knGCgmVDqFuQFMWj8pC%2BB0OteqgzTtuWjHDnrmwg9Lj8tRMTd3sR3aSLq9Uj9VTCyyGEzZOCYn%2FkLOhqceH82hMfMIgyYVEFLtIg8HsbASGE6seMdCOOEIYIFfNZ%2B2n23FcvkItvT20RipHUaTNXXPaDxGOwM%3D
 
 {
     "code": 0,

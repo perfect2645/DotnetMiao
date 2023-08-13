@@ -141,7 +141,7 @@ namespace Sxjk.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(55);
 
             DateList = new List<DspVal>();
 
@@ -149,12 +149,27 @@ namespace Sxjk.viewmodel
             {
                 new SxjkHospital
                 {
+                    CityCode = "140500000000",
+                    CityName = "晋城市",
+                    StationCode = "140502120100",
+                    StationName = "钟家庄社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "140500000000",
+                    CityName = "晋城市",
+                    StationCode = "140502020200",
+                    StationName = "北街社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
                     CityCode = "140200000000",
                     CityName = "大同市",
                     StationCode = "140213140400",
                     StationName = "大同市平城区大同市第一人民医院防保科",
                     DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
                 },
                 new SxjkHospital
                 {
@@ -172,7 +187,6 @@ namespace Sxjk.viewmodel
                     StationCode = "140802014100",
                     StationName = "高家垣社区卫生服务站成人门诊",
                     DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
                 },
             };
 

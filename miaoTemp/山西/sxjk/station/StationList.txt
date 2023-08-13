@@ -1,4 +1,4 @@
-GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Station/GetStationList?parameters=EiVopIlLWxrcnucFNfEdExDenc3yHT2gxOyamF0UK1iGm0%2B3GPYsW26eC4k1vKdwGL5mfW4weX0rAL%2BlgYzEb5sZfOW2sxF%2F%2BBvoGrzSf4UqujuOo3tvvUfLwvQv1ZMlEbaEyhe5wv0vl5lYdkP6OxAymedHP76qMgAxJ4CJI%2FKPs%2B7yqRpLFTPIWVWE%2Fh1M&sign=8d182e63c902859a39b57da05c460650&timestamp=1687739764350 HTTP/1.1
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Station/GetStationList?parameters=EiVopIlLWxrcnucFNfEdExDenc3yHT2gxOyamF0UK1iGm0+3GPYsW26eC4k1vKdwGL5mfW4weX0rAL+lgYzEb5sZfOW2sxF/+BvoGrzSf4UqujuOo3tvvUfLwvQv1ZMlEbaEyhe5wv0vl5lYdkP6OxAymedHP76qMgAxJ4CJI/KPs+7yqRpLFTPIWVWE/h1M&sign=8d182e63c902859a39b57da05c460650&timestamp=1687739764350 HTTP/1.1
 Host: ymjz.sxcdc.cn
 Accept: application/json, text/plain, */*
 Connection: keep-alive
@@ -8,22 +8,8 @@ Accept-Language: zh-CN,zh-Hans;q=0.9
 Referer: https://ymjz.sxcdc.cn/SXJKWX/main.html?version=2.0.0
 Accept-Encoding: gzip, deflate, br
 
+station_area_code=140105000000&page_index=0&user_name=other#393338&city_code=140100000000&version_name=6.6.0&os=web&userId=null&timeStamp=null
 
-HTTP/1.1 200
-Server: ssservice/2.0.0
-Date: Mon, 26 Jun 2023 00:35:31 GMT
-Content-Type: application/json;charset=utf-8
-Connection: keep-alive
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: https://ymjz.sxcdc.cn
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-Access-Control-Allow-Methods: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH
-Expires: Mon, 26 Jun 2023 00:35:41 GMT
-Cache-Control: max-age=10
-Content-Length: 18851
 
 {
     "code": 0,
