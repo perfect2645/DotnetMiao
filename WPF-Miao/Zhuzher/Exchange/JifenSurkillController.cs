@@ -13,29 +13,12 @@ namespace Zhuzher.Exchange
     internal class JifenSurkillController : HttpClientBase
     {
 
-        #region Properties
-
-        private readonly ScoreItemList GoodList = new ScoreItemList();
-        private readonly UserProjectList UserProjectList = new UserProjectList();
-
-        #endregion Properties
-
         public JifenSurkillController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void ScoreSurkillAsync()
+        public void ScoreSurkill(UserProject user, ScoreItem good)
         {
-            Task.Factory.StartNew(() => ScoreSurkill());
-        }
-
-        public void ScoreSurkill()
-        {
-            var user = UserProjectList.UserProjects.FirstOrDefault();
-            var good = GoodList.GetDefaultGood();
-
-
-
             var content = new JifenSurkillContent(user, good);
             content.BuildDefaultHeaders(Client);
 

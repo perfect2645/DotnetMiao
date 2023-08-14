@@ -65,11 +65,13 @@
                     <Button Content="换礼品"
                         Command="{Binding ExchangeCommand}" Width="100" Margin="50, 0">
                     </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                     <Button Content="秒杀"
-                        Command="{Binding SeckillCommand}" Width="100" >
+                        Command="{Binding SeckillCommand}" Width="100"  >
                     </Button>
                     <Button Content="积分秒杀"
-                        Command="{Binding ScoreSeckillCommand}" Width="100" >
+                        Command="{Binding ScoreSeckillCommand}" Width="100" Margin="50, 10">
                     </Button>
                 </StackPanel>
             </StackPanel>

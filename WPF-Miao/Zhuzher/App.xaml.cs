@@ -32,6 +32,8 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<JoinTeamController>();
             HttpServiceController.AddTransientService<ExchangeController>();
             HttpServiceController.AddTransientService<SeckillController>();
+            HttpServiceController.AddTransientService<JifenSurkillController>();
+            HttpServiceController.AddTransientService<ScoreKillController>();
 
             HttpServiceController.BuidServiceProvider();
         }

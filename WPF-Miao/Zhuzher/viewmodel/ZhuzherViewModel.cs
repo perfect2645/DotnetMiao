@@ -169,7 +169,7 @@ namespace Zhuzher.viewmodel
             try
             {
                 ZhuzherSession.Cookie = Cookie;
-                var seckillHandler = HttpServiceController.GetService<JifenSeckillController>();
+                var seckillHandler = HttpServiceController.GetService<ScoreKillController>();
                 seckillHandler.Seckill(ScoreMiaoshaList);
             }
             catch (HttpException ex)

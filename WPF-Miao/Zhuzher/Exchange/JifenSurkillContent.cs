@@ -37,7 +37,7 @@ namespace Zhuzher.Exchange
         {
             AddContent("exchangeGoodId", ScoreItem.ExchangeGoodId);
             AddContent("exchangeId", ScoreItem.ExchangeId);
-            AddContent("exchangeGoodTimeId", ScoreItem.ExchangeGoodTimeId);
+            //AddContent("exchangeGoodTimeId", ScoreItem.ExchangeGoodTimeId);
             AddContent("projectCode", User.ProjectCode);
         }
     }

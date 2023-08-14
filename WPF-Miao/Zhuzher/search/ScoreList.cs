@@ -69,12 +69,12 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
-            AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
+            var timeNow = DateTime.Now.AddSeconds(20);
+            AddMiaoshaItem(2651, 118, "佬食仁蛋卷酥350g 350g/箱 一箱约10包 ", $"{timeNow}");
+            //AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
-        private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeIdint, string goodName, string startTimeStr = "")
+        private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, string goodName, string startTimeStr = "")
         {
             var startTime = DateTime.Today;
             if (!string.IsNullOrEmpty(startTimeStr))
@@ -90,7 +90,7 @@ namespace Zhuzher.search
             MiaoshaList.Add(new ScoreItem
             {
                 ExchangeGoodId = exchangeGoodId,
-                ExchangeGoodTimeId = exchangeGoodTimeIdint,
+                //ExchangeGoodTimeId = exchangeGoodTimeIdint,
                 ExchangeId = exchangeId,
                 Group = 1,
                 GoodName = goodName,
