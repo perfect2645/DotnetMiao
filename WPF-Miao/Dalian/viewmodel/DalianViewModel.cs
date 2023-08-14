@@ -343,8 +343,10 @@ namespace Dalian.viewmodel
             try
             {
                 bool isSuccess = false;
-                while (!isSuccess)
+                var count = 0;
+                while (!isSuccess && count <= 5)
                 {
+                    count++;
                     foreach (var order in orders)
                     {
                         var appointController = HttpServiceController.GetService<YuyueController>();
@@ -355,7 +357,7 @@ namespace Dalian.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(500);
+                        Thread.Sleep(1000);
                     }
                 }
             }
