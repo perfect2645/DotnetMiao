@@ -12,7 +12,12 @@ namespace Zhuzher.Exchange
 {
     internal class JifenSurkillController : HttpClientBase
     {
+        #region Properties
 
+        private readonly ScoreItemList GoodList = new ScoreItemList();
+        private readonly UserProjectList UserProjectList = new UserProjectList();
+
+        #endregion Properties
         public JifenSurkillController(HttpClient httpClient) : base(httpClient)
         {
         }

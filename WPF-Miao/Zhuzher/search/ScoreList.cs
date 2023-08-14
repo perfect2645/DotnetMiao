@@ -70,7 +70,7 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             var timeNow = DateTime.Now.AddSeconds(20);
-            AddMiaoshaItem(2651, 118, "佬食仁蛋卷酥350g 350g/箱 一箱约10包 ", $"{timeNow}");
+            AddMiaoshaItem(2651, 118, "佬食仁蛋卷酥350g 350g/箱 一箱约10包 ", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
