@@ -24,7 +24,7 @@ using Sxjk.tools;
 
 namespace Sxjk.viewmodel
 {
-    internal class SxjkViewModel : OnTimeViewModel
+    internal partial class SxjkViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -34,7 +34,7 @@ namespace Sxjk.viewmodel
         public ICommand CancelOneCommand { get; set; }
         
         public ICommand RefreshHistoryCommand { get; set; }
-        public ICommand BindUserCommand { get; set; }
+
 
         private List<DspVal> _dateList;
         public List<DspVal> DateList
@@ -100,17 +100,6 @@ namespace Sxjk.viewmodel
             {
                 _selectedHistory = value;
                 NotifyUI(() => SelectedHistory);
-            }
-        }
-
-        private string _bindIdCard;
-        public string BindIdCard
-        {
-            get { return _bindIdCard; }
-            set
-            {
-                _bindIdCard = value;
-                NotifyUI(() => BindIdCard);
             }
         }
 
@@ -428,19 +417,6 @@ namespace Sxjk.viewmodel
         }
 
         #endregion History
-
-        #region Bind User
-
-        private void BindUser()
-        {
-            var bindUserController = HttpServiceController.GetService<BindUserController>();
-            var defaultUser = MainSession.Users.FirstOrDefault();
-            defaultUser.Idcard = BindIdCard;
-            bindUserController.BindUserAsync(defaultUser);
-
-        }
-
-        #endregion Bind User
 
         #region Cancel
         #endregion Cancel

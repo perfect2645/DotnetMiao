@@ -21,7 +21,7 @@ namespace Sxjk.tools
             var cityCode = MainSession.PlatformSession.GetString(Constants.CityCode);
 
             UrlDic.AddOrUpdate("user_name", User.LoginUserName);
-            UrlDic.AddOrUpdate("child_code", User.Idcard);
+            UrlDic.AddOrUpdate("child_code", User.BirthDay);
             UrlDic.AddOrUpdate("city_code", cityCode);
             UrlDic.AddOrUpdate("version_name", User.VersionName);
             UrlDic.AddOrUpdate("os", "web");

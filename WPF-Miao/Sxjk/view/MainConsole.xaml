@@ -33,8 +33,21 @@
                     <StackPanel Orientation="Vertical" Visibility="Collapsed" Margin="0,0,0,10" Background="LightPink">
                         <TextBox Width="300" Height="30"
                          Margin="0,20,0,20"
-                         Text="{Binding BindIdCard}"
-                        materialDesign:HintAssist.Hint="IdCard"/>
+                         Text="{Binding UserName}"
+                        materialDesign:HintAssist.Hint="UserName"/>
+                        <TextBox Width="300" Height="30"
+                         Margin="0,20,0,20"
+                         Text="{Binding BirthDay}"
+                        materialDesign:HintAssist.Hint="BirthDay"/>
+                        <TextBox Width="300" Height="30"
+                         Margin="0,20,0,20"
+                         Text="{Binding Phone}"
+                        materialDesign:HintAssist.Hint="Phone"/>
+                        <TextBox Width="300" Height="30"
+                         Margin="0,20,0,20"
+                         Text="{Binding UserId}"
+                        IsReadOnly="True"
+                        materialDesign:HintAssist.Hint="UserId"/>
                         <Button Content="绑定" Margin="0,0,0,0"
                         Command="{Binding BindUserCommand}" Width="100">
                         </Button>
