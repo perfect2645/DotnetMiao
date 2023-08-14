@@ -2,6 +2,7 @@
 using Sxjk.login;
 using Sxjk.session;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Utils;
@@ -19,7 +20,8 @@ namespace Sxjk.tools
         {
             return Task.Factory.StartNew(() => 
             {
-
+                SearchUserId(user);
+                BindUser(user);
             });
         }
 
@@ -27,7 +29,7 @@ namespace Sxjk.tools
         {
             try
             {
-                var content = new BindUserContent(user);
+                var content = new QueryUserIdContent(user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
@@ -91,12 +93,29 @@ namespace Sxjk.tools
 
                 var data = resultDic.GetString("data");
 
-                SaveUser(data);
+                SaveUserId(data, user);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"BindUserHistory异常{ex.Message}");
             }
+        }
+
+        private void SaveUserId(string data, SxjkLogin user)
+        {
+            var userList = JsonAnalysis.JsonToDicList(data);
+            if (!userList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"获取BindUserHistory失败");
+                return;
+            }
+
+            var defaultUser = userList.FirstOrDefault();
+
+            var child_code = defaultUser.GetString("child_code");
+            user.UserId = child_code;
+
+            MainSession.PrintLogEvent.Publish(this, userList);
         }
 
         private void SaveUser(string data)
