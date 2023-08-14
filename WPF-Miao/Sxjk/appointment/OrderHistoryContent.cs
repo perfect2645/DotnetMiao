@@ -8,7 +8,7 @@ namespace Sxjk.appointment
 {
     internal class OrderHistoryContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetAdultReservationList?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetAdultReservationList?";
         public OrderHistoryContent(SxjkLogin user) : base(baseUrl, user)
         {
             BuildUrl();

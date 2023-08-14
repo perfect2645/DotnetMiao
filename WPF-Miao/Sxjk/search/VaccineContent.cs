@@ -7,7 +7,7 @@ namespace Sxjk.search
 {
     internal class VaccineContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetBactPriceList?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetBactPriceList?";
 
         public VaccineContent(SxjkLogin user) : base(baseUrl, user)
         {

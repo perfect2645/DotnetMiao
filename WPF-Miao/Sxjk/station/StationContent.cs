@@ -7,7 +7,7 @@ namespace Sxjk.station
 {
     internal class StationContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetBactPriceList?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetBactPriceList?";
 
         public StationContent(SxjkLogin user) : base(baseUrl, user)
         {

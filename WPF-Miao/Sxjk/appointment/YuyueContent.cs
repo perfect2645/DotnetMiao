@@ -9,7 +9,7 @@ namespace Sxjk.appointment
 {
     internal class YuyueContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/SaveAdultReservationDetails?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/SaveAdultReservationDetails?";
         public Order Order { get; private set; }
         public YuyueContent(Order order, SxjkLogin user) : base(baseUrl, user)
         {

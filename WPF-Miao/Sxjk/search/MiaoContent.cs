@@ -7,7 +7,7 @@ namespace Sxjk.search
 {
     internal class MiaoContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetAdultStationDayListNew?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetAdultStationDayListNew?";
 
         public MiaoContent(SxjkLogin user, string date) : base(baseUrl, user)
         {

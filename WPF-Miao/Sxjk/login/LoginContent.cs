@@ -9,7 +9,7 @@ namespace Sxjk.login
 {
     internal class LoginContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/wx/toHtml5Servlet?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/wx/toHtml5Servlet?";
         public LoginContent(SxjkLogin user) : base(baseUrl, user)
         {
 

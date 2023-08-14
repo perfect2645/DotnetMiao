@@ -9,7 +9,7 @@ namespace Sxjk.tools
 {
     internal class BindUserContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/BindAdultChild?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/BindAdultChild?";
         public BindUserContent(SxjkLogin user) : base(baseUrl, user)
         {
             BuildUrl();

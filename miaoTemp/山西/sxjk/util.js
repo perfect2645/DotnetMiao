@@ -2,6 +2,14 @@ var VUE_APP_DEPLOY_CITY;
 var MD5_KEY = "2~s^}0app1[md5s7";
 var sKey_app = "shen=new#su@app-";
 
+var loadjsflag = false;
+
+var payflag = false;
+
+var toastOptions = {
+  timeout: 3000,
+};
+
 window.axios && (axios.defaults.withCredentials = true);
 
 function encrypt(word) {
@@ -211,15 +219,23 @@ var VUE_APP_DEPLOY_ENV = "prod";
 // 部署的城市（VUE_APP_DEPLOY_CITY取值看上面备注，同步修改 .env.xxx -> VUE_APP_DEPLOY_CITY |||| .env.xxx -> VUE_APP_API_BASE_URL取值看下面的判断里JMBWebAPPConfig.interfaceUrl）
 // supId 正式环境  山东：8 ，海南：31，山西：67，沈阳：7      测试环境：31
 // returnUrl 支付完成返回首页重新授权地址
+// title 标题
+// sightInterfaceUrl 看点正式环境地址
 
 VUE_APP_DEPLOY_CITY = "SXJKWX";
 
-var JMBWebAPPConfig = { interfaceUrl: "", supId: "31", title: "金苗宝" };
+var JMBWebAPPConfig = {
+  interfaceUrl: "",
+  supId: "31",
+  title: "金苗宝",
+  sightInterfaceUrl: "https://wjinmiao.com:9030/jmbcommon",
+};
 
 /// ////////////////////// 本地开发 ////////////////////////////
 if (VUE_APP_DEPLOY_ENV === "dev") {
   JMBWebAPPConfig.interfaceUrl = "http://localhost:17070/jmb";
   // JMBWebAPPConfig.interfaceUrl = 'http://localhost:17070/jmbsx'
+  JMBWebAPPConfig.sightInterfaceUrl = "http://wjinmiao.com:9015/jmbcommon"; //看点测试环境地址
 }
 /// ///////////////////////// 测试 /////////////////////////////////////
 // 测试 - 山东省
@@ -284,23 +300,23 @@ else if (
   // JMBWebAPPConfig.interfaceUrl = 'https://wjinmiao.com:8010/jmbshandong'
   JMBWebAPPConfig.interfaceUrl = "https://sdepi.sdcdc.cn/jmbshandong";
 }
-// 正式 - 日照 - WEIXIN
+// 正式 - 健康山东服务号 - WEIXIN
 else if (VUE_APP_DEPLOY_ENV === "prod" && VUE_APP_DEPLOY_CITY === "WXJKSD") {
-  JMBWebAPPConfig.supId = "8";
+  JMBWebAPPConfig.supId = "8"; // 测试环境用31，山东正式环境用8
   // JMBWebAPPConfig.interfaceUrl = 'https://sdepi.sdcdc.cn/jmbshandong'
   // JMBWebAPPConfig.interfaceUrl = 'http://127.0.0.1:17070'
-  // JMBWebAPPConfig.interfaceUrl = 'http://wjinmiao.net:7714/jmb'
-  JMBWebAPPConfig.interfaceUrl = "https://sdepi.sdcdc.cn/jmbshandong";
+  JMBWebAPPConfig.interfaceUrl = "http://wjinmiao.net:7714/jmb";
+  // JMBWebAPPConfig.interfaceUrl = 'https://sdepi.sdcdc.cn/jmbshandong'
 }
 // 正式 - 山东 - 通用 - WXSDTYJmbWeb
 else if (
   VUE_APP_DEPLOY_ENV === "prod" &&
   VUE_APP_DEPLOY_CITY === "WXSDTYJmbWeb"
 ) {
-  JMBWebAPPConfig.supId = "31"; // 测试环境用31，山东正式环境用8
+  JMBWebAPPConfig.supId = "8"; // 测试环境用31，山东正式环境用8
   // JMBWebAPPConfig.interfaceUrl = 'http://127.0.0.1:17070'
-  JMBWebAPPConfig.interfaceUrl = "http://wjinmiao.net:7714/jmb"; // 测试环境
-  // JMBWebAPPConfig.interfaceUrl = 'https://sdepi.sdcdc.cn/jmbshandong'//正式环境
+  // JMBWebAPPConfig.interfaceUrl = 'http://wjinmiao.net:7714/jmb'// 测试环境
+  JMBWebAPPConfig.interfaceUrl = "https://sdepi.sdcdc.cn/jmbshandong"; //正式环境
 }
 // 正式 - https测试支付功能 - 通用 - testH5WXPAY
 else if (
@@ -358,7 +374,7 @@ else if (VUE_APP_DEPLOY_ENV === "prod" && VUE_APP_DEPLOY_CITY === "SXJKWX") {
   JMBWebAPPConfig.supId = "67";
   // JMBWebAPPConfig.interfaceUrl = 'http://127.0.0.1:17070'
   // JMBWebAPPConfig.interfaceUrl = 'http://wjinmiao.net:7714/jmb'
-  JMBWebAPPConfig.interfaceUrl = "https://ymjz.sxcdc.cn/jmbshanxi";
+  JMBWebAPPConfig.interfaceUrl = "https://ymjz.sxcdc.cn/jmbweb";
 }
 // 正式 -  沈阳微信公众号 - WXLNJMBWebAPP
 else if (VUE_APP_DEPLOY_ENV === "prod" && VUE_APP_DEPLOY_CITY === "WXSYWEB") {
@@ -376,7 +392,7 @@ else if (
   JMBWebAPPConfig.title = "长沙县疫苗接种与查验证系统";
   JMBWebAPPConfig.supId = "";
   // JMBWebAPPConfig.interfaceUrl = 'http://127.0.0.1:17070'
-  //  JMBWebAPPConfig.interfaceUrl = 'http://wjinmiao.net:7714/jmb'
+  // JMBWebAPPConfig.interfaceUrl = 'http://wjinmiao.net:7714/jmb'
   JMBWebAPPConfig.interfaceUrl = "https://yfjz.csxjkxs.com/jmbhunan";
 }
 // 正式 -  对接在星沙app - CSJMBWebAPP
@@ -400,6 +416,16 @@ else if (
   // JMBWebAPPConfig.interfaceUrl = 'http://127.0.0.1:17070'
   // JMBWebAPPConfig.interfaceUrl = 'https://wjinmiao.com/jmbsx'
   JMBWebAPPConfig.interfaceUrl = "https://hnmygh.hiunihealth.cn/jmbhainan";
+}
+// 正式 -  湖南永州疾控微信公众号 - yongzhouwx
+else if (
+  VUE_APP_DEPLOY_ENV === "prod" &&
+  VUE_APP_DEPLOY_CITY === "yongzhouwx"
+) {
+  JMBWebAPPConfig.supId = "";
+  // JMBWebAPPConfig.interfaceUrl = 'http://127.0.0.1:17070'
+  // JMBWebAPPConfig.interfaceUrl = 'http://wjinmiao.net:7714/jmb'
+  JMBWebAPPConfig.interfaceUrl = "https://wjinmiao.com:8004/jmbhunan";
 }
 document.title = JMBWebAPPConfig.title;
 
@@ -437,10 +463,12 @@ function axiosGet(args, method, fun) {
     method == "/Encryption/Highlight/GetContentByPage" ||
     method == "/Encryption/Highlight/GetContentById" ||
     method == "/Encryption/Highlight/GetBaseType" ||
-    method == "/Encryption/Highlight/uploadAspectTime"
+    method == "/Encryption/Highlight/uploadAspectTime" ||
+    method == "/Encryption/Highlight/GetHtmlContentById" ||
+    method == "/Encryption/Highlight/GetHtmlContentById2"
   ) {
-    url = "https://wjinmiao.com:9030/jmbcommon" + method; // 正式
-    // url = 'http://221.224.159.213:9015/jmbcommon' + method //测试
+    url = JMBWebAPPConfig.sightInterfaceUrl + method; // 正式
+    // url = 'https://wjinmiao.com:9017/jmbcommon' + method //测试
     // url = 'http://221.224.159.210:8119/jmbhighlight' + method //本地
   } else {
     url = JMBWebAPPConfig.interfaceUrl + method;
@@ -450,7 +478,9 @@ function axiosGet(args, method, fun) {
     method == "/Encryption/Highlight/GetContentByPage" ||
     method == "/Encryption/Highlight/GetContentById" ||
     method == "/Encryption/Highlight/GetBaseType" ||
-    method == "/Encryption/Highlight/uploadAspectTime"
+    method == "/Encryption/Highlight/uploadAspectTime" ||
+    method == "/Encryption/Highlight/GetHtmlContentById" ||
+    method == "/Encryption/Highlight/GetHtmlContentById2"
   ) {
     hasCredentials = false;
   } else {
@@ -513,6 +543,7 @@ function axiosGet(args, method, fun) {
         var data = decrypt(response.data.result);
         if (data.code == "9") {
           console.log("code9");
+          console.log("过期url====" + method);
           ons.notification.alert("登录信息已失效，请重新登录", {
             title: "登录过期",
             buttonLabels: "重新登录",

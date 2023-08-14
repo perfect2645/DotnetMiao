@@ -9,7 +9,7 @@ namespace Sxjk.tools
 {
     internal class QueryUserIdContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/SearchAdultList?";
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/SearchAdultList?";
         public QueryUserIdContent(SxjkLogin user) : base(baseUrl, user)
         {
             BuildUrl();
