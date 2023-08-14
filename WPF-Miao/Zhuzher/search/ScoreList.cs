@@ -11,11 +11,11 @@ namespace Zhuzher.search
 {
     internal class ScoreItem : NotifyChanged
     {
-        public string ActivityGameId { get; set; }
-        public int GameGoodId { get; set; }
         public string GoodName { get; set; }
+        public int ExchangeGoodId { get; set; }
+        public int ExchangeId { get; set; }
+        public int ExchangeGoodTimeId { get; set; }
         public DateTime StartTime { get; set; }
-        public int Number { get; set; }
 
         /*
          * 0: 未开始
@@ -71,10 +71,10 @@ namespace Zhuzher.search
         {
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
             //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
-            AddMiaoshaItem(7428, 1, "洁柔厨房纸巾4包兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
-        private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
+        private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeIdint, string goodName, string startTimeStr = "")
         {
             var startTime = DateTime.Today;
             if (!string.IsNullOrEmpty(startTimeStr))
@@ -89,24 +89,12 @@ namespace Zhuzher.search
 
             MiaoshaList.Add(new ScoreItem
             {
-                GameGoodId = gameGoodId,
-                Group = group,
+                ExchangeGoodId = exchangeGoodId,
+                ExchangeGoodTimeId = exchangeGoodTimeIdint,
+                ExchangeId = exchangeId,
+                Group = 1,
                 GoodName = goodName,
-                ActivityGameId = activityGameId,
-                Number = 0,
                 StartTime = startTime,
-            });
-        }
-
-        private void AddDuobaoItem(int gameGoodId, string goodName, string activityGameId, int number = 0)
-        {
-            MiaoshaList.Add(new ScoreItem
-            {
-                GameGoodId = gameGoodId,
-                GoodName = goodName,
-                ActivityGameId = activityGameId,
-                Number = number,
-                StartTime = DateTime.Today,
             });
         }
 

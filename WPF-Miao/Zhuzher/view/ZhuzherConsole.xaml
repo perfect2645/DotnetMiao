@@ -68,6 +68,9 @@
                     <Button Content="秒杀"
                         Command="{Binding SeckillCommand}" Width="100" >
                     </Button>
+                    <Button Content="积分秒杀"
+                        Command="{Binding ScoreSeckillCommand}" Width="100" >
+                    </Button>
                 </StackPanel>
             </StackPanel>
 

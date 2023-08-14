@@ -149,6 +149,22 @@ namespace Sxjk.viewmodel
             {
                 new SxjkHospital
                 {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140105020100",
+                    StationName = "平阳社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140105010100",
+                    StationName = "小店区人民医院",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
                     CityCode = "140500000000",
                     CityName = "晋城市",
                     StationCode = "140502120100",

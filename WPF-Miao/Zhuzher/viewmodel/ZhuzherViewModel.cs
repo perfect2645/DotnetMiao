@@ -25,6 +25,7 @@ namespace Zhuzher.viewmodel
         public ICommand CollectSunCommand { get; set; }
         public ICommand ExchangeCommand { get; set; }
         public ICommand SeckillCommand { get; set; }
+        public ICommand ScoreSeckillCommand { get; set; }
         public ICommand JoinTeamCommand { get; set; }
 
         private List<MiaoshaItem> _miaoshaList;
@@ -35,6 +36,17 @@ namespace Zhuzher.viewmodel
             {
                 _miaoshaList = value;
                 NotifyUI(() => MiaoshaList);
+            }
+        }
+
+        private List<ScoreItem> _scoreMiaoshaList;
+        public List<ScoreItem> ScoreMiaoshaList
+        {
+            get { return _scoreMiaoshaList; }
+            set
+            {
+                _scoreMiaoshaList = value;
+                NotifyUI(() => ScoreMiaoshaList);
             }
         }
 
@@ -75,6 +87,7 @@ namespace Zhuzher.viewmodel
             CollectSunCommand = new RelayCommand(ExecuteCollectSunAsync, CanExecuteCollectSun);
             ExchangeCommand = new RelayCommand(ExecuteExchange);
             SeckillCommand = new RelayCommand(ExecuteSeckill);
+            ScoreSeckillCommand = new RelayCommand(ExecuteScoreSeckill);
             JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
 
             SessionEvents.Instance.Subscribe(LogSession);
@@ -150,6 +163,26 @@ namespace Zhuzher.viewmodel
                 Log(ex);
             }
         }
+
+        private void ExecuteScoreSeckill()
+        {
+            try
+            {
+                ZhuzherSession.Cookie = Cookie;
+                var seckillHandler = HttpServiceController.GetService<JifenSeckillController>();
+                seckillHandler.Seckill(ScoreMiaoshaList);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        
 
         #endregion Seckill
 
