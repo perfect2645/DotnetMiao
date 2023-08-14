@@ -33,7 +33,17 @@ namespace Zhuzher.Exchange
             var user = UserProjectList.UserProjects.FirstOrDefault();
             var good = GoodList.GetDefaultGood();
 
-            var url = "https://chaos.4009515151.com/market/api/score/good/exchange";
+            var isLoot = false;
+            if (good.Number > 0)
+            {
+                isLoot = true;
+            }
+
+            var url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
+            if (isLoot)
+            {
+                url = "https://chaos.4009515151.com/market/api/activity/loot/exchange";
+            }
             var content = new ExchangeContent(url);
 
             content.AddHeader("Authorization", user.Authorization);
@@ -41,7 +51,10 @@ namespace Zhuzher.Exchange
             content.AddContent("projectName", user.ProjectName);
             content.AddContent("activityGameId", good.ActivityGameId);
             content.AddContent("gameGoodId", good.GameGoodId);
-
+            if (isLoot)
+            {
+                content.AddContent("number", good.Number);
+            }
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
@@ -56,7 +69,7 @@ namespace Zhuzher.Exchange
         }
 
 
-        public void Seckill(UserProject user, ScoreItem good)
+        public void Seckill(UserProject user, MiaoshaItem good)
         {
             var isLoot = false;
             if (good.Number > 0)
@@ -96,7 +109,7 @@ namespace Zhuzher.Exchange
             good.Status = 2;
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
-            if  (msg == "已达个人上限")
+            if (msg == "已达个人上限")
             {
                 // 中奖了
                 good.Status = 3;
@@ -120,7 +133,7 @@ namespace Zhuzher.Exchange
             PrintLog(user, good, msg);
         }
 
-        private void PrintLog(UserProject user, ScoreItem good, string? msg)
+        private void PrintLog(UserProject user, MiaoshaItem good, string? msg)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"兑换奖品- {good.Log}, message:{msg}");

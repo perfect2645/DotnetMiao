@@ -9,10 +9,12 @@ namespace Zhuzher.Exchange
     internal class JifenSurkillContent : HttpStringContent
     {
         public UserProject User { get; set; }
-        public const string Url = "https://chaos.4009515151.com/market/api/score/good/exchange";
-        public JifenSurkillContent(UserProject user) : base(Url)
+        public ScoreItem ScoreItem { get; set; }
+        public const string Url = "https://chaos.4009515151.com/market/api/score/time/exchange";
+        public JifenSurkillContent(UserProject user, ScoreItem scoreItem) : base(Url)
         {
             User = user;
+            ScoreItem = scoreItem;
             BuildHeader();
             BuildContent();
         }
@@ -33,8 +35,9 @@ namespace Zhuzher.Exchange
 
         private void BuildContent()
         {
-            AddContent("exchangeGoodId", ZhuzherSession.ActivityId.ToInt());
-            AddContent("exchangeId", ZhuzherSession.ActivityId.ToInt());
+            AddContent("exchangeGoodId", ScoreItem.ExchangeGoodId);
+            AddContent("exchangeId", ScoreItem.ExchangeId);
+            AddContent("exchangeGoodTimeId", ScoreItem.ExchangeGoodTimeId);
             AddContent("projectCode", User.ProjectCode);
         }
     }

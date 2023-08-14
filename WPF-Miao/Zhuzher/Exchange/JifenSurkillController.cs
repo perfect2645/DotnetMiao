@@ -34,29 +34,9 @@ namespace Zhuzher.Exchange
             var user = UserProjectList.UserProjects.FirstOrDefault();
             var good = GoodList.GetDefaultGood();
 
-            var isLoot = false;
-            if (good.Number > 0)
-            {
-                isLoot = true;
-            }
 
-            var url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
-            if (isLoot)
-            {
-                url = "https://chaos.4009515151.com/market/api/activity/loot/exchange";
-            }
-            var content = new ExchangeContent(url);
 
-            content.AddHeader("Authorization", user.Authorization);
-            content.AddContent("projectCode", user.ProjectCode);
-            content.AddContent("projectName", user.ProjectName);
-            content.AddContent("activityGameId", good.ActivityGameId);
-            content.AddContent("gameGoodId", good.GameGoodId);
-
-            if (isLoot)
-            {
-                content.AddContent("number", good.Number);
-            }
+            var content = new JifenSurkillContent(user, good);
             content.BuildDefaultHeaders(Client);
 
             if (good.Status >= 2)
