@@ -63,29 +63,10 @@ namespace Sanya.search
         private void SaveUser(string dataEncode, SanyaLogin user)
         {
             var userInfo = JsReader.DecodeAesCbc(dataEncode);
-            var userInfoList = JsonAnalysis.JsonToDicList(dataEncode);
-            if (!userInfoList.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
-                return;
-            }
+            
 
-            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("name") == user.UserName);
-            if (targetUser == null)
-            {
-                targetUser = userInfoList.FirstOrDefault();
-            }
 
-            var userName = targetUser.GetString("name");
-            var familyId = targetUser.GetString("family_id");
-
-            user.FamilyId = familyId;
-            user.UserName = userName;
-            user.Phone = targetUser.GetString("tel");
-            user.Idcard = targetUser.GetString("idcard");
-            user.OpenId = targetUser.GetString("openid");
-
-            MainSession.PrintLogEvent.Publish(this, targetUser);
+            MainSession.PrintLogEvent.Publish(this, userInfo);
         }
     }
 }

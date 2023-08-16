@@ -1,13 +1,15 @@
-GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/wx/toHtml5Servlet?parameters=EWab4mGlTPqqc83yfqGx%2BNhvFQV4GQu%2FCIky9uKjO7H558GBYIeOh0vS8cHEldaj0yzpA3yMTKBcyr6SHZq7VrhV9bwMgFsVp9pAN3pv%2BbVTt31yO6oMBsPWQhYSdaY2lO49VanJ7vV%2FDDNTVbuNw%2FLe9LxBd9qUBbC%2B3nIWnUHFYzki%2F22U1Ba6egf8cq1%2FifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs%3D&sign=db1c8b4afba0a682b137b280c8664ddd&timestamp=1691822250937 HTTP/1.1
+GET https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetBactPriceList?parameters=H6sf04SGY81I7liOqPPCugZNgIadtsNvx7VY1BXbH9wGl/NmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGLS0NqMGMjRikuXDx5IRVLtvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U+vqsww==&sign=53c222b8db7d3a029c4a935c9d503531&timestamp=1692143401922 HTTP/1.1
 Host: ymjz.sxcdc.cn
+Content-Type: application/json;charset=UTF-8
+Cookie: SESSION=ZDIzMDAxMzItMDE5NS00ODI5LWIwNmYtYzI3OGNlMTMzY2Vl
 Connection: keep-alive
 Accept: application/json, text/plain, */*
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
-Cookie: SESSION=OTlkZGQzZDAtNGE0Yy00YmJjLWI1NjctN2ExMTdlYzBjMzM4
-Sec-Fetch-Site: same-origin
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: https://ymjz.sxcdc.cn/SXJKWX/redirect.html?code=051ZCm100W9OtQ1RCO000xyWHu0ZCm1H&state=wx83daa62ee4b38e4b
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.40(0x1800282c) NetType/WIFI Language/zh_CN
+Referer: https://ymjz.sxcdc.cn/SXJKWX/selectVaccine?station_code=140902194100&child_code=140902190719990024
+Accept-Language: zh-CN,zh-Hans;q=0.9
 Accept-Encoding: gzip, deflate, br
-Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
+H6sf04SGY81I7liOqPPCugZNgIadtsNvx7VY1BXbH9wGl/NmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGLS0NqMGMjRikuXDx5IRVLtvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U+vqsww==
+
+
+bact_id=72&station_code=140902194100&user_name=other#393338&city_code=140900000000&version_name=6.6.0&os=web

@@ -1,0 +1,74 @@
+POST https://public.health.zoenet.cn/medical/medical-card-manage/decoupling/selectPatientCardListByGroup HTTP/1.1
+Host: public.health.zoenet.cn
+Connection: keep-alive
+Content-Length: 297
+noncePf: D05E0796ED3541CDB61C397E4C9B9417
+level: 
+Origin: https://public.health.zoenet.cn
+headersign: B6B32785AB599F9707780DB6B6B76CEA
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+node: open
+Content-Type: application/json; charset=utf-8
+Accept: */*
+Cookie: connect.sid=s%3AiDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP%2BdNmoaGplZ5JD9y35Up%2BffWhk; HWWAFSESID=787a4736e2f641c23b; HWWAFSESTIME=1692114786449; appcode=HC_SANYA_WX
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://public.health.zoenet.cn/medical/recharge-payment/select-medical-card?isEncode=true&hosCode=460200&return=https%3A%2F%2Fpublic.health.zoenet.cn%2Fpay%2Fmask-collection-appointment%3Fid%3D2c9080157358a6db01736ee97a68060a%26receiveAddrName%3D5LiJ5Lqa5biC5ZCJ6Ziz5Yy65aSn5Lic5rW356S%2B5Yy65Y2r55Sf5pyN5Yqh56uZ%26orgCode%3DA572000C001-03%26hosCode%3D460200%26noChooseProject%3Dtrue%26reservationMode%3D2%26from%3Dselect%26selectType%3Ddefault%26keepCache%3Dtrue%26noChooseProject%3Dtrue%26reservationMode%3D2&isMaskAppointment=1
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{
+    "hosCode": "14fdc63bb7b711413d6f5301da6e7819", //460200
+    "openId": "e3516f2574333238a3421325bf73686efe0d1674d4d3ead7a687555ed977dffd", // oGqHb06PO_MqQpGJeoGl0suoYlqo
+    "platformSingleHospital": "8a8b5fa3c007c396408b3373d535a4dd", // 0
+    "validFlag": "d839882c37701612b7b6e718d2f0a6cc", // 1
+    "icCardTypeCode": "4ab97325386e5ecd3703047c5eec32a4", // 7
+    "encryptFlag": 1
+}
+
+
+{"orgCode":"460200","appCode":"HC_SANYA_WX","zoneCode":"460200","zoneName":"5LiJ5Lqa5biC","hosCode":"","openID":"oGqHb06PO_MqQpGJeoGl0suoYlqo","unionId":"","longitude":"","latitude":"","ip":"100.92.92.204, 59.109.99.197, 123.60.254.29, 119.3.116.3, 172.16.0.145","theme":"blue","token":"pf7fed7efc672d41ffa00ee5e16edd4f8b","csrfToken":"","connectSid":"s:iDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP+dNmoaGplZ5JD9y35Up+ffWhk","zoeUuid":"FB92E43BC2F64A598902A57E5D25B6A7","version":"3.10.22","hash":"1692069266807","buryingPointStatus":"1","buryingPointPageIdUpdateTime":"2022-02-21","transparentConfig":[{"key":"bsc","value":"buryingPointBSC"},{"key":"pmc","value":"buryingPointPMC"},{"key":"level","value":"transparentLevel"}],"debugAuthorize":"","checkDataMD5":"F0EB3F29B61DE7A11550D0A7DA0E3C8C"}
+
+{
+    "encryptParams": "patientName,childName,idCard,childIdCard,telephone",
+    "recPatientIcCardList": [],
+    "ehcRemoveSecurityFlag": 1,
+    "showECertificate": "0",
+    "showEHealthCard": "1",
+    "ylzCardCreateFileType": 0,
+    "showCardAdd": "0",
+    "eHealthCardList": [
+        {
+            "patientId": "2c90804788d689460188e1acb9d84c1b",
+            "idCard": "110103198211290041",
+            "icCardTypeCode": "7",
+            "idCardTypeCode": "1",
+            "icCardTypeName": "电子健康卡",
+            "idCardTypeName": "居民身份证",
+            "id": "2c9080df88d967fa0188e2d5fb372662",
+            "hosName": "三亚市",
+            "barcode": "",
+            "cardHandleTypeCode": 1,
+            "telephone": "18840842645",
+            "hosCode": "460200",
+            "birthday": "1982-11-29",
+            "validFlag": 1,
+            "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20190110/f7142468c3c2486fbb57a587afa99e81.png",
+            "title": "三亚市卫生健康委员会",
+            "showBarCode": 0,
+            "enableFlag": 1,
+            "nationCode": "01",
+            "patientName": "李彤",
+            "address": "北京市市辖区",
+            "ehcRemoveSecurityFlag": 1,
+            "icCardNo": "10000000000001251312",
+            "scanIcon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20190128/1fd7011073394716b551b4aa16af7977.png",
+            "sexCode": 2,
+            "useObjectCode": 1,
+            "cardHandleTypeName": "区域"
+        }
+    ],
+    "eCertificateList": [],
+    "hosName": "三亚市"
+}
