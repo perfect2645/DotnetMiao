@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Sanya.common;
+using Utils.stringBuilder;
+using Utils.datetime;
 
 namespace Sanya.search
 {
@@ -63,10 +65,34 @@ namespace Sanya.search
         private void SaveUser(string dataEncode, SanyaLogin user)
         {
             var userInfo = JsReader.DecodeAesCbc(dataEncode);
-            
+            var userInfoListStr = userInfo.GetString("eHealthCardList");
+            var userInfoList = userInfoListStr.ToObjDicList();
 
+            if (!userInfoList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
+                return;
+            }
 
-            MainSession.PrintLogEvent.Publish(this, userInfo);
+            var targetUser = userInfoList.FirstOrDefault(x => x.GetString("patientName") == user.UserName);
+            if (targetUser == null)
+            {
+                targetUser = userInfoList.FirstOrDefault();
+            }
+
+            var userName = targetUser.GetString("patientName");
+            var patientId = targetUser.GetString("patientId");
+            var birthday = targetUser.GetString("birthday");
+            var age = DateTimeUtil.GetAge(birthday);
+
+            user.PatientId = patientId;
+            user.UserName = userName;
+            user.Phone = targetUser.GetString("telephone");
+            user.IdCard = targetUser.GetString("idCard");
+            user.IcCard = targetUser.GetString("icCardNo");
+            user.Age = age;
+
+            MainSession.PrintLogEvent.Publish(this, targetUser);
         }
     }
 }

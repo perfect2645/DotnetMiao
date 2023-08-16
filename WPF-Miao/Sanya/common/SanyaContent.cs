@@ -6,6 +6,7 @@ using Utils;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 
 namespace Sanya.common
 {
@@ -50,6 +51,8 @@ namespace Sanya.common
 
         protected virtual void BuildHeaderSign()
         {
+            HeaderSignDic = Content.ToDictionary(k => k.Key, v => v.Value);
+
             var appCode = MainSession.PlatformSession.GetString(Constants.AppCode);
             HeaderSignDic.AddOrUpdate(Constants.ZoeUuid, User.ZoeUuid);
             HeaderSignDic.AddOrUpdate(Constants.AppCode, appCode);

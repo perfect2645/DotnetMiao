@@ -36,5 +36,19 @@ namespace Sanya.common
             return requestDataDic;
         }
 
+        public static string EncodeStr(string input)
+        {
+            try
+            {
+                var result = JsEngine.Engine.Script.encryptByAes(input) as string;
+                return result.NotNullString();
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(input, $"EncodeStr异常:{ex.Message}");
+                return null;
+            }
+        }
+
     }
 }

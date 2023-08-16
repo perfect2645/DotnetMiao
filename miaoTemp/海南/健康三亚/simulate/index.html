@@ -16,7 +16,13 @@
       // encPwd = JSON.parse(encPwd); // 将字符串解析为JavaScript对象
       const dec = decryptByAes(inputVal); // 解密方法
 
+
+
+      const toEncrypt = "1";
+      var encStr = encryptByAes(toEncrypt);
+
       console.log(dec);
+      console.log(encStr);
   </script>
 
 </body>

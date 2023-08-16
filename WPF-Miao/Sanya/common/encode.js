@@ -31,3 +31,18 @@ function decryptByDes(t) {
         o = CryptoJS.enc.Utf8.stringify(i);
     return o;
 }
+
+
+function encryptByAes(t) {
+    let e = "3132333435363738393041424344454631323334353637383930414243444566";
+    let n = "30313233343536373839414243444546";
+    e = CryptoJS.enc.Hex.parse(e);
+    var r = CryptoJS.enc.Hex.parse(n),
+        i = CryptoJS.AES.encrypt(t, e, {
+            iv: r,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7,
+        }),
+        o = i.ciphertext.toString();
+    return o;
+}

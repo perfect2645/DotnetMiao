@@ -181,5 +181,17 @@ namespace Utils.datetime
             var dayOfWeek = Convert.ToDateTime(date);
             return dayOfWeek.DayOfWeek.ToInt();
         }
+
+        public static int GetAge(string birthdayStr)
+        {
+            var birthday = Convert.ToDateTime(birthdayStr);
+            int age = DateTime.Now.Year - birthday.Year;
+            if (DateTime.Now.Month < birthday.Month || (DateTime.Now.Month == birthday.Month && DateTime.Now.Day < birthday.Day))
+            {
+                age--;
+            }
+
+            return age;
+        }
     }
 }

@@ -27,9 +27,6 @@ Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
     "encryptFlag": 1
 }
 
-
-{"orgCode":"460200","appCode":"HC_SANYA_WX","zoneCode":"460200","zoneName":"5LiJ5Lqa5biC","hosCode":"","openID":"oGqHb06PO_MqQpGJeoGl0suoYlqo","unionId":"","longitude":"","latitude":"","ip":"100.92.92.204, 59.109.99.197, 123.60.254.29, 119.3.116.3, 172.16.0.145","theme":"blue","token":"pf7fed7efc672d41ffa00ee5e16edd4f8b","csrfToken":"","connectSid":"s:iDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP+dNmoaGplZ5JD9y35Up+ffWhk","zoeUuid":"FB92E43BC2F64A598902A57E5D25B6A7","version":"3.10.22","hash":"1692069266807","buryingPointStatus":"1","buryingPointPageIdUpdateTime":"2022-02-21","transparentConfig":[{"key":"bsc","value":"buryingPointBSC"},{"key":"pmc","value":"buryingPointPMC"},{"key":"level","value":"transparentLevel"}],"debugAuthorize":"","checkDataMD5":"F0EB3F29B61DE7A11550D0A7DA0E3C8C"}
-
 {
     "encryptParams": "patientName,childName,idCard,childIdCard,telephone",
     "recPatientIcCardList": [],
