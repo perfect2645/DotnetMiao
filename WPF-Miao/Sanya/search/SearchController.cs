@@ -32,28 +32,11 @@ namespace Sanya.search
 
         private void GetMiao()
         {
-            var vaccineController = HttpServiceController.GetService<VaccineController>();
-            var isVaccineGet = false;
-            while (!isVaccineGet)
-            {
-                if (MainSession.GetStatus() == MiaoProgress.MiaoGet)
-                {
-                    break;
-                }
-                if (MainSession.GetStatus() == MiaoProgress.AppointEnd)
-                {
-                    break;
-                }
-                isVaccineGet = vaccineController.SearchVaccine();
-                Thread.Sleep(600);
-            }
-            var date = vaccineController.Date;
-
             var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
             while(!isScheduleGet)
             {
-                isScheduleGet = miaoController.SearchMiao(date);
+                isScheduleGet = miaoController.SearchMiao();
                 Thread.Sleep(1000);
             }
         }

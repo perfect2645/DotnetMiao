@@ -19,20 +19,151 @@ Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 
 {"orgCode":"A572000C001-03","subscribeType":"2c90a2f271a585100171a5e96d030003","serviceId":"2c90803b7478b52801747b2e7285014e"}
-HTTP/1.1 200 OK
-Date: Fri, 23 Jun 2023 15:20:37 GMT
-Content-Type: application/json; charset=utf-8
-Connection: keep-alive
-Server: openresty
-X-Powered-By: Express
-X-Frame-Options: DENY
-ETag: W/"c5e-a+rX9QCWdeBnVMjG5g70BG8lckI"
-Vary: Accept-Encoding
-X-CCDN-Origin-Time: 467
-via: CHN-LNshenyang-AREACMCC1-CACHE4[488],CHN-LNshenyang-AREACMCC1-CACHE13[484,TCP_MISS,486],CHN-TJ-GLOBAL1-CACHE35[470],CHN-TJ-GLOBAL1-CACHE44[467,TCP_MISS,469]
-x-hcs-proxy-type: 0
-X-CCDN-CacheTTL: 0
-alt-svc: h3=":443"; ma=2592000
-Content-Length: 3166
 
-{"code":0,"data":[{"inventoryList":[{"appointmentTimeId":"2c9080de841f301e01842b98165501a5","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":23,"subscribeStartTime":"08:00","subscribeEndTime":"09:00"},{"appointmentTimeId":"2c9080de841f301e01842b98166001a6","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":26,"subscribeStartTime":"09:00","subscribeEndTime":"10:00"},{"appointmentTimeId":"2c9080de841f301e01842b98166c01a7","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":24,"subscribeStartTime":"10:00","subscribeEndTime":"11:00"},{"appointmentTimeId":"2c90806587aed30e018855e377b61009","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":15,"subscribeStartTime":"11:00","subscribeEndTime":"11:30"}],"day":"2023-06-28"},{"inventoryList":[{"appointmentTimeId":"2c9080de841f301e01842b98167701a8","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":25,"subscribeStartTime":"08:00","subscribeEndTime":"09:00"},{"appointmentTimeId":"2c9080de841f301e01842b98168301a9","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":26,"subscribeStartTime":"09:00","subscribeEndTime":"10:00"},{"appointmentTimeId":"2c9080de841f301e01842b98168d01aa","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":26,"subscribeStartTime":"10:00","subscribeEndTime":"11:00"},{"appointmentTimeId":"2c90806587aed30e018855e377c1100a","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":15,"subscribeStartTime":"11:00","subscribeEndTime":"11:30"}],"day":"2023-06-29"},{"inventoryList":[{"appointmentTimeId":"2c9080de841f301e01842b98169901ab","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":26,"subscribeStartTime":"08:00","subscribeEndTime":"09:00"},{"appointmentTimeId":"2c9080de841f301e01842b9816a501ac","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":24,"subscribeStartTime":"09:00","subscribeEndTime":"10:00"},{"appointmentTimeId":"2c9080de841f301e01842b9816b201ad","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":25,"subscribeStartTime":"10:00","subscribeEndTime":"11:00"},{"appointmentTimeId":"2c90800a87aed523018855ec3a270dc5","appointmentGoodsDetailsId":"2c90800a87aed52301881eec59f30841","originalPrice":null,"validFlag":1,"price":null,"residualNumber":15,"subscribeStartTime":"11:00","subscribeEndTime":"11:30"}],"day":"2023-06-30"}],"exChangeMessage":null,"integralRid":"","message":null,"popUpType":null,"success":true,"traceId":null}
+
+{
+    "code": 0,
+    "data": [
+        {
+            "inventoryList": [
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98165501a5",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 23,
+                    "subscribeStartTime": "08:00",
+                    "subscribeEndTime": "09:00"
+                },
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98166001a6",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 26,
+                    "subscribeStartTime": "09:00",
+                    "subscribeEndTime": "10:00"
+                },
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98166c01a7",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 24,
+                    "subscribeStartTime": "10:00",
+                    "subscribeEndTime": "11:00"
+                },
+                {
+                    "appointmentTimeId": "2c90806587aed30e018855e377b61009",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 15,
+                    "subscribeStartTime": "11:00",
+                    "subscribeEndTime": "11:30"
+                }
+            ],
+            "day": "2023-06-28"
+        },
+        {
+            "inventoryList": [
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98167701a8",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 25,
+                    "subscribeStartTime": "08:00",
+                    "subscribeEndTime": "09:00"
+                },
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98168301a9",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 26,
+                    "subscribeStartTime": "09:00",
+                    "subscribeEndTime": "10:00"
+                },
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98168d01aa",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 26,
+                    "subscribeStartTime": "10:00",
+                    "subscribeEndTime": "11:00"
+                },
+                {
+                    "appointmentTimeId": "2c90806587aed30e018855e377c1100a",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 15,
+                    "subscribeStartTime": "11:00",
+                    "subscribeEndTime": "11:30"
+                }
+            ],
+            "day": "2023-06-29"
+        },
+        {
+            "inventoryList": [
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b98169901ab",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 26,
+                    "subscribeStartTime": "08:00",
+                    "subscribeEndTime": "09:00"
+                },
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b9816a501ac",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 24,
+                    "subscribeStartTime": "09:00",
+                    "subscribeEndTime": "10:00"
+                },
+                {
+                    "appointmentTimeId": "2c9080de841f301e01842b9816b201ad",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 25,
+                    "subscribeStartTime": "10:00",
+                    "subscribeEndTime": "11:00"
+                },
+                {
+                    "appointmentTimeId": "2c90800a87aed523018855ec3a270dc5",
+                    "appointmentGoodsDetailsId": "2c90800a87aed52301881eec59f30841",
+                    "originalPrice": null,
+                    "validFlag": 1,
+                    "price": null,
+                    "residualNumber": 15,
+                    "subscribeStartTime": "11:00",
+                    "subscribeEndTime": "11:30"
+                }
+            ],
+            "day": "2023-06-30"
+        }
+    ],
+    "exChangeMessage": null,
+    "integralRid": "",
+    "message": null,
+    "popUpType": null,
+    "success": true,
+    "traceId": null
+}

@@ -147,6 +147,18 @@ namespace Sanya.viewmodel
             {
                 new SanyaHospital
                 {
+                    OrgCode = "A572000C001-03",
+                    ZoneCode = "460200",
+                    ZoneName = "5LiJ5Lqa5biC",
+                    AppCode = "HC_SANYA_WX",
+                    HospitalId = "A572000C001",
+                    HospitalName = "三亚市吉阳区大东海社区卫生服务站",
+                    SubscribeType = "2c90a2f271a585100171a5e96d030003",
+                    DepartmentId = "2c90803b7478b52801747b2e7285014e",
+                    DepartmentName = "13价肺炎疫苗（进口自费）"
+                },
+                new SanyaHospital
+                {
                     OrgCode = "460200",
                     ZoneCode = "460200",
                     ZoneName = "5LiJ5Lqa5biC",
@@ -379,6 +391,7 @@ namespace Sanya.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.ZoneCode, selectedDept.ZoneCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.ZoneName, selectedDept.ZoneName);
             MainSession.PlatformSession.AddOrUpdate(Constants.AppCode, selectedDept.AppCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.SubscribeType, selectedDept.SubscribeType);
 
             Log(selectedDept.ToLogString());
         }

@@ -10,6 +10,7 @@ namespace Sanya.viewmodel
         public string ZoneCode { get; set; }
         public string ZoneName { get; set; }
         public string AppCode { get; set; }
+        public string SubscribeType { get; set; }
 
         public new string Display 
         {  

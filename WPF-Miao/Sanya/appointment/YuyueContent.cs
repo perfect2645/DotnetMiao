@@ -45,10 +45,6 @@ namespace Sanya.appointment
 
         protected override void BuildHeaderSign()
         {
-            foreach(var content in Content)
-            {
-                HeaderSignDic.AddOrUpdate(content.Key, content.Value);
-            }
             base.BuildHeaderSign();
         }
     }
