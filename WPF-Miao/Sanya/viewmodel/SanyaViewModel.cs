@@ -363,7 +363,16 @@ namespace Sanya.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-
+                        Age = user.Age.NotNullString(),
+                        GoodsDetailId = template.GoodsDetailId,
+                        GoodsId = template.GoodsId,
+                        IcCardNo = user.IcCard,
+                        IdCardNo = user.IdCard,
+                        OrgCode = template.OrgCode,
+                        ProvideAddress = template.ProvideAddress,
+                        ServiceId = template.ServiceId,
+                        SubscribeType = template.SubscribeType,
+                        TimeStr = template.TimeStr,
                     };
 
                     orderList.Add(order);

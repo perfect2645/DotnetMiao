@@ -11,6 +11,7 @@ namespace Sanya.search
         public MiaoContent(SanyaLogin user) : base(baseUrl, user)
         {
             BuildContent();
+            BuildHeaderSign();
         }
 
         private void BuildContent()
@@ -21,6 +22,11 @@ namespace Sanya.search
             AddContent("orgCode", orgCode);
             AddContent("subscribeType", subscribeType);
             AddContent("serviceId", serviceId);
+        }
+
+        protected override void BuildHeaderSign()
+        {
+            base.BuildHeaderSign();
         }
     }
 }

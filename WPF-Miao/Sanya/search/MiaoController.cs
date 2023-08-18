@@ -12,6 +12,7 @@ using Utils;
 using Utils.json;
 using Utils.number;
 using Utils.datetime;
+using Utils.stringBuilder;
 
 namespace Sanya.search
 {
@@ -28,7 +29,7 @@ namespace Sanya.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
@@ -73,8 +74,9 @@ namespace Sanya.search
 
             foreach(var schedule in scheduleList)
             {
+                var orders = BuildOrdersOfDay(schedule);
+                orderList.AddRange(orders);
             }
-            
 
             if (!orderList.HasItem())
             {
@@ -94,6 +96,40 @@ namespace Sanya.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
+        }
+
+        private List<Order> BuildOrdersOfDay(Dictionary<string, object> schedule)
+        {
+            var orders = new List<Order>();
+            var day = schedule.GetString("day");
+            var inventoryListStr = schedule.GetString("inventoryList");
+            var inventoryList = inventoryListStr.ToObjDicList();
+
+            var orgCode = MainSession.PlatformSession.GetString(Constants.OrgCode);
+            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
+            var serviceId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var subscribeType = MainSession.PlatformSession.GetString(Constants.SubscribeType);
+
+            foreach (var inventory in inventoryList)
+            {
+                var residualNumber = inventory.GetString("residualNumber").ToInt();
+                if (residualNumber != 0)
+                {
+                    continue;
+                }
+                orders.Add(new Order
+                {
+                    GoodsDetailId = inventory.GetString("appointmentGoodsDetailsId"),
+                    GoodsId = inventory.GetString("appointmentTimeId"),
+                    OrgCode = orgCode,
+                    ProvideAddress = inventory.GetString("hosName"),
+                    ServiceId = serviceId,
+                    SubscribeType = subscribeType,
+                    TimeStr = day,
+                });
+            }
+
+            return orders;
         }
 
         private Order BuildOrder(Dictionary<string, object> schedule, string date)
