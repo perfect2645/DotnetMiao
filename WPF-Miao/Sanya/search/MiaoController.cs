@@ -113,7 +113,7 @@ namespace Sanya.search
             foreach (var inventory in inventoryList)
             {
                 var residualNumber = inventory.GetString("residualNumber").ToInt();
-                if (residualNumber != 0)
+                if (residualNumber == 0)
                 {
                     continue;
                 }
@@ -122,7 +122,7 @@ namespace Sanya.search
                     GoodsDetailId = inventory.GetString("appointmentGoodsDetailsId"),
                     GoodsId = inventory.GetString("appointmentTimeId"),
                     OrgCode = orgCode,
-                    ProvideAddress = inventory.GetString("hosName"),
+                    ProvideAddress = hosName,
                     ServiceId = serviceId,
                     SubscribeType = subscribeType,
                     TimeStr = day,
