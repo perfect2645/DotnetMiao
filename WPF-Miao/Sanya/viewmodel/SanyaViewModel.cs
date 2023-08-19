@@ -159,6 +159,18 @@ namespace Sanya.viewmodel
                 },
                 new SanyaHospital
                 {
+                    OrgCode = "HLQFYBJY",
+                    ZoneCode = "350200",
+                    ZoneName = "5Y6m6Zeo5biC",
+                    AppCode = "HC_PUB_WX",
+                    HospitalId = "",
+                    HospitalName = "湖里区妇幼保健院",
+                    SubscribeType = "2c90804988c4aa5a0188dce414d0150b",
+                    DepartmentId = "2c90811988d966530188dce5038d007b",
+                    DepartmentName = "九价HPV疫苗(进口)（第一针）"
+                },
+                new SanyaHospital
+                {
                     OrgCode = "460200",
                     ZoneCode = "460200",
                     ZoneName = "5LiJ5Lqa5biC",
