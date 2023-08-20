@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Utils.stringBuilder;
 
-namespace Lujiazhen.Encrypt
+namespace Haikou.Encrypt
 {
     internal static class JsReader
     {

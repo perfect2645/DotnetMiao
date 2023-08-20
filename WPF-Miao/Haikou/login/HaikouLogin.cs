@@ -1,6 +1,6 @@
-﻿namespace Lujiazhen.login
+﻿namespace Haikou.login
 {
-    internal class LujiazhenLogin
+    internal class HaikouLogin
     {
         public string Token { get; set; }
         public string Sign { get; set; }

@@ -95,7 +95,6 @@ namespace Lujiazhen.appointment
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"解析预约结果异常{ex.Message}");
-
                 return false;
             }
         }

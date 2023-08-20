@@ -1,6 +1,6 @@
 ﻿using Base.session;
 
-namespace Lujiazhen.session
+namespace Haikou.session
 {
     internal class Constants : MiaoConstants
     {

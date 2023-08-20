@@ -1,6 +1,6 @@
-﻿using Lujiazhen.common;
-using Lujiazhen.login;
-using Lujiazhen.session;
+﻿using Haikou.common;
+using Haikou.login;
+using Haikou.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Utils;
 
-namespace Lujiazhen.login
+namespace Haikou.login
 {
-    internal class UserContent : LujiazhenContent
+    internal class UserContent : HaikouContent
     {
         private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
-        public UserContent(LujiazhenLogin user) : base(baseUrl, user)
+        public UserContent(HaikouLogin user) : base(baseUrl, user)
         {
             BuildUrl();
             BuildContent();

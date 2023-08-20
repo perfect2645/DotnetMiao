@@ -1,12 +1,12 @@
-﻿using Lujiazhen.common;
-using Lujiazhen.login;
-using Lujiazhen.session;
+﻿using Haikou.common;
+using Haikou.login;
+using Haikou.session;
 using System;
 using Utils;
 
-namespace Lujiazhen.appointment
+namespace Haikou.appointment
 {
-    internal class YuyueContent : LujiazhenContent
+    internal class YuyueContent : HaikouContent
     {
         private static string url = ".yuanbaodaojia.com/v1/booking_vaccine_new";
         public Order Order { get; private set; }

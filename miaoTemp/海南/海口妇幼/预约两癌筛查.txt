@@ -1,0 +1,27 @@
+POST https://wx.hospite.com/hkfy/schedule/appointment HTTP/1.1
+Host: wx.hospite.com
+Connection: keep-alive
+Content-Length: 165
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+token: 4781ee37f793ba89922bd4b88f7ff405
+Referer: https://servicewechat.com/wx6583f3ef203bd236/65/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"patientId":19219771,"scheduleId":"832E4326-ADF3-4EC0-B61C-A5CBC9C8058F","appid":"wx6583f3ef203bd236","version":"v0.0.1","token":"4781ee37f793ba89922bd4b88f7ff405"}
+HTTP/1.1 200 OK
+Server: nginx/1.21.1
+Date: Sun, 20 Aug 2023 14:52:55 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Set-Cookie: JSESSIONID=rh-FvEVGIs_h-rNlvtm3lWK_Li83wLrDWjZlzPl7; path=/hkfy
+X-Frame-Options: SAMEORIGIN
+
+64
+{"msg":"success","havaRegFee":"1","code":0,"appointmentRecordId":"86fc9357f41a45f1be9ab16a1beef80c"}
+0
+

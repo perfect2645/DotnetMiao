@@ -1,16 +1,16 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
-using Lujiazhen.appointment;
-using Lujiazhen.login;
+using Haikou.appointment;
+using Haikou.login;
 using System.Collections.Generic;
 
-namespace Lujiazhen.session
+namespace Haikou.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
-        internal static List<LujiazhenLogin> Users { get; set; }
+        internal static List<HaikouLogin> Users { get; set; }
         public static OrderEvent OrderEvent { get; }
         public static AppointSession AppointSession { get; private set; }
         
@@ -20,7 +20,7 @@ namespace Lujiazhen.session
         {
             PlatformSession = new Dictionary<string, object>();
             OrderEvent = new OrderEvent();
-            Users = new List<LujiazhenLogin>();
+            Users = new List<HaikouLogin>();
             Orders = new Dictionary<string, Order>();
         }
 

@@ -4,11 +4,11 @@ using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
-using Lujiazhen.appointment;
-using Lujiazhen.Encrypt;
-using Lujiazhen.login;
-using Lujiazhen.search;
-using Lujiazhen.session;
+using Haikou.appointment;
+using Haikou.Encrypt;
+using Haikou.login;
+using Haikou.search;
+using Haikou.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +18,9 @@ using System.Windows.Input;
 using Utils;
 using Utils.file;
 
-namespace Lujiazhen.viewmodel
+namespace Haikou.viewmodel
 {
-    internal class LujiazhenViewModel : OnTimeViewModel
+    internal class HaikouViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -35,7 +35,7 @@ namespace Lujiazhen.viewmodel
 
         #region Constructor
 
-        public LujiazhenViewModel(LogPanel logPanel) : base(logPanel)
+        public HaikouViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -58,7 +58,7 @@ namespace Lujiazhen.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new LujiazhenHospital
+                new HaikouHospital
                 {
                     AppId = "wx6583f3ef203bd236",
                     HospitalId = "2",
@@ -68,7 +68,7 @@ namespace Lujiazhen.viewmodel
                     ServiceCode = "5",
                     ServiceName = "hpv9",
                 },
-                new LujiazhenHospital
+                new HaikouHospital
                 {
                     AppId = "wx6583f3ef203bd236",
                     HospitalId = "2",
@@ -123,7 +123,7 @@ namespace Lujiazhen.viewmodel
 
         private void LoginFromConfigAsync()
         {
-            MainSession.Users = FileReader.DeserializeFile<List<LujiazhenLogin>>("Login.json");
+            MainSession.Users = FileReader.DeserializeFile<List<HaikouLogin>>("Login.json");
             foreach (var user in MainSession.Users)
             {
                 var userController = HttpServiceController.GetService<UserController>();
@@ -299,7 +299,7 @@ namespace Lujiazhen.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as LujiazhenHospital;
+            var selectedDept = SelectedDepartment as HaikouHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);

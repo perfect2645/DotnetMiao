@@ -1,6 +1,6 @@
 ﻿using HttpProcessor.Client;
-using Lujiazhen.common;
-using Lujiazhen.session;
+using Haikou.common;
+using Haikou.session;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -9,10 +9,10 @@ using System.Windows.Interop;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using Lujiazhen.login;
+using Haikou.login;
 using System;
 
-namespace Lujiazhen.login
+namespace Haikou.login
 {
     internal class UserController : HttpClientBase
     {
@@ -20,12 +20,12 @@ namespace Lujiazhen.login
         {
         }
 
-        public void GetUserAsync(LujiazhenLogin user)
+        public void GetUserAsync(HaikouLogin user)
         {
             Task.Factory.StartNew(() => GetUser(user));
         }
 
-        private void GetUser(LujiazhenLogin user)
+        private void GetUser(HaikouLogin user)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Lujiazhen.login
             }
         }
 
-        private void SaveUser(JsonElement data, LujiazhenLogin user)
+        private void SaveUser(JsonElement data, HaikouLogin user)
         {
             var userList = JsonAnalysis.JsonToDicList(data);
             if (!userList.HasItem())

@@ -1,11 +1,11 @@
-﻿<Page x:Class="Lujiazhen.view.MainConsole"
+﻿<Page x:Class="Haikou.view.MainConsole"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:session="clr-namespace:Lujiazhen.session"
+      xmlns:session="clr-namespace:Haikou.session"
       Title="海口妇幼"
-      x:Name="LujiazhenPage">
+      x:Name="HaikouPage">
     <Page.Resources>
         <session:MainSession x:Key="mainSession" />
     </Page.Resources>

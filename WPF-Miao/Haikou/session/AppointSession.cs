@@ -1,7 +1,7 @@
 ﻿using Base.session;
-using Lujiazhen.appointment;
+using Haikou.appointment;
 
-namespace Lujiazhen.session
+namespace Haikou.session
 {
     public class AppointSession : ControllerSession<YuyueController>
     {

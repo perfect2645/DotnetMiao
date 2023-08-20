@@ -1,6 +1,6 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Container;
-using Lujiazhen.session;
+using Haikou.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utils.datetime;
 
-namespace Lujiazhen.search
+namespace Haikou.search
 {
     internal class SearchController
     {

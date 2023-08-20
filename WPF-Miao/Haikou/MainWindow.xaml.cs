@@ -1,4 +1,4 @@
-﻿using Lujiazhen.viewmodel;
+﻿using Haikou.viewmodel;
 using System;
 using System.Windows;
 
@@ -14,7 +14,7 @@ namespace Haikou
             InitializeComponent();
             try
             {
-                DataContext = new LujiazhenViewModel(mainConsole.baseConsole.LogPanel);
+                DataContext = new HaikouViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {

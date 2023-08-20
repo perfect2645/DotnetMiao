@@ -1,15 +1,15 @@
-﻿using Lujiazhen.common;
-using Lujiazhen.login;
-using Lujiazhen.session;
+﻿using Haikou.common;
+using Haikou.login;
+using Haikou.session;
 using Utils;
 
-namespace Lujiazhen.search
+namespace Haikou.search
 {
-    internal class MiaoContent : LujiazhenContent
+    internal class MiaoContent : HaikouContent
     {
         private static string baseUrl = ".yuanbaodaojia.com/v1/vaccine_day_list";
 
-        public MiaoContent(LujiazhenLogin user) : base(baseUrl, user)
+        public MiaoContent(HaikouLogin user) : base(baseUrl, user)
         {
             BuildUrl();
             BuildContent();

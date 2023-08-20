@@ -1,6 +1,6 @@
-﻿using Lujiazhen.appointment;
-using Lujiazhen.login;
-using Lujiazhen.session;
+﻿using Haikou.appointment;
+using Haikou.login;
+using Haikou.session;
 using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using Utils.number;
 using Newtonsoft.Json;
 using Utils.stringBuilder;
 
-namespace Lujiazhen.search
+namespace Haikou.search
 {
     internal class MiaoController : HttpClientBase
     {

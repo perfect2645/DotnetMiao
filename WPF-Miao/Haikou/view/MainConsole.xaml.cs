@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Lujiazhen.view
+namespace Haikou.view
 {
     public partial class MainConsole : Page
     {
