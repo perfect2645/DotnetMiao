@@ -5,13 +5,12 @@ namespace Lujiazhen.viewmodel
 {
     internal class LujiazhenHospital : HospitalDept
     {
-        public string AppPrefix { get; set; }
-        public string DoctorId { get; set; }
-        public string DoctorName { get; set; }
-
+        public string AppId { get; set; }
+        public string ServiceCode { get; set; }
+        public string ServiceName { get; set; }
         public new string Display
         {
-            get { return $"{DepartmentName}-{DoctorName}"; }
+            get { return $"{DepartmentName}-{ServiceName}"; }
         }
 
         public override string ToLogString()
@@ -21,7 +20,7 @@ namespace Lujiazhen.viewmodel
             sb.AppendLine("********武汉疾控-选择医院科室*********");
             sb.AppendLine($"{HospitalName}- {DepartmentName}");
             sb.AppendLine($"Department : {DepartmentId} - {DepartmentName}");
-            sb.AppendLine($"Doctor : {DoctorId} - {DoctorName}");
+            sb.AppendLine($"Service : {ServiceCode} - {ServiceName}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

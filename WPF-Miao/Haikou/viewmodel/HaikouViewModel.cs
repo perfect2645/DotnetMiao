@@ -60,35 +60,23 @@ namespace Lujiazhen.viewmodel
             {
                 new LujiazhenHospital
                 {
-                    AppPrefix = "yimiaoapi",
-                    HospitalId = "9",
-                    HospitalName = "兵希社区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "23",
+                    AppId = "wx6583f3ef203bd236",
+                    HospitalId = "2",
+                    HospitalName = "国兴",
+                    DepartmentName = "国兴宫颈疫苗接种",
+                    DepartmentId = "114",
+                    ServiceCode = "5",
+                    ServiceName = "hpv9",
                 },
                 new LujiazhenHospital
                 {
-                    AppPrefix = "yimiaoapi",
-                    HospitalId = "8",
-                    HospitalName = "蓬朗社区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "23",
-                },
-                new LujiazhenHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（＜16周岁）",
-                    DepartmentId = "7",
-                },
-                new LujiazhenHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "6",
+                    AppId = "wx6583f3ef203bd236",
+                    HospitalId = "2",
+                    HospitalName = "国兴",
+                    DepartmentName = "国兴宫颈疫苗接种",
+                    DepartmentId = "114",
+                    ServiceCode = "5",
+                    ServiceName = "hpv9",
                 }
             };
 
@@ -312,11 +300,12 @@ namespace Lujiazhen.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as LujiazhenHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.AppPrefix, selectedDept.AppPrefix);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.ServiceCode, selectedDept.ServiceCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.ServiceName, selectedDept.ServiceName);
 
             Log(selectedDept.ToLogString());
         }
