@@ -1,0 +1,24 @@
+POST https://wx.hospite.com/hkfy/patient/listHealthCard HTTP/1.1
+Host: wx.hospite.com
+Connection: keep-alive
+Content-Length: 92
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+token: 4781ee37f793ba89922bd4b88f7ff405
+Referer: https://servicewechat.com/wx6583f3ef203bd236/65/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"appid":"wx6583f3ef203bd236","version":"v0.0.1","token":"4781ee37f793ba89922bd4b88f7ff405"}
+HTTP/1.1 200 OK
+Server: nginx/1.21.1
+Date: Sun, 20 Aug 2023 15:17:49 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Set-Cookie: JSESSIONID=EAWChKMqZObnU2wUW-4Mwqdr8XYpaYcOf9Fn6zyF; path=/hkfy
+X-Frame-Options: SAMEORIGIN
+Content-Length: 572
+
+{"msg":"success","code":0,"healthCardList":[{"wxUserId":"","patientId":19219771,"patientName":"邓雨婷","patientCard":"23080645306","birthDate":"1999-08-05","sex":2,"address":"海口","idCardNo":"500225199908054760","mobile":"16790467719","relationship":0,"relationshipName":"本人","isCurrent":1,"mainId":"","guarderIdCardNo":"","guarderName":"","wxOpenid":"oOlTJ5fCWzI0XO4xqHD2tCR7rNak","updateTime":"2023-08-20 22:48:22","createTime":"2023-08-20 22:47:36","checked":0,"weight":50.0,"healthCardId":"1F522F80E8EA24889ADA145C237B46B74BAB26193E9432FF6AFF1E6958BA1AC0"}]}

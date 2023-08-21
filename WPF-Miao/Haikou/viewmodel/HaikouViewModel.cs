@@ -5,7 +5,6 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Haikou.appointment;
-using Haikou.Encrypt;
 using Haikou.login;
 using Haikou.search;
 using Haikou.session;
@@ -275,10 +274,6 @@ namespace Haikou.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
                     };
 
                     orderList.Add(order);
@@ -300,6 +295,7 @@ namespace Haikou.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as HaikouHospital;
+            MainSession.PlatformSession.AddOrUpdate(Constants.Appid, selectedDept.AppId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);

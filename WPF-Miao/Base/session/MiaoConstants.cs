@@ -8,6 +8,7 @@ namespace Base.session
 {
     public class MiaoConstants
     {
+        public const string Appid = "Appid";
         public const string HospitalId = "hospitalId";
         public const string HospitalName = "hospitalName";
         public const string DeptId = "deptId";

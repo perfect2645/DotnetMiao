@@ -11,7 +11,6 @@ namespace Haikou.search
 
         public MiaoContent(HaikouLogin user) : base(baseUrl, user)
         {
-            BuildUrl();
             BuildContent();
         }
 

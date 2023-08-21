@@ -39,14 +39,15 @@ namespace Haikou.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != 0 || msg != "success")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败:{user.UserName} code={code}, msg={msg}");
                     return;
                 }
 
-                var data = root.GetProperty("data");
+                var data = root.GetProperty("healthCardList");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
@@ -69,13 +70,13 @@ namespace Haikou.login
                 return;
             }
 
-            var defaultUser = userList.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = userList.FirstOrDefault(x => x["patientName"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
                 defaultUser = userList.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("name");
-            var userId = defaultUser.GetString("id");
+            var userName = defaultUser.GetString("patientName");
+            var userId = defaultUser.GetString("patientId");
 
             user.UserId = userId;
             user.UserName = userName;

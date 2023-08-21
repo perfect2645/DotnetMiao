@@ -12,18 +12,18 @@ namespace Haikou.login
 {
     internal class UserContent : HaikouContent
     {
-        private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
+        private static string baseUrl = "https://wx.hospite.com/hkfy/patient/listHealthCard";
         public UserContent(HaikouLogin user) : base(baseUrl, user)
         {
-            BuildUrl();
             BuildContent();
         }
 
         private void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var appId = MainSession.PlatformSession.GetString(Constants.Appid);
 
-            AddContent("page", 1);
+            AddContent("appid", appId);
+            AddContent("version", "v0.0.1");
             AddContent("token", User.Token);
         }
     }

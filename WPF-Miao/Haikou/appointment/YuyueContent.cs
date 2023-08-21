@@ -18,16 +18,12 @@ namespace Haikou.appointment
             {
                 BaseUrl = $".yuanbaodaojia.com/v1/booking_vaccine";
             }
-            BuildUrl();
             BuildContent();
         }
 
         private void BuildContent()
         {
-            AddContent("vaccineDayId", Order.VaccineDayId);
-            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
-            AddContent("vaccineId", Order.VaccineId);
-            AddContent("familyId", Order.FamilyId);
+
             AddContent("token", Order.User.Token);
 
             if (!string.IsNullOrEmpty(Order.User.Sign))
