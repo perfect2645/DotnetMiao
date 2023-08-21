@@ -9,5 +9,6 @@ namespace Haikou.session
         public const string Token = "token";
         public const string ServiceCode = "ServiceCode";
         public const string ServiceName = "ServiceName";
+        public const string Version = "v0.0.1";
     }
 }

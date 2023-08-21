@@ -1,16 +1,13 @@
-﻿using HttpProcessor.Client;
-using Haikou.common;
-using Haikou.session;
+﻿using Haikou.session;
+using HttpProcessor.Client;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Windows.Interop;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using Haikou.login;
-using System;
 
 namespace Haikou.login
 {
@@ -31,7 +28,7 @@ namespace Haikou.login
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
