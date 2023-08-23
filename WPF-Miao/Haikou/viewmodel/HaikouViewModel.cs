@@ -62,9 +62,9 @@ namespace Haikou.viewmodel
                     AppId = "wx6583f3ef203bd236",
                     HospitalId = "2",
                     HospitalName = "国兴",
-                    DepartmentName = "国兴宫颈疫苗接种",
-                    DepartmentId = "114",
-                    ServiceCode = "5",
+                    DepartmentName = "两癌筛查",
+                    DepartmentId = "117",
+                    ServiceCode = "8",
                     ServiceName = "hpv9",
                 },
                 new HaikouHospital

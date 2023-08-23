@@ -43,13 +43,13 @@ namespace Haikou.search
                     return result;
                 }
 
-                var data = root.GetProperty("healthCardList");
-                if (data.ValueKind == JsonValueKind.Null)
+                var dateList = root.GetProperty("list");
+                if (dateList.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetDate失败: results is empty");
                     return result;
                 }
-                return GetTargetDate(data, user);
+                return GetTargetDate(dateList);
             }
             catch (Exception ex)
             {
@@ -58,15 +58,24 @@ namespace Haikou.search
             }
         }
 
-        private List<string> GetTargetDate(JsonElement data, HaikouLogin user)
+        private List<string> GetTargetDate(JsonElement data)
         {
             var result = new List<string>();
-            var userList = JsonAnalysis.JsonToDicList(data);
-            if (!userList.HasItem())
+            var dateList = JsonAnalysis.JsonToDicList(data);
+            if (!dateList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"GetDate失败");
                 return result;
             }
+
+            var availableDate = dateList.Where(d => d.GetString("num").ToInt() > 0).ToList();
+            if (!dateList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没有可约日期");
+                return result;
+            }
+
+            result = availableDate.Select(d => d.GetString("date")).ToList();
 
             return result;
         }

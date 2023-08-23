@@ -24,21 +24,29 @@ namespace Haikou.search
 
         private void GetMiao()
         {
-            var dateController = HttpServiceController.GetService<DateController>();
+            //var dateController = HttpServiceController.GetService<DateController>();
 
-            var dateList = new List<string>();
-            while (!dateList.HasItem())
-            {
-                dateList = dateController.GetDateList();
-                Thread.Sleep(500);
-            }
+            //var dateList = new List<string>();
+            //while (!dateList.HasItem())
+            //{
+            //    dateList = dateController.GetDateList();
+            //    Thread.Sleep(500);
+            //}
 
             var miaoController = HttpServiceController.GetService<MiaoController>();
 
             var isMiaoGet = false;
             while (!isMiaoGet)
             {
-                isMiaoGet = miaoController.SearchMiao();
+                var dateController = HttpServiceController.GetService<DateController>();
+                var dateList = dateController.GetDateList();
+                if (!dateList.HasItem())
+                {
+                    Thread.Sleep(800);
+                    continue;
+                }
+
+                isMiaoGet = miaoController.SearchMiao(dateList);
                 Thread.Sleep(500);
             }
         }

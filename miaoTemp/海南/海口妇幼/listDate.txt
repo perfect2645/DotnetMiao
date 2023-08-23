@@ -21,4 +21,135 @@ Set-Cookie: JSESSIONID=4U87g12IgMDnJINYM3FSG8p9PRmu-Zwwg-9h2nAv; path=/hkfy
 X-Frame-Options: SAMEORIGIN
 Content-Length: 1466
 
-{"msg":"success","code":0,"list":[{"date":"2023-08-20","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"今日","dateShow":"20"},{"date":"2023-08-21","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"一","dateShow":"21"},{"date":"2023-08-22","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"二","dateShow":"22"},{"date":"2023-08-23","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"三","dateShow":"23"},{"date":"2023-08-24","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"四","dateShow":"24"},{"date":"2023-08-25","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"五","dateShow":"25"},{"date":"2023-08-26","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"六","dateShow":"26"},{"date":"2023-08-27","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"日","dateShow":"27"},{"date":"2023-08-28","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"一","dateShow":"28"},{"date":"2023-08-29","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"二","dateShow":"29"},{"date":"2023-08-30","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"三","dateShow":"30"},{"date":"2023-08-31","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"四","dateShow":"31"},{"date":"2023-09-01","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"五","dateShow":"01"},{"date":"2023-09-02","num":0,"total":0,"closeNum":0,"appointment":0,"showName":"六","dateShow":"02"}]}
+{
+    "msg": "success",
+    "code": 0,
+    "list": [
+        {
+            "date": "2023-08-20",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "今日",
+            "dateShow": "20"
+        },
+        {
+            "date": "2023-08-21",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "一",
+            "dateShow": "21"
+        },
+        {
+            "date": "2023-08-22",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "二",
+            "dateShow": "22"
+        },
+        {
+            "date": "2023-08-23",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "三",
+            "dateShow": "23"
+        },
+        {
+            "date": "2023-08-24",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "四",
+            "dateShow": "24"
+        },
+        {
+            "date": "2023-08-25",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "五",
+            "dateShow": "25"
+        },
+        {
+            "date": "2023-08-26",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "六",
+            "dateShow": "26"
+        },
+        {
+            "date": "2023-08-27",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "日",
+            "dateShow": "27"
+        },
+        {
+            "date": "2023-08-28",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "一",
+            "dateShow": "28"
+        },
+        {
+            "date": "2023-08-29",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "二",
+            "dateShow": "29"
+        },
+        {
+            "date": "2023-08-30",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "三",
+            "dateShow": "30"
+        },
+        {
+            "date": "2023-08-31",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "四",
+            "dateShow": "31"
+        },
+        {
+            "date": "2023-09-01",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "五",
+            "dateShow": "01"
+        },
+        {
+            "date": "2023-09-02",
+            "num": 0,
+            "total": 0,
+            "closeNum": 0,
+            "appointment": 0,
+            "showName": "六",
+            "dateShow": "02"
+        }
+    ]
+}

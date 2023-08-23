@@ -25,17 +25,13 @@ namespace Haikou.search
         {
         }
 
-        public void SearchMiaoAsync()
-        {
-            Task.Factory.StartNew(() => SearchMiao());
-        }
-
-        public bool SearchMiao()
+        public bool SearchMiao(List<string> dateList)
         {
             try
             {
-                var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var randomDate = dateList.DisorderItems().FirstOrDefault();
+                var user = MainSession.Users.FirstOrDefault();
+                var content = new MiaoContent(user, randomDate);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
@@ -45,23 +41,22 @@ namespace Haikou.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != 0 || msg != "success")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser失败:{user.UserName} code={code}, msg={msg}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var list = root.GetProperty("list");
+                if (list.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: data is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: list is empty");
                     return false;
                 }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return CheckSaveResource(list);
             }
             catch (Exception ex)
             {
@@ -72,14 +67,14 @@ namespace Haikou.search
 
         private bool CheckSaveResource(JsonElement dataElement)
         {
-            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
-            if (!vaccineDayList.HasItem())
+            var scheduleList = JsonAnalysis.JsonToDicList(dataElement);
+            if (!scheduleList.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
+            return BuildOrderList(scheduleList);
         }
 
         private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
