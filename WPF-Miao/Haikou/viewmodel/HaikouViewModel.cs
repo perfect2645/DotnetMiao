@@ -181,7 +181,8 @@ namespace Haikou.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Appoint();
+                    MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.Init);
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -236,8 +237,10 @@ namespace Haikou.viewmodel
             try
             {
                 bool isSuccess = false;
-                while (!isSuccess)
+                var count = 0;
+                while (!isSuccess && count <= 5)
                 {
+                    count++;
                     foreach (var order in orders)
                     {
                         var appointController = MainSession.AppointSession.GetController($"{userName}");
@@ -274,6 +277,12 @@ namespace Haikou.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
+                        Appid = template.Appid,
+                        DateTime = template.DateTime,
+                        DeptName = template.DeptName,
+                        PatientId = user.UserId,
+                        ScheduleId = template.ScheduleId,
+                        Token = user.Token
                     };
 
                     orderList.Add(order);
@@ -281,11 +290,6 @@ namespace Haikou.viewmodel
 
                 Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
             }
-        }
-
-        private void DirectlyOrder(string scheduleId)
-        {
-            var order = new Order();
         }
 
         #endregion Appoint

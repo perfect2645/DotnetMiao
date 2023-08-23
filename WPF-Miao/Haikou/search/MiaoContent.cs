@@ -2,6 +2,7 @@
 using Haikou.login;
 using Haikou.session;
 using Utils;
+using Utils.stringBuilder;
 
 namespace Haikou.search
 {
@@ -28,7 +29,7 @@ namespace Haikou.search
             AddContent("deptCode", deptId);
             AddContent("date", Date);
             AddContent("serviceCode", serviceCode);
-            AddContent("patientId", User.UserId);
+            AddContent("patientId", User.UserId.ToLong());
             AddContent("appid", appId);
             AddContent("version", Constants.Version);
             AddContent("token", User.Token);

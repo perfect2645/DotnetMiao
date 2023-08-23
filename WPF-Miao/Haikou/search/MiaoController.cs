@@ -19,8 +19,6 @@ namespace Haikou.search
     internal class MiaoController : HttpClientBase
     {
 
-        public string Date { get; private set; }
-
         public MiaoController(HttpClient httpClient) : base(httpClient)
         {
         }
@@ -33,7 +31,7 @@ namespace Haikou.search
                 var user = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(user, randomDate);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -74,27 +72,45 @@ namespace Haikou.search
                 return false;
             }
 
+            var availableSchedule = scheduleList.Where(s => s.GetString("num").ToInt() > 0).ToList();
+
             return BuildOrderList(scheduleList);
         }
 
-        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
+        private bool BuildOrderList(List<Dictionary<string, object>> scheduleList)
         {
             var orderList = new List<Order>();
 
-            foreach (var vaccineDay in vaccineDayList)
+            foreach (var vaccineDay in scheduleList)
             {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
-                foreach (var timeItem in timeList)
+                var timeListStr = vaccineDay.GetString("list");
+                var timeList = timeListStr.ToObjDicList();
+                var availableTimeList = timeList.Where(t => t.GetString("appointmentState") == "0"
+                && t.GetString("state") == "0").ToList();
+                if (!availableTimeList.HasItem())
                 {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
+                    continue;
+                }
+
+                var appId = MainSession.PlatformSession.GetString(Constants.Appid);
+                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+                var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+                var serviceCode = MainSession.PlatformSession.GetString(Constants.ServiceCode);
+                var areaCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
+
+                foreach (var timeItem in availableTimeList)
+                {
+                    var uuid = timeItem.GetString("uuid");
+                    var date = timeItem.GetString("serviceDate");
+                    var time = timeItem.GetString("sessionName");
+                    var order = new Order
                     {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
+                        Appid = appId,
+                        DateTime = $"{date} - {time}",
+                        DeptName = deptName,
+                        ScheduleId = uuid,
+                    };
+                    orderList.Add(order);
                 }
             }
 
@@ -114,15 +130,6 @@ namespace Haikou.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-            };
         }
     }
 }
