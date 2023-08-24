@@ -56,7 +56,17 @@ namespace Haikou.viewmodel
             StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
 
             Departments = new List<HospitalDept>
-            {
+            {   
+                new HaikouHospital
+                {
+                    AppId = "wx6583f3ef203bd236",
+                    HospitalId = "2",
+                    HospitalName = "国兴",
+                    DepartmentName = "国兴宫颈疫苗接种",
+                    DepartmentId = "114",
+                    ServiceCode = "5",
+                    ServiceName = "hpv9",
+                },
                 new HaikouHospital
                 {
                     AppId = "wx6583f3ef203bd236",
@@ -67,16 +77,7 @@ namespace Haikou.viewmodel
                     ServiceCode = "8",
                     ServiceName = "hpv9",
                 },
-                new HaikouHospital
-                {
-                    AppId = "wx6583f3ef203bd236",
-                    HospitalId = "2",
-                    HospitalName = "国兴",
-                    DepartmentName = "国兴宫颈疫苗接种",
-                    DepartmentId = "114",
-                    ServiceCode = "5",
-                    ServiceName = "hpv9",
-                }
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();

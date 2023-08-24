@@ -3,6 +3,7 @@ using Haikou.login;
 using Haikou.session;
 using System;
 using Utils;
+using Utils.stringBuilder;
 
 namespace Haikou.appointment
 {
@@ -18,7 +19,11 @@ namespace Haikou.appointment
 
         private void BuildContent()
         {
-
+            AddContent("patientId", Order.PatientId.ToLong());
+            AddContent("scheduleId", Order.ScheduleId);
+            AddContent("appid", Order.Appid);
+            AddContent("version", Constants.Version);
+            AddContent("token", Order.Token);
         }
     }
 }
