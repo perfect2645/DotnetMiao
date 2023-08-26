@@ -90,6 +90,19 @@ namespace Lujiazhen.search
             {
                 var dayId = vaccineDay.GetString("id");
                 var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
+
+                //check if any vaccine is booked as the sign of start dayVaccineBookedNum
+                var dayVaccineBookedNum = vaccineDay.GetString("dayVaccineBookedNum").ToInt();
+                var isStarted = dayVaccineBookedNum > 0;
+                if (!isStarted)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"没开始,dayVaccineBookedNum={dayVaccineBookedNum}");
+                    continue;
+                }
+
+                var dayVaccineRestNum = vaccineDay.GetString("dayVaccineRestNum").ToInt();
+                MainSession.PrintLogEvent.Publish(this, $"开始了,已约={dayVaccineBookedNum}，剩余:{dayVaccineRestNum}");
+
                 foreach (var timeItem in timeList)
                 {
                     var forbidden = timeItem.GetString("forbidden");

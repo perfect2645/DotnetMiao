@@ -21,37 +21,92 @@ Content-Type: application/json; charset=utf-8
 
 {"errorCode":"4002","msg":"数据为空","data":[]}
 
-{"errorCode":"0000","msg":"获取成功","data":{"vaccineDayList":[{"id":3, "day":"2023-05-13", "vaccineDayNum":[{"id":1, "startTime":"08:00", "endTime":"08:30", "forbidden":0}, {"id":2, "startTime":"08:30", "endTime":"09:00", "forbidden":0},{"id":3, "startTime":"09:30", "endTime":"10:00", "forbidden":1}]}]}}
+{"errorCode":"0000","msg":"获取成功","data":{"addressInfo":{"id":1,"cityName":"江苏省苏州市昆山市","address":"昆山市陆家镇友谊路535号","addressShort":"邵村院区","lat":"31.320376","lon":"121.037915","fullAddress":"江苏省苏州市昆山市昆山市陆家镇友谊路535号","vaccineName":"九价HPV首针（≥16周岁）","type":1},"familyList":{"id":3670,"name":"李冰冰","mobile":"16537555128"},"vaccineDayList":[{"id":88,"day":"08月28日","remainingTotal":250,"vaccineDayNum":[{"id":281,"vaccineDayId":88,"vaccineTimeId":1,"remainingNum":0,"startTime":"08:00","endTime":"09:00","forbidden":1},{"id":282,"vaccineDayId":88,"vaccineTimeId":2,"remainingNum":50,"startTime":"09:00","endTime":"10:00","forbidden":0},{"id":283,"vaccineDayId":88,"vaccineTimeId":13,"remainingNum":50,"startTime":"10:00","endTime":"11:00","forbidden":0},{"id":284,"vaccineDayId":88,"vaccineTimeId":3,"remainingNum":75,"startTime":"13:30","endTime":"14:30","forbidden":0},{"id":285,"vaccineDayId":88,"vaccineTimeId":14,"remainingNum":75,"startTime":"14:30","endTime":"15:30","forbidden":0}],"type":2,"dayVaccineNum":250,"dayVaccineBookedNum":0,"dayVaccineRestNum":250}],"vaccineInfo":{"id":6,"name":"九价HPV首针（≥16周岁）","detail":"","type":1,"showDetail":0}}}
 
 {
     "errorCode": "0000",
     "msg": "获取成功",
     "data": {
+        "addressInfo": {
+            "id": 1,
+            "cityName": "江苏省苏州市昆山市",
+            "address": "昆山市陆家镇友谊路535号",
+            "addressShort": "邵村院区",
+            "lat": "31.320376",
+            "lon": "121.037915",
+            "fullAddress": "江苏省苏州市昆山市昆山市陆家镇友谊路535号",
+            "vaccineName": "九价HPV首针（≥16周岁）",
+            "type": 1
+        },
+        "familyList": {
+            "id": 3670,
+            "name": "李冰冰",
+            "mobile": "16537555128"
+        },
         "vaccineDayList": [
             {
-                "id": 3,
-                "day": "2023-05-13",
+                "id": 88,
+                "day": "08月28日",
+                "remainingTotal": 250,
                 "vaccineDayNum": [
                     {
-                        "id": 1,
+                        "id": 281,
+                        "vaccineDayId": 88,
+                        "vaccineTimeId": 1,
+                        "remainingNum": 0,
                         "startTime": "08:00",
-                        "endTime": "08:30",
-                        "forbidden": 0
-                    },
-                    {
-                        "id": 2,
-                        "startTime": "08:30",
                         "endTime": "09:00",
+                        "forbidden": 1
+                    },
+                    {
+                        "id": 282,
+                        "vaccineDayId": 88,
+                        "vaccineTimeId": 2,
+                        "remainingNum": 50,
+                        "startTime": "09:00",
+                        "endTime": "10:00",
                         "forbidden": 0
                     },
                     {
-                        "id": 3,
-                        "startTime": "09:30",
-                        "endTime": "10:00",
-                        "forbidden": 1
+                        "id": 283,
+                        "vaccineDayId": 88,
+                        "vaccineTimeId": 13,
+                        "remainingNum": 50,
+                        "startTime": "10:00",
+                        "endTime": "11:00",
+                        "forbidden": 0
+                    },
+                    {
+                        "id": 284,
+                        "vaccineDayId": 88,
+                        "vaccineTimeId": 3,
+                        "remainingNum": 75,
+                        "startTime": "13:30",
+                        "endTime": "14:30",
+                        "forbidden": 0
+                    },
+                    {
+                        "id": 285,
+                        "vaccineDayId": 88,
+                        "vaccineTimeId": 14,
+                        "remainingNum": 75,
+                        "startTime": "14:30",
+                        "endTime": "15:30",
+                        "forbidden": 0
                     }
-                ]
+                ],
+                "type": 2,
+                "dayVaccineNum": 250,
+                "dayVaccineBookedNum": 0,
+                "dayVaccineRestNum": 250
             }
-        ]
+        ],
+        "vaccineInfo": {
+            "id": 6,
+            "name": "九价HPV首针（≥16周岁）",
+            "detail": "",
+            "type": 1,
+            "showDetail": 0
+        }
     }
 }

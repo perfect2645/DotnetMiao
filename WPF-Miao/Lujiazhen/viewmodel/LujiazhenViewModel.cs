@@ -49,15 +49,23 @@ namespace Lujiazhen.viewmodel
         {
             Interval = 200;
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(59);
 
             Departments = new List<HospitalDept>
             {
+                new LujiazhenHospital
+                {
+                    AppPrefix = "ljzyyapi",
+                    HospitalId = "1",
+                    HospitalName = "邵村院区",
+                    DepartmentName = "九价HPV首针（≥16周岁）",
+                    DepartmentId = "6",
+                },
                 new LujiazhenHospital
                 {
                     AppPrefix = "yimiaoapi",
@@ -82,14 +90,7 @@ namespace Lujiazhen.viewmodel
                     DepartmentName = "九价HPV首针（＜16周岁）",
                     DepartmentId = "7",
                 },
-                new LujiazhenHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "6",
-                }
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
