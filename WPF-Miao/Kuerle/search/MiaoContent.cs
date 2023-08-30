@@ -9,7 +9,7 @@ namespace Kuerle.search
 {
     internal class MiaoContent : KuerleContent
     {
-        private static string baseUrl = "https://bzjk.qiyingtian.com/Home/CalcBindingDataSource";
+        private static string baseUrl = "https://bzjk.qiyingtian.com/hpv/Home/CalcBindingDataSource";
 
         public MiaoContent(KuerleLogin user) : base(baseUrl, user)
         {

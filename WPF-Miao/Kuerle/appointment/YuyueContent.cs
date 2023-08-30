@@ -9,7 +9,7 @@ namespace Kuerle.appointment
 {
     internal class YuyueContent : KuerleContent
     {
-        private static string url = "https://bzjk.qiyingtian.com/ServerCommand/order";
+        private static string url = "https://bzjk.qiyingtian.com/hpv/ServerCommand/order";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {

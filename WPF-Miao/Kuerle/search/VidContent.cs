@@ -8,7 +8,7 @@ namespace Kuerle.search
 {
     internal class VidContent : KuerleContent
     {
-        private static string baseUrl = "https://bzjk.qiyingtian.com/Home/CalcOdata";
+        private static string baseUrl = "https://bzjk.qiyingtian.com/hpv/Home/CalcOdata";
         public string Pid { get; set; }
 
         public VidContent(KuerleLogin user, string pid) : base(baseUrl, user)

@@ -12,7 +12,7 @@ namespace Kuerle.login
 {
     internal class UserContent : KuerleContent
     {
-        private static string baseUrl = "https://bzjk.qiyingtian.com/ServerCommand/chooseuser";
+        private static string baseUrl = "https://bzjk.qiyingtian.com/hpv/ServerCommand/chooseuser";
         public UserContent(KuerleLogin user) : base(baseUrl, user)
         {
             BuildContent();

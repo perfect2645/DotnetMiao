@@ -8,7 +8,7 @@ namespace Kuerle.search
 {
     internal class IndexContent : KuerleContent
     {
-        private static string baseUrl = "https://bzjk.qiyingtian.com/Home/GetMetadata2?pageName=book&isMobile=false&v2=396107520";
+        private static string baseUrl = "https://bzjk.qiyingtian.com/hpv/Home/GetMetadata2?pageName=book&isMobile=false&v2=396107520";
 
         public IndexContent(KuerleLogin user) : base(baseUrl, user)
         {
