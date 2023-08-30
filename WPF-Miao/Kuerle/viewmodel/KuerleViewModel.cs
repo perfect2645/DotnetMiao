@@ -161,7 +161,6 @@ namespace Kuerle.viewmodel
                     User = user,
                 });
             }
-
         }
 
         protected override void AutoRun()
