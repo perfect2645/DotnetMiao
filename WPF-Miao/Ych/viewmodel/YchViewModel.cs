@@ -125,7 +125,7 @@ namespace Ych.viewmodel
 
             //OpenId = "otb-s51iVtgqsv_ti0MI9PQdNpJM"; fawei 0426 17:25
 
-            StartTime = DateTime.Now.AddSeconds(8);
+            //StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
@@ -135,25 +135,25 @@ namespace Ych.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
+                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
 
             Departments = new List<HospitalDept>
             {
-                      new YchHospital
-                {
-                    HospitalId = "http://caohuhospital.com",
-                    HospitalName = "漕湖人民医院",
-                    DepartmentId = "1216",
-                    DepartmentName = "九价",
-                },
                 new YchHospital
                 {
                     HospitalId = "http://www.sz-tpwsy.com",
                     HospitalName = "太平街道卫生院",
                     DepartmentId = "1218",
+                    DepartmentName = "九价",
+                },
+                new YchHospital
+                {
+                    HospitalId = "http://caohuhospital.com",
+                    HospitalName = "漕湖人民医院",
+                    DepartmentId = "1216",
                     DepartmentName = "九价",
                 },
                 new YchHospital

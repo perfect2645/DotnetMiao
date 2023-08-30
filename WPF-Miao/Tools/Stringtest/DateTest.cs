@@ -17,9 +17,9 @@ namespace Tools.Stringtest
         {
             //var offset = 45070;// 0524
 
-            var offset = 45127;
+            var offset = 45170; //0901
             var initDate = new DateTime(1900, 1, 1);
-            var targetDate = initDate.AddDays(offset);
+            var targetDate = initDate.AddDays(offset).AddDays(-2);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Kuerle.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
@@ -226,7 +226,7 @@ namespace Kuerle.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(200);
+                    Thread.Sleep(500);
                 }
             }
             catch (HttpException ex)
@@ -257,7 +257,7 @@ namespace Kuerle.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(200);
+                        Thread.Sleep(500);
                     }
                 }
             }
