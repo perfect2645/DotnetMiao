@@ -32,6 +32,17 @@ namespace Sanya.search
 
         private void GetMiao()
         {
+            var vaccineController = HttpServiceController.GetService<VaccineController>();
+            var isVaccineGet = false;
+            while (!isVaccineGet)
+            {
+                isVaccineGet = vaccineController.SearchVaccine();
+                if (!isVaccineGet)
+                {
+                    Thread.Sleep(1000);
+                }
+            }
+
             var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
             while(!isScheduleGet)

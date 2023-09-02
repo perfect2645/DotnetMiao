@@ -32,7 +32,7 @@ namespace Sanya.search
                 var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
@@ -41,14 +41,14 @@ namespace Sanya.search
                 var message = root.GetProperty("message").GetString();
                 if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: code={code}, message = {message}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}, message = {message}");
                     return false;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: results is empty");
                     return false;
                 }
 

@@ -27,7 +27,7 @@ namespace Sanya.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new VaccineContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
@@ -35,11 +35,11 @@ namespace Sanya.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                var code = root.GetProperty("code").GetInt32();
+                var message = root.GetProperty("message").GetString();
+                if (code != 0)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: code={code}, message = {message}");
                     return false;
                 }
 
@@ -50,9 +50,7 @@ namespace Sanya.search
                     return false;
                 }
 
-                var list = data.GetProperty("list");
-
-                return CheckSaveVaccine(list);
+                return CheckSaveVaccine(data);
             }
             catch (Exception ex)
             {

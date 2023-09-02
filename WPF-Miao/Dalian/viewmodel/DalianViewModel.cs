@@ -145,8 +145,8 @@ namespace Dalian.viewmodel
 
             var targetDate = DateTimeUtil.GetTargetDate(7);
 
+            targetDate = "2023-09-08";
             DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
-            //DateList.Add(new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();
@@ -345,7 +345,7 @@ namespace Dalian.viewmodel
                 var randomOrders = orders.DisorderItems();
                 bool isSuccess = false;
                 var count = 0;
-                while (!isSuccess && count <= 5)
+                while (!isSuccess && count <= 2)
                 {
                     count++;
                     foreach (var order in randomOrders)

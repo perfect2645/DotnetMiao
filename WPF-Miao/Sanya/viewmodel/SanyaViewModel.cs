@@ -147,6 +147,18 @@ namespace Sanya.viewmodel
             {
                 new SanyaHospital
                 {
+                    OrgCode = "A572000B004",
+                    ZoneCode = "460200",
+                    ZoneName = "5LiJ5Lqa5biC",
+                    AppCode = "HC_SANYA_WX",
+                    HospitalId = "A572000B004",
+                    HospitalName = "三亚市吉阳区荔枝沟卫生院",
+                    SubscribeType = "2c90a2f271a585100171a5e96d030003",
+                    DepartmentId = "",
+                    DepartmentName = "九价疫苗"
+                },
+                new SanyaHospital
+                {
                     OrgCode = "A572000C001-03",
                     ZoneCode = "460200",
                     ZoneName = "5LiJ5Lqa5biC",

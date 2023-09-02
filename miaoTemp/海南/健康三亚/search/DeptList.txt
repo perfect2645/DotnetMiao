@@ -1,0 +1,320 @@
+POST https://public.health.zoenet.cn/medical/universal-interface/getCustomMenuListByZoneCode HTTP/1.1
+Host: public.health.zoenet.cn
+Connection: keep-alive
+Content-Length: 71
+noncePf: 000C58D4DE9247D6AFAB23C7DF1F50E2
+level: 
+Origin: https://public.health.zoenet.cn
+headersign: C610251762DA9C5E7FCC8C727D0C4EA8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+node: open
+Content-Type: application/json; charset=utf-8
+Accept: */*
+Cookie: connect.sid=s%3AiDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP%2BdNmoaGplZ5JD9y35Up%2BffWhk; HWWAFSESID=7d72373428a01de662; HWWAFSESTIME=1693582256845; appcode=HC_HLQFYBJY_WX
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://public.health.zoenet.cn/medical/internet-hospital/more-menu?orgCode=HLQFYBJY&appCode=HC_HLQFYBJY_WX&&showMoreType=1&parentCode=8c8ffd0ad23b4d2e82a2353eaa8e127f&title=55ar6IuX6aKE57qm
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"zoneCode":"HLQFYBJY","parentCode":"8c8ffd0ad23b4d2e82a2353eaa8e127f"}
+HTTP/1.1 200 OK
+Date: Sat, 02 Sep 2023 02:37:55 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Server: openresty
+X-Powered-By: Express
+Content-Security-Policy: frame-ancestors *.zoenet.cn
+X-XSS-Protection: 1
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+ETag: W/"1e23-rVhXPTN8tIe+/wvvcPxVTeg0A3Y"
+Vary: Accept-Encoding
+X-CCDN-Origin-Time: 137
+via: CHN-GDguangzhou-CT2-CACHE19[148],CHN-GDguangzhou-CT2-CACHE44[144,TCP_MISS,145],CHN-GDdongguan-GLOBAL1-CACHE49[141],CHN-GDdongguan-GLOBAL1-CACHE12[137,TCP_MISS,139]
+x-hcs-proxy-type: 0
+X-CCDN-CacheTTL: 0
+alt-svc: h3=":443"; ma=2592000
+Content-Length: 7715
+
+{
+    "code": 0,
+    "data": {
+        "classList": [
+            {
+                "batchNumber": "f969ddc8000c4f1d94bb27d7948d3576",
+                "classCode": "cA2a",
+                "classIcon": "",
+                "className": "选择疫苗种类",
+                "createTime": "2023-07-13 16:40:52",
+                "createUser": "2c90803d7e58fc00017e758eef553ef9",
+                "id": "2c9081128947b57401894e69027235d0",
+                "menuList": [
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode={appCode}&zoneCode={zoneCode}&subscribeType=2c90812388d150370188d87f810b0861&orgCode={orgCode}",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "",
+                        "endVerNum": 5000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230621/b48afabe295d4af4b9d71c604026e468.PNG",
+                        "iconAsh": "",
+                        "iconCustom": "",
+                        "id": "2c90a2f288d6d17f0188dc8528d233f9",
+                        "loginStatus": 1,
+                        "menuClassCode": "cA2a",
+                        "menuClassName": "选择疫苗种类",
+                        "menuCode": "pub_menu_5079241687326894285",
+                        "menuId": "2c90a2f288d6d17f0188dc8528d233f9",
+                        "orgCode": "HLQFYBJY",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "-20230621-yy-新",
+                        "resourceName": "二价HPV疫苗-国产",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9081128947b57401894e6902e735d1",
+                        "sortNo": 0,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": "",
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    },
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode={appCode}&zoneCode={zoneCode}&subscribeType=2c90812388d150370188d88084340862&orgCode={orgCode}",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "",
+                        "endVerNum": 5000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230621/426fba0ff021450db6b31160b51be24c.PNG",
+                        "iconAsh": "",
+                        "iconCustom": "",
+                        "id": "2c90a2f288d6d17f0188dc85fc3b33fa",
+                        "loginStatus": 1,
+                        "menuClassCode": "cA2a",
+                        "menuClassName": "选择疫苗种类",
+                        "menuCode": "pub_menu_3873421687326948403",
+                        "menuId": "2c90a2f288d6d17f0188dc85fc3b33fa",
+                        "orgCode": "HLQFYBJY",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "-20230621-yy-新",
+                        "resourceName": "二价HPV疫苗-进口",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9081128947b57401894e6902e735d2",
+                        "sortNo": 1,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": "",
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    },
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode={appCode}&zoneCode={zoneCode}&subscribeType=2c9081c086ea228c0186ed6da613038f&orgCode={orgCode}",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "",
+                        "endVerNum": 5000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230621/b7ec0d7bf56e43be86feb3046fa02558.PNG",
+                        "iconAsh": "",
+                        "iconCustom": null,
+                        "id": "2c90a2f286ddd5690186ed8cb6385f6c",
+                        "loginStatus": 1,
+                        "menuClassCode": "cA2a",
+                        "menuClassName": "选择疫苗种类",
+                        "menuCode": "pub_menu_5328721679022667316",
+                        "menuId": "2c90a2f286ddd5690186ed8cb6385f6c",
+                        "orgCode": "HLQFYBJY",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "-20230317-yy-新",
+                        "resourceName": "23价肺炎球菌多糖",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9081128947b57401894e6902e735d3",
+                        "sortNo": 2,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": "",
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    },
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode={appCode}&zoneCode={zoneCode}&subscribeType=2c9081c086ea228c0186ed6c6e84038e&orgCode={orgCode}",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "",
+                        "endVerNum": 5000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230621/3a9077255a81462cbda794c494542247.PNG",
+                        "iconAsh": "",
+                        "iconCustom": null,
+                        "id": "2c90a2f286ddd5690186ed8b92e35f6b",
+                        "loginStatus": 1,
+                        "menuClassCode": "cA2a",
+                        "menuClassName": "选择疫苗种类",
+                        "menuCode": "pub_menu_1210851679022592735",
+                        "menuId": "2c90a2f286ddd5690186ed8b92e35f6b",
+                        "orgCode": "HLQFYBJY",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "-20230317-yy-新",
+                        "resourceName": "戊型肝炎疫苗",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9081128947b57401894e6902e735d4",
+                        "sortNo": 3,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": "",
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    },
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode={appCode}&zoneCode={zoneCode}&subscribeType=2c90804086f0312d0187024cba14134d&orgCode={orgCode}",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "",
+                        "endVerNum": 5000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230621/85f74e9e70b746e592be0601658eb861.PNG",
+                        "iconAsh": "",
+                        "iconCustom": "",
+                        "id": "2c90806587041c72018706de7fba7246",
+                        "loginStatus": 1,
+                        "menuClassCode": "cA2a",
+                        "menuClassName": "选择疫苗种类",
+                        "menuCode": "pub_menu_4213511679447457718",
+                        "menuId": "2c90806587041c72018706de7fba7246",
+                        "orgCode": "HLQFYBJY",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "-20230322-yy-新",
+                        "resourceName": "重组带状疯疹疫苗",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9081128947b57401894e6902e735d5",
+                        "sortNo": 4,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": "",
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    },
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode={appCode}&zoneCode={zoneCode}&subscribeType=2c90804988c4aa5a0188dce414d0150b&orgCode={orgCode}",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "",
+                        "endVerNum": 5000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230621/c5b64ea976a9425a8c43c7ac421a7298.PNG",
+                        "iconAsh": "",
+                        "iconCustom": null,
+                        "id": "2c90a2f288dc88b20188dcea578a166b",
+                        "loginStatus": 1,
+                        "menuClassCode": "cA2a",
+                        "menuClassName": "选择疫苗种类",
+                        "menuCode": "pub_menu_3193201687333525381",
+                        "menuId": "2c90a2f288dc88b20188dcea578a166b",
+                        "orgCode": "HLQFYBJY",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "-20230621-yy-新",
+                        "resourceName": "九价HPV疫苗-进口",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9081128947b57401894e6902e735d6",
+                        "sortNo": 5,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": null,
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    }
+                ],
+                "moreMenu": null,
+                "moreType": "",
+                "orgCode": "HLQFYBJY",
+                "showClass": "1",
+                "showMore": "",
+                "showOrHide": null,
+                "skeletonId": "2c9080fb86e82a580186ed1f54e16bd6",
+                "sortNo": 0,
+                "tabsList": "",
+                "updateTime": null,
+                "updateUser": "",
+                "validFlag": 1
+            }
+        ],
+        "clientUrl": "/medical/internet-hospital/more-menu",
+        "config": null,
+        "createTime": "2023-03-17 09:11:39",
+        "createUser": "16bb6a46d13d44adbf381f7947eac978",
+        "id": "2c9080fb86e82a580186ed1f54e16bd6",
+        "menuCode": "pub_menu_8737311557133991247_more_8c8ffd0ad23b4d2e82a2353eaa8e127f",
+        "menuId": "8c8ffd0ad23b4d2e82a2353eaa8e127f",
+        "menuName": "疫苗预约",
+        "menuType": null,
+        "orgCode": "HLQFYBJY",
+        "parentMenuCode": null,
+        "resourceModel": 0,
+        "themeColorStatus": 0,
+        "updateTime": "2023-07-13 16:40:52",
+        "updateUser": "16bb6a46d13d44adbf381f7947eac978",
+        "validFlag": 1
+    },
+    "exChangeMessage": null,
+    "integralRid": "F54C7D44AB1B431F8A12FB47B8B9128C",
+    "message": null,
+    "popUpType": null,
+    "success": true,
+    "traceId": null
+}
