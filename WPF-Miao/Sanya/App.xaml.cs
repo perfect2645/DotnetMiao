@@ -29,6 +29,7 @@ namespace Sanya
         {
             HttpServiceController.AddTransientService<LoginController>();
             HttpServiceController.AddTransientService<UserController>();
+            HttpServiceController.AddTransientService<DepartmentController>();
             HttpServiceController.AddTransientService<VaccineController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();

@@ -133,13 +133,13 @@ namespace Sanya.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(8).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(50);
 
             DateList = new List<DspVal>();
 
@@ -155,7 +155,8 @@ namespace Sanya.viewmodel
                     HospitalName = "三亚市吉阳区荔枝沟卫生院",
                     SubscribeType = "",
                     DepartmentId = "",
-                    DepartmentName = "九价疫苗"
+                    DepartmentName = "九价",
+                    VaccineName = "九价"
                 },
                 new SanyaHospital
                 {
@@ -167,7 +168,8 @@ namespace Sanya.viewmodel
                     HospitalName = "三亚市吉阳区大东海社区卫生服务站",
                     SubscribeType = "2c90a2f271a585100171a5e96d030003",
                     DepartmentId = "2c90803b7478b52801747b2e7285014e",
-                    DepartmentName = "13价肺炎疫苗（进口自费）"
+                    DepartmentName = "疫苗预约",
+                    VaccineName = "13价肺炎疫苗（进口自费）"
                 },
                 new SanyaHospital
                 {
@@ -180,18 +182,7 @@ namespace Sanya.viewmodel
                     SubscribeType = "2c90804988c4aa5a0188dce414d0150b",
                     DepartmentId = "2c90811988d966530188dce5038d007b",
                     DepartmentName = "九价HPV疫苗(进口)（第一针）"
-                },
-                new SanyaHospital
-                {
-                    OrgCode = "460200",
-                    ZoneCode = "460200",
-                    ZoneName = "5LiJ5Lqa5biC",
-                    AppCode = "HC_SANYA_WX",
-                    HospitalId = "A572000A001",
-                    HospitalName = "三亚市人民医院",
-                    DepartmentId = "10222",
-                    DepartmentName = "儿科 陈凯"
-                },
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -425,6 +416,7 @@ namespace Sanya.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.ZoneName, selectedDept.ZoneName);
             MainSession.PlatformSession.AddOrUpdate(Constants.AppCode, selectedDept.AppCode);
             MainSession.PlatformSession.AddOrUpdate(Constants.SubscribeType, selectedDept.SubscribeType);
+            MainSession.PlatformSession.AddOrUpdate(Constants.VaccineName, selectedDept.VaccineName);
 
             Log(selectedDept.ToLogString());
         }

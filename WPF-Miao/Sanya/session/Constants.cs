@@ -12,5 +12,6 @@ namespace Sanya.session
         public const string TokenId = "tokenId";
         public const string ZoeUuid = "zoeUuid";
         public const string SubscribeType = "subscribeType";
+        public const string VaccineName = "vaccineName";
     }
 }

@@ -11,6 +11,7 @@ namespace Sanya.viewmodel
         public string ZoneName { get; set; }
         public string AppCode { get; set; }
         public string SubscribeType { get; set; }
+        public string VaccineName { get; set; }
 
         public new string Display 
         {  
