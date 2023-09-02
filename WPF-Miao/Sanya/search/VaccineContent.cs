@@ -7,7 +7,7 @@ namespace Sanya.search
 {
     internal class VaccineContent : SanyaContent
     {
-        private static string baseUrl = "https://public.health.zoenet.cn/business-service/mask-appointment/queryOne";
+        private static string baseUrl = "https://public.health.zoenet.cn/medical/universal-interface/getCustomMenuListByZoneCode";
 
         public VaccineContent(SanyaLogin user) : base(baseUrl, user)
         {
@@ -17,11 +17,11 @@ namespace Sanya.search
 
         private void BuildContent()
         {
-            var orgCode = MainSession.PlatformSession.GetString(Constants.OrgCode);
+            var zoneCode = MainSession.PlatformSession.GetString(Constants.ZoneCode);
             var subscribeType = MainSession.PlatformSession.GetString(Constants.SubscribeType);
-            AddContent("orgCode", orgCode);
+            AddContent("zoneCode", zoneCode);
             //AddContent("parentCode", "2c90a2f271ba654f0171c015725d171a");
-            AddContent("subscribeType", subscribeType);
+            AddContent("parentCode", "20e248281adb42778a2daaed36af51bd");
         }
 
         protected override void BuildHeaderSign()

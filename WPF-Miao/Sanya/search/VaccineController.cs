@@ -49,8 +49,9 @@ namespace Sanya.search
                     MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
                     return false;
                 }
+                var classList = data.GetProperty("classList");
 
-                return CheckSaveVaccine(data);
+                return CheckSaveVaccine(classList);
             }
             catch (Exception ex)
             {
@@ -59,9 +60,9 @@ namespace Sanya.search
             }
         }
 
-        private bool CheckSaveVaccine(JsonElement vaccineListData)
+        private bool CheckSaveVaccine(JsonElement classList)
         {
-            var vaccineList = JsonAnalysis.JsonToDicList(vaccineListData);
+            var vaccineList = JsonAnalysis.JsonToDicList(classList);
 
             if (!vaccineList.HasItem())
             {
@@ -69,16 +70,31 @@ namespace Sanya.search
                 return false;
             }
 
-            var defaultVaccine = vaccineList.LastOrDefault(x => x.GetString("last_num_count").ToInt() > 0);
-            if (defaultVaccine == null)
+            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+            var targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("className").Contains(deptName));
+            if (targetVaccine == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"抢光了");
+                MainSession.PrintLogEvent.Publish(this, $"没找到对应的疫苗（{deptName}），自动选择9价");
+                targetVaccine = vaccineList.FirstOrDefault(x => x.GetString("className").Contains("九价"));
+            }
+            if (targetVaccine == null)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没找到对应的疫苗，也没九价");
                 return false;
             }
 
-            Date = defaultVaccine.GetString("date");
+            var clientUrl = targetVaccine.GetString("clientUrl");
+            clientUrl = "/business-service/mask-appointment/mask-collection-appointment?zoneCode=460200&&subscribeType=2c90a2f271a585100171a5e96d030003";
 
-            MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.MiaoGet);
+            if (string.IsNullOrEmpty(clientUrl))
+            {
+                MainSession.PrintLogEvent.Publish(this, $"clientUrl is empty, 没开始");
+                return false;
+            }
+
+            var subscribeType = clientUrl.SplitToList("subscribeType=")[1];
+
+            MainSession.PlatformSession[Constants.SubscribeType] = subscribeType;
 
             return true;
         }

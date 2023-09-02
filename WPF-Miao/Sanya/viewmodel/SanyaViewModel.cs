@@ -153,7 +153,7 @@ namespace Sanya.viewmodel
                     AppCode = "HC_SANYA_WX",
                     HospitalId = "A572000B004",
                     HospitalName = "三亚市吉阳区荔枝沟卫生院",
-                    SubscribeType = "2c90a2f271a585100171a5e96d030003",
+                    SubscribeType = "",
                     DepartmentId = "",
                     DepartmentName = "九价疫苗"
                 },
