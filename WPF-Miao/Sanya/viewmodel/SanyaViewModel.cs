@@ -133,7 +133,7 @@ namespace Sanya.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
@@ -153,8 +153,8 @@ namespace Sanya.viewmodel
                     AppCode = "HC_SANYA_WX",
                     HospitalId = "A572000B004",
                     HospitalName = "三亚市吉阳区荔枝沟卫生院",
-                    SubscribeType = "",
-                    DepartmentId = "",
+                    SubscribeType = "2c90812388d150370188d1934ed6003c",
+                    DepartmentId = "2c90801b88c4acc60188d1a7d0cc0137",
                     DepartmentName = "九价",
                     VaccineName = "九价"
                 },
@@ -320,8 +320,36 @@ namespace Sanya.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.ReadyForSearch);
-                    _searchController.SearchMiao();
+                    //MainSession.SetStatus(Base.viewmodel.status.MiaoProgress.ReadyForSearch);
+                    //_searchController.SearchMiao();
+
+                    var orderList = new List<Order>();
+                    var user = MainSession.Users.FirstOrDefault();
+
+                    var manualOrder = new Order
+                    {
+                        UserName = user.UserName,
+                        User = user,
+                        Age = user.Age.NotNullString(),
+                        GoodsDetailId = "2c9080e58a2cc5f6018a3b2c896d015f",
+                        GoodsId = "2c9080e58a2cc5f6018a3b2c8902015b",
+                        IcCardNo = user.IcCard,
+                        IdCardNo = user.IdCard,
+                        OrgCode = "A572000B004",
+                        ProvideAddress = "三亚市吉阳区荔枝沟卫生院",
+                        ServiceId = "2c90801b88c4acc60188d1a7d0cc0137",
+                        SubscribeType = "2c90812388d150370188d1934ed6003c",
+                        TimeStr = "2023-09-06",
+                    };
+
+                    orderList.Add(manualOrder);
+
+                    var orderArgs = new OrderEventArgs
+                    {
+                        OrderList = orderList,
+                    };
+
+                    MainSession.OrderEvent.Publish(this, orderArgs);
                 }
                 catch (HttpException ex)
                 {

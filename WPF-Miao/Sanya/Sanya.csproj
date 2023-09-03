@@ -10,7 +10,9 @@
   <ItemGroup>
     <None Remove="common\crypto-js.min.js" />
     <None Remove="common\encode.js" />
+    <None Remove="Login 7719.json" />
     <None Remove="Login.json" />
+    <None Remove="Login7563.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +23,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login7563.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login 7719.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
