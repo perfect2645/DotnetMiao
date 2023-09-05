@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utils;
+using Utils.datetime;
 
 namespace Lujiazhen.login
 {
@@ -19,12 +20,14 @@ namespace Lujiazhen.login
             BuildContent();
         }
 
-        private void BuildContent()
+        protected override void BuildContent()
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-
             AddContent("page", 1);
+            var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
+            Content.AddOrUpdate("timestamp", timestamp);
             AddContent("token", User.Token);
+
+            base.BuildContent();
         }
     }
 }
