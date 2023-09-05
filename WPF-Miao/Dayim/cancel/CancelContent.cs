@@ -1,0 +1,24 @@
+﻿using Dayim.common;
+using Dayim.login;
+
+namespace Dayim.cancel
+{
+    internal class CancelContent : DayimContent
+    {
+        private static string baseUrl = "ldrmyy120.com/rest/v1/api/examine/vaccine_cancel/";
+
+        public CancelContent(DayimLogin user, string cancelId) : base(baseUrl, user)
+        {
+            CancelId = cancelId;
+            ContentType = "application/x-www-form-urlencoded";
+            BuildContent();
+        }
+
+        public string CancelId { get; }
+
+        private void BuildContent()
+        {
+            AddContent("id", CancelId);
+        }
+    }
+}

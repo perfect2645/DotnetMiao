@@ -1,0 +1,55 @@
+<view>
+    <view class="memberInfo">
+        <view bindtap="getUrl" class="editButton">修改信息</view>
+        <view class="info_title">
+            <image mode="aspectFit" src="../../images/info_dian.jpg"></image>个人信息 </view>
+        <view class="info_li">
+            <view class="info_li_left">姓 名：</view>
+            <view class="info_li_right"> {{result.truename}} </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">性 别：</view>
+            <view class="info_li_right">
+                <text wx:if="{{result.gender==1}}">女</text>
+                <text wx:if="{{result.gender==2}}">男</text>
+            </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">手机号：</view>
+            <view class="info_li_right"> {{result.phoneNumber}} </view>
+        </view>
+        <view class="info_li">
+            <view class="info_li_left">身份证号：</view>
+            <view class="info_li_right"> {{result.idcard}} </view>
+        </view>
+        <view class="info_li wu_line">
+            <view class="info_li_left">地 址：</view>
+            <view class="info_li_right"> {{result.address}} </view>
+        </view>
+        <view class="info_f_hy">
+            <view class="info_f_hy_1">非本地身份证号,请上传本地户籍证明或本地工作单位证明</view>
+            <view class="info_f_hy_2">
+                <view class="info_li_left">上传证明：</view>
+                <view class="info_li_right">
+                    <image mode="widthFix" src="{{result.image}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="info_title">
+            <image mode="aspectFit" src="../../images/info_dian.jpg"></image>身份证正反面 </view>
+        <view class="info_f_hy">
+            <view class="info_f_hy_2">
+                <view class="info_li_left">头像面：</view>
+                <view class="info_li_right">
+                    <image mode="widthFix" src="{{result.images}}"></image>
+                </view>
+            </view>
+            <view class="info_f_hy_2">
+                <view class="info_li_left">国徽面：</view>
+                <view class="info_li_right">
+                    <image mode="widthFix" src="{{result.imagesf}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

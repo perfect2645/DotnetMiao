@@ -1,0 +1,1875 @@
+GET https://www.joyreserve.com/index.php/Wechat/Booking/one_room_private_booking_table/room_id/53680/area_id/16267/area_must_reserve_times_one_time/0/country_id//time_type/1 HTTP/1.1
+Host: www.joyreserve.com
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: https://www.joyreserve.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: PHPSESSID=bh0tmbka0d45s10trcbc1dfbj4; think_language=zh-CN; gr_session_id_81a85bff1b646131=2a2774ae-ca29-410f-8573-9ed77e057950; gr_user_id=7a8ddd0e-87e5-4bf1-ad4b-f76de1448258; 81a85bff1b646131_gr_session_id=c41c3cfd-697b-4a12-a1ff-245454b492bf; 81a85bff1b646131_gr_session_id_sent_vst=c41c3cfd-697b-4a12-a1ff-245454b492bf; gr_session_id_81a85bff1b646131_2a2774ae-ca29-410f-8573-9ed77e057950=true
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Referer: https://www.joyreserve.com/index.php/Wechat/Other/show_disclaimer/back_url/one_room_private_booking_table?room_id=53680&area_id=16267&area_must_reserve_times_one_time=0&country_id=&time_type=1
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: X-Requested-With,token, Content-Type
+Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT
+Access-Control-Allow-Origin: https://www.joyreserve.com
+Cache-Control: private
+Content-Length: 72901
+Content-Type: text/html; charset=utf-8
+Date: Tue, 01 Aug 2023 14:16:43 GMT
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Pragma: no-cache
+Server: Apache/2.4.25 (Debian)
+Vary: Accept-Encoding
+X-Powered-By: ThinkPHP
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>
+        广德惠民医院  </title>
+  <link rel="stylesheet" href="//cdn.joyreserve.com/Public/Wechat/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.joyreserve.com/Public/Wechat/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.joyreserve.com/Public/Wechat/css/icon1/iconfont.css">
+  <link rel="stylesheet" href="//cdn.joyreserve.com/Public/Wechat/css/main.css?date=20190810?date=20190809">
+  <link rel="stylesheet" href="//cdn.joyreserve.com/Public/Wechat/css/register_list.css">
+  <style>
+    .state_text {
+      font-size: 16px;
+    }
+    .no-registered {
+        min-width: 100px;
+        width: auto;
+        height: 65px;
+        text-align: center;
+        color:#494949;
+        border: 1px solid #b7b7b7;
+    }
+    .registered {
+      min-width: 100px;
+      width: auto;
+      height: 65px;
+      text-align: center;
+        background-color: #f3f3f3;
+        color:#909090;
+    }
+    
+    .registered p,
+    .registered>div,
+    .no-registered p,
+    .no-registered>div {
+      font-size: 13px;
+    }
+
+    .th-active {
+      background-color: #00FF99;
+    }
+
+    .checked {
+      /*background-color: #66ff66 !important;*/
+      color: #e9542f;
+        border: 1px solid #e9542f  !important;
+    }
+
+    .nav-submit {
+      position: fixed;
+      left: auto;
+      right:auto;
+      bottom: 0;
+      height: 50px;
+        background-color: #e9542f;
+        width: 100%;
+        max-width: 640px;
+        text-align: center;
+    }
+
+    .nav-submit input {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid transparent;
+        padding: 6px 6px;
+        margin-top: 7px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 2px;
+        position: absolute !important;
+        left: 0;
+        /*margin-left: 20px;*/
+    }
+
+    .hw-overlay{display:none; position: fixed; top:0;left:0;width:100%;height:100%; background-color: rgba(0,0,0,0.3);z-index:10;}
+    .hw-layer-wrap{box-sizing:border-box; width:570px; position:absolute;left:50%;top:50%; margin-left:-285px; border-radius:3px; background-color:#fff; box-shadow:1px 2px 4px 0 rgba(0,0,0,0.12); padding:45px 50px;}
+    .hwLayer-close{position:absolute; right:20px; top:20px; width:20px; height:20px; cursor:pointer; font-size:20px; color:#ccc; z-index: 20;}
+    .hw-layer-wrap .hw-icon{color:#b4d8f3;font-size:86px;text-align:center;}
+    .hw-layer-wrap h4{margin:5px 0 30px; font-size:24px; color:#383c3e;}
+    .hw-layer-wrap p{margin:30px 0; line-height:22px; color:#595d60; text-align:left;}
+    .hw-layer-title{height: 32px;line-height: 32px; font-size: 16px; position: absolute; left: 20px; top: 10px; font-weight: bold;}
+
+    @media (max-width:768px){
+      .hw-layer-wrap{width:350px; margin-left:-175px; margin-top:-200px; padding:45px 50px; text-align:center;}
+    }
+    @media (max-width:400px){
+      .hw-layer-wrap{width:250px; margin-left:-125px;padding:25px 30px;}
+    }
+
+    .to_all_rooms {
+      color: #4cae4c;
+      margin-right: -10px;
+      position: absolute;
+      right: 5%;
+      z-index: 1999;
+    }
+
+    #cg-table-header {
+      height: 65px;
+      position: fixed;
+      z-index: 99;
+      top: 50px;
+      text-align: center;
+      color: #e9542f;
+      font-size: 16px;
+      padding-top: 8px;
+      background: white;
+    }
+
+    #cg-table-header div{
+      float: left;
+    }
+
+    .g-header-nbsp {
+      position: fixed;
+      background: #f5f5f5;
+      height: 10px;
+      z-index: 999;
+      top: 40px;
+      width: 100%;
+    }
+
+    .g-hidden-date {
+      visibility: hidden;
+    }
+
+    .g-hidden-week {
+      visibility: hidden;
+    }
+
+    .g-header-icon-back {
+      position: absolute;
+      top: 0;
+      left: 7%;
+      z-index: 1999;
+      margin-top: 11px;
+    }
+
+    .g-header-icon-back img {
+      width: 18px;
+      height: 18px;
+    }
+
+    .g-title {
+      font-weight: 500;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 70%;
+      margin-left: 15%;
+    }
+
+  </style>
+</head>
+
+<body>
+<div>
+<header class="header" id="header" style="position: fixed;background-color: white;">
+    <div class="g-header-icon-back">
+        <a href="javascript: history.go(-1);"><img src="//cdn.joyreserve.com/Public/Wechat/img/left.png"/></a>
+      </div>
+      <a href="/index.php/Wechat/show/register?country_id=time_type" class='to_all_rooms'><span  class="seeall">&nbsp;全部&nbsp;</span></a>
+        <div class="header-title" style="height: auto;">
+    <div class="g-title">
+      <h1 class="title">九价人乳头瘤病毒疫苗</h1>
+        <!--所有医生  <img src="//cdn.joyreserve.com/Public/Wechat/img/right.png"/> -->
+
+      
+    </div>
+  </div>
+</header>
+
+<!-- 占位header -->
+<header class="header" id="header2" style="position:relative;z-index: 0">
+</header>
+
+</div>
+
+<div class="g-header-nbsp"></div>
+
+<!-- 存储时间段 start -->
+  <input type="hidden" name = "basic_time_1" id = "basic_time_1" value="08:00-08:30" endTimestamp = "1690849800">
+<input type="hidden" name = "basic_time_count" id = 'basic_time_count' value="1">
+<input type="hidden" name = "today_date_yyyymmdd" id = 'today_date_yyyymmdd' value="20230801">
+
+<!-- 存储时间段 end -->
+
+<!-- 存储预约对象基本数据 start -->
+<input type="hidden" name = "room_id" id = 'room_id' value="53680">
+<input type="hidden" name = "custom_class_ids" id = 'custom_class_ids' value="">
+<input type="hidden" name = "room_name" value="九价人乳头瘤病毒疫苗">
+<input type="hidden" name = "room_area_id" value="16267">
+<input type="hidden" name = "room_reserve_system_id" value="2500">
+<input type="hidden" name = "room_is_use_private_time" value="1">
+<input type="hidden" name = "room_number_of_times" value="1">
+<input type="hidden" name = "room_is_use_private_max_people" value="0">
+<input type="hidden" name = "room_is_use_free_time_config" value="0">
+<input type="hidden" name = "room_is_use_set_display_date" value="1">
+<input type="hidden" name = "room_display_start_date" value="20230803">
+<input type="hidden" name = "room_display_end_date" value="20230803">
+<input type="hidden" name = "room_is_use_set_display_date_specific" value="0">
+<input type="hidden" name = "room_query_date" value="20230801">
+<!--必须一次选择多少个时间段-->
+<input type="hidden" name = "area_must_reserve_times_one_time" value="">
+<!-- 存储预约对象基本数据 end -->
+
+<!-- 存储需要展示的日期列表 start -->
+
+<input type="hidden" name = "days_list_length" value="0" id = 'days_list_length'>
+<!-- 存储需要展示的日期列表 end -->
+<div class="g-table-header-border">
+  <div id ="cg-table-header"></div>
+</div>
+<div id ="cg-table-header"></div>
+<div class="table-responsive" style="margin-top:10px;margin-bottom: 50px;">
+  <table class="table" id="table">
+    <thead>
+    <tr>
+      <!-- <th> </th> -->
+          </tr>
+    </thead>
+    <tbody>
+
+        <!--找出开始时间与结束时间-->
+        <input type="hidden" value="" id="start_date">
+
+        <input type="hidden" value="" id="end_date">
+
+
+
+      <tr>
+          <!-- <td>
+            1          </td> -->
+                  </tr>    </tbody>
+  </table>
+</div>
+<div id="hidden_input_disabled">
+    <!--为了获取哪个时间段不可预约-->
+</div>
+<input type="hidden" id="is_open_reserve_resources" value="">
+<input type="hidden" id="dieable_text" value="">
+<!-- 是否显示提示文案 start-->
+<!-- <div style="margin-top: 20px;  margin-bottom: 60px; text-align:center">
+  <div class="alert alert-success alert-dismissable" role="alert">
+      <button class="close" data-dismiss="alert">
+        <span aria-hidden="true">×</span>
+      </button>
+              <b>点击绿色空闲框，可立即预约！</b>    </div></div> -->
+<!-- 是否显示提示文案 end-->
+
+
+<!--弹出提示框 start-->
+<div class="hw-overlay" id="hw-layer">
+  <div class="hw-layer-wrap">
+    <span class="hwLayer-close">X</span>
+    <div class="row">
+      <div class="col-md-9 col-sm-12">
+        <h4 id='tip_title'>注意</h4>
+        <p id='tip_content'>不允许一次预约两个不同的预约对象,可预约同一个对象一天内的多个时段</p>
+        <button class="btn btn-success hwLayer-ok">确 定</button>
+        <button class="btn btn-warning hwLayer-cancel">取 消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--弹出提示框 end-->
+
+<input type='hidden' id='now_country_id' value="time_type" />
+<input type='hidden' id='now_area_id' value="16267" />
+<input type='hidden' id='basic_is_allow_multiple_time' value="0" />
+<input type='hidden' id='reserve_td_ids' value="" />
+<input type='hidden' id='currency_symbol' value="￥" />
+
+<!--是否允许用户 预约 跨天的多个时段-->
+<input type='hidden' id='basic_is_allow_multiple_time_cross_day' value="0" />
+
+
+<input type="hidden" id = "time_free_tip_text" value="空闲">
+
+<!-- 预约一次，必须 同时 预约多少个时间段（0表示不设置） -->
+<input type='hidden' id='must_reserve_times_one_time' value="0" />
+
+<!-- 是否 必须 预约连续的时间段 -->
+<input type='hidden' id='basic_is_must_reserve_continuous_times' value="0" />
+
+<!-- 预约一次，必须 最多 预约多少个时间段（0表示不设置） -->
+<input type='hidden' id='must_at_most_reserve_times_one_time' value="0" />
+
+<!-- 预约一次，必须 最少 预约多少个时间段（0表示不设置） -->
+<input type='hidden' id='must_at_least_reserve_times_one_time' value="0" />
+
+<!--预约一次，必须 最多 预约多少个时间段（0表示不设置）(对象)-->
+<input type='hidden' id='must_at_most_reserve_times_one_time_obj' value="0" />
+<!--预约一次，必须 最少 预约多少个时间段（0表示不设置）(对象)-->
+
+<input type='hidden' id='must_at_least_reserve_times_one_time_obj' value="0" />
+
+<input type="hidden" id="menu_reserve_full" value="已约满">
+
+
+<!-- 预约一次，必须同时连续预约多少个时间段（0表示不设置） （分类）-->
+<input type='hidden' id='area_must_reserve_times_one_time' value="0" />
+
+<!-- 微信客户端 专有预约页 忽略不显示的时间段-->
+<input type='hidden' id='basic_is_ignore_not_show_time' value="0" />
+
+<!-- 是否按周配置时间段价格 -->
+<input type='hidden' id='time_price_type' value="0" />
+
+<!-- 是否 启用 排队功能 -->
+<input type='hidden' id='is_active_queue' value="0" />
+
+<!-- 是否 开启 微信用户端 显示预约可选项一 功能 -->
+<input type='hidden' id='basic_is_active_device' value="0" />
+
+<!-- 是否开启 预约可选项一必填 -->
+<input type='hidden' id='basic_is_must_fill_device' value="0" />
+
+<!-- 是否开启 追随第一个用户的选择设备 -->
+<input type='hidden' id='is_active_first_order_device' value="0" />
+
+<!-- 是否开启使用 订单自定义字段 -->
+<input type='hidden' id='basic_is_use_reservation_field' value="1" />
+
+<!-- 微信客户端 点击已约满时间段 是否显示预约者详情-->
+<input type='hidden' id='basic_is_show_reservation_detail' value="0" />
+
+<!-- 微信客户端 点击已约满时间段 是否显示自定义订单字段-->
+<input type='hidden' id='basic_is_show_reservation_field' value="0" />
+
+
+<!-- 时间段不可预约时 选择提示信息的显示阶段 0=下单时提示 1=点击时间段直接弹窗显示 -->
+<input type='hidden' id='choose_hint_stage' value="1" />
+
+<!-- 是否 不显示已约满的时间段 1=不显示 0=显示-->
+<input type='hidden' id='basic_is_not_show_fulfill_time' value="0" />
+
+<!-- 预约对象 价格模式 -1=按照系统统一指定 0=所有时间段价格一样 1=每周价格自由配置 2=每日价格自由配置-->
+<input type='hidden' id='room_time_price_type' value="-1" />
+
+<input type='hidden' id='server_time' value="1690899403" />
+
+
+<script src="//cdn.joyreserve.com/Public/Wechat/js/jquery.min.js"></script>
+<script src="//cdn.joyreserve.com/Public/Wechat/js/bootstrap.min.js"></script>
+<script src="//cdn.joyreserve.com/Public/Wechat/js/common.js"></script>
+
+<script type="text/javascript">
+
+    var server_time = parseInt($('#server_time').val()) 
+    var is_open_reserve_resources = $('#is_open_reserve_resources').val();
+    var all_input = {};
+    var all_no_resources = {};
+    $(document).ready(function(){
+        /** 系统的基本配置 start */
+
+        configures = {};
+
+        // 是否显示人数
+        configures['basic_is_show_people_state'] = 1;
+
+        // 是否不显示最大预约人数为0的时间段
+        configures['basic_is_not_show_zero_people_time'] = 1;
+
+        // 微信客户端 是否不显示已过期时段（先时间模式）
+        configures['basic_is_not_show_overdue_time'] = 0;
+
+        // 是否显示预约者的名字
+        configures['basic_is_show_reserve_username'] = 0;
+
+        // 微信客户端 是否不显示 配置为不可预约的时间段 0显示 1不显示
+        configures['basic_is_not_show_reservation_time'] = 0
+        // 显示时间标签
+        configures['basic_is_active_tag'] = 1;
+
+        // 微信客户端 专有预约页 忽略不显示的时间段
+        configures['basic_is_ignore_not_show_time'] = $('#basic_is_ignore_not_show_time').val();
+
+        // 是否按周配置了时间段价格
+        configures['time_price_type'] = $('#time_price_type').val();
+
+        // 是否 启用 排队功能
+        configures['is_active_queue'] = $('#is_active_queue').val();
+
+        // 是否 微信用户端 显示预约可选项一
+        configures['basic_is_active_device'] = $('#basic_is_active_device').val();
+
+        //是否开启 预约可选项一 必填
+        configures['basic_is_must_fill_device'] = $('#basic_is_must_fill_device').val();
+
+        // 是否开启 追随第一个用户选择的设备
+        configures['is_active_first_order_device'] = $('#is_active_first_order_device').val();
+
+        // 是否开启使用 订单自定义字段
+        basic_is_use_reservation_field = $('#basic_is_use_reservation_field').val();
+
+        // 微信客户端 点击已约满时间段 是否显示预约者详情
+        basic_is_show_reservation_detail = $('#basic_is_show_reservation_detail').val();
+
+        // 微信客户端 点击已约满时间段 是否显示自定义订单字段
+        basic_is_show_reservation_field = $('#basic_is_show_reservation_field').val();
+
+        //  时间段不可预约时 选择提示信息的显示阶段 0=下单时提示 1=点击时间段直接弹窗显示
+        choose_hint_stage = $('#choose_hint_stage').val();
+
+        // 是否允许用户一次预约多个时段
+        basic_is_allow_multiple_time = $('#basic_is_allow_multiple_time').val();
+        // console.log('basic_is_allow_multiple_time:' + basic_is_allow_multiple_time);
+
+        // 是否允许用户 预约 跨天的多个时段
+        basic_is_allow_multiple_time_cross_day = $('#basic_is_allow_multiple_time_cross_day').val();
+
+        // 是否必须预约相邻的时间段
+        basic_is_must_reserve_continuous_times = $('#basic_is_must_reserve_continuous_times').val();
+
+        //是否 不显示已约满的时间段 1=不显示 0=显示
+        basic_is_not_show_fulfill_time = $('#basic_is_not_show_fulfill_time').val();
+
+        // 预约对象 价格模式
+        room_time_price_type = $('#room_time_price_type').val();
+
+
+        // console.log(configures);
+
+        /** 系统的基本配置 end */
+
+        reservation_data = new Array(); //存储后台传送来的数据
+
+        // 时间段个数
+        basic_time_count = $('#basic_time_count').val();
+
+        // 当前预约对象的id
+        room_id = $('#room_id').val();
+
+
+
+
+
+        // 每次查询的最大天数
+        max_period_days = 3;
+        // 获取一共需要查询多少天
+        days_list_length = $('#days_list_length').val();
+        // console.log(days_list_length);
+
+        // 总共需要查询的次数
+        total_query_times = days_list_length / max_period_days;
+        // 判断是否为整数
+        if(total_query_times % 1 !== 0){
+            // 如果不是整数
+            total_query_times = parseInt(total_query_times) + 1;
+        }
+
+        // console.log(total_query_times);
+
+        // 当前已查询次数
+        now_query_times = 0;
+
+        if(now_query_times < total_query_times){
+            get_dates_reservation();
+
+        }
+        //获取早已设置好的不可预约的时间段
+        ajax_get_disabled_time();
+
+        //获取场地资源
+        if(is_open_reserve_resources == 1){
+            ajax_get_resource_times();
+        }
+
+
+        //拼接不可预约的时间点对象
+        $('#hidden_input_disabled').find('input').each(function(i,val){
+            var j =
+                $('#room_id').val()
+                +'_'+parseInt(val['name'].slice(0,8))
+                +'_'+ parseInt(val['name'].substring(8));
+            all_input[j] = val['name'];
+        });
+    });
+
+
+
+    /**
+     * 用于判断调取ajax，根据请求的日期数组得到预约情况
+     * @return {[type]} [description]
+     */
+    function get_dates_reservation(){
+
+        now_query_times ++; // 执行次数+1
+
+        // 开始日期
+        var start_date_num = (now_query_times - 1) * max_period_days + 1;
+        // 结束日期
+        var end_date_num = now_query_times * max_period_days;
+
+        // 要传递的日期数组
+        var dates = [];
+        for(var j = start_date_num; j <= end_date_num; j ++){
+            // 必须在范围内
+            if(j <= days_list_length){
+                var date_id = 'day_' + j;
+                dates.push($('#' + date_id).val()); // 添加到数组中
+            }
+
+        }
+        // console.log(dates); // 打印请求的日期
+        //do_ajax_get_one_room_reservatons_of_dates(dates);
+
+
+        // 执行获取日期预约情况
+
+        do_ajax_get_dates_reservations(dates);
+
+
+
+    }
+
+
+    // 该函数仅用作测试用
+    function do_ajax_get_one_room_reservatons_of_dates(dates){
+        var objectModel = {};
+        objectModel['room_id'] = $('#room_id').val();
+        objectModel['datesList'] = dates;
+
+        // console.log('do_ajax_get_one_room_reservatons_of_dates');
+
+        var domain = getDomain();
+        var toUrl = protocol + '//' + domain + "/index.php/API/Room/ajax_return_one_period_one_room_timestate";
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: toUrl,
+            dataType: "json",
+            data: objectModel,
+            timeout: 30000,
+
+
+            error: function () {
+                // console.log(objectModel);
+                // console.log(toUrl);
+            },
+            success: function (data) {
+                //console.log(objectModel);
+                // console.log(data);
+            }
+        });
+    }
+
+
+
+    //ajax获取场地资源不可预约的时间段
+
+    function ajax_get_disabled_time(){
+
+
+
+        var objectModel = {};
+        objectModel['room_id'] = $('#room_id').val();
+        objectModel['start_date'] = $('#start_date').val();
+        objectModel['end_date'] = $('#end_date').val();
+
+        var domain = getDomain();
+        var toUrl = protocol + '//' + domain + "/index.php/Admin/AdminSetReserve/ajax_get_disabled_time";
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            async:false,
+            url: toUrl,
+            dataType: "json",
+            data: objectModel,
+            timeout: 30000,
+
+            error: function () {
+                alert('未能连接后台服务器');
+            },
+            success: function (data) {
+                // console.log(data);
+                if(data.coed == 1){
+                    alert(data.massage);
+                }
+                else{
+
+                    var temp = '';
+                    $.each(data, function (i, value){
+
+                        if($.isPlainObject(value)){
+                            temp += '<input type="hidden" name="'+ value['name']+' " room_id="'+ value['room_id'] +'" />';
+                        }
+
+
+                    });
+                    $('#hidden_input_disabled').append(temp);
+                }
+            }
+        });
+    }
+
+
+    //ajax后台请求早已经配置好的不可以预约的时间段
+
+    function ajax_get_resource_times(){
+
+
+
+        var objectModel = {};
+        objectModel['room_id'] = $('#room_id').val();
+        objectModel['start_date'] = $('#start_date').val();
+        objectModel['end_date'] = $('#end_date').val();
+
+        var domain = getDomain();
+        var toUrl = protocol + '//' + domain + "/index.php/Admin/SiteResources/ajax_get_resource_times";
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            async:false,
+            url: toUrl,
+            dataType: "json",
+            data: objectModel,
+            timeout: 30000,
+
+            error: function () {
+                alert('未给预约对象添加资源');
+            },
+            success: function (data) {
+                // console.log(data);
+
+                //如果没有了资源
+                if(!data.code){
+                     all_no_resources = data;
+                }
+            }
+        });
+    }
+
+
+
+
+    /**
+     * 根据日期数组获取相应的预约数据，然后赋值到html表格中
+     * @param  {[type]} dates [日期数组]
+     * @return {[type]}         [description]
+     */
+    function do_ajax_get_dates_reservations(dates) {
+
+
+
+
+        var objectModel = {};
+        objectModel['room_id'] = $('#room_id').val();
+        objectModel['datesList'] = dates;
+        //console.log('gggg');
+        //console.log(objectModel);
+
+        var domain = getDomain();
+
+        // 原先调用的接口是  Wechat/Booking/do_ajax_get_dates_reservations 查询太慢！！！
+        var toUrl = protocol + '//' + domain + "/index.php/API/Room/ajax_return_one_period_one_room_timestate";
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: toUrl,
+            dataType: "json",
+            data: objectModel,
+            timeout: 30000,
+
+
+            error: function () {
+                // console.log(objectModel);
+                // console.log(toUrl);
+            },
+            success: function (data) {
+                //console.log(configures);
+
+                //console.log($now_timestamp);
+
+                // console.log(data);
+                reservation_data.push(data);
+                /** 处理 获取的内容 start */
+
+                $.each(data, function(date, val){
+                    for(var j = 1; j <= basic_time_count; j ++){
+
+
+                        // 拼接下标
+                        var index = '';
+                        if(j < 10) {
+                            index = room_id + '_' + date + '0' + j;
+                        }
+                        else {
+                            index = room_id + '_' + date + j;
+                        }
+
+
+                        // 拼接下标2
+                        var index2 = '';
+
+                            index2 = room_id + '_' + date +'_' + j;
+
+
+                        // console.log(index);
+
+                        // 时间标签下标
+                        var tag_index = 'tag_' + date + '_' + room_id + '_' + j;
+
+
+                        // 最大可预约人数下标
+                        var max_people_index = 'max_people_' + date + '_' + room_id + '_' + j;
+
+                        // 每个时间段价格下标
+                        var price_index = 'price_' + date + '_' + room_id + '_' + j;
+
+                        // 每个时间段 最大允许排队 下标
+                        var max_queue_people_index = 'max_queue_people_' + date + '_' + room_id + '_' + j;
+
+                        // 显示人数
+                        if(configures['basic_is_show_people_state'] != 0){
+                            //console.log(val['already_reserve'][j] + '/' + val['max_people'][max_people_index]);
+                            $('#' + index).find('.people_state').html('(' + val['already_reserve'][j] + '/' + val['max_people'][max_people_index]  + ')');
+                        }
+                        else{
+                            $('#' + index).find('.people_state').html('');
+                        }
+
+                        var is_full = 0;    // 记录时间段是否已约满
+                        var is_expired = 0;  // 记录时间段是否已过期
+
+
+                        /*********** 是否开启 追随第一个用户选择的设备 并且 是否开启 预约可选项一必填  start**************/
+                        if(configures['is_active_first_order_device'] == 1 && configures['basic_is_must_fill_device'] == 1 && configures['basic_is_active_device'] == 1){
+                            //console.log('jjjj' + j + 'kkkk' + val['devices'][j-1]['status']);
+                            if (val['devices'][j-1]['status'] == 1){
+                                var device = val['devices'][j-1]['devices']['name'];
+                                $('#' + index).find('.device_text').html(device);
+                            }
+                            else{
+                                $('#' + index).find('.device_text').html('');
+                            }
+
+                        }
+                        else{
+                            $('#' + index).find('.device_text').html('');
+                        }
+                        /*********** 是否开启 追随第一个用户选择的设备 并且 是否开启 预约可选项一必填  end**************/
+
+
+                        // 判断是否已经约满
+                        if( parseInt(val['already_reserve'][j]) >= parseInt(val['max_people'][max_people_index]) ){
+                            /** 已约满 */
+                            is_full = 1;
+                            var menu_reserve_full = $('#menu_reserve_full').val();
+                            // 修改空闲文案
+                            $('#' + index).find('.state_text').html(menu_reserve_full);
+
+
+                            // 添加上已预约者信息
+                            if(parseInt(configures['basic_is_show_reserve_username']) > 0){
+                                // 如果存在已预约者, 只取第一个
+                                if(val['reserve_users'][j][0]){
+                                    // 如果要求 只展示部门 那么时间段格子上应该显示部门
+                                    if (parseInt(configures['basic_is_show_reserve_username']) == 5) {
+                                        // console.log('here');
+                                        $('#' + index).find('.state_text').html(val['reserve_users'][j][0]['department']);
+                                        // console.log(val['reserve_users'][j][0]['department']);
+                                    }
+                                    else{
+                                        // 否则 显示预约者姓名
+                                        // console.log('value', configures['basic_is_show_reserve_username']);
+                                        $('#' + index).find('.state_text').html(val['reserve_users'][j][0]['username']);
+                                    }
+                                    // $('#' + index).find('.state_text').html(val['reserve_users'][j][0]['username']);
+                                    $('#' + index).attr('userName', val['reserve_users'][j][0]['username']);
+                                    $('#' + index).attr('userPhone', val['reserve_users'][j][0]['phone']);
+                                    $('#' + index).attr('userDepartment', val['reserve_users'][j][0]['department']);
+                                    $('#' + index).attr('usercompany_name', val['reserve_users'][j][0]['company_name']);
+
+                                    /** 已约满的时间段 点击是否弹窗 start */
+
+                                    if (parseInt(basic_is_show_reservation_detail) == 1){
+                                        // 点击已约满的时间段，显示预约人信息 或者 订单自定义字段
+                                        $('#' + index).attr('onclick', 'show_reservation_detail(this)');
+                                    }
+                                    /** 已约满的时间段 点击是否弹窗 end */
+
+                                }
+                            }
+
+
+                            // 最大可预约人数为0 的是否不显示 或者 已约满时间段不显示
+                            if((configures['basic_is_not_show_zero_people_time'] == 1 && parseInt(val['max_people'][max_people_index]) == 0) || parseInt(basic_is_not_show_fulfill_time)){
+                                $('#' + index).parent().removeClass('registered-td');
+                                $('#' + index).parent().addClass('ignore-td');
+                                $('#' + index).parent().html('');
+                            }
+                            // console.log(val);
+
+                        }
+                        else {
+
+                            /** 空闲 */
+
+                            // 修改样式
+                            $('#' + index).parent().attr('class','no-registered-td');
+                            $('#' + index).attr('class','no-registered table_btn');
+
+                            // 添加点击之后的触发函数
+                            $('#' + index).attr('onclick', 'no_registered_click(this);');
+
+                            // 是否显示价格
+                            if(parseInt(room_time_price_type) >= 1 || configures['time_price_type'] >= 1){
+                                $('#' + index).find('.state_text').html($('#currency_symbol').val() + val['time_price'][price_index]);
+                            }
+                            else{
+                                // 修改空闲文案
+                                $('#' + index).find('.state_text').html($('#time_free_tip_text').val());
+                            }
+
+
+                        }
+
+
+                        /** 是否 启用 排队功能 start */
+                        // 启用排队，且（已经有人在排队，或者，已经预约人数 > 最大可预约人数)
+                        if(configures['is_active_queue'] == 1 && ( val['has_queue_people'][j] >= 1 || parseInt(val['already_reserve'][j]) >= parseInt(val['max_people'][max_people_index]) )){
+
+                            var queue_text = '';
+                            queue_text += '<span class = "queue_text">';
+
+                            // 判断是否已经排满人了
+                            if(val['has_queue_people'][j] < val['max_queue_people'][max_queue_people_index]){
+                                queue_text += '点我排队';
+                                $('#' + index).attr('onclick', 'queue_click(this);');
+                            }
+                            else{
+                                queue_text += '已排满';
+                            }
+
+                            queue_text += ' (' + val['has_queue_people'][j] + '/' + val['max_queue_people'][max_queue_people_index] + ')';
+                            queue_text += '</span>';
+
+                            $('#' + index).find('.state_text').html(queue_text);
+
+                            // 如果出现（当前预约人数/可预约人数 = 1/2)且（已排队人数/可排队人数 = 2/2)，则需要将该时间段设置为不可以预约
+                            if( val['has_queue_people'][j] >= 1 && parseInt(val['has_queue_people'][j]) == parseInt(val['max_queue_people'][max_queue_people_index]) ){
+
+                                // 修改样式
+                                $('#' + index).parent().attr('class','registered-td');
+                                $('#' + index).attr('class','registered table_btn');
+
+                                // 删除点击之后的触发函数
+                                $('#' + index).attr('onclick', '');
+
+                            }
+
+
+                        }
+                        /** 是否 启用 排队功能 end */
+
+
+
+                        // 已过期
+                        if(date == $('#today_date_yyyymmdd').val() && $('#basic_time_' + j).attr('endtimestamp') <= parseInt(server_time)){
+                            /** 已过期 */
+                            is_expired = 1;
+                            // 修改空闲文案
+                            $('#' + index).find('.state_text').html('已过期');
+
+                            // 修改样式
+                            $('#' + index).parent().removeClass('no-registered-td');
+                            $('#' + index).parent().addClass('registered-td');
+
+                            $('#' + index).removeClass('no-registered');
+                            $('#' + index).addClass('registered');
+
+
+                            // 开启显示预约者姓名 && 如果已约满  添加上已预约者信息
+                            if( configures['basic_is_show_reserve_username'] && parseInt(val['already_reserve'][j]) >= parseInt(val['max_people'][max_people_index]) ){
+                                is_full = 1;
+                                // 如果存在已预约者, 只取第一个
+                                if(val['reserve_users'][j][0]){
+                                    // 如果要求 只展示部门 那么时间段格子上应该显示部门
+                                    if (parseInt(configures['basic_is_show_reserve_username']) == 5) {
+                                        // console.log('here');
+                                        $('#' + index).find('.state_text').html(val['reserve_users'][j][0]['department']);
+                                        // console.log(val['reserve_users'][j][0]['department']);
+                                    }
+                                    else{
+                                        // 否则 显示预约者姓名
+                                        // console.log('value', configures['basic_is_show_reserve_username']);
+                                        $('#' + index).find('.state_text').html(val['reserve_users'][j][0]['username']);
+                                    }
+                                    // $('#' + index).find('.state_text').html(val['reserve_users'][j][0]['username']);
+                                    $('#' + index).attr('userName', val['reserve_users'][j][0]['username']);
+                                    $('#' + index).attr('userPhone', val['reserve_users'][j][0]['phone']);
+                                    $('#' + index).attr('userDepartment', val['reserve_users'][j][0]['department']);
+                                    $('#' + index).attr('usercompany_name', val['reserve_users'][j][0]['company_name']);
+
+                                    /** 已约满的时间段 点击是否弹窗 start */
+
+                                    if (parseInt(basic_is_show_reservation_detail) == 1){
+                                        // 点击已约满的时间段，显示预约人信息 或者 订单自定义字段
+                                        $('#' + index).attr('onclick', 'show_reservation_detail(this)');
+                                    }
+                                    /** 已约满的时间段 点击是否弹窗 end */
+
+                                }
+
+                            }
+
+                            // 最大可预约人数为0 的是否不显示
+                            if(configures['basic_is_not_show_zero_people_time'] == 1 && parseInt(val['max_people'][max_people_index]) == 0){
+                                $('#' + index).parent().removeClass('registered-td');
+                                $('#' + index).parent().addClass('ignore-td');
+                                $('#' + index).parent().html('');
+                            }
+
+                            // 已过期，是否不显示
+                            if(configures['basic_is_not_show_overdue_time'] == 1){
+                                $('#' + index).parent().removeClass('registered-td');
+                                $('#' + index).parent().addClass('ignore-td');
+                                $('#' + index).parent().html('');
+                            }
+
+                            // 已过期，取消能够执行的js
+                            if (!is_full){
+                                $('#' + index).attr('onclick', '');
+                            }
+
+                        }
+
+                        // alert(is_full);
+                        // 当时间段为可预约 （非过期 非约满） 判断是否符合 提前预约 和 滞后预约
+                        if (!is_full && !is_expired && parseInt(choose_hint_stage)){
+                        // if (!is_full && !is_expired){
+                            /** 判断该预约对象是否使用 提前当天0点预约 或者 提前预约时段预约  start */
+                            var now_timestamp = server_time;
+                            var interval_limit = parseInt(val['accurate_reserve_days_advanced']) * 86400 + parseInt(val['accurate_reserve_hours_advanced']) * 3600
+                                + parseInt(val['accurate_reserve_mins_advanced']) * 60;
+                            var day_limit = parseInt(val['reserve_days_advanced']) * 86400 + parseInt(val['reserve_hours_advanced']) * 3600
+                                + parseInt(val['reserve_mins_advanced']) * 60;
+
+                            // var is_use_delay_reserve = parseInt(val['is_use_delay_reserve']);
+                            // var is_use_reserve_advanced = parseInt(val['is_use_reserve_advanced']);
+                            // var is_use_accurate_reserve_advanced = parseInt(val['is_use_accurate_reserve_advanced']);
+                            var delay_limit = parseInt(val['reserve_days_delay']) * 86400 + parseInt(val['reserve_hours_delay']) * 3600
+                                + parseInt(val['reserve_mins_delay']) * 60;
+
+                            // 注意 safari 不支持 解析 2019-07-02 只能解析 2019/07/02
+                            // var the_day_timestamp = Date.parse(new Date(date.substr(0,4) + '-' + date.substr(4, 2) + '-' + date.substr(6, 2) + ' 00:00:00')) / 1000;
+                            // var the_interval_timestamp = Date.parse(new Date(date.substr(0,4) + '-' + date.substr(4, 2) + '-' + date.substr(6, 2) + ' ' + val['time'][j].substr(0, 5))) / 1000;
+
+                            var the_day_timestamp = Date.parse(new Date(date.substr(0,4) + '/' + date.substr(4, 2) + '/' + date.substr(6, 2) + ' 00:00:00')) / 1000;
+                            var the_interval_timestamp = Date.parse(new Date(date.substr(0,4) + '/' + date.substr(4, 2) + '/' + date.substr(6, 2) + ' ' + val['time'][j].substr(0, 5))) / 1000;
+                            
+                            // 该时间段 不符合 提前预约时间段多久预约 则置灰 不可预约
+                            if (interval_limit && now_timestamp + interval_limit > the_interval_timestamp){
+                                // 修改空闲文案
+                                $('#' + index).find('.state_text').html('不可预约');
+
+                                // 修改样式
+                                $('#' + index).parent().removeClass('no-registered-td');
+                                $('#' + index).parent().addClass('registered-td');
+
+                                $('#' + index).removeClass('no-registered');
+                                $('#' + index).addClass('registered');
+
+                                $('#' + index).attr('hint_type', '1');
+
+                                // 点击不可预约的时段 弹窗显示提示信息
+                                $('#' + index).attr('onclick', 'show_hint(this)');
+                            }
+
+                            // 该时间段 不符合 提前当天0点多久预约 则置灰 不可预约
+                            if (day_limit && now_timestamp + day_limit > the_day_timestamp){
+                                // 修改空闲文案
+                                $('#' + index).find('.state_text').html('不可预约');
+
+                                // 修改样式
+                                $('#' + index).parent().removeClass('no-registered-td');
+                                $('#' + index).parent().addClass('registered-td');
+
+                                $('#' + index).removeClass('no-registered');
+                                $('#' + index).addClass('registered');
+
+                                $('#' + index).attr('hint_type', '2');
+
+                                // 点击不可预约的时段 弹窗显示提示信息
+                                $('#' + index).attr('onclick', 'show_hint(this)');
+                            }
+
+
+
+                            // 该时间段 不符合 距离多久后预约 则
+                            if (parseInt(val['is_use_delay_reserve']) && delay_limit && now_timestamp + delay_limit < the_day_timestamp){
+                                // 修改空闲文案
+                                $('#' + index).find('.state_text').html('尚未开放');
+
+                                // 修改样式
+                                $('#' + index).parent().removeClass('no-registered-td');
+                                $('#' + index).parent().addClass('registered-td');
+
+                                $('#' + index).removeClass('no-registered');
+                                $('#' + index).addClass('registered');
+
+                                $('#' + index).attr('hint_type', '3');
+
+                                // 点击不可预约的时段 弹窗显示提示信息
+                                $('#' + index).attr('onclick', 'show_hint(this)');
+
+
+                            }
+
+
+                            /** 判断该预约对象是否使用 提前当天0点预约 或者 提前预约时段预约  end */
+                        }
+
+
+                        // 时间标签
+                        if(configures['basic_is_active_tag'] != 0){
+                            $('#' + index).find('.tag_name').html(val['tag'][tag_index]);
+                        }
+                        else {
+                            $('#' + index).find('.tag_name').html('');
+                        }
+
+
+                       // console.log(parseInt(val['name'][index2]));
+                       // console.log(parseInt(all_input[index2]));
+                       // console.log(index2);
+                        /** 获取后台设置的不可预约的并修改样式start **/
+                        if(parseInt(val['name'][index2]) == parseInt(all_input[index2])){
+                            //微信客户端 是否不显示 配置为不可预约的时间段 0显示 1不显示
+                            var basic_is_not_show_reservation_time = configures['basic_is_not_show_reservation_time'];
+                            if(basic_is_not_show_reservation_time==1){
+                                $('#' + index).remove();
+                            }else{
+                                // 如果设置了提示文案
+                                var disable_text = $('#dieable_text').val();
+                                if(disable_text){
+                                    $('#' + index).find('.state_text').html(disable_text);
+                                }else{
+                                    $('#' + index).find('.state_text').html('不可预约（后台）');
+                                }
+
+                                // 修改样式
+                                $('#' + index).parent().removeClass('no-registered-td');
+                                $('#' + index).parent().addClass('registered-td');
+
+                                $('#' + index).removeClass('no-registered');
+                                $('#' + index).addClass('registered');
+
+                                $('#' + index).attr('onclick', '');
+                            }
+                        }
+
+
+                        /** 获取后台设置的不可预约的并修改样式end  **/
+
+
+
+                        /** 获取场地资源的并修改样式start **/
+                        if(parseInt(all_no_resources[index2])){
+
+                            //如果设置了提示文案
+                            var disable_text = $('#dieable_text').val();
+                            if(0){
+                                $('#' + index).find('.state_text').html(disable_text);
+                            }else{
+                                $('#' + index).find('.state_text').html('资源不足');
+                            }
+
+                            // 修改样式
+                            $('#' + index).parent().removeClass('no-registered-td');
+                            $('#' + index).parent().addClass('registered-td');
+
+                            $('#' + index).removeClass('no-registered');
+                            $('#' + index).addClass('registered');
+
+                            $('#' + index).attr('onclick', '');
+                        }
+
+
+                        /** 获取场地资源并修改样式end  **/
+
+
+
+                    }
+
+                });
+
+
+                /** 处理 获取的内容 end */
+
+                /* 微信客户端 专有预约页 忽略不显示的时间段 start*/
+                if(configures['basic_is_ignore_not_show_time'] == 1){
+                    // console.log(dates);
+                    // 遍历每一个时间段
+                    $.each(dates, function(key, date){
+
+                        // console.log(date);
+
+                        // 忽略的块
+                        var ignore_td_arr = {};
+                        // 不能被忽略的块
+                        var not_ignore_td_arr = {};
+
+
+                        // 分类存储起来
+                        for(var j = 1; j <= basic_time_count; j ++){
+
+                            // 拼接下标
+                            var td_index = 'td_' + date + '_' + j;
+
+                            // console.log(td_index);
+
+                            if($('#' + td_index).hasClass('ignore-td')){
+
+                                ignore_td_arr[td_index] = $('#' + td_index).html();
+
+                            }
+                            else{
+
+                                not_ignore_td_arr[td_index] = $('#' + td_index).html();
+
+                            }
+
+                        }
+
+                        // console.log('忽略的数组');
+                        // console.log(ignore_td_arr);
+                        // console.log('不能忽略的数组');
+                        // console.log(not_ignore_td_arr);
+
+                        // 分类展示出来
+                        var temp_index_i = 1; // 序号
+                        $.each(not_ignore_td_arr, function(not_ignore_td_index, not_ignore_td){
+
+                            var td_index = 'td_' + date + '_' + temp_index_i;
+                            $('#' + td_index).html(not_ignore_td);
+
+                            temp_index_i ++;
+
+                        });
+
+                        $.each(ignore_td_arr, function(ignore_td_index, not_ignore_td){
+
+                            var td_index = 'td_' + date + '_' + temp_index_i;
+                            $('#' + td_index).html(not_ignore_td);
+
+                            temp_index_i ++;
+
+                        });
+
+
+
+
+                    });
+                }
+                /* 微信客户端 专有预约页 忽略不显示的时间段 end*/
+
+                // 执行下一个ajax
+                if(now_query_times < total_query_times){
+                    get_dates_reservation();
+                }
+
+                // 请求完成后，渲染url里 已经选择的时间段
+                if (now_query_times == total_query_times){
+                    // console.log('render render');
+                    render_choosen_td();
+                }
+
+
+              setTableHeader()
+            },
+        });
+    }
+
+    /**
+     * 获取域名
+     * @return {[type]} [description]
+     */
+    function getDomain(){
+        var domain = document.domain;
+        if (domain=='localhost'){
+            //TODO: 这里需要根据实际情况进行修改
+            domain+='/reserve/1'
+        }
+        return domain;
+    }
+
+    $(document).ready(function(e) {
+        var height = $("#header").height();
+        document.getElementById("header2").style.height=height;
+    });
+
+
+
+</script>
+<script>
+
+// 判断http或者https
+protocol = document.location.protocol;
+
+/*
+后台将url指定的预约范围解析赋值到 #reserve_td_ids 中， 该函数将值解析渲染成选中时间格子的样式
+ */
+function render_choosen_td(){
+    var reserve_td_ids = $('#reserve_td_ids').val();
+    if (reserve_td_ids){
+        var items = reserve_td_ids.split(",");
+
+        // 判断是否允许一次预约 多个时间段
+        if (!parseInt(basic_is_allow_multiple_time) && items.length >=2){
+            //清空
+            $('#reserve_td_ids').val('');
+
+            $('#tip_title').html('提示');
+            $('#tip_content').html('不允许一次预约多个时间段');
+            showLayer('hw-layer');
+            // 1秒后执行
+            setTimeout(function(){
+                hideLayer();  // 提示框消失
+            }, 2000);
+            return ;
+        }
+
+        for(var i = 0; i < items.length; i++){
+            var ele = $('#' + items[i]);
+            if (ele.hasClass('checked')) {
+                // 被选中则移除checked 类
+                ele.removeClass('checked');
+            }
+            else{
+
+                // 判断是否需要检测 是否允许跨天预约
+                if(parseInt(basic_is_allow_multiple_time_cross_day) != 1){
+                    if (i == items.length - 1){
+                        break;
+                    }
+
+                    // 取得 当前元素 和 下一元素
+                    var now_td_id = items[i];
+                    var now_td_id_temp = now_td_id.split("_");
+                    var next_td_id = items[i+1];
+                    var next_td_id_tmp = next_td_id.split('_');
+
+                    //console.log('next td date', next_td_id_tmp[1].slice(0, 8));
+                    // 判断当前元素和下一元素 是否都是同一天
+                    if (next_td_id_tmp[1].slice(0, 8) != now_td_id_temp[1].slice(0, 8)){
+                        //清空
+                        $('#reserve_td_ids').val('');
+
+                        $('#tip_title').html('提示');
+                        $('#tip_content').html('不允许跨天预约');
+                        showLayer('hw-layer');
+                        // 1秒后执行
+                        setTimeout(function(){
+                            hideLayer();  // 提示框消失
+                        }, 3000);
+                        return ;
+                    }
+
+                }
+                else{
+                    // 不需要检测限制条件，直接渲染已经选择的时间段
+                    ele.addClass('checked');
+                }
+
+            }
+        }
+
+
+        // 渲染都是同一天的时间格子
+        for(var i = 0; i < items.length; i++){
+            var ele = $('#' + items[i]);
+            ele.addClass('checked');
+        }
+
+
+    }
+}
+
+// 点击绿色空闲框，跳转预约确认页
+function no_registered_click(obj){
+  // 顶级分类
+  var country_id = $('#now_country_id').val();
+  var area_id = $('#now_area_id').val();
+
+  var td_id = $(obj).attr('id');
+  var td_id_to_arr = td_id.split("_");
+  var query_date = td_id_to_arr[1].slice(0,8);
+
+
+  // 是否开启多选
+  if(basic_is_allow_multiple_time == 1){
+    var now_td_id = $(obj).attr('id');
+    // console.log(now_td_id);
+    // 判断该对象是否已经被选中
+    if($(obj).hasClass('checked')){
+      // 被选中则移除checked 类
+      $(obj).removeClass('checked');
+      /* 移除 相应的td_id start*/
+      var reserve_td_ids = $('#reserve_td_ids').val();
+      var items = reserve_td_ids.split(",");
+      // console.log(items);
+      // console.log(items.length);
+
+      // 删除td_id
+      var temp = new Array();
+      for(var i = 0; i < items.length; i++){
+        if(items[i] != now_td_id){
+          temp.push(items[i]);
+        }
+      }
+
+      // 合并数组
+      reserve_td_ids = temp.join(",");
+      $('#reserve_td_ids').val(reserve_td_ids);
+      /* 移除 相应的td_id end*/
+    }
+    else{
+
+      /* 添加 相应的td_id start*/
+      // 将其userId存入input中
+      var reserve_td_ids = $('#reserve_td_ids').val();
+      if(reserve_td_ids){
+        // 判断是否需要检测
+        if(basic_is_allow_multiple_time_cross_day != 1 || basic_is_must_reserve_continuous_times == 1){
+
+          // 检验是否为同一个预约对象
+          var td_ids = reserve_td_ids.split(",");
+          var now_td_id_temp = now_td_id.split("_");
+
+          var is_times_serial = 0; // 时段是否连续
+            for (var i = 0; i < td_ids.length; i++) {
+
+                var continuous_appointment_times = $('#' + td_ids[i] + '>.time').prop('firstChild').nodeValue.trim();
+                //最后一个时间段的最后结束时间
+                var continuous_appointment_time = continuous_appointment_times.split("-");
+
+                var temp = td_ids[i].split("_");
+                if (temp[0] != now_td_id_temp[0]) {
+                    $('#tip_title').html('提示');
+                    $('#tip_content').html('不允许一次预约两个不同的预约对象,可预约同一个对象一天内的多个时段');
+                    showLayer('hw-layer');
+                    // 1秒后执行
+                    setTimeout(function () {
+                        hideLayer();  // 提示框消失
+                    }, 1000);
+                    return;
+                } else if (temp[1] - now_td_id_temp[1] == 1 || temp[1] - now_td_id_temp[1] == -1) {
+                    // 只要有一个是相邻的
+                    is_times_serial = 1;
+                } else if (continuous_appointment_time[1] == '23:59') {
+                    //如果上个时段结尾是23:59 下一个时段是00:00 或者 00:01 则依然为连续预约
+                    //当前选择时间是否为00:00 或者 00:01
+                    var now_td_id_temp_times = $('#' + now_td_id_temp[0] + '_' + now_td_id_temp[1] + '>.time').prop('firstChild').nodeValue.trim();
+                    // //最后一个时间段时间
+                    var now_td_id_temp_time = now_td_id_temp_times.split("-");
+                    if (now_td_id_temp_time[0] == '00:00' || now_td_id_temp_time[0] == '00:01') {
+                        is_times_serial = 1;
+                    }
+                }
+            }
+
+            /* 检测时段是否连续 start */
+
+             // 如果原来就选择了时段，并且检测到新增加的不连续
+            if(td_ids.length >= 1 && is_times_serial == 0 && parseInt(basic_is_must_reserve_continuous_times) === 1){
+
+              $('#tip_title').html('提示');
+              $('#tip_content').html('只允许预约相邻的时段');
+
+              showLayer('hw-layer');
+              // 1秒后执行
+              setTimeout(function(){
+                hideLayer();  // 提示框消失
+              }, 1000);
+              return ;
+            }
+            /* 跨天 */
+            if (
+              td_ids.length >= 1 &&
+              parseInt(basic_is_allow_multiple_time_cross_day) === 0 &&
+              td_ids[0].split("_")[1].substr(0,8) !== now_td_id_temp[1].substr(0,8)
+             ){
+              $('#tip_title').html('提示');
+              $('#tip_content').html('只能在同一天内预约');
+              showLayer('hw-layer');
+              // 1秒后执行
+              setTimeout(function(){
+                hideLayer();  // 提示框消失
+              }, 1000);
+              return 
+            }
+
+        }
+
+        // 添加新增加的时间段id
+        $('#reserve_td_ids').val(reserve_td_ids + ',' + now_td_id);
+      }
+      else{
+        $('#reserve_td_ids').val(now_td_id);
+      }
+      /* 添加 相应的td_id end*/
+
+      // 没有被选中则添加checked类
+      $(obj).addClass('checked');
+    }
+  }
+  else{
+    window.location = '/index.php/Wechat/Booking/confirm_booking?area_id=' + area_id + '&td_id=' + $(obj).attr('id') + '&query_date=' + query_date + '&country_id=' + country_id;
+  }
+
+}
+
+// 多选提交
+$('#form-submit').click(function(){
+  // 顶级分类
+  var country_id = $('#now_country_id').val();
+  var area_id = $('#now_area_id').val();
+  var custom_class_ids = $('#custom_class_ids').val();
+
+  var reserve_td_ids = $('#reserve_td_ids').val();
+  if(reserve_td_ids){
+
+
+    // 是否允许用户 预约 跨天的多个时段
+    var basic_is_allow_multiple_time_cross_day = $('#basic_is_allow_multiple_time_cross_day').val();
+
+    var td_ids = reserve_td_ids.split(",");
+    /* 检测时段是否连续 start */
+    var basic_is_must_reserve_continuous_times = $('#basic_is_must_reserve_continuous_times').val();
+    // 不允许跨天预约
+    if(basic_is_allow_multiple_time_cross_day != 1 || basic_is_must_reserve_continuous_times != 0){
+        // 先从小到大排序
+        td_ids.sort();
+
+        // 前后两两进行比较
+        var is_times_serial = 1; // 时段是否连续
+
+        for(var i = 0; i < td_ids.length - 1; i++){
+            var continuous_appointment_times = $('#' + td_ids[i] + '>.time').prop('firstChild').nodeValue.trim();
+            //最后一个时间段的最后结束时间
+            var continuous_appointment_time = continuous_appointment_times.split("-");
+
+            var first_temp = td_ids[i].split("_");
+            var second_temp = td_ids[i+1].split("_");
+            if (first_temp[1] - second_temp[1] != -1) {
+                if (continuous_appointment_time[1] == '23:59') {
+                    //如果上个时段结尾是23:59 下一个时段是00:00 或者 00:01 则依然为连续预约
+                    //当前选择时间是否为00:00 或者 00:01
+                    var now_td_id_temp_times = $('#' + second_temp[0] + '_' + second_temp[1] + '>.time').prop('firstChild').nodeValue.trim();
+                    // //最后一个时间段时间
+                    var now_td_id_temp_time = now_td_id_temp_times.split("-");
+                    if (now_td_id_temp_time[0] == '00:00' || now_td_id_temp_time[0] == '00:01') {
+                        is_times_serial = 1;
+                    } else {
+                        is_times_serial = 0;
+                        break;
+                    }
+                } else {
+                    is_times_serial = 0;
+                    break;
+
+                }
+            }
+
+
+        }
+
+        // 如果原来就选择了时段，并且检测到新增加的不连续
+        if(td_ids.length > 1 && is_times_serial == 0 && basic_is_must_reserve_continuous_times != 0){
+          $('#tip_title').html('提示');
+          $('#tip_content').html('只允许预约相邻的时段');
+          showLayer('hw-layer');
+          // 1秒后执行
+          setTimeout(function(){
+            hideLayer();  // 提示框消失
+          }, 1000);
+          return ;
+        }
+
+        /* 检测时段是否连续 end */
+
+
+    }
+      /* 检测时段是否必须同时预约多少次 start */
+
+      var area_must_reserve_times_one_time = parseInt($('#area_must_reserve_times_one_time').val()? $('#area_must_reserve_times_one_time').val() : 0 );
+
+      var must_reserve_times_one_time = parseInt($('#must_reserve_times_one_time').val()?$('#must_reserve_times_one_time').val():0);
+
+      // 优先按区域
+
+      if(area_must_reserve_times_one_time){
+
+          if(($('#must_at_most_reserve_times_one_time_obj').val()==0 && $('#must_at_least_reserve_times_one_time_obj').val()==0) &&  (area_must_reserve_times_one_time != td_ids.length && area_must_reserve_times_one_time != 0)){
+
+              $('#tip_title').html('提示');
+              $('#tip_content').html('必须一起预约' + area_must_reserve_times_one_time + '个时间段');
+              showLayer('hw-layer');
+              // 1秒后执行
+              setTimeout(function(){
+                  hideLayer();  // 提示框消失
+              }, 2000);
+              return ;
+          }   
+      }else  if(must_reserve_times_one_time){
+        if( ($('#must_at_most_reserve_times_one_time_obj').val()==0 && $('#must_at_least_reserve_times_one_time_obj').val()==0) && (must_reserve_times_one_time != td_ids.length && must_reserve_times_one_time != 0) ){
+            $('#tip_title').html('提示');
+            $('#tip_content').html('必须一起预约' + must_reserve_times_one_time + '个时间段');
+            showLayer('hw-layer');
+            // 1秒后执行
+            setTimeout(function(){
+                 hideLayer();  // 提示框消失
+            }, 2000);
+            return ;
+          }
+     
+     }
+     
+
+      /* 检测时段是否必须同时预约多少次 end */
+
+
+      /* 检测时段是否必须最多预约多少次 start 对象*/
+
+      var must_at_most_reserve_times_one_time_obj = $('#must_at_most_reserve_times_one_time_obj').val();
+
+      if(must_at_most_reserve_times_one_time_obj < td_ids.length && must_at_most_reserve_times_one_time_obj != 0){
+
+          $('#tip_title').html('提示');
+          $('#tip_content').html('最多预约' + must_at_most_reserve_times_one_time_obj + '个时间段');
+          showLayer('hw-layer');
+          // 1秒后执行
+          setTimeout(function(){
+              hideLayer();  // 提示框消失
+          }, 2000);
+          return ;
+      }
+
+      /* 检测时段是否最多预约多少次 end */
+
+      /* 检测时段是否必须最少预约多少次 start 对象*/
+
+      var must_at_least_reserve_times_one_time_obj = $('#must_at_least_reserve_times_one_time_obj').val();
+
+      if(must_at_least_reserve_times_one_time_obj > td_ids.length && must_at_least_reserve_times_one_time_obj != 0){
+
+          $('#tip_title').html('提示');
+          $('#tip_content').html('最少预约' + must_at_least_reserve_times_one_time_obj + '个时间段');
+          showLayer('hw-layer');
+          // 1秒后执行
+          setTimeout(function(){
+              hideLayer();  // 提示框消失
+          }, 2000);
+          return ;
+      }
+
+      /* 检测时段是否最少预约多少次 end */
+
+      /* 检测时段是否必须最多预约多少次 start */
+
+      var must_at_most_reserve_times_one_time = $('#must_at_most_reserve_times_one_time').val();
+      if( (must_at_most_reserve_times_one_time_obj==0 && must_at_least_reserve_times_one_time_obj==0) && (must_at_most_reserve_times_one_time < td_ids.length && must_at_most_reserve_times_one_time != 0) ){
+
+          $('#tip_title').html('提示');
+          $('#tip_content').html('最多预约' + must_at_most_reserve_times_one_time + '个时间段');
+          showLayer('hw-layer');
+          // 1秒后执行
+          setTimeout(function(){
+              hideLayer();  // 提示框消失
+          }, 2000);
+          return ;
+      }
+
+      /* 检测时段是否最多预约多少次 end */
+
+      /* 检测时段是否必须最少预约多少次 start */
+
+      var must_at_least_reserve_times_one_time = $('#must_at_least_reserve_times_one_time').val();
+      if(area_must_reserve_times_one_time == 0 && must_reserve_times_one_time == 0){
+          if( (must_at_most_reserve_times_one_time_obj==0 && must_at_least_reserve_times_one_time_obj==0) && (must_at_least_reserve_times_one_time > td_ids.length && must_at_least_reserve_times_one_time != 0) ){
+
+              $('#tip_title').html('提示');
+              $('#tip_content').html('最少预约' + must_at_least_reserve_times_one_time + '个时间段');
+              showLayer('hw-layer');
+              // 1秒后执行
+              setTimeout(function(){
+                  hideLayer();  // 提示框消失
+              }, 2000);
+              return ;
+          }
+      }
+
+      /* 检测时段是否最少预约多少次 end */
+
+
+
+
+
+      window.location = '/index.php/Wechat/Booking/confirm_booking?area_id=' + area_id + '&td_id=' + reserve_td_ids + '&country_id=' + country_id + '&custom_class_ids=' + custom_class_ids;
+  }
+  else{
+    $('#tip_title').html('提示');
+    $('#tip_content').html('必须选择一个时段呀');
+    showLayer('hw-layer');
+    // 1秒后执行
+    setTimeout(function(){
+      hideLayer();  // 提示框消失
+    }, 1000);
+    return ;
+  }
+
+});
+
+/*弹框 start*/
+//展示层
+function showLayer(id){
+  var layer = $('#'+id),
+    layerwrap = layer.find('.hw-layer-wrap');
+  layer.fadeIn();
+  //屏幕居中
+  layerwrap.css({
+    'margin-top': -layerwrap.outerHeight()/2
+  });
+}
+
+//隐藏层
+function hideLayer(){
+  $('.hw-overlay').fadeOut();
+}
+
+$('.hwLayer-ok,.hwLayer-cancel,.hwLayer-close').on('click', function() {
+  hideLayer();
+});
+
+//触发弹出层
+$('.show-layer').on('click',  function() {
+  var layerid = $(this).data('show-layer');
+  showLayer(layerid);
+});
+
+//点击或者触控弹出层外的半透明遮罩层，关闭弹出层
+$('.hw-overlay').on('click',  function(event) {
+  if (event.target == this){
+    hideLayer();
+  }
+});
+
+//按ESC键关闭弹出层
+$(document).keyup(function(event) {
+  if (event.keyCode == 27) {
+    hideLayer();
+  }
+});
+/*弹框 start*/
+
+// // 点击黄色框，显示部门信息
+// $(".registered").click(function(i){
+//   var userName = $(this).attr('userName');
+//   if(userName){
+//       $('#tip_title').html(userName);
+//       $('#tip_content').html('部门 :' + $(this).attr('userDepartment') + '<br/> 电话 : ' + $(this).attr('userPhone'));
+//       showLayer('hw-layer');
+//       // 1秒后执行
+//       setTimeout(function(){
+//         hideLayer();  // 提示框消失
+//       }, 7000);
+//       return ;
+//     }
+// });
+
+
+/**
+ * 点击排队，跳转预约确认页
+ * @param  {[type]} obj [description]
+ * @return {[type]}     [description]
+ */
+function queue_click(obj){
+
+  var r=confirm("是否确认排队，注意，只有当之前有订单取消时，你的排队才可能预约成功");
+  if(r != true)
+  {
+    return 0;
+  }
+
+  // 顶级分类
+  var country_id = $('#now_country_id').val();
+  var area_id = $('#now_area_id').val();
+
+  var td_id = $(obj).attr('id');
+  var td_id_to_arr = td_id.split("_");
+  var query_date = td_id_to_arr[1].slice(0,8);
+
+  window.location = '/index.php/Wechat/Booking/confirm_booking?area_id=' + area_id + '&td_id=' + $(obj).attr('id') + '&query_date=' + query_date + '&country_id=' + country_id + '&is_queue=' + 1;
+
+}
+
+// 点击已约满的时间段，显示预约人信息 或者 订单自定义字段
+function show_reservation_detail(i){
+    //console.log(i);
+    //console.log($(i).attr('username'));
+    var userName = $(i).attr('username') ? $(i).attr('username') : ' ';
+    var userCompany_name = $(i).attr('usercompany_name') ? $(i).attr('usercompany_name') : ' ';
+    var userDepartment = $(i).attr('userdepartment') ? $(i).attr('userdepartment') : ' ';
+    var userPhone = $(i).attr('userphone') ? $(i).attr('userphone') : ' ';
+    var room_id = $(i).attr('id').split('_')[0];
+    var current_date = $(i).attr('id').split('_')[1].substr(0, $(i).attr('id').split('_')[1].length-2);
+    //console.log(current_date);
+    var grid_index = parseInt($(i).attr('id').substr($(i).attr('id').length-2));
+    // console.log('room id' + room_id);
+    // console.log('grid index' + grid_index);
+    //
+    //console.log(reservation_data['data']);
+    //var show_reservation_username_value = $(i).attr('show_reservation_username_value')? $(i).attr('show_reservation_username_value'):'';
+
+    var content = '';
+    //$('#tip_title').html(userName);
+    //$('#tip_content').html('公司 : ' + userCompany_name + '<br/>部门 : ' + userDepartment + '<br/> 电话 : ' + $(i).attr('userPhone'));
+    switch (configures['basic_is_show_reserve_username'])
+    {
+        //1只展示姓名 2展示姓名和手机号 3展示姓名和部门 4展示姓名、部门和手机号 5只展示部门
+        case 1:$('#tip_title').html(userName);content = '姓名 : ' + userName;break;
+        case 2:$('#tip_title').html(userName);content = '姓名 : ' + userName + '<br/>手机号 : ' + userPhone;break;
+        case 3:$('#tip_title').html(userName);content = '姓名 : ' + userName + '<br/>公司 : ' + userCompany_name  + '<br/>部门 : ' + userDepartment;break;
+        case 4:$('#tip_title').html(userName);content = '姓名 : ' + userName + '<br/>公司 : ' + userCompany_name  + '<br/>部门 : ' + userDepartment + '<br/> 手机号: ' + userPhone;break;
+        case 5:$('#tip_title').html(userDepartment);content = '公司 : ' + userCompany_name + '<br/>部门 : ' + userDepartment;break;
+    }
+
+    //console.log(reservation_data);
+
+    /* 展示订单自定义字段 start*/
+    if (parseInt(basic_is_use_reservation_field) == 1 && parseInt(basic_is_show_reservation_detail)== 1 && parseInt(basic_is_show_reservation_field) == 1){
+        Object.keys(reservation_data).forEach(function (index) {
+            if (current_date in reservation_data[index]){
+                Object.keys(reservation_data[index][current_date]['reserve_users'][grid_index][0]['custom_fields']).forEach(function (key) {
+                    // 将null 替换成 空字符串
+                    if (reservation_data[index][current_date]['reserve_users'][grid_index][0]['custom_fields'][key] == null){
+                        reservation_data[index][current_date]['reserve_users'][grid_index][0]['custom_fields'][key] = '';
+                    }
+                    content += '<br/>' + key + ':' + reservation_data[index][current_date]['reserve_users'][grid_index][0]['custom_fields'][key];
+
+                });
+            }
+
+        });
+
+
+    }
+    /* 展示订单自定义字段 end*/
+
+    $('#tip_content').html(content);
+    //console.log(content);
+
+
+    //console.log(show_reservation_username_value);
+    showLayer('hw-layer');
+    return ;
+}
+
+
+
+// 点击不可预约的时间段 显示提示信息
+function show_hint(i){
+    // console.log(reservation_data);
+
+    var hint_type = $(i).attr('hint_type');
+    var current_date = $(i).attr('id').split('_')[1].substr(0, $(i).attr('id').split('_')[1].length-2);
+
+    var content = '';
+    switch (parseInt(hint_type))
+    {
+        case 1:
+            Object.keys(reservation_data).forEach(function (index) {
+                if (current_date in reservation_data[index]){
+                    content = reservation_data[index][current_date]['accurate_out_advanced_time_mes'];
+                }
+            });
+            break;
+        case 2:
+            Object.keys(reservation_data).forEach(function (index) {
+                if (current_date in reservation_data[index]){
+                    content = reservation_data[index][current_date]['out_advanced_time_mes'];
+                }
+            });
+            break;
+        case 3:
+            Object.keys(reservation_data).forEach(function (index) {
+                if (current_date in reservation_data[index]){
+                    content = reservation_data[index][current_date]['out_delay_time_mes'];
+                }
+            });
+            break;
+    }
+    $('#tip_title').html('');
+    content = '对不起，你必须' + content;
+    $('#tip_content').html(content);
+    //console.log(content);
+
+    showLayer('hw-layer');
+    return ;
+}
+
+
+    //创建固定头部
+  function setTableHeader() {
+    var width = 0;
+    var weekBanner = "";
+    var marginLeft = $("body").css("margin-left");
+    $(".date_m_d").each(function (index) {
+        var info = {
+            date: $(".g-hidden-date").eq(index).text(),
+            week: $(".g-hidden-week").eq(index).text()
+        };
+        width += $(this).width() + 32;
+        weekBanner +=
+            '<div class="g-table-header-week" style="width:' + (parseInt($(this).width()) + 16) + 'px">'
+            + '<p>' + info.date + '</p>'
+            + '<p>' + info.week + '</p>'
+          + '</div>';
+    });
+    $("#cg-table-header").width(width);
+    $("#cg-table-header").html(weekBanner);
+    //触摸滑动事件
+    marginLeft = parseFloat(marginLeft.substr(0, marginLeft.length - 2));
+    $("#table").stop();
+    $("#cg-table-header").css("left", ($(".table-responsive").scrollLeft() - marginLeft) * -1);
+    var handleCancel = setInterval(function () {
+      $("#cg-table-header").css("left", ($(".table-responsive").scrollLeft() - marginLeft) * -1);
+    }, 16);
+  };
+
+</script>
+</body>
+</html>

@@ -7,20 +7,23 @@ using Tools.Stringtest;
 
 Console.WriteLine("Hello, World!");
 
-new TestHmacSHA256();
+//var jmbDecode = new JmbDecode();
 
-var strConvert = new StringConvert();
+new DateTest();
 
 var converter = new UnicodeConverter();
-var result  = converter.UrlDecode("hospitalUserID=LC-1d752966508c4f02b96f7dd010229026&resourceID=%24LC%24TJjBEowX8QzdJZeYAwKUtv%2FwHdJdlrvUgS954Kc%2B4f1%2FW83xKVx7usrarZb2OC4Luz6VxX3GaKlok4Us2JBJp3d04D%2BG3C%2FJWQbP0I7BzkUPtnrvnatXkmVPPhK4Xfeo%24LC%24&registDate=2023-03-23+11%3A00-11%3A50&url=https%3A%2F%2Ffwcs.linkingcloud.cn%2FApp%2Fyuyue%2Findex.html%23%2Fpages%2Fyuyue%2Fdoctor%3FdataSource%3D%26docCode%3D0400%7C%7C%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A%E6%99%AE%E9%80%9A%E5%8F%B7%7C%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A%7C%E6%99%AE%E9%80%9A%E9%97%A8%E8%AF%8A%26hospitalID%3D01&docCode=0400%7C%7C%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A%E6%99%AE%E9%80%9A%E5%8F%B7%7C%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A%7C%E6%99%AE%E9%80%9A%E9%97%A8%E8%AF%8A&docName=%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A%E6%99%AE%E9%80%9A%E5%8F%B7&docDuty=&deptCode=0400%7C%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A%7C1%7C%E6%99%AE%E9%80%9A%E9%97%A8%E8%AF%8A&deptName=%E5%84%BF%E7%A7%91%E9%97%A8%E8%AF%8A&hospitalName=%E4%B8%8A%E6%B5%B7%E5%B8%82%E7%AC%AC%E5%9B%9B%E4%BA%BA%E6%B0%91%E5%8C%BB%E9%99%A2&docPhotoPath=&extInfo=%7B%7D&feeType=&t=1", Encoding.UTF8);
+var result  = converter.UrlDecode("%7B%22type%22%3A%22hcTransParam%22%2C%22plat%22%3A%22gzhc365zhyy%22%2C%22birthday%22%3A%221988-11-25%22%2C%22Address%22%3A%22%E8%BE%BD%E5%AE%81%E7%9C%81%E5%A4%A7%E8%BF%9E%E5%B8%82%E6%B2%99%E6%B2%B3%E5%8F%A3%E5%8C%BA+%E4%B8%87%E7%A7%91%E5%8D%8A%E5%B1%B1%E5%8D%8A%E6%B5%B7%22%7D", Encoding.UTF8);
 
 var de = converter.UrlDecode(@"%E4%BA%8C%E4%BB%B7HPV%E8%BF%9B%E5%8F%A3", Encoding.UTF8);
 
 var en = converter.UrlEncode(de);
 
 var cs7 = new PKCS7();
-var cs7result = cs7.DeCodePkcs7("oSpLZsv5cKfTiMnUWDqkuEh_zOGM");
+var cs7result = cs7.DeCodePkcs7("lpklEBvry7LYTNrPchHySrvYnAvGI4+DumoPjFzG4fPPkj5UDziGgEqvEGWrwBbmV4s6HBE2RZhL3Ku1uhs/XA==");
 
-var httpEncode = new HttpEncode();
+//var httpEncode = new HttpEncode();
+
+
+//var ngarihealth = new Ngarihealth();
 
 Console.ReadLine();

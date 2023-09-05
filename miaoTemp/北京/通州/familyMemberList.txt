@@ -1,0 +1,47 @@
+POST https://weixin.ngarihealth.com/weixin/wx/mp/wx45b57abae69e92e6/gateway HTTP/1.1
+Host: weixin.ngarihealth.com
+Connection: keep-alive
+Content-Length: 90
+Origin: https://weixin.ngarihealth.com
+X-Ca-Signature: mhPXM7ECDVJr4NU2mOf52yMSbtAIl77r4dBr2OfmCxM=
+X-Ca-Nonce: 6447b9587b3c6f709e8ff49d168242210576221
+X-Ca-Timestamp: 1682422105762
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+X-Service-Encrypt: 1
+content-Type: application/json
+X-Service-Method: familyMemberListWithOrganDS
+X-Ca-Key: ngari-wx
+X-Content-MD5: BzjEbyStEqa4U8KTT+qFNw==
+encoding: utf-8
+X-Service-Id: eh.familyMemberService
+Accept: */*
+Cookie: client-id=114859471; isNewUser=false; api=WX; tk=c1fd82d7-58c4-46c4-8c56-49e3e9834462; acw_tc=2f624a0a16824220754007321e0947eb1d29a6b3e9466d225b2887687bf7f3
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://weixin.ngarihealth.com/weixin/wx/mp/wx45b57abae69e92e6/index.html?module=memberList&code=081x29Ha1M98aF0IzCJa1J0OAI3x29Hp&state=STATE
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+"nsHEeqPBp9wC0B6fHgDJl+ZzFuY/sZyJp6RgwbLdDvSGeXozmTBZx2KRSXN9+oQT5zqCmQMLh+5VybIBzzXYnA=="
+HTTP/1.1 200 OK
+Date: Tue, 25 Apr 2023 11:28:26 GMT
+Content-Type: text/plain;charset=utf-8
+Content-Length: 3520
+Connection: keep-alive
+X-Coded-JSON-Message: true
+Vary: Accept-Encoding
+Cache-Control: no-cache, no-store
+X-Orange-Upstream-Latency: 205
+X-Orange-Proxy-Latency: 0
+Strict-Transport-Security: max-age=31536000
+
+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
+
+
+mpiId:2c90823f877b4d0d01879433435c4fdb
+organId:1000668
+"[\"2c90823f877b4d0d01879433435c4fdb\",\"1000668\",14]"
+
+
+{"code":200,"body":[{"healthCardType":4,"patient":{"loginId":"643e83e814d34b5feab3ed9f","mpiId":"2c908223877b51a301879464282e5538","patientName":"冯闻","patientSex":"2","birthday":"1986-01-13","patientType":"","idcard":"3****************9","mobile":"139****7525","address":"白云山大街","homeArea":"110106004","createDate":"2023-04-18 20:43:25","lastModify":"2023-04-18 20:43:25","status":1,"healthProfileFlag":false,"guardianFlag":false,"certificate":"3****************9","certificateType":1,"fullHomeArea":"北京市市辖区丰台区大红门街道","patientUserType":0,"authStatus":0,"isOwn":false,"ashFlag":false,"healthCards":[],"urt":82078463,"job":"17","linkMan":"","guardianCertificateType":1,"reclaimFlag":false,"clientConfigId":21,"ageString":"37岁","statusText":"正常","defaultPatient":true,"educationText":"","patientSexText":"女","patientTypeText":"","certificateTypeText":"身份证","homeAreaText":"大红门街道","marryText":"","jobText":"职员","nationText":"","countryText":"","stateText":"","birthPlaceText":"","linkRationText":"","bloodText":"","houseHoldText":"","residentText":"","guardianPatientRelationText":"","guardianCertificateTypeText":"身份证","authStatusText":"未认证","patientUserTypeText":"成人","cardTypeText":"","guardianGenderText":"","guardianCountryText":"","guardianRelationText":"","cardPatientTypeText":""},"completely":true,"haveCardTypes":[],"age":37,"have12":false,"relation":false},{"healthCardType":4,"patient":{"loginId":"643e83e814d34b5feab3ed9f","mpiId":"2c90823f877b4d0d01879433435c4fdb","patientName":"周珊","patientSex":"0","patientType":"1","mobile":"139****7525","homeArea":"110112","createDate":"2023-04-18 19:50:00","lastModify":"2023-04-18 19:50:00","status":1,"healthProfileFlag":false,"guardianFlag":false,"fullHomeArea":"北京市 市辖区 通州区","authStatus":0,"isOwn":true,"ashFlag":false,"healthCards":[],"urt":82078463,"linkRation":"1","reclaimFlag":false,"clientConfigId":21,"ageString":"","statusText":"正常","defaultPatient":false,"educationText":"","patientSexText":"","patientTypeText":"自费","certificateTypeText":"","homeAreaText":"通州区","marryText":"","jobText":"","nationText":"","countryText":"","stateText":"","birthPlaceText":"","linkRationText":"本人","bloodText":"","houseHoldText":"","residentText":"","guardianPatientRelationText":"","guardianCertificateTypeText":"","authStatusText":"未认证","patientUserTypeText":"","cardTypeText":"","guardianGenderText":"","guardianCountryText":"","guardianRelationText":"","cardPatientTypeText":""},"completely":false,"haveCardTypes":[],"age":0,"have12":true,"relation":true}]}

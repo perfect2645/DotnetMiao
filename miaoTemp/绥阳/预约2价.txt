@@ -1,0 +1,34 @@
+POST https://www.jxy-tech.com/api/v1/locations/1/appoints HTTP/1.1
+Host: www.jxy-tech.com
+Connection: keep-alive
+Content-Length: 280
+Accept: application/json, text/plain, */*
+Origin: https://www.jxy-tech.com
+Authorization: Bearer 30f85077-1257-42d6-ac0a-e83c7b3e723c
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json
+Cookie: JSESSIONID=A390B2F8C01ED798B14F8CC21D150B12
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://www.jxy-tech.com/booking/companies/514966/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"type":"UNDEFINED","btCode":"H","appointDate":"2023-05-22","beginTime":"08:00","endTime":"15:30","openid":"ohcxP58icuLf35ZBbVsSB7mZ2YZ8","barcode":"9141ef51-07a0-4e59-a888-f4b88a58ad20","addressId":70833,"phone":"15085049366","idName":"刘永飞","identity":"522126199701200026"}
+HTTP/1.1 200
+Server: nginx/1.16.1
+Date: Sun, 21 May 2023 13:46:53 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Set-Cookie: JSESSIONID=7278FCE3D8FFF6D6680D5FFCD5B8CD26; Path=/; HttpOnly
+X-Application-Context: application:8899
+Content-Length: 418
+
+{"success":true,"message":null,"data":{"type":"UNDEFINED","btCode":"H","appointDate":"2023-05-22","beginTime":"08:00","endTime":"15:30","openid":"ohcxP58icuLf35ZBbVsSB7mZ2YZ8","barcode":"9141ef51-07a0-4e59-a888-f4b88a58ad20","addressId":70833,"phone":"15085049366","idName":"刘永飞","identity":"522126199701200026","appointId":278296,"appointNo":"1230521985142","refCode":"985142","btName":"二价宫颈癌疫苗"}}

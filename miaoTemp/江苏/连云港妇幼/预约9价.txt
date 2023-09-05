@@ -1,0 +1,27 @@
+POST http://api.lygfybj.com:8003/app HTTP/1.1
+Host: api.lygfybj.com:8003
+Connection: keep-alive
+Content-Length: 408
+Origin: http://wechat.lygfybj.com:8003
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+sign: 473dded01ea4202e4465beaa620d850d
+Content-Type: application/json
+Accept: */*
+Referer: http://wechat.lygfybj.com:8003/h5/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"channel":"31","format":"JSON","oper":"127.0.0.1","random":"1234","spid":"1001","service":"smarthos.yygh.apiOrderService.register","token":"OPENID_PAT_odPkUt3ijESrc3WWIbxc0EISWZzw","openid":"odPkUt3ijESrc3WWIbxc0EISWZzw","channelCode":"439339360256","appid":"wxbda455ba169734c6","numid":"64dba2d4b760ff2bff2af9eb","orgid":"057101","patid":"554909180032","patvisitid":"554909180033","patientid":"0001228334"}
+HTTP/1.1 200 OK
+Server: nginx/1.22.0
+Date: Tue, 15 Aug 2023 16:16:12 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 844
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, GET
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, sign
+X-Frame-Options: SAMEORIGIN
+
+{"code":"0","obj":{"age":"30","amount":12.00,"ampm":"1","bookDate":"2023-08-22","bookNo":"26","bookTime":"10:00-10:30","channel":"31","channelCode":"439339360256","deptid":"589764042778","deptname":"宫颈癌(HPV)疫苗接种门诊","docid":"6358cd40b760db8f3c20adf0","docname":"进口九价第一针","hosName":"连云港市妇幼保健院","idcard":"320703199210264147","mobileno":"18840842645","numPassword":"030131894","numid":"64dba2d4b760ff2bff2af9eb","orderState":"0","orderid":"64dba366b760ff2bff2afa17","ordertype":"1","orgid":"057101","patid":"554909180032","payState":"0","preConsultationState":false,"regId":"64dba366b760ff2bff2afa17","remainTime":"300","schemeId":"64dba21db760ff2bff2af8c2","sex":"女","showConsultationState":false,"takeNoPwd":"030131894","visitAddress":"请咨询导医台","visitName":"周瑠夏"},"succ":true}

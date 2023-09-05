@@ -1,0 +1,20 @@
+POST https://yuyue.azjkzx.cn/api/index/WxDecode HTTP/1.1
+Host: yuyue.azjkzx.cn
+Connection: keep-alive
+Content-Length: 920
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/x-www-form-urlencoded
+Referer: https://servicewechat.com/wx9462592068e4073e/5/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+encryptedData=ZXV1tcqM%2B3%2FixAFP0GBKF8Q%2B9%2F1rR5Cs%2F6G9rOMqNOmdEyvVUOkrtElw17eunpYzierED%2Fx6OpHV1JWG5Qd7YPdnow9ibvLfhpGjmpsrDdbiBWdoBDUj3hWmEW%2BF6uOeHc9oi54nCwpOYIONtya2NE1CpiAN8oQtl%2BglUmt%2BkmA0pwrFWeOqSziFokg2phcz8WIgkNzxhAm%2F4MOgzh1axCjVt%2Bmlv1oSvEniYi71f3NJyyk%2F5NOAzqv3%2BQMGKCYNCoD7Le7VBjtxxMhApJm2YO8vMkMCMEFuH5YI5EaIu5y79rypq6dd8Wl7evNQYeGsPDRdWF%2FtkbvUUWHU7Ma77GVb%2Fy%2BeWS05XPB8pAopy7%2B8s8pSqhYUpCxOrQCeP0yNyYQv2cpLyWcXj%2BBnHOXqkg%3D%3D&signature=b9597f575e73716645b0453aca42dad5f94bbea5&rawData=%7B%22nickName%22%3A%22Fawei%22%2C%22gender%22%3A0%2C%22language%22%3A%22zh_CN%22%2C%22city%22%3A%22%22%2C%22province%22%3A%22%22%2C%22country%22%3A%22%22%2C%22avatarUrl%22%3A%22https%3A%2F%2Fthirdwx.qlogo.cn%2Fmmopen%2Fvi_32%2FQ0j4TwGTfTIWFAJGwjiadzugetaWdBQZG3kvlEUibVGdh9aGmRrlmyZCtxMyEPXjaetlzoPKbl1MYuSQXqVSxrHw%2F132%22%7D&iv=XCyFTufXO3Dltiql6ykTWQ%3D%3D&code=0d12Lx0w357KF03tdA0w3FXLiX32Lx04
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 22 May 2023 09:09:35 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Request-ID: 6375fa4a1e983bb7006017d9155fd206
+Strict-Transport-Security: max-age=31536000
+Content-Length: 337
+
+{"code":1,"msg":"请求成功","time":"1684746575","data":{"uid":"JDg74GM2Qq","nickName":"Fawei","avatarUrl":"https:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/Q0j4TwGTfTIWFAJGwjiadzugetaWdBQZG3kvlEUibVGdh9aGmRrlmyZCtxMyEPXjaetlzoPKbl1MYuSQXqVSxrHw\/132","random_number":"","sessionKey":"OvqJAxnL9ngXckFLcG7\/5A==","phoneNumber":"13940897525"}}

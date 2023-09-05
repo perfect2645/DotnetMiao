@@ -1,0 +1,257 @@
+POST https://tjzsprod.tsxcx.xyz/tjzs/v1/formValue/publish HTTP/1.1
+Host: tjzsprod.tsxcx.xyz
+Connection: keep-alive
+Content-Length: 1727
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk0MzAzOTYsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.dnNuI_KsGxih6xD2XzOID5Xnhu8P2bQ09nNhFej2kzuCchjX0PRtI_qLUvVODMwRQPW0sOJpA65Jlf7bV4gKQaX9wQWWbbj_EPBRUyXJitiAu-YrpyQP8ETYQMmWF0mt62AUj6ax4uSXqOaBvrzUX7Ny3Vn_8vrGFvCNqeEMZ_SjSCocRAyZLjw_MrrQglZ8SQfYfxSdzOhm1x_8HAUAuTXfHTObMntWQTbafuMV8RBtRTpfK1GQSLYTEofRe9v6wMlzspS6loWK4V9QHqPK-ulu3ZVwS56CzeuAs-SPFjgD53gWBtvTyg24RjbeB321Q5PRUurnqOD65Vk9ocLPgw
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wx98122c90f1630e04/347/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"seq_num":"60661079_1001_16894243197v","item":{"id":0,"form_user_id":58920625,"form_u_user_id":52009049,"form_id":8224111,"user_id":0,"u_user_id":0,"user":null,"status":1,"audit_status":1,"audit_at":0,"audit_op_user_id":0,"publish_item":null,"draft_item":{"section":[{"id":47838461,"type":26,"photo_values":[],"content_values":[],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{"ris":[{"rid":18344,"r":{"id":18344,"s":1,"n":"九价","d":"","ps":[],"tcs":[{"da":1689350400,"tbs":[{"bat":32400,"eat":86340,"ma":10,"ac":0}]},{"da":1689436800,"tbs":[{"bat":32400,"eat":33000,"ma":10,"ac":0,"n":1}]},{"da":1689523200,"tbs":[{"bat":0,"eat":86340,"ma":10,"ac":0}]}],"wtcs":[]},"sis":[{"da":1689436800,"ts":[{"bat":32400,"eat":33000,"ma":10,"ac":0,"n":1}]}]}]},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1}],"p_section":[{"id":47838458,"type":1,"uit":2,"photo_values":[],"content_values":["6Zm25oWn6Zye"],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1},{"id":47838459,"type":5,"uit":4,"photo_values":[],"content_values":["MTY1Mzc1NTUxMjg="],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1},{"id":47838460,"type":9,"uit":8,"photo_values":[],"content_values":["NTMyNTMyMTk5OTA3MTcxMTI5"],"index_values":[],"gps_values":[],"fs":[],"icc":[],"cc":[],"mvs":[],"av":{},"mis":[],"ccv":{"v":[],"ov":""},"_status":1,"status":1,"_init_status":1}],"ms":[],"remark":"","n":"","ip":0},"publish_at":0,"create_at":0,"update_at":0,"version":0,"seq_num":"60661079_1001_16894243197v"},"sys_id":1001}
+HTTP/1.1 200 OK
+Date: Sat, 15 Jul 2023 12:32:00 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 2643
+Connection: keep-alive
+Set-Cookie: tgw_l7_route=1559df5c4db01ce7e6d4e50052499899; Expires=Sat, 15-Jul-2023 13:01:59 GMT; Path=/
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Content-Type, Accept
+Access-Control-Allow-Methods: POST,GET,PUT,DELETE,OPTIONS
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Content-Range
+Access-Control-Request-Methods: POST,GET,PUT,DELETE,OPTIONS
+P3p: CP=CAO PSA OUR
+A: B
+xxx: yyy
+
+{
+    "result_code": 0,
+    "result_message": "成功",
+    "api_state": "",
+    "item": {
+        "seq_page_id": 0,
+        "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv": 453733964,
+        "s_id": "",
+        "form_id": 8224111,
+        "form_user_id": 58920625,
+        "form_u_user_id": 52009049,
+        "user_id": 60661079,
+        "u_user_id": 53851427,
+        "user": {
+            "seq_page_id": 0,
+            "id": 60661079,
+            "s_id": "649240108d9995000127f2ed",
+            "u_user_id": 53851427,
+            "system_id": 0,
+            "wx_open_id": "oOVKt4gXz-zLE6PGWXbcz4fJF_O4",
+            "wx_info": {
+                "session_key": "",
+                "open_id": "oOVKt4gXz-zLE6PGWXbcz4fJF_O4",
+                "subscribe": 0,
+                "status": 2,
+                "nick_name": "55Sc55Sc",
+                "sex": 0,
+                "language": "",
+                "province": "",
+                "city": "",
+                "country": "",
+                "avatar": "cosfile.tsxcx.xyz/user/202307/05f0fa04202fde92b64a16cc42a8b7e2.jpg",
+                "access_token": "",
+                "expires_at": 0,
+                "refresh_token": "",
+                "receiver": "",
+                "address": "",
+                "zip": "",
+                "subscribe_time": 0,
+                "union_id": "ogOkowWf-mOlLmwwPmD2ltKRUfeQ",
+                "remark": "",
+                "group_id": 0,
+                "update_at": 0
+            },
+            "name": "",
+            "show_name": "",
+            "show_name_gbk": "",
+            "sex": 0,
+            "special_status": 0,
+            "audit_status": 1,
+            "AuditAt": 0,
+            "AuditOpUserId": 0
+        },
+        "status": 2,
+        "audit_status": 1,
+        "audit_at": 0,
+        "audit_op_user_id": 0,
+        "audit_user": null,
+        "publish_item": {
+            "section": [
+                {
+                    "id": 47838461,
+                    "type": 26,
+                    "photo_values": [],
+                    "fs": [],
+                    "content_values": [],
+                    "index_values": [],
+                    "gps_values": [],
+                    "order_items": null,
+                    "icc": [],
+                    "cc": [],
+                    "msv": null,
+                    "mvs": [],
+                    "rv": null,
+                    "sv": null,
+                    "av": {
+                        "da": 0,
+                        "bat": 0,
+                        "eat": 0,
+                        "n": 0,
+                        "nris": null,
+                        "ris": [
+                            {
+                                "rid": 18344,
+                                "r": {
+                                    "id": 18344,
+                                    "s": 1,
+                                    "n": "九价",
+                                    "d": "",
+                                    "ps": [],
+                                    "tcs": [
+                                        {
+                                            "da": 1689350400,
+                                            "tbs": [
+                                                {
+                                                    "bat": 32400,
+                                                    "eat": 86340,
+                                                    "ma": 10,
+                                                    "ac": 0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "da": 1689436800,
+                                            "tbs": [
+                                                {
+                                                    "bat": 32400,
+                                                    "eat": 33000,
+                                                    "ma": 10,
+                                                    "ac": 0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "da": 1689523200,
+                                            "tbs": [
+                                                {
+                                                    "bat": 0,
+                                                    "eat": 86340,
+                                                    "ma": 10,
+                                                    "ac": 0
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "wtcs": []
+                                },
+                                "sis": [
+                                    {
+                                        "da": 1689436800,
+                                        "ts": [
+                                            {
+                                                "bat": 32400,
+                                                "eat": 33000,
+                                                "n": 1
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "mis": [],
+                    "ccv": {
+                        "v": [],
+                        "ov": ""
+                    },
+                    "sfvs": null
+                }
+            ],
+            "ms": [],
+            "p_section": [
+                {
+                    "id": 47838458,
+                    "uit": 2,
+                    "type": 1,
+                    "photo_values": [],
+                    "content_values": [
+                        "6Zm25oWn6Zye"
+                    ],
+                    "index_values": [],
+                    "gps_values": [],
+                    "order_items": null,
+                    "icc": [],
+                    "cc": []
+                },
+                {
+                    "id": 47838459,
+                    "uit": 4,
+                    "type": 5,
+                    "photo_values": [],
+                    "content_values": [
+                        "MTY1Mzc1NTUxMjg="
+                    ],
+                    "index_values": [],
+                    "gps_values": [],
+                    "order_items": null,
+                    "icc": [],
+                    "cc": []
+                },
+                {
+                    "id": 47838460,
+                    "uit": 8,
+                    "type": 9,
+                    "photo_values": [],
+                    "content_values": [
+                        "NTMyNTMyMTk5OTA3MTcxMTI5"
+                    ],
+                    "index_values": [],
+                    "gps_values": [],
+                    "order_items": null,
+                    "icc": [],
+                    "cc": []
+                }
+            ],
+            "n": "",
+            "q": "",
+            "l": 0,
+            "t": null,
+            "mp": 0,
+            "ip": 0
+        },
+        "draft_item": null,
+        "publish_at": 1689424320,
+        "create_at": 0,
+        "update_at": 0,
+        "version": 0,
+        "pay_status": 0,
+        "online_pay_status": 0,
+        "send_status": 0,
+        "total_price": 0,
+        "order_status": 0,
+        "order_proc_status": 0,
+        "ip_str": "49.5.144.91:80",
+        "remark": "",
+        "pwd": "",
+        "check_status": 0,
+        "check_at": 0,
+        "check_audit_desc": "",
+        "check_group_code": "",
+        "c_audit_status": 1,
+        "c_audit_desc": "",
+        "mr": 0
+    },
+    "form_item": null,
+    "order_item": null,
+    "pay_info": null,
+    "msg_tps": [],
+    "is_queue": 0
+}

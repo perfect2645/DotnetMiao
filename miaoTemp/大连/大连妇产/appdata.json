@@ -1,0 +1,14 @@
+{
+    "globalData": {
+        "appid": "wxa794c2a4fcfeb7f4",
+        "appointmentCancleTmpl": "XkV9bhx48huOPgvXtkZXRsi3xhruS0yFCME9FXkc9Jo",
+        "appointmentSuccessTmpl": "HwY-pBZH7gSSE6txEgyUDErtKnrkDtK51letwiPACDk",
+        "baseCaseUrl": "https://ghsf.dletyy.com",
+        "baseUrl": "https://hlwyy.dlfeyljt.com/patient/v1",
+        "bindingCardTmpl": "1c4EcGS6kDrDDOZvrfOmMW719lPfqMNFcFSyMSmkelc",
+        "cloudLongTmpl": "-DNbE99GuHRXbIs1ZA5ozWMhQzdoLl2ES6_qEgQFCnc",
+        "compoundName": "",
+        "consultLongTmpl": "-DNbE99GuHRXbIs1ZA5ozWMhQzdoLl2ES6_qEgQFCnc",
+        "escortReviewTmpl": ""
+    }
+}

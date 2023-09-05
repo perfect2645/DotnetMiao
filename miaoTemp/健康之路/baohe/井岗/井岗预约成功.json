@@ -1,0 +1,98 @@
+{
+    "waterId": 724415655,
+    "waitingInfor": "第21号 08:40-08:42",
+    "store": "",
+    "serialNo": "21",
+    "memberSn": "54985240",
+    "memberName": "刘振宇",
+    "memberPhone": "13940897525",
+    "memberAddress": "东城白云山",
+    "memberBirthday": "2000-03-10",
+    "memberSex": "2",
+    "memberId": "54985240",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "110***********5689",
+    "memberIdcard": "110***********5689",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "13940897525",
+    "doctorSn": "711068538",
+    "hosDeptId": "7209050",
+    "hosDeptName": "儿保科（42天到3周岁体检）",
+    "hospitalId": "1047063",
+    "hospitalName": "蜀山区经开区井岗镇社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710742231",
+    "doctorName": "儿保科医生",
+    "doctorPic": "",
+    "doctorClinicName": "主治医师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2022-08-22",
+    "timeId": 1,
+    "arrangeId": 160229232,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 63,
+    "UnOpened": false,
+    "FHTimes": "16:00",
+    "FHDays": "7",
+    "accountSn": 148528129,
+    "cardNumber": "2078631533",
+    "loginId": "o8e_80VAT573U6MIXnu_UdYWbgpk",
+    "channelId": "9001026",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+[
+    {
+        "keyValue": "东城白云山",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "110***********5689",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "13940897525",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]

@@ -1,0 +1,87 @@
+POST https://hlwyy.dlfeyljt.com/patient/v1/appoint/regPoint HTTP/1.1
+Host: hlwyy.dlfeyljt.com
+Connection: keep-alive
+Content-Length: 1138
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+appId: wxa794c2a4fcfeb7f4
+appKind: 1
+appMark: 1
+appType: 5
+appVersion: 1.0
+content-type: application/json;charset=UTF-8
+hospitalId: 10018
+nonce: 173562070476-450f-a8a5-7dd3510ec9e3
+signature: 191b7fd174d4da433215a91e736a32cef78af45db0b42ee65a6a4bb23f8133fd
+timestamp: 1689388578303
+token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNDMwMTQ1MyIsImV4cCI6MTcyMTAxMDIzOX0.i16kSXUFwOnIyalAG58RehXF-PkZnW-QwC6PR2-miFk
+userId: 14301453
+Referer: https://servicewechat.com/wxa794c2a4fcfeb7f4/47/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"requestData":"543a347e58ace2d3ae7842e1d63a186cc56d8574baa6ecb21c8ccd0f51704d43ea211bc379b047373e92b10f0b47e1ae5dff6cc7336cd0706902bbfae7bdcc8f1f4f00fba1b3de6f04562f4e1bc865545d92f420d4f248e28b7b1605270dcfa0634bc46a3ff316a3713dc62926bb99ccc6815d6a751626fb363a37dc7b6ccf0b80aa3f93bc77bf5615799bd138f64f075ee41471d4f464a78accc70adead38865268bf3398ba041b8e9bdb87d4e2bf8b6a41d08781435c3a167d11310ce4a0c1e1a4338573b3eabe783b657ed4e7976a92641e53451f0efedc452061628b2d3c64d4f64d9d2145facee75db639a05929c64ee1d481efed21aa384ea8c339422969a879ef1804991679c632c5d87f2f5bc9e62b20dcd4463eaaff0e4485a53b6643eb6f8779f35ad6aba7207c2f98b326ae940b71128454c716c86fa69443bbe7d484798d1deae461724fb0c3865344c9ef120759686be82dabe575c33739f2bb08e31ce0b632b238831cc8972948aee14a823ea5ee61369b20b5cb607ecd131214233bd72a38e74f7745c2df258eeb2ad4f3c7b75a2e40e169d22e103d6d7c8a14140f4efe10f384d210c2a6dc2fdeb1692f3a99e4ed0a8864db600c82b152fd70d3926f0d7776da3e7b2162868eec21ca1ecff41436a06cdb31750f003eee6a661f4d79a99c084a61d1a62a6fad0a2c85f3bd8e386b2ff2f9b4e82f1e70e9f99fd54cf647aee432c61111ae5f097c66b2a466e4adee1842352f63c66add993b62dd5f10c3644d7c19f34b4a4013ded3"}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 15 Jul 2023 02:36:20 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 64
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+{"status":-9,"msg":"获取不到有效号点或排班信息！"}
+
+
+
+{
+    "pointId": "947796_22259862",
+    "pointName": "PA1(13:00-14:00)",
+    "pointDate": "20230718",
+    "regLevelId": "67",
+    "regLevelName": "进口九价（9-45岁）",
+    "patientId": "23025009",
+    "deptId": "139253",
+    "drId": "",
+    "visitTime": "20230718130000",
+    "medInsType": "",
+    "specialDeptType": "",
+    "beginTime": "20230718130000",
+    "endTime": "20230718130000",
+    "diagnoseFee": "8.00",
+    "noonId": "3",
+    "noonName": "PA1(13:00-14:00)",
+    "regFee": "",
+    "inspectFee": "",
+    "hisDeptId": "",
+    "referenceCode": "",
+    "mbFlag": "",
+    "appId": "wxa794c2a4fcfeb7f4",
+    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
+    "hospId": 10018,
+    "hospitalId": 10018
+}
+
+{
+    "pointId": "947803_22298526",
+    "pointName": "PA11(14:00-15:00)",
+    "pointDate": "20230720",
+    "regLevelId": "67",
+    "regLevelName": "进口九价（9-45岁）",
+    "patientId": "22912851",
+    "deptId": "139253",
+    "drId": null,
+    "visitTime": "20230720140000",
+    "medInsType": "",
+    "specialDeptType": "",
+    "beginTime": "20230720140000",
+    "endTime": "20230720140000",
+    "diagnoseFee": "8.00",
+    "noonId": "3",
+    "noonName": "PA11(14:00-15:00)",
+    "regFee": "",
+    "inspectFee": "",
+    "hisDeptId": "",
+    "referenceCode": "",
+    "appId": "wxa794c2a4fcfeb7f4",
+    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
+    "hospId": 10018,
+    "hospitalId": 10018
+}

@@ -84,6 +84,15 @@ namespace HttpProcessor.Client
 
             try
             {
+                if (JsonBody.RootElement.ValueKind == JsonValueKind.Array)
+                {
+                    var arrayContent = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(contentStr);
+                    Body = new Dictionary<string, object>
+                    {
+                        {"Array", arrayContent},
+                    };
+                    return;
+                }
                 var contentDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(contentStr);
                 Body = contentDic ?? new Dictionary<string, object>();
             }

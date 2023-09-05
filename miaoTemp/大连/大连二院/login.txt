@@ -1,0 +1,38 @@
+POST https://mix.med.gzhc365.com/api/xcxcore/login HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 121
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Hc-Src-Hisid: 2342
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: wx_xcx
+client: patient
+content-type: application/x-www-form-urlencoded
+device-id: 
+his-id: 2342
+request-id: f8593f07-a788-4ce7-a88f-98b969eac089
+uid: 
+uuid: 4ac00fd7-c340-49df-ac41-aece4f8bf3b4
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&code=0f1QQ20w3vykE03Ahc1w3dwat30QQ20V&silent=&login_access_token=
+HTTP/1.1 200
+Content-Type: application/json;charset=UTF-8
+Content-Length: 99
+Connection: keep-alive
+Server: Tengine
+Date: Tue, 16 May 2023 14:13:19 GMT
+encrypt: false
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 215
+X-Kong-Proxy-Latency: 1
+Via: kong/1.4.0
+
+{"code":0,"data":{"expireIn":"604800","login_access_token":"1684246399422-ED49B29503EF1BF1BE0D14"}}

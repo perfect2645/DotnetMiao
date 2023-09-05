@@ -86,7 +86,7 @@ namespace Baohe.viewModel
         {
             SendYzmCommand = new DelegateCommand(ExecuteSendYzmAsync);
             VerifyYzmCommand = new DelegateCommand(ExecuteVerifyYzmAsync);
-            YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
+            //YzmReceiver = new YzmReceiver(ReceiveRemoteYzm);
         }
 
         #endregion Constructor
@@ -146,6 +146,11 @@ namespace Baohe.viewModel
 
         private void ProcessYzmUpdated()
         {
+            if (MainSession.YzmMode == YzmMode.ExchangePreSendOnTimeVerify)
+            {
+                return;
+            }
+
             if (!MainSession.IsYzmSent)
             {
                 return;
@@ -171,7 +176,7 @@ namespace Baohe.viewModel
                 _isCheckingYzm = true;
                 var yzmController = HttpServiceController.GetService<YzmController>();
                 var isYzmSent = await yzmController.SendYzmAsync(UserName, Phone, ArrangeSn);
-                if (MainSession.YzmMode == YzmMode.OnTimeSendVerify)
+                if (MainSession.YzmMode == YzmMode.OnTimeSendVerify || MainSession.YzmMode == YzmMode.ExchangePreSendOnTimeVerify)
                 {
                     MainSession.IsYzmSent= isYzmSent;
                 }
@@ -203,11 +208,6 @@ namespace Baohe.viewModel
                 if (string.IsNullOrEmpty(ArrangeSn))
                 {
                     ArrangeSn = MainSession.DefaultWater["ArrangeID"].NotNullString();
-                }
-
-                if (string.IsNullOrEmpty(ArrangeSn))
-                {
-                    ArrangeSn = "169301668";
                 }
 
                 var yzmController = HttpServiceController.GetService<YzmController>();

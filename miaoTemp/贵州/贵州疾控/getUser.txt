@@ -1,0 +1,22 @@
+GET https://api.cn2030.com/sc/wx/HandlerSubscribe.ashx?act=User HTTP/1.1
+Host: api.cn2030.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTAyOTU5ODQuOTA2MjQ3NiwiZXhwIjoxNjkwMjk5NTg0LjkwNjI0NzYsInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMDcyNTIyMzk0NCIsInZhbCI6Im9USE1BUlFBQUFBRWJtOXVaUnh2UzNCamVUUTRSeTE1WmpWaGJFWjNkVVoyWW05bU5XSm9WelZCQUFBTU1USTBMamt6TGpFNU55NDJcclxuQUFBQUFBQUFBQT09In0.yNfMk95ApfYr2pzdP7A-fkcjfQj57XzdfGOsQn_7yJ0
+zftsl: 763770f2919175d9bf63798dba11fb4a
+Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Tue, 25 Jul 2023 14:39:50 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 137
+Connection: keep-alive
+Cache-Control: private
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+
+{"status":200,"user":{"birthday":"2000-08-02","tel":"15597724201","cname":"刘丹丹","sex":2,"idcard":"522101200008025520","doctype":1}}

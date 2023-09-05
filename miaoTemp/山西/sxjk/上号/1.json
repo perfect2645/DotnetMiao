@@ -1,0 +1,15 @@
+GET https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetBactPriceList?parameters=H6sf04SGY81I7liOqPPCugZNgIadtsNvx7VY1BXbH9wGl/NmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGLS0NqMGMjRikuXDx5IRVLtvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U+vqsww==&sign=53c222b8db7d3a029c4a935c9d503531&timestamp=1692143401922 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Content-Type: application/json;charset=UTF-8
+Cookie: SESSION=ZDIzMDAxMzItMDE5NS00ODI5LWIwNmYtYzI3OGNlMTMzY2Vl
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.40(0x1800282c) NetType/WIFI Language/zh_CN
+Referer: https://ymjz.sxcdc.cn/SXJKWX/selectVaccine?station_code=140902194100&child_code=140902190719990024
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+
+H6sf04SGY81I7liOqPPCugZNgIadtsNvx7VY1BXbH9wGl/NmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGLS0NqMGMjRikuXDx5IRVLtvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U+vqsww==
+
+
+bact_id=72&station_code=140902194100&user_name=other#393338&city_code=140900000000&version_name=6.6.0&os=web

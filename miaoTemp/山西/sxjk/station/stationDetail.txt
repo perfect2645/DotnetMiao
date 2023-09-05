@@ -1,0 +1,37 @@
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Station/GetStationDetails?parameters=jR1HU9FZO4LXX9knGCgmVDqFuQFMWj8pC%2BB0OteqgzTtuWjHDnrmwg9Lj8tRMTd3sR3aSLq9Uj9VTCyyGEzZOCYn%2FkLOhqceH82hMfMIgyYVEFLtIg8HsbASGE6seMdCOOEIYIFfNZ%2B2n23FcvkItvT20RipHUaTNXXPaDxGOwM%3D&sign=0f0a6ae0004f094c42fffaeaadb340ea&timestamp=1687739781295 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Accept: application/json, text/plain, */*
+Connection: keep-alive
+Cookie: SESSION=MzMwZDU1MDItNmE3Ny00ZWM4LWFiZWYtMjUyODNlMzdiOTcx
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.38(0x1800262a) NetType/4G Language/zh_CN
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Referer: https://ymjz.sxcdc.cn/SXJKWX/main.html?version=2.0.0
+Accept-Encoding: gzip, deflate, br
+
+
+
+jR1HU9FZO4LXX9knGCgmVDqFuQFMWj8pC%2BB0OteqgzTtuWjHDnrmwg9Lj8tRMTd3sR3aSLq9Uj9VTCyyGEzZOCYn%2FkLOhqceH82hMfMIgyYVEFLtIg8HsbASGE6seMdCOOEIYIFfNZ%2B2n23FcvkItvT20RipHUaTNXXPaDxGOwM%3D
+
+{
+    "code": 0,
+    "data": {
+        "station_name": "太原市小店区唐槐社区卫生服务中心",
+        "station_phone": "03512412565",
+        "station_address": "太原市小店区唐槐社区卫生服务中心",
+        "station_code": "140105010500",
+        "station_desc": "",
+        "station_sum_number": "",
+        "service_scope": "",
+        "station_program_url": "https://ymjz.sxcdc.cn/jmbshanxi/station/immunizationProgram.html?station_code=1401050105&city_code=140100000000",
+        "station_current_number": "",
+        "station_lng": "112.599334",
+        "station_lat": "37.743374",
+        "station_type": "2,3",
+        "station_day": "",
+        "station_contact": "李文丽",
+        "is_number": "1",
+        "is_smart": "0"
+    },
+    "message": "获取接种地点详细信息成功！",
+    "success": true
+}

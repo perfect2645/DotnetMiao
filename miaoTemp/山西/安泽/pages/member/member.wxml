@@ -1,0 +1,30 @@
+<view>
+    <view class="member_bg">
+        <image class="member_bg_image" mode="widthFix" src="../../images/member_bg.png"></image>
+        <view wx:if="{{code==1}}">
+            <image class="member_bg_tx" mode="widthFix" src="{{result.avatarUrl}}"></image>
+            <view class="member_bg_text">{{result.nickName}}</view>
+        </view>
+        <view bindtap="getLogin" wx:else>
+            <image class="member_bg_tx" mode="widthFix" src="../../images/logo.png"></image>
+            <view class="member_bg_text">请先授权登录</view>
+        </view>
+    </view>
+    <view bindtap="getUrl" class="member_line" data-status="1" data-url="../memberInfo/memberInfo" wx:if="{{result.truename}}">
+        <image mode="widthFix" src="../../images/member_ren.png"></image>
+        <view class="member_title">个人信息</view>
+        <view class="grey_jt"></view>
+        <view class="member_text"></view>
+    </view>
+    <view bindtap="getUrl" class="member_line" data-status="1" data-url="../memberEdit/memberEdit" wx:else>
+        <image mode="widthFix" src="../../images/member_ren.png"></image>
+        <view class="member_title">个人信息</view>
+        <view class="grey_jt"></view>
+        <view class="member_text">请完成信息,以便疫苗预约</view>
+    </view>
+    <view bindtap="getUrl" class="member_line" data-status="1" data-url="../makeList/makeList">
+        <image mode="widthFix" src="../../images/member_nz.png"></image>
+        <view class="member_title">预约列表</view>
+        <view class="grey_jt"></view>
+    </view>
+</view>

@@ -1,0 +1,63 @@
+GET https://ymjz.sxcdc.cn/jmbshanxi/Encryption/Adult/GetBactPriceList?parameters=H6sf04SGY81I7liOqPPCurfhltFr1SrnUDw9TfUzIM8Gl%2FNmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGKniwCjWwcKOiElr%2FX7LesZvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U%2Bvqsww%3D%3D&sign=c2a1a78939fb70257a5ac2d4ab542560&timestamp=1691511846784 HTTP/1.1
+Host: ymjz.sxcdc.cn
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Cookie: SESSION=ZmVhZjExZTAtZTk0MS00MTc0LTg3YTktOTAxZjk1OTJjMmIx
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://ymjz.sxcdc.cn/SXJKWX/selectVaccine?station_code=140802014100&child_code=000020020703000023
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+bact_id=72&station_code=140802014100&user_name=other#393338&city_code=140800000000&version_name=6.6.0&os=web
+
+H6sf04SGY81I7liOqPPCurfhltFr1SrnUDw9TfUzIM8Gl/NmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGKniwCjWwcKOiElr/X7LesZvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U+vqsww==
+
+{
+    "code": 0,
+    "data": [
+        {
+            "vaccine_producer": "9价HPV疫苗",
+            "canBespeakEndTime": "2023-08-10 00:00",
+            "total_price": "1318.00",
+            "factoryNo": "40",
+            "factoryName": "默沙东",
+            "payShotNum": 3,
+            "bactId": "72",
+            "bespeakLimitEnd": "",
+            "vaccine_price": "1298.00",
+            "canBespeakStartTime": "2023-08-09 08:00",
+            "other_cost_list": [
+                {
+                    "other_cost_name": "诊疗费",
+                    "other_cost_price": "0.00"
+                },
+                {
+                    "other_cost_name": "注射费",
+                    "other_cost_price": "0.00"
+                },
+                {
+                    "other_cost_name": "其他费用",
+                    "other_cost_price": "0.00"
+                },
+                {
+                    "other_cost_name": "预防接种服务费",
+                    "other_cost_price": "20.00"
+                }
+            ],
+            "bespeakFlag": "3",
+            "vaccine_class": "进口",
+            "stockNum": 652,
+            "priceId": "3902",
+            "bactName": "HPV疫苗(9价)",
+            "bespeakLimitStart": "",
+            "vaccine_spec": "0.5ml"
+        }
+    ],
+    "message": "获取疫苗价格成功！",
+    "success": true
+}

@@ -1,0 +1,11 @@
+﻿<Window x:Class="Gzjk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:Gzjk.view"
+        Title="贵州疾控" 
+        Height="800" MinWidth="830" 
+        WindowState="Normal">
+    <view:MainConsole x:Name="mainConsole">
+
+    </view:MainConsole>
+</Window>

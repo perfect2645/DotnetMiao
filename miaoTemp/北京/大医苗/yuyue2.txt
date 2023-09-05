@@ -1,0 +1,40 @@
+POST https://mp.dywrbt.com/vac/wechat/smallRoutine/pay HTTP/1.1
+Host: mp.dywrbt.com
+Connection: keep-alive
+Content-Length: 301
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+apptype: DYM
+birthdayDate: 
+content-type: application/json
+id: 1664295338979098624
+openId: oWCb35Z49sTNUwvJFiTBkMkTwmsQ
+os: applet
+phone: 17615102645
+roletype: vac
+Referer: https://servicewechat.com/wx1cf50c2a73c08a5d/35/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"vaccinPeopleId":"1664296479011897344","stockId":"1655832909047660544","vaccinateTimeDetailId":"1655833088719060992","entCompanyId":"1433385388453474304","vacId":"1655832909102186496","reserveDate":"2023-6-15","reserveDateList":["2023-6-15"],"mode":"1","vacTypeId":"1326346365879083008","queueId":""}
+HTTP/1.1 200 200
+Server: nginx/1.16.1
+Date: Thu, 01 Jun 2023 15:43:10 GMT
+Content-Type: application/json
+Connection: keep-alive
+Content-Length: 37
+
+{"code":"0","message":"预约成功"}
+
+{
+    "vaccinPeopleId": "1664296479011897344",
+    "stockId": "1655832909047660544",
+    "vaccinateTimeDetailId": "1655833088719060992",
+    "entCompanyId": "1433385388453474304",
+    "vacId": "1655832909102186496",
+    "reserveDate": "2023-6-15",
+    "reserveDateList": [
+        "2023-6-15"
+    ],
+    "mode": "1",
+    "vacTypeId": "1326346365879083008",
+    "queueId": ""
+}

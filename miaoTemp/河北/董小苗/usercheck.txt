@@ -1,0 +1,22 @@
+POST https://dm.cdpc.org.cn/dmxcx/appointment/check HTTP/1.1
+Host: dm.cdpc.org.cn
+Connection: keep-alive
+Content-Length: 76
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVBZ0Zxc2g3YzdmWnpWeklkaFN2b2dRIiwidGltZXN0YW1wIjoxNjkxMTQ2MzczODM3fQ.A1TX7eMmk_WLMOaC0V0EkYQBrFt8Pk_7t_wxcWicTgk
+Referer: https://servicewechat.com/wx51500ac89206cb24/13/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"hospitalCode":"1302290103","vaccines":[{"vaccineId":573,"vaccineType":2}]}
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Content-Type: application/json;charset=UTF-8
+Date: Fri, 04 Aug 2023 13:45:53 GMT
+Expires: 0
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Content-Length: 51
+
+{"code":200,"message":"操作成功","result":null}

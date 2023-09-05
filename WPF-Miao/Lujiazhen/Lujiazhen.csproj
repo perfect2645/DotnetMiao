@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="common\encode.js" />
+    <None Remove="common\encSource.js" />
+    <None Remove="Login - liu.json" />
+    <None Remove="Login.json" />
+    <None Remove="Login蓬朗.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="common\encode.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="common\encSource.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login - liu.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login蓬朗.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj" />
+    <ProjectReference Include="..\CoreControl\CoreControl.csproj" />
+    <ProjectReference Include="..\HttpProcessor\HttpProcessor.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\Utils\Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Interop.MSScriptControl">
+      <HintPath>..\HttpProcessor\Interop.MSScriptControl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="view\MainConsole.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="view\MainConsole.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties login_1json__JsonSchema="https://appsemble.app/api.json" /></VisualStudio></ProjectExtensions>
+
+</Project>

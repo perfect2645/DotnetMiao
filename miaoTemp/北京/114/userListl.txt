@@ -1,0 +1,32 @@
+POST https://www.114yygh.com/mobile/patient/list?_time=1686102552828 HTTP/1.1
+Host: www.114yygh.com
+Connection: keep-alive
+Content-Length: 0
+Accept: application/json, text/plain, */*
+Origin: https://www.114yygh.com
+Request-Source: WE_CHAT
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Cookie: imed_session=lTf7YHTBn2vH5P9i1SxnUu427fZyH60N_5620340; imed_session=uCa4HDxzhhgJ6HMUJv2BlayA1EkyMGLB_5620209; _opt=mobile_wxauth_2969dc8bc36a5b17920891be6632253e; cmi-user-ticket=Lc4WelepmUs0Y-0aylvOt8ZdvPu4ainkMXWKlQ..; imed_session=lTf7YHTBn2vH5P9i1SxnUu427fZyH60N_5620340; imed_session_tm=1686102546637
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://www.114yygh.com/wechat/personal/patient
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200
+Server: unicom
+Date: Wed, 07 Jun 2023 01:49:14 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 1160
+Connection: keep-alive
+Set-Cookie: imed_session=lTf7YHTBn2vH5P9i1SxnUu427fZyH60N_5620340; HttpOnly
+Set-Cookie: imed_session_tm=1686102554089; Domain=.114yygh.com; Path=/; HttpOnly
+Content-Security-Policy: : default-src *.114yygh.com *.qq.com *.baidu.com; font-src * data:
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+X-Cache: BYPASS from 615dff67a73488b4e5c6c7140b76615b
+
+{"resCode":0,"msg":null,"data":{"count":2,"list":[{"patientName":"熊佳","patientNameView":"*佳","idCardType":"IDENTITY_CARD","idCardTypeView":"居民身份证","idCardNo":"361121200305088127","idCardNoView":"3611****8127","phone":"18840842645","status":"BIND","statusTips":"","cardList":[{"cardType":"IDENTITY_CARD","cardTypeView":"居民身份证","cardNo":"361121200305088127","cardNoView":"3611****8127","medicareType":"SELF_PAY_CARD","medicareTypeView":"自费"}],"options":["MEDICARE_CARD"],"contactInfo":{"username":null,"idCardType":null,"idCardNo":null,"phone":null,"contactRelType":null}},{"patientName":"田彩霞","patientNameView":"*彩霞","idCardType":"IDENTITY_CARD","idCardTypeView":"居民身份证","idCardNo":"142621198812144725","idCardNoView":"1426****4725","phone":"18840842645","status":"BIND","statusTips":"","cardList":[{"cardType":"IDENTITY_CARD","cardTypeView":"居民身份证","cardNo":"142621198812144725","cardNoView":"1426****4725","medicareType":"SELF_PAY_CARD","medicareTypeView":"自费"}],"options":["MEDICARE_CARD"],"contactInfo":{"username":null,"idCardType":null,"idCardNo":null,"phone":null,"contactRelType":null}}]}}

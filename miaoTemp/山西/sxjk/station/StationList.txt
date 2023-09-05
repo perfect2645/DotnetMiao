@@ -1,0 +1,27 @@
+{
+    "code": 0,
+    "data": [
+        {
+            "station_name": "小店区人民医院",
+            "station_address": "小店区人民医院",
+            "is_allow_bespeak": "1",
+            "station_lng": "112.556166",
+            "stock_num": "可预订数：624",
+            "station_lat": "37.708653",
+            "station_code": "140105010100",
+            "is_number": "0"
+        },
+        {
+            "station_name": "平阳社区卫生服务中心",
+            "station_address": "平阳景苑21号楼",
+            "is_allow_bespeak": "1",
+            "station_lng": "112.558938",
+            "stock_num": "可预订数：624",
+            "station_lat": "37.821607",
+            "station_code": "140105020100",
+            "is_number": "0"
+        }
+    ],
+    "message": "获取数据成功！",
+    "success": true
+}

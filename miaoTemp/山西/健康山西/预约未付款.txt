@@ -1,0 +1,165 @@
+POST https://uhapi.sxyygh.com/patient/order/ensure HTTP/1.1
+Host: uhapi.sxyygh.com
+Connection: keep-alive
+Content-Length: 196
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: UH_RDSP_HOSPXCX
+content-type: application/json
+Referer: https://servicewechat.com/wx2184acfbec0b5f08/290/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{
+    "hospitaluid": 3981,
+    "accesstype": 1,
+    "resid": 1180638653,
+    "commonpeopleid": "f4042e2b405348aa9e71ddd997c1b76b",
+    "workid": 30727952,
+    "treattype": "1",
+    "mtype": "3",
+    "userid": "20b9194b0eca42d6a24049702e60af5f"
+}
+HTTP/1.1 200 OK
+Date: Mon, 07 Aug 2023 13:15:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 2392
+Connection: keep-alive
+Set-Cookie: acw_tc=2760820616914141577831611e4c7c84c994df2930461dde02f2da12a3084a;path=/;HttpOnly;Max-Age=1800
+Server: nginx/1.24.0
+X-Powered-By: 3.2.1
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: X-Requested-With,content-type,X-Token,Authorization,channel
+Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS
+ETag: W/"958-ev+J827VdiTpuZtuBa3DPRwIoR4"
+
+{
+    "msg": "预约挂号成功",
+    "other": {
+        "promptbindcard": "1",
+        "periodtaketime": "提前0分钟",
+        "presentState": "1",
+        "workdate": "2023-08-08 10:04 (上午)",
+        "canceltime": "18:00",
+        "promptbindcardcontent": null
+    },
+    "code": "1",
+    "defnamemsg": "",
+    "resid": "1180638653",
+    "orderinfo": {
+        "address": "",
+        "admitaddress": "二楼诊区",
+        "age": 20,
+        "barcode": "",
+        "bpretime": 1,
+        "cancelnumtime": "",
+        "cancelorderip": "",
+        "cancelordersuid": "",
+        "canceltime": "18:00",
+        "cardnum": "103723080710151",
+        "cardtype": 0,
+        "chname": "",
+        "chroniccode": "",
+        "chronicname": "",
+        "commentstate": 0,
+        "commonid": "f4042e2b405348aa9e71ddd997c1b76b",
+        "content": "",
+        "createdate": null,
+        "dept_commonid": "",
+        "dept_commonname": "",
+        "deptname": "孕期保健科",
+        "deptuid": "59242",
+        "diagnoseid": "",
+        "doctorname": "张海珍",
+        "doctoruid": "1327747",
+        "dphone": "",
+        "education": "",
+        "enddate": "",
+        "endtreat": 0,
+        "getnumtime": "",
+        "guoqi": "",
+        "head": "",
+        "headerEntity": null,
+        "headimg": "",
+        "hospcode": "",
+        "hospdocrankid": "",
+        "hospitalname": "临汾市妇幼保健院",
+        "hospitaluid": "3981",
+        "hosponline": 0,
+        "id": 0,
+        "idcard": "1****************9",
+        "illnessdesc": "",
+        "imgList": [],
+        "iscancel": 0,
+        "ischronic": 0,
+        "isclinccheck": 0,
+        "isnavigation": 0,
+        "isrecipeapply": 1,
+        "issendendtreatsms": 0,
+        "lastdate": null,
+        "mainid": "20b9194b0eca42d6a24049702e60af5f",
+        "mphone": "",
+        "nation": "",
+        "noplace": "无需取号",
+        "onlineselfworkaddpaycall": "",
+        "onlineselfworktype": 0,
+        "orderfee": 0,
+        "orderid": "预约中···",
+        "orderip": "192.168.20.75",
+        "orderno": "L31923080721162411081096478",
+        "orderprice": "15.00",
+        "ordersuid": "",
+        "ordertype": "0",
+        "overtime": "",
+        "p_deptid": "62",
+        "p_doctorid": "115",
+        "p_hospitalid": "319",
+        "p_workid": "239377",
+        "patienttype": 3,
+        "patienttypename": "普通",
+        "pay_flow": "2",
+        "payovertime": "600",
+        "paystate": 1,
+        "paystatus": 2,
+        "periodcode": 1,
+        "periodname": "上午",
+        "periodtaketime": "提前0分钟",
+        "phone": "",
+        "pictureurl": "",
+        "pracpsnno": "",
+        "pracrankcode": "",
+        "price": 1500,
+        "price2": 0,
+        "pullblack": 0,
+        "raturetype": "初诊",
+        "raturetypename": "",
+        "redeptname": "",
+        "redoctorname": "",
+        "regid": "27",
+        "rehospitalname": "",
+        "resourceid": "17120280",
+        "resourceuid": 1180638653,
+        "scenetype": 0,
+        "scenetypebzvalue": "",
+        "searchyear": "",
+        "sex": 2,
+        "sid": 8401,
+        "smssendcount": 1,
+        "ssn": "",
+        "startdate": "",
+        "starttime": "10:04",
+        "state": 9,
+        "stype": 8401,
+        "surplusdate": 0,
+        "t_orderid": "102190122650",
+        "thirdrtnid": "",
+        "times": 0,
+        "username": "秦佳乐",
+        "visitdate": "2023-08-08 10:04",
+        "visitway": 1,
+        "weekinfo": "周二",
+        "workrank": "副主任医师",
+        "workuid": 30727952,
+        "workunit": "",
+        "workway": 0,
+        "zzcflag": 0
+    }
+}

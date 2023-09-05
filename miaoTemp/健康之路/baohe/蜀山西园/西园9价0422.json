@@ -1,0 +1,103 @@
+{
+    "waterId": 808991464,
+    "waitingInfor": "第44号 15:00-15:30",
+    "store": "",
+    "serialNo": "44",
+    "memberSn": "57049212",
+    "memberName": "钟雁",
+    "memberPhone": "16537555128",
+    "memberAddress": "1",
+    "memberBirthday": "1999-02-13",
+    "memberSex": "2",
+    "memberId": "57049212",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "342***********5720",
+    "memberIdcard": "342***********5720",
+    "accManageGoodSn": null,
+    "birthday": "1999-02-13",
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "16537555128",
+    "doctorSn": "711188596",
+    "hosDeptId": "7210427",
+    "hosDeptName": "成人疫苗预约",
+    "hospitalId": "1031364",
+    "hospitalName": "蜀山区西园街道社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710786713",
+    "doctorName": "九价HPV",
+    "doctorPic": "",
+    "doctorClinicName": "主治医师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2023-04-24",
+    "timeId": 2,
+    "arrangeId": 170469146,
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "availablenum": 70,
+    "UnOpened": false,
+    "FHTimes": "20:30",
+    "FHDays": "2",
+    "accountSn": 156353763,
+    "cardNumber": "2086438662",
+    "loginId": "oHN-twiKS_xScsejoZPXF65JHaHw",
+    "channelId": "9001016",
+    "utm_source": "0.0.h.1026.bus010.0__0.0.h.1026.bus010.0",
+    "doctorOfficeName": ""
+}
+[
+    {
+        "keyValue": "1",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "342***********5720",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "1999-02-13",
+        "keyName": "birthday"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "16537555128",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    }
+]

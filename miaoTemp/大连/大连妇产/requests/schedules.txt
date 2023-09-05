@@ -1,0 +1,540 @@
+POST https://hlwyy.dlfeyljt.com/patient/v1/appoint/regPoints HTTP/1.1
+Host: hlwyy.dlfeyljt.com
+Connection: keep-alive
+Content-Length: 530
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+appId: wxa794c2a4fcfeb7f4
+appKind: 1
+appMark: 1
+appType: 5
+appVersion: 1.0
+content-type: application/json;charset=UTF-8
+hospitalId: 10018
+nonce: 08c71dda62c5-4b09-8567-d794cdb635f1
+signature: a8659f750fc104ae719e264899ab5111b6c065a526d1056a62de8ea95ed1d30e
+timestamp: 1680282414015
+token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNDMwMTQ1MyIsImV4cCI6MTcxMTkwNDc5MH0.LM0F60pZIQPxVGShQ-TgUvc6ZlY94ll-rg5nYoQ3-bE
+userId: 14301453
+Referer: https://servicewechat.com/wxa794c2a4fcfeb7f4/44/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"requestData":"97b842c0c6216dca22fbfb33ea557710e2c436e44f77c86d55e55a1e8602f5cad9b2e8ef6ce47349aa1b4c50ee80af99a5612f57b4f0c68decb468f921321b2b35188961a7d98cf3b386421246a94bd8b6e1bf4cf877b687cbc8128c7c6b0a19f7af8d0e4b8af4a1d13cbdbf4ee3956965fb5e1a32f78101869ad5fbd9e9ea35477f6b8a4f58e8fe0ccbfbdba28c9c79fbfabeb191a4e0130941fc25d67a2ee531a6b811a7d6d27a3c8011415af8bd4b08f200a2a9d01f9bd7b383b200216d7c80a9fc4cce451e0349382ec35141539ab4c2f9db9d5daa595e11b6395f7771db1d87f091225925d2d39c9fcd0f82e733afb545f63d86c392a0d74cd55af5afc2"}
+
+{
+    "deptId": "139253",
+    "targetId": "139253",
+    "targetType": "0",
+    "startDate": "20230404",
+    "endDate": "20230404",
+    "pageNo": "1",
+    "pageSize": "999",
+    "regLevelId": "65",
+    "appId": "wxa794c2a4fcfeb7f4",
+    "openId": "oxdpl5Zr9Khexy8UuhoQztd5j-kg",
+    "hospId": 10018,
+    "hospitalId": 10018
+}
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 31 Mar 2023 16:59:21 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Content-Length: 14984
+
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "page": {
+            "pageNo": 1,
+            "pageSize": 999,
+            "total": 1
+        },
+        "regPoints": {
+            "20230718": [
+                {
+                    "pointId": "947796_22259862",
+                    "pointName": "PA1(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718130000",
+                    "endTime": "20230718130000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA1(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259863",
+                    "pointName": "PA2(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718130600",
+                    "endTime": "20230718130600",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA2(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259864",
+                    "pointName": "PA3(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718131200",
+                    "endTime": "20230718131200",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA3(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259865",
+                    "pointName": "PA4(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718131800",
+                    "endTime": "20230718131800",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA4(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259866",
+                    "pointName": "PA5(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718132400",
+                    "endTime": "20230718132400",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA5(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259867",
+                    "pointName": "PA6(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718133000",
+                    "endTime": "20230718133000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA6(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259868",
+                    "pointName": "PA7(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718133600",
+                    "endTime": "20230718133600",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA7(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259869",
+                    "pointName": "PA8(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718134200",
+                    "endTime": "20230718134200",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA8(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259870",
+                    "pointName": "PA9(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718134800",
+                    "endTime": "20230718134800",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA9(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22259871",
+                    "pointName": "PA10(13:00-14:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718135400",
+                    "endTime": "20230718135400",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA10(13:00-14:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22297721",
+                    "pointName": "PA11(14:00-15:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718140000",
+                    "endTime": "20230718140000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA11(14:00-15:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22297722",
+                    "pointName": "PA12(14:00-15:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718140000",
+                    "endTime": "20230718140000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA12(14:00-15:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22297723",
+                    "pointName": "PA13(14:00-15:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718140000",
+                    "endTime": "20230718140000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA13(14:00-15:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22297724",
+                    "pointName": "PA14(14:00-15:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718140000",
+                    "endTime": "20230718140000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA14(14:00-15:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                },
+                {
+                    "pointId": "947796_22298525",
+                    "pointName": "PA15(14:00-15:00)",
+                    "pointType": "1",
+                    "pointDate": "20230718",
+                    "startTime": "20230718140000",
+                    "endTime": "20230718140000",
+                    "rmngNum": "0",
+                    "deptId": "139253",
+                    "regLevelName": "进口九价（9-45岁）",
+                    "totalFee": "8.00",
+                    "deptName": "长江路预防接种门诊（妇产院区）",
+                    "deptLocation": "",
+                    "regLevelId": "67",
+                    "targetType": 0,
+                    "docName": "",
+                    "regFeeDetails": [
+                        {
+                            "name": "诊查费",
+                            "fee": "8.00",
+                            "code": ""
+                        }
+                    ],
+                    "noonName": "PA15(14:00-15:00)",
+                    "noonId": "3",
+                    "branchId": "CJLM",
+                    "branchName": "长江路分部",
+                    "hisDeptId": "",
+                    "scheduleMode": "",
+                    "modeDes": "",
+                    "regPointExtItems": []
+                }
+            ]
+        }
+    }
+}

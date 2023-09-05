@@ -1,5 +1,6 @@
 ﻿using Baohe.constants;
 using Baohe.login;
+using Baohe.viewModel.platform;
 using Base.Events;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace Baohe.session
         public static YzmMode YzmMode { get; set; } = 0;
 
         public static Dictionary<string, object> DefaultWater { get; set; }
+
+        public static ExchangeInfo ExchangeInfo { get; set; }
 
         static MainSession() 
         {
@@ -111,5 +114,7 @@ namespace Baohe.session
         PreSendOnTimeVerify = 0,
         OnTimeSendVerify = 1,
         PreSendVerify = 2,
+        ExchangePreSendOnTimeVerify = 3,
+        ExchangePreSendVerify = 4,
     }
 }

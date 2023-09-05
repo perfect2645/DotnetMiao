@@ -16,18 +16,19 @@ namespace HosFour.appointment
         private void BuildContent()
         {
             AddContent("hospitalUserID", Order.HospitalUserID);
-            AddContent("resourceID", Order.ResourceID);
-            AddContent("registDate", Order.RegistDate);
-            AddContent("docCode", Order.DocCode);
-            AddContent("hospitalID", Order.HospitalUserID);
-            AddContent("docCode", Order.DocCode);
-            AddContent("docName", Order.DocName);
-            AddContent("docDuty", Order.DocDuty);
-            AddContent("deptCode", Order.DeptCode);
-            AddContent("deptName", Order.DeptName);
-            AddContent("hospitalName", Order.HospitalName);
+            AddEncodeContent("resourceID", Order.ResourceID);
+            AddEncodeContent("registDate", Order.RegistDate);
+            AddEncodeContent("url", Order.Url);
+            AddEncodeContent("docCode", Order.DocCode);
+            AddEncodeContent("hospitalID", Order.HospitalID);
+            AddEncodeContent("docCode", Order.DocCode);
+            AddEncodeContent("docName", Order.DocName);
+            AddEncodeContent("docDuty", Order.DocDuty);
+            AddEncodeContent("deptCode", Order.DeptCode);
+            AddEncodeContent("deptName", Order.DeptName);
+            AddEncodeContent("hospitalName", Order.HospitalName);
             AddContent("docPhotoPath", string.Empty);
-            AddContent("extInfo", new object());
+            AddContent("extInfo", "{}");
             AddContent("feeType", string.Empty);
             AddContent("t", Order.T);
         }

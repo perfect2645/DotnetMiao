@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "data": {
+        "station_name": "大同市平城区大同市第一人民医院防保科",
+        "station_phone": "03526249354",
+        "station_address": "山西省大同市平城区水泊寺乡恒安街336号",
+        "station_code": "140213140400",
+        "station_desc": "",
+        "station_sum_number": "",
+        "service_scope": "",
+        "station_program_url": "https://ymjz.sxcdc.cn/jmbshanxi/station/immunizationProgram.html?station_code=1402131404&city_code=140200000000",
+        "station_current_number": "",
+        "station_lng": "113.354212",
+        "station_lat": "40.080516",
+        "station_type": "2,3",
+        "station_day": "",
+        "station_contact": "",
+        "is_number": "1",
+        "is_smart": "0"
+    },
+    "message": "获取接种地点详细信息成功！",
+    "success": true
+}

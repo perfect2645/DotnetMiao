@@ -1,0 +1,71 @@
+POST https://mix.med.gzhc365.com/api/register/generatororder HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 747
+client: patient
+content-type: application/x-www-form-urlencoded
+channel: wx_xcx
+uid: 4522322919844511746
+his-id: 2342
+Hc-Src-Hisid: 2342
+uuid: f780c362-ad34-4cd8-a4ff-94a732716ba3
+device-id: 
+request-id: 02d4b899-37e6-4156-aef2-f4db484a00da
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.37(0x18002523) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&subHisId=&deptId=11823-2102000501&doctorId=1632073&outExtFieldsFlag=1&extFields=%7B%22_bdaiGuide%22%3A%22%22%2C%22_doctorQrGuide%22%3A%22%22%2C%22_deptQrGuide%22%3A%22%22%2C%22_hcSource%22%3A%22%22%7D&patientId=4522335220631863304&payFlag=1&transParam=%7B%22type%22%3A%22hcTransParam%22%2C%22plat%22%3A%22gzhc365zhyy%22%2C%22birthday%22%3A%221988-11-25%22%2C%22Address%22%3A%22%E8%BE%BD%E5%AE%81%E7%9C%81%E5%A4%A7%E8%BF%9E%E5%B8%82%E6%B2%99%E6%B2%B3%E5%8F%A3%E5%8C%BA+%E4%B8%87%E7%A7%91%E5%8D%8A%E5%B1%B1%E5%8D%8A%E6%B5%B7%22%7D&scheduleDate=2023-05-10&scheduleId=&visitPeriod=2&visitBeginTime=14%3A40&visitEndTime=14%3A50&_hcSource=&login_access_token=1683276049305-774CC4837128807B50A98F
+HTTP/1.1 200 200
+Content-Type: application/json;charset=UTF-8
+Content-Length: 188
+Connection: keep-alive
+Server: Tengine
+Date: Fri, 05 May 2023 08:50:04 GMT
+encrypt: false
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 2995
+X-Kong-Proxy-Latency: 0
+Via: kong/1.4.0
+
+
+extFields={"_bdaiGuide":"","_doctorQrGuide":"","_deptQrGuide":"","_hcSource":""}
+transParam={"type":"hcTransParam","plat":"gzhc365zhyy","birthday":"1988-11-25","Address":"辽宁省大连市沙河口区 万科半山半海"}
+
+hisId=2342
+platformId=2342
+platformSource=3
+subSource=1
+subHisId=
+deptId=11823-2102000501
+doctorId=1632073
+outExtFieldsFlag=1
+extFields=%7B%22_bdaiGuide%22%3A%22%22%2C%22_doctorQrGuide%22%3A%22%22%2C%22_deptQrGuide%22%3A%22%22%2C%22_hcSource%22%3A%22%22%7D
+patientId=4522335220631863304
+payFlag=1
+transParam=%7B%22type%22%3A%22hcTransParam%22%2C%22plat%22%3A%22gzhc365zhyy%22%2C%22birthday%22%3A%221988-11-25%22%2C%22Address%22%3A%22%E8%BE%BD%E5%AE%81%E7%9C%81%E5%A4%A7%E8%BF%9E%E5%B8%82%E6%B2%99%E6%B2%B3%E5%8F%A3%E5%8C%BA+%E4%B8%87%E7%A7%91%E5%8D%8A%E5%B1%B1%E5%8D%8A%E6%B5%B7%22%7D
+scheduleDate=2023-05-10
+scheduleId=
+visitPeriod=2
+visitBeginTime=14%3A40
+visitEndTime=14%3A50
+_hcSource=
+login_access_token=1683276049305-774CC4837128807B50A98F
+
+{
+    "code": 0,
+    "data": {
+        "extFields": "{\"needccbappid\":\"1\",\"hosId\":\"2102000501\",\"ccbAppid\":\"wxe7621e2cd9dc36c0\"}",
+        "orderId": "4522342882880880640",
+        "status": "L",
+        "totalFee": 200,
+        "type": 1
+    }
+}

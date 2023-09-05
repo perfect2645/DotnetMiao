@@ -29,7 +29,6 @@ namespace Baohe.viewModel
     {
         #region Properties
 
-        public ICommand AppointmentCommand { get; set; }
         public ICommand SearchCommand { get; set; }
 
         public ICommand AutoRunCommand { get; set; }
@@ -87,24 +86,27 @@ namespace Baohe.viewModel
         {
             SessionItem.Referer = "https://appoint.yihu.com/appoint/doctor/doctorArrange.html?deptId=7231670&doctorId=710791067&hospitalInternal=1&showMultiDept=0&platformType=9000981&exConsult=&consultHosId=1094367&utm_source=0.0.h.1026.bus010.0";
 
-            //VerifyCode.ArrangeSn = "169149843";
+            //VerifyCode.ArrangeSn = "170654946";
             //VerifyCode.Phone = "18301135103";
-            //StartTime = DateTime.Now.AddSeconds(20);
+            //StartTime = DateTime.Now.AddSeconds(10);
         }
 
         private void InitStaticData()
         {
             MainSession.YzmMode = YzmMode.OnTimeSendVerify;
 
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(58);
 
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(50);
+            //StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(40);
+            //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
+            StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(57);
+            //StartTime = DateTime.Today.AddHours(13).AddMinutes(13).AddSeconds(57);
+            //StartTime = DateTime.Today.AddHours(14).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(58);
+            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(55);
+            //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(57);
 
             if (Application.Current.Properties.Contains("UserName"))
             {
@@ -148,7 +150,6 @@ namespace Baohe.viewModel
 
         private void InitCommands()
         {
-            AppointmentCommand = new DelegateCommand(ExecuteAppointment, CanExecuteAppointment);
             SearchCommand = new DelegateCommand(ExecuteSearchAsync, CanExecuteSearch);
 
             AutoRunCommand = new DelegateCommand(ExecuteAutoRun);
@@ -209,15 +210,6 @@ namespace Baohe.viewModel
             return true;
         }
 
-        private void ExecuteAppointment()
-        {
-
-            var appRouter = new AppointmentRouter(SessionItem, UserName);
-
-            appRouter.AppointTickAsync(UserName);
-        }
-
-
         #endregion Appointment
 
         #region Search
@@ -244,6 +236,7 @@ namespace Baohe.viewModel
             try
             {
                 MainSession.Cookie = Cookie;
+                MainSession.DefaultWater = new Dictionary<string, object>();
                 SearchController = HttpServiceController.GetService<SearchController>();
                 SearchController.UserName= UserName;
                 SearchController.UserPhone = VerifyCode.Phone;
@@ -338,6 +331,12 @@ namespace Baohe.viewModel
             if ("phone".Equals(field, StringComparison.OrdinalIgnoreCase))
             {
                 VerifyCode.Phone = e.Value.NotNullString();
+                return;
+            }
+
+            if ("ArrangeId".Equals(field, StringComparison.OrdinalIgnoreCase))
+            {
+                VerifyCode.ArrangeSn = e.Value.NotNullString();
                 return;
             }
         }

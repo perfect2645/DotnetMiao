@@ -1,0 +1,249 @@
+POST https://public.health.zoenet.cn/medical/universal-interface/getCustomMenuListByZoneCode HTTP/1.1
+Host: public.health.zoenet.cn
+Connection: keep-alive
+Content-Length: 69
+noncePf: A85A20FE2E5C42B796951F29AC109106
+level: 
+Origin: https://public.health.zoenet.cn
+headersign: 004133194B729ABAE085E49CF570D8C1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+node: open
+Content-Type: application/json; charset=utf-8
+Accept: */*
+Cookie: connect.sid=s%3AiDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP%2BdNmoaGplZ5JD9y35Up%2BffWhk; HWWAFSESID=7d72373428a01de662; HWWAFSESTIME=1693582256845; appcode=HC_SANYA_WX
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://public.health.zoenet.cn/medical/internet-hospital/more-menu?orgCode=460200&appCode=HC_SANYA_WX&token=pfd45674d707ec48b7b009b8502c556c6d&showMoreType=1&parentCode=20e248281adb42778a2daaed36af51bd&title=55ar6IuX6aKE57qm
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"zoneCode":"460200","parentCode":"20e248281adb42778a2daaed36af51bd"}
+HTTP/1.1 200 OK
+Date: Sat, 02 Sep 2023 14:28:24 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Server: openresty
+X-Powered-By: Express
+Content-Security-Policy: frame-ancestors *.zoenet.cn
+X-XSS-Protection: 1
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+ETag: W/"1212-px0ob1sNLeMGHMJEti1w8aBZ/9I"
+Vary: Accept-Encoding
+X-CCDN-Origin-Time: 171
+via: CHN-GDguangzhou-CT2-CACHE30[186],CHN-GDguangzhou-CT2-CACHE39[180,TCP_MISS,184],CHN-GDdongguan-GLOBAL1-CACHE43[177],CHN-GDdongguan-GLOBAL1-CACHE93[171,TCP_MISS,173]
+x-hcs-proxy-type: 0
+X-CCDN-CacheTTL: 0
+alt-svc: h3=":443"; ma=2592000
+Content-Length: 4626
+
+{
+    "code": 0,
+    "data": {
+        "classList": [
+            {
+                "batchNumber": "2c2b34f35c4349c18a31ce3775d0ddfd",
+                "classCode": "cA1",
+                "classIcon": "",
+                "className": "疫苗预约",
+                "createTime": "2023-09-01 18:12:50",
+                "createUser": "2c96aa856fa8c9b80170321e63243f3f",
+                "id": "2c9080438a4e6cab018a503b2ba9387e",
+                "menuList": [
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "/business-service/mask-appointment/mask-collection-appointment?zoneCode=460200&&subscribeType=2c90a2f271a585100171a5e96d030003",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "普通疫苗在线预约",
+                        "endVerNum": 4000000,
+                        "icon": "https://img.zoenet.cn/zoehealthfs/business/common/img/20230224/c235595d3a2246e091ab34fb285cd23d.png",
+                        "iconAsh": "",
+                        "iconCustom": null,
+                        "id": "2c9080147213ec6d0172258a3cf45200",
+                        "loginStatus": 0,
+                        "menuClassCode": "cA1",
+                        "menuClassName": "疫苗预约",
+                        "menuCode": "pub_menu_7706471589767716083",
+                        "menuId": "2c9080147213ec6d0172258a3cf45200",
+                        "orgCode": "460200",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": "三亚疫苗预约",
+                        "resourceName": "疫苗预约",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9080438a4e6cab018a503b2bd2387f",
+                        "sortNo": 0,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": "",
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": ""
+                    },
+                    {
+                        "actionType": "web",
+                        "appSys": "3",
+                        "batchNumber": null,
+                        "classMenuType": null,
+                        "clientParam": "",
+                        "clientUrl": "",
+                        "createTime": null,
+                        "createUser": null,
+                        "descritption": "9月3日10点",
+                        "endVerNum": 4000000,
+                        "icon": "https://img.zoenet.cn/menu_icon/hc/homepage/home_icon_comingsoon.png",
+                        "iconAsh": "",
+                        "iconCustom": null,
+                        "id": "2c90a2f271ba654f0171c015725d171a",
+                        "loginStatus": 91,
+                        "menuClassCode": "cA1",
+                        "menuClassName": "疫苗预约",
+                        "menuCode": "pub_menu_0860311588065563228",
+                        "menuId": "2c90a2f271ba654f0171c015725d171a",
+                        "orgCode": "460200",
+                        "parentCode": "8a8081d06abfa654016ac0026fad04ec",
+                        "remark": null,
+                        "resourceName": "九价疫苗预约",
+                        "showTopIcon": null,
+                        "skeletonClassId": null,
+                        "skeletonId": null,
+                        "skeletonIdList": null,
+                        "skeletonMenuId": "2c9080438a4e6cab018a503b2bd23880",
+                        "sortNo": 1,
+                        "startVerNum": 1,
+                        "tabsId": null,
+                        "topIconName": null,
+                        "updateTime": null,
+                        "updateUser": null,
+                        "validFlag": 1,
+                        "versionRemark": "敬请期待"
+                    }
+                ],
+                "moreMenu": null,
+                "moreType": "",
+                "orgCode": "460200",
+                "showClass": "1",
+                "showMore": "",
+                "showOrHide": null,
+                "skeletonId": "2c908012867c0e1f01868290c19c1c5f",
+                "sortNo": 0,
+                "tabsList": "",
+                "updateTime": null,
+                "updateUser": "",
+                "validFlag": 1
+            },
+            {
+                "batchNumber": "2c2b34f35c4349c18a31ce3775d0ddfd",
+                "classCode": "cA1",
+                "classIcon": "",
+                "className": "四价疫苗预约",
+                "createTime": "2023-09-01 18:12:50",
+                "createUser": "2c96aa856fa8c9b80170321e63243f3f",
+                "id": "2c9080438a4e6cab018a503b2be33881",
+                "menuList": [],
+                "moreMenu": null,
+                "moreType": "",
+                "orgCode": "460200",
+                "showClass": "0",
+                "showMore": "",
+                "showOrHide": null,
+                "skeletonId": "2c908012867c0e1f01868290c19c1c5f",
+                "sortNo": 1,
+                "tabsList": "",
+                "updateTime": null,
+                "updateUser": "",
+                "validFlag": 1
+            },
+            {
+                "batchNumber": "2c2b34f35c4349c18a31ce3775d0ddfd",
+                "classCode": "cA1",
+                "classIcon": "",
+                "className": "九价疫苗预约",
+                "createTime": "2023-09-01 18:12:50",
+                "createUser": "2c96aa856fa8c9b80170321e63243f3f",
+                "id": "2c9080438a4e6cab018a503b2bf73882",
+                "menuList": [],
+                "moreMenu": {
+                    "actionType": "",
+                    "appSys": "",
+                    "batchNumber": "",
+                    "classMenuType": null,
+                    "clientParam": "",
+                    "clientUrl": "",
+                    "createTime": null,
+                    "createUser": "",
+                    "descritption": "",
+                    "endVerNum": 0,
+                    "icon": "",
+                    "iconAsh": "",
+                    "iconCustom": "",
+                    "id": "",
+                    "loginStatus": null,
+                    "menuClassCode": "",
+                    "menuClassName": "",
+                    "menuCode": "",
+                    "menuId": "",
+                    "orgCode": "",
+                    "parentCode": "",
+                    "remark": "",
+                    "resourceName": "",
+                    "showTopIcon": null,
+                    "skeletonClassId": "",
+                    "skeletonId": "",
+                    "skeletonIdList": null,
+                    "skeletonMenuId": "",
+                    "sortNo": null,
+                    "startVerNum": 0,
+                    "tabsId": null,
+                    "topIconName": "",
+                    "updateTime": null,
+                    "updateUser": "",
+                    "validFlag": 1,
+                    "versionRemark": ""
+                },
+                "moreType": "",
+                "orgCode": "460200",
+                "showClass": "0",
+                "showMore": "",
+                "showOrHide": null,
+                "skeletonId": "2c908012867c0e1f01868290c19c1c5f",
+                "sortNo": 2,
+                "tabsList": "",
+                "updateTime": null,
+                "updateUser": "",
+                "validFlag": 1
+            }
+        ],
+        "clientUrl": "/medical/internet-hospital/more-menu",
+        "config": null,
+        "createTime": "2023-02-24 16:36:10",
+        "createUser": "2c96aa856fa8c9b80170321e63243f3f",
+        "id": "2c908012867c0e1f01868290c19c1c5f",
+        "menuCode": "pub_menu_8737311557133991247_more_20e248281adb42778a2daaed36af51bd",
+        "menuId": "20e248281adb42778a2daaed36af51bd",
+        "menuName": "疫苗预约",
+        "menuType": null,
+        "orgCode": "460200",
+        "parentMenuCode": null,
+        "resourceModel": 0,
+        "themeColorStatus": 0,
+        "updateTime": "2023-09-01 18:12:50",
+        "updateUser": "2c96aa856fa8c9b80170321e63243f3f",
+        "validFlag": 1
+    },
+    "exChangeMessage": null,
+    "integralRid": "675490214FBA40919FFED34D6A2EBC94",
+    "message": null,
+    "popUpType": null,
+    "success": true,
+    "traceId": null
+}

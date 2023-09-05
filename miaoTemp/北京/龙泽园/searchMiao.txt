@@ -1,0 +1,958 @@
+GET http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=course&m=lzl_course&id=32&date=2023-06-03&week=6 HTTP/1.1
+Host: wechat.yunhebj.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: PHPSESSID=5f96ff484c803be196934b81313ddae9
+Referer: http://wechat.yunhebj.com/app/index.php?i=30&c=entry&do=index&m=lzl_course&wxref=mp.weixin.qq.com
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 27 May 2023 14:43:46 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Powered-By: PHP/7.0.30
+Set-Cookie: PHPSESSID=5f96ff484c803be196934b81313ddae9; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Set-Cookie: 956d_logout=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+Content-Length: 26457
+
+<html>
+	<head>
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=640,user-scalable=no">
+		<title>龙泽园社区卫生服务中心</title>
+		<link rel="stylesheet" type="text/css" href="../addons/lzl_course/template/css/style.css?2">
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_783249_m0o84fh4fi.css">
+		<script type="text/javascript" src="../addons/lzl_course/template/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../addons/lzl_course/template/js/modal_dialog.js"></script>
+		<style>
+			.disclaimers-fixed{
+				background: #df334b;
+				position: fixed;
+				right: 0;
+				bottom: 350px;
+				font-size: 24px;
+				color: #fff;
+				width: 100px;
+				padding: 12px 12px 12px 16px;
+				text-align: center;
+				z-index: 9999;
+				border-top-left-radius: 30px;
+				border-bottom-left-radius: 30px;
+				box-shadow: 0px 0px 10px grey;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.disclaimers-box {
+				visibility: hidden;
+			}
+
+			.disclaimers-box.disclaimers-show {
+				visibility: visible;
+			}
+
+			.disclaimers-box .disclaimers-mask {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 99998;
+				background: rgba(0, 0, 0, 0.6);
+				display: none;
+			}
+
+			.disclaimers-box.disclaimers-show .disclaimers-mask {
+				display: block;
+			}
+
+			.disclaimers-box .disclaimers-content {
+				width: 80%;
+				/* height:700px; */
+				padding: 20px;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 99999;
+				background: #fff;
+				-webkit-border-radius: 8px 8px;
+				border-radius: 20px;
+				padding-bottom: 60px;
+				-webkit-transform: translate3d(-50%, -50%, 0);
+				transform: translate3d(-50%, -50%, 0);
+				-webkit-transform-origin: center;
+				transform-origin: center;
+				-webkit-transition: all 0.2s ease;
+				transition: all 0.2s ease;
+				opacity: 0;
+			}
+
+			.disclaimers-box.disclaimers-show .disclaimers-content {
+				opacity: 1;
+			}
+
+			.disclaimers-top{
+				font-size: 32px;
+				font-weight: 600;
+				text-align: center;
+				letter-spacing: 10px;
+				margin-bottom: 20px;
+			}
+
+			.disclaimers-box .disclaimers-content .disclaimers-text{
+				font-size: 24px;
+				padding: 28px;
+				line-height: 50px;
+				display: inline-block;
+				vertical-align: top;
+				text-align: justify;
+				height: 77%;
+				overflow-y: scroll;
+			}
+
+			.disclaimers-box .disclaimers-content .disclaimers-text::after{
+				content:"";
+				display: inline-block;
+				overflow:hidden;
+				height:0;
+			}
+
+			.disclaimers-btn{
+				width: 100%;
+				display: flex;
+				margin: 0 auto;
+				align-items: center;
+				align-content: center;
+				justify-content: center;
+			}
+		</style>
+					<style>
+				.menu .hover{color: #028c7c!important;}
+				.calendar_header{background-color: #028c7c!important;}
+				.calendar_tr .calendar_day_act{border-bottom: 3px #028c7c solid!important;}
+				.control > button{background-color: #028c7c!important;}
+				.setjc_btn{background-color: #028c7c!important;}
+				.list_r span{ background-color: #028c7c!important;}
+				.course_top{background-color: #028c7c!important;}
+				.course_form_desc{ color: #028c7c!important;}
+				.submit{ background-color: #028c7c!important;}
+				.user_top{ background-color: #028c7c!important;}
+				.user_tab .hover{ border-bottom: 3px #028c7c solid!important;color: #028c7c!important;}
+				.vip_main label input:checked~span{border:1px #028c7c solid;}
+				.vip_main label span:before{background-color:#028c7c;}
+				.cue a{ background-color:#028c7c;}
+			</style>
+				<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+		
+		 
+		<script>
+			var more_url = "";
+			var qr_url = "";
+			var appIdstr = "wxa6494c8d0242ff6a";
+			var timestampstr = "1685198625";
+			var nonceStrstr = "y5f7p759ftw7wf7J";
+			var signaturestr = "9dd09c3c8f1fde24bde49ad98bf0f8c08bea9cbc";
+
+			wx.config({
+				debug: false,
+				appId: appIdstr,
+				timestamp: timestampstr,
+				nonceStr: nonceStrstr,
+				signature: signaturestr,
+				jsApiList: [
+					'checkJsApi',
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'onMenuShareQQ',
+					'onMenuShareWeibo',
+					'hideMenuItems',
+					'showMenuItems',
+					'hideAllNonBaseMenuItem',
+					'showAllNonBaseMenuItem',
+					'translateVoice',
+					'startRecord',
+					'stopRecord',
+					'onRecordEnd',
+					'playVoice',
+					'pauseVoice',
+					'stopVoice',
+					'uploadVoice',
+					'downloadVoice',
+					'chooseImage',
+					'previewImage',
+					'uploadImage',
+					'downloadImage',
+					'getNetworkType',
+					'openLocation',
+					'getLocation',
+					'hideOptionMenu',
+					'showOptionMenu',
+					'closeWindow',
+					'scanQRCode',
+					'chooseWXPay',
+					'openProductSpecificView',
+					'addCard',
+					'chooseCard',
+					'openCard'
+				]
+			});
+
+			wx.ready(function () {
+				var shareData = {
+					title:"",
+					desc: "",
+					link:"http://wechat.yunhebj.com/app/./index.php?i=30&c=entry&do=home&m=lzl_course",
+					imgUrl:"http://wechat.yunhebj.com/attachment/images/30/2023/01/Rpo9b0BZ0919O9z9PBe1LP5cq399Zm.png",
+					type:'',
+					dataUrl:'',
+				};
+
+				wx.onMenuShareAppMessage({
+					title: shareData.title,
+					desc: shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					type: shareData.type,
+					dataUrl: shareData.dataUrl,
+					trigger: function (res) {
+						
+					},
+					success: function (res) {
+						
+					},
+					cancel: function (res) {
+						
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					},
+					complete:function(res){
+					
+					},
+				});	
+
+				wx.onMenuShareTimeline({
+					title: shareData.title+shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					trigger: function (res) {
+						
+					},
+					success: function (res) {
+						
+					},
+					cancel: function (res) {
+					
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					},
+					complete:function(res){
+						
+					},
+				});	
+
+				wx.onMenuShareQQ({
+					title: shareData.title,
+					desc: shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					trigger: function (res) {
+					
+					},
+					complete: function (res) {
+					
+					},
+					success: function (res) {
+						
+					},
+					cancel: function (res) {
+						
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					}
+				});	
+					
+				wx.onMenuShareWeibo({
+					title: shareData.title,
+					desc: shareData.desc,
+					link: shareData.link,
+					imgUrl:shareData.imgUrl,
+					trigger: function (res) {
+					
+					},
+					complete: function (res) {
+						
+					},
+					success: function (res) {
+					
+					},
+					cancel: function (res) {
+					
+					},
+					fail: function (res) {
+						alert(JSON.stringify(res));
+					}
+				});
+			});
+
+			// $(function(){
+			// 	$('.disclaimers-box').toggleClass('disclaimers-show');
+			// })
+
+			function handleDisclaimers(){
+
+				$('.disclaimers-box').toggleClass('disclaimers-show');
+			}
+
+			$(document).on('click','.disclaimers-btn',function(){
+
+				$('.disclaimers-box').toggleClass('disclaimers-show');
+			})
+
+			$(document).on('click','.disclaimers-mask',function(){
+
+				$('.disclaimers-box').toggleClass('disclaimers-show');
+			})
+		</script>
+	</head>
+	<body>
+					<div class="disclaimers-fixed" onClick="handleDisclaimers()">温馨提示</div>
+			<div class="disclaimers-box">
+				<div class="disclaimers-mask"></div>
+				<div class="disclaimers-content">
+					<div class="disclaimers-top">温馨提示</div>
+					<div class="disclaimers-text">
+						<p>我院公众号只限本人预约，接种当天现场查验微信公众号“我的预约”记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</p>					</div>
+					<div class="disclaimers-btn">
+						<div class="submit" style="width: 560px;height: 60px;line-height: 60px;font-size: 24px;margin: 20px 20px auto 20px;border-radius: 5px;">确定</div>
+					</div>
+				</div>
+			</div>
+		<style type="text/css">
+	.d-f{
+	    display: flex;
+	}
+
+	.p-l{
+	    padding: .5rem;
+	}
+
+	.j-c{
+	    flex-direction: row;
+	    justify-content: center;
+	}
+	.course_top{
+		height: 80px;
+		line-height: 80px;
+		position: fixed;
+	    z-index: 20;
+	    top: 0;
+	}
+
+	.course_top a {
+		height: 80px;
+	    line-height: 80px;
+	}
+
+	.fixed-top{
+		margin-top: 90px;
+	}
+
+	.item-main{
+		width: 620px;
+	    height: auto;
+	    background: #fff;
+	    margin: 0 auto;
+	    margin-top: 10px;
+	    border-radius: 10px;
+	    padding-bottom: 25px;
+	}
+
+	.item-title{
+		text-align: center;
+	    align-content: center;
+	    align-items: center;
+	    padding: 20px 10px;
+	    font-size: 26px;
+	    font-weight: bold;
+	    position: relative;
+	}
+
+	.item-title:after{
+	    content: '';
+	    width: 100%;
+	    height: 1px;
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    -webkit-transform: scaleY(.5);
+	    transform: scaleY(.5);
+	    background-color: #e3e5e9;
+	}
+
+	.row-title{
+		font-size: 30px;
+	    font-weight: 600;
+	    letter-spacing: 1px;
+	    color: #000;
+	    margin-bottom: 25px;
+	    padding: 30px 30px 0;
+	}
+
+	.item-row {
+	    margin-bottom: 25px;
+	    font-size: 24px;
+	    color: #333;
+	    padding: 0 30px;
+	    align-content: center;
+    	align-items: center;
+	}
+
+	.item-row div:nth-child(1){
+	    color: #666;
+	    width: 22.5%;
+	}
+
+	.item-row div:nth-child(2){
+	    width: 77.5%;
+	    line-height: 1.5;
+	}
+
+	.desc-text{
+		background: #f1f1f157;
+	    border-radius: 10px;
+	    width: 75%;
+	    margin: 0 auto;
+	    padding: 30px;
+	    margin-top: 30px;
+	    line-height: 1.7;
+	    letter-spacing: 1px;
+	    text-align: justify;
+ 		text-justify: distribute-all-lines; 
+	}
+
+	.condition-text{
+	    background: #f1f1f157;
+	    border-radius: 10px;
+	    width: 75%;
+	    margin: 0 auto;
+	    padding: 30px;
+	    margin-top: 30px;
+	    line-height: 1.7;
+	    text-align: justify;
+ 		text-justify: distribute-all-lines;
+ 		letter-spacing: 1px;
+	}
+
+	.content-text{
+	    background: #f1f1f157;
+	    border-radius: 10px;
+	    width: 85%;
+	    margin: 0 auto;
+	    padding: 15px 30px 30px;
+	    margin-top: 15px;
+	    line-height: 1.7;
+	    text-align: justify;
+ 		text-justify: distribute-all-lines;
+ 		letter-spacing: 1px;
+	}
+
+	.crowd-box{
+	    margin: 0 auto;
+	    padding: 15px 30px 30px;
+	    margin-top: 15px;
+	}
+
+	.item-form {
+	    width: 100%;
+	    height: auto;
+	    overflow: hidden;
+	    background-color: #fff;
+	    margin: auto auto 20px auto;
+	    border-radius: 5px;
+	    padding-bottom: 20px;
+	}
+
+	.item-form input {
+	    width: 90%;
+	    height: 70px;
+	    line-height: 70px;
+	    font-size: 24px;
+	    margin: 20px 20px auto 20px;
+	    border-radius: 5px;
+	    border: 1px #ededed solid;
+	    text-indent: 20px;
+	}
+
+	.item-form select {
+	    width: 90%;
+	    height: 70px;
+	    line-height: 60px;
+	    font-size: 24px;
+	    margin: 20px 20px auto 20px;
+	    border-radius: 5px;
+	    border: 1px #ededed solid;
+	    text-indent: 20px;
+	}
+
+	.item-form .no {
+	    background-color: #aaa!important;
+	}
+
+	.time-box{
+	    padding: 20px;
+	    display: flex;
+	    flex-wrap: wrap;
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+
+	.time-item{
+		width: 33%;
+	    padding: 0 10px;
+	    margin: 10px 0;
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+
+	.item-box{
+	    width: 100%;
+	    height: 140px;
+	    padding: 0 22px;
+	    background: #fff;
+	    color: #333;
+	    border: 1px solid #EEEEEE;
+	    font-size: 22px;
+	    border-radius: 5px;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+
+	.time-box .item-box.active {
+	  	border: 1px solid #FB5D6B;
+	  	font-weight: bold;
+	  	color: #df334b;
+	  	font-size: 22px;
+	}
+
+	.time-box .item-box.disable{
+	    background: #F1F3F6 !important;
+	    color: #999 !important;
+	}
+
+	.item-state{
+		font-size: 20px;
+	    padding-top: 10px;
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+
+	.item-quota{
+		font-size: 20px;
+	    padding-top: 10px;
+	    box-sizing: border-box;
+	    text-align: center;
+	}
+</style>
+<div class="course_top">
+	<a href="./index.php?i=30&c=entry&do=index&m=lzl_course"><i class="iconfont icon-fanhui" style="font-size:26px"></i></a>
+	我要预约
+</div>
+<div class="fixed-top">
+	<div class="item-main">
+		<div class="row-title">HPV九价</div>
+		<div class="item-row d-f">
+			<div>剩余名额</div>
+			<div>0</div>
+		</div>
+
+		<div class="item-row d-f">
+			<div>预约时间</div>
+			<div>2023-06-03</div>
+		</div>
+
+		
+					<div class="item-row d-f">
+				<div>接种门诊</div>
+				<div>龙跃四预防保健门诊</div>
+			</div>
+			</div>
+			<style type="text/css">
+			.d-f{
+				display: flex;
+			}
+			.item-main{
+				width: 100%;
+				height: auto;
+				margin: 0 auto;
+				margin-top: 10px;
+				border-radius: 10px;
+				padding-bottom: 10px;
+				background: #fff;
+			}
+
+			.item-title{
+				text-align: center;
+				align-content: center;
+				align-items: center;
+				padding: 10px 20px;
+				font-size: 26px;
+				font-weight: bold;
+				position: relative;
+			}
+
+			.item-title:after{
+				content: '';
+				width: 100%;
+				height: 1px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #e3e5e9;
+			}
+			.item-title img{
+				width: 53px;
+				height: 48px;
+			}
+			.item-content{
+				background: #f1f1f157;
+				border-radius: 10px;
+				width: 85%;
+				margin: 0 auto;
+				padding: 10px 20px;
+				line-height: 1.7; 
+				letter-spacing: 1px;
+				text-align: justify;
+				color: #333;
+				font-size: 24px;
+			}
+		</style>
+		<div class="item-main">
+			<div class="item-title d-f">
+				<img src="../addons/lzl_course/template/images/item-icon.png" class="item-icon">
+				<span>温 馨 提 示</span>
+			</div>
+			<div class="item-content">
+				<p>我院公众号只限本人预约，接种当天现场查验微信公众号“我的预约”记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</p>			</div>
+		</div>
+		
+			<div class="item-main">
+			<div class="item-title d-f">
+				<img src="../addons/lzl_course/template/images/item-icon.png" class="item-icon">
+				<span>疫苗简介</span>
+			</div>
+
+			<div class="desc-text">HPV九价疫苗是九价人乳头瘤病毒（HPV）疫苗，主要预防9种人乳头瘤病毒，HPV九价疫苗预防的疾病包括宫颈癌、阴道癌、尖锐湿疣、肛门癌等。 HPV九价疫苗有一定的年龄限制，适合9-45周岁的女性，女性没发生过性行为时，接种HPV疫苗效果最佳。</div>
+		</div>
+	
+			<div class="item-main">
+			<div class="item-title d-f">
+				<img src="../addons/lzl_course/template/images/item-icon.png" class="item-icon">
+				<span>接种条件</span>
+			</div>
+			<div class="condition-text">只能预约第一针九价，二三针不能在此预约！！！年龄9-45周岁第一针九价可预约！未满18周岁人群需监护人陪同前往接种，带身份证。按自己约的时间段来，超时不予接种！打针前三天不吃任何消炎药、抗过敏药物！公众号只限本人预约，接种当天现场查验微信公众号我的预约记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</div>
+		</div>
+	
+			<div class="item-main">
+			<div class="item-title d-f">
+				<img src="../addons/lzl_course/template/images/item-icon.png" class="item-icon">
+				<span>疫苗详情</span>
+			</div>
+			<div class="content-text">
+				<ul><p>只能预约第一针九价，二三针不能在此预约！！！年龄9-45周岁第一针九价可预约！未满18周岁人群需监护人陪同前往接种，带身份证。按自己约的时间段来，超时不予接种！打针前三天不吃任何消炎药、抗过敏药物！公众号只限本人预约，接种当天现场查验微信公众号我的预约记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</p></ul>
+			</div>
+		</div>
+	
+	<div class="item-main">
+		<div class="item-title d-f">
+			<img src="../addons/lzl_course/template/images/item-icon.png" class="item-icon">
+			<span>预约信息</span>
+		</div>
+		<div class="crowd-box">
+			<form method="post" action="" class="item-form" onsubmit="return validate(this);">
+				<input type="hidden" name="op" value="post">
+				<input type="hidden" name="time_id" value="" id="time-input">
+				<div class="item-row d-f" style="margin-bottom: unset;">
+					<div style="color: #333;">预约日期</div>
+					<div>2023-06-03</div>
+				</div>
+				<div class="time-box">
+											<div class="time-item">
+															<div class="item-box disable" data-id="558">
+															<div><span>08:00~09:00</span></div>
+								<div class="item-quota" style="color: #028c7c;"><span>剩余 : 0</span></div>
+								<div class="item-state">
+																			<span>已约满</span>
+																	</div>
+							</div>
+						</div>
+											<div class="time-item">
+															<div class="item-box disable" data-id="557">
+															<div><span>10:00~10:20</span></div>
+								<div class="item-quota" style="color: #028c7c;"><span>剩余 : 0</span></div>
+								<div class="item-state">
+																			<span>已约满</span>
+																	</div>
+							</div>
+						</div>
+											<div class="time-item">
+															<div class="item-box disable" data-id="556">
+															<div><span>09:00~10:00</span></div>
+								<div class="item-quota" style="color: #028c7c;"><span>剩余 : 0</span></div>
+								<div class="item-state">
+																			<span>已约满</span>
+																	</div>
+							</div>
+						</div>
+									</div>
+									<input class="input" type="text" name="user_name" value="" placeholder="请输入您的姓名">
+					<input class="input" type="tel" name="mobile" value="" placeholder="请输入联系电话">
+				
+				
+				
+				
+									<input type="button" class="submit no" value="已约满">
+				
+									<div class="tips-box">
+						<div class="tips-mask"></div>
+						<div class="tips-content">
+							<div class="tips-top">温馨提示</div>
+							<div class="tips-text">只能预约第一针九价，二三针不能在此预约！！！年龄9-45周岁第一针九价可预约！未满18周岁人群需监护人陪同前往接种，带身份证。按自己约的时间段来，超时不予接种！打针前三天不吃任何消炎药、抗过敏药物！公众号只限本人预约，接种当天现场查验微信公众号我的预约记录接种！截屏，他人代约，其他APP或者其他途径预约均无效，不予接种！</div>
+							<div class="tips-btn">
+								<div class="submit btnStop" style="width: 560px;height: 60px;line-height: 60px;font-size: 24px;margin: 20px 20px auto 20px;border-radius: 5px;">确定(<span id="showTime">8</span>s)</div>
+							</div>
+						</div>
+					</div>
+								
+				<script type="text/javascript">
+
+					$(function(){
+
+						if (sessionStorage.getItem('isshowpopup-'+"32") !== '1') {
+
+							var timeww = new timerFun("#showTime");// 创建定时器对象 ,设置定时器显示位置
+
+							timeww.startFun();//启用定时器
+
+							// $(document).on('click','.btnStop',function(){
+
+							// 	timeww.stopFun();//停止器定时器
+							// })
+
+							// $(document).on('click','.tips-mask',function(){
+
+							// 	timeww.stopFun();//停止器定时器
+							// })
+						}
+					})
+
+					/*定时器*/
+					var timerFun = function(obj){
+
+						var timer; //设置定时器变量
+
+						var times = 11; //定时器时间，默认从5开始
+
+						//调用定时器
+						this.startFun = function(){
+
+							$('.tips-box').toggleClass('tips-show');
+
+							timerStart();
+						}
+
+						//停止定时器
+						this.stopFun = function(){
+
+							timerEnd()
+						}
+
+						//开始定时器
+						var timerStart = function(){
+
+							times --; //时间自动减1;
+
+							$(obj).html(times);//修改定时器显示内容
+
+							if(times <= 1){ //当时间小于指定的时间就结束定时器，否则就开始定时器
+
+								sessionStorage.setItem('isshowpopup-'+"32",1)
+
+								timerEnd(); //结束定时器方法
+
+							}else{
+
+								timer = setTimeout(function(){
+
+									timerStart();//执行开始定时器方法
+
+								},1000);
+							}
+						}
+						
+						//结束定时器
+						var timerEnd= function(){
+
+							$('.tips-box').toggleClass('tips-show');
+
+							clearTimeout(timer); //清除定时器
+						}
+					}
+
+					$(document).on('click','.item-box',function(){
+
+						if ($(this).hasClass('disable')) {
+
+							modalDialog('当前时间段不可预约！', 'warning')
+
+							return
+						}
+
+						$('.item-box').removeClass('active')
+
+						$(this).toggleClass('active');
+
+						if($(this).hasClass('active')){
+
+							$('#time-input').val($(this).data('id'))
+						}
+					})
+
+					function modalDialog(content = '成功', icon = 'success', title = '提示', timeout = 2000, ){
+
+				        $modal({
+				            type: 'alert', //弹框类型  'alert' or  'confirm' or 'message'   message提示(开启之前如果之前含有弹框则清除)
+				            icon: icon, // 提示图标显示 'info' or 'success' or 'warning' or 'error'  or 'question' 
+				            timeout: timeout, // 单位 ms  显示多少毫秒后关闭弹框 （ confirm 下无效 | 不传默认为 2000ms | 最短显示时间为500ms） 
+				            title: title, // 提示文字
+				            content: content, // 提示文字
+				            top:300, //距离顶部距离 单位px
+				            center: true,// 是否绝对居中 默认为false  设置true后   top无效
+				            transition: 300, //过渡动画 默认 200   单位ms
+				            closable: true, // 是否显示可关闭按钮  默认为 false
+				            mask:true, // 是否显示遮罩层   默认为 false
+				            pageScroll: true, // 是否禁止页面滚动
+				            width:300, // 单位 px 默认显示宽度 最下默认为300
+				            maskClose:true, // 是否点击遮罩层可以关闭提示框 默认为false
+				        })
+				    }
+
+				    var systemData = {"title":"\u9f99\u6cfd\u56ed\u793e\u533a\u536b\u751f\u670d\u52a1\u4e2d\u5fc3","user_input":0,"user_limit":0,"cancel_time":7,"cancel_money":1,"date":0,"time_limit":7,"vip_price1":"","vip_price2":"","vip_price3":"","num_num1":"","num_num2":"","num_num3":"","num_price":"","num_price1":"","num_price2":"","num_price3":"","admin_uid":"422751","up_credit1":"0","menu_name1":"","menu_name2":"","menu_link1":"","menu_link2":"","color":"#028c7c","help":"&lt;p&gt;\u6211\u9662\u516c\u4f17\u53f7\u53ea\u9650\u672c\u4eba\u9884\u7ea6\uff0c\u63a5\u79cd\u5f53\u5929\u73b0\u573a\u67e5\u9a8c\u5fae\u4fe1\u516c\u4f17\u53f7\u201c\u6211\u7684\u9884\u7ea6\u201d\u8bb0\u5f55\u63a5\u79cd\uff01\u622a\u5c4f\uff0c\u4ed6\u4eba\u4ee3\u7ea6\uff0c\u5176\u4ed6APP\u6216\u8005\u5176\u4ed6\u9014\u5f84\u9884\u7ea6\u5747\u65e0\u6548\uff0c\u4e0d\u4e88\u63a5\u79cd\uff01&lt;\/p&gt;","template_id":"","user_time_num":0,"sms_on":0,"sms_name":"","sms_password":"","sms_autograph":"","share_img":"images\/30\/2023\/01\/Rpo9b0BZ0919O9z9PBe1LP5cq399Zm.png","share_title":"","share_description":""};
+
+					var diyData = [];
+
+					var userData = {"id":"22317","uniacid":"30","uid":"456164","type":"0","name_sign":"","vip_time":"1685198438","num":"0","diy_desc":"","user_name_diy":"","mobile_diy":"","state":"0","work_state":"0"};
+
+					var state = 1
+					var price = 0.00
+					var pay_num = 0
+					var nowTime = 1685198626
+				    function validate() {
+
+				    	if (state != "4") {
+
+				    		if (systemData.user_limit == '1' && userData.vip_time < nowTime) {
+
+				    			modalDialog('VIP才可预约！', 'warning')
+
+								return false;
+
+				    		}else{
+				    			
+				    			if( userData.state == "1" ) {
+
+				    				modalDialog('您的账号已禁止预约！', 'warning')
+
+									return false;
+
+				    			}else{
+				    				
+									var time_id = $(':input[name=time_id]').val();
+
+									if (time_id == '') {
+
+										modalDialog('请选择要预约的时间段！', 'warning')
+
+										return false;
+									}
+
+									if (systemData.user_input != '1' ) {
+
+										var user_name = $(':input[name=user_name]').val();
+
+										if (user_name == '') {
+
+											modalDialog('请输入您的姓名！', 'warning')
+											
+											return false;
+										}
+
+										var mobile = $(':input[name=mobile]').val();
+										
+										if (mobile == '') {
+
+											modalDialog('请输入联系电话！', 'warning')
+											
+											return false;
+										}
+									}
+
+									$.each(diyData, function (index, item) {
+
+										var diy_name = $(':input[name=diy'+item.id+']').val();
+
+		                                if(diy_name == '') {
+
+		                                    modalDialog("请完善"+item.title+"信息！", "warning");
+
+		                                    return false;
+		                                }
+									})
+
+									if( 0 < price || 0 < pay_num ) {
+
+										if( userData > userData["num"] ) {
+
+											modalDialog("您的计次卡剩余点数不足！", "warning");
+
+		                                    return false;
+										}
+									}
+								}
+							}
+
+						}else {
+
+							modalDialog('您已预约过此疫苗！', 'warning')
+
+							return false;
+						}
+
+						return true;
+					}
+				</script>
+			</form>
+		</div>
+	</div>
+</div>

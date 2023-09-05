@@ -40,6 +40,12 @@ namespace Utils.stringBuilder
             return contentDic;
         }
 
+        public static List<Dictionary<string, object>> ToObjDicList(this string jsonStr)
+        {
+            var contentDicList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(jsonStr);
+            return contentDicList;
+        }
+
         public static bool ToBool(this string str)
         {
             if (string.IsNullOrEmpty(str))

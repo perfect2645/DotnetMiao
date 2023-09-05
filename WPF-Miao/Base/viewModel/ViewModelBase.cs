@@ -6,9 +6,12 @@ using CoreControl.LogConsole;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Net;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Utils;
+using System.Windows.Controls;
 
 namespace Base.viewModel
 {
@@ -173,5 +176,23 @@ namespace Base.viewModel
         }
 
         #endregion Update UI
+
+        #region IP
+
+        public string GetIP()
+        {
+            IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
+            foreach (IPAddress address in ip)
+            {
+                if (address.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return address.ToString();
+                }
+            }
+
+            return string.Empty;
+        }
+
+        #endregion IP
     }
 }

@@ -1,0 +1,75 @@
+POST https://tjzsprod.tsxcx.xyz/wxXcx/v1/wx/refreshToken HTTP/1.1
+Host: tjzsprod.tsxcx.xyz
+Connection: keep-alive
+Content-Length: 15
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAyMTMyNDgsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.UezfHyBtfKARX0IxcG2Bg4MO3r6uoUDAkQqPWMq3QhJGZT3WZKI0yqTv9aVA4JoTVA1VdXspq56vChweg23T4NXnv9hTIM8ODwAmvzmnVcRB2aZkTmubeZ12K0asI4kReIsmrqCEVQOTUYYmvEDIRanIsTp4voOfc1b1QGPiW_aFAkjxGpD_0CmJeIedz50YJU3MmV7NCqCBAFsuI1RpQFCSpHRLiw-XlTHNP5hk5qZH6EZoZeOLFBKaxz1eCkNXZotmUVMMVsSwEwnFHY6VGm34voQTYGRYG1ggkDQOcMUAYplMkLA81YDmuidhn0P3e_yC0UT7bVffOyQlw8wJhA
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wx98122c90f1630e04/347/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"sys_id":1001}
+HTTP/1.1 200 OK
+Date: Mon, 17 Jul 2023 15:56:43 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 2017
+Connection: keep-alive
+Set-Cookie: tgw_l7_route=aa69044f7e07ef0b3186080b8f04b5bd; Expires=Mon, 17-Jul-2023 16:06:43 GMT; Path=/
+A: B
+xxx: yyy
+
+{
+    "result_code": 0,
+    "result_message": "成功",
+    "api_state": "",
+    "User": {
+        "seq_page_id": 0,
+        "id": 60661079,
+        "s_id": "649240108d9995000127f2ed",
+        "u_user_id": 53851427,
+        "wx_sa_id": 1000,
+        "system_id": 0,
+        "wx_open_id": "oOVKt4gXz-zLE6PGWXbcz4fJF_O4",
+        "wx_info": {
+            "session_key": "",
+            "open_id": "oOVKt4gXz-zLE6PGWXbcz4fJF_O4",
+            "subscribe": 0,
+            "status": 2,
+            "nick_name": "55Sc55Sc",
+            "sex": 0,
+            "language": "",
+            "province": "",
+            "city": "",
+            "country": "",
+            "avatar": "cosfile.tsxcx.xyz/user/202307/05f0fa04202fde92b64a16cc42a8b7e2.jpg",
+            "access_token": "",
+            "expires_at": 0,
+            "refresh_token": "",
+            "receiver": "",
+            "address": "",
+            "zip": "",
+            "subscribe_time": 0,
+            "union_id": "ogOkowWf-mOlLmwwPmD2ltKRUfeQ",
+            "remark": "",
+            "group_id": 0,
+            "update_at": 0
+        },
+        "name": "",
+        "show_name": "",
+        "show_name_gbk": "",
+        "sex": 0,
+        "status": 1,
+        "audit_status": 1,
+        "audit_at": 0,
+        "audit_op_user_id": 0,
+        "last_login_at": 0,
+        "last_visit_at": 0,
+        "create_at": 1687306256,
+        "update_at": 1687306256,
+        "version": 0,
+        "special_status": 0
+    },
+    "auth_token": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2MTY2MDMsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.KB0x3LRi49tWC9Keofy2TpV86_xjjm0GIJy6AwnMF_tqm5e3dVRMopP0vJ1Ciav1z3K-rn1rorsUcBtKvkAuseYfXuLRofhmIKmG2u8ZWxHFN0EWvy_mSObDRLStilcVfcXXeoasJ5YhAZwygABxvRlb8i96EbGwEuN1iwE82MJtNf5Ro70zxC9Z383JvI1Y--uweA7Xqx4Umyi9IBdvBhXCvgDXPTtOIupTR87Ksk05Hr7ZpLFmdw4PPPZDmIeddx_X44Z121_f6eH6cmYUN7to-SxcBY8gWNvhbRPssqpnLEOyTeZiEWqjq56ZNimMxTIywss6ZwfAlobDtvjdhg",
+    "auth_refresh_token": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAyMTQyMDMsIlVzZXJJZCI6NjA2NjEwNzksIlVVc2VySWQiOjUzODUxNDI3LCJDbGllbnRJZCI6MTAwMSwiVXNlck5hbWUiOiIiLCJVc2VyU3RhdHVzIjoyLCJSb2xlcyI6W119.gV_XeIJZC1IWK_-yyXN5I9ObgMQufy8aLe3SmkbmkYyVqBGPq4yUey5qWllGKusOTpjJLsAFXBFWH8zhwWMfILNFxA7dwVra-Kq3Y63eRqdwhmqh-t9Z3SCXgUb5SA3urKMmYsqr9qPoLiRFw27zH6qQHEefQmZSfcxR7P-xjIN17_k_l7JppIBQjmdPreg_p6sagEildpskBVFA-g8RYYizvGA0JOXuMZj3i6SUQ4BPaWb_uW5tWLqdJ3AwgKp0j0osZ9lUFL-zOEwL5FZ-XLOu1FufzI6PWhsFTxoCB1YzptfP8u0smWCT_a-eB49s24EpVLqt_CP9LoD9lHkVbA",
+    "phone": ""
+}

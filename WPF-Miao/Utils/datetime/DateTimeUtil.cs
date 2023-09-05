@@ -147,6 +147,16 @@ namespace Utils.datetime
             return date.ToString(format);
         }
 
+        public static string GetNextWeekday(DayOfWeek dayOfWeek)
+        {
+            var dayToday = (int)DateTime.Today.DayOfWeek;
+            if ((int)dayOfWeek <= dayToday)
+            {
+                return GetDayOfNextWeek(dayOfWeek);
+            }
+            return GetDayOfWeek(dayOfWeek);
+        }
+
         public static List<string> GetFutureDays(params DayOfWeek[] days)
         {
             var dayToday = (int)DateTime.Today.DayOfWeek;
@@ -164,6 +174,24 @@ namespace Utils.datetime
             }
 
             return dateList;
+        }
+
+        public static int GetWeek(string date)
+        {
+            var dayOfWeek = Convert.ToDateTime(date);
+            return dayOfWeek.DayOfWeek.ToInt();
+        }
+
+        public static int GetAge(string birthdayStr)
+        {
+            var birthday = Convert.ToDateTime(birthdayStr);
+            int age = DateTime.Now.Year - birthday.Year;
+            if (DateTime.Now.Month < birthday.Month || (DateTime.Now.Month == birthday.Month && DateTime.Now.Day < birthday.Day))
+            {
+                age--;
+            }
+
+            return age;
         }
     }
 }

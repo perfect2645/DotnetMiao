@@ -22,7 +22,7 @@ namespace Longchi.search
             await Task.Factory.StartNew(() => ConfirmLogin(user));
         }
 
-        private void ConfirmLogin(LongchiLogin user)
+        public void ConfirmLogin(LongchiLogin user)
         {
             var content = new ConfirmLoginContent(user.Cookie);
             content.BuildDefaultHeaders(Client);

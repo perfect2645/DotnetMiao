@@ -1,0 +1,113 @@
+POST https://mix.med.gzhc365.com/api/register/dateschedulelist?_route=h2342& HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 199
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Hc-Src-Hisid: 2342
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: wx_xcx
+client: patient
+content-type: application/x-www-form-urlencoded
+device-id: 
+his-id: 2342
+request-id: 93091077-b30a-46bd-8eb9-f293a59e5f6d
+uid: 4522322919844511746
+uuid: 761a7b34-8f19-4610-8b68-d4592e70a14d
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&doctorId=1632075&deptId=11823-2102000501&t=202305&sign=27E51C19C31648F9BC788F064D7F0794&login_access_token=1683944737451-E6454DA516D24C8FE2BB7E
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Server: Tengine
+Date: Sat, 13 May 2023 02:27:22 GMT
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 210
+X-Kong-Proxy-Latency: 0
+Via: kong/1.4.0
+Content-Length: 1120
+
+{
+    "code": 0,
+    "data": {
+        "scheduleList": [
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "13",
+                "scheduleDate": "2023-05-13",
+                "selected": false,
+                "status": "2",
+                "weekDate": "六"
+            },
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "14",
+                "scheduleDate": "2023-05-14",
+                "selected": false,
+                "status": "2",
+                "weekDate": "日"
+            },
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "15",
+                "scheduleDate": "2023-05-15",
+                "selected": false,
+                "status": "2",
+                "weekDate": "一"
+            },
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "16",
+                "scheduleDate": "2023-05-16",
+                "selected": false,
+                "status": "2",
+                "weekDate": "二"
+            },
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "17",
+                "scheduleDate": "2023-05-17",
+                "selected": true,
+                "status": "3",
+                "weekDate": "三"
+            },
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "18",
+                "scheduleDate": "2023-05-18",
+                "selected": false,
+                "status": "2",
+                "weekDate": "四"
+            },
+            {
+                "deptId": "11823-2102000501",
+                "doctorId": "1632075",
+                "hisId": 2342,
+                "monthDay": "19",
+                "scheduleDate": "2023-05-19",
+                "selected": false,
+                "status": "2",
+                "weekDate": "五"
+            }
+        ]
+    }
+}

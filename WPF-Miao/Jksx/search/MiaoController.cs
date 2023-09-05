@@ -1,4 +1,6 @@
-﻿using Base.viewmodel.status;
+﻿using Jksx.appointment;
+using Jksx.login;
+using Jksx.session;
 using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
@@ -6,14 +8,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Jksx.appointment;
-using Jksx.common;
-using Jksx.login;
-using Jksx.session;
 using Utils;
-using Utils.datetime;
 using Utils.json;
 using Utils.number;
+using Newtonsoft.Json;
 using Utils.stringBuilder;
 
 namespace Jksx.search
@@ -27,38 +25,43 @@ namespace Jksx.search
         {
         }
 
-        public void SearchMiaoAsync(string date, JksxLogin user)
+        public void SearchMiaoAsync()
         {
-            Date = date;
-            Task.Factory.StartNew(() => SearchMiao(date, user));
+            Task.Factory.StartNew(() => SearchMiao());
         }
 
-        public bool SearchMiao(string date, JksxLogin user)
+        public bool SearchMiao()
         {
-            Date = date;
             try
             {
-                var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
-                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/api/examine/shift_time_for_vaccine/{deptId}/?date={date}&hospital={hosId}";
-                var content = new JksxContent(url, user);
+                var defaultUser = MainSession.Users.FirstOrDefault();
+                var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败 - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var detail = root.GetProperty("shift_times_obj");
-                if (detail.ValueKind == JsonValueKind.Null)
+                var code = root.GetProperty("errorCode").GetString();
+                if (code != "0000")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
                     return false;
                 }
-                return CheckTime(detail, user);
+
+                var data = root.GetProperty("data");
+                if (data.ValueKind == JsonValueKind.Null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: data is empty");
+                    return false;
+                }
+
+                var vaccineDayList = data.GetProperty("vaccineDayList");
+
+                return CheckSaveResource(vaccineDayList);
             }
             catch (Exception ex)
             {
@@ -67,46 +70,45 @@ namespace Jksx.search
             }
         }
 
-
-        private bool CheckTime(JsonElement data, JksxLogin user)
+        private bool CheckSaveResource(JsonElement dataElement)
         {
-            var times = JsonAnalysis.JsonToDicList(data);
-            if (!times.HasItem())
+            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
+            if (!vaccineDayList.HasItem())
             {
-                Log($"查苗失败失败");
+                MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            var validTimes = times.Where(t => t["stay_num"].NotNullString().ToInt() > 0);
-            if (!validTimes.HasItem())
-            {
-                Log("没有可用时间");
-                return false;
-            }
-
-            var timeIdList = validTimes.Select(d => d["id"].NotNullString()).ToList();
-
-            MainSession.PlatformSession.AddOrUpdate("timeIdList", timeIdList);
-
-            BuildOrderList(timeIdList);
-
-            MainSession.PrintLogEvent.Publish(this, "获得预约日期");
-            return true;
+            return BuildOrderList(vaccineDayList);
         }
 
-        private void BuildOrderList(List<string> timeIdList)
+        private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
         {
             var orderList = new List<Order>();
 
-            foreach (var user in MainSession.Users)
+            foreach (var vaccineDay in vaccineDayList)
             {
-                var userName = user.UserName;
-                foreach (var timeId in timeIdList)
+                var dayId = vaccineDay.GetString("id");
+                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
+                foreach (var timeItem in timeList)
                 {
-                    Order orderWithTime = BuildOneOrder(user, Date, timeId);
+                    var forbidden = timeItem.GetString("forbidden");
+                    if (forbidden.NotNullString() == "1")
+                    {
+                        continue;
+                    }
+                    var timeId = timeItem.GetString("id");
+                    var orderWithTime = BuildOneOrder(dayId, timeId);
                     orderList.Add(orderWithTime);
                 }
             }
+
+            if(!orderList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
+                return false;
+            }
+
             orderList = orderList.DisorderItems();
 
             var orderArgs = new OrderEventArgs
@@ -115,23 +117,16 @@ namespace Jksx.search
             };
 
             MainSession.OrderEvent.Publish(this, orderArgs);
+
+            return true;
         }
 
-        private Order BuildOneOrder(JksxLogin user, string date, string timeId)
+        private Order BuildOneOrder(string dayId, string timeId)
         {
-            var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-                VaccineId = deptId
             };
         }
     }

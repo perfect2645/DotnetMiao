@@ -1,0 +1,41 @@
+POST https://public.health.zoenet.cn/business-service/mask-appointment/queryOne HTTP/1.1
+Host: public.health.zoenet.cn
+Connection: keep-alive
+Content-Length: 79
+noncePf: 6D290EC5C7174A72AB42E1A1797DAAD9
+level: 
+Origin: https://public.health.zoenet.cn
+headersign: 4438E93679EBD883D335243E19EA04C7
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+node: open
+Content-Type: application/json; charset=utf-8
+Accept: */*
+Cookie: connect.sid=s%3AiDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP%2BdNmoaGplZ5JD9y35Up%2BffWhk; HWWAFSESID=7d72373428a01de662; HWWAFSESTIME=1693582256845; appcode=HC_SANYA_WX
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://public.health.zoenet.cn/pay/mask-collection-appointment?id=2c9080157358a6db01736ee97a68060a&receiveAddrName=5LiJ5Lqa5biC5ZCJ6Ziz5Yy65aSn5Lic5rW356S+5Yy65Y2r55Sf5pyN5Yqh56uZ&orgCode=A572000C001-03&hosCode=460200
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"orgCode":"A572000C001-03","subscribeType":"2c90a2f271a585100171a5e96d030003"}
+HTTP/1.1 200 OK
+Date: Sat, 02 Sep 2023 06:49:54 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Server: openresty
+X-Powered-By: Express
+Content-Security-Policy: frame-ancestors *.zoenet.cn
+X-XSS-Protection: 1
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+ETag: W/"136c-F9s7JjCHLO2O7wsLyJCuIYUtCZA"
+Vary: Accept-Encoding
+X-CCDN-Origin-Time: 743
+via: CHN-GDguangzhou-CMCC10-CACHE2[756],CHN-GDguangzhou-CMCC10-CACHE9[753,TCP_MISS,755],CHN-GDdongguan-GLOBAL1-CACHE79[746],CHN-GDdongguan-GLOBAL1-CACHE94[743,TCP_MISS,744]
+x-hcs-proxy-type: 0
+X-CCDN-CacheTTL: 0
+alt-svc: h3=":443"; ma=2592000
+Content-Length: 4972
+
+{"code":0,"data":[{"reservationMode":2,"remainNumber":29,"detail":"","serviceId":"2c90801280949b38018097563a0e0084","serviceName":"b型流感嗜血杆菌疫苗（HIB）自费","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":75,"detail":"","serviceId":"2c90801280949b380180975af6d90086","serviceName":"脊髓灰质炎疫苗（IPV灭活）自费","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":52,"detail":"","serviceId":"2c9080327305cae1017332c682de1a65","serviceName":"四价流脑(自费)","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":44,"detail":"","serviceId":"2c9080327305cae1017332c6d77e1a66","serviceName":"五价口服轮状(自费)","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":22,"detail":"","serviceId":"2c9080327305cae1017332c720fc1a67","serviceName":"单价口服轮状","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":26,"detail":"","serviceId":"2c9080327305cae1017332c776b51a68","serviceName":"A+C结合疫苗(自费)","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":50,"detail":"","serviceId":"2c9080327305cae1017332c9e5381a6f","serviceName":"乙肝（自费成人60微克）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":114,"detail":"","serviceId":"2c9080327305cae1017332ca2f931a70","serviceName":"乙肝（自费CHO20微克）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":57,"detail":"","serviceId":"2c9080327305cae10173bd8d6e007151","serviceName":"脊髓灰质炎疫苗（自费IPV灭活）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":29,"detail":"","serviceId":"2c90803674d5401d01751f8e94572297","serviceName":"流感疫苗（自费鼻喷3岁—17岁）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":49,"detail":"","serviceId":"2c90803b7478b52801747b2e7285014e","serviceName":"13价肺炎疫苗（进口自费）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":9,"detail":"","serviceId":"2c9080b571ab7609017201437c6829ac","serviceName":"卡介苗","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":86,"detail":"","serviceId":"2c9080b571ab760901720143f05829ad","serviceName":"乙肝疫苗","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":60,"detail":"","serviceId":"2c9080b571ab7609017201444aba29ae","serviceName":"流脑A群","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":87,"detail":"","serviceId":"2c9080b571ab760901720144bc0629af","serviceName":"流脑A+C群","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":94,"detail":"","serviceId":"2c9080b571ab760901720145375e29b1","serviceName":"麻腮风疫苗","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":93,"detail":"","serviceId":"2c9080b571ab7609017201459a5a29b2","serviceName":"百白破疫苗（无C）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":95,"detail":"","serviceId":"2c9080b571ab760901720145dbeb29b5","serviceName":"甲肝疫苗","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":44,"detail":"","serviceId":"2c9080b571ab760901720146ef6b29bb","serviceName":"13价肺炎疫苗（国产自费）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":29,"detail":"","serviceId":"2c9080b571ab760901720147182929bc","serviceName":"23价疫苗（自费）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":57,"detail":"","serviceId":"2c9080b571ab760901720147532029bd","serviceName":"五联苗（自费）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":89,"detail":"","serviceId":"2c9080b571ab7609017201480d8129c1","serviceName":"手足口疫苗（自费）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":96,"detail":"","serviceId":"2c9080b571ab760901720148427c29c2","serviceName":"水痘疫苗（自费）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":116,"detail":"","serviceId":"2c9080b571ab760901720149813629c6","serviceName":"脊髓灰质炎疫苗（IPV灭活）","projectShowType":2,"projectMenuName":"选择疫苗"},{"reservationMode":2,"remainNumber":80,"detail":"","serviceId":"2c9080b571ab76090172030abe032b13","serviceName":"乙脑疫苗","projectShowType":2,"projectMenuName":"选择疫苗"}],"exChangeMessage":null,"integralRid":"","message":null,"popUpType":null,"success":true,"traceId":null}

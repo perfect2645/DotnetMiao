@@ -11,6 +11,7 @@ using Longchi.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Utils;
@@ -109,22 +110,22 @@ namespace Longchi.viewmodel
 
         private void TestData()
         {
-            StartTime = DateTime.Now.AddSeconds(8);
+            //StartTime = DateTime.Now.AddSeconds(8);
         }
 
         private void InitStaticData()
         {
             //StartTime = new DateTime(2023, 1, 1, 16, 59, 50);
-            StartTime = DateTime.Today.AddHours(17).AddSeconds(1);
+            StartTime = DateTime.Today.AddHours(17).AddMinutes(00).AddSeconds(5);
 
             DateList = new List<DspVal>
             {
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
                 //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
-                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
                 //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
@@ -150,19 +151,17 @@ namespace Longchi.viewmodel
                 {
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
-                    DepartmentName = "【四价疫苗】",
-                    //DepartmentList = new List<string> { "300", "700" },
-                    DepartmentList = new List<string> { "700" },
-                    TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
+                    DepartmentName = "【九价疫苗】",
+                    DepartmentList = new List<string> { "400" },
                 },
                 new LongchiHospital
                 {
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
-                    DepartmentName = "【九价疫苗】",
-                    DepartmentList = new List<string> { "400", "800" },
-                    TimeIdList = new List<string> { "1987", "1992", "1997", "2002", "2007" }
+                    DepartmentName = "【四价疫苗】",
+                    DepartmentList = new List<string> { "700" },
                 },
+
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -369,8 +368,12 @@ namespace Longchi.viewmodel
                 bool isSuccess = false;
                 while (!isSuccess)
                 {
-                    foreach(var order in orders)
+                    foreach (var order in orders)
                     {
+                        Thread.Sleep(3000);
+                        var defaultUser = MainSession.Users.FirstOrDefault();
+                        var confirmLoginController = HttpServiceController.GetService<ConfirmLoginController>();
+                        confirmLoginController.ConfirmLogin(defaultUser);
                         var appointController = MainSession.AppointSession.GetController($"{userName}|{order.Date}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)

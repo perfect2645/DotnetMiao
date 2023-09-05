@@ -1,4 +1,6 @@
-﻿using Base.viewmodel.status;
+﻿using HosFour.appointment;
+using HosFour.login;
+using HosFour.session;
 using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
@@ -6,15 +8,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using HosFour.appointment;
-using HosFour.common;
-using HosFour.login;
-using HosFour.session;
 using Utils;
-using Utils.datetime;
 using Utils.json;
 using Utils.number;
-using Utils.stringBuilder;
 
 namespace HosFour.search
 {
@@ -27,38 +23,44 @@ namespace HosFour.search
         {
         }
 
-        public void SearchMiaoAsync(string date, HosFourLogin user)
+        public void SearchMiaoAsync(string date)
         {
             Date = date;
-            Task.Factory.StartNew(() => SearchMiao(date, user));
+            Task.Factory.StartNew(() => SearchMiao(date));
         }
 
-        public bool SearchMiao(string date, HosFourLogin user)
+        public bool SearchMiao(string date)
         {
             Date = date;
             try
             {
-                var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-                var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-                var prifix = MainSession.PlatformSession.GetString(Constants.HospitalPrefix);
-                var url = $"https://{prifix}.ldrmyy120.com/rest/v1/api/examine/shift_time_for_vaccine/{deptId}/?date={date}&hospital={hosId}";
-                var content = new HosFourContent(url, user);
+                var defaultUser = MainSession.Users.FirstOrDefault();
+                var content = new MiaoContent(defaultUser, date);
                 content.BuildDefaultHeaders(Client);
-                var response = GetStringAsync(content).Result;
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败 - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var detail = root.GetProperty("shift_times_obj");
-                if (detail.ValueKind == JsonValueKind.Null)
+                var responseResult = root.GetProperty("responseResult");
+                if (responseResult.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"查苗失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return false;
                 }
-                return CheckTime(detail, user);
+                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
+                if (isSuccess != "1")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
+                    return false;
+                }
+
+                var resourceList = root.GetProperty("docResourceResourceList");
+
+                return CheckSaveResource(resourceList);
             }
             catch (Exception ex)
             {
@@ -67,45 +69,35 @@ namespace HosFour.search
             }
         }
 
-
-        private bool CheckTime(JsonElement data, HosFourLogin user)
+        private bool CheckSaveResource(JsonElement resourceListData)
         {
-            var times = JsonAnalysis.JsonToDicList(data);
-            if (!times.HasItem())
+            var resourceList = JsonAnalysis.JsonToDicList(resourceListData);
+            if (!resourceList.HasItem())
             {
-                Log($"查苗失败失败");
+                MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            var validTimes = times.Where(t => t["stay_num"].NotNullString().ToInt() > 0);
-            if (!validTimes.HasItem())
+            var availableResources = resourceList.Where(r => r.GetString("isAvailable") == "1").ToList();
+            if (!availableResources.HasItem())
             {
-                Log("没有可用时间");
+                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
                 return false;
             }
 
-            var timeIdList = validTimes.Select(d => d["id"].NotNullString()).ToList();
+            BuildOrderList(availableResources);
 
-            MainSession.PlatformSession.AddOrUpdate("timeIdList", timeIdList);
-
-            BuildOrderList(timeIdList);
-
-            MainSession.PrintLogEvent.Publish(this, "获得预约日期");
             return true;
         }
 
-        private void BuildOrderList(List<string> timeIdList)
+        private void BuildOrderList(List<Dictionary<string, object>> resources)
         {
             var orderList = new List<Order>();
 
-            foreach (var user in MainSession.Users)
+            foreach (var resource in resources)
             {
-                var userName = user.UserName;
-                foreach (var timeId in timeIdList)
-                {
-                    Order orderWithTime = BuildOneOrder(user, Date, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                Order orderWithTime = BuildOneOrder(resource);
+                orderList.Add(orderWithTime);
             }
             orderList = orderList.DisorderItems();
 
@@ -117,21 +109,31 @@ namespace HosFour.search
             MainSession.OrderEvent.Publish(this, orderArgs);
         }
 
-        private Order BuildOneOrder(HosFourLogin user, string date, string timeId)
+        private Order BuildOneOrder(Dictionary<string, object> resource)
         {
             var hospitalId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            var hospitalName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
+            var deptName = MainSession.PlatformSession.GetString(Constants.DeptName);
+            var docId = MainSession.PlatformSession.GetString(Constants.DocCode);
+            var docName = MainSession.PlatformSession.GetString(Constants.DocName);
+            var docDuty = MainSession.PlatformSession.GetString(Constants.DocDuty);
+
+            var day = resource.GetString("day");
+            var timeEnd = resource.GetString("timeEnd");
+
+
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-                VaccineId = deptId
+                ResourceID = resource.GetString("resourceID"),
+                RegistDate = $"{day} {timeEnd}",
+                HospitalID = hospitalId,
+                HospitalName = hospitalName,
+                DeptCode = deptId,
+                DeptName = deptName,
+                DocCode = docId,
+                DocName = docName,
+                DocDuty = docDuty,
             };
         }
     }

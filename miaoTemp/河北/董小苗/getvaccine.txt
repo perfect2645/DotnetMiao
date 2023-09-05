@@ -1,0 +1,111 @@
+POST https://dm.cdpc.org.cn/dmxcx/make/find/vaccine/by/hospital HTTP/1.1
+Host: dm.cdpc.org.cn
+Connection: keep-alive
+Content-Length: 71
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+dmxcxToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuSWQiOiJvbDVrMTVET2FGVjBRcDJLd0h2aHBhZ1AyVl9RIiwiVXNlcklkIjoibzJmcWQ2aFI1N2VkU1RmU2RHcnpZYkNJRk1KYyIsInRpbWVzdGFtcCI6MTY4NTUzODMwOTEyN30.pV1XzoqEhJls49OTyJV-zz1rBwM3SmBMNOUivIve5TU
+Referer: https://servicewechat.com/wx51500ac89206cb24/4/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"hospitalCode":"1301030504","makeAnAppointment":"2023-06-01 00:00:00"}
+HTTP/1.1 200
+Server: nginx/1.21.3
+Date: Wed, 31 May 2023 14:39:02 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 1690
+
+{
+    "code": 200,
+    "message": "操作成功",
+    "result": {
+        "hospitalCode": "1301030504",
+        "hospitalName": "光华西路社区卫生服务站",
+        "address": "长安区荣景园21号楼底商",
+        "tel": "0311-68056976   ",
+        "medArrt": null,
+        "list": [
+            {
+                "vaccineInfoId": "432",
+                "platformVaccineId": "21628",
+                "vaccObject": "",
+                "medStype": "20μg/支，盒1支",
+                "medPackContainer": "预充式",
+                "factory": "华北金坦",
+                "name": "重组乙型肝炎疫苗（CHO细胞）",
+                "price": 153,
+                "hospitalStatus": 0,
+                "classBID": "2",
+                "classLID": "2",
+                "medArrt": 2,
+                "tip": null
+            },
+            {
+                "vaccineInfoId": "418",
+                "platformVaccineId": "21607",
+                "vaccObject": "",
+                "medStype": "0.5ml/瓶，盒1瓶",
+                "medPackContainer": "西林瓶",
+                "factory": "默沙东",
+                "name": "23价肺炎球菌多糖疫苗",
+                "price": 283,
+                "hospitalStatus": 0,
+                "classBID": "25",
+                "classLID": "51",
+                "medArrt": 2,
+                "tip": null
+            },
+            {
+                "vaccineInfoId": "617",
+                "platformVaccineId": "110322",
+                "vaccObject": "",
+                "medStype": "10μg/支，盒1支",
+                "medPackContainer": "预充式",
+                "factory": "艾美诚信",
+                "name": "重组乙型肝炎疫苗（汉逊酵母）",
+                "price": 120,
+                "hospitalStatus": 0,
+                "classBID": "2",
+                "classLID": "4",
+                "medArrt": 2,
+                "tip": null
+            },
+            {
+                "vaccineInfoId": "474",
+                "platformVaccineId": "110048",
+                "vaccObject": "",
+                "medStype": "0.5ml/支，盒1支",
+                "medPackContainer": "预充式",
+                "factory": "葛兰素史克",
+                "name": "双价人乳头瘤病毒吸附疫苗",
+                "price": 615,
+                "hospitalStatus": 0,
+                "classBID": "55",
+                "classLID": "83",
+                "medArrt": 2,
+                "tip": null
+            },
+            {
+                "vaccineInfoId": "573",
+                "platformVaccineId": "110203",
+                "vaccObject": "",
+                "medStype": "0.5ml/瓶，盒1瓶",
+                "medPackContainer": "西林瓶",
+                "factory": "厦门万泰",
+                "name": "双价人乳头瘤病毒疫苗(大肠杆菌)",
+                "price": 364,
+                "hospitalStatus": 0,
+                "classBID": "55",
+                "classLID": "86",
+                "medArrt": 2,
+                "tip": null
+            }
+        ]
+    }
+}

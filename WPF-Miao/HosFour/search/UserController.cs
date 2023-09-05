@@ -45,8 +45,8 @@ namespace HosFour.search
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
                     return;
                 }
-                var isSuccess = responseResult.GetInt16();
-                if (isSuccess != 1)
+                var isSuccess = responseResult.GetProperty("isSuccess").GetString();
+                if (isSuccess != "1")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: isSuccess = {isSuccess}");
                     return;
@@ -71,20 +71,16 @@ namespace HosFour.search
                 return;
             }
 
-            var defaultUser = familyMembers.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = familyMembers.FirstOrDefault(x => x["patientName_Sort"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
                 defaultUser = familyMembers.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("name");
-            var userId = defaultUser.GetString("id");
-            var idcard = defaultUser.GetString("idno");
-            var phone = defaultUser.GetString("mobile");
+            var userName = defaultUser.GetString("patientName_Sort");
+            var userId = defaultUser.GetString("hospitalUserID");
 
             user.UserId = userId;
             user.UserName = userName;
-            user.IdCard = idcard;
-            user.Phone = phone;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

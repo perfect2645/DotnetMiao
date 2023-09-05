@@ -1,0 +1,28 @@
+GET https://oss.zsqrmyy.com:8443/patient/familyMember/own?desensitization=true HTTP/1.1
+Host: oss.zsqrmyy.com:8443
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhbGlfYWNjZXNzX3Rva2VuIjpudWxsLCJwYXRpZW50X2lkIjoiMTY4MTIwMTY4OTUzNDY4OTI4MiIsInd4X3Nlc3Npb25fa2V5IjoiSGhWMlFHTktHZHpCYmt6RC9wWFROdz09IiwiYWxpX29wZW5faWQiOm51bGwsInNjb3BlIjpbImFsbCJdLCJleHAiOjE3NjE2NjQ2OTIsInd4X3VuaW9uX2lkIjpudWxsLCJ3eF9vcGVuX2lkIjoibzUyaVg0bGVvWW1TSWNwZUxGWXpkZWNEZkFOayIsImp0aSI6ImF4WVBjMzhwckNfM3Z4VFUxWGY0YWZzSGlCbyIsImNsaWVudF9pZCI6InBhdGllbnQifQ.CIvf0ti2Gb4Vm7Pr61WZqAfkdCAXpsL9w4awJBgjU-O4yoWN6BSh_GLqgn5nKOBz6Ozyf_Yzkf9FY0VfCIsRcub1L6ChcjBt6S-gOogW9eIgCo-T4MzHqYg_4dZNKAbuheA4D7lakB-1O5Yf0aYJ6RwPrGT6Dc4TUe7z5WaebQXRww3JDudvt3eSc0Gp4461XlR0MPPbyEYn_9FKyir9luaodq9IvglHe-KLYHSkeLzUWosAjMLJoZCNRVCgg9U7yWJC-h7tGRxsBaVHxvhxOfH-Jn-XJrRtmN760jy9M3JaVcOApWXNZjQ1WWy934SxjNOc1RAM-OdyJKpAy49WSw
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+X-Request-Uuid: 16896646895223196565
+content-type: application/json
+Referer: https://servicewechat.com/wxf07924550288e202/18/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.20.2
+Date: Fri, 21 Jul 2023 14:35:55 GMT
+Content-Type: application/json
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1 ; mode=block
+Referrer-Policy: no-referrer
+Content-Length: 1011
+
+{"code":0,"message":"操作成功！","data":[{"id":"1681202428885143553","name":"邓雨婷","gender":"2","genderName":"女","certificateNo":"5002**********4760","birthday":"1999-08-05","mobilePhone":"188****2645","address":"湖北省宜昌市宜都市白云","ehcId":"1F522F80E8EA24889ADA145C237B46B74BAB26193E9432FF6AFF1E6958BA1AC0","qrcode":"1F522F80E8EA24889ADA145C237B46B74BAB26193E9432FF6AFF1E6958BA1AC0:1:DE45821244C869C1745B8947280C3925:5200A0045GZHX0010","relation":"o","relationName":"其他","status":"a","defaultStatus":false},{"id":"1682398898150207490","name":"刘婷婷","pinyin":"LIU TING TING","gender":"2","genderName":"女","certificateNo":"5226**********1922","birthday":"1999-01-20","mobilePhone":"165****9956","ehcId":"7FBE2194B40F81292905CEB205FF71A418A4FDF60AC3F299AABAC21B02EC1D96","qrcode":"7FBE2194B40F81292905CEB205FF71A418A4FDF60AC3F299AABAC21B02EC1D96:1:F2CCE0A8479457A177AF56FC01174538:5200A0045GZHX0010","relation":"f","relationName":"姐妹","status":"a","defaultStatus":true}]}

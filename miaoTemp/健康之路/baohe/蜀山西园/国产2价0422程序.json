@@ -1,0 +1,107 @@
+{
+    "waterId": "808320555",
+    "waitingInfor": "第24号 10:00-10:30",
+    "store": "",
+    "serialNo": "24",
+    "memberSn": "57047804",
+    "memberName": "陈钰鸿",
+    "memberPhone": "18840842645",
+    "memberAddress": "漳州",
+    "memberBirthday": "1999-02-26",
+    "memberSex": "2",
+    "memberId": "57047804",
+    "othercard": "",
+    "guardianmembersn": "",
+    "identitytype": "1",
+    "memberZhengjianid": "3506**********0541",
+    "memberIdcard": "3506**********0541",
+    "accManageGoodSn": null,
+    "regpaytype": "",
+    "cliniccard": "",
+    "applyNo": "",
+    "mobile": "18840842645",
+    "doctorSn": "711090476",
+    "hosDeptId": "7210427",
+    "hosDeptName": "成人疫苗预约",
+    "hospitalId": "1031364",
+    "hospitalName": "蜀山区西园街道社区卫生服务中心",
+    "doctorService_gh": "2",
+    "doctorUid": "710748844",
+    "doctorName": "二价HPV（国产）",
+    "doctorPic": "",
+    "doctorClinicName": "主治医师",
+    "GH_HosProId": "12",
+    "GH_HosProName": "安徽",
+    "GH_HosCityId": "101",
+    "GH_HosCityName": "合肥",
+    "registerDate": "2023-04-24",
+    "accountSn": 156552780,
+    "cardNumber": "2086637312",
+    "ghAmount": 0,
+    "securityDeposit": 0,
+    "ghfeeway": 0,
+    "ModeId": 0,
+    "GhFee": 0,
+    "AllFee": 0,
+    "UnOpened": false,
+    "loginId": "oHN-twt_98B5nW_o69GCXr3_RFOk",
+    "channelId": "9001016",
+    "doctorOfficeName": "",
+    "isread": "1",
+    "birthday": "1999-02-26",
+    "availablenum": 24,
+    "FHTimes": "20:30",
+    "FHDays": "4",
+    "arrangeId": 170381581,
+    "timeId": "1"
+}
+[
+    {
+        "keyValue": "",
+        "keyName": "name"
+    },
+    {
+        "keyValue": "3506**********0541",
+        "keyName": "CardNo"
+    },
+    {
+        "keyValue": "2",
+        "keyName": "sex"
+    },
+    {
+        "keyValue": "18840842645",
+        "keyName": "mobile"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "cardtype"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "0",
+        "keyName": "cmb_disease"
+    },
+    {
+        "keyValue": "未确诊",
+        "keyName": "cmb_diseaseName"
+    },
+    {
+        "keyValue": "漳州",
+        "keyName": "familyaddress"
+    },
+    {
+        "keyValue": "",
+        "keyName": "ClinicCard"
+    },
+    {
+        "keyValue": "1999-02-26",
+        "keyName": "birthday"
+    },
+    {
+        "keyValue": "1",
+        "keyName": "isread"
+    }
+]

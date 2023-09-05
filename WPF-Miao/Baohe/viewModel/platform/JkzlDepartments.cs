@@ -14,45 +14,52 @@ namespace Baohe.viewModel
         {
             Departments = new List<HospitalDept>();
 
-            Departments.Add(new Jiankangzhilu("9000553", "武汉硚口区",
-                "1023044", "硚口区古田街社区卫生服务中心",
-                "7152219", "九价HPV疫苗")
-            {
-                HasYzm = false,
-                DoctorSn = "711250004"
-            });
-
             Departments.Add(new Jiankangzhilu("9000981", "包河区万年埠街道",
                 "1094367", "包河区万年埠街道社区卫生服务中心",
                 "7231670", "九价Hpv")
             {
                 DoctorSn = "711212600"
             });
-
             #region 漳州
 
-            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
-                "1101614", "龙文区碧湖街道社区卫生服务中心",
-                "7248104", "九价Hpv")
+            Departments.Add(new Jiankangzhilu("9001595", "漳州市龙文区",
+"1091919", "龙文区蓝田街道社区卫生服务中心",
+"7248732", "九价Hpv")
             {
                 HasYzm = false,
-                DoctorSn = "711288413"
+                DoctorSn = "711292190"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001595", "漳州市龙文区",
+"1091919", "龙文区蓝田街道社区卫生服务中心",
+"7248658", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711292163"
             });
 
             Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
                 "1101614", "龙文区碧湖街道社区卫生服务中心",
-                "7248104", "九价Hpv")
+                "7253061", "九价Hpv")
             {
                 HasYzm = false,
-                DoctorSn = "711288413"
+                DoctorSn = "711317043"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001567", "漳州市龙文区",
+                "1101614", "龙文区碧湖街道社区卫生服务中心",
+                "7253051", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711317031"
             });
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
                 "1101211", "漳州市龙文区步文街道社区卫生服务中心",
-                "7248114", "四价Hpv")
+                "7242593", "九价Hpv")
             {
                 HasYzm = false,
-                DoctorSn = "711288367"
+                DoctorSn = "711267962"
             });
 
             Departments.Add(new Jiankangzhilu("1000031", "漳州市龙文区步",
@@ -63,13 +70,29 @@ namespace Baohe.viewModel
                 DoctorSn = "711267961"
             });
 
+            Departments.Add(new Jiankangzhilu("9001478", "龙海市",
+                "1100937", "漳州高新技术产业开发区颜厝卫生院",
+                "7248218", "九价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711289095"
+            });
+
+            Departments.Add(new Jiankangzhilu("9001478", "龙海市",
+                "1100937", "漳州高新技术产业开发区颜厝卫生院",
+                "7248218", "四价Hpv")
+            {
+                HasYzm = false,
+                DoctorSn = "711289082"
+            });
+
             #endregion 漳州
 
             #region 南京
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1099108", "雨花经济开发区社区卫生服务中心",
-                "7235364", "九价Hpv")
+    "1099108", "雨花经济开发区社区卫生服务中心",
+    "7235364", "九价Hpv")
             {
                 DoctorSn = "711230166"
             });
@@ -91,26 +114,10 @@ namespace Baohe.viewModel
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
                 "1094417", "雨花社区卫生服务中心",
-                "7208870", "预防接种预约")
-            {
-                HasYzm = false,
-                DoctorSn = "711102799" //儿童9价宫颈癌疫苗
-            });
-
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1094417", "雨花社区卫生服务中心",
                 "7225728", "九价Hpv")
             {
                 HasYzm = false,
                 DoctorSn = "711170881"
-            });
-
-            Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
-                "1094417", "雨花社区卫生服务中心",
-                "7225728", "四价Hpv")
-            {
-                HasYzm = false,
-                DoctorSn = "711170863"
             });
 
             Departments.Add(new Jiankangzhilu("1000031", "江苏南京雨花台区",
@@ -216,19 +223,20 @@ namespace Baohe.viewModel
                 DoctorSn = "711188785"
             });
 
+
+            Departments.Add(new Jiankangzhilu("9001026", "蜀山区井岗中心服务号",
+                "1099560", "蜀麓苑医疗卫生服务站",
+                "7235039", "九价HPV")
+            {
+                DoctorSn = "711296691"
+            });
+
             Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
                 "1047032", "常青街道薛河湾社区卫生服务站",
                 "7237655", "九价HPV疫苗")
             {
                 HasYzm = true,
                 DoctorSn = "711238182"
-            });
-            Departments.Add(new Jiankangzhilu("9000415", "包河区常青街道社区卫生服务中心",
-                "1047032", "常青街道薛河湾社区卫生服务站",
-                "7237655", "四价HPV疫苗")
-            {
-                HasYzm = false,
-                DoctorSn = "711247350"
             });
 
             Departments.Add(new Jiankangzhilu("9000371", "合肥蜀山五里墩",

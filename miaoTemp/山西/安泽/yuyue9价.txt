@@ -1,0 +1,20 @@
+POST https://yuyue.azjkzx.cn/api/index/addorder HTTP/1.1
+Host: yuyue.azjkzx.cn
+Connection: keep-alive
+Content-Length: 29
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wx9462592068e4073e/5/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"ids":22,"uid":"O5g8wlExJQ"}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 01 Aug 2023 01:02:16 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Request-ID: 6e1feabe9fb3c3b60075c8759fa068b1
+Strict-Transport-Security: max-age=31536000
+Content-Length: 48
+
+{"code":400,"msg":"您的账号正在审核中"}

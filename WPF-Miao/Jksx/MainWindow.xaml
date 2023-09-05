@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:Jksx.view"
-        Title="健康山西" 
+        Title="健康山西智慧" 
         Height="800" MinWidth="830" 
         WindowState="Normal">
-    <view:JksxConsole x:Name="mainConsole">
+    <view:MainConsole x:Name="mainConsole">
 
-    </view:JksxConsole>
+    </view:MainConsole>
 </Window>

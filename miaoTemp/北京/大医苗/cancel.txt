@@ -1,0 +1,25 @@
+POST https://mp.dywrbt.com/vac/wechat/smallRoutine/cancelVaccinate HTTP/1.1
+Host: mp.dywrbt.com
+Connection: keep-alive
+Content-Length: 78
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+apptype: DYM
+birthdayDate: 2000-04-08
+content-type: application/json
+id: 1664295338979098624
+openId: oWCb35Z49sTNUwvJFiTBkMkTwmsQ
+os: applet
+phone: 17615102645
+roletype: vac
+Referer: https://servicewechat.com/wx1cf50c2a73c08a5d/35/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+{"payId":"1664296537627295744","vaccinateId":"1664296537706987520","mode":"1"}
+HTTP/1.1 200
+Server: nginx/1.16.1
+Date: Thu, 01 Jun 2023 15:57:48 GMT
+Content-Type: application/json
+Connection: keep-alive
+Content-Length: 37
+
+{"code":"0","message":"取消成功"}

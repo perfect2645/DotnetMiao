@@ -155,6 +155,10 @@ namespace HttpProcessor.Client
                 {
                     return await Client.PostRichEncodeAsync(content);
                 }
+                if (contentType == ContentType.Array)
+                {
+                    return await Client.PostArrayAsync(content, false);
+                }
                 return await Client.PostJsonAsync(content, ensureSuccess);
             }
             catch (Exception ex)

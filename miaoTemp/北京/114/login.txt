@@ -1,0 +1,34 @@
+POST https://www.114yygh.com/mobile/login?_time=1686365173412 HTTP/1.1
+Host: www.114yygh.com
+Connection: keep-alive
+Content-Length: 71
+Accept: application/json, text/plain, */*
+Origin: https://www.114yygh.com
+Request-Source: WE_CHAT
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Cookie: imed_session=uCa4HDxzhhgJ6HMUJv2BlayA1EkyMGLB_5620209; _opt=mobile_wxauth_2969dc8bc36a5b17920891be6632253e; cmi-user-ticket=Lc4WelepmUs0Y-0aylvOt8ZdvPu4ainkMXWKlQ..; imed_session=WjoZEqdX3VN1kOfdbXJsS0BYKS982Cun_5621216; imed_session_tm=1686365146747
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://www.114yygh.com/wechat/login/verification?phone=ATdO5UCezS3fQ9Cy3x8qXg%3D%3D&fromPage=1&redirect=%2Fpersonal
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"mobile":"ATdO5UCezS3fQ9Cy3x8qXg==","code":"zL-leE4zYl94auqHWzZ6CA=="}
+HTTP/1.1 200
+Server: unicom
+Date: Sat, 10 Jun 2023 02:46:14 GMT
+Content-Type: application/json;charset=UTF-8
+Content-Length: 151
+Connection: keep-alive
+Set-Cookie: cmi-user-ticket=iI1Ch88GZue-Qvtlaj1O11hLiMHRYQls3IN7vQ..; Domain=.114yygh.com; Expires=Thu, 28-Jun-2091 06:00:21 GMT; Path=/; HttpOnly
+Set-Cookie: imed_session=WjoZEqdX3VN1kOfdbXJsS0BYKS982Cun_5621216; HttpOnly
+Set-Cookie: imed_session_tm=1686365174665; Domain=.114yygh.com; Path=/; HttpOnly
+Content-Security-Policy: : default-src *.114yygh.com *.qq.com *.baidu.com; font-src * data:
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+X-Cache: BYPASS from eed5c316b71a891b74ddc5dd58384270
+
+{"resCode":0,"msg":null,"data":{"userId":"272066494","mobile":"18840842645","name":"*佳","newUser":false,"authStatus":"AUTH_PASS","bindWechat":false}}

@@ -1,0 +1,49 @@
+POST https://mix.med.gzhc365.com/api/register/registerpayorder HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 899
+client: patient
+content-type: application/x-www-form-urlencoded
+channel: wx_xcx
+uid: 4522322919844511746
+his-id: 2342
+Hc-Src-Hisid: 2342
+uuid: 9621dbb5-506c-4c8f-ab4f-b2bbe6998f05
+device-id: 
+request-id: 295c3f24-e4b6-4928-b262-73290e88eeb7
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.37(0x18002523) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&orderId=4522342882880880640&bizContent=%5B%7B%22key%22%3A%22%E8%B4%B9%E7%94%A8%E7%B1%BB%E5%9E%8B%22%2C%22value%22%3A%22%E9%A2%84%E7%BA%A6%E6%8C%82%E5%8F%B7%22%7D%2C%7B%22key%22%3A%22%E5%B0%B1%E8%AF%8A%E7%A7%91%E5%AE%A4%22%2C%22value%22%3A%22%E6%B3%A1%E5%8D%97%E9%A2%84%E9%98%B2%E4%BF%9D%E5%81%A5%E9%83%A8%22%7D%2C%7B%22key%22%3A%22%E5%8C%BB%E7%94%9F%E5%90%8D%E7%A7%B0%22%2C%22value%22%3A%22%E8%BF%9B%E5%8F%A3%E4%BA%8C%E4%BB%B7%E9%A2%84%E7%BA%A6%22%7D%2C%7B%22key%22%3A%22%E5%B0%B1%E8%AF%8A%E6%97%A5%E6%9C%9F%22%2C%22value%22%3A%222023-05-10+%E5%91%A8%E4%B8%89%22%7D%2C%7B%22key%22%3A%22%E5%B0%B1%E8%AF%8A%E6%97%B6%E6%AE%B5%22%2C%22value%22%3A%22%E4%B8%8B%E5%8D%88+14%3A40%7E14%3A50%22%7D%2C%7B%22key%22%3A%22%E5%B0%B1%E8%AF%8A%E4%BA%BA%22%2C%22value%22%3A%22%E7%9F%B3%E7%90%B3%22%7D%5D&login_access_token=1683276049305-774CC4837128807B50A98F
+HTTP/1.1 200 200
+Content-Type: application/json;charset=UTF-8
+Content-Length: 145
+Connection: keep-alive
+Server: Tengine
+Date: Fri, 05 May 2023 08:50:04 GMT
+encrypt: false
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 57
+X-Kong-Proxy-Latency: 75
+Via: kong/1.4.0
+
+
+
+hisId=2342
+platformId=2342
+platformSource=3
+subSource=1
+orderId=4522342882880880640
+bizContent=[{"key":"费用类型","value":"预约挂号"},{"key":"就诊科室","value":"泡南预防保健部"},{"key":"医生名称","value":"进口二价预约"},{"key":"就诊日期","value":"2023-05-10 周三"},{"key":"就诊时段","value":"下午 14:40~14:50"},{"key":"就诊人","value":"石琳"}]
+login_access_token=1683276049305-774CC4837128807B50A98F
+
+
+{"code":0,"data":{"cashierURI":"https://pay.med.gzhc365.com/cashier/index.html?auth=1#/pay/pay","payOrderId":"HLLZXQ212ZQD22UL3E72SZMYYMP2LULC"}}

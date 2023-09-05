@@ -1,0 +1,149 @@
+.memberInfo {
+    background-color: #fff;
+    border-radius: 10rpx;
+    clear: both;
+    margin: 20rpx auto auto;
+    min-height: 300rpx;
+    overflow: hidden;
+    position: relative;
+    width: 95%;
+}
+
+.editButton {
+    background-color: #3078e6;
+    border-radius: 50rpx;
+    color: #fff;
+    font-size: 35rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    position: absolute;
+    right: 20rpx;
+    text-align: center;
+    top: 20rpx;
+    width: 200rpx;
+    z-index: 1;
+}
+
+.info_title {
+    color: #343434;
+    font-size: 35rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin: auto;
+    width: 90%;
+}
+
+.info_title image {
+    float: left;
+    height: 32rpx;
+    margin-right: 20rpx;
+    margin-top: 34rpx;
+    width: 32rpx;
+}
+
+.info_li {
+    border-bottom: 1rpx solid #ebedf0;
+    clear: both;
+    margin: auto;
+    min-height: 80rpx;
+    width: 90%;
+}
+
+.wu_line {
+    border: 0;
+}
+
+.info_li_left {
+    line-height: 80rpx;
+    width: 25%;
+}
+
+.info_li_left,.info_li_left2 {
+    color: #343434;
+    float: left;
+    font-size: 30rpx;
+    min-height: 80rpx;
+}
+
+.info_li_left2 {
+    padding-top: 10rpx;
+    width: 28%;
+}
+
+.info_li_right {
+    color: #989898;
+    float: left;
+    font-size: 26rpx;
+    line-height: 80rpx;
+    min-height: 80rpx;
+    width: 70%;
+}
+
+.info_li_right image {
+    max-width: 100%;
+}
+
+.info_li_right input {
+    color: #989898;
+    float: left;
+    font-size: 26rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 100%;
+}
+
+.info_f_hy {
+    margin: auto;
+    min-height: 80rpx;
+    width: 90%;
+}
+
+.info_f_hy_1 {
+    color: #ff554b;
+    font-size: 30rpx;
+    padding-bottom: 20rpx;
+    padding-top: 40rpx;
+    text-align: left;
+}
+
+.info_f_hy_1,.info_f_hy_2 {
+    margin: auto;
+    min-height: 80rpx;
+    width: 100%;
+}
+
+.info_f_hy_2 {
+    overflow: hidden;
+}
+
+.member_tj_top {
+    height: 150rpx;
+    margin: auto;
+    width: 100%;
+}
+
+.member_tj {
+    background-color: #fff;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+    bottom: 0;
+    height: 100rpx;
+    left: 0;
+    margin: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.member_submint {
+    background-color: #3078e6;
+    border-radius: 50rpx;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 700;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 10rpx auto auto;
+    text-align: center;
+    width: 80%;
+}

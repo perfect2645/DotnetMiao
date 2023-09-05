@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.ExceptionManager;
+using HttpProcessor.Request;
 using System.Text;
 using System.Text.Json;
 using Utils;
@@ -18,6 +19,8 @@ namespace HttpProcessor.Content
         public string ContentPrefix { get; set; }
         public string ContentSuffix { get; set; }
         public bool IsEncode { get; set; }
+
+        public bool IsContentTypeNoSpace { get; set; }
 
         #endregion Properties
 
@@ -82,6 +85,17 @@ namespace HttpProcessor.Content
             Content.AddOrUpdate(key, value);
         }
 
+        public void AddEncodeContent(string key, object value)
+        {
+            Content.AddOrUpdate(key, UnicodeConverter.EncodeOriginal(value.NotNullString(), true));
+        }
+
+        public void AddEncodeContent(string key, Dictionary<string, object> value)
+        {
+            var jsonStr = value.ToJson();
+            Content.AddOrUpdate(key, UnicodeConverter.EncodeOriginal(jsonStr.NotNullString(), true));
+        }
+
         public void AddContent(Dictionary<string, object> source, string key)
         {
             Content.AddOrUpdate(key, source[key]);
@@ -108,7 +122,15 @@ namespace HttpProcessor.Content
                 jsonContent = $"{jsonContent}{ContentSuffix}";
             }
 
-            return new StringContent(jsonContent, Encoding.UTF8, ContentType);
+            var stringContent =  new StringContent(jsonContent, Encoding.UTF8, ContentType);
+
+            if (IsContentTypeNoSpace)
+            {
+                stringContent.Headers.ContentType = new MediaTypeHeaderNoSpace("application/json");
+                stringContent.Headers.ContentType.CharSet = "UTF-8";
+            }
+
+            return stringContent;
         }
 
         public virtual StringContent GetStringContent()
@@ -119,6 +141,19 @@ namespace HttpProcessor.Content
                 sb.Append($"{item.Key}={item.Value}&");
             }
             var stringContent = sb.ToString().TrimEnd('&');
+
+            return new StringContent(stringContent, Encoding.UTF8, ContentType);
+        }
+
+        public virtual StringContent GetArrayContent()
+        {
+            var sb = new StringBuilder();
+            foreach (var value in Content.Values)
+            {
+                sb.Append($"{value},");
+            }
+            var stringContent = sb.ToString().TrimEnd(',');
+            stringContent = $"[{stringContent}]";
 
             return new StringContent(stringContent, Encoding.UTF8, ContentType);
         }

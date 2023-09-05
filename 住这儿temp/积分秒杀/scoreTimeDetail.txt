@@ -1,0 +1,26 @@
+POST https://chaos.4009515151.com/market/api/score/time/detail HTTP/1.1
+Host: chaos.4009515151.com
+Origin: https://enterprise.4009515151.com
+Content-Type: application/json;charset=UTF-8
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Accept: application/json
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2023073101 vanke_app_version/5.5.09 X_API_VERSION/20230731 vanke_app/zhuzher vanke_jsbridge_version/5.5.09
+Authorization: Bearer f224df8a-c756-4d36-bfae-b440ad32ff34
+Referer: https://enterprise.4009515151.com/
+Content-Length: 91
+
+{"exchangeGoodId":2704,"exchangeId":127,"exchangeGoodTimeId":1987,"projectCode":"21020002"}
+HTTP/1.1 200
+Date: Sun, 13 Aug 2023 04:18:09 GMT
+Content-Type: application/json
+Connection: keep-alive
+Set-Cookie: acw_tc=784e2c9716919002895172161e43eed8b242589837e5d6df8e2734be4b0878;path=/;HttpOnly;Max-Age=1800
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-SVC: prod-zhuzher-server-market-http
+Content-Length: 1264
+
+{"message":"success","code":200,"result":{"exchangeId":127,"exchangeGoodId":2704,"goodId":4872,"goodType":2,"goodName":"20元物业费预缴券","smallImage":"https://img2.4009515151.com/2023/08/02/0a61710b-3ad6-41d2-9aa4-9bc0b5dc715c1690968939837.jpg","needScore":10000,"goodSubTitle":"有效期至2023年8月31日","goodDesc":"1、使用有效期：2023年8月1日 - 2023年8月31日；\n2、使用门槛：用于预缴物业费时抵扣，预缴满200元立减20元；\n3、使用方式： ①点击“去使用”即可跳转前往使用（或点击我的优惠券查看）； ②在预缴物业费时，达到满减门槛，即可勾选该物业券进行抵扣；\n4、请在有效期内尽快使用，逾期失效不予补发；","bigImage":null,"rotationImageList":["https://img2.4009515151.com/2023/08/02/0a61710b-3ad6-41d2-9aa4-9bc0b5dc715c1690968939837.jpg"],"detailImageList":["https://img2.4009515151.com/2023/08/02/684726fe-e60a-4266-836d-e0e4b28c2ee41690968946951.jpg"],"price":0,"isShowPrice":0,"limitCount":1,"surplusCount":2,"surplusScore":1650,"discountScore":15,"exchangeLimitType":"person","exchangeLimitDays":null,"startTime":"2023-08-13 20:00:00","endTime":"2023-08-13 21:00:00","availableStartTimestamp":27710,"availableEndTimestamp":31310}}

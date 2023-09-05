@@ -132,15 +132,15 @@ namespace HosFour.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            Interval = 1000;
+            StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
         {
             StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(59);
 
-            var dateRange = DateTimeUtil.GetDateRange("2023-2-10", "2023-2-10");
+            var dateRange = DateTimeUtil.GetDateRange("2023-04-20", "2023-04-20");
             DateList = new List<DspVal>();
             foreach (var date in dateRange)
             {
@@ -154,11 +154,6 @@ namespace HosFour.viewmodel
             {
                 new DspVal("08:00:00-11:00:00", "1"),
                 new DspVal("14:00:00-16:00:00", "2"),
-                //new DspVal("08:00:00-08:30:00", "3"),
-                //new DspVal("08:30:00-09:00:00", "4"),
-                //new DspVal("09:00:00-09:30:00", "5"),
-                //new DspVal("14:00:00-14:30:00", "9"),
-                //new DspVal("14:30:00-15:00:00", "10"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("TimeList", TimeList);
@@ -167,28 +162,24 @@ namespace HosFour.viewmodel
             {
                 new HosFourHospital
                 {
-                    HospitalPrefix = "ldsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
+                    HospitalId = "01",
+                    HospitalName = "上海市第四人民医院",
+                    DepartmentName = "疫苗接种高级专家门诊",
+                    DepartmentId = "9289|疫苗接种高级专家门诊|102|疫苗门诊",
+                    DocCode = "9289||疫苗接种高级专家门诊|疫苗接种高级专家门诊|疫苗门诊",
+                    DocName = "疫苗接种高级专家门诊",
+                    DocDuty = string.Empty
                 },
                 new HosFourHospital
                 {
-                    HospitalPrefix = "ldsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区龙洞街社区卫生服务中心",
-                    DepartmentName = "四价",
-                    DepartmentId = "2",
-                },
-                new HosFourHospital
-                {
-                    HospitalPrefix = "ygsq",
-                    HospitalId = "4",
-                    HospitalName = "天河区元岗",
-                    DepartmentName = "九价",
-                    DepartmentId = "1",
-                },
+                    HospitalId = "01",
+                    HospitalName = "上海市第四人民医院",
+                    DepartmentName = "儿科门诊",
+                    DepartmentId = "deptCode=0400|儿科门诊|1|普通门诊",
+                    DocCode = "0400||儿科门诊普通号|儿科门诊|普通门诊",
+                    DocName = "儿科门诊普通号",
+                    DocDuty = string.Empty
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -282,7 +273,6 @@ namespace HosFour.viewmodel
             Task.Factory.StartNew(async () => {
                 try
                 {
-                    BuildOrders();
                     StartOnTimeTimer();
                 }
                 catch (HttpException ex)
@@ -325,15 +315,7 @@ namespace HosFour.viewmodel
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
             return new Order
             {
-                Address = user.Address,
-                DutyTimeId = timeId,
-                HosipitalId = hospitalId,
-                InoculateTimes = user.InoculateTimes,
-                SeeDate = date,
-                UserId = user.UserId,
-                UserName = user.UserName,
-                User = user,
-                VaccineId = deptId
+
             };
         }
 
@@ -342,8 +324,7 @@ namespace HosFour.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
-                    Task.Factory.StartNew(() => Appoint());
-                    //_searchController.SearchMiao();
+                    _searchController.SearchMiao();
                 }
                 catch (HttpException ex)
                 {
@@ -414,7 +395,7 @@ namespace HosFour.viewmodel
                 bool isSuccess = false;
                 foreach (var order in orders)
                 {
-                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                    var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
                     isSuccess = appointController.YuyueAsync(order);
                     if (isSuccess)
                     {
@@ -443,7 +424,7 @@ namespace HosFour.viewmodel
                 {
                     foreach (var order in orders)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.SeeDate}{order.DutyTimeId}");
+                        var appointController = MainSession.AppointSession.GetController($"{userName}|{order.RegistDate}");
                         isSuccess = appointController.YuyueAsync(order);
                         if (isSuccess)
                         {
@@ -475,15 +456,18 @@ namespace HosFour.viewmodel
                 {
                     var order = new Order
                     {
-                        Address = user.Address,
-                        DutyTimeId = template.DutyTimeId,
-                        HosipitalId = template.HosipitalId,
-                        InoculateTimes = user.InoculateTimes,
-                        SeeDate = template.SeeDate,
-                        User = user,
-                        UserId = user.UserId,
+                        ResourceID = template.ResourceID,
+                        RegistDate = template.RegistDate,
+                        HospitalUserID = user.UserId,
+                        HospitalID = template.HospitalID,
+                        HospitalName = template.HospitalName,
+                        DeptCode = template.DeptCode,
+                        DeptName = template.DeptName,
+                        DocCode = template.DocCode,
+                        DocName = template.DocName,
+                        DocDuty = template.DocDuty,
                         UserName = user.UserName,
-                        VaccineId = template.VaccineId,
+                        User = user,
                     };
 
                     orderList.Add(order);
@@ -491,7 +475,6 @@ namespace HosFour.viewmodel
 
                 Task.Factory.StartNew(() => StartOneOrder(user.UserName, orderList));
             }
-
         }
 
         private void DirectlyOrder(string scheduleId)
@@ -605,7 +588,9 @@ namespace HosFour.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
-            MainSession.PlatformSession.AddOrUpdate(Constants.HospitalPrefix, selectedDept.HospitalPrefix);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocCode, selectedDept.DocCode);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocName, selectedDept.DocName);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DocDuty, selectedDept.DocDuty);
 
             Log(selectedDept.ToLogString());
         }

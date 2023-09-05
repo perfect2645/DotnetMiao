@@ -109,7 +109,7 @@ namespace Zhuzher.Exchange
             good.Status = 2;
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
-            if  (msg == "已达个人上限")
+            if (msg == "已达个人上限")
             {
                 // 中奖了
                 good.Status = 3;

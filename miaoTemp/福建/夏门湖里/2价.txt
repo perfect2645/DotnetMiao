@@ -1,0 +1,21 @@
+POST https://public.health.zoenet.cn/business-service/mask-appointment/save HTTP/1.1
+Host: public.health.zoenet.cn
+Connection: keep-alive
+Content-Length: 748
+noncePf: 276B63E23AE645549937EAA0D79C86D0
+level: 
+Origin: https://public.health.zoenet.cn
+headersign: 498A3A72D4FB107CF41B93C39282A558
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+node: open
+Content-Type: application/json; charset=utf-8
+Accept: */*
+Cookie: connect.sid=s%3AiDxyc8D8Qp-2-kBsASt8aqxMo-jfk9bi.GtBhcw2BOT8kPdXhWP%2BdNmoaGplZ5JD9y35Up%2BffWhk; HWWAFSESID=787a4736e2f641c23b; HWWAFSESTIME=1692114786449; appcode=HC_HLQFYBJY_WX
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://public.health.zoenet.cn/pay/mask-collection-appointment?isSingle=1&platformSingleHospital=1&appCode=HC_HLQFYBJY_WX&zoneCode=350200&subscribeType=2c90812388d150370188d87f810b0861&orgCode=HLQFYBJY
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"name":"周瑠夏","goodsId":"2c9081e088d964ea0188dd0811c60100","idCardNo":"350203199909302336","icCardNo":"","orgCode":"HLQFYBJY","timeStr":"2023-08-28","goodsDetailId":"2c9081e088d964ea0188dd08120a0103","subscribeType":"2c90812388d150370188d87f810b0861","provideAddress":"湖里区妇幼保健院","serviceId":"2c9080f488d739930188d88818920014","certificateType":"","transactTypeCode":"","transactTypeName":"","specialRegistrationCode":"","specialRegistrationName":"","nationality":"","businessContent":"","sex":"","telephone":"16790467714","babyName":"","babyRelation":"","babyBirthday":"","age":23,"isAgree":true,"fieldCollection":"{}","servicePackOrderId":"","servicePackItemId":"","patientId":"","phone":"","providerId":"","providerName":""}

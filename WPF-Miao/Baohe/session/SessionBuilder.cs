@@ -19,11 +19,14 @@ namespace Baohe.session
             }
         }
 
+        #region Water
+
         public static List<Dictionary<string, object>> GetAvailableArrangeWater()
         {
             var arrangeWaterList = MainSession.MiaoSession[Constant.ArrangeWater] as List<Dictionary<string, object>>;
             var availableWater = arrangeWaterList?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
             && x["availablenum"].NotNullString().ToLong() > 0
+            && x["ArrangeStatus"].NotNullString().ToLong() == 1
                 && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
 
             return availableWater ?? new List<Dictionary<string, object>>();
@@ -33,10 +36,24 @@ namespace Baohe.session
         {
             var availableWater = originalWaters?.Where(x => x["OverTime"].NotNullString().ToLong() == 0
             && x["availablenum"].NotNullString().ToLong() > 0
+            && x["ArrangeStatus"].NotNullString().ToLong() == 1
                 && DateTimeUtil.IsEqualOrGreaterThanToday(x["InvalidDate"].NotNullString())).ToList();
 
             return availableWater;
         }
+
+        public static Dictionary<string, object> GetTargetWater(List<Dictionary<string, object>> originalWaters, string arrangeId)
+        {
+            var matchedWater = originalWaters?.FirstOrDefault(x => x.GetString(Constant.ArrangeId) == arrangeId);
+            if (matchedWater == null)
+            {
+                matchedWater = originalWaters.FirstOrDefault();
+            }
+
+            return matchedWater ?? new Dictionary<string, object>();
+        }
+
+        #endregion Water
 
         public static Dictionary<string, object> GetDefaultMember(string userName)
         {

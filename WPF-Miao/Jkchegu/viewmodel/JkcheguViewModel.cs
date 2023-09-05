@@ -115,24 +115,30 @@ namespace Jkchegu.viewmodel
 
         private void TestData()
         {
-            Cookie = "JSESSIONID=83206E02DE43A6BAB196E3EFD0DC85BB"; //fawei
-            //Cookie = "JSESSIONID=5D4A83B57BF9BF2F2B78AEF105C7C842";
-            StartTime = DateTime.Now.AddSeconds(20);
+            //Cookie = "JSESSIONID=FD9BAF93B2B8D7D2942DA5652253939B"; //fawei
+            Cookie = "JSESSIONID=137B7587B76B8C8E005217045B7FA79B"; //2645
+            //Cookie = "JSESSIONID=94E026DC054354A9385EDCFA22BCE1DA"; //liu
+            //Cookie = "JSESSIONID=7DD3C0565602F4BDC794BED46EC75A9C"; //liu 2 
+            StartTime = DateTime.Now.AddSeconds(10);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(16).AddMinutes(59);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(30);
             JkSession.MiaoSession.AddOrUpdate("StartTime", StartTime);
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Thursday)),
                 new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Friday)),
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Monday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Tuesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Wednesday)),
+                //new DspVal(DateTimeUtil.GetDayOfNextWeek(DayOfWeek.Thursday)),
             };
 
             JkSession.PlatformSession.AddOrUpdate("PreDateList", DateList);
@@ -268,14 +274,17 @@ namespace Jkchegu.viewmodel
             try
             {
                 count++;
-                foreach (var user in JkSession.ActiveUsers())
+                while (true)
                 {
-                    if (user.IsSuccess)
+                    foreach (var user in JkSession.ActiveUsers())
                     {
-                        continue;
+                        if (user.IsSuccess)
+                        {
+                            //continue;
+                        }
+                        JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
+                        user.Yuyue(orderList);
                     }
-                    JkSession.PrintLogEvent.Publish(this, $"{count.ToString()} - {user.Name}");
-                    user.Yuyue(orderList);
                 }
             }
             catch (Exception ex)

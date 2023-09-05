@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "预约列表",
+    "usingComponents": {
+        "van-empty": "../../miniprogram_npm/@vant/weapp/empty/index"
+    }
+}

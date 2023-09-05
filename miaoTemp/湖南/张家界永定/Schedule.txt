@@ -1,0 +1,130 @@
+GET http://yiliao2.lefeiniu.com:8081/resource/get_list?id=8&wek=4&riqi=2023-08-03 HTTP/1.1
+Host: yiliao2.lefeiniu.com:8081
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/x-www-form-urlencoded
+Accept: */*
+Cookie: PHPSESSID=2fae4085c9c45cf80b2ffdfb30873fe3; user_cookie=a58a9607129cddd43c44ad9ffc3bbe17
+Referer: http://yiliao2.lefeiniu.com:8081/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Mon, 31 Jul 2023 15:42:44 GMT
+Server: Apache/2.4.54 (Win64) OpenSSL/1.1.1p mod_fcgid/2.3.9a
+X-Powered-By: PHP/7.3.33
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1800
+Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-CSRF-TOKEN, X-Requested-With
+Access-Control-Allow-Origin: *
+Set-Cookie: PHPSESSID=2fae4085c9c45cf80b2ffdfb30873fe3; path=/
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 812
+Keep-Alive: timeout=5, max=998
+Connection: Keep-Alive
+Content-Type: application/json; charset=utf-8
+
+{
+    "message": "请求成功",
+    "data": [
+        {
+            "id": 31,
+            "pid": 1,
+            "p_val": "1|2|3|4|5",
+            "t_val": "08:30-11:00",
+            "number": 50,
+            "list_id": 31,
+            "type": 1,
+            "status": 1,
+            "closed": 1,
+            "paiid": 0,
+            "title": "重组带状疱疹疫苗（CHO细胞）",
+            "img": "http://yiliao2.lefeiniu.com:8081/storage/admin_images/20230627/12eb0e405cb537075b612563edfa5c09.jpg",
+            "money": "0.00",
+            "Intro": "适用于50岁及及以上成人。适用于预防带状疱疹。不适用于预防原发性水痘",
+            "class_id": 8,
+            "total": 0,
+            "use_no": 1
+        },
+        {
+            "id": 28,
+            "pid": 1,
+            "p_val": "1|2|3|4|5",
+            "t_val": "08:30-11:00",
+            "number": 50,
+            "list_id": 29,
+            "type": 1,
+            "status": 1,
+            "closed": 1,
+            "paiid": 0,
+            "title": "23价肺炎球菌多糖疫苗",
+            "img": "http://yiliao2.lefeiniu.com:8081/storage/admin_images/20230627/b8dd9cf86f677c174978fb339488c99c.jpg",
+            "money": "0.00",
+            "Intro": "适用于2岁以上肺炎球菌感染风险增加人群。预防由本疫苗含有的 23 种血清型肺炎链球菌引起的侵袭性疾病。不预防本疫苗所包括血清型以外的其它肺炎链球菌和其它微生物导致的疾病。",
+            "class_id": 8,
+            "total": 0,
+            "use_no": 1
+        },
+        {
+            "id": 30,
+            "pid": 1,
+            "p_val": "1|2|3|4|5",
+            "t_val": "08:30-11:00",
+            "number": 50,
+            "list_id": 32,
+            "type": 1,
+            "status": 1,
+            "closed": 1,
+            "paiid": 0,
+            "title": "重组乙型肝炎疫苗（CHO疫苗）",
+            "img": "http://yiliao2.lefeiniu.com:8081/storage/admin_images/20230627/4f93d84a855150fbe6f0a4c17de55dba.jpg",
+            "money": "0.00",
+            "Intro": "适用于乙型肝炎易感者。全程接种 3 剂可有效预防乙肝。",
+            "class_id": 8,
+            "total": 0,
+            "use_no": 1
+        },
+        {
+            "id": 26,
+            "pid": 1,
+            "p_val": "1|2|3|4|5",
+            "t_val": "08:00-11:30",
+            "number": 50,
+            "list_id": 22,
+            "type": 1,
+            "status": 1,
+            "closed": 1,
+            "paiid": 17,
+            "title": "朱肄",
+            "img": "http://yiliao2.lefeiniu.com:8081/storage/admin_images/20230505/402720c33e3254c75044a238e3245438.jpg",
+            "money": "0.00",
+            "Intro": "疫苗",
+            "class_id": 8,
+            "total": 0,
+            "use_no": 1
+        },
+        {
+            "id": 27,
+            "pid": 1,
+            "p_val": "1|2|3|4|5",
+            "t_val": "14:30-16:00",
+            "number": 50,
+            "list_id": 22,
+            "type": 2,
+            "status": 1,
+            "closed": 1,
+            "paiid": 18,
+            "title": "朱肄",
+            "img": "http://yiliao2.lefeiniu.com:8081/storage/admin_images/20230505/402720c33e3254c75044a238e3245438.jpg",
+            "money": "0.00",
+            "Intro": "疫苗",
+            "class_id": 8,
+            "total": 0,
+            "use_no": 1
+        }
+    ],
+    "code": 200
+}

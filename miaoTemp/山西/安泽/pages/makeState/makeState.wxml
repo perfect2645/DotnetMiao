@@ -1,0 +1,14 @@
+<view>
+    <view class="makeState_content">
+        <image class="makeState_image" mode="widthFix" src="../../images/success.png"></image>
+        <view class="makeState_title">预约成功</view>
+        <view class="makeState_text">恭喜您预约成功,请尽快到店核销。</view>
+        <view bindtap="urlTab" class="makeState_home" data-url="../index/index">返回首页</view>
+    </view>
+    <view class="makeState_content">
+        <image class="makeState_image" mode="widthFix" src="../../images/error.png"></image>
+        <view class="makeState_title">预约失败</view>
+        <view class="makeState_text">很遗憾预约失败，请您稍后再试。</view>
+        <view bindtap="urlTab" class="makeState_home" data-url="../index/index">返回首页</view>
+    </view>
+</view>

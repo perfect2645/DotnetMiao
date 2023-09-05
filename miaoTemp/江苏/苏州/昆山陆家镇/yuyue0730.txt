@@ -1,0 +1,22 @@
+POST https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine_new HTTP/1.1
+Host: ljzyyapi.yuanbaodaojia.com
+Connection: keep-alive
+Content-Length: 138
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/x-www-form-urlencoded
+Referer: https://servicewechat.com/wxcbe627ede7df27a5/2/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+vaccineDayId=54&vaccineDayNumId=150&vaccineId=2&familyId=4664&sign=077efd127f8b00b93bee8071daab6410&token=9ebe42a6ce39a6d6216a5babbb185bf7
+HTTP/1.1 200 OK
+Date: Sun, 30 Jul 2023 15:38:37 GMT
+Server: Apache
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: x-requested-with, content-type
+Upgrade: h2
+Connection: Upgrade, close
+Vary: Accept-Encoding
+Content-Length: 67
+Content-Type: application/json; charset=utf-8
+
+{"errorCode":"0000","msg":"预约成功","data":{"orderId":"1340"}}

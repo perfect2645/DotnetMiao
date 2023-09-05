@@ -63,5 +63,16 @@ namespace Utils.json
             var jsonElement = JsonDocument.Parse(jsonStr).RootElement;
             return JsonToDicList(jsonElement);
         }
+
+        public static Dictionary<string, object> JsonToDic(string jsonStr)
+        {
+            if (string.IsNullOrEmpty(jsonStr))
+            {
+                return new Dictionary<string, object>();
+            }
+
+            var jsonElement = JsonDocument.Parse(jsonStr).RootElement;
+            return JsonToDic(jsonElement);
+        }
     }
 }

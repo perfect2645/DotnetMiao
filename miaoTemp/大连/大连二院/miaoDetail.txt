@@ -1,0 +1,148 @@
+POST https://mix.med.gzhc365.com/api/register/schedulelist?_route=h2342& HTTP/1.1
+Host: mix.med.gzhc365.com
+Connection: keep-alive
+Content-Length: 223
+Hc-Proj-Info: project/his-wxapp;type/miniapp;ch/wechat;ver/mix;
+Hc-Src-Hisid: 2342
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+channel: wx_xcx
+client: patient
+content-type: application/x-www-form-urlencoded
+device-id: 
+his-id: 2342
+request-id: 701581ab-74a9-4ec7-ae65-9399a37c0260
+uid: 4522322919844511746
+uuid: 08fbd492-491a-48d4-879c-284c3592db2c
+Referer: https://servicewechat.com/wxe7621e2cd9dc36c0/145/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+hisId=2342&platformId=2342&platformSource=3&subSource=1&scheduleDate=2023-05-19&deptId=11823-2102000501&doctorId=1632072&t=202305&sign=D9B5434FBCB2CEACFC9B2769ABE0CD77&login_access_token=1684154311617-874BA7905EB476F2A1985C
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Server: Tengine
+Date: Mon, 15 May 2023 13:06:00 GMT
+Pragma: No-cache
+Cache-Control: no-cache
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=63072000; includeSubdomains; preload
+X-Xss-Protection: 1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests;connect-src *
+X-Kong-Upstream-Latency: 337
+X-Kong-Proxy-Latency: 0
+Via: kong/1.4.0
+Content-Length: 1679
+
+hisId=2342
+platformId=2342
+platformSource=3
+subSource=1
+scheduleDate=2023-05-19
+deptId=11823-2102000501
+doctorId=1632072
+t=202305
+sign=D9B5434FBCB2CEACFC9B2769ABE0CD77
+login_access_token=1684154311617-874BA7905EB476F2A1985C
+
+{
+    "code": 0,
+    "data": {
+        "doctorId": "1632072",
+        "hisId": 2342,
+        "scheduleDate": "2023-05-19",
+        "deptId": "11823-2102000501",
+        "itemList": [
+            {
+                "extFields": "10011823163207220230519213041308",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:04",
+                "visitEndTime": "13:08",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213081312",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:08",
+                "visitEndTime": "13:12",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213121316",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:12",
+                "visitEndTime": "13:16",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213161320",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:16",
+                "visitEndTime": "13:20",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213201324",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:20",
+                "visitEndTime": "13:24",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213241328",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:24",
+                "visitEndTime": "13:28",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213281332",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:28",
+                "visitEndTime": "13:32",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213321336",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:32",
+                "visitEndTime": "13:36",
+                "visitPeriod": 2
+            },
+            {
+                "extFields": "10011823163207220230519213361340",
+                "leftSource": 1,
+                "registerFee": 200,
+                "status": 1,
+                "totalSource": 1,
+                "visitBeginTime": "13:36",
+                "visitEndTime": "13:40",
+                "visitPeriod": 2
+            }
+        ]
+    }
+}

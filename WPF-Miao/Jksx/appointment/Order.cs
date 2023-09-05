@@ -1,21 +1,23 @@
-﻿using Base.Events;
-using System;
+﻿using Jksx.login;
 using System.Text;
-using Jksx.login;
-using Utils.timerUtil;
 
 namespace Jksx.appointment
 {
     public class Order
     {
-        public string UserId { get; set; }
         public string UserName { get; set; }
-        public string DutyTimeId { get; set; }
-        public string VaccineId { get; set; }
-        public string HosipitalId { get; set; }
-        public string InoculateTimes { get; set; } //第几针
-        public string SeeDate { get; set; }
-        public string Address { get; set; } = "天河";
+        public string Hospitaluid { get; set; }
+        public string Accesstype { get; set; }
+        public string Resid { get; set; }
+        public string Commonpeopleid { get; set; }
+        public string Workid { get; set; }
+        public string Treattype { get; set; }
+        public string Mtype { get; set; }
+        public string Userid { get; set; }
+        public string Workdate { get; set; }
+        
+
+        public string ResultMsg { get; set; }
         internal JksxLogin User { get; set; }
 
         public string ToLogString()
@@ -24,11 +26,13 @@ namespace Jksx.appointment
 
             sb.AppendLine("******** 预约详情 *********");
 
-            sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"UserId - {UserId}");
-            sb.AppendLine($"SeeDate - {SeeDate}");
-            sb.AppendLine($"VaccineId - {VaccineId}");
-            sb.AppendLine($"DutyTimeId - {DutyTimeId}");
+            sb.AppendLine($"{UserName} - {Userid}");
+            sb.AppendLine($"Workdate - {Workdate}");
+            sb.AppendLine($"Resid - {Resid}");
+            sb.AppendLine($"Hospitaluid - {Hospitaluid}");
+            sb.AppendLine($"Commonpeopleid - {Commonpeopleid}");
+            sb.AppendLine($"Workid - {Workid}");
+            sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();

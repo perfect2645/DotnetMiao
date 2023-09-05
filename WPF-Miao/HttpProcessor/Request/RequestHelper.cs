@@ -165,6 +165,25 @@ namespace HttpProcessor.Request
             }
         }
 
+        public static async Task<HttpDicResponse> PostArrayAsync(this HttpClient client, HttpStringContent content, bool ensureSuccess = true)
+        {
+            try
+            {
+                var strContent = content.GetArrayContent();
+                var response = await client.PostAsync(content.RequestUrl, strContent);
+                if (ensureSuccess)
+                {
+                    response.EnsureSuccessStatusCode();
+                }
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex.Message, "PostStringAsync");
+            }
+        }
+
         #endregion Post
     }
 }

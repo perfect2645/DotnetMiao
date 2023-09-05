@@ -1,0 +1,81 @@
+GET https://yuyue.azjkzx.cn/api/index/yimiaolist?ids=1 HTTP/1.1
+Host: yuyue.azjkzx.cn
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/json
+Referer: https://servicewechat.com/wx9462592068e4073e/5/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 22 May 2023 11:36:09 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-Request-ID: 8bcbfc63269c482600601fd8c44e1099
+Strict-Transport-Security: max-age=31536000
+Content-Length: 1713
+
+{
+    "code": 1,
+    "msg": "请求成功",
+    "time": "1684755369",
+    "data": [
+        {
+            "id": 16,
+            "admin_id": 0,
+            "tags": "进口；9-45周岁；3针次",
+            "genderdata": "female",
+            "title": "九价人乳头瘤病毒疫苗",
+            "content": "<p>名&nbsp; &nbsp; &nbsp; &nbsp;称：九价人乳头瘤病毒疫苗</p><p>接种对象：本品适用于9-45周岁女性</p><p><br></p><p>单支价格：1298.0元/支</p><p>接种费用：20.0元/次</p><p><br></p>",
+            "price": "1298.00",
+            "views": 0,
+            "startdate": "2023-05-23 09:00:00",
+            "activitytime": "2023-05-23 23:59:59",
+            "createtime": 1683704555,
+            "updatetime": 1684753803,
+            "deletetime": null,
+            "weigh": 16,
+            "switch": 1,
+            "status": "normal",
+            "state": "1",
+            "number": 96,
+            "frequency": "single",
+            "agelimitmin": 9,
+            "agelimitmax": 45,
+            "type_id": 1,
+            "image": "https://yuyue.azjkzx.cn/uploads/20220716/fbab871c751ca8e81222a5b3d69eb2da.jpg",
+            "pici": 2,
+            "picistr": "九价人乳头瘤病毒疫苗(2023年第2批次)",
+            "currentstate": 1
+        },
+        {
+            "id": 17,
+            "admin_id": 0,
+            "tags": "9-45周岁；3针次",
+            "genderdata": "female",
+            "title": "四价人乳头瘤病毒疫苗",
+            "content": "<p>名&nbsp; &nbsp; &nbsp; &nbsp;称：四价人乳头瘤病毒疫苗</p><p>接种对象：本品适用于9-45周岁女性</p><p><br></p><p>单支价格：798.0元/支</p><p>接种费用：20.0元/次</p>",
+            "price": "798.00",
+            "views": 0,
+            "startdate": "2023-05-23 09:00:00",
+            "activitytime": "2023-05-23 23:59:59",
+            "createtime": 1684754023,
+            "updatetime": 1684754023,
+            "deletetime": null,
+            "weigh": 17,
+            "switch": 0,
+            "status": "normal",
+            "state": "1",
+            "number": 96,
+            "frequency": "single",
+            "agelimitmin": 9,
+            "agelimitmax": 45,
+            "type_id": 1,
+            "image": "https://yuyue.azjkzx.cn/uploads/20220716/fbab871c751ca8e81222a5b3d69eb2da.jpg",
+            "pici": 2,
+            "picistr": "四价人乳头瘤病毒疫苗(2023年第2批次)",
+            "currentstate": 0
+        }
+    ]
+}

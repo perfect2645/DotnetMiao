@@ -3,9 +3,10 @@ using HttpProcessor.Content;
 using Jksx.session;
 using System;
 using System.Net.Http;
-using System.Threading;
-using Utils.stringBuilder;
 using System.Text.Json;
+using Utils;
+using Utils.json;
+using Utils.stringBuilder;
 
 namespace Jksx.appointment
 {
@@ -15,6 +16,7 @@ namespace Jksx.appointment
         private bool IsHeaderBuilt { get; set; }
         public YuyueController(HttpClient httpClient) : base(httpClient)
         {
+            IsSuccess = false;
         }
 
         public bool YuyueAsync(Order order)
@@ -25,7 +27,7 @@ namespace Jksx.appointment
             }
 
             MainSession.PrintLogEvent.Publish(null, $"开始预约：{order.ToLogString()}");
-            var content = new YuyueContent(order, order.User);
+            var content = new YuyueContent(order);
             return Yuyue(content);
         }
 
@@ -43,38 +45,61 @@ namespace Jksx.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.Json, false).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"Appoint failed - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
+                    return false;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var code = root.GetProperty("code").GetString();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != "1")
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
                 }
 
-                var root = response.JsonBody.RootElement;
-                JsonElement error;
-                var isError = root.TryGetProperty("error", out error);
-                if (isError)
+                var orderinfo = root.GetProperty("orderinfo");
+                if (orderinfo.ValueKind == JsonValueKind.Null)
                 {
-                    var errMsg = error.NotNullString();
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:error {errMsg}");
-                    if (errMsg.Contains("总预约次数已满"))
-                    {
-                        IsSuccess = true;
-                        return true;
-                    }
+                    MainSession.PrintLogEvent.Publish(this, $"预约失败: results is empty");
                     return false;
                 }
-                var msg = root.GetProperty("msg").NotNullString();
-                if (msg != "预约成功")
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"预约失败:message: {msg}");
-                    return false;
-                }
+
+                SaveOrderResult(orderinfo, content.Order);
+                MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
                 return true;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
+                return false;
+            }
+        }
+
+        private bool SaveOrderResult(JsonElement data, Order order)
+        {
+            try
+            {
+                var orderData = JsonAnalysis.JsonToDic(data);
+
+                var orderDate = orderData.GetString("visitdate");
+
+                order.Workdate = orderDate;
+
+                if (!string.IsNullOrEmpty(orderData.GetString("t_orderid")))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"解析预约结果异常{ex.Message}");
+
                 return false;
             }
         }

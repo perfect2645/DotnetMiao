@@ -53,6 +53,15 @@ namespace Zhuzher.collectsun
             }
         }
 
+        public void CollectSun(UserProject user, SunActivityScence scene)
+        {
+            for (var i = 0; i < scene.SceneTimes; i++)
+            {
+                Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                Thread.Sleep(5000);
+            }
+        }
+
         private void CollectSunForEachScene(UserProject user, SunActivityScence scene)
         {
             var content = new CollectSunContent();
