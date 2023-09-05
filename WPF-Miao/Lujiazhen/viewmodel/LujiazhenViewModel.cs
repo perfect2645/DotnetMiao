@@ -49,7 +49,7 @@ namespace Lujiazhen.viewmodel
         {
             Interval = 200;
 
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
