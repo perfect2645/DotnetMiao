@@ -65,6 +65,7 @@ namespace Dalian.appointment
             }
             catch (Exception ex)
             {
+                Logging.GLog.Logger.Error(ex);
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }

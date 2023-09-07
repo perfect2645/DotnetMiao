@@ -133,19 +133,19 @@ namespace Dalian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(18).AddMinutes(59);
+            StartTime = DateTime.Today.AddHours(18).AddMinutes(59).AddSeconds(50);
 
             DateList = new List<DspVal>();
 
             var targetDate = DateTimeUtil.GetTargetDate(7);
 
-            targetDate = "2023-09-12";
+            //targetDate = "2023-09-14";
             DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -175,18 +175,7 @@ namespace Dalian.viewmodel
                     HisDeptId = "3978",
                     RegLevelId = "65",
                     RegLevelName = "国产二价（9-45岁）"
-                },
-                new DalianHospital
-                {
-                    AppId = "wxa794c2a4fcfeb7f4",
-                    HospitalId = "10018",
-                    HospitalName = "大连市妇女儿童医疗中心（集团）",
-                    DepartmentId = "139372",
-                    DepartmentName = "长江路中医门诊（妇产院区）",
-                    HisDeptId = "3985",
-                    RegLevelId = "29",
-                    RegLevelName = "专科平诊"
-                },
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();

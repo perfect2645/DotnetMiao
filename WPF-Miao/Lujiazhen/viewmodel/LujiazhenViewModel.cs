@@ -68,6 +68,14 @@ namespace Lujiazhen.viewmodel
                 },
                 new LujiazhenHospital
                 {
+                    AppPrefix = "ljzyyapi",
+                    HospitalId = "1",
+                    HospitalName = "邵村院区",
+                    DepartmentName = "九价HPV首针（＜16周岁）",
+                    DepartmentId = "7",
+                },
+                new LujiazhenHospital
+                {
                     AppPrefix = "yimiaoapi",
                     HospitalId = "9",
                     HospitalName = "兵希社区",
@@ -82,14 +90,7 @@ namespace Lujiazhen.viewmodel
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "23",
                 },
-                new LujiazhenHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（＜16周岁）",
-                    DepartmentId = "7",
-                },
+
 
             };
 
