@@ -334,7 +334,7 @@ namespace Dalian.viewmodel
                 var randomOrders = orders.DisorderItems();
                 bool isSuccess = false;
                 var count = 0;
-                while (!isSuccess && count <= 2)
+                while (!isSuccess && count <= 1)
                 {
                     count++;
                     foreach (var order in randomOrders)
