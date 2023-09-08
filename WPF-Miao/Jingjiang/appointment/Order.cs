@@ -6,13 +6,11 @@ namespace Jingjiang.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string YwId { get; set; }
-        public string YwDateId { get; set; }
-        public string DatetimeId { get; set; }
-        public string Sfz { get; set; }
-        public string Sjhm { get; set; }
-        public string DwCode { get; set; }
-        //public string Zxx { get; set; }
+        public string VaccineDayId { get; set; }
+        public string VaccineDayNumId { get; set; }
+        public string VaccineId { get; set; }
+        public string FamilyId { get; set; }
+        public string ResultMsg { get; set; }
         internal JingjiangLogin User { get; set; }
 
         public string ToLogString()

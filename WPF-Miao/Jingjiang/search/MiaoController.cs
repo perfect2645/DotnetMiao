@@ -37,7 +37,7 @@ namespace Jingjiang.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -45,10 +45,11 @@ namespace Jingjiang.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetInt32();
+                var msg = root.GetProperty("msg").GetInt32();
+                if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}, msg={msg}");
                     return false;
                 }
 
@@ -59,9 +60,7 @@ namespace Jingjiang.search
                     return false;
                 }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return CheckSaveResource(data);
             }
             catch (Exception ex)
             {

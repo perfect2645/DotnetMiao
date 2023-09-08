@@ -1,27 +1,43 @@
 ﻿using Jingjiang.common;
+using Jingjiang.login;
+using Jingjiang.session;
+using System;
+using Utils;
+using Utils.datetime;
 
 namespace Jingjiang.appointment
 {
     internal class YuyueContent : JingjiangContent
     {
-        private static string url = "http://yygh.well-bone.com/prod-api/system/SysYwBook";
+        private static string url = ".yuanbaodaojia.com/v1/booking_vaccine_new";
         public Order Order { get; private set; }
         public YuyueContent(Order order) : base(url, order.User)
         {
             Order = order;
+
+            if (string.IsNullOrEmpty(User.Sign))
+            {
+                BaseUrl = $".yuanbaodaojia.com/v1/booking_vaccine";
+            }
+            BuildUrl();
             BuildContent();
         }
 
-        private void BuildContent()
+        protected override void BuildContent()
         {
-            AddContent("ywId", Order.YwId);
-            AddContent("ywDateId", Order.YwDateId);
-            AddContent("datetimeId", Order.DatetimeId);
-            AddContent("name", Order.UserName);
-            AddContent("sfz", Order.Sfz);
-            AddContent("sjhm", Order.Sjhm);
-            AddContent("dwCode", Order.DwCode);
-            AddContent("zxx", "");
+            AddContent("familyId", Order.FamilyId);
+            if (!string.IsNullOrEmpty(Order.User.Sign))
+            {
+                AddContent("sign", Order.User.Sign);
+            }
+            var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
+            Content.AddOrUpdate("timestamp", timestamp);
+            AddContent("token", Order.User.Token);
+            AddContent("vaccineDayId", Order.VaccineDayId);
+            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
+            AddContent("vaccineId", Order.VaccineId);
+
+            base.BuildContent();
         }
     }
 }

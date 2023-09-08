@@ -45,7 +45,7 @@ namespace Jingjiang.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content).Result;
+                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
@@ -53,9 +53,9 @@ namespace Jingjiang.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetInt32();
+                var code = root.GetProperty("errorCode").GetString();
                 var msg = root.GetProperty("msg").GetString();
-                if (code == 500)
+                if (code != "0000")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
