@@ -6,11 +6,14 @@ namespace Jingjiang.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string VaccineDayId { get; set; }
-        public string VaccineDayNumId { get; set; }
-        public string VaccineId { get; set; }
-        public string FamilyId { get; set; }
+        public string YwId { get; set; }
+        public string YwDateId { get; set; }
+        public string DatetimeId { get; set; }
+        public string Sfz { get; set; }
+        public string Sjhm { get; set; }
+        public string DwCode { get; set; }
         public string ResultMsg { get; set; }
+        //public string Zxx { get; set; }
         internal JingjiangLogin User { get; set; }
 
         public string ToLogString()
@@ -20,9 +23,10 @@ namespace Jingjiang.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"FamilyId - {FamilyId}");
-            sb.AppendLine($"VaccineDayId - {VaccineDayId}");
-            sb.AppendLine($"VaccineId - {VaccineId}");
+            sb.AppendLine($"身份证 - {Sfz}");
+            sb.AppendLine($"phone - {Sjhm}");
+            sb.AppendLine($"YwId - {YwId}");
+            sb.AppendLine($"YwDateId - {YwDateId}");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

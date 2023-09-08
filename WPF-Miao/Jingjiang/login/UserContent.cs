@@ -17,17 +17,6 @@ namespace Jingjiang.login
         public UserContent(JingjiangLogin user) : base(baseUrl, user)
         {
             BuildUrl();
-            BuildContent();
-        }
-
-        protected override void BuildContent()
-        {
-            AddContent("page", 1);
-            var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
-            Content.AddOrUpdate("timestamp", timestamp);
-            AddContent("token", User.Token);
-
-            base.BuildContent();
         }
     }
 }

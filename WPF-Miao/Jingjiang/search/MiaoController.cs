@@ -46,7 +46,7 @@ namespace Jingjiang.search
                 var root = response.JsonBody.RootElement;
 
                 var code = root.GetProperty("code").GetInt32();
-                var msg = root.GetProperty("msg").GetInt32();
+                var msg = root.GetProperty("msg").GetString();
                 if (code != 200)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}, msg={msg}");
@@ -71,48 +71,54 @@ namespace Jingjiang.search
 
         private bool CheckSaveResource(JsonElement dataElement)
         {
-            var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
-            if (!vaccineDayList.HasItem())
+            var vaccineDay = JsonAnalysis.JsonToDic(dataElement);
+            if (!vaccineDay.HasItem())
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
+            var date = vaccineDay.FirstOrDefault().Key;
+
+            var vaccineList = vaccineDay.FirstOrDefault().Value.NotNullString().ToObjDicList();
+
+
+            if (!vaccineList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"获取Miao信息失败");
+                return false;
+            }
+
+            return BuildOrderList(vaccineList);
         }
 
         private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
         {
             var orderList = new List<Order>();
 
-            foreach (var vaccineDay in vaccineDayList)
+            var availableVaccine = vaccineDayList.Where(x => x.GetString("wyyNum").ToInt() > 0).ToList();
+            if (!availableVaccine.HasItem())
             {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
+                MainSession.PrintLogEvent.Publish(this, $"没有可用苗");
+                return false;
+            }
 
-                var dayVaccineBookedNum = vaccineDay.GetString("dayVaccineBookedNum").ToInt();
-                //check if any vaccine is booked as the sign of start dayVaccineBookedNum
-                //var isStarted = dayVaccineBookedNum > 0;
-                //if (!isStarted)
-                //{
-                //    MainSession.PrintLogEvent.Publish(this, $"没开始,dayVaccineBookedNum={dayVaccineBookedNum}");
-                //    continue;
-                //}
+            foreach (var vaccineDay in availableVaccine)
+            {
+                var datetimeId = vaccineDay.GetString("datetimeId");
+                var ywId = vaccineDay.GetString("ywId");
+                var yyDate = vaccineDay.GetString("yyDate");
+                var dwCode = MainSession.PlatformSession.GetString(Constants.DwCode);
 
-                var dayVaccineRestNum = vaccineDay.GetString("dayVaccineRestNum").ToInt();
-                MainSession.PrintLogEvent.Publish(this, $"开始了,已约={dayVaccineBookedNum}，剩余:{dayVaccineRestNum}");
-
-                foreach (var timeItem in timeList)
+                var order = new Order
                 {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
-                    {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                    DatetimeId = datetimeId,
+                    DwCode = dwCode,
+                    YwDateId = yyDate,
+                    YwId = ywId,
+                };
+
+                orderList.Add(order);
             }
 
             if(!orderList.HasItem())
@@ -131,18 +137,6 @@ namespace Jingjiang.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-                VaccineDayId = dayId,
-                VaccineDayNumId = timeId,
-                VaccineId = deptId
-            };
         }
     }
 }

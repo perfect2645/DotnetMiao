@@ -5,7 +5,6 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jingjiang.appointment;
-using Jingjiang.Encrypt;
 using Jingjiang.login;
 using Jingjiang.search;
 using Jingjiang.session;
@@ -60,38 +59,12 @@ namespace Jingjiang.viewmodel
             {
                 new JingjiangHospital
                 {
-                    AppPrefix = "ljzyyapi",
                     HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "6",
-                },
-                new JingjiangHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（＜16周岁）",
-                    DepartmentId = "7",
-                },
-                new JingjiangHospital
-                {
-                    AppPrefix = "yimiaoapi",
-                    HospitalId = "9",
-                    HospitalName = "兵希社区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "23",
-                },
-                new JingjiangHospital
-                {
-                    AppPrefix = "yimiaoapi",
-                    HospitalId = "8",
-                    HospitalName = "蓬朗社区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "23",
-                },
-
-
+                    HospitalName = "靖江妇幼",
+                    DepartmentName = "成人九价HPV疫苗",
+                    DepartmentId = "1694864625296289793",
+                    DwCode = "接种九价HPV疫苗"
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -289,10 +262,12 @@ namespace Jingjiang.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
+                        DatetimeId = template.DatetimeId,
+                        YwId = template.YwId,
+                        YwDateId = template.YwDateId,
+                        Sfz = user.IdCard,
+                        DwCode = template.DwCode,
+                        Sjhm = user.Phone,
                     };
 
                     orderList.Add(order);
@@ -314,11 +289,11 @@ namespace Jingjiang.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as JingjiangHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.AppPrefix, selectedDept.AppPrefix);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DwCode, selectedDept.DwCode);
 
             Log(selectedDept.ToLogString());
         }
