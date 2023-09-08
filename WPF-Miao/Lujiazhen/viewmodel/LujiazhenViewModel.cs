@@ -49,12 +49,12 @@ namespace Lujiazhen.viewmodel
         {
             Interval = 200;
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {
