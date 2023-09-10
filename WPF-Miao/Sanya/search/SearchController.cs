@@ -32,16 +32,16 @@ namespace Sanya.search
 
         private void GetMiao()
         {
-            var deptController = HttpServiceController.GetService<DepartmentController>();
-            var isDeptGet = false;
-            while (!isDeptGet)
-            {
-                isDeptGet = deptController.SearchDepartment();
-                if (!isDeptGet)
-                {
-                    Thread.Sleep(1000);
-                }
-            }
+            //var deptController = HttpServiceController.GetService<DepartmentController>();
+            //var isDeptGet = false;
+            //while (!isDeptGet)
+            //{
+            //    isDeptGet = deptController.SearchDepartment();
+            //    if (!isDeptGet)
+            //    {
+            //        Thread.Sleep(1000);
+            //    }
+            //}
 
             var vaccineController = HttpServiceController.GetService<VaccineController>();
             var isVaccineGet = false;

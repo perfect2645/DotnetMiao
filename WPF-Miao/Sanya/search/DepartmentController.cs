@@ -96,6 +96,10 @@ namespace Sanya.search
             }
 
             var subscribeType = clientUrl.SplitToList("subscribeType=")[1];
+            if(subscribeType.Contains("2c90812388d150370188d1934ed6003c"))
+            {
+                subscribeType = "2c90812388d150370188d1934ed6003c";
+            }
 
             MainSession.PlatformSession[Constants.SubscribeType] = subscribeType;
 

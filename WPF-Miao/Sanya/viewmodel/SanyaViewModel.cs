@@ -133,7 +133,7 @@ namespace Sanya.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
@@ -154,7 +154,7 @@ namespace Sanya.viewmodel
                     HospitalId = "A572000C021",
                     HospitalName = "三亚市吉阳区海罗社区卫生健康服务中心",
                     SubscribeType = "2c90812388d150370188d1934ed6003c",
-                    DepartmentId = "",
+                    DepartmentId = "2c90801b88c4acc60188d1a7d0cc0137",
                     DepartmentName = "九价",
                     VaccineName = "九价"
                 },
