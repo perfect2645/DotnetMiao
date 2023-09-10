@@ -133,7 +133,7 @@ namespace Dalian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
@@ -145,7 +145,7 @@ namespace Dalian.viewmodel
 
             var targetDate = DateTimeUtil.GetTargetDate(7);
 
-            targetDate = "2023-09-15";
+            //targetDate = "2023-09-15";
             DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
@@ -333,22 +333,21 @@ namespace Dalian.viewmodel
             {
                 var randomOrders = orders.DisorderItems();
                 bool isSuccess = false;
-                var count = 0;
-                while (!isSuccess && count <= 1)
+                foreach (var order in randomOrders)
                 {
-                    count++;
-                    foreach (var order in randomOrders)
+                    if (isSuccess)
                     {
-                        var appointController = HttpServiceController.GetService<YuyueController>();
-                        isSuccess = appointController.YuyueAsync(order);
-                        if (isSuccess)
-                        {
-                            PrintLog($"{order.UserName}-预约成功");
-                            PrintLog(order.ToLogString());
-                            return;
-                        }
-                        Thread.Sleep(500);
+                        return;
                     }
+                    var appointController = HttpServiceController.GetService<YuyueController>();
+                    isSuccess = appointController.YuyueAsync(order);
+                    if (isSuccess)
+                    {
+                        PrintLog($"{order.UserName}-预约成功");
+                        PrintLog(order.ToLogString());
+                        return;
+                    }
+                    Thread.Sleep(200);
                 }
             }
             catch (HttpException ex)
