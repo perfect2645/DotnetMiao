@@ -1,19 +1,16 @@
 ﻿using Jksx.common;
 using Jksx.login;
 using Jksx.session;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Utils;
 
-namespace Jksx.login
+namespace Jksx.search
 {
-    internal class UserContent : JksxContent
+    internal class VaccineContent : JksxContent
     {
-        private static string baseUrl = "https://uhapi.sxyygh.com/patient/app/commonpeople/getCommonpeoplesByharsuserId";
-        public UserContent(JksxLogin user) : base(baseUrl, user)
+        private static string baseUrl = "https://uhapi.sxyygh.com/native/schedule/api/v1/vac/vaccine/list";
+        public VaccineContent(JksxLogin user) : base(baseUrl, user)
         {
             BuildContent();
         }
@@ -24,7 +21,7 @@ namespace Jksx.login
 
             AddContent("params", BuildEncodeParams());
             AddContent("endec", "on");
-            AddContent("token", Constants.Version);
+            AddContent("token", "v110");
         }
 
         private string BuildEncodeParams()

@@ -7,5 +7,6 @@ namespace Jksx.session
         public const string UserId = "userId";
         public const string EncodeKey = "sxlkkjoefncxmggg";
         public const string EncodeIV = "0682036802830600";
+        public const string Version = "v110";
     }
 }
