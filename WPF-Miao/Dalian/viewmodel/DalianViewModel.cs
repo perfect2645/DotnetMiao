@@ -133,7 +133,7 @@ namespace Dalian.viewmodel
         private void TestData()
         {
             Interval = 200;
-            //StartTime = DateTime.Now.AddSeconds(10);
+            StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
@@ -145,7 +145,7 @@ namespace Dalian.viewmodel
 
             var targetDate = DateTimeUtil.GetTargetDate(7);
 
-            //targetDate = "2023-09-15";
+            targetDate = "2023-09-18";
             DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);

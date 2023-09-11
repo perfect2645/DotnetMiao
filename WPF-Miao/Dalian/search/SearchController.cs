@@ -55,7 +55,7 @@ namespace Dalian.search
             while (true)
             {
                 isMiaoGet = miaoController.SearchMiao(dateList1.LastOrDefault().Value);
-                Thread.Sleep(200);
+                Thread.Sleep(180);
                 if (isMiaoGet)
                 {
                     Thread.Sleep(60 * 1000 * 14);
