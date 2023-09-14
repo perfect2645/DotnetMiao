@@ -47,7 +47,7 @@ namespace Zhuzher.collectsun
                     for (var i = 0; i < scene.SceneTimes; i++)
                     {
                         Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(5000);
+                        Thread.Sleep(2000);
                     }
                 }
             }
