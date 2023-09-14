@@ -49,7 +49,7 @@ namespace Lujiazhen.viewmodel
         {
             Interval = 200;
 
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -232,7 +232,7 @@ namespace Lujiazhen.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(800);
+                    Thread.Sleep(2000);
                 }
             }
             catch (HttpException ex)
@@ -263,7 +263,7 @@ namespace Lujiazhen.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(800);
+                        Thread.Sleep(2000);
                     }
                 }
             }
