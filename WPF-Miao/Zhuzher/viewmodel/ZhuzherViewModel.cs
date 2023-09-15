@@ -82,7 +82,7 @@ namespace Zhuzher.viewmodel
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
             ActivityId = "938";
-            ZhuzherSession.InviteCode = "ADA2PV";
+            ZhuzherSession.InviteCode = "T3L84I";
         }
 
         private void InitCommands()

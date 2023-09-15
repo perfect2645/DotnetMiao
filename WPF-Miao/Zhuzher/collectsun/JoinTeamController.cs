@@ -26,14 +26,8 @@ namespace Zhuzher.collectsun
             var userData = new UserProjectList();
             var user = userData.UserProjects.FirstOrDefault();
 
-            var content = new CollectSunContent();
-            content.AddHeader("Cookie", ZhuzherSession.Cookie);
-            content.AddHeader("Authorization", user.Authorization);
-
+            var content = new JoinTeamContent(user);
             content.BuildDefaultHeaders(Client);
-            content.AddContent("projectCode", user.ProjectCode);
-            content.AddContent("activityId", ZhuzherSession.ActivityId);
-            content.AddContent("inviteCode", ZhuzherSession.InviteCode);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)

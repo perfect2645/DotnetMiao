@@ -152,7 +152,7 @@ namespace Longchi.viewmodel
                     HospitalId = "hpv_ym.zzytrj.net:15003",
                     HospitalName = "龙池/角美 社区卫生服务中心",
                     DepartmentName = "【九价疫苗】",
-                    DepartmentList = new List<string> { "400" },
+                    DepartmentList = new List<string> { "400", "800" },
                 },
                 new LongchiHospital
                 {
