@@ -1,0 +1,211 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 4966,
+            "taskId": 712,
+            "taskName": "连续3天使用手机开门",
+            "chanceNumber": 10,
+            "taskDesc": "2023朴里节",
+            "tips": "连续3天使用手机开门，即可收集阳光",
+            "detail": [
+                {
+                    "taskDetailId": 713,
+                    "sceneName": "手机开门成功",
+                    "sceneCode": "app-keyforfree",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/property/opendoor/list",
+                    "detailDesc": "连续3天使用手机开门，即可收集【5】阳光，每天1次",
+                    "finished": false,
+                    "minVersion": "5.2.4",
+                    "eventCode": "KEY:KEY:0001",
+                    "processValue": "1",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1417,
+                    "gameId": 1305,
+                    "gameTitle": "阳光（许愿可用）",
+                    "limitCount": 5,
+                    "chanceName": "阳光（许愿）"
+                },
+                {
+                    "activityGameId": 1418,
+                    "gameId": 1307,
+                    "gameTitle": "阳光（拼图可用）",
+                    "limitCount": 5,
+                    "chanceName": "阳光（拼图可用）"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4973,
+            "taskId": 723,
+            "taskName": "浏览朴邻品牌介绍",
+            "chanceNumber": 2,
+            "taskDesc": "2023朴里节",
+            "tips": "浏览朴邻品牌介绍10s，即可收集阳光，每天2次",
+            "detail": [
+                {
+                    "taskDetailId": 724,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin",
+                    "detailDesc": "浏览朴邻品牌介绍10s，即可收集【1】阳光，每天2次",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1417,
+                    "gameId": 1305,
+                    "gameTitle": "阳光（许愿可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（许愿）"
+                },
+                {
+                    "activityGameId": 1418,
+                    "gameId": 1307,
+                    "gameTitle": "阳光（拼图可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（拼图可用）"
+                }
+            ],
+            "limitCount": 2,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4974,
+            "taskId": 732,
+            "taskName": "登记房屋租售需求卡",
+            "chanceNumber": 2,
+            "taskDesc": "2023朴里节",
+            "tips": "登记房屋租售信息并提交成功，即可收集阳光",
+            "detail": [
+                {
+                    "taskDetailId": 733,
+                    "sceneName": "朴邻填写找房卡",
+                    "sceneCode": "230915-pulin-landingpage",
+                    "sceneDesc": "朴里节，用户点击朴邻小房子完成找房卡填写",
+                    "url": "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=pulin&sceneCode=230915-pulin-landingpage",
+                    "detailDesc": "登记房屋租售找房卡",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:HELP:0002",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1417,
+                    "gameId": 1305,
+                    "gameTitle": "阳光（许愿可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（许愿）"
+                },
+                {
+                    "activityGameId": 1418,
+                    "gameId": 1307,
+                    "gameTitle": "阳光（拼图可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（拼图可用）"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4975,
+            "taskId": 727,
+            "taskName": "逛逛智能家居",
+            "chanceNumber": 2,
+            "taskDesc": "2023朴里节",
+            "tips": "浏览智能家居专题10s，即可收集阳光",
+            "detail": [
+                {
+                    "taskDetailId": 728,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/4835?pageMark=bbsqysdjqrzt4835",
+                    "detailDesc": "浏览智能家居专题10s，即可收集【1】阳光，每天2次",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1417,
+                    "gameId": 1305,
+                    "gameTitle": "阳光（许愿可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（许愿）"
+                },
+                {
+                    "activityGameId": 1418,
+                    "gameId": 1307,
+                    "gameTitle": "阳光（拼图可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（拼图可用）"
+                }
+            ],
+            "limitCount": 2,
+            "finishCount": null
+        },
+        {
+            "activityTaskId": 4976,
+            "taskId": 724,
+            "taskName": "看社区达人秀活动预告",
+            "chanceNumber": 2,
+            "taskDesc": "2023朴里节",
+            "tips": "了解一下朴里达人！浏览10s，即可收集阳光",
+            "detail": [
+                {
+                    "taskDetailId": 725,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=120",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1417,
+                    "gameId": 1305,
+                    "gameTitle": "阳光（许愿可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（许愿）"
+                },
+                {
+                    "activityGameId": 1418,
+                    "gameId": 1307,
+                    "gameTitle": "阳光（拼图可用）",
+                    "limitCount": 1,
+                    "chanceName": "阳光（拼图可用）"
+                }
+            ],
+            "limitCount": 2,
+            "finishCount": null
+        }
+    ]
+}

@@ -56,7 +56,7 @@ namespace Zhuzher.collectsun
                     {
   
                         Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(5000);
+                        Thread.Sleep(2000);
                     }
                 }
             }
