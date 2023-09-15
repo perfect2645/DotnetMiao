@@ -69,11 +69,8 @@ namespace Zhuzher.search
 
             AddScene("use-coupon-bonus", 1, "https://neighbor.4009515151.com/summoner-canary/coupon-list ");
 
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljyyj&goodsId=6633857");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
-
-
-
+            //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljyyj&goodsId=6633857");
+            //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
