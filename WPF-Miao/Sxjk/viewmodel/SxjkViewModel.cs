@@ -136,7 +136,14 @@ namespace Sxjk.viewmodel
 
             Departments = new List<HospitalDept>
             {
-
+                new SxjkHospital
+                {
+                    CityCode = "141000000000",
+                    CityName = "临汾市",
+                    StationCode = "141024010200",
+                    StationName = "大槐树镇中心卫生院接种门诊",
+                    DepartmentName = "九价疫苗预约",
+                },
                 new SxjkHospital
                 {
                     CityCode = "140900000000",

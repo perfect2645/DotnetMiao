@@ -22,7 +22,7 @@ namespace Sxjk.common
 
         public SxjkContent(string baseUrl, SxjkLogin user) : base(baseUrl)
         {
-            ContentType = "application/json";
+            ContentType = "application/json;charset=UTF-8";
             BaseUrl = baseUrl;
             User = user;
             UrlDic = new Dictionary<string, string>();
@@ -68,13 +68,11 @@ namespace Sxjk.common
             AddHeader("Host", "ymjz.sxcdc.cn");
             AddHeader("Connection", "keep-alive");
             AddHeader("Accept", "application/json, text/plain, */*");
-            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)");
+            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/WIFI Language/zh_CN");
             AddHeader("Cookie", User.Cookie);
-            AddHeader("Sec-Fetch-Site", "same-origin");
-            AddHeader("Sec-Fetch-Mode", "cors");
-            AddHeader("Sec-Fetch-Dest", "empty");
+            AddHeader("Referer", "https://ymjz.sxcdc.cn/SXJKWX/mine/adultList");
             AddHeader("Accept-Encoding", "gzip, deflate, br");
-            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+            AddHeader("Accept-Language", "zh-CN,zh-Hans;q=0.9");
         }
     }
 }
