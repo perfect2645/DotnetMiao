@@ -19,12 +19,17 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //TestSceneList();
-            InitSceneList();
+            TestSceneList();
+            //InitSceneList();
         }
 
         private void TestSceneList()
         {
+            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=938");
+            AddScene("app-browseweb", 2, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=120");
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
+            AddScene("5thzone-convenience-done", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljrcbj&goodsId=6630411");
         }
 
         private void InitSceneList()
@@ -49,6 +54,8 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://uiis.4009515151.com/fg_activity/template?id=2344");
             AddScene("app-browseweb", 2, "https://communityclass.onewo.com/#/doc?docId=MTAwMg==&vkSource=video");
             AddScene("230915-pulin-landingpage", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=pulin&sceneCode=230915-pulin-landingpage");
+
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=458");
 
             AddScene("app-act-invite&view", 3, "https://enterprise.4009515151.com/marketing-pages/puli2023?from=fenxiang");
             AddScene("app-keyforfree", 2, "zze://vanke.com/property/opendoor/list");

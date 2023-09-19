@@ -145,7 +145,7 @@ namespace Dalian.viewmodel
 
             var targetDate = DateTimeUtil.GetTargetDate(7);
 
-            targetDate = "2023-09-20";
+            targetDate = "2023-09-26";
             DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
