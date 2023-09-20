@@ -25,11 +25,9 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=938");
-            AddScene("app-browseweb", 2, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=120");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
-            AddScene("5thzone-convenience-done", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljrcbj&goodsId=6630411");
+            AddScene("230915-yanxuan-landingpage", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&sceneCode=230915-yanxuan-landingpage");
+            AddScene("230915-pulin-landingpage", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=pulin&sceneCode=230915-pulin-landingpage");
+
         }
 
         private void InitSceneList()
@@ -75,9 +73,13 @@ namespace Zhuzher.search
             AddScene("5thzone-blackpearl-comment", 2, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
 
             AddScene("use-coupon-bonus", 1, "https://neighbor.4009515151.com/summoner-canary/coupon-list ");
-
-            //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljyyj&goodsId=6633857");
-            //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
+            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=938");
+            AddScene("app-browseweb", 2, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=120");
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
+            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
+            AddScene("5thzone-convenience-done", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljrcbj&goodsId=6630411");
+            AddScene("app-point-exchangegoods", 3, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=2900&exchangeId=118");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

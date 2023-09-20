@@ -34,6 +34,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<SeckillController>();
             HttpServiceController.AddTransientService<JifenSurkillController>();
             HttpServiceController.AddTransientService<ScoreKillController>();
+            HttpServiceController.AddTransientService<PlayController>();
 
             HttpServiceController.BuidServiceProvider();
         }

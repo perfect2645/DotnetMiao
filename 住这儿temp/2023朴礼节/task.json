@@ -82,7 +82,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 5085,
@@ -123,7 +123,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4961,
@@ -138,7 +138,7 @@
                     "sceneName": "渠道访问立即获得",
                     "sceneCode": "puli-daka",
                     "sceneDesc": "匹配参数为scene=xxx",
-                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=/pages/MilkBook/index.html?url=https://enterprise.4009515151.com/marketing-pages/h5/activity?id=124",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fenterprise.4009515151.com%2Fmarketing-pages%2Fh5%2Factivity%3Fid%3D124",
                     "detailDesc": "进“住这儿粉丝福利群”，点链接即得4阳光",
                     "finished": null,
                     "minVersion": "",
@@ -164,7 +164,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4963,
@@ -205,7 +205,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4965,
@@ -246,7 +246,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         },
         {
             "activityTaskId": 4962,
@@ -287,7 +287,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 5088,
@@ -328,7 +328,7 @@
                 }
             ],
             "limitCount": 3,
-            "finishCount": 0
+            "finishCount": 3
         },
         {
             "activityTaskId": 5089,
@@ -369,7 +369,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4976,
@@ -410,7 +410,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         },
         {
             "activityTaskId": 4937,
@@ -451,7 +451,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4948,
@@ -492,7 +492,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4945,
@@ -533,7 +533,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4950,
@@ -574,7 +574,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4953,
@@ -615,7 +615,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4938,
@@ -656,7 +656,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4939,
@@ -697,7 +697,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4940,
@@ -731,7 +731,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4944,
@@ -772,7 +772,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4946,
@@ -813,15 +813,15 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4951,
             "taskId": 706,
             "taskName": "买1次团购特卖会商品",
-            "chanceNumber": 4,
+            "chanceNumber": 10,
             "taskDesc": "2023朴里节",
-            "tips": "在团购特卖会下单成功可收集阳光，每日5次",
+            "tips": "在团购特卖会下单成功可收集阳光，每日1次",
             "detail": [
                 {
                     "taskDetailId": 707,
@@ -842,25 +842,25 @@
                     "activityGameId": 1417,
                     "gameId": 1305,
                     "gameTitle": "阳光（许愿可用）",
-                    "limitCount": 2,
+                    "limitCount": 5,
                     "chanceName": "阳光（许愿）"
                 },
                 {
                     "activityGameId": 1418,
                     "gameId": 1307,
                     "gameTitle": "阳光（拼图可用）",
-                    "limitCount": 2,
+                    "limitCount": 5,
                     "chanceName": "阳光（拼图可用）"
                 }
             ],
-            "limitCount": 5,
+            "limitCount": 1,
             "finishCount": 0
         },
         {
             "activityTaskId": 4952,
             "taskId": 707,
             "taskName": "给个好评吧！",
-            "chanceNumber": 4,
+            "chanceNumber": 8,
             "taskDesc": "2023朴里节",
             "tips": "完成1次友邻评价可以收集阳光，每日2次",
             "detail": [
@@ -883,19 +883,19 @@
                     "activityGameId": 1417,
                     "gameId": 1305,
                     "gameTitle": "阳光（许愿可用）",
-                    "limitCount": 2,
+                    "limitCount": 4,
                     "chanceName": "阳光（许愿）"
                 },
                 {
                     "activityGameId": 1418,
                     "gameId": 1307,
                     "gameTitle": "阳光（拼图可用）",
-                    "limitCount": 2,
+                    "limitCount": 4,
                     "chanceName": "阳光（拼图可用）"
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         },
         {
             "activityTaskId": 4954,
@@ -936,7 +936,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4955,
@@ -977,7 +977,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4956,
@@ -1018,48 +1018,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
-        },
-        {
-            "activityTaskId": 4959,
-            "taskId": 725,
-            "taskName": "成功兑换指定积分商品",
-            "chanceNumber": 4,
-            "taskDesc": "2023朴里节",
-            "tips": "完成1次积分兑换即可收集阳光，每日3次",
-            "detail": [
-                {
-                    "taskDetailId": 726,
-                    "sceneName": "积分兑换商品成功",
-                    "sceneCode": "app-point-exchangegoods",
-                    "sceneDesc": "",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=1941&exchangeId=118",
-                    "detailDesc": "成功用积分兑换指定商品即可以收集【2】阳光，每日3次",
-                    "finished": null,
-                    "minVersion": "",
-                    "eventCode": "ACT:SCORE:0001",
-                    "processValue": null,
-                    "requiredValue": null
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1417,
-                    "gameId": 1305,
-                    "gameTitle": "阳光（许愿可用）",
-                    "limitCount": 2,
-                    "chanceName": "阳光（许愿）"
-                },
-                {
-                    "activityGameId": 1418,
-                    "gameId": 1307,
-                    "gameTitle": "阳光（拼图可用）",
-                    "limitCount": 2,
-                    "chanceName": "阳光（拼图可用）"
-                }
-            ],
-            "limitCount": 3,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4957,
@@ -1100,7 +1059,48 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
+        },
+        {
+            "activityTaskId": 5090,
+            "taskId": 725,
+            "taskName": "成功兑换指定积分商品",
+            "chanceNumber": 4,
+            "taskDesc": "2023朴里节",
+            "tips": "完成1次积分兑换即可收集阳光，每日3次",
+            "detail": [
+                {
+                    "taskDetailId": 726,
+                    "sceneName": "积分兑换商品成功",
+                    "sceneCode": "app-point-exchangegoods",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=2900&exchangeId=118",
+                    "detailDesc": "成功用积分兑换指定商品即可以收集【2】阳光，每日3次",
+                    "finished": null,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": null,
+                    "requiredValue": null
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1417,
+                    "gameId": 1305,
+                    "gameTitle": "阳光（许愿可用）",
+                    "limitCount": 2,
+                    "chanceName": "阳光（许愿）"
+                },
+                {
+                    "activityGameId": 1418,
+                    "gameId": 1307,
+                    "gameTitle": "阳光（拼图可用）",
+                    "limitCount": 2,
+                    "chanceName": "阳光（拼图可用）"
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": 1
         },
         {
             "activityTaskId": 4958,
@@ -1141,7 +1141,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         },
         {
             "activityTaskId": 4960,
@@ -1182,7 +1182,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4966,
@@ -1223,7 +1223,7 @@
                 }
             ],
             "limitCount": 1,
-            "finishCount": 0
+            "finishCount": 1
         },
         {
             "activityTaskId": 4967,
@@ -1428,7 +1428,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         },
         {
             "activityTaskId": 4972,
@@ -1510,7 +1510,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         },
         {
             "activityTaskId": 4974,
@@ -1592,7 +1592,7 @@
                 }
             ],
             "limitCount": 2,
-            "finishCount": 0
+            "finishCount": 2
         }
     ]
 }
