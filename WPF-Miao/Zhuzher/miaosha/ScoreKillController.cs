@@ -29,12 +29,12 @@ namespace Zhuzher.miaosha
 
             foreach (var group in miaoshaGroups)
             {
-                foreach(var item in group)
+                foreach (var item in group)
                 {
-                    foreach(var user in UserProjectList.UserProjects)
+                    foreach (var user in UserProjectList.UserProjects)
                     {
                         ZhuzherSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
-                        var exchangeHandler = HttpServiceController.GetService<PlayController>();
+                        var exchangeHandler = HttpServiceController.GetService<JifenSurkillController>();
                         var interval = new IntervalOnTime(() => SeckillTick(user, item, exchangeHandler), item.GoodName, group.Key);
                         IntervalList.AddOrUpdate(item.ExchangeGoodId, interval);
                     }
@@ -44,7 +44,7 @@ namespace Zhuzher.miaosha
             ZhuzherSession.PrintLogEvent?.Publish(this, $"****秒杀预备结束");
         }
 
-        public void SeckillTick(UserProject user, ScoreItem item, PlayController exchangeHandler)
+        public void SeckillTick(UserProject user, ScoreItem item, JifenSurkillController exchangeHandler)
         {
             Task.Factory.StartNew(() =>
             {

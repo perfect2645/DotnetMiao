@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Zhuzher.collectsun;
@@ -24,6 +25,7 @@ namespace Zhuzher.viewmodel
 
         public ICommand CollectSunCommand { get; set; }
         public ICommand ExchangeCommand { get; set; }
+        public ICommand PlayCommand { get; set; }
         public ICommand SeckillCommand { get; set; }
         public ICommand ScoreSeckillCommand { get; set; }
         public ICommand JoinTeamCommand { get; set; }
@@ -89,6 +91,7 @@ namespace Zhuzher.viewmodel
         {
             CollectSunCommand = new RelayCommand(ExecuteCollectSunAsync, CanExecuteCollectSun);
             ExchangeCommand = new RelayCommand(ExecuteExchange);
+            PlayCommand = new RelayCommand(ExecutePlay);
             SeckillCommand = new RelayCommand(ExecuteSeckill);
             ScoreSeckillCommand = new RelayCommand(ExecuteScoreSeckill);
             JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
@@ -146,6 +149,38 @@ namespace Zhuzher.viewmodel
         }
 
         #endregion Exchange
+
+        #region Play
+
+        private void ExecutePlay()
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var playHandler = HttpServiceController.GetService<PlayController>();
+                    var userList = new UserProjectList();
+                    foreach (var user in userList.UserProjects)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            playHandler.ActivityPlay(user);
+                            Thread.Sleep(1000);
+                        }
+                    }
+                });
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Play
 
         #region Seckill
 

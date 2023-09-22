@@ -19,15 +19,14 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            TestSceneList();
-            //InitSceneList();
+            //TestSceneList();
+            InitSceneList();
         }
 
         private void TestSceneList()
         {
-            AddScene("230915-yanxuan-landingpage", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&sceneCode=230915-yanxuan-landingpage");
-            AddScene("230915-pulin-landingpage", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=pulin&sceneCode=230915-pulin-landingpage");
 
+            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
         }
 
         private void InitSceneList()
