@@ -21,6 +21,15 @@ namespace Zhuzher.search
         {
             //TestSceneList();
             InitSceneList();
+            //InitStarSceneList();
+        }
+
+        private void InitStarSceneList()
+        {
+            AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/create");
+            AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=1");
+            AddScene("gottalent-getlike", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
+            AddScene("gottalent-getcomment", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
         }
 
         private void TestSceneList()
