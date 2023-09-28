@@ -20,8 +20,8 @@ namespace Zhuzher.search
         public SunActivityScenceList()
         {
             //TestSceneList();
-            InitSceneList();
-            //InitStarSceneList();
+            //InitSceneList();
+            InitStarSceneList();
         }
 
         private void InitStarSceneList()
