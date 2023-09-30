@@ -140,9 +140,6 @@ namespace Huaxi.search
 
             return new Order
             {
-                VaccineDayId = dayId,
-                VaccineDayNumId = timeId,
-                VaccineId = deptId
             };
         }
     }

@@ -1,0 +1,82 @@
+POST https://mcpwxp.motherchildren.com/cloud/ppclient/cardservice/userorgancardList HTTP/1.1
+Host: mcpwxp.motherchildren.com
+Connection: keep-alive
+Content-Length: 78
+accessToken: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MjQzNTI0NTkxMTE3OTI2NDAyMzY1MTEzMjEyMzE0NDEiLCJpYXQiOjE2OTU5NzQ4NDgsInN1YiI6IntcInVzZXJJZFwiOlwiNjI0MzUyNDU5MTExNzkyNjQwXCIsXCJhY2NvdW50SWRcIjpcIjYyNDM1MjQ1OTEyODU2OTg1NlwiLFwidXNlclR5cGVcIjowLFwiYXBwQ29kZVwiOlwiSFhGWUFQUFwiLFwiY2hhbm5lbENvZGVcIjpcIlBBVElFTlRfV0VDSEFUX0FQUExFVFwiLFwiZGV2aWNlTnVtYmVyXCI6XCIyMzY1MTEzMjEyMzE0NDFcIixcImRldmljZVR5cGVcIjpcIldYX0FQUFwiLFwiYWNjb3VudE5vXCI6XCIxNjc5MDQ2NzcxOVwiLFwibmFtZVwiOm51bGwsXCJwZXJzb25uZWxJZFwiOm51bGwsXCJvcmdhbkNvZGVcIjpcIkhYRDJcIn0iLCJleHAiOjE2OTg1NjY4NDh9.JJlTJvH0aqO-Yktbu4igry9beOhMi0bHO-vDUkK4Qmk***HXFYAPP
+content-type: application/json
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wx38285c6799dac2d1/99/page-frame.html
+
+{"organCode":"HXD2","appCode":"HXFYAPP","channelCode":"PATIENT_WECHAT_APPLET"}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 29 Sep 2023 08:18:36 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+traceid: 783c91287ebacdbb
+traceid: 783c91287ebacdbb
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 1431
+
+{
+    "code": "1",
+    "errCode": "0",
+    "msg": "操作成功",
+    "traceId": "783c91287ebacdbb",
+    "data": [
+        {
+            "userId": "624352459111792640",
+            "cardId": "624355285024600064",
+            "tel": "16790467523",
+            "provinceCode": "510000",
+            "provinceName": "四川省",
+            "cityCode": "510100",
+            "cityName": "成都市",
+            "cityAreaCode": "510107",
+            "cityAreaName": "武侯区",
+            "detailAddress": "武侯假日风景6号2-703",
+            "hisAddress": "四川省-成都市-武侯区-武侯假日风景6号2-703",
+            "nationName": "汉族",
+            "nationCode": "01",
+            "occupationName": "职员",
+            "occupationCode": "17",
+            "cardNo": "341203199903310625",
+            "cardTypeCode": "HealthCard",
+            "cardTypeName": "居民健康卡",
+            "patientId": "624355285179789312",
+            "cardStatus": 0,
+            "cardStatusDesc": "正常",
+            "credNo": "341203199903310625",
+            "credTypeCode": "01",
+            "credTypeName": "身份证",
+            "patientName": "毕佳乐",
+            "gender": 2,
+            "genderName": "女",
+            "patientAge": 24,
+            "patientAgeName": "24岁",
+            "birthday": "1999-03-31",
+            "organPmi": "22214127",
+            "organPmino": "22214127",
+            "organCode": "HXD2",
+            "organName": "四川大学华西第二医院",
+            "realname": true,
+            "relation": 0,
+            "updateRelation": true,
+            "listDefault": true,
+            "indexDefault": false,
+            "marriageCode": "1",
+            "marriageName": "未婚",
+            "channelCode": "PATIENT_WECHAT_APPLET",
+            "qrCode": "7915F8A8E2E854D46E5D93F2DA74EAD6F1E03C2C0ED2067B8265A99246698CA3:1::5100A0013",
+            "createTime": "2023-09-29 08:18:42",
+            "bindTime": "2023-09-29 08:18:42",
+            "isEhCard": true,
+            "canSync": false,
+            "organLogo": "https://hxeycdn.cd120.info/app-icon/public-client/icon-hxd2.png"
+        }
+    ]
+}

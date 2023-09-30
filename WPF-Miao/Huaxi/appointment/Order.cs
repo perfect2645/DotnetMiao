@@ -7,8 +7,8 @@ namespace Huaxi.appointment
     {
         public string UserName { get; set; }
         public string OrganCode { get; set; }
-        public string AppCode { get; set; }
-        public string ChannelCode { get; set; }
+        public string AppCode { get; set; } = "HXFYAPP";
+        public string ChannelCode { get; set; } = "PATIENT_WECHAT_APPLET";
         public string CardId { get; set; }
         public string ScheduleId { get; set; }
         public string SureOrderVerify { get; set; }

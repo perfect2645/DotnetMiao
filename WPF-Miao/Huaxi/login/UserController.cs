@@ -31,7 +31,7 @@ namespace Huaxi.login
             {
                 var content = new UserContent(user);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -39,10 +39,11 @@ namespace Huaxi.login
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetString();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != "1")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}, msg={msg}");
                     return;
                 }
 
@@ -69,16 +70,18 @@ namespace Huaxi.login
                 return;
             }
 
-            var defaultUser = userList.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
+            var defaultUser = userList.FirstOrDefault(x => x["patientName"].NotNullString() == user.UserName);
             if (defaultUser == null)
             {
                 defaultUser = userList.FirstOrDefault();
             }
-            var userName = defaultUser.GetString("name");
-            var userId = defaultUser.GetString("id");
+            var userName = defaultUser.GetString("patientName");
+            var userId = defaultUser.GetString("userId");
+            var cardId = defaultUser.GetString("cardId");
 
             user.UserId = userId;
             user.UserName = userName;
+            user.CardId = cardId;
 
             MainSession.PrintLogEvent.Publish(this, defaultUser);
         }

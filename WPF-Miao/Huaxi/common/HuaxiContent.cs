@@ -22,13 +22,6 @@ namespace Huaxi.common
             BuildHeader();
         }
 
-        protected void BuildUrl()
-        {
-            var appPrefix = MainSession.PlatformSession.GetString(Constants.AppPrefix);
-            RequestUrl = $"https://{appPrefix}{BaseUrl}";
-
-        }
-
         private void BuildHeader()
         {
             AddHeader("Host", $"mcpwxp.motherchildren.com");

@@ -12,7 +12,6 @@ namespace Huaxi.search
 
         public MiaoContent(HuaxiLogin user) : base(baseUrl, user)
         {
-            BuildUrl();
             BuildContent();
         }
 

@@ -13,21 +13,18 @@ namespace Huaxi.login
 {
     internal class UserContent : HuaxiContent
     {
-        private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
+        private static string baseUrl = "https://mcpwxp.motherchildren.com/cloud/ppclient/cardservice/userorgancardList";
         public UserContent(HuaxiLogin user) : base(baseUrl, user)
         {
-            BuildUrl();
             BuildContent();
         }
 
         protected override void BuildContent()
         {
-            AddContent("page", 1);
-            var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
-            Content.AddOrUpdate("timestamp", timestamp);
-            AddContent("token", User.AccessToken);
-
-            base.BuildContent();
+            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
+            AddContent("organCode", hosId);
+            AddContent("appCode", Constants.AppCode);
+            AddContent("channelCode", Constants.ChannelCode);
         }
     }
 }

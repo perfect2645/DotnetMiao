@@ -59,38 +59,11 @@ namespace Huaxi.viewmodel
             {
                 new HuaxiHospital
                 {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
+                    HospitalId = "HXD2",
+                    HospitalName = "四川大学华西第二医院 (锦江院区)",
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "6",
-                },
-                new HuaxiHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（＜16周岁）",
-                    DepartmentId = "7",
-                },
-                new HuaxiHospital
-                {
-                    AppPrefix = "yimiaoapi",
-                    HospitalId = "9",
-                    HospitalName = "兵希社区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "23",
-                },
-                new HuaxiHospital
-                {
-                    AppPrefix = "yimiaoapi",
-                    HospitalId = "8",
-                    HospitalName = "蓬朗社区",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "23",
-                },
-
-
+                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
@@ -309,7 +282,6 @@ namespace Huaxi.viewmodel
         private void OnSelectedDepartmentChanged()
         {
             var selectedDept = SelectedDepartment as HuaxiHospital;
-            MainSession.PlatformSession.AddOrUpdate(Constants.AppPrefix, selectedDept.AppPrefix);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
