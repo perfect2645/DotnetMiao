@@ -37,7 +37,7 @@ namespace Huaxi.search
                 var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new MiaoContent(defaultUser);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
@@ -45,10 +45,11 @@ namespace Huaxi.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                var code = root.GetProperty("code").GetString();
+                var msg = root.GetProperty("msg").GetString();
+                if (code != "1")
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}, msg={msg}");
                     return false;
                 }
 
@@ -59,7 +60,7 @@ namespace Huaxi.search
                     return false;
                 }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
+                var vaccineDayList = data.GetProperty("scheduleRespVo").GetProperty("scheduleRespVos");
 
                 return CheckSaveResource(vaccineDayList);
             }
@@ -79,41 +80,29 @@ namespace Huaxi.search
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
+            var availableScheduleList = vaccineDayList.Where(x => x.GetString("statusName") == "有号").ToList();
+            if (!availableScheduleList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"没有可用号源");
+                return false;
+            }
+
+            return BuildOrderList(availableScheduleList);
         }
 
         private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)
         {
             var orderList = new List<Order>();
+            var organCode = MainSession.PlatformSession.GetString(Constants.HospitalId);
 
             foreach (var vaccineDay in vaccineDayList)
             {
-                var dayId = vaccineDay.GetString("id");
-                var timeList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(vaccineDay.GetString("vaccineDayNum"));
-
-                var dayVaccineBookedNum = vaccineDay.GetString("dayVaccineBookedNum").ToInt();
-                //check if any vaccine is booked as the sign of start dayVaccineBookedNum
-                //var isStarted = dayVaccineBookedNum > 0;
-                //if (!isStarted)
-                //{
-                //    MainSession.PrintLogEvent.Publish(this, $"没开始,dayVaccineBookedNum={dayVaccineBookedNum}");
-                //    continue;
-                //}
-
-                var dayVaccineRestNum = vaccineDay.GetString("dayVaccineRestNum").ToInt();
-                MainSession.PrintLogEvent.Publish(this, $"开始了,已约={dayVaccineBookedNum}，剩余:{dayVaccineRestNum}");
-
-                foreach (var timeItem in timeList)
+                var sysScheduleId = vaccineDay.GetString("sysScheduleId");
+                orderList.Add(new Order
                 {
-                    var forbidden = timeItem.GetString("forbidden");
-                    if (forbidden.NotNullString() == "1")
-                    {
-                        continue;
-                    }
-                    var timeId = timeItem.GetString("id");
-                    var orderWithTime = BuildOneOrder(dayId, timeId);
-                    orderList.Add(orderWithTime);
-                }
+                    OrganCode = organCode,
+                    ScheduleId = sysScheduleId
+                });
             }
 
             if(!orderList.HasItem())
@@ -132,15 +121,6 @@ namespace Huaxi.search
             MainSession.OrderEvent.Publish(this, orderArgs);
 
             return true;
-        }
-
-        private Order BuildOneOrder(string dayId, string timeId)
-        {
-            var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            return new Order
-            {
-            };
         }
     }
 }

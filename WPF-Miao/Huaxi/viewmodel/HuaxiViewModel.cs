@@ -261,6 +261,9 @@ namespace Huaxi.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
+                        CardId = user.CardId,
+                        OrganCode = template.OrganCode,
+                        ScheduleId = template.ScheduleId,
                     };
 
                     orderList.Add(order);

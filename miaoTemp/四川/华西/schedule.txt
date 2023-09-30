@@ -1,0 +1,92 @@
+POST https://mcpwxp.motherchildren.com/cloud/appointment/publicClient/selDoctorSchedule HTTP/1.1
+Host: mcpwxp.motherchildren.com
+Connection: keep-alive
+Content-Length: 115
+accessToken: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MjQzNTI0NTkxMTE3OTI2NDAyMzY1MTEzMjEyMzE0NDEiLCJpYXQiOjE2OTU5NzQ4NDgsInN1YiI6IntcInVzZXJJZFwiOlwiNjI0MzUyNDU5MTExNzkyNjQwXCIsXCJhY2NvdW50SWRcIjpcIjYyNDM1MjQ1OTEyODU2OTg1NlwiLFwidXNlclR5cGVcIjowLFwiYXBwQ29kZVwiOlwiSFhGWUFQUFwiLFwiY2hhbm5lbENvZGVcIjpcIlBBVElFTlRfV0VDSEFUX0FQUExFVFwiLFwiZGV2aWNlTnVtYmVyXCI6XCIyMzY1MTEzMjEyMzE0NDFcIixcImRldmljZVR5cGVcIjpcIldYX0FQUFwiLFwiYWNjb3VudE5vXCI6XCIxNjc5MDQ2NzcxOVwiLFwibmFtZVwiOm51bGwsXCJwZXJzb25uZWxJZFwiOm51bGwsXCJvcmdhbkNvZGVcIjpcIkhYRDJcIn0iLCJleHAiOjE2OTg1NjY4NDh9.JJlTJvH0aqO-Yktbu4igry9beOhMi0bHO-vDUkK4Qmk***HXFYAPP
+content-type: application/json
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wx38285c6799dac2d1/99/page-frame.html
+
+{"organCode":"platform","appCode":"HXFYAPP","channelCode":"PATIENT_WECHAT_APPLET","doctorId":"7782840383733497862"}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 29 Sep 2023 08:18:42 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+traceid: c9603b4794c54b94
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 1302
+
+{
+    "code": "1",
+    "errCode": "0",
+    "msg": "操作成功",
+    "data": {
+        "visitPlaces": [
+            "四川大学华西第二医院 锦江院区"
+        ],
+        "scheduleRespVo": {
+            "scheduleRespVos": [
+                {
+                    "sysScheduleId": "1706192945698484226",
+                    "organCode": "HXD2",
+                    "visitPlaces": "四川大学华西第二医院 锦江院区",
+                    "address": "成都市锦江区成龙大道西段",
+                    "longitude": "104.154024",
+                    "latitude": "30.591709",
+                    "deptName": "综合外科门诊",
+                    "vfpDeptType": "COMMON",
+                    "whatDay": "周一",
+                    "scheduleDate": "10-09",
+                    "timeRange": "上午",
+                    "timeRangeSort": 1,
+                    "cost": "￥22.00",
+                    "statusName": "有号",
+                    "isPrecise": false
+                },
+                {
+                    "sysScheduleId": "1706192945769787393",
+                    "organCode": "HXD2",
+                    "visitPlaces": "四川大学华西第二医院 锦江院区",
+                    "address": "成都市锦江区成龙大道西段",
+                    "longitude": "104.154024",
+                    "latitude": "30.591709",
+                    "deptName": "综合外科门诊",
+                    "vfpDeptType": "COMMON",
+                    "whatDay": "周一",
+                    "scheduleDate": "10-09",
+                    "timeRange": "下午",
+                    "timeRangeSort": 3,
+                    "cost": "￥22.00",
+                    "statusName": "有号",
+                    "isPrecise": false
+                }
+            ]
+        },
+        "otherDoctorRespVo": {
+            "otherDoctorListRespVos": []
+        },
+        "announcement": null,
+        "toolTipBox": null,
+        "hotlistsServiceRespVo": {
+            "hotlistsServiceRespVos": [
+                {
+                    "hotlistImageUrl": "",
+                    "skipUrl": "",
+                    "hotlistsUnique": "etbj",
+                    "hotlistsName": "儿童保健"
+                },
+                {
+                    "hotlistImageUrl": "",
+                    "skipUrl": "",
+                    "hotlistsUnique": "etkf",
+                    "hotlistsName": "儿童康复"
+                }
+            ]
+        }
+    }
+}
