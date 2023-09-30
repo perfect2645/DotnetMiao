@@ -24,7 +24,7 @@ namespace Huaxi.search
 
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             AddContent("timestamp", timestamp);
-            AddContent("token", User.Token);
+            AddContent("token", User.AccessToken);
             AddContent("vaccineAddressId", hosId);
             AddContent("vaccineId", deptId);
 

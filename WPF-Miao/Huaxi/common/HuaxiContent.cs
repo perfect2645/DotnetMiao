@@ -19,7 +19,6 @@ namespace Huaxi.common
         {
             User = user;
             BaseUrl = baseUrl;
-            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
         }
 
@@ -32,35 +31,16 @@ namespace Huaxi.common
 
         private void BuildHeader()
         {
-            var appPrefix = MainSession.PlatformSession.GetString(Constants.AppPrefix);
-            AddHeader("Host", $"{appPrefix}.yuanbaodaojia.com");
+            AddHeader("Host", $"mcpwxp.motherchildren.com");
             AddHeader("Connection", "keep-alive");
-            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
-            AddHeader("Referer", "https://servicewechat.com/wxcbe627ede7df27a5/2/page-frame.html");
-            AddHeader("Accept-Encoding", "gzip, deflate, br");
+            AddHeader("accessToken", User.AccessToken);
+            AddHeader("Accept-Encoding", "gzip,compress,br,deflate");
+            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN");
+            AddHeader("Referer", "https://servicewechat.com/wx38285c6799dac2d1/99/page-frame.html");
         }
 
         protected virtual void BuildContent()
         {
-            BuildSign();
-        }
-
-        protected virtual void BuildSign()
-        {
-            var sb = new StringBuilder();
-            foreach(var content in Content)
-            {
-                sb.Append("&");
-                sb.Append(content.Key);
-                sb.Append("=");
-                sb.Append(content.Value.NotNullString());
-            }
-
-            sb.Append("&key=8C81915139AA5CCC160A0AC9168FF2C4");
-            var signStr = sb.ToString().TrimStart('&');
-            var signEncode = Encryptor.GetMD5_32(signStr);
-
-            Content.AddOrUpdate("tokenSign", signEncode);
         }
     }
 }

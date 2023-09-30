@@ -6,7 +6,7 @@
             "activityTaskId": 5099,
             "taskId": 746,
             "taskName": "发布作品",
-            "chanceNumber": 10,
+            "chanceNumber": 5,
             "taskDesc": "达人秀",
             "tips": "每天首次发布作品获得星光",
             "detail": [
@@ -26,13 +26,16 @@
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5106,
             "taskId": 760,
             "taskName": "【限时3倍】发布作品",
-            "chanceNumber": 20,
+            "chanceNumber": 10,
             "taskDesc": "达人秀",
             "tips": "9.25-10.1发布作品限时获得3倍星光",
             "detail": [
@@ -43,16 +46,19 @@
                     "sceneDesc": "达人秀发布图文或视频成功",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/create",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5100,
@@ -78,7 +84,10 @@
             ],
             "taskGameList": null,
             "limitCount": 5,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5107,
@@ -95,16 +104,19 @@
                     "sceneDesc": "达人秀创作者的作品被别人点赞",
                     "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 5,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5101,
@@ -121,16 +133,19 @@
                     "sceneDesc": "达人秀创作者的作品被别人评论或评论被回复",
                     "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 5,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5108,
@@ -147,22 +162,25 @@
                     "sceneDesc": "达人秀创作者的作品被别人评论或评论被回复",
                     "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 5,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5102,
             "taskId": 749,
             "taskName": "获得粉丝关注",
-            "chanceNumber": 20,
+            "chanceNumber": 10,
             "taskDesc": "达人秀",
             "tips": "每天新增的前5个粉丝，可以带来星光",
             "detail": [
@@ -173,22 +191,25 @@
                     "sceneDesc": "达人秀创作者被别人关注",
                     "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 5,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5109,
             "taskId": 763,
             "taskName": "【限时3倍】获得粉丝",
-            "chanceNumber": 40,
+            "chanceNumber": 20,
             "taskDesc": "达人秀",
             "tips": "9.25-10.1获得粉丝关注限时获得3倍星光",
             "detail": [
@@ -199,6 +220,35 @@
                     "sceneDesc": "达人秀创作者被别人关注",
                     "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
                     "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 5,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5134,
+            "taskId": 764,
+            "taskName": "参与中秋厨艺挑战赛",
+            "chanceNumber": 100,
+            "taskDesc": "达人秀",
+            "tips": "首次参与中秋厨艺挑战赛获得星光",
+            "detail": [
+                {
+                    "taskDetailId": 765,
+                    "sceneName": "参与达人秀挑战赛",
+                    "sceneCode": "gottalent-challenge",
+                    "sceneDesc": "参与达人秀任意挑战赛，可匹配挑战赛id参数",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=2",
+                    "detailDesc": "",
                     "finished": true,
                     "minVersion": "",
                     "eventCode": null,
@@ -207,8 +257,127 @@
                 }
             ],
             "taskGameList": null,
-            "limitCount": 5,
-            "finishCount": null
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5141,
+            "taskId": 766,
+            "taskName": "参与国庆拍摄挑战赛",
+            "chanceNumber": 100,
+            "taskDesc": "达人秀",
+            "tips": "首次参与国庆拍摄挑战赛获得星光",
+            "detail": [
+                {
+                    "taskDetailId": 767,
+                    "sceneName": "参与达人秀挑战赛",
+                    "sceneCode": "gottalent-challenge",
+                    "sceneDesc": "参与达人秀任意挑战赛，可匹配挑战赛id参数",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=3",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5142,
+            "taskId": 767,
+            "taskName": "参与亚运会打卡挑战赛",
+            "chanceNumber": 50,
+            "taskDesc": "达人秀",
+            "tips": "首次参与获得星光",
+            "detail": [
+                {
+                    "taskDetailId": 768,
+                    "sceneName": "参与达人秀挑战赛",
+                    "sceneCode": "gottalent-challenge",
+                    "sceneDesc": "参与达人秀任意挑战赛，可匹配挑战赛id参数",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=4",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5143,
+            "taskId": 768,
+            "taskName": "参与宠物主题挑战赛",
+            "chanceNumber": 50,
+            "taskDesc": "达人秀",
+            "tips": "首次参与宠物主题挑战赛获得星光",
+            "detail": [
+                {
+                    "taskDetailId": 769,
+                    "sceneName": "参与达人秀挑战赛",
+                    "sceneCode": "gottalent-challenge",
+                    "sceneDesc": "参与达人秀任意挑战赛，可匹配挑战赛id参数",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=5",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5144,
+            "taskId": 769,
+            "taskName": "参与钓友主题挑战赛",
+            "chanceNumber": 50,
+            "taskDesc": "达人秀",
+            "tips": "首次参与获得星光",
+            "detail": [
+                {
+                    "taskDetailId": 770,
+                    "sceneName": "参与达人秀挑战赛",
+                    "sceneCode": "gottalent-challenge",
+                    "sceneDesc": "参与达人秀任意挑战赛，可匹配挑战赛id参数",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=6",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5103,
@@ -225,16 +394,19 @@
                     "sceneDesc": "参与达人秀任意挑战赛，可匹配挑战赛id参数",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5110,
@@ -251,16 +423,19 @@
                     "sceneDesc": "达人秀发布图文或视频成功",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/create",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "3",
                     "requiredValue": "3"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5111,
@@ -277,16 +452,19 @@
                     "sceneDesc": "达人秀发布图文或视频成功",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/create",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "7",
                     "requiredValue": "7"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5112,
@@ -306,13 +484,16 @@
                     "finished": false,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "7",
                     "requiredValue": "15"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5113,
@@ -329,16 +510,19 @@
                     "sceneDesc": "达人秀创作者的作品被别人点赞",
                     "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "7",
                     "requiredValue": "7"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         },
         {
             "activityTaskId": 5114,
@@ -358,91 +542,16 @@
                     "finished": false,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "7",
                     "requiredValue": "15"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 5115,
-            "taskId": 757,
-            "taskName": "累计获得100粉丝",
-            "chanceNumber": 1000,
-            "taskDesc": "达人秀",
-            "tips": "9月25日起累计收获100个粉丝，额外获得星光",
-            "detail": [
-                {
-                    "taskDetailId": 758,
-                    "sceneName": "获得粉丝",
-                    "sceneCode": "gottalent-getfans",
-                    "sceneDesc": "达人秀创作者被别人关注",
-                    "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": null,
-                    "processValue": "5",
-                    "requiredValue": "100"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 5116,
-            "taskId": 758,
-            "taskName": "累计获得1000粉丝",
-            "chanceNumber": 10000,
-            "taskDesc": "达人秀",
-            "tips": "9月25日起累计获得1000个粉丝，额外获得星光",
-            "detail": [
-                {
-                    "taskDetailId": 759,
-                    "sceneName": "获得粉丝",
-                    "sceneCode": "gottalent-getfans",
-                    "sceneDesc": "达人秀创作者被别人关注",
-                    "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": null,
-                    "processValue": "5",
-                    "requiredValue": "1000"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 5117,
-            "taskId": 759,
-            "taskName": "累计获10000粉丝",
-            "chanceNumber": 200000,
-            "taskDesc": "达人秀",
-            "tips": "9月25日累计获得10000个粉丝，获得额外星光",
-            "detail": [
-                {
-                    "taskDetailId": 760,
-                    "sceneName": "获得粉丝",
-                    "sceneCode": "gottalent-getfans",
-                    "sceneDesc": "达人秀创作者被别人关注",
-                    "url": "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": null,
-                    "processValue": "5",
-                    "requiredValue": "10000"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         }
     ]
 }

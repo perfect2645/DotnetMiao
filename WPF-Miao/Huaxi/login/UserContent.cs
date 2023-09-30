@@ -25,7 +25,7 @@ namespace Huaxi.login
             AddContent("page", 1);
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             Content.AddOrUpdate("timestamp", timestamp);
-            AddContent("token", User.Token);
+            AddContent("token", User.AccessToken);
 
             base.BuildContent();
         }

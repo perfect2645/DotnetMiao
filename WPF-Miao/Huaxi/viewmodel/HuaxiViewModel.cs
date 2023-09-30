@@ -288,10 +288,6 @@ namespace Huaxi.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        FamilyId = user.UserId,
-                        VaccineDayId = template.VaccineDayId,
-                        VaccineId = template.VaccineId,
-                        VaccineDayNumId = template.VaccineDayNumId,
                     };
 
                     orderList.Add(order);

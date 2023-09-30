@@ -1,0 +1,37 @@
+POST https://mcpwxp.motherchildren.com/cloud/appointment/publicClient/sureOrder HTTP/1.1
+Host: mcpwxp.motherchildren.com
+Connection: keep-alive
+Content-Length: 297
+accessToken: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MjQzNTI0NTkxMTE3OTI2NDAyMzY1MTEzMjEyMzE0NDEiLCJpYXQiOjE2OTU5NzQ4NDgsInN1YiI6IntcInVzZXJJZFwiOlwiNjI0MzUyNDU5MTExNzkyNjQwXCIsXCJhY2NvdW50SWRcIjpcIjYyNDM1MjQ1OTEyODU2OTg1NlwiLFwidXNlclR5cGVcIjowLFwiYXBwQ29kZVwiOlwiSFhGWUFQUFwiLFwiY2hhbm5lbENvZGVcIjpcIlBBVElFTlRfV0VDSEFUX0FQUExFVFwiLFwiZGV2aWNlTnVtYmVyXCI6XCIyMzY1MTEzMjEyMzE0NDFcIixcImRldmljZVR5cGVcIjpcIldYX0FQUFwiLFwiYWNjb3VudE5vXCI6XCIxNjc5MDQ2NzcxOVwiLFwibmFtZVwiOm51bGwsXCJwZXJzb25uZWxJZFwiOm51bGwsXCJvcmdhbkNvZGVcIjpcIkhYRDJcIn0iLCJleHAiOjE2OTg1NjY4NDh9.JJlTJvH0aqO-Yktbu4igry9beOhMi0bHO-vDUkK4Qmk***HXFYAPP
+content-type: application/json
+Accept-Encoding: gzip,compress,br,deflate
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/4G Language/zh_CN
+Referer: https://servicewechat.com/wx38285c6799dac2d1/99/page-frame.html
+
+{"organCode":"HXD2","appCode":"HXFYAPP","channelCode":"PATIENT_WECHAT_APPLET","cardId":"624355285024600064","scheduleId":"1706192945769787393","sureOrderVerify":"identifyingCode","sureOrderVerifyInfo":"6899","sureOrderVerifyIndex":"kknou8982zdb9r0n1xqs3k0e9rtceiiu","verifyImageCodeType":"WECHAT"}
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 29 Sep 2023 08:19:00 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+traceid: 4d618383f6037140
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 287
+
+{"code":"1","errCode":"0","msg":"操作成功","data":{"appointmentId":"1707671457490898945","organCode":"HXD2","sysScheduleId":null,"poolStartTime":null,"poolEndTime":null,"resultTheoryTime":null,"patientId":null,"selResultBySAfter":null,"selResultBySGap":null,"selResultMaxTime":null}}
+
+
+{
+    "organCode": "HXD2",
+    "appCode": "HXFYAPP",
+    "channelCode": "PATIENT_WECHAT_APPLET",
+    "cardId": "624355285024600064",
+    "scheduleId": "1706192945769787393",
+    "sureOrderVerify": "identifyingCode",
+    "sureOrderVerifyInfo": "6899",
+    "sureOrderVerifyIndex": "kknou8982zdb9r0n1xqs3k0e9rtceiiu",
+    "verifyImageCodeType": "WECHAT"
+}

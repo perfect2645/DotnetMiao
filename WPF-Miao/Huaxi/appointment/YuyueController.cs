@@ -45,7 +45,7 @@ namespace Huaxi.appointment
                     content.BuildDefaultHeaders(Client);
                     IsHeaderBuilt = true;
                 }
-                HttpDicResponse response = PostStringAsync(content, ContentType.String, false).Result;
+                HttpDicResponse response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"Yuyue - {response?.Message},请检查参数");
@@ -53,9 +53,9 @@ namespace Huaxi.appointment
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
+                var code = root.GetProperty("code").GetString();
                 var msg = root.GetProperty("msg").GetString();
-                if (code != "0000")
+                if (code != "1")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: code={code}, msg={msg}");
                     return false;
@@ -68,7 +68,7 @@ namespace Huaxi.appointment
                     return false;
                 }
                 MainSession.PrintLogEvent.Publish(this, $"msg={msg}");
-                return true;
+                return SaveOrderResult(data, content.Order);
             }
             catch (Exception ex)
             {
@@ -77,7 +77,7 @@ namespace Huaxi.appointment
             }
         }
 
-        private bool SaveOrderResult(JsonElement data)
+        private bool SaveOrderResult(JsonElement data, Order order)
         {
             try
             {
@@ -85,8 +85,10 @@ namespace Huaxi.appointment
 
                 MainSession.PrintLogEvent.Publish(this, orderData);
 
-                if (!string.IsNullOrEmpty(orderData.GetString("tranNo")))
+                var orderId = orderData.GetString("appointmentId");
+                if (!string.IsNullOrEmpty(orderId))
                 {
+                    order.OrderId = orderId;
                     return true;
                 }
 

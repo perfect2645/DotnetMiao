@@ -27,9 +27,15 @@ namespace Zhuzher.search
         private void InitStarSceneList()
         {
             AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/create");
-            AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=1");
             AddScene("gottalent-getlike", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
             AddScene("gottalent-getcomment", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
+            AddScene("gottalent-getfans", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
+            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=1");
+            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=2");
+            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=3");
+            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=4");
+            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=5");
+            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=6");
         }
 
         private void TestSceneList()
