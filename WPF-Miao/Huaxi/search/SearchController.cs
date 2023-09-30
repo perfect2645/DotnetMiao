@@ -29,7 +29,7 @@ namespace Huaxi.search
             while (!isMiaoGet)
             {
                 isMiaoGet = miaoController.SearchMiao();
-                Thread.Sleep(3000);
+                Thread.Sleep(500);
             }
         }
     }

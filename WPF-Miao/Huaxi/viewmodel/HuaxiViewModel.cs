@@ -48,7 +48,7 @@ namespace Huaxi.viewmodel
         {
             Interval = 200;
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -57,6 +57,13 @@ namespace Huaxi.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                new HuaxiHospital
+                {
+                    HospitalId = "HXD2",
+                    HospitalName = "四川大学华西第二医院 (锦江院区)",
+                    DoctorId = "6809141336038441002",
+                    DoctorName = "胡雅毅"
+                },
                 new HuaxiHospital
                 {
                     HospitalId = "HXD2",

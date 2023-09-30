@@ -14,7 +14,7 @@ namespace Huaxi.appointment
         public string SureOrderVerify { get; set; }
         public string SureOrderVerifyInfo { get; set; }
         public string SureOrderVerifyIndex { get; set; }
-        public string VerifyImageCodeType { get; set; }
+        //public string VerifyImageCodeType { get; set; }
         public string OrderId { get; set; }
         public string ResultMsg { get; set; }
         internal HuaxiLogin User { get; set; }

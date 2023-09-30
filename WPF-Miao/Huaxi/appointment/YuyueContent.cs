@@ -24,10 +24,10 @@ namespace Huaxi.appointment
             AddContent("channelCode", Order.ChannelCode);
             AddContent("cardId", Order.CardId);
             AddContent("scheduleId", Order.ScheduleId);
-            //AddContent("sureOrderVerify", Order.SureOrderVerify);
-            //AddContent("sureOrderVerifyInfo", Order.SureOrderVerifyInfo);
-            //AddContent("sureOrderVerifyIndex", Order.SureOrderVerifyIndex);
-            //AddContent("verifyImageCodeType", Order.VerifyImageCodeType);
+            AddContent("sureOrderVerify", "identifyingCode");
+            AddContent("sureOrderVerifyInfo", Order.SureOrderVerifyInfo);
+            AddContent("sureOrderVerifyIndex", Order.SureOrderVerifyIndex);
+            AddContent("verifyImageCodeType", "WECHAT");
         }
     }
 }
