@@ -61,8 +61,8 @@ namespace Huaxi.viewmodel
                 {
                     HospitalId = "HXD2",
                     HospitalName = "四川大学华西第二医院 (锦江院区)",
-                    DepartmentName = "九价HPV首针（≥16周岁）",
-                    DepartmentId = "6",
+                    DoctorId = "7782840383733497862",
+                    DoctorName = "李宏宇"
                 }
             };
 
@@ -286,6 +286,8 @@ namespace Huaxi.viewmodel
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptName, selectedDept.DepartmentName);
             MainSession.PlatformSession.AddOrUpdate(Constants.DeptId, selectedDept.DepartmentId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorId, selectedDept.DoctorId);
+            MainSession.PlatformSession.AddOrUpdate(Constants.DoctorName, selectedDept.DoctorName);
 
             Log(selectedDept.ToLogString());
         }

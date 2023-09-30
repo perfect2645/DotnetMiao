@@ -5,6 +5,8 @@ namespace Huaxi.viewmodel
 {
     internal class HuaxiHospital : HospitalDept
     {
+        public string DoctorId { get; set; }
+        public string DoctorName { get; set; }
         public new string Display
         {
             get { return $"{HospitalName}-{DepartmentName}"; }
