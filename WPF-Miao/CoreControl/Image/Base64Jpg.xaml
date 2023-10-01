@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="CoreControl.Image.Base64Jpg"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="JpgImage">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Image Source="{Binding ImgSource, ElementName=JpgImage}"
+                   >
+                
+            </Image>
+            <Button Content="刷新" Width="60"
+                Command="{Binding RefreshCommand}">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
