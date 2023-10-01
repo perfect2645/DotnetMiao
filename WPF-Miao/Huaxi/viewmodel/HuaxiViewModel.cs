@@ -48,7 +48,7 @@ namespace Huaxi.viewmodel
         {
             Interval = 200;
 
-            //StartTime = DateTime.Now.AddSeconds(5);
+            StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
@@ -229,21 +229,17 @@ namespace Huaxi.viewmodel
         {
             try
             {
-                bool isSuccess = false;
-                while (!isSuccess)
+                foreach (var order in orders)
                 {
-                    foreach (var order in orders)
+                    var appointController = MainSession.AppointSession.GetController($"{userName}");
+                    var isSuccess = appointController.YuyueAsync(order);
+                    if (isSuccess)
                     {
-                        var appointController = MainSession.AppointSession.GetController($"{userName}");
-                        isSuccess = appointController.YuyueAsync(order);
-                        if (isSuccess)
-                        {
-                            PrintLog("预约成功");
-                            PrintLog(order.ToLogString());
-                            return;
-                        }
-                        Thread.Sleep(2000);
+                        PrintLog("预约成功");
+                        PrintLog(order.ToLogString());
+                        return;
                     }
+                    Thread.Sleep(2000);
                 }
             }
             catch (HttpException ex)
