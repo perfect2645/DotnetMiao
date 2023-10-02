@@ -4,6 +4,7 @@
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:session="clr-namespace:Huaxi.session"
+      xmlns:coreControl="clr-namespace:CoreControl.Image;assembly=CoreControl"
       Title="华西妇幼"
       x:Name="HuaxiPage">
     <Page.Resources>
@@ -16,8 +17,9 @@
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:OnTimeConsole.DynamicArea>
             <StackPanel>
-                <StackPanel Background="Bisque">
-                </StackPanel>
+                <coreControl:Base64Jpg Base64Source="{Binding YzmSource}">
+                    
+                </coreControl:Base64Jpg>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
                     <Button Content="手动预约" Margin="0,0,10,0"
                     Command="{Binding SearchCommand}" Width="100">

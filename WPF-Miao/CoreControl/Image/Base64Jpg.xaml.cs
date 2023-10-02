@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Utils.Img;
 
 namespace CoreControl.Image
 {
@@ -35,6 +36,15 @@ namespace CoreControl.Image
         public static readonly DependencyProperty ImgSourceProperty =
             DependencyProperty.Register("ImgSource", typeof(string), ControlType);
 
+        public string Base64Source
+        {
+            get { return (string)GetValue(Base64SourceProperty); }
+            set { SetValue(Base64SourceProperty, value); }
+        }
+
+        public static readonly DependencyProperty Base64SourceProperty =
+            DependencyProperty.Register("Base64Source", typeof(string), ControlType, new PropertyMetadata(Base64SourceChanged));
+
         public ICommand RefreshCommand
         {
             get { return (ICommand)GetValue(RefreshCommandProperty); }
@@ -54,5 +64,16 @@ namespace CoreControl.Image
         }
 
         #endregion Constructor
+
+        #region Functions
+
+        private static void Base64SourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctrl = d as Base64Jpg;
+            var base64Content = ctrl.Base64Source;
+            ctrl.ImgSource = JpgUtil.Base64ToImgSource(base64Content);
+        }
+
+        #endregion Functions
     }
 }
