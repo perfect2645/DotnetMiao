@@ -2,6 +2,7 @@
 using Huaxi.appointment;
 using Huaxi.login;
 using Huaxi.search;
+using Huaxi.Yzm;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -30,6 +31,7 @@ namespace Huaxi
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<YzmController>();
             HttpServiceController.BuidServiceProvider();
         }
     }

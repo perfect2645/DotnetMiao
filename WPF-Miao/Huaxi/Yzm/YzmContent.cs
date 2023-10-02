@@ -1,14 +1,15 @@
 ﻿using Huaxi.common;
+using Huaxi.login;
 using Huaxi.session;
 using System.Text;
 using Utils;
 
-namespace Huaxi.login
+namespace Huaxi.Yzm
 {
-    internal class UserContent : HuaxiContent
+    internal class YzmContent : HuaxiContent
     {
-        private static string baseUrl = "https://mcpwxp.motherchildren.com/cloud/ppclient/cardservice/userorgancardList";
-        public UserContent(HuaxiLogin user) : base(baseUrl, user)
+        private static string baseUrl = "https://mcpwxp.motherchildren.com/cloud/ppclient/msg/getImageCode";
+        public YzmContent(HuaxiLogin user) : base(baseUrl, user)
         {
             BuildContent();
         }
@@ -19,6 +20,7 @@ namespace Huaxi.login
             AddContent("organCode", hosId);
             AddContent("appCode", Constants.AppCode);
             AddContent("channelCode", Constants.ChannelCode);
+            AddContent("type", "WECHAT");
         }
     }
 }

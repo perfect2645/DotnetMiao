@@ -1,15 +1,23 @@
 ﻿<UserControl x:Class="CoreControl.Image.Base64Jpg"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              x:Name="JpgImage">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <Image Source="{Binding ImgSource, ElementName=JpgImage}"
-                   >
+                   Width="80"
+                   Height="30">
                 
             </Image>
-            <Button Content="刷新" Width="60"
-                Command="{Binding RefreshCommand}">
+            <TextBox Text="{Binding ImgText, ElementName=JpgImage}"
+                     Width="60"
+                     Height="30"
+                     Margin="10,0,0,0"
+                     materialDesign:HintAssist.Hint="ImgText">
+            </TextBox>
+            <Button Content="刷新" Width="60" Margin="10,0,0,0"
+                Command="{Binding RefreshCommand, ElementName=JpgImage}">
             </Button>
         </StackPanel>
     </Grid>

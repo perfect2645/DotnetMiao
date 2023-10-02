@@ -25,10 +25,8 @@ namespace Huaxi.appointment
             AddContent("cardId", Order.CardId);
             AddContent("scheduleId", Order.ScheduleId);
             AddContent("sureOrderVerify", "identifyingCode");
-            AddContent("sureOrderVerifyInfo", "1651");
-            AddContent("sureOrderVerifyIndex", "r1nrzyjoazt7g7j2h4clwmm61j07g4ql");
-            //AddContent("sureOrderVerifyInfo", Order.SureOrderVerifyInfo);
-            //AddContent("sureOrderVerifyIndex", Order.SureOrderVerifyIndex);
+            AddContent("sureOrderVerifyInfo", MainSession.PlatformSession.GetString(Constants.Yzm));
+            AddContent("sureOrderVerifyIndex", MainSession.PlatformSession.GetString(Constants.BizSeq));
             AddContent("verifyImageCodeType", "WECHAT");
         }
     }

@@ -17,8 +17,9 @@
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
         <basePage:OnTimeConsole.DynamicArea>
             <StackPanel>
-                <coreControl:Base64Jpg Base64Source="{Binding YzmSource}">
-                    
+                <coreControl:Base64Jpg Base64Source="{Binding YzmSource}"
+                                       RefreshCommand="{Binding YzmRefreshCommand}"
+                                       ImgText="{Binding YzmText, Mode=TwoWay}">
                 </coreControl:Base64Jpg>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="100">
                     <Button Content="手动预约" Margin="0,0,10,0"
