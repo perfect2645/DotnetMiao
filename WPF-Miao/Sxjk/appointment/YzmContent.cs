@@ -4,12 +4,12 @@ using Sxjk.session;
 using System;
 using Utils;
 
-namespace Sxjk.search
+namespace Sxjk.appointment
 {
-    internal class UserContent : SxjkContent
+    internal class YzmContent : SxjkContent
     {
-        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetAdultList?";
-        public UserContent(SxjkLogin user) : base(baseUrl, user)
+        private static string baseUrl = "https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetAdultReservationList?";
+        public YzmContent(SxjkLogin user) : base(baseUrl, user)
         {
             BuildUrl();
             AddReferer();
@@ -20,16 +20,16 @@ namespace Sxjk.search
             var cityCode = MainSession.PlatformSession.GetString(Constants.CityCode);
 
             UrlDic.AddOrUpdate("type", "0");
-            //UrlDic.AddOrUpdate("bact_id", User.BactId);
-            UrlDic.AddOrUpdate("bact_id", "");
+            UrlDic.AddOrUpdate("child_code", User.UserId);
             UrlDic.AddOrUpdate("user_name", User.LoginUserName);
+            UrlDic.AddOrUpdate("page_index", "0");
             UrlDic.AddOrUpdate("city_code", cityCode);
             base.BuildUrl();
         }
 
         private void AddReferer()
         {
-            AddHeader("Referer", "https://ymjz.sxcdc.cn/SXJKWX/mine/adultList");
+            AddHeader("Referer", "https://ymjz.sxcdc.cn/SXJKWX/mine/reserveList");
         }
     }
 }

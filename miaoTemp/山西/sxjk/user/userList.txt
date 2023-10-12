@@ -1,18 +1,22 @@
-GET https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetAdultList?parameters=WzlQfudS%2FH%2FsTsqY8wX2Hfeqw7kY53wHQQ%2BX7mlI2E281WfXVdfZ6qkQbxf%2F%2B50G4TLaUeFaUsxYxSoxvB1eFNJOklvK60VXBMTrPzY1l2XIqtt%2FizaePI42GWUMpHsR&sign=29ae51060044b3adce490f158bcd1a31&timestamp=1694793518617 HTTP/1.1
+GET https://ymjz.sxcdc.cn/jmbweb/Encryption/Adult/GetAdultList?parameters=WzlQfudS%2FH%2FsTsqY8wX2Hfeqw7kY53wHQQ%2BX7mlI2E281WfXVdfZ6qkQbxf%2F%2B50G9nBTVFVwNWztHbCzgDdav9JOklvK60VXBMTrPzY1l2XIqtt%2FizaePI42GWUMpHsR&sign=3bdb087c0c1572b27678e487964670fd&timestamp=1697121421006 HTTP/1.1
 Host: ymjz.sxcdc.cn
-Content-Type: application/json;charset=UTF-8
-Cookie: SESSION=NWNlZjk0YzAtNmI0ZS00ZTU0LWExYTItYjUxOTc2YWRmMWI5
 Connection: keep-alive
 Accept: application/json, text/plain, */*
-User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.29(0x18001d38) NetType/WIFI Language/zh_CN
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Type: application/json;charset=UTF-8
+Cookie: SESSION=NTU0MTVkYTItMjFmNS00MTA2LTk1MDgtNmU1MGU5OGVkNjc5
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
 Referer: https://ymjz.sxcdc.cn/SXJKWX/mine/adultList
-Accept-Language: zh-CN,zh-Hans;q=0.9
 Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
 
 //// req
 bact_id=&user_name=other#388418&type=0&city_code=141000000000&version_name=6.6.0&os=web
 
-
+type=0&bact_id=72&user_name=other#388418&city_code=141000000000&version_name=6.6.0&os=web
 
 
 

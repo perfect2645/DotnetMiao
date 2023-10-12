@@ -25,7 +25,13 @@
 
          */
 
-        const deStr = decrypt('h/Ypcxg7jOYnPEcJIRBy9zshbG1odvR1hk03/aW7IN2mTXAlTLS8gFgLrgQlwgCwYK4TtiXloK1mLipQ16NmgqMVWqrUvqCeFsupOdk4Z2r2eP6dkWpHgbnFLcIZLgq1d53sN539LxoAxiVlVagd05B4rW5UR3ivIxhg1O7nqpK2K8udmggNKyP19nTAB9Qt40dpArw/dWq00x3k/VFK4+UKAOrrz9pPK6NKAw9ThFw+cZiFwZ4i9ZTNC4o+sRl2ztB+EZIJApTRL3oJ229TPl4C8CpFEJEDVAOMV+20NVVJTwhm80jRDFvHY/NvrD4bm/15UrO63ERlD3afowwDmk/s+fcZNgodVq4jSrkUtwQess6ve28tYdG/w4IqrrVTxg6856zgmddre7RbYx3fC0rAM9SbxZN3FQeC2puTdRvyRSPbqdS1fu2qTB/kLoSnwpqwnCCI8MymJuVTHKfeAUqcLTe2tGve+cNjBHAIUB4=');
+        let paramStr = "DOR%2FjXi%2BGXcdubrECbDsuaMq3uKKMFDkufh8uNd0KmMHruZSO8cm6WCqUiebrUkfCFNVJiJfsuM7hNXTuJckGrZpPeZZYwNGfaRnNeiE9RpZnlk08NRFDmB4N2l9Bb%2Bo";
+
+        paramStr = paramStr.replace(/%2F/g, '/');
+        paramStr = paramStr.replace(/%2B/g, '+');
+        paramStr = paramStr.replace(/%3D/g, '=');
+
+        const deStr = decrypt(paramStr);
         console.log(deStr);
 
         const enStr = encrypt(deStr);
