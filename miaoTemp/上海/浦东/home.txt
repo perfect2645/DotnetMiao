@@ -1,0 +1,31 @@
+GET https://wjwgzh.pudong.gov.cn/pudongweiH5/home?code=001URRFa1XgCdG0ABkHa1VDLiV1URRFG&state=310115000000 HTTP/1.1
+Host: wjwgzh.pudong.gov.cn
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: https://open.weixin.qq.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Referer: https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb97178707ac05385&redirect_uri=https%3A%2F%2Fwjwgzh.pudong.gov.cn%2FpudongweiH5%2Fhome&response_type=code&scope=snsapi_userinfo&state=310115000000&uin=MjkwNjc3NzE3&key=068858a5b2e1c6b29b2e52c5b12f055a8a33d9f70ec891b5f63d7c9dbbe21f6bab1cd4de7d32dc711975aff9dd2913cbef17c363522e863fd2d29662aa0feba8c218be2e289a0cd40ce598975c89f923bcfd71a645869b9a7ad6024471046815359ea52b9ccadb965da9996130d7dbce82b92cf514b30716e9a29e4e2f7274d7&version=63030073&exportkey=n_ChQIAhIQIs1WTzj60goDGy1s2X2WbBLMAQIE97dBBAEAAAAAAHWlAC1kZnYAAAAOpnltbLcz9gKNyK89dVj0eKTBUR4QdEeg9N6O6uoUN8KV1D9ZKm3agEno1X%2B1E5NVOwVrHwzAne2RFADZd7cilgNVJi1oxsM3CsNdfz1iOSgs6De5uJJoSddohlLTdpLXPrc8xq6HMZgGX98cYYk%2BbKhN2ia1qB%2By%2FHJKC1yxxwLOppCN6MBWTEcxwrGxmjs3oH0%2F2Rm0XADZqOctEM13IbiIsMmxbrZNjoPU4EXlBDh61PscXA%3D%3D&pass_ticket=ex%2FDPdxAHwdZSurA86FCw3wWLUkPS6O0M6s8d9UO5MlcILVrnAg%2FqGsZf5TQnb3J&wx_header=0
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Date: Mon, 16 Oct 2023 12:49:02 GMT
+Content-Type: text/html
+Content-Length: 828
+Connection: keep-alive
+Keep-Alive: timeout=60
+Last-Modified: Fri, 22 Sep 2023 08:40:28 GMT
+ETag: "650d52fc-33c"
+Cache-Control: max-age=60
+Accept-Ranges: bytes
+X-Tt-Request-Id: a80b5d14fdceefee7befc7fbc61b28da
+X-Tt-CSRF-Token: 2227775601
+
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>浦东卫健康</title><link href="/pudongweiH5/css/vendors.09fe9226569706be7494.css" rel="stylesheet"><link href="/pudongweiH5/css/components.3c1e62681b1befc91dfc.css" rel="stylesheet"><link href="/pudongweiH5/css/style.4cbed3c7e83f22b0dddd.css" rel="stylesheet"></head><body><div id="app"></div><script type="text/javascript" src="/pudongweiH5/js/vendors.53837f4a4eab403a2496.js"></script><script type="text/javascript" src="/pudongweiH5/js/components.9cd3b56101308223fa0b.js"></script><script type="text/javascript" src="/pudongweiH5/js/main.288a27cc38f3c1d614a0.js"></script></body></html>
