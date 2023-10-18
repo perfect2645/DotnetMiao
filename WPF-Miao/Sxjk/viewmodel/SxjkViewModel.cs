@@ -130,7 +130,7 @@ namespace Sxjk.viewmodel
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(8).AddSeconds(2);
 
             InitDepartments();
 

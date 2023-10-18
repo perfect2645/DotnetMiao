@@ -16,7 +16,7 @@ namespace Sxjk.viewmodel
         {  
             get 
             { 
-                return $"{CityName}-{HospitalName}-{DepartmentName}"; 
+                return $"{CityName}-{StationName}-{DepartmentName}"; 
             }
         }
 
@@ -26,7 +26,7 @@ namespace Sxjk.viewmodel
 
             sb.AppendLine("********Sxjk-选择医院科室*********");
             sb.AppendLine($"{CityCode}- {CityName}");
-            sb.AppendLine($"{HospitalName}- {HospitalId}");
+            sb.AppendLine($"{StationName}- {StationName}");
             sb.AppendLine($"{DepartmentName} - {DepartmentId}");
             sb.AppendLine("**************************************");
 

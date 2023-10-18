@@ -17,15 +17,52 @@ namespace Sxjk.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                #region 长治
                 new SxjkHospital
                 {
-                    CityCode = "140900000000",
-                    CityName = "忻州市",
-                    StationCode = "140902194100",
-                    StationName = "忻府区疾控中心接种门诊",
+                    CityCode = "140400000000",
+                    CityName = "长治市",
+                    StationCode = "140406080100",
+                    StationName = "潞城区潞华街道办事处社区卫生服务中心",
                     DepartmentName = "九价疫苗预约",
                 },
-
+                new SxjkHospital
+                {
+                    CityCode = "140400000000",
+                    CityName = "长治市",
+                    StationCode = "140427010300",
+                    StationName = "壶关县妇幼保健计划生育服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },
+                #endregion 长治
+                #region 阳泉
+                new SxjkHospital
+                {
+                    CityCode = "140300000000",
+                    CityName = "阳泉市",
+                    StationCode = "140321010100",
+                    StationName = "阳泉市平定县 冠山镇卫生院",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "140300000000",
+                    CityName = "阳泉市",
+                    StationCode = "140322010600",
+                    StationName = "阳泉市盂县人民医院预防接种门诊",
+                    DepartmentName = "九价疫苗预约",
+                }, 
+                #endregion 阳泉
+                #region 朔州
+                new SxjkHospital
+                {
+                    CityCode = "140600000000",
+                    CityName = "朔州市",
+                    StationCode = "140602321500",
+                    StationName = "朔城区文远路门诊",
+                    DepartmentName = "九价疫苗预约",
+                },
+                #endregion 朔州
                 #region 临汾
                 new SxjkHospital
                 {
@@ -52,7 +89,17 @@ namespace Sxjk.viewmodel
                     DepartmentName = "九价疫苗预约",
                 },
                 #endregion 临汾
-
+                #region 忻州
+                new SxjkHospital
+                {
+                    CityCode = "140900000000",
+                    CityName = "忻州市",
+                    StationCode = "140902194100",
+                    StationName = "忻府区疾控中心接种门诊",
+                    DepartmentName = "九价疫苗预约",
+                },
+                #endregion 忻州
+                #region 太原
                 new SxjkHospital
                 {
                     CityCode = "140100000000",
@@ -69,6 +116,9 @@ namespace Sxjk.viewmodel
                     StationName = "小店区人民医院",
                     DepartmentName = "九价疫苗预约",
                 },
+
+                #endregion 太原
+                #region 晋城
                 new SxjkHospital
                 {
                     CityCode = "140500000000",
@@ -85,23 +135,26 @@ namespace Sxjk.viewmodel
                     StationName = "北街社区卫生服务中心",
                     DepartmentName = "九价疫苗预约",
                 },
+                #endregion 晋城
+                #region 大同
+                new SxjkHospital
+                {
+                    CityCode = "140200000000",
+                    CityName = "大同市",
+                    StationCode = "140213150100",
+                    StationName = "大同市平城区马军营卫生院",
+                    DepartmentName = "九价疫苗预约",
+                }, 
                 new SxjkHospital
                 {
                     CityCode = "140200000000",
                     CityName = "大同市",
                     StationCode = "140213140400",
-                    StationName = "大同市平城区大同市第一人民医院防保科",
+                    StationName = "平城区大同市第一人民医院防保科",
                     DepartmentName = "九价疫苗预约",
                 },
-                new SxjkHospital
-                {
-                    CityCode = "140400000000",
-                    CityName = "长治市",
-                    StationCode = "10001",
-                    StationName = "",
-                    DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
-                },
+                #endregion 大同
+
                 new SxjkHospital
                 {
                     CityCode = "140800000000",
