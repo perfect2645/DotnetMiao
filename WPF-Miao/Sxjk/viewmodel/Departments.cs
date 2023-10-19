@@ -17,6 +17,24 @@ namespace Sxjk.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                #region 晋中
+                new SxjkHospital
+                {
+                    CityCode = "140700000000",
+                    CityName = "晋中市",
+                    StationCode = "140726010500",
+                    StationName = "晋中市太谷区明星卫生院古城普通成人接种门诊",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "140700000000",
+                    CityName = "晋中市",
+                    StationCode = "140722010100",
+                    StationName = "山西省晋中市左权县辽阳社区",
+                    DepartmentName = "九价疫苗预约",
+                },
+                #endregion 晋中
                 #region 长治
                 new SxjkHospital
                 {
@@ -154,7 +172,7 @@ namespace Sxjk.viewmodel
                     DepartmentName = "九价疫苗预约",
                 },
                 #endregion 大同
-
+                #region 运城
                 new SxjkHospital
                 {
                     CityCode = "140800000000",
@@ -163,6 +181,25 @@ namespace Sxjk.viewmodel
                     StationName = "高家垣社区卫生服务站成人门诊",
                     DepartmentName = "九价疫苗预约",
                 },
+                #endregion 运城
+                #region 吕梁
+                new SxjkHospital
+                {
+                    CityCode = "141100000000",
+                    CityName = "吕梁市",
+                    StationCode = "140406080100",
+                    StationName = "柳林县中医院预防接种门诊",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "141100000000",
+                    CityName = "吕梁市",
+                    StationCode = "141182030200",
+                    StationName = "太和桥社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },
+                #endregion 吕梁
             };
         }
     }
