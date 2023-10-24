@@ -17,6 +17,59 @@ namespace Sxjk.viewmodel
 
             Departments = new List<HospitalDept>
             {
+                #region 太原
+                new SxjkHospital
+                {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140105010100",
+                    StationName = "小店区人民医院",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140105020100",
+                    StationName = "小店区平阳社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },
+                new SxjkHospital
+                {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140106010100",
+                    StationName = "迎泽区棉花巷社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },                
+                new SxjkHospital
+                {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140106010100",
+                    StationName = "迎泽区棉花巷社区卫生服务中心",
+                    DepartmentName = "九价疫苗预约",
+                },                
+                new SxjkHospital
+                {
+                    CityCode = "140100000000",
+                    CityName = "太原市",
+                    StationCode = "140110010600",
+                    StationName = "人民医院晋源院区防保科",
+                    DepartmentName = "九价疫苗预约",
+                },
+
+                #endregion 太原
+                #region 运城
+                new SxjkHospital
+                {
+                    CityCode = "140800000000",
+                    CityName = "运城市",
+                    StationCode = "140802014100",
+                    StationName = "高家垣社区卫生服务站成人门诊",
+                    DepartmentName = "九价疫苗预约",
+                },
+                #endregion 运城
                 #region 晋中
                 new SxjkHospital
                 {
@@ -117,25 +170,6 @@ namespace Sxjk.viewmodel
                     DepartmentName = "九价疫苗预约",
                 },
                 #endregion 忻州
-                #region 太原
-                new SxjkHospital
-                {
-                    CityCode = "140100000000",
-                    CityName = "太原市",
-                    StationCode = "140105020100",
-                    StationName = "平阳社区卫生服务中心",
-                    DepartmentName = "九价疫苗预约",
-                },
-                new SxjkHospital
-                {
-                    CityCode = "140100000000",
-                    CityName = "太原市",
-                    StationCode = "140105010100",
-                    StationName = "小店区人民医院",
-                    DepartmentName = "九价疫苗预约",
-                },
-
-                #endregion 太原
                 #region 晋城
                 new SxjkHospital
                 {
@@ -172,22 +206,12 @@ namespace Sxjk.viewmodel
                     DepartmentName = "九价疫苗预约",
                 },
                 #endregion 大同
-                #region 运城
-                new SxjkHospital
-                {
-                    CityCode = "140800000000",
-                    CityName = "运城市",
-                    StationCode = "140802014100",
-                    StationName = "高家垣社区卫生服务站成人门诊",
-                    DepartmentName = "九价疫苗预约",
-                },
-                #endregion 运城
                 #region 吕梁
                 new SxjkHospital
                 {
                     CityCode = "141100000000",
                     CityName = "吕梁市",
-                    StationCode = "140406080100",
+                    StationCode = "141125100200",
                     StationName = "柳林县中医院预防接种门诊",
                     DepartmentName = "九价疫苗预约",
                 },
