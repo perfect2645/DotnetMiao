@@ -1,10 +1,11 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Utils.stringBuilder;
+using System.Threading;
+using Utils.datetime;
+using Zhuzher.Play;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -13,6 +14,8 @@ namespace Zhuzher.Exchange
     internal class PlayController : HttpClientBase
     {
         #region Properties
+
+        public bool IsReward { get; set; } = true;
 
         private readonly ScoreItemList GoodList = new ScoreItemList();
         private readonly UserProjectList UserProjectList = new UserProjectList();
@@ -39,8 +42,16 @@ namespace Zhuzher.Exchange
             if (code == "200" && msg == "success")
             {
                 var root = response.JsonBody.RootElement;
-                var number = root.GetProperty("result").GetProperty("number").GetInt32();
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {number}");
+                var result = root.GetProperty("result");
+                var number = result.GetProperty("number").GetInt32();
+                var goodName = result.GetProperty("goodName").GetString();
+                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {number}:{goodName}");
+                if (IsReward)
+                {
+                    Thread.Sleep(1000);
+
+                    GetReward(content);
+                }
             }
             else
             {
@@ -48,11 +59,21 @@ namespace Zhuzher.Exchange
             }
 
         }
-        private void PrintLog(UserProject user, string? msg)
+
+        private void GetReward(PlayContent content)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append($"抽奖成功 - {user.UserName}, message:{msg}");
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            var reward = new Reward()
+            {
+                Authorization = content.User.Authorization,
+                MatchParam = "10jb",
+                ProjectCode = content.User.ProjectCode,
+                RequestId = DateTimeUtil.GetTimeStamp(),
+                SceneCode = "puli-daka",
+                UserId = content.User.UserId,
+            };
+
+            var rewardController = HttpServiceController.GetService<PlayRewardController>();
+            rewardController.GetReward(reward);
         }
     }
 }

@@ -3,212 +3,418 @@
     "code": 200,
     "result": [
         {
-            "activityTaskId": 4849,
-            "taskId": 667,
-            "taskName": "参与1次邻里投票",
-            "chanceNumber": 10,
-            "taskDesc": "",
-            "tips": "参与邻里投票调研，可以攒10个金豆，仅限投1次",
+            "activityTaskId": 5236,
+            "taskId": 781,
+            "taskName": "每日参与送金币",
+            "chanceNumber": 7,
+            "taskDesc": "闲置节",
+            "tips": "每天登录app参与活动，直接领5金币，每天1次",
             "detail": [
                 {
-                    "taskDetailId": 668,
-                    "sceneName": "邻居话题投票",
-                    "sceneCode": "app-post-vote",
-                    "sceneDesc": "邻里互助话题贴投票",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=431&from=activity914",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4851,
-            "taskId": 671,
-            "taskName": "买桶装水100元以上",
-            "chanceNumber": 100,
-            "taskDesc": "",
-            "tips": "一次性购买桶装水100元以上，即可攒金豆",
-            "detail": [
-                {
-                    "taskDetailId": 672,
-                    "sceneName": "便民支付成功",
-                    "sceneCode": "5thzone-convenience-pay",
-                    "sceneDesc": "20230421更新：不可设置匹配条件",
-                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=51hd",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "100"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4852,
-            "taskId": 670,
-            "taskName": "领券购买家政保洁服务",
-            "chanceNumber": 100,
-            "taskDesc": "",
-            "tips": "购买家政保洁服务，下单金额超过50元即可攒金豆",
-            "detail": [
-                {
-                    "taskDetailId": 671,
-                    "sceneName": "便民支付成功",
-                    "sceneCode": "5thzone-convenience-pay",
-                    "sceneDesc": "20230421更新：不可设置匹配条件",
-                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=jzbjyxhd",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "50"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4854,
-            "taskId": 673,
-            "taskName": "优惠下单山东油蟠桃",
-            "chanceNumber": 35,
-            "taskDesc": "",
-            "tips": "4.5斤黄金油蟠桃仅34.9元！购买即可攒金豆",
-            "detail": [
-                {
-                    "taskDetailId": 674,
-                    "sceneName": "友邻支付成功",
-                    "sceneCode": "5thzone-blackpearl-pay",
-                    "sceneDesc": "可以设置单个商品id为匹配条件",
-                    "url": "https://uiis.4009515151.com/product/171910/projectCode/0?pageMark=bbyhzz17110tf",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4862,
-            "taskId": 543,
-            "taskName": "完成任意金额在线缴费",
-            "chanceNumber": 10,
-            "taskDesc": "物业节",
-            "tips": "完成任意金额的缴费，或预缴物业费，即可完成任务",
-            "detail": [
-                {
-                    "taskDetailId": 544,
-                    "sceneName": "物业缴费上报金额",
-                    "sceneCode": "doc-property-pay",
-                    "sceneDesc": "车位/房屋管理费，支付成功后触发上报金额，包括预缴/普通缴费",
-                    "url": "https://enterprise.4009515151.com/payment-center/home",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "",
-                    "eventCode": "SERVICE:PAY:0001",
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4863,
-            "taskId": 194,
-            "taskName": "每天使用手机开门",
-            "chanceNumber": 50,
-            "taskDesc": "512",
-            "tips": "每天首次用手机开门，即可完成任务",
-            "detail": [
-                {
-                    "taskDetailId": 194,
-                    "sceneName": "手机开门成功",
-                    "sceneCode": "app-keyforfree",
-                    "sceneDesc": "",
-                    "url": "zze://vanke.com/property/opendoor/list",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "5.2.4",
-                    "eventCode": "KEY:KEY:0001",
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4864,
-            "taskId": 542,
-            "taskName": "看看最新的物业公告",
-            "chanceNumber": 10,
-            "taskDesc": "物业节",
-            "tips": "每天看看物业公告，浏览10秒以上即可完成任务",
-            "detail": [
-                {
-                    "taskDetailId": 543,
-                    "sceneName": "浏览页面10s",
-                    "sceneCode": "app-browseweb",
-                    "sceneDesc": "",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "5.2.6",
-                    "eventCode": null,
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null
-        },
-        {
-            "activityTaskId": 4821,
-            "taskId": 556,
-            "taskName": "每日参与活动送金豆",
-            "chanceNumber": 10,
-            "taskDesc": "",
-            "tips": "每天参与自动赠送10个金豆",
-            "detail": [
-                {
-                    "taskDetailId": 557,
+                    "taskDetailId": 782,
                     "sceneName": "登录app",
                     "sceneCode": "app-startapp",
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.6",
-                    "eventCode": null,
-                    "processValue": "1",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
-            "taskGameList": null,
+            "taskGameList": [
+                {
+                    "activityGameId": 1457,
+                    "gameId": 1348,
+                    "gameTitle": "金币",
+                    "limitCount": 5,
+                    "chanceName": "金币"
+                },
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 2,
+                    "chanceName": "抽奖机会"
+                }
+            ],
             "limitCount": 1,
-            "finishCount": null
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5244,
+            "taskId": 789,
+            "taskName": "领10次抽奖机会！",
+            "chanceNumber": 10,
+            "taskDesc": "闲置节",
+            "tips": "发闲置帖子成功，即可完成任务，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 790,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=hd1108",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 10,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5245,
+            "taskId": 790,
+            "taskName": "领10个金币！",
+            "chanceNumber": 10,
+            "taskDesc": "闲置节",
+            "tips": "在5个闲置物品下评论(不少于10字)，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 791,
+                    "sceneName": "评论帖子",
+                    "sceneCode": "app-post-review",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=hd1108",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "5"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1457,
+                    "gameId": 1348,
+                    "gameTitle": "金币",
+                    "limitCount": 10,
+                    "chanceName": "金币"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5237,
+            "taskId": 788,
+            "taskName": "关注“邻居公众号\"",
+            "chanceNumber": 5,
+            "taskDesc": "闲置节",
+            "tips": "关注公众号成功，回复“金币”，点链接领5次抽奖机会",
+            "detail": [
+                {
+                    "taskDetailId": 789,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 5,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5238,
+            "taskId": 782,
+            "taskName": "逛逛5折订水限时特惠",
+            "chanceNumber": 1,
+            "taskDesc": "闲置节",
+            "tips": "浏览10s即可完成任务，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 783,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 1,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5239,
+            "taskId": 783,
+            "taskName": "下单1次桶装水",
+            "chanceNumber": 3,
+            "taskDesc": "闲置节",
+            "tips": "下单成功1次即可完成任务，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 784,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 3,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5240,
+            "taskId": 784,
+            "taskName": "逛逛保洁清洗特惠",
+            "chanceNumber": 1,
+            "taskDesc": "闲置节",
+            "tips": "浏览10s即可完成任务，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 785,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=sqxzjjzzt",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 1,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5241,
+            "taskId": 785,
+            "taskName": "下单1次家政服务",
+            "chanceNumber": 3,
+            "taskDesc": "闲置节",
+            "tips": "下单成功1次即可完成任务，每天2次",
+            "detail": [
+                {
+                    "taskDetailId": 786,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=sqxzjjzzt",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 3,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 2,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5242,
+            "taskId": 786,
+            "taskName": "逛逛9.9元起特卖会",
+            "chanceNumber": 1,
+            "taskDesc": "闲置节",
+            "tips": "浏览10s即可完成任务，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 787,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5468?pageMark=bbtghb11yzt5468mx",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 1,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5243,
+            "taskId": 787,
+            "taskName": "下单1次特惠商品",
+            "chanceNumber": 3,
+            "taskDesc": "闲置节",
+            "tips": "下单成功1次即可完成任务，每天3次",
+            "detail": [
+                {
+                    "taskDetailId": 788,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5468?pageMark=bbtghb11yzt5468mx",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 3,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 3,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5252,
+            "taskId": 791,
+            "taskName": "积分兑换指定商品",
+            "chanceNumber": 2,
+            "taskDesc": "闲置节",
+            "tips": "兑换指定商品成功，即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 792,
+                    "sceneName": "积分兑换商品成功",
+                    "sceneCode": "app-point-exchangegoods",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3098&exchangeId=118",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1458,
+                    "gameId": 1347,
+                    "gameTitle": "抽奖机会",
+                    "limitCount": 2,
+                    "chanceName": "抽奖机会"
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
         }
     ]
 }

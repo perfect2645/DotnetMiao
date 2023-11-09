@@ -1,0 +1,41 @@
+﻿using HttpProcessor.Content;
+using Zhuzher.search;
+
+namespace Zhuzher.Play
+{
+    internal class PlayRewardContent : HttpStringContent
+    {
+        public Reward Reward { get; set; }
+        public const string Url = "https://z.onewo.com/market/partner/notice/scene";
+        public PlayRewardContent(Reward reward) : base(Url)
+        {
+            Reward = reward;
+            BuildHeader();
+            BuildContent();
+        }
+
+        private void BuildHeader()
+        {
+            AddHeader("Host", "z.onewo.com");
+            AddHeader("Accept", "application/json, application/json");
+            AddHeader("Authorization", Reward.Authorization);
+            AddHeader("X-AppKey", "6292E1891CA246EB9A2AABD9039C4F71");
+            AddHeader("Accept-Encoding", "gzip, deflate, br");
+            AddHeader("Accept-Language", "zh-CN,zh-Hans;q=0.9");
+            AddHeader("Origin", "https://enterprise.4009515151.com");
+            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 16_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2023071801 vanke_app_version/5.5.00 X_API_VERSION/20230718 vanke_app/zhuzher vanke_jsbridge_version/5.5.00");
+            AddHeader("Referer", "https://enterprise.4009515151.com/");
+            AddHeader("Connection", "keep-alive");
+            AddHeader("X-AppSecret", "C67F286E63D54F3995C3F6C6F52508ED");
+        }
+
+        private void BuildContent()
+        {
+            AddContent("matchParam", Reward.MatchParam);
+            AddContent("userId", Reward.UserId);
+            AddContent("sceneCode", Reward.SceneCode);
+            AddContent("requestId", Reward.RequestId);
+            AddContent("projectCode", Reward.ProjectCode);
+        }
+    }
+}
