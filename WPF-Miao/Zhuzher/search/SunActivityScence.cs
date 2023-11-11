@@ -19,81 +19,24 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //TestSceneList();
-            //InitSceneList();
-            InitStarSceneList();
-        }
-
-        private void InitStarSceneList()
-        {
-            AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/create");
-            AddScene("gottalent-getlike", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
-            AddScene("gottalent-getcomment", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
-            AddScene("gottalent-getfans", 5, "http://enterprise.4009515151.com/social-circle/talentShow/mine?from=task");
-            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=1");
-            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=2");
-            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=3");
-            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=4");
-            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=5");
-            //AddScene("gottalent-challenge", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=6");
-        }
-
-        private void TestSceneList()
-        {
-
-            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
+            InitSceneList();
         }
 
         private void InitSceneList()
         {
-            AddScene("app-startapp", 1, "1");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/3895?pageMark=2023pljjzfw");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljrcbj&goodsId=6630411");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljyyj&goodsId=6633857");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljcbl&goodsId=6632741");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5466?pageMark=eshsplj");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5492?pageMark=gdykjplj");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=pljhssy");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/integral?from=hd");
-            AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/doc?docId=MTAwMg==&vkSource=video");
-            AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/video?vkSource=video&courseId=MzM4&selectId=");
-            AddScene("app-browseweb", 1, "https://uiis.4009515151.com/fg_activity/template?id=2338");
-            AddScene("app-browseweb", 2, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan");
-            AddScene("app-browseweb", 2, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin");
-            AddScene("app-browseweb", 2, "https://neighbor.4009515151.com/nova/activityTopic/4835?pageMark=bbsqysdjqrzt4835");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=120");
-            AddScene("app-browseweb", 1, "https://uiis.4009515151.com/fg_activity/template?id=2344");
-            AddScene("app-browseweb", 2, "https://communityclass.onewo.com/#/doc?docId=MTAwMg==&vkSource=video");
-            AddScene("230915-pulin-landingpage", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=pulin&sceneCode=230915-pulin-landingpage");
-
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=458");
-
-            AddScene("app-act-invite&view", 3, "https://enterprise.4009515151.com/marketing-pages/puli2023?from=fenxiang");
-            AddScene("app-keyforfree", 2, "zze://vanke.com/property/opendoor/list");
-
-            AddScene("puli-daka", 1, "sqrenwu", 2);
+            //AddScene("app-startapp", 1, "1");
+            //AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=hd1108");
+            //AddScene("app-post-review", 5, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=hd1108");
+            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
+            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=sqxzjjzzt");
+            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5468?pageMark=bbtghb11yzt5468mx");
+            //AddScene("app-point-exchangegoods", 1, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3098&exchangeId=118");
+            //AddScene("5thzone-blackpearl-pay", 3, "https://neighbor.4009515151.com/nova/activityTopic/5468?pageMark=bbtghb11yzt5468mx");
+            //AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
+            //AddScene("5thzone-convenience-pay", 2, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=sqxzjjzzt");
+            //AddScene("puli-daka", 1, "sqrenwu", 2);
             AddScene("puli-daka", 1, "gzh915", 2);
 
-            AddScene("use-coupon-bonus", 1, "https://neighbor.4009515151.com/summoner-canary/home");
-
-
-            AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=hd");
-            AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/loot?from=hd");
-            AddScene("5thzone-integral-guessing", 1, " https://enterprise.4009515151.com/marketing-pages/guess?from=hd");
-            AddScene("app-checkin", 1, "https://enterprise.4009515151.com/marketing-pages/integral/signin?from=hd");
-            AddScene("app-point-exchangegoods", 3, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=1941&exchangeId=118");
-
-            AddScene("5thzone-blackpearl-comment", 2, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
-
-            AddScene("use-coupon-bonus", 1, "https://neighbor.4009515151.com/summoner-canary/coupon-list ");
-            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=938");
-            AddScene("app-browseweb", 2, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=120");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5570?pageMark=jzpljxshd");
-            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
-            AddScene("5thzone-convenience-done", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?pageMark=2023pljrcbj&goodsId=6630411");
-            AddScene("app-point-exchangegoods", 3, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=2900&exchangeId=118");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
