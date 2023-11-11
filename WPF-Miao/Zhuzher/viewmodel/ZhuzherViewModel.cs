@@ -162,7 +162,7 @@ namespace Zhuzher.viewmodel
                     var userList = new UserProjectList();
                     foreach (var user in userList.UserProjects)
                     {
-                        for (int i = 0; i < 1; i++)
+                        for (int i = 0; i < 20; i++)
                         {
                             playHandler.ActivityPlay(user);
                             Thread.Sleep(1000);
