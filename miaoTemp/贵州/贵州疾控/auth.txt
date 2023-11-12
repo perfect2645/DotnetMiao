@@ -1,0 +1,33 @@
+POST https://api.cn2030.com/sc/api/PovPortal/auth?code=0b1FO6ll2bA6nc4PHAml2Kbo7y0FO6lV HTTP/1.1
+Host: api.cn2030.com
+Connection: keep-alive
+Content-Length: 278
+xweb_xhr: 1
+cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTk3MTk5ODAuMTg2NTU1OSwiZXhwIjoxNjk5NzMzNTgwLjE4NjU1NTksInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMTExMjAwMjYyMCIsInZhbCI6IjJ0dmdBUlFBQUFBUU5UVXpOMlJsWkdFNVkyTmpOR015WXh4dlMzQmplVFF6UjNSNFJrYzBTa05XUTIxemMycFNZbnBMYjFBMEFBQU9cclxuTWpJekxqRXdNaTQwTUM0eU5EZ0FBQUFBQUFBQSJ9.TvP_Kb_l-s48po6OkaIpdJAv6jbWAhqZbA60Sv8Z374
+zftsl: e72fefa4111b45fb580f28f87f5abd79
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090719)XWEB/8461
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+{"rawdata":"{\"nickName\":\"微信用户\",\"gender\":0,\"language\":\"\",\"city\":\"\",\"province\":\"\",\"country\":\"\",\"avatarUrl\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132\"}"}
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sat, 11 Nov 2023 16:26:20 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 407
+Connection: keep-alive
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+Set-Cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTk3MTk5ODAuMTg2NTU1OSwiZXhwIjoxNjk5NzMzNTgwLjE4NjU1NTksInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMTExMjAwMjYyMCIsInZhbCI6IjJ0dmdBUlFBQUFBUU5UVXpOMlJsWkdFNVkyTmpOR015WXh4dlMzQmplVFF6UjNSNFJrYzBTa05XUTIxemMycFNZbnBMYjFBMEFBQU9cclxuTWpJekxqRXdNaTQwTUM0eU5EZ0FBQUFBQUFBQSJ9.TvP_Kb_l-s48po6OkaIpdJAv6jbWAhqZbA60Sv8Z374; path=/
+X-Powered-By: XX
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Zftsl,token
+
+{"status":200,"msg":"授权成功","sessionId":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTk3MTk5ODAuMTg2NTU1OSwiZXhwIjoxNjk5NzMzNTgwLjE4NjU1NTksInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMTExMjAwMjYyMCIsInZhbCI6IjJ0dmdBUlFBQUFBUU5UVXpOMlJsWkdFNVkyTmpOR015WXh4dlMzQmplVFF6UjNSNFJrYzBTa05XUTIxemMycFNZbnBMYjFBMEFBQU9cclxuTWpJekxqRXdNaTQwTUM0eU5EZ0FBQUFBQUFBQSJ9.TvP_Kb_l-s48po6OkaIpdJAv6jbWAhqZbA60Sv8Z374"}

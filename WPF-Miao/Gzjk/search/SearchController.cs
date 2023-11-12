@@ -32,7 +32,7 @@ namespace Gzjk.search
 
         private void GetMiao()
         {
-            var vaccineController = HttpServiceController.GetService<VaccineController>();
+            var vaccineController = HttpServiceController.GetService<DateController>();
             var isVaccineGet = false;
             while (!isVaccineGet)
             {
@@ -44,7 +44,11 @@ namespace Gzjk.search
                 {
                     break;
                 }
-                isVaccineGet = vaccineController.SearchVaccine();
+                isVaccineGet = vaccineController.SearchDate();
+                if (isVaccineGet)
+                {
+                    break;
+                }
                 Thread.Sleep(600);
             }
             var date = vaccineController.Date;

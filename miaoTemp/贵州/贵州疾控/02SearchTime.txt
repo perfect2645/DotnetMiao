@@ -1,0 +1,29 @@
+GET https://api.cn2030.com/sc/wx/HandlerSubscribe.ashx?act=GetCustSubscribeDateDetail&pid=XBsAAA&id=6928&scdate=2023-12-07 HTTP/1.1
+Host: api.cn2030.com
+Connection: keep-alive
+xweb_xhr: 1
+cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTk3NjA1OTEuNTc1MDI5OSwiZXhwIjoxNjk5Nzc0MTkxLjU3NTAyOTksInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMTExMjExNDMxMSIsInZhbCI6IjJ0dmdBUlFBQUFBUVlUVmxOakZtTkRreU9XSXhaRGxsTmh4dlMzQmplVFF6UjNSNFJrYzBTa05XUTIxemMycFNZbnBMYjFBMEFBQU9cclxuTWpJekxqRXdNaTQwTUM0eU5EZ0FBQUFBQUFBQSJ9.pXh6iuuodjxCbqlowx5nkl8qkaT3wTZuZRj0f9YzvCA
+zftsl: ab9aa98d1772556a0248cd01c2030a85
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090719)XWEB/8461
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 12 Nov 2023 06:34:47 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 335
+Connection: keep-alive
+Cache-Control: private
+X-Powered-By: XX
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Zftsl,token
+
+{"status":200,"id":6928,"customer":"贵州省疾控中心门诊","start":"2023-10-24T14:35:00","end":"2023-11-28T00:00:00","list":[{"customer":"贵州省疾控中心门诊","customerid":6928,"StartTime":"08:40:00","EndTime":"18:00:00","mxid":"D64fu8_eV-AqiJEkt1wdafUXCGaO-rJ2dZgOGEuJbfk","qty":20}],"ver":"2.0","current":1699770886455}

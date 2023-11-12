@@ -147,10 +147,10 @@ namespace Gzjk.viewmodel
             {                
                 new GzjkHospital
                 {
-                    HospitalId = "10001",
-                    HospitalName = "龙湾蒲州街道社区卫生服务中心",
-                    DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
+                    HospitalId = "6928",
+                    HospitalName = "贵州疾控",
+                    DepartmentName = "重组带状疱疹疫苗（CHO细胞）",
+                    DepartmentId = "XBsAAA",
                 },
             };
 

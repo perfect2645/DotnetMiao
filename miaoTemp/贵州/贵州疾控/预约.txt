@@ -24,3 +24,13 @@ Set-Cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2O
 X-Powered-By: ASP.NET
 
 {"status":200,"msg":"提交成功"}
+
+
+
+zfsw_169976134
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:1126 ****zfsw=f8dd9d1eecad2af769fb15fe3eb6c326
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:906 yuyue****r=[object Object]
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:907 yuyue****e={"birthday":"2009-06-10","tel":"13909856656","sex":1,"cname":"包睿","doctype":1,"idcard":"210213200906102029","mxid":"D64fu8_eV-AqiJEkt1wdafUXCGaO-rJ2dZgOGEuJbfk","date":"2023-12-07","pid":"XBsAAA","Ftime":1,"guid":""}
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:908 yuyue****g=c216a80614866bb36ead1449a268aaa8019ba794
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:909 yuyue****iv=31323334353637383930303030303030
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:910 yuyue****t=63323136613830363134383636626233
