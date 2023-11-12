@@ -344,13 +344,16 @@ namespace Gzjk.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        HosId = template.HosId,
-                        IdCard = user.Idcard,
-                        NumId = template.NumId,
-                        Phone = user.Phone,
-                        ProjectId = template.ProjectId,
-                        SchId = template.SchId,
-                        Time = template.Time,
+                        Birthday = user.Birthday,
+                        Doctype = user.DocType,
+                        Idcard = user.Idcard,
+                        Sex = user.Sex,
+                        Tel = user.Phone,
+                        Date = template.Date,
+                        Ftime = template.Ftime,
+                        Guid = template.Guid,
+                        Mxid = template.Mxid,
+                        Pid = template.Pid,
                     };
 
                     orderList.Add(order);

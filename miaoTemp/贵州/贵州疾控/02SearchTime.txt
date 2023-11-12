@@ -26,4 +26,22 @@ X-Powered-By: XX
 Access-Control-Allow-Methods: GET, POST, OPTIONS
 Access-Control-Allow-Headers: Zftsl,token
 
-{"status":200,"id":6928,"customer":"贵州省疾控中心门诊","start":"2023-10-24T14:35:00","end":"2023-11-28T00:00:00","list":[{"customer":"贵州省疾控中心门诊","customerid":6928,"StartTime":"08:40:00","EndTime":"18:00:00","mxid":"D64fu8_eV-AqiJEkt1wdafUXCGaO-rJ2dZgOGEuJbfk","qty":20}],"ver":"2.0","current":1699770886455}
+{
+    "status": 200,
+    "id": 6928,
+    "customer": "贵州省疾控中心门诊",
+    "start": "2023-10-24T14:35:00",
+    "end": "2023-11-28T00:00:00",
+    "list": [
+        {
+            "customer": "贵州省疾控中心门诊",
+            "customerid": 6928,
+            "StartTime": "08:40:00",
+            "EndTime": "18:00:00",
+            "mxid": "D64fu8_eV-AqiJEkt1wdafUXCGaO-rJ2dZgOGEuJbfk",
+            "qty": 20
+        }
+    ],
+    "ver": "2.0",
+    "current": 1699770886455
+}

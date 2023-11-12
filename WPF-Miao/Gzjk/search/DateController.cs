@@ -76,7 +76,7 @@ namespace Gzjk.search
                 return false;
             }
 
-            var defaultDateItem = validDateList.LastOrDefault();
+            var defaultDateItem = validDateList.DisorderItems().LastOrDefault();
 
             Date = defaultDateItem.GetString("date");
             MainSession.PrintLogEvent.Publish(this, $"{validDateList.Count}个日期可约, 默认选择了{Date}");

@@ -26,11 +26,11 @@ namespace Gzjk.search
 
             Task.Factory.StartNew(() =>
             {
-                GetMiao();
+                GetDate();
             });
         }
 
-        private void GetMiao()
+        private void GetDate()
         {
             var vaccineController = HttpServiceController.GetService<DateController>();
             var isVaccineGet = false;
@@ -53,12 +53,17 @@ namespace Gzjk.search
             }
             var date = vaccineController.Date;
 
+            GetSchedule(date);
+        }
+
+        private void GetSchedule(string date)
+        {
             var miaoController = HttpServiceController.GetService<MiaoController>();
             var isScheduleGet = false;
-            while(!isScheduleGet)
+            isScheduleGet = miaoController.SearchMiao(date);
+            if (!isScheduleGet)
             {
-                isScheduleGet = miaoController.SearchMiao(date);
-                Thread.Sleep(1000);
+                SearchMiao();
             }
         }
     }

@@ -31,27 +31,24 @@ namespace Gzjk.search
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var success = root.GetProperty("success").GetBoolean();
-                var msg = root.GetProperty("msg").GetString();
-                if (!success)
+                var status = root.GetProperty("status").GetInt32();
+                if (status != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: success={success}, msg = {msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: status={status}");
                     return false;
                 }
 
-                var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
+                var list = root.GetProperty("list");
+                if (list.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchVaccine失败: results is empty");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: list is empty");
                     return false;
                 }
-
-                var list = data.GetProperty("list");
 
                 return CheckSaveSchedule(list, date);
             }
@@ -102,24 +99,14 @@ namespace Gzjk.search
 
         private Order BuildOrder(Dictionary<string, object> schedule, string date)
         {
-            var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
-            var hosName = MainSession.PlatformSession.GetString(Constants.HospitalName);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
-
-            var dateLoacal = DateTimeUtil.GetDateTime(date, "D");
-
-            var startTime = schedule.GetString("start_time");
-            var endTime = schedule.GetString("end_time");
-            var time = $"{dateLoacal} {startTime}-{endTime}";
-
+            var mxiId = schedule.GetString("mxid");
 
             var order = new Order
             {
-                HosId = hosId,
-                NumId = schedule.GetString("num_id"),
-                ProjectId = hosId,
-                SchId = schedule.GetString("sch_id"),
-                Time = time,
+                Date = date,
+                Mxid = mxiId,
+                Pid = deptId,
             };
 
             return order;
