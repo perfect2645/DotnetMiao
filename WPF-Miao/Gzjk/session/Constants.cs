@@ -4,6 +4,6 @@ namespace Gzjk.session
 {
     internal class Constants : MiaoConstants
     {
-        public const string DoctorSign = "DoctorSign";
+        public const string Pid = "pid";
     }
 }

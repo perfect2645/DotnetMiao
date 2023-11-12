@@ -45,6 +45,10 @@ namespace Zhuzher.Exchange
                 var result = root.GetProperty("result");
                 var number = result.GetProperty("number").GetInt32();
                 var goodName = result.GetProperty("goodName").GetString();
+                if (string.IsNullOrEmpty(goodName))
+                {
+                    return;
+                }
                 ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {number}:{goodName}");
                 if (IsReward)
                 {

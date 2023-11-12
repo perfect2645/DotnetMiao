@@ -147,10 +147,10 @@ namespace Gzjk.viewmodel
             {                
                 new GzjkHospital
                 {
-                    HospitalId = "10001",
-                    HospitalName = "龙湾蒲州街道社区卫生服务中心",
-                    DepartmentName = "九价疫苗预约",
-                    DepartmentId = "101",
+                    HospitalId = "6928",
+                    HospitalName = "贵州疾控",
+                    DepartmentName = "重组带状疱疹疫苗（CHO细胞）",
+                    DepartmentId = "XBsAAA",
                 },
             };
 
@@ -344,13 +344,16 @@ namespace Gzjk.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        HosId = template.HosId,
-                        IdCard = user.Idcard,
-                        NumId = template.NumId,
-                        Phone = user.Phone,
-                        ProjectId = template.ProjectId,
-                        SchId = template.SchId,
-                        Time = template.Time,
+                        Birthday = user.Birthday,
+                        Doctype = user.DocType,
+                        Idcard = user.Idcard,
+                        Sex = user.Sex,
+                        Tel = user.Phone,
+                        Date = template.Date,
+                        Ftime = template.Ftime,
+                        Guid = template.Guid,
+                        Mxid = template.Mxid,
+                        Pid = template.Pid,
                     };
 
                     orderList.Add(order);

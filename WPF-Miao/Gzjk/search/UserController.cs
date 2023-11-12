@@ -71,6 +71,7 @@ namespace Gzjk.search
             user.Phone = userInfo.GetString("tel");
             user.Idcard = userInfo.GetString("idcard");
             user.UserName = userInfo.GetString("cname");
+            user.DocType = userInfo.GetInt("doctype");
 
             MainSession.PrintLogEvent.Publish(this, userInfo);
         }
