@@ -23,6 +23,8 @@ namespace YzmSender.viewmodel
 
         private readonly object OrderLock = new object();
 
+        SendYzmController YzmController { get; set; }
+
         #endregion Properties
 
         #region Constructor
@@ -38,13 +40,14 @@ namespace YzmSender.viewmodel
 
         private void TestData()
         {
-            Interval = 200;
+            Interval = 2000;
 
             StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
+            YzmController = HttpServiceController.GetService<SendYzmController>();
             StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
 
             Departments = new List<HospitalDept>
@@ -97,8 +100,7 @@ namespace YzmSender.viewmodel
 
         private void ExecuteSendYzm()
         {
-            var yzmController = HttpServiceController.GetService<SendYzmController>();
-            yzmController.SendYzmAsync();
+            YzmController.SendYzmAsync();
         }
 
 
@@ -129,6 +131,7 @@ namespace YzmSender.viewmodel
             Task.Factory.StartNew(() => {
                 try
                 {
+                    ExecuteSendYzm();
                 }
                 catch (HttpException ex)
                 {

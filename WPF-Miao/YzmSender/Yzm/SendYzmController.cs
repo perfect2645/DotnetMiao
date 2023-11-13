@@ -26,7 +26,6 @@ namespace YzmSender.search
         {
             try
             {
-                var defaultUser = MainSession.Users.FirstOrDefault();
                 var content = new SendYzmContent();
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
@@ -37,10 +36,10 @@ namespace YzmSender.search
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("code").GetString();
+                var code = root.GetProperty("code").GetInt32();
                 var success = root.GetProperty("success").GetBoolean();
                 var msg = root.GetProperty("msg").GetBoolean();
-                if (code != "200" || !success)
+                if (code != 200 || !success)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"SendYzm失败: code={code}, msg={msg}");
                     return false;

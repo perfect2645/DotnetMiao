@@ -1,7 +1,5 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
-using YzmSender.appointment;
-using YzmSender.login;
 using System.Collections.Generic;
 
 namespace YzmSender.session
@@ -10,23 +8,10 @@ namespace YzmSender.session
     {
         public static string Cookie { get; set; }
         public static Dictionary<string, object> PlatformSession { get; private set; }
-        internal static List<YzmSenderLogin> Users { get; set; }
-        public static OrderEvent OrderEvent { get; }
-        public static AppointSession AppointSession { get; private set; }
         
-        internal static Dictionary<string, Order> Orders { get; set; }
-
         static MainSession()
         {
             PlatformSession = new Dictionary<string, object>();
-            OrderEvent = new OrderEvent();
-            Users = new List<YzmSenderLogin>();
-            Orders = new Dictionary<string, Order>();
-        }
-
-        public static void InitSession()
-        {
-            AppointSession = new AppointSession();
         }
 
         #region MiaoStatus
