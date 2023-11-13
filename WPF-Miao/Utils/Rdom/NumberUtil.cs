@@ -39,7 +39,7 @@
         public static long GetRandomPhone()
         {
             var phonePreFix = "1";
-            var phoneSurfix = LongRandom(5800000000, 8799999999);
+            var phoneSurfix = LongRandom(6700000000, 7199999999);
 
             var phoneStr = $"{phonePreFix}{phoneSurfix}";
             return Convert.ToInt64(phoneStr);

@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Container;
 using System.Threading.Tasks;
 using System.Windows;
+using YzmSender.search;
 
 namespace YzmSender
 {
@@ -24,7 +25,7 @@ namespace YzmSender
         }
         private void InitController()
         {
-            //HttpServiceController.AddTransientService<YuyueController>();
+            HttpServiceController.AddTransientService<SendYzmController>();
             HttpServiceController.BuidServiceProvider();
         }
     }

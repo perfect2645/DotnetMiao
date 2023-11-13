@@ -5,23 +5,20 @@ namespace YzmSender.viewmodel
 {
     internal class YzmSenderHospital : HospitalDept
     {
-        public string AppPrefix { get; set; }
-        public string DoctorId { get; set; }
-        public string DoctorName { get; set; }
+        public string BaseUrl { get; set; }
 
         public new string Display
         {
-            get { return $"{DepartmentName}-{DoctorName}"; }
+            get { return $"{HospitalName}"; }
         }
 
         public override string ToLogString()
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine("********武汉疾控-选择医院科室*********");
-            sb.AppendLine($"{HospitalName}- {DepartmentName}");
-            sb.AppendLine($"Department : {DepartmentId} - {DepartmentName}");
-            sb.AppendLine($"Doctor : {DoctorId} - {DoctorName}");
+            sb.AppendLine("********YzmSender-选择医院科室*********");
+            sb.AppendLine($"{HospitalName}");
+            sb.AppendLine($"BaseUrl : {BaseUrl}");
             sb.AppendLine("**************************************");
 
             return sb.ToString();
