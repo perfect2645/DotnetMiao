@@ -28,11 +28,11 @@ namespace Gzjk.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"FamilyId - {FamilyId}");
-            sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"IdCard - {IdCard}");
-            sb.AppendLine($"Time - {Time}");
-            sb.AppendLine($"SchId - {SchId}");
+            sb.AppendLine($"Birthday - {Birthday}");
+            sb.AppendLine($"Phone - {Tel}");
+            sb.AppendLine($"Idcard - {Idcard}");
+            sb.AppendLine($"Date - {Date}");
+            sb.AppendLine($"第{Ftime}针");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

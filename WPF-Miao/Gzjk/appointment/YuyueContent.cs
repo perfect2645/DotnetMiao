@@ -2,6 +2,7 @@
 using Gzjk.login;
 using System.Collections.Generic;
 using Utils;
+using Utils.Encode;
 
 namespace Gzjk.appointment
 {
@@ -33,7 +34,7 @@ namespace Gzjk.appointment
 
             var jsonContent = contentDic.ToJson();
 
-            //var encodeContent = ;
+            //var encodeContent = AesEncode.AESEncrypt(jsonContent, );
 
             AddContent("", jsonContent);
         }

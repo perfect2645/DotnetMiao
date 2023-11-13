@@ -1,0 +1,30 @@
+GET https://api.cn2030.com/sc/wx/HandlerSubscribe.ashx?act=GetOrderStatus HTTP/1.1
+Host: api.cn2030.com
+Connection: keep-alive
+xweb_xhr: 1
+cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTk3OTk1NjEuNTU2NTY2LCJleHAiOjE2OTk4MTMxNjEuNTU2NTY2LCJzdWIiOiJZTlcuVklQIiwianRpIjoiMjAyMzExMTIyMjI4MDgiLCJ2YWwiOiIydHZnQVJRQUFBQVFNekptWVRKaU0yUmlOekkxTURoaU9CeHZTM0JqZVRRelIzUjRSa2MwU2tOV1EyMXpjMnBTWW5wTGIxQTBBQUFPXHJcbk1qSXpMakV3TWk0ME1DNHlORGdBSzBRMk5HWjFPRjlsVmkxQmNXbEtSV3QwTVhka1lXWlZXRU5IWVU4dGNrb3laRnBuVDBkRmRVcGlcclxuWm1zQkFBQUFBQT09In0.IJhjY8lrDzKifQp9M6guPL8b7Vu9AWD1h3LJKZ8Vrt4; path=/
+zftsl: 34689efabaf67b70d7e344f497dfaf55
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090719)XWEB/8461
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 12 Nov 2023 14:32:43 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 61
+Connection: keep-alive
+Cache-Control: private
+Set-Cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTk3OTk1NjMuNjUxNTY0MSwiZXhwIjoxNjk5ODEzMTYzLjY1MTU2NDEsInN1YiI6IllOVy5WSVAiLCJqdGkiOiIyMDIzMTExMjIyMjgwOCIsInZhbCI6IjJ0dmdBUlFBQUFBUU16Sm1ZVEppTTJSaU56STFNRGhpT0J4dlMzQmplVFF6UjNSNFJrYzBTa05XUTIxemMycFNZbnBMYjFBMEFBQU9cclxuTWpJekxqRXdNaTQwTUM0eU5EZ0FLMFEyTkdaMU9GOWxWaTFCY1dsS1JXdDBNWGRrWVdaVldFTkhZVTh0Y2tveVpGcG5UMGRGZFVwaVxyXG5abXNCQUFBQUFBPT0ifQ.bxr4oriG18Wd2lZrL22IXK5oooyQ09w8_YRryAi0OXc; path=/
+X-Powered-By: XX
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Zftsl,token
+
+{"status":201,"msg":"不在接种适用年龄","Fnumber":"0"}
