@@ -70,8 +70,8 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             var timeNow = DateTime.Now.AddSeconds(20);
-            AddMiaoshaItem(3112, 147, 2003, "金龙鱼米油组合 ", $"{DateTimeUtil.GetToday()} 19:59:59");
-            AddMiaoshaItem(3113, 147, 2003, "鲁花5S压榨一级花生油3.08L ", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(3105, 143, 1999, "特仑苏.08L ", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(3104, 143, 1999, "金典 ", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
