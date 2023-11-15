@@ -153,7 +153,6 @@ namespace Dalian.viewmodel
 
             Departments = new List<HospitalDept>
             {                
-
                 new DalianHospital
                 {
                     AppId = "wxa794c2a4fcfeb7f4",

@@ -49,14 +49,12 @@ namespace Zhuzher.miaosha
         {
             Task.Factory.StartNew(() =>
             {
-                Thread.Sleep(250);
                 try
                 {
-                    //if (item.Status > 1)
-                    //{
-                    //    IntervalList[item.GameGoodId].StopInterval();
-                    //}
-                    IntervalList[item.GameGoodId].StopInterval();
+                    if (item.Status > 1)
+                    {
+                        IntervalList[item.GameGoodId].StopInterval();
+                    }
                     item.Status = 1; //开始
                     ZhuzherSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
                     exchangeHandler.Seckill(user, item);

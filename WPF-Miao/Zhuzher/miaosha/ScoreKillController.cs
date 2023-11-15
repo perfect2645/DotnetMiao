@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.timerUtil;
@@ -50,6 +51,7 @@ namespace Zhuzher.miaosha
             {
                 try
                 {
+                    Thread.Sleep(250);
                     if (item.Status > 1)
                     {
                         IntervalList[item.ExchangeGoodId].StopInterval();
