@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Client;
 using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Zhuzher.search;
 using Zhuzher.session;
@@ -15,10 +16,15 @@ namespace Zhuzher.Score
 
         public void CollectScoreAsync()
         {
-            foreach (var user in MainSession.UserProjectList.UserProjects)
+            Task.Factory.StartNew(() =>
             {
-                Task.Factory.StartNew(() => CollectScore(user));
-            }
+                foreach (var user in MainSession.UserProjectList.UserProjects)
+                {
+                    Thread.Sleep(2000);
+                    Task.Factory.StartNew(() => CollectScore(user));
+                }
+            });
+
         }
 
         public bool CollectScore(UserProject user)
@@ -30,7 +36,7 @@ namespace Zhuzher.Score
                 var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"CollectScore - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]CollectScore - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
@@ -39,19 +45,19 @@ namespace Zhuzher.Score
                 var msg = root.GetProperty("message").GetString();
                 if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"CollectScore失败: code={code}, message={msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]CollectScore失败: code={code}, message={msg}");
                     return false;
                 }
 
-                var score = root.GetProperty("result").GetInt32();
+                var score = root.GetProperty("result").GetRawText();
 
-                MainSession.PrintLogEvent.Publish(this, $"收集积分成功[{user.UserName}] - 还有积分:{score}");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分成功 - 还有积分:{score}");
 
                 return true;
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"未查到苗 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]CollectScore失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
         }

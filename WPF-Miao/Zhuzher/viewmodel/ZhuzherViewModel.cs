@@ -14,6 +14,7 @@ using System.Windows.Input;
 using Zhuzher.collectsun;
 using Zhuzher.Exchange;
 using Zhuzher.miaosha;
+using Zhuzher.Score;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -29,6 +30,8 @@ namespace Zhuzher.viewmodel
         public ICommand SeckillCommand { get; set; }
         public ICommand ScoreSeckillCommand { get; set; }
         public ICommand JoinTeamCommand { get; set; }
+        public ICommand CollectScoreCommand { get; set; }
+        
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -95,6 +98,7 @@ namespace Zhuzher.viewmodel
             SeckillCommand = new RelayCommand(ExecuteSeckill);
             ScoreSeckillCommand = new RelayCommand(ExecuteScoreSeckill);
             JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
+            CollectScoreCommand = new RelayCommand(ExecuteCollectScore);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -230,7 +234,6 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                MainSession.Cookie = Cookie;
                 var joinTeamController = HttpServiceController.GetService<JoinTeamController>();
                 joinTeamController.JoinTeamAsync();
             }
@@ -245,6 +248,27 @@ namespace Zhuzher.viewmodel
         }
 
         #endregion
+
+        #region Score
+
+        private void ExecuteCollectScore()
+        {
+            try
+            {
+                var scoreController = HttpServiceController.GetService<CollectScoreController>();
+                scoreController.CollectScoreAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Score
 
         #region Session
 

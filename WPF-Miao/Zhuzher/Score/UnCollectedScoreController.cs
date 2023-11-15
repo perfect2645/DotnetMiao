@@ -32,7 +32,7 @@ namespace Zhuzher.Score
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"收集积分失败 - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败 - {response?.Message},请检查参数");
                     return null;
                 }
                 var root = response.JsonBody.RootElement;
@@ -41,7 +41,7 @@ namespace Zhuzher.Score
                 var msg = root.GetProperty("message").GetString();
                 if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"收集积分失败: code={code}, message={msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败: code={code}, message={msg}");
                     return null;
                 }
 
@@ -50,7 +50,7 @@ namespace Zhuzher.Score
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"收集积分失败 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败 - {ex.Message} - {ex.StackTrace}");
                 return null;
             }
         }
@@ -61,7 +61,7 @@ namespace Zhuzher.Score
             var scoreList = JsonAnalysis.JsonToDicList(result);
             if (!scoreList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"收集积分失败");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败");
             }
 
             foreach(var scoreItem in scoreList)

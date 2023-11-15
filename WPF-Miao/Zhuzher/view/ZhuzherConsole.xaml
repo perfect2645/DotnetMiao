@@ -31,11 +31,12 @@
         </Style>
     </Page.Resources>
     
-    <basePage:BaseConsole x:Name="baseConsole"
+    <basePage:OnTimeConsole x:Name="baseConsole"
+                            IsCookieVisible="Collapsed"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
-        <basePage:BaseConsole.ButtonArea>
+        <basePage:OnTimeConsole.DynamicArea>
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Height="50">
                     <TextBox Width="100"
@@ -49,9 +50,16 @@
                         Command="{Binding JoinTeamCommand}" Width="100">
                     </Button>
                 </StackPanel>
+                <StackPanel Background="Cornsilk" MinHeight="100"
+                            Margin="10">
+                    <Button Content="收集积分" Margin="5"
+                            HorizontalAlignment="Left"
+                        Command="{Binding CollectScoreCommand}" Width="100">
+                    </Button>
+                </StackPanel>
                 <ListView VerticalAlignment="Top" 
                           Margin="20" 
-                          Height="300"
+                          MinHeight="200"
                           BorderBrush="Pink"
                           BorderThickness="1"
                           ItemsSource="{Binding MiaoshaList}"
@@ -79,6 +87,6 @@
                 </StackPanel>
             </StackPanel>
 
-        </basePage:BaseConsole.ButtonArea>
-    </basePage:BaseConsole>
+        </basePage:OnTimeConsole.DynamicArea>
+    </basePage:OnTimeConsole>
 </Page>

@@ -22,7 +22,7 @@ namespace Zhuzher.Score
 
         private string[] GetUncollectedScore()
         {
-            var result = new string[1];
+            var result = new string[1] { "" };
             var unCollectedScoreController = HttpServiceController.GetService<UnCollectedScoreController>();
 
             var scoreDic = unCollectedScoreController.GetUnCollectedScore(User);
