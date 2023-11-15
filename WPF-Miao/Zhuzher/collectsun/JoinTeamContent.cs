@@ -39,8 +39,8 @@ namespace Zhuzher.collectsun
         private void BuildContent()
         {
             AddContent("projectCode", User.ProjectCode);
-            AddContent("activityId", ZhuzherSession.ActivityId);
-            AddContent("inviteCode", ZhuzherSession.InviteCode);
+            AddContent("activityId", MainSession.ActivityId);
+            AddContent("inviteCode", MainSession.InviteCode);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Zhuzher.miaosha
 
         public void Seckill(List<MiaoshaItem> miaoshaList)
         {
-            ZhuzherSession.PrintLogEvent?.Publish(this, $"****秒杀开始预备");
+            MainSession.PrintLogEvent?.Publish(this, $"****秒杀开始预备");
             var miaoshaGroups = miaoshaList.GroupBy(x => x.StartTime).ToList();
 
             foreach (var group in miaoshaGroups)
@@ -34,7 +34,7 @@ namespace Zhuzher.miaosha
                 {
                     foreach(var user in UserProjectList.UserProjects)
                     {
-                        ZhuzherSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
+                        MainSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
                         var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
                         var interval = new IntervalOnTime(() => SeckillTick(user, item, exchangeHandler), item.GoodName, group.Key);
                         IntervalList.AddOrUpdate(item.GameGoodId, interval);
@@ -42,7 +42,7 @@ namespace Zhuzher.miaosha
                 }
             }
 
-            ZhuzherSession.PrintLogEvent?.Publish(this, $"****秒杀预备结束");
+            MainSession.PrintLogEvent?.Publish(this, $"****秒杀预备结束");
         }
 
         public void SeckillTick(UserProject user, MiaoshaItem item, ExchangeController exchangeHandler)
@@ -56,12 +56,12 @@ namespace Zhuzher.miaosha
                         IntervalList[item.GameGoodId].StopInterval();
                     }
                     item.Status = 1; //开始
-                    ZhuzherSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
+                    MainSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
                     exchangeHandler.Seckill(user, item);
                 }
                 catch (Exception ex)
                 {
-                    ZhuzherSession.PrintLogEvent?.Publish(this, ex.Message);
+                    MainSession.PrintLogEvent?.Publish(this, ex.Message);
                 }
             });
         }

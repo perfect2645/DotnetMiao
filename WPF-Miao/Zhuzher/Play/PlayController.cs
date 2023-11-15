@@ -33,7 +33,7 @@ namespace Zhuzher.Exchange
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -49,7 +49,7 @@ namespace Zhuzher.Exchange
                 {
                     return;
                 }
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {number}:{goodName}");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {number}:{goodName}");
                 if (IsReward)
                 {
                     Thread.Sleep(1000);
@@ -59,7 +59,7 @@ namespace Zhuzher.Exchange
             }
             else
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽奖失败- {msg}");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽奖失败- {msg}");
             }
 
         }

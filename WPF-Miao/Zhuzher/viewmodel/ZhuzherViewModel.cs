@@ -59,7 +59,7 @@ namespace Zhuzher.viewmodel
             set
             {
                 _activityId = value;
-                ZhuzherSession.ActivityId = value;
+                MainSession.ActivityId = value;
                 NotifyUI(() => ActivityId);
             }
         }
@@ -72,7 +72,7 @@ namespace Zhuzher.viewmodel
         {
             InitStaticData();
             InitCommands();
-            ZhuzherSession.PrintLogEvent = PrintLogEvent;
+            MainSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
@@ -84,7 +84,7 @@ namespace Zhuzher.viewmodel
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
             ActivityId = "971";
-            ZhuzherSession.InviteCode = "T3L84I";
+            MainSession.InviteCode = "T3L84I";
         }
 
         private void InitCommands()
@@ -112,7 +112,7 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
             }
@@ -134,7 +134,7 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
                 exchangeHandler.ExchangeAsync();
             }
@@ -188,7 +188,7 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var seckillHandler = HttpServiceController.GetService<SeckillController>();
                 seckillHandler.Seckill(MiaoshaList);
             }
@@ -206,7 +206,7 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var seckillHandler = HttpServiceController.GetService<ScoreKillController>();
                 seckillHandler.Seckill(ScoreMiaoshaList);
             }
@@ -230,7 +230,7 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var joinTeamController = HttpServiceController.GetService<JoinTeamController>();
                 joinTeamController.JoinTeamAsync();
             }

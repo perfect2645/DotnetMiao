@@ -19,7 +19,7 @@ namespace Zhuzher.Play
             HttpDicResponse response = PostStringAsync(rewardContent, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"兑换失败");
+                MainSession.PrintLogEvent.Publish(this, $"兑换失败");
                 return false;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -27,12 +27,12 @@ namespace Zhuzher.Play
 
             if (code == "200" && msg == "success")
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"兑换成功");
+                MainSession.PrintLogEvent.Publish(this, $"兑换成功");
                 return true;
             }
             else
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"兑换失败");
+                MainSession.PrintLogEvent.Publish(this, $"兑换失败");
                 return false;
             }
         }

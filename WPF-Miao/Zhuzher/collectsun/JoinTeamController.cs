@@ -32,7 +32,7 @@ namespace Zhuzher.collectsun
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -49,7 +49,7 @@ namespace Zhuzher.collectsun
             StringBuilder sb = new StringBuilder();
             sb.Append($"User:{user.UserName}, message:{msg}");
 
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }
 }

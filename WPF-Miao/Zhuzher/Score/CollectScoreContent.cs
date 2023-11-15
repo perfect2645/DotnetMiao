@@ -1,30 +1,37 @@
-﻿using HttpProcessor.Content;
+﻿using HttpProcessor.Container;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utils.datetime;
+using Utils;
 using Zhuzher.Common;
+using Zhuzher.search;
 
 namespace Zhuzher.Score
 {
     internal class CollectScoreContent : ZhuzherContent
     {
-        private const string _url = "https://chaos.4009515151.com/market/api/notice/scene";
-        public CollectScoreContent() : base(_url)
+        private const string _url = "https://chaos.4009515151.com/market/api/turntable/getScore";
+        public CollectScoreContent(UserProject user) : base(_url, user)
         {
             BuildContent();
         }
 
-
-
         private void BuildContent()
         {
-            //AddContent("matchParam", @"https:\/\/uiis.4009515151.com\/fg_activity\/template?id=2180");
-            var nowTimestapm = DateTimeUtil.GetTimeStamp();
-            AddContent("requestId", nowTimestapm);
-            AddContent("value", string.Empty);
+            AddContent("idList", GetUncollectedScore());
+        }
+
+        private string[] GetUncollectedScore()
+        {
+            var result = new string[1];
+            var unCollectedScoreController = HttpServiceController.GetService<UnCollectedScoreController>();
+
+            var scoreDic = unCollectedScoreController.GetUnCollectedScore(User);
+            if (!scoreDic.HasItem())
+            {
+                return result;
+            }
+
+            return scoreDic.Keys.ToArray();
         }
     }
 }

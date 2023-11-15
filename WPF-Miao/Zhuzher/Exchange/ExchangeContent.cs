@@ -28,7 +28,7 @@ namespace Zhuzher.Exchange
 
         private void BuildContent()
         {
-            AddContent("activityId", ZhuzherSession.ActivityId.ToInt());
+            AddContent("activityId", MainSession.ActivityId.ToInt());
         }
     }
 }

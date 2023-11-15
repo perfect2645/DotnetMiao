@@ -65,7 +65,7 @@ namespace Zhuzher.collectsun
         private void CollectSunForEachScene(UserProject user, SunActivityScence scene)
         {
             var content = new CollectSunContent();
-            content.AddHeader("Cookie", ZhuzherSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Authorization", user.Authorization);
             content.AddContent("userId", user.UserId);
             content.AddContent("projectCode", user.ProjectCode);
@@ -77,7 +77,7 @@ namespace Zhuzher.collectsun
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -94,7 +94,7 @@ namespace Zhuzher.collectsun
             StringBuilder sb = new StringBuilder();
             sb.Append($"User:{user.UserName}, scene:{scene.SceneCode}, message:{msg}");
 
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }
 }
