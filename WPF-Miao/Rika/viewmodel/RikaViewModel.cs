@@ -110,11 +110,11 @@ namespace Rika.viewmodel
         private void LoginFromConfigAsync()
         {
             MainSession.Users = FileReader.DeserializeFile<List<RikaLogin>>("Login.json");
-            foreach (var user in MainSession.Users)
-            {
-                var userController = HttpServiceController.GetService<UserController>();
-                userController.GetUserAsync(user);
-            }
+            //foreach (var user in MainSession.Users)
+            //{
+            //    var userController = HttpServiceController.GetService<UserController>();
+            //    userController.GetUserAsync(user);
+            //}
 
             MainSession.InitSession();
         }

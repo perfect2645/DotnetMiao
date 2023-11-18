@@ -16,18 +16,15 @@ namespace Rika.login
         private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
         public UserContent(RikaLogin user) : base(baseUrl, user)
         {
-            BuildUrl();
             BuildContent();
         }
 
-        protected override void BuildContent()
+        private void BuildContent()
         {
             AddContent("page", 1);
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             Content.AddOrUpdate("timestamp", timestamp);
             AddContent("token", User.Cookie);
-
-            base.BuildContent();
         }
     }
 }

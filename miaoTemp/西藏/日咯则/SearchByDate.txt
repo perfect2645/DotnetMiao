@@ -18,3 +18,11 @@ Connection: keep-alive
 Content-Length: 29
 
 {"rq":"2023-11-23","data":[]}
+
+{
+    "rq": "2023-11-23",
+    "data": [
+        {"ksid":"015", "clientID":"B0000001", "zyid":"015", "zymc":"zymc001", "ghlx":"1", "ghf":"10"},
+        {"ksid":"015", "clientID":"B0000002", "zyid":"1", "zymc":"zymc002", "ghlx":"2", "ghf":"10"}
+    ]
+}
