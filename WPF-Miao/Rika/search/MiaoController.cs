@@ -1,7 +1,7 @@
-﻿using Rika.appointment;
-using Rika.login;
+﻿using HttpProcessor.Client;
+using Newtonsoft.Json;
+using Rika.appointment;
 using Rika.session;
-using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Utils.number;
-using Newtonsoft.Json;
 using Utils.stringBuilder;
 
 namespace Rika.search

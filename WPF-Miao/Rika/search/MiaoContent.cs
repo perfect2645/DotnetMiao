@@ -12,13 +12,11 @@ namespace Rika.search
 
         public MiaoContent(RikaLogin user) : base(baseUrl, user)
         {
-            BuildUrl();
             BuildContent();
         }
 
-        protected override void BuildContent()
+        private void BuildContent()
         {
-            // timestamp=1693933038&token=d0e6689e39905500bd972bf9282bfdd2&vaccineAddressId=1&vaccineId=6&key=8C81915139AA5CCC160A0AC9168FF2C4
             var hosId = MainSession.PlatformSession.GetString(Constants.HospitalId);
             var deptId = MainSession.PlatformSession.GetString(Constants.DeptId);
 
@@ -27,8 +25,6 @@ namespace Rika.search
             AddContent("token", User.Cookie);
             AddContent("vaccineAddressId", hosId);
             AddContent("vaccineId", deptId);
-
-            base.BuildContent();
         }
     }
 }

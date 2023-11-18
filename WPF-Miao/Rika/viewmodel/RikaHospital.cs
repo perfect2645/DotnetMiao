@@ -5,13 +5,12 @@ namespace Rika.viewmodel
 {
     internal class RikaHospital : HospitalDept
     {
-        public string AppPrefix { get; set; }
         public string DoctorId { get; set; }
         public string DoctorName { get; set; }
 
         public new string Display
         {
-            get { return $"{DepartmentName}-{DoctorName}"; }
+            get { return $"{DepartmentId}-{DepartmentName}"; }
         }
 
         public override string ToLogString()

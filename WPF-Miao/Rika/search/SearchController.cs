@@ -1,13 +1,8 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Container;
 using Rika.session;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using Utils.datetime;
 
 namespace Rika.search
 {
@@ -23,6 +18,8 @@ namespace Rika.search
 
         private void GetMiao()
         {
+            GetDateSchedule();
+
             var miaoController = HttpServiceController.GetService<MiaoController>();
 
             var isMiaoGet = false;
@@ -30,6 +27,27 @@ namespace Rika.search
             {
                 isMiaoGet = miaoController.SearchMiao();
                 Thread.Sleep(3000);
+            }
+        }
+
+        private void GetDateSchedule()
+        {
+            var dateController = HttpServiceController.GetService<DateController>();
+            var indexStart = 1;
+            var maxIndex = 7;
+
+            var isScheduleGet = false;
+            while(!isScheduleGet)
+            {
+                for (var i = indexStart; i < maxIndex; i++)
+                {
+                    Thread.Sleep(500);
+                    isScheduleGet = dateController.SearchByDate(i);
+                    if (isScheduleGet)
+                    {
+                        return;
+                    }
+                }
             }
         }
     }

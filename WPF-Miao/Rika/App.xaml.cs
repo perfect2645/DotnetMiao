@@ -30,6 +30,7 @@ namespace Rika
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.BuidServiceProvider();
         }
     }
