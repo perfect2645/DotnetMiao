@@ -36,6 +36,11 @@ namespace Zhuzher.Exchange
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
+            if (response.Body == null)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                return;
+            }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
 
@@ -53,7 +58,10 @@ namespace Zhuzher.Exchange
                 if (IsReward)
                 {
                     Thread.Sleep(1000);
+                    if (number == 5)
+                    {
 
+                    }
                     GetReward(content);
                 }
             }
@@ -69,7 +77,7 @@ namespace Zhuzher.Exchange
             var reward = new Reward()
             {
                 Authorization = content.User.Authorization,
-                MatchParam = "10jb",
+                MatchParam = "3jb",
                 ProjectCode = content.User.ProjectCode,
                 RequestId = DateTimeUtil.GetTimeStamp(),
                 SceneCode = "puli-daka",

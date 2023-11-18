@@ -84,7 +84,7 @@ namespace Zhuzher.collectsun
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
             if (code == null || code != "200")
             {
-                throw new HttpException($"失败：{msg}");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}失败:{msg}");
             }
             PrintLog(user, scene, msg);
         }

@@ -70,7 +70,8 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            AddMiaoshaItem(7994, 1, "维达卷纸一提", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
+            //AddMiaoshaItem(7995, 1, "冒油烤鸭蛋", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(7996, 1, "洗衣液", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(7432, 1, "圣牧有机奶3箱0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:02");
             //AddMiaoshaItem(7465, 1, "莱阳秋月梨5斤0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:03");
