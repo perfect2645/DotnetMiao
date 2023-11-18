@@ -1,7 +1,7 @@
-﻿using rika.login;
+﻿using Rika.login;
 using System.Text;
 
-namespace rika.appointment
+namespace Rika.appointment
 {
     public class Order
     {

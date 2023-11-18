@@ -1,8 +1,8 @@
-﻿using rika.viewmodel;
+﻿using Rika.viewmodel;
 using System;
 using System.Windows;
 
-namespace rika
+namespace Rika
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -14,7 +14,7 @@ namespace rika
             InitializeComponent();
             try
             {
-                DataContext = new rikaViewModel(mainConsole.baseConsole.LogPanel);
+                DataContext = new RikaViewModel(mainConsole.baseConsole.LogPanel);
             }
             catch (Exception ex)
             {

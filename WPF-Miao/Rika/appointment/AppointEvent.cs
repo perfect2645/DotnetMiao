@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace rika.appointment
+namespace Rika.appointment
 {
     public class OrderEvent
     {

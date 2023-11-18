@@ -1,6 +1,6 @@
-﻿using rika.appointment;
-using rika.login;
-using rika.session;
+﻿using Rika.appointment;
+using Rika.login;
+using Rika.session;
 using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using Utils.number;
 using Newtonsoft.Json;
 using Utils.stringBuilder;
 
-namespace rika.search
+namespace Rika.search
 {
     internal class MiaoController : HttpClientBase
     {

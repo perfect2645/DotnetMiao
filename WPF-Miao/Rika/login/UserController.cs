@@ -1,6 +1,6 @@
 ﻿using HttpProcessor.Client;
-using rika.common;
-using rika.session;
+using Rika.common;
+using Rika.session;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -9,10 +9,10 @@ using System.Windows.Interop;
 using Utils;
 using Utils.json;
 using Utils.stringBuilder;
-using rika.login;
+using Rika.login;
 using System;
 
-namespace rika.login
+namespace Rika.login
 {
     internal class UserController : HttpClientBase
     {

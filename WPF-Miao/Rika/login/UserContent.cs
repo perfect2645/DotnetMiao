@@ -1,6 +1,6 @@
-﻿using rika.common;
-using rika.login;
-using rika.session;
+﻿using Rika.common;
+using Rika.login;
+using Rika.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.datetime;
 
-namespace rika.login
+namespace Rika.login
 {
-    internal class UserContent : rikaContent
+    internal class UserContent : RikaContent
     {
         private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
         public UserContent(RikaLogin user) : base(baseUrl, user)
@@ -25,7 +25,7 @@ namespace rika.login
             AddContent("page", 1);
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             Content.AddOrUpdate("timestamp", timestamp);
-            AddContent("token", User.Token);
+            AddContent("token", User.Cookie);
 
             base.BuildContent();
         }

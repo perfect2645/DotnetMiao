@@ -1,7 +1,7 @@
 ﻿using HttpProcessor.Container;
-using rika.appointment;
-using rika.login;
-using rika.search;
+using Rika.appointment;
+using Rika.login;
+using Rika.search;
 using System.Threading.Tasks;
 using System.Windows;
 

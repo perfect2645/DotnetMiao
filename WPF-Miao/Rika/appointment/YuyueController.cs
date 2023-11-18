@@ -1,6 +1,6 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Content;
-using rika.session;
+using Rika.session;
 using System;
 using System.Net.Http;
 using System.Text.Json;
@@ -8,7 +8,7 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace rika.appointment
+namespace Rika.appointment
 {
     public class YuyueController : HttpClientBase
     {

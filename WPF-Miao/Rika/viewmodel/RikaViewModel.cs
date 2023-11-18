@@ -4,10 +4,10 @@ using CommunityToolkit.Mvvm.Input;
 using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
-using rika.appointment;
-using rika.login;
-using rika.search;
-using rika.session;
+using Rika.appointment;
+using Rika.login;
+using Rika.search;
+using Rika.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +17,9 @@ using System.Windows.Input;
 using Utils;
 using Utils.file;
 
-namespace rika.viewmodel
+namespace Rika.viewmodel
 {
-    internal class rikaViewModel : OnTimeViewModel
+    internal class RikaViewModel : OnTimeViewModel
     {
         #region Properties
 
@@ -34,7 +34,7 @@ namespace rika.viewmodel
 
         #region Constructor
 
-        public rikaViewModel(LogPanel logPanel) : base(logPanel)
+        public RikaViewModel(LogPanel logPanel) : base(logPanel)
         {
             InitCommands();
             InitStaticData();
@@ -57,7 +57,7 @@ namespace rika.viewmodel
 
             Departments = new List<HospitalDept>
             {
-                new rikaHospital
+                new RikaHospital
                 {
                     AppPrefix = "ljzyyapi",
                     HospitalId = "1",
@@ -65,7 +65,7 @@ namespace rika.viewmodel
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "6",
                 },
-                new rikaHospital
+                new RikaHospital
                 {
                     AppPrefix = "ljzyyapi",
                     HospitalId = "1",
@@ -73,7 +73,7 @@ namespace rika.viewmodel
                     DepartmentName = "九价HPV首针（＜16周岁）",
                     DepartmentId = "7",
                 },
-                new rikaHospital
+                new RikaHospital
                 {
                     AppPrefix = "yimiaoapi",
                     HospitalId = "9",
@@ -81,7 +81,7 @@ namespace rika.viewmodel
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "23",
                 },
-                new rikaHospital
+                new RikaHospital
                 {
                     AppPrefix = "yimiaoapi",
                     HospitalId = "8",
@@ -312,7 +312,7 @@ namespace rika.viewmodel
 
         private void OnSelectedDepartmentChanged()
         {
-            var selectedDept = SelectedDepartment as rikaHospital;
+            var selectedDept = SelectedDepartment as RikaHospital;
             MainSession.PlatformSession.AddOrUpdate(Constants.AppPrefix, selectedDept.AppPrefix);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalId, selectedDept.HospitalId);
             MainSession.PlatformSession.AddOrUpdate(Constants.HospitalName, selectedDept.HospitalName);

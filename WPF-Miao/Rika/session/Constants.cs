@@ -1,6 +1,6 @@
 ﻿using Base.session;
 
-namespace rika.session
+namespace Rika.session
 {
     internal class Constants : MiaoConstants
     {

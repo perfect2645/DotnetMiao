@@ -1,12 +1,12 @@
-﻿using rika.common;
-using rika.login;
-using rika.session;
+﻿using Rika.common;
+using Rika.login;
+using Rika.session;
 using Utils;
 using Utils.datetime;
 
-namespace rika.search
+namespace Rika.search
 {
-    internal class MiaoContent : rikaContent
+    internal class MiaoContent : RikaContent
     {
         private static string baseUrl = ".yuanbaodaojia.com/v1/vaccine_day_list";
 
@@ -24,7 +24,7 @@ namespace rika.search
 
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             AddContent("timestamp", timestamp);
-            AddContent("token", User.Token);
+            AddContent("token", User.Cookie);
             AddContent("vaccineAddressId", hosId);
             AddContent("vaccineId", deptId);
 

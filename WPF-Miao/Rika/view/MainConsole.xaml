@@ -1,11 +1,11 @@
-﻿<Page x:Class="rika.view.MainConsole"
+﻿<Page x:Class="Rika.view.MainConsole"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:basePage="clr-namespace:Base.view;assembly=Base"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:session="clr-namespace:rika.session"
+      xmlns:session="clr-namespace:Rika.session"
       Title="昆山陆家镇"
-      x:Name="rikaPage">
+      x:Name="RikaPage">
     <Page.Resources>
         <session:MainSession x:Key="mainSession" />
     </Page.Resources>

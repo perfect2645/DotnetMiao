@@ -1,9 +1,9 @@
 ﻿using Base.viewModel.hospital;
 using System.Text;
 
-namespace rika.viewmodel
+namespace Rika.viewmodel
 {
-    internal class rikaHospital : HospitalDept
+    internal class RikaHospital : HospitalDept
     {
         public string AppPrefix { get; set; }
         public string DoctorId { get; set; }

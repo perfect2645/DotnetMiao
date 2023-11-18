@@ -1,10 +1,10 @@
 ﻿using Base.session;
 using Base.viewmodel.status;
-using rika.appointment;
-using rika.login;
+using Rika.appointment;
+using Rika.login;
 using System.Collections.Generic;
 
-namespace rika.session
+namespace Rika.session
 {
     public class MainSession : MainSessionBase, ISessionContainer
     {

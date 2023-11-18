@@ -1,7 +1,7 @@
 ﻿using Base.session;
-using rika.appointment;
+using Rika.appointment;
 
-namespace rika.session
+namespace Rika.session
 {
     public class AppointSession : ControllerSession<YuyueController>
     {

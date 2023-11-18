@@ -1,6 +1,6 @@
 ﻿using Base.viewmodel.status;
 using HttpProcessor.Container;
-using rika.session;
+using Rika.session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utils.datetime;
 
-namespace rika.search
+namespace Rika.search
 {
     internal class SearchController
     {

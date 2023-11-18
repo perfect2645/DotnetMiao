@@ -1,13 +1,13 @@
-﻿using rika.common;
-using rika.login;
-using rika.session;
+﻿using Rika.common;
+using Rika.login;
+using Rika.session;
 using System;
 using Utils;
 using Utils.datetime;
 
-namespace rika.appointment
+namespace Rika.appointment
 {
-    internal class YuyueContent : rikaContent
+    internal class YuyueContent : RikaContent
     {
         private static string url = ".yuanbaodaojia.com/v1/booking_vaccine_new";
         public Order Order { get; private set; }
@@ -32,7 +32,7 @@ namespace rika.appointment
             }
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             Content.AddOrUpdate("timestamp", timestamp);
-            AddContent("token", Order.User.Token);
+            AddContent("token", Order.User.Cookie);
             AddContent("vaccineDayId", Order.VaccineDayId);
             AddContent("vaccineDayNumId", Order.VaccineDayNumId);
             AddContent("vaccineId", Order.VaccineId);

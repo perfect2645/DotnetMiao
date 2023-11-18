@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace rika.view
+namespace Rika.view
 {
     public partial class MainConsole : Page
     {

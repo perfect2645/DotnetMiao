@@ -1,6 +1,6 @@
 ﻿using HttpProcessor.Content;
-using rika.login;
-using rika.session;
+using Rika.login;
+using Rika.session;
 using System;
 using System.Security.Policy;
 using System.Text;
@@ -8,59 +8,31 @@ using Utils;
 using Utils.datetime;
 using Utils.stringBuilder;
 
-namespace rika.common
+namespace Rika.common
 {
-    internal class rikaContent : HttpStringContent
+    internal class RikaContent : HttpStringContent
     {
         public RikaLogin User { get; private set; }
         public string BaseUrl { get; set; }
 
-        public rikaContent(string baseUrl, RikaLogin user) : base(baseUrl)
+        public RikaContent(string baseUrl, RikaLogin user) : base(baseUrl)
         {
             User = user;
             BaseUrl = baseUrl;
-            ContentType = "application/x-www-form-urlencoded";
             BuildHeader();
-        }
-
-        protected void BuildUrl()
-        {
-            var appPrefix = MainSession.PlatformSession.GetString(Constants.AppPrefix);
-            RequestUrl = $"https://{appPrefix}{BaseUrl}";
-
         }
 
         private void BuildHeader()
         {
-            var appPrefix = MainSession.PlatformSession.GetString(Constants.AppPrefix);
-            AddHeader("Host", $"{appPrefix}.yuanbaodaojia.com");
+            AddHeader("Host", "pyx.ygnetservice.cn");
             AddHeader("Connection", "keep-alive");
-            AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat");
-            AddHeader("Referer", "https://servicewechat.com/wxcbe627ede7df27a5/2/page-frame.html");
-            AddHeader("Accept-Encoding", "gzip, deflate, br");
-        }
-
-        protected virtual void BuildContent()
-        {
-            BuildSign();
-        }
-
-        protected virtual void BuildSign()
-        {
-            var sb = new StringBuilder();
-            foreach(var content in Content)
-            {
-                sb.Append("&");
-                sb.Append(content.Key);
-                sb.Append("=");
-                sb.Append(content.Value.NotNullString());
-            }
-
-            sb.Append("&key=8C81915139AA5CCC160A0AC9168FF2C4");
-            var signStr = sb.ToString().TrimStart('&');
-            var signEncode = Encryptor.GetMD5_32(signStr);
-
-            Content.AddOrUpdate("tokenSign", signEncode);
+            AddHeader("Accept", "*/*");
+            AddHeader("User-Agent", "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)");
+            AddHeader("X-Requested-With", "XMLHttpRequest");
+            AddHeader("Cookie", User.Cookie);
+            AddHeader("Referer", "http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_YS.action?openid=o0u9u6pNQfh7XfKLS9M4zHA6iwlE&clientID=A0000005&ksID=015&ksMC=%E8%AE%A1%E5%88%92%E5%85%8D%E7%96%AB%E7%A7%91%E9%97%A8%E8%AF%8A");
+            AddHeader("Accept-Encoding", "gzip, deflate");
+            AddHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
         }
     }
 }
