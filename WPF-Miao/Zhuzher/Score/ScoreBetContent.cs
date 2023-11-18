@@ -23,6 +23,8 @@ namespace Zhuzher.Score
             AddContent("scoreExchangeId", ScoreBet.ScoreExchangeId);
             AddContent("gameGoodId", ScoreBet.GameGoodId);
             AddContent("number", ScoreBet.Number);
+            AddContent("projectCode", User.ProjectCode);
+            AddContent("projectName", User.ProjectName);
         }
     }
 }

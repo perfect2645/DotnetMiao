@@ -40,6 +40,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<PlayRewardController>();
             HttpServiceController.AddTransientService<CollectScoreController>();
             HttpServiceController.AddTransientService<UnCollectedScoreController>();
+            HttpServiceController.AddTransientService<ScoreBetController>();
 
             HttpServiceController.BuidServiceProvider();
         }

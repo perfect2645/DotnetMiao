@@ -31,7 +31,8 @@ namespace Zhuzher.viewmodel
         public ICommand ScoreSeckillCommand { get; set; }
         public ICommand JoinTeamCommand { get; set; }
         public ICommand CollectScoreCommand { get; set; }
-        
+        public ICommand ScoreBetCommand { get; set; }
+
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -99,6 +100,7 @@ namespace Zhuzher.viewmodel
             ScoreSeckillCommand = new RelayCommand(ExecuteScoreSeckill);
             JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
             CollectScoreCommand = new RelayCommand(ExecuteCollectScore);
+            ScoreBetCommand = new RelayCommand(ExecuteScoreBet);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -257,6 +259,23 @@ namespace Zhuzher.viewmodel
             {
                 var scoreController = HttpServiceController.GetService<CollectScoreController>();
                 scoreController.CollectScoreAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteScoreBet()
+        {
+            try
+            {
+                var scoreBetController = HttpServiceController.GetService<ScoreBetController>();
+                scoreBetController.ScoreBetAsync();
             }
             catch (HttpException ex)
             {

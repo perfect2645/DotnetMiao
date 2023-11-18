@@ -1,10 +1,12 @@
 ﻿using HttpProcessor.Client;
 using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Zhuzher.search;
 using Zhuzher.session;
+using static System.Formats.Asn1.AsnWriter;
 
 
 namespace Zhuzher.Score
@@ -54,10 +56,8 @@ namespace Zhuzher.Score
                     return false;
                 }
 
-                var score = root.GetProperty("result").GetRawText();
-
-                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分成功 - 还有积分:{score}");
-
+                var result = root.GetProperty("result");
+                SaveBatResult(user, result);
                 return true;
             }
             catch (Exception ex)
@@ -65,6 +65,12 @@ namespace Zhuzher.Score
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]CollectScore失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
+        }
+
+        private void SaveBatResult(UserProject user, JsonElement result)
+        {
+            var goodName = result.GetProperty("goodName").GetString();
+            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]积分夺宝成功 - goodName:{goodName}");
         }
     }
 }

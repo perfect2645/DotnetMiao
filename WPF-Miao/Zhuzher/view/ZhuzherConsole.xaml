@@ -56,6 +56,10 @@
                             HorizontalAlignment="Left"
                         Command="{Binding CollectScoreCommand}" Width="100">
                     </Button>
+                    <Button Content="积分夺宝" Margin="5"
+                        Command="{Binding ScoreBetCommand}" Width="100"
+                            HorizontalAlignment="Left">
+                    </Button>
                 </StackPanel>
                 <ListView VerticalAlignment="Top" 
                           Margin="20" 
