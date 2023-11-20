@@ -6,10 +6,8 @@ namespace Rika.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string VaccineDayId { get; set; }
-        public string VaccineDayNumId { get; set; }
-        public string VaccineId { get; set; }
-        public string FamilyId { get; set; }
+
+
         public string ResultMsg { get; set; }
         internal RikaLogin User { get; set; }
 

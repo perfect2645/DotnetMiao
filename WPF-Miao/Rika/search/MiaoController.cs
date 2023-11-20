@@ -24,43 +24,36 @@ namespace Rika.search
         {
         }
 
-        public void SearchMiaoAsync()
+        public Task<bool> SearchMiaoAsync(int index)
         {
-            Task.Factory.StartNew(() => SearchMiao());
+            return Task.Factory.StartNew(() => SearchMiao(index));
         }
 
-        public bool SearchMiao()
+        public bool SearchMiao(int index)
         {
             try
             {
                 var defaultUser = MainSession.Users.FirstOrDefault();
-                var content = new MiaoContent(defaultUser);
+                var content = new DateContent(defaultUser, index);
                 content.BuildDefaultHeaders(Client);
-                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
+                var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
 
-                var code = root.GetProperty("errorCode").GetString();
-                if (code != "0000")
+                if (root.ValueKind == JsonValueKind.Null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: code={code}");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchByDate失败: root is empty");
                     return false;
                 }
+                var resultDate = root.GetProperty("rq").GetString();
 
                 var data = root.GetProperty("data");
-                if (data.ValueKind == JsonValueKind.Null)
-                {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao失败: data is empty");
-                    return false;
-                }
 
-                var vaccineDayList = data.GetProperty("vaccineDayList");
-
-                return CheckSaveResource(vaccineDayList);
+                return CheckSaveSchedule(resultDate, data);
             }
             catch (Exception ex)
             {
@@ -69,7 +62,7 @@ namespace Rika.search
             }
         }
 
-        private bool CheckSaveResource(JsonElement dataElement)
+        private bool CheckSaveSchedule(string resultDate, JsonElement dataElement)
         {
             var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
             if (!vaccineDayList.HasItem())
@@ -78,7 +71,23 @@ namespace Rika.search
                 return false;
             }
 
-            return BuildOrderList(vaccineDayList);
+            var defaultVaccine = vaccineDayList.FirstOrDefault();
+
+            var orderList = new List<Order>();
+            var order = new Order
+            {
+
+            };
+
+            orderList.Add(order);
+
+            var orderArgs = new OrderEventArgs
+            {
+                OrderList = orderList,
+            };
+
+            MainSession.OrderEvent.Publish(this, orderArgs);
+            return true;
         }
 
         private bool BuildOrderList(List<Dictionary<string, object>> vaccineDayList)

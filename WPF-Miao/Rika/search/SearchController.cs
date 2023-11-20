@@ -18,15 +18,25 @@ namespace Rika.search
 
         private void GetMiao()
         {
-            GetDateSchedule();
+            //GetDateSchedule();
 
             var miaoController = HttpServiceController.GetService<MiaoController>();
 
-            var isMiaoGet = false;
-            while (!isMiaoGet)
+            var indexStart = 1;
+            var maxIndex = 7;
+
+            var isScheduleGet = false;
+            while (!isScheduleGet)
             {
-                isMiaoGet = miaoController.SearchMiao();
-                Thread.Sleep(3000);
+                for (var i = indexStart; i < maxIndex; i++)
+                {
+                    Thread.Sleep(500);
+                    isScheduleGet = miaoController.SearchMiao(i);
+                    if (isScheduleGet)
+                    {
+                        return;
+                    }
+                }
             }
         }
 

@@ -1,0 +1,380 @@
+GET http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_POST.action?openid=o0u9u6i0lNIVxoWofFCksAA5r5V8&clientID=A0000005&rq=2023-11-21&zyid=4008&zy=%E5%AE%AB%E9%A2%88%E7%99%8C%E7%96%AB%E8%8B%97&ksid=015&ks=%E8%AE%A1%E5%88%92%E5%85%8D%E7%96%AB%E7%A7%91%E9%97%A8%E8%AF%8A&timeID=1&time=09:30%E8%87%B313:00 HTTP/1.1
+Host: pyx.ygnetservice.cn
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: JSESSIONID=E48A9CA3DDC0B0D6A4C0757B47403100
+Referer: http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_YS_GH.action?openid=o0u9u6i0lNIVxoWofFCksAA5r5V8&clientID=A0000005&rq=2023-11-21&ksid=015&zyid=4008
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.9
+Date: Sun, 19 Nov 2023 02:05:30 GMT
+Content-Type: text/html;charset=UTF-8
+Connection: keep-alive
+Content-Language: zh-CN
+Content-Length: 13343
+
+
+    
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>预约挂号-确认信息</title>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weui.css">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weuix.css">
+   
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/animate.css">
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/global.css">
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/loading.css">
+ 
+	
+	
+	<script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/jQuery/jquery.min.js"></script>	    
+    
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.min.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.weui.js"></script>    
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/iscroll-lite.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/axios.min.js"></script> 
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/js/loading.js"></script>   
+        
+    <!-- 微信jsapi -->
+    <script scr="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> 
+ 
+    <script>
+    var openid=""; 
+    var windows_close = "close" ;  
+    var TAG = "2"; 
+    $(document).ready(function(){
+    	//无号源
+    	if(TAG=="2"){
+    		$.alert("无可用的号源!","提示",function(){
+      		  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
+    		  //这个可以关闭ios系统的手机
+    		  WeixinJSBridge.call('closeWindow');                   
+            });
+    	} else    	
+        if(windows_close=="close"){
+              //alert('提示：由于长时间未操作，需重新登录！');
+              $.toptip("提示：由于长时间未操作，需重新登录！");
+    		  //这个可以关闭安卓系统的手机
+    		  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
+    		  //这个可以关闭ios系统的手机
+    		  WeixinJSBridge.call('closeWindow');        	
+        } 
+    });  
+    
+    function closeform(){
+    	setTimeout(function () { 
+    		  removeLoading('loading');  
+    		  //这个可以关闭安卓系统的手机
+    		  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
+    		  //这个可以关闭ios系统的手机
+    		  WeixinJSBridge.call('closeWindow');         	    
+      		    	
+      	}, 2000);   
+    }
+ 
+    function loading(){
+    	$('body').loading({
+			loadingWidth:240,
+			title:'请稍等!',
+			name:'loading',
+			animateIn:'none',
+			discription:'正在提交...',
+			direction:'row',
+			type:'origin',
+			mustRelative:true,
+			originBg:'#71EA71',
+			originDivWidth:30,
+			originDivHeight:30,
+			originWidth:4,
+			originHeight:4,
+			smallLoading:false,
+			titleColor:'#388E7A',
+			loadingBg:'#312923',
+			loadingMaskBg:'rgba(22,22,22,0.2)'
+		});    	
+    }
+    
+    function payByWeChat(outTradeNo){
+    	
+    	if(windows_close=="close"){
+    	   return ;	 
+    	}
+    	
+    	
+    	var sfzno = $("#edit_sfzNo").text();
+    	var clientid="";
+    	
+    	var zyid = "" ;
+    	var ksid = "" ;
+    	var rq = "" ;
+    	var timeid = "" ;
+    	
+    	loading();   
+    	
+        $.ajax({
+            data:{outTradeNo:outTradeNo,clientid:clientid,sfzno:sfzno,openid:openid,zyid:zyid,ksid:ksid,rq:rq,timeid:timeid},
+            dataType:"json",
+            type:"post",
+            async: true,
+            url:"http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_POST_pay.action",
+            success:function(msg){
+            	removeLoading('loading');        
+                if(msg.tag == "OK"){
+                    var content = "预约挂号";
+                    var appId = msg.appid;
+                    var timeStamp = msg.wxdata.timeStamp;
+                    var nonceStr = msg.wxdata.nonceStr;
+                    var packages = msg.wxdata.packages;
+                    var paySign = msg.wxdata.paySign;
+               
+                    pay(appId,timeStamp,nonceStr,packages,paySign);
+                }else if(msg.djid == "ER"){
+                	$.alert("无可用的号源!","提示",function(){
+                		  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
+              		  //这个可以关闭ios系统的手机
+              		  WeixinJSBridge.call('closeWindow');                   
+                      });                	
+                }else if(msg.djid == "EX"){
+                	$.alert("已存在有效的记录!","提示",function(){
+                		  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
+              		      //这个可以关闭ios系统的手机
+              		      WeixinJSBridge.call('closeWindow');                   
+                      }); 
+                }	
+            },
+            error:function(msg){
+            	removeLoading('loading');   
+            	 
+            }
+        });
+    }
+    
+    //支付完成后查询订单信息
+    function query_pay_info(){
+    	
+    
+    	var clientid="";
+    	var outTradeNo="" ;
+    	loading();  
+        $.ajax({
+            data:{outTradeNo:outTradeNo,clientid:clientid,openid:openid},
+            dataType:"json",
+            type:"post",
+            async: true,
+            url:"http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_POST_payquery.action",
+            success:function(msg){
+            	closeform(); 
+            },
+            error:function(msg){
+            	removeLoading('loading');    
+        
+            }
+        });
+    } 
+
+    //h5唤起微信支付
+    function onBridgeReady(appId,timeStamp,nonceStr,packages,paySign){
+     
+    	 var clientid="";
+    	 var outTradeNo="" ;
+ 
+         WeixinJSBridge.invoke(
+                   'getBrandWCPayRequest', {
+                       "appId":appId,     //公众号名称，由商户传入     
+                       "timeStamp":timeStamp,         //时间戳，自1970年以来的秒数     
+                       "nonceStr":nonceStr, //随机串     
+                       "package":packages,     
+                       "signType":"MD5",         //微信签名方式： 
+                       "paySign":paySign //微信签名 
+                   },
+                   function(res){
+                    
+                       if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                           //alert("支付成功");// 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                           //query_pay_info();
+                           WeixinJSBridge.call('closeWindow');  
+                           
+                           //window.location.href = "http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_tishi.action?clientid="+clientid+"&djid="+outTradeNo+"&openid="+openid;
+                           //监测是否成功挂号
+                       }else if (res.err_msg === 'get_brand_wcpay_request:cancel') {
+                            alert("取消支付");
+                       }else{
+                    	   //alert(res.err_msg);
+                    	   alert("提示：调用失败，请重试！");
+                       }
+                   }
+               );  
+ 
+    }
+    
+ 
+    function pay(appId,timeStamp,nonceStr,packages,paySign){  
+
+        if (typeof WeixinJSBridge == "undefined"){  
+           if( document.addEventListener ){  
+               document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);  
+           }else if (document.attachEvent){  
+               document.attachEvent('WeixinJSBridgeReady', onBridgeReady);   
+               document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);  
+           }  
+        }else{  
+        	onBridgeReady(appId,timeStamp,nonceStr,packages,paySign);  
+        }   
+
+    }
+    
+    //选择患者
+    function choose_patient(jzkNo,sfzno,patient,tel){
+        
+    	$("#edit_jzkNo").html(jzkNo);
+ 	    $("#edit_patient").html(patient);
+ 	    $("#edit_tel").html(tel);
+ 	    $("#edit_sfzNo").html(sfzno);
+    }
+    
+ 
+    
+ 
+    </script>
+    
+    <style>
+         .weui-media-box__desc{
+              margin-top:  5px;
+              height:45px;         
+         }
+         .list_yyxx_item{
+         	  height:70px;	
+     
+         }
+          
+		 	 
+		.weui-form-preview__label{
+		  text-align-last:justify;
+		  text-align:justify;
+		}
+		/* 解决苹果浏览器不兼容的问题 */
+		 .weui-form-preview__label:after {
+		  content: " ";
+		  display: inline-block;
+		  width: auto;
+		}
+          
+    </style>   
+ 
+</head>
+<body ontouchstart>
+
+  <div class="container">
+ 
+    
+ <div class="page-hd">
+ 
+ 
+ <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">付款金额</label>
+                <em id="edit_je" class="weui-form-preview__value">¥0.0</em>
+            </div>
+        </div>
+        <div class="weui-form-preview__bd">
+        
+        
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">订单编号</label>
+                <span id="edit_DDBH" class="weui-form-preview__value"></span>
+            </div>        
+        
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">就诊卡号</label>
+                <span  id="edit_jzkNo" class="weui-form-preview__value"></span>
+            </div>
+                    
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">姓名</label>
+                <span id="edit_patient" class="weui-form-preview__value">  </span>
+            </div>
+            
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">身份证号</label>
+                <span id="edit_sfzNo" class="weui-form-preview__value"></span>
+            </div>
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">联系电话</label>
+                <span id="edit_tel" class="weui-form-preview__value"></span>
+            </div>   
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">挂号科室</label>
+                <span id="edit_ks" class="weui-form-preview__value"></span>
+            </div>    
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">医生</label>
+                <span id="edit_ys" class="weui-form-preview__value"></span>
+            </div>                                  
+                        
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">日期</label>
+                <span id="edit_rq" class="weui-form-preview__value"> </span>
+            </div>   
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">时间</label>
+                <span id="edit_timer" class="weui-form-preview__value"></span>
+            </div>                 
+            
+                         
+        </div>
+     
+
+    </div>
+    
+ 
+
+   </div>
+      
+          <div class="page-bd-15">
+              <a href="javascript:payByWeChat('');" class="weui-btn weui-btn_primary">微信支付</a>
+              <a  id="job" href="javascript:;" class="weui-btn bg-blue open-popup" data-target="#half">选择患者</a> 
+          </div>
+ 
+  </div>
+  
+  
+<div id="half" class='weui-popup__container popup-bottom'>
+    <div class="weui-popup__overlay"></div>
+    <div class="weui-popup__modal">
+        <div class="toolbar">
+            <div class="toolbar-inner">
+                <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                <h1 class="title">选择就医患者信息</h1>
+            </div>
+        </div>
+        <div class="modal-content">
+     <div class="weui-cells">    
+        
+    </div>
+        </div>
+    </div>
+</div>
+ 
+</body>
+
+
+
+</html>

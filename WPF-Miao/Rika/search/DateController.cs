@@ -36,7 +36,7 @@ namespace Rika.search
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"SearchByDate - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"SearchMiao - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;
@@ -50,7 +50,7 @@ namespace Rika.search
 
                 var data = root.GetProperty("data");
 
-                return CheckSaveResource(resultDate, data);
+                return CheckSaveSchedule(resultDate, data);
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace Rika.search
             }
         }
 
-        private bool CheckSaveResource(string resultDate, JsonElement dataElement)
+        private bool CheckSaveSchedule(string resultDate, JsonElement dataElement)
         {
             var vaccineDayList = JsonAnalysis.JsonToDicList(dataElement);
             if (!vaccineDayList.HasItem())

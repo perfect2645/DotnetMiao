@@ -1,0 +1,233 @@
+GET http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_GRZX/FUN_GRZX_GRXX_Patient.action?clientid=A0000005&sfzno=210213200906102029 HTTP/1.1
+Host: pyx.ygnetservice.cn
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: JSESSIONID=00FE184B1A09696D1964E0B085DCE41F
+Referer: http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_GRZX/FUN_GRZX_GRXX_CYJZR.action?clientID=A0000005
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.9
+Date: Sun, 19 Nov 2023 07:36:35 GMT
+Content-Type: text/html;charset=UTF-8
+Content-Length: 7251
+Connection: keep-alive
+Content-Language: zh-CN
+
+
+    
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>就医基本信息</title>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weui.css">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weuix.css">
+ 
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.min.js"></script>         
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.weui.js"></script>       
+      
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/iscroll-lite.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/axios.min.js"></script> 
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/js/loading.js"></script>  
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/qrcode.js"></script> 
+    
+    
+ 
+    <script>
+    
+ 
+    
+    var windows_close = "" ;  
+    $(document).ready(function(){
+        if(windows_close=="close"){
+            //alert('提示：由于长时间未操作，需重新登录！');
+            $.toptip("提示：由于长时间未操作，需重新登录！");
+  		  //这个可以关闭安卓系统的手机
+  		  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
+  		  //这个可以关闭ios系统的手机
+  		  WeixinJSBridge.call('closeWindow');        	
+        } 
+    	get_qcode();
+   	
+    });     
+    
+    function get_txm(){
+    	$("#bcTarget").barcode("123123123123", "code128",{
+            output:'css',       //渲染方式 css/bmp/svg/canvas
+            bgColor: '#FFFFFF', //条码背景颜色
+            color: '#000000',   //条码颜色
+            barWidth: 2,        //单条条码宽度
+            barHeight: 100,     //单体条码高度
+             moduleSize: 5,   //条码大小
+            // posX: 10,        //条码坐标X
+            // posY: 5,         //条码坐标Y
+            addQuietZone: false  //是否添加空白区（内边距）
+          });       	
+    }
+    
+    function isnull(sdata,sdef){
+    	if(sdata == null){
+    		return sdef
+    	}else{
+    		return sdata ;
+    	}
+    }
+    
+    function get_qcode(){
+    	var clientid="A0000005";
+    	var jzkno ="2102130001";
+    	var patient = "包睿";
+    	var sfzno = "210213200906102029";
+    	var tel = "18840842645";  
+    	var openid = "o0u9u6i0lNIVxoWofFCksAA5r5V8";    
+    	var txt="QR|"+clientid+"|"+isnull(jzkno,"")+"|"+isnull(patient,"")+"|"+isnull(sfzno,"")+"|"+isnull(tel,"") +"|";
+    	 
+        $("#bcTarget").empty().qrcode({render:"image",ecLevel:"L",size:200,background:"#fff",fill:"#000",text:txt});
+
+    	
+    }
+    
+    function closeform(){
+    	window.history.back(-1);       	
+    }
+    
+    function deleterow(clientid,sfzno,openid){
+    	
+    	var clientid = "A0000005" ;
+    	var sfzno = "210213200906102029" ;
+    	var openid = "o0u9u6i0lNIVxoWofFCksAA5r5V8";
+ 
+     	$.confirm("您确定要删除吗?", "确认删除?", function() {    		    		
+        
+            //注册并登录
+            $.ajax({
+               url: "http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_GRZX/FUN_GRZX_GRXX_delPatient.action",
+               type: "POST",
+               dataType: "json",
+               data: {clientid:clientid,sfzno:sfzno,openid:openid},
+               success: function (data) {            	 
+                   if(data.tag=="OK"){
+                	                
+                	   $.toptip("删除成功",'success');
+                	   
+                	   var url = "http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_GRZX/FUN_GRZX_GRXX_CYJZR.action";
+                	   window.location.href=url;
+                   }else{
+                	    
+                	   $.toptip(data);
+                   }
+               },
+               error:function(e){
+            	   
+            	   $.toptip("删除失败");
+               }
+            });      		            
+        });
+
+    }
+    
+    
+    function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+    
+ 
+    </script>
+	
+	<style>
+	.weui-form-preview__label{
+	  text-align-last:justify;
+	  text-align:justify;
+	}
+	/* 解决苹果浏览器不兼容的问题 */
+	 .weui-form-preview__label:after {
+	  content: " ";
+	  display: inline-block;
+	  width: auto;
+	}
+	
+	</style>
+    
+</head>
+<body ontouchstart>
+  <div class="container">
+ 
+ <div class="page-hd">
+ 
+ 
+ 
+ <div class="weui-form-preview">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">&nbsp</label>
+                <span id="edit_DDBH" class="weui-form-preview__value">&nbsp</span>
+            </div>               
+     <div id="bcTarget" class='tcenter'></div>
+        <div class="weui-form-preview__bd">
+         
+        
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">就诊卡号</label>
+                <span  id="edit_jzkNo" class="weui-form-preview__value">2102130001</span>
+            </div>
+                    
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">姓名</label>
+                <span id="edit_patient" class="weui-form-preview__value">包睿  </span>
+            </div>
+            
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">身份证号</label>
+                <span id="edit_sfzNo" class="weui-form-preview__value">210213200906102029</span>
+            </div>
+            
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">联系电话</label>
+                <span id="edit_tel" class="weui-form-preview__value">18840842645</span>
+            </div>   
+    
+                         
+        </div>
+     
+           
+        
+    </div>
+    
+ 
+
+   </div>
+      
+          <div class="page-bd-15">
+              <a href="javascript:closeform();" class="weui-btn weui-btn_primary">返回</a> 
+              
+              <a href="javascript:deleterow();" class="weui-btn weui-btn_warn">删除</a> 
+          </div>
+ 
+
+  </div>
+  
+  
+   
+</body>
+</html>
