@@ -77,7 +77,7 @@ namespace Zhuzher.Exchange
             var reward = new Reward()
             {
                 Authorization = content.User.Authorization,
-                MatchParam = "3jb",
+                MatchParam = "10jb",
                 ProjectCode = content.User.ProjectCode,
                 RequestId = DateTimeUtil.GetTimeStamp(),
                 SceneCode = "puli-daka",
