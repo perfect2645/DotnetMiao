@@ -1,8 +1,10 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils.stringBuilder;
 using Zhuzher.search;
@@ -25,14 +27,23 @@ namespace Zhuzher.Exchange
 
         public void ExchangeAsync()
         {
-            Task.Factory.StartNew(() => Exchange());
+            Task.Factory.StartNew(() =>
+            {
+                var userList = new UserProjectList();
+                foreach (var user in userList.UserProjects)
+                {
+                    foreach(var good in GoodList.MiaoshaList)
+                    {
+                        Exchange(user, good);
+                        Thread.Sleep(1000);
+                    }
+                }
+            });
+            //Task.Factory.StartNew(() => Exchange());
         }
 
-        private void Exchange()
+        private void Exchange(UserProject user, MiaoshaItem good)
         {
-            var user = UserProjectList.UserProjects.FirstOrDefault();
-            var good = GoodList.GetDefaultGood();
-
             var isLoot = false;
             if (good.Number > 0)
             {
@@ -136,7 +147,7 @@ namespace Zhuzher.Exchange
         private void PrintLog(UserProject user, MiaoshaItem good, string? msg)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"兑换奖品- {good.Log}, message:{msg}");
+            sb.Append($"{user.UserName} 兑换奖品- {good.Log}, message:{msg}");
             MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }

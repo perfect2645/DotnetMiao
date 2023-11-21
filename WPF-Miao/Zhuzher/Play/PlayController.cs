@@ -62,7 +62,7 @@ namespace Zhuzher.Exchange
                     {
 
                     }
-                    GetReward(content);
+                    //GetReward(content);
                 }
             }
             else
