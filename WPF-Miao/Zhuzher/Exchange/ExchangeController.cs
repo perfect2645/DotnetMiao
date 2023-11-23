@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Client;
 using HttpProcessor.Container;
 using HttpProcessor.Content;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -30,6 +31,11 @@ namespace Zhuzher.Exchange
             Task.Factory.StartNew(() =>
             {
                 var userList = new UserProjectList();
+
+                var defaultUser = userList.UserProjects.FirstOrDefault();
+                var defaultGood = GoodList.MiaoshaList.FirstOrDefault();
+                WaitGoodAvailable(defaultUser, defaultGood);
+
                 foreach (var user in userList.UserProjects)
                 {
                     foreach(var good in GoodList.MiaoshaList)
@@ -40,6 +46,21 @@ namespace Zhuzher.Exchange
                 }
             });
             //Task.Factory.StartNew(() => Exchange());
+        }
+
+        private void WaitGoodAvailable(UserProject user, MiaoshaItem good)
+        {
+            bool isGoodAvailable = false;
+            var goodController = HttpServiceController.GetService<GoodDetailController>();
+            while(!isGoodAvailable)
+            {
+                Thread.Sleep(1000 * 60);
+                isGoodAvailable = goodController.GoodAvailable(user, good);
+                if (isGoodAvailable)
+                {
+                    return;
+                }
+            }
         }
 
         private void Exchange(UserProject user, MiaoshaItem good)
