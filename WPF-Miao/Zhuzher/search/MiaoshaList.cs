@@ -69,11 +69,11 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(8002, 1, "天天兑】10元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
-            AddMiaoshaItem(8001, 1, "【天天兑】5元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
+            //AddMiaoshaItem(8002, 1, "天天兑】10元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
+            //AddMiaoshaItem(8001, 1, "【天天兑】5元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            //AddMiaoshaItem(7995, 1, "冒油烤鸭蛋", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
-            //AddMiaoshaItem(7996, 1, "洗衣液", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(7997, 1, "金龙鱼", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
+            //AddMiaoshaItem(7998, 1, "大闸蟹五折券", "1457", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(7432, 1, "圣牧有机奶3箱0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:02");
             //AddMiaoshaItem(7465, 1, "莱阳秋月梨5斤0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:03");

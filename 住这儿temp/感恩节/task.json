@@ -1,0 +1,470 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 5370,
+            "taskId": 812,
+            "taskName": "勇敢告白表达爱",
+            "chanceNumber": 3,
+            "taskDesc": "相亲节",
+            "tips": "发帖记录你的告白瞬间，即得\"心意\"",
+            "detail": [
+                {
+                    "taskDetailId": 813,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=289",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5371,
+            "taskId": 813,
+            "taskName": "有人和你互相喜欢",
+            "chanceNumber": 5,
+            "taskDesc": "相亲节",
+            "tips": "在相亲角互相点了喜欢，即得\"心意\"",
+            "detail": [
+                {
+                    "taskDetailId": 814,
+                    "sceneName": "相互喜欢",
+                    "sceneCode": "app-mutuallike",
+                    "sceneDesc": "在相亲角互相点了喜欢2个人同时触发成功",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/matchmakingCorner",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5372,
+            "taskId": 814,
+            "taskName": "感恩身边的TA",
+            "chanceNumber": 3,
+            "taskDesc": "相亲节",
+            "tips": "发帖对身边的ta表达感恩，即得\"心意\"",
+            "detail": [
+                {
+                    "taskDetailId": 815,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=506",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5385,
+            "taskId": 819,
+            "taskName": "关注“邻居公众号”",
+            "chanceNumber": 5,
+            "taskDesc": "相亲节",
+            "tips": "关注公众号，回复“心意”，戳链接得5个“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 820,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5373,
+            "taskId": 815,
+            "taskName": "邀请2新人领暖手宝",
+            "chanceNumber": 99,
+            "taskDesc": "相亲节",
+            "tips": "邀请2个新人助力，即得99“心意”，可完成1次",
+            "detail": [
+                {
+                    "taskDetailId": 816,
+                    "sceneName": "邀请新用户参与活动",
+                    "sceneCode": "app-act-new-invite&view",
+                    "sceneDesc": "新用户=从未打开过app的用户",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "2"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5374,
+            "taskId": 816,
+            "taskName": "邀请6新人领橙子1箱",
+            "chanceNumber": 999,
+            "taskDesc": "相亲节",
+            "tips": "邀请6个新人助力，即得999“心意”，可完成3次",
+            "detail": [
+                {
+                    "taskDetailId": 817,
+                    "sceneName": "邀请新用户参与活动",
+                    "sceneCode": "app-act-new-invite&view",
+                    "sceneDesc": "新用户=从未打开过app的用户",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "6"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 3,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5375,
+            "taskId": 817,
+            "taskName": "每天登录领2心意",
+            "chanceNumber": 2,
+            "taskDesc": "相亲节",
+            "tips": "每天登录app，即得2个“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 818,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5376,
+            "taskId": 818,
+            "taskName": "连登录3天领10心意",
+            "chanceNumber": 10,
+            "taskDesc": "相亲节",
+            "tips": "连续登录app3天，即得10“心意”，每周1次",
+            "detail": [
+                {
+                    "taskDetailId": 819,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5377,
+            "taskId": 820,
+            "taskName": "完成1次积分兑换",
+            "chanceNumber": 2,
+            "taskDesc": "相亲节",
+            "tips": "完成1次积分兑换，即得“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 821,
+                    "sceneName": "积分兑换商品成功",
+                    "sceneCode": "app-point-exchangegoods",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3145&exchangeId=118",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5378,
+            "taskId": 821,
+            "taskName": "浏览积分中心10s",
+            "chanceNumber": 2,
+            "taskDesc": "相亲节",
+            "tips": "浏览10s完成任务，即得“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 822,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral?from=hd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5379,
+            "taskId": 822,
+            "taskName": "逛逛订水服务",
+            "chanceNumber": 1,
+            "taskDesc": "相亲节",
+            "tips": "浏览10s完成任务，即得“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 823,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5380,
+            "taskId": 823,
+            "taskName": "逛逛家政服务",
+            "chanceNumber": 1,
+            "taskDesc": "相亲节",
+            "tips": "浏览10s完成任务，即得“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 824,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=zzegbjjzzt1112y",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5381,
+            "taskId": 824,
+            "taskName": "逛逛维修服务",
+            "chanceNumber": 1,
+            "taskDesc": "相亲节",
+            "tips": "浏览10s完成任务，即得“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 825,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5750?pageMark=nmxfdjwnjyhfzqdtg",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5382,
+            "taskId": 825,
+            "taskName": "下单1次到家服务",
+            "chanceNumber": 2,
+            "taskDesc": "相亲节",
+            "tips": "下单成功即得“心意”，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 826,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5383,
+            "taskId": 826,
+            "taskName": "逛逛团购特惠",
+            "chanceNumber": 1,
+            "taskDesc": "相亲节",
+            "tips": "浏览10s完成任务，即得“心意”",
+            "detail": [
+                {
+                    "taskDetailId": 827,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5384,
+            "taskId": 827,
+            "taskName": "下单1次特惠商品",
+            "chanceNumber": 2,
+            "taskDesc": "相亲节",
+            "tips": "下单成功即得“心意”，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 828,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        }
+    ]
+}

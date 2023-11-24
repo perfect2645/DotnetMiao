@@ -14,6 +14,7 @@ using System.Windows.Input;
 using Zhuzher.collectsun;
 using Zhuzher.Exchange;
 using Zhuzher.miaosha;
+using Zhuzher.Play;
 using Zhuzher.Score;
 using Zhuzher.search;
 using Zhuzher.session;
@@ -32,7 +33,7 @@ namespace Zhuzher.viewmodel
         public ICommand JoinTeamCommand { get; set; }
         public ICommand CollectScoreCommand { get; set; }
         public ICommand ScoreBetCommand { get; set; }
-
+        public ICommand GuessBetCommand { get; set; }
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -101,6 +102,7 @@ namespace Zhuzher.viewmodel
             JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
             CollectScoreCommand = new RelayCommand(ExecuteCollectScore);
             ScoreBetCommand = new RelayCommand(ExecuteScoreBet);
+            GuessBetCommand = new RelayCommand(ExecuteGuessBet);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -175,6 +177,31 @@ namespace Zhuzher.viewmodel
                         }
                     }
                 });
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteGuessBet()
+        {
+            try
+            {
+                var betController = HttpServiceController.GetService<GuseeBetController>();
+
+                var guessBet = new GuessBet
+                {
+                    ActivityId = "979",
+                    ActivityGuessId = 75,
+                    OptionId = 152,
+                };
+
+                betController.GuessBetAsync(guessBet);
             }
             catch (HttpException ex)
             {
