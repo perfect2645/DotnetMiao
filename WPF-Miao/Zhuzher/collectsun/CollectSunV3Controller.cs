@@ -1,9 +1,6 @@
 ﻿using HttpProcessor.Client;
-using HttpProcessor.Container;
 using HttpProcessor.Content;
 using HttpProcessor.ExceptionManager;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -14,7 +11,7 @@ using Zhuzher.session;
 
 namespace Zhuzher.collectsun
 {
-    internal class CollectSunV2Controller : HttpClientBase
+    internal class CollectSunV3Controller : HttpClientBase
     {
 
         #region Properties
@@ -26,51 +23,27 @@ namespace Zhuzher.collectsun
 
         #endregion Properties
 
-        public CollectSunV2Controller(HttpClient httpClient) : base(httpClient)
+        public CollectSunV3Controller(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void CollectSunAsync()
+        public void CollectSunAsync(UserProject user, SunActivityScence scene)
         {
-            foreach(var user in UserProjectList.UserProjects)
-            {
-
-                Task.Factory.StartNew(() => CollectSun(user));
-            }
+            Task.Factory.StartNew(() => CollectSun(user, scene));
         }
 
-        public void CollectSun(UserProject user)
+        public void CollectSun(UserProject user, SunActivityScence scene)
         {
-            lock(_lock)
+            for (var i = 0; i < scene.SceneTimes; i++)
             {
-                foreach (var scene in ScenceList.ScenceList)
-                {
-                    var apiVersion = scene.Version;
-                    var v1Controller = HttpServiceController.GetService<CollectSunController>();
-                    if (apiVersion == 1)
-                    {
-                        v1Controller.CollectSun(user, scene);
-                        continue;
-                    }
-                    var v3Controller = HttpServiceController.GetService<CollectSunV3Controller>();
-                    if (apiVersion == 3)
-                    {
-                        v3Controller.CollectSunAsync(user, scene);
-                        continue;
-                    }
-                    for (var i = 0; i < scene.SceneTimes; i++)
-                    {
-  
-                        Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(2000);
-                    }
-                }
+                Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                Thread.Sleep(2000);
             }
         }
 
         private void CollectSunForEachScene(UserProject user, SunActivityScence scene)
         {
-            var content = new CollectSunV2Content(user, scene);
+            var content = new CollectSunV3Content(user, scene);
 
             content.BuildDefaultHeaders(Client);
 

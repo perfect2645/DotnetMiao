@@ -54,12 +54,12 @@ namespace Zhuzher.Exchange
             var goodController = HttpServiceController.GetService<GoodDetailController>();
             while(!isGoodAvailable)
             {
-                Thread.Sleep(1000 * 60);
                 isGoodAvailable = goodController.GoodAvailable(user, good);
                 if (isGoodAvailable)
                 {
                     return;
                 }
+                Thread.Sleep(1000 * 60);
             }
         }
 
