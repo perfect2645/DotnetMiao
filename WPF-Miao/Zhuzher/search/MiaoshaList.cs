@@ -72,7 +72,7 @@ namespace Zhuzher.search
             //AddMiaoshaItem(8002, 1, "天天兑】10元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
             //AddMiaoshaItem(8001, 1, "【天天兑】5元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            AddMiaoshaItem(8107, 1, "【秒杀】狮露洁衣物去油王", "1474", $"{DateTimeUtil.GetToday()} 1:18:10");
+            AddMiaoshaItem(8105, 1, "【秒杀】狮露洁衣物去油王", "1474", $"{DateTimeUtil.GetToday()} 1:18:10");
             //AddMiaoshaItem(8000, 1, "【0元秒杀】新希望牛奶", "1457", $"{DateTimeUtil.GetToday()} 20:00:03");
             //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(7432, 1, "圣牧有机奶3箱0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:02");
