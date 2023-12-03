@@ -34,6 +34,8 @@ namespace Zhuzher.viewmodel
         public ICommand CollectScoreCommand { get; set; }
         public ICommand ScoreBetCommand { get; set; }
         public ICommand GuessBetCommand { get; set; }
+        public ICommand TrackPlayCommand { get; set; }
+        
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -103,6 +105,7 @@ namespace Zhuzher.viewmodel
             CollectScoreCommand = new RelayCommand(ExecuteCollectScore);
             ScoreBetCommand = new RelayCommand(ExecuteScoreBet);
             GuessBetCommand = new RelayCommand(ExecuteGuessBet);
+            TrackPlayCommand = new RelayCommand(ExecuteTrackPlay);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -202,6 +205,31 @@ namespace Zhuzher.viewmodel
                 };
 
                 betController.GuessBetAsync(guessBet);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteTrackPlay()
+        {
+            try
+            {
+                var playController = HttpServiceController.GetService<PlayDetailController>();
+
+                var good = new MiaoshaItem
+                {
+                    GameGoodId = 7985,
+                    ActivityGameId = "1458",
+                    GoodName = "1000元购物金"
+                };
+
+                playController.GoodAvailableAsync(good);
             }
             catch (HttpException ex)
             {

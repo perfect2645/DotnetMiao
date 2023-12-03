@@ -69,14 +69,14 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(8002, 1, "天天兑】10元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
-            //AddMiaoshaItem(8001, 1, "【天天兑】5元购物券", "1457", $"{DateTimeUtil.GetToday()} 10:00:00");
+            AddMiaoshaItem(8110, 1, "【秒杀】插画款小水桶包", "1474", $"{DateTimeUtil.GetToday()} 20:00:01");
+            //AddMiaoshaItem(8001, 1, "【天天兑】5元购物券", "1474", $"{DateTimeUtil.GetToday()} 10:00:00");
             //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            AddMiaoshaItem(8105, 1, "【秒杀】狮露洁衣物去油王", "1474", $"{DateTimeUtil.GetToday()} 1:18:10");
-            //AddMiaoshaItem(8000, 1, "【0元秒杀】新希望牛奶", "1457", $"{DateTimeUtil.GetToday()} 20:00:03");
-            //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
-            //AddMiaoshaItem(7432, 1, "圣牧有机奶3箱0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:02");
-            //AddMiaoshaItem(7465, 1, "莱阳秋月梨5斤0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:03");
+            //AddMiaoshaItem(8108, 1, "【秒杀】新款升级魔术扫把", "1474", $"{DateTimeUtil.GetToday()} 20:00:05");
+            //AddMiaoshaItem(8109, 1, "【秒杀】丁福衣物泡洗爆炸盐", "1474", $"{DateTimeUtil.GetToday()} 20:00:03");
+            //AddMiaoshaItem(8106, 1, "【秒杀】防低头家用护颈神器", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
+            //AddMiaoshaItem(8107, 1, "【秒杀】狮露洁衣物去油王", "1387", $"{DateTimeUtil.GetToday()} 20:00:02");
+            //AddMiaoshaItem(8112, 1, "【秒杀】艾草颈椎矫正枕", "1387", $"{DateTimeUtil.GetToday()} 20:00:03");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

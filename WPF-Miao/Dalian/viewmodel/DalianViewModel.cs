@@ -145,14 +145,25 @@ namespace Dalian.viewmodel
 
             var targetDate = DateTimeUtil.GetTargetDate(7);
 
-            targetDate = "2023-11-14";
+            targetDate = "2023-12-04";
             DateList.Add(new DspVal(targetDate, DateTimeUtil.GetDateTime(targetDate, "yyyyMMdd")));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();
 
             Departments = new List<HospitalDept>
-            {                
+            {
+                new DalianHospital
+                {
+                    AppId = "wxa794c2a4fcfeb7f4",
+                    HospitalId = "10018",
+                    HospitalName = "大连市妇女儿童医疗中心（集团）",
+                    DepartmentId = "166215",
+                    DepartmentName = "中医科门诊",
+                    HisDeptId = "",
+                    RegLevelId = "02",
+                    RegLevelName = "主任医师-矫承媛"
+                },
                 new DalianHospital
                 {
                     AppId = "wxa794c2a4fcfeb7f4",
@@ -164,17 +175,6 @@ namespace Dalian.viewmodel
                     RegLevelId = "67",
                     RegLevelName = "进口九价（9-45岁）"
                 },
-                new DalianHospital
-                {
-                    AppId = "wxa794c2a4fcfeb7f4",
-                    HospitalId = "10018",
-                    HospitalName = "大连市妇女儿童医疗中心（集团）",
-                    DepartmentId = "139253",
-                    DepartmentName = "长江路预防接种门诊（妇产院区）",
-                    HisDeptId = "3978",
-                    RegLevelId = "65",
-                    RegLevelName = "国产二价（9-45岁）"
-                }
             };
 
             SelectedDepartment = Departments.FirstOrDefault();
