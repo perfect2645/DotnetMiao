@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Login - 漳州步文.json" />
-    <None Remove="Login - 漳州碧湖.json" />
-    <None Remove="Login - 漳州蓝田.json" />
-    <None Remove="Login - 漳州蓝田4.json" />
     <None Remove="Login.json" />
     <None Remove="Login南京.json" />
     <None Remove="Login合肥.json" />
@@ -20,19 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Login - 漳州蓝田4.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login - 漳州碧湖.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login - 漳州蓝田.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Login武汉.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Login - 漳州步文.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Login合肥.json">
