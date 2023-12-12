@@ -54,23 +54,32 @@ namespace Zhuzher.search
     internal class ScoreItemList
     {
         public List<ScoreItem> MiaoshaList { get; set; }
+        public List<ScoreItem> ExchangeList { get; set; }
 
         public ScoreItemList()
         {
             MiaoshaList = new List<ScoreItem>();
+            ExchangeList = new List<ScoreItem>();
             InitMiaoshaList();
+            InitExchangeList();
             //TestInitMiaoshaList();
+        }
+
+        private void InitExchangeList()
+        {
+            //AddExchangeItem(3220, 118, "洁柔卫生纸Face立体压花无芯卷纸70g30卷装");
+            //AddExchangeItem(3229, 118, "全棉柔巾 ·棉柔巾洗面巾洁面卷装45g平纹200mm200");
+            //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
+            AddExchangeItem(3230, 118, "洁柔卫生纸Face立体压花无芯卷纸70g30卷装");
         }
 
         private void TestInitMiaoshaList()
         {
-            //AddMiaoshaItem(5734, 1, "【6折】家政家电清洁大额补贴", "1059", "2022-12-08 20:13:00");
+            //AddExchangeItem(3229, 118, "【6折】家政家电清洁大额补贴");
         }
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(3106, 144, 2000, "茅台", $"{DateTimeUtil.GetToday()} 19:59:57");
-            AddMiaoshaItem(3107, 144, 2000, "五粮液 ", $"{DateTimeUtil.GetToday()} 19:59:58");
             //AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
@@ -91,6 +100,25 @@ namespace Zhuzher.search
             {
                 ExchangeGoodId = exchangeGoodId,
                 ExchangeGoodTimeId = exchangeGoodTimeId,
+                ExchangeId = exchangeId,
+                Group = 1,
+                GoodName = goodName,
+                StartTime = startTime,
+            });
+        }
+
+        private void AddExchangeItem(int exchangeGoodId, int exchangeId, string goodName)
+        {
+            var startTime = DateTime.Today;
+
+            if (startTime < DateTime.Now)
+            {
+                startTime = DateTime.Today;
+            }
+
+            ExchangeList.Add(new ScoreItem
+            {
+                ExchangeGoodId = exchangeGoodId,
                 ExchangeId = exchangeId,
                 Group = 1,
                 GoodName = goodName,

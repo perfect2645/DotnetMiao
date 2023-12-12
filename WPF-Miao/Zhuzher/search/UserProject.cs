@@ -24,10 +24,10 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer a910f8bf-75ef-45d1-b9ae-8bc86b9354bf");
             AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 5664f93c-1e16-46cc-b8fc-a0a94db61e14");
+            AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer a55905a6-398f-4334-af07-ba6739b848ff");
+            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer a910f8bf-75ef-45d1-b9ae-8bc86b9354bf");
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer dc834a14-3829-4a50-99a4-60eda4d1d025");
-            AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 1e67770a-f47b-41ae-a413-349b978a7506");
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 41de3e15-0c12-495f-90be-2133e10e0dee");
             AddUserProject(21520695, "刘书辰", "21020025", "大连万科半山半海", "Bearer 427d6284-ad0d-424a-9de5-eac4a5c6b46c");
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer dd047f06-1b31-434f-91cc-689a5fdfa6c9");

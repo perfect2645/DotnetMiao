@@ -63,6 +63,9 @@
                     <Button Content="积分秒杀"
                         Command="{Binding ScoreSeckillCommand}" Width="100" Margin="50, 10">
                     </Button>
+                    <Button Content="积分兑换"
+                        Command="{Binding ScoreExchangeCommand}" Width="100" Margin="50, 10">
+                    </Button>
                 </StackPanel>
                 <ListView VerticalAlignment="Top" 
                           Margin="20" 

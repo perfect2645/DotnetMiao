@@ -35,7 +35,7 @@ namespace Zhuzher.viewmodel
         public ICommand ScoreBetCommand { get; set; }
         public ICommand GuessBetCommand { get; set; }
         public ICommand TrackPlayCommand { get; set; }
-        
+        public ICommand ScoreExchangeCommand { get; set; }
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -106,6 +106,7 @@ namespace Zhuzher.viewmodel
             ScoreBetCommand = new RelayCommand(ExecuteScoreBet);
             GuessBetCommand = new RelayCommand(ExecuteGuessBet);
             TrackPlayCommand = new RelayCommand(ExecuteTrackPlay);
+            ScoreExchangeCommand = new RelayCommand(ExecuteScoreExchange);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -261,27 +262,7 @@ namespace Zhuzher.viewmodel
             {
                 Log(ex);
             }
-        }
-
-        private void ExecuteScoreSeckill()
-        {
-            try
-            {
-                MainSession.Cookie = Cookie;
-                var seckillHandler = HttpServiceController.GetService<ScoreKillController>();
-                seckillHandler.Seckill(ScoreMiaoshaList);
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
-        
+        }  
 
         #endregion Seckill
 
@@ -331,6 +312,42 @@ namespace Zhuzher.viewmodel
             {
                 var scoreBetController = HttpServiceController.GetService<ScoreBetController>();
                 scoreBetController.ScoreBetAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteScoreSeckill()
+        {
+            try
+            {
+                MainSession.Cookie = Cookie;
+                var seckillHandler = HttpServiceController.GetService<ScoreKillController>();
+                seckillHandler.Seckill(ScoreMiaoshaList);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteScoreExchange()
+        {
+            try
+            {
+                MainSession.Cookie = Cookie;
+                var scoreController = HttpServiceController.GetService<ScoreExchangeController>();
+                scoreController.ScoreExchangeAsync();
             }
             catch (HttpException ex)
             {
