@@ -25,18 +25,7 @@ namespace Zhuzher.Score
 
         public void ScoreExchangeAsync()
         {
-            var scoreItemList = new ScoreItemList();
-            Task.Factory.StartNew(() =>
-            {
-                foreach (var exchangeItem in scoreItemList.ExchangeList)
-                {
-                    foreach (var user in MainSession.UserProjectList.UserProjects)
-                    {
-                        Task.Factory.StartNew(() => ScoreExchange(user, exchangeItem));
-                    }
-                    Thread.Sleep(300);
-                }
-            });
+
         }
 
         public void ScoreExchange(UserProject user, ScoreItem good)

@@ -346,8 +346,20 @@ namespace Zhuzher.viewmodel
             try
             {
                 MainSession.Cookie = Cookie;
-                var scoreController = HttpServiceController.GetService<ScoreExchangeController>();
-                scoreController.ScoreExchangeAsync();
+
+                var scoreItemList = new ScoreItemList();
+                Task.Factory.StartNew(() =>
+                {
+                    foreach (var exchangeItem in scoreItemList.ExchangeList)
+                    {
+                        foreach (var user in MainSession.UserProjectList.UserProjects)
+                        {
+                            var scoreController = HttpServiceController.GetService<ScoreExchangeController>();
+                            Task.Factory.StartNew(() => scoreController.ScoreExchange(user, exchangeItem));
+                        }
+                        Thread.Sleep(300);
+                    }
+                });
             }
             catch (HttpException ex)
             {
