@@ -28,13 +28,13 @@ namespace Zhuzher.Score
             var scoreItemList = new ScoreItemList();
             Task.Factory.StartNew(() =>
             {
-                foreach (var user in MainSession.UserProjectList.UserProjects)
+                foreach (var exchangeItem in scoreItemList.ExchangeList)
                 {
-                    foreach (var exchangeItem in scoreItemList.ExchangeList)
+                    foreach (var user in MainSession.UserProjectList.UserProjects)
                     {
-                        Thread.Sleep(500);
                         Task.Factory.StartNew(() => ScoreExchange(user, exchangeItem));
                     }
+                    Thread.Sleep(300);
                 }
             });
         }
@@ -44,10 +44,10 @@ namespace Zhuzher.Score
             var content = new ScoreExchangeContent(user, good);
             content.BuildDefaultHeaders(Client);
 
-            if (good.Status >= 2)
-            {
-                return;
-            }
+            //if (good.Status >= 2)
+            //{
+            //    return;
+            //}
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {

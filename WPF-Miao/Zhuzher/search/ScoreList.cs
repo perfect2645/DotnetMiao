@@ -67,20 +67,19 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            //AddExchangeItem(3220, 118, "洁柔卫生纸Face立体压花无芯卷纸70g30卷装");
-            //AddExchangeItem(3229, 118, "全棉柔巾 ·棉柔巾洗面巾洁面卷装45g平纹200mm200");
-            //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
             AddExchangeItem(3230, 118, "洁柔卫生纸Face立体压花无芯卷纸70g30卷装");
+            AddExchangeItem(3229, 118, "全棉柔巾 ·棉柔巾洗面巾洁面卷装45g平纹200mm200");
+            AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
 
         private void TestInitMiaoshaList()
         {
-            //AddExchangeItem(3229, 118, "【6折】家政家电清洁大额补贴");
+            
         }
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(3246, 154, 2066, "【6折】家政家电清洁大额补贴", $"{DateTimeUtil.GetToday()} 19:59:59");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")

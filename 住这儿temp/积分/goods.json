@@ -158,7 +158,7 @@
             "number": 17,
             "discountScore": null,
             "exchangeLimitType": null,
-            "exchangeLimitDays": null,
+            "exchangeLimitDays": null, 
             "stockLimitType": null,
             "sendCount": null
         },
