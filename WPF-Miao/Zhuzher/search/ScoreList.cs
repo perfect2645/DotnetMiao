@@ -69,7 +69,7 @@ namespace Zhuzher.search
         {
             AddExchangeItem(3230, 118, "洁柔卫生纸Face立体压花无芯卷纸70g30卷装");
             AddExchangeItem(3229, 118, "全棉柔巾 ·棉柔巾洗面巾洁面卷装45g平纹200mm200");
-            AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
+            //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
 
         private void TestInitMiaoshaList()
@@ -79,7 +79,9 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(3246, 154, 2066, "【6折】家政家电清洁大额补贴", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(3263, 155, 2067, "十月稻田磨米世家五常黑米1kg(磨米世家五常黑米1kg 绵软", $"{DateTimeUtil.GetToday()} 19:59:58");
+            AddMiaoshaItem(3264, 155, 2067, "十月稻田磨米世家张家口燕麦1kg(磨米世家张家口燕麦1kg", $"{DateTimeUtil.GetToday()} 19:59:58");
+            AddMiaoshaItem(3250, 155, 2067, "Apple AirPods (第三代) 无线蓝牙耳机(适用i", $"{DateTimeUtil.GetToday()} 19:59:57");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")

@@ -19,9 +19,8 @@ namespace Zhuzher.search
         private void InitList()
         {
             ScoreBets = new List<ScoreBet>();
-            ScoreBets.Add(new ScoreBet(56, 8003, 10, "美的（Midea） 变频微波炉 20升大平板底盘 智能菜单"));
-            ScoreBets.Add(new ScoreBet(56, 8004, 10, "长虹 养生壶CHG15D1(实用养生壶)"));
-            ScoreBets.Add(new ScoreBet(56, 8005, 10, "美菱取暖器 MPNLC0801(倾倒断电·碳纤维发热·恒温"));
+            ScoreBets.Add(new ScoreBet(56, 8217, 10, "maotai"));
+
         }
     }
 }

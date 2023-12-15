@@ -19,13 +19,13 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //TestSceneList();
-            InitSceneList();
+            TestSceneList();
+            //InitSceneList();
         }
 
         private void TestSceneList()
         {
-
+            AddScene("app-communityactivity-signup", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activityDetail?id=96295");
         }
 
         private void InitSceneList()
@@ -53,6 +53,10 @@ namespace Zhuzher.search
             //AddScene("app-post-review", 2, "https://neighbor.4009515151.com/nova/order-list");
             // 物业公告查看 AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=point");
             AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
+            // 到家服务单评价得积分
+            // 二手闲置发帖
+            
+
 
 
             // 活动特定

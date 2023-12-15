@@ -22,7 +22,7 @@ namespace Zhuzher.Play
         private void BuildContent()
         {
             //AddContent("activityId", MainSession.ActivityId.ToInt());
-            AddContent("activityId", 971);
+            AddContent("activityId", 979);
             AddContent("projectCode", User.ProjectCode);
             AddContent("projectName", User.ProjectName);
         }
