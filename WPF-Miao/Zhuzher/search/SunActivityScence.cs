@@ -25,7 +25,7 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            AddScene("app-communityactivity-signup", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activityDetail?id=96295");
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
         }
 
         private void InitSceneList()
@@ -55,7 +55,7 @@ namespace Zhuzher.search
             AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
             // 到家服务单评价得积分
             // 二手闲置发帖
-            
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=jfrw");
 
 
 

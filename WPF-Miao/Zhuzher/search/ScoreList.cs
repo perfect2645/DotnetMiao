@@ -81,7 +81,9 @@ namespace Zhuzher.search
         {
             AddMiaoshaItem(3263, 155, 2067, "十月稻田磨米世家五常黑米1kg(磨米世家五常黑米1kg 绵软", $"{DateTimeUtil.GetToday()} 19:59:58");
             AddMiaoshaItem(3264, 155, 2067, "十月稻田磨米世家张家口燕麦1kg(磨米世家张家口燕麦1kg", $"{DateTimeUtil.GetToday()} 19:59:58");
-            AddMiaoshaItem(3250, 155, 2067, "Apple AirPods (第三代) 无线蓝牙耳机(适用i", $"{DateTimeUtil.GetToday()} 19:59:57");
+            AddMiaoshaItem(3251, 155, 2067, "Apple AirPods (第三代) 无线蓝牙耳机(适用i", $"{DateTimeUtil.GetToday()} 19:59:57");
+            AddMiaoshaItem(3274, 155, 2067, "出口级日式抹布（已热卖上万条）(黑科技面料", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(3267, 155, 2067, "16件套餐具，款式任选，出口级品质(出口欧美，欧美风16件套", $"{DateTimeUtil.GetToday()} 19:59:57");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")
