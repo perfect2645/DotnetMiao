@@ -36,7 +36,7 @@ namespace Zhuzher.miaosha
                     {
                         MainSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
                         var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
-                        var interval = new IntervalOnTime(() => SeckillTick(user, item, exchangeHandler), item.GoodName, group.Key);
+                        var interval = new IntervalOnTime(() => SeckillTick(user, item, exchangeHandler), item.GoodName, group.Key, 1000);
                         IntervalList.AddOrUpdate(item.GameGoodId, interval);
                     }
                 }
