@@ -79,10 +79,8 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(3269, 157, 2069, "十月稻田磨米世家五常黑米1kg(磨米世家五常黑米1kg 绵软", $"{DateTimeUtil.GetToday()} 19:59:58");
-            AddMiaoshaItem(3270, 157, 2069, "十月稻田磨米世家张家口燕麦1kg(磨米世家张家口燕麦1kg", $"{DateTimeUtil.GetToday()} 19:59:58");
-            AddMiaoshaItem(3271, 157, 2069, "湖北秭归九月红果冻橙 新鲜当季橙子(口口爆汁 可以吸着吃的果", $"{DateTimeUtil.GetToday()} 19:59:57");
-            AddMiaoshaItem(3273, 157, 2069, "16件套餐具，款式任选，出口级品质(出口欧美，欧美风16件套", $"{DateTimeUtil.GetToday()} 19:59:58");
+            AddMiaoshaItem(3289, 158, 2089, "金龙鱼花椒油70ML(金龙鱼花椒油70ML)", $"{DateTimeUtil.GetToday()} 18:28:30");
+            AddMiaoshaItem(3293, 158, 2089, "维达（Vinda）纸巾抽纸S码3层110抽3包", $"{DateTimeUtil.GetToday()} 19:59:58");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")

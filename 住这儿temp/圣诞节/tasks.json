@@ -1,0 +1,499 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 5474,
+            "taskId": 873,
+            "taskName": "领5雪球",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "分享活动到微信被好友访问，即得5个“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 874,
+                    "sceneName": "分享后被访问",
+                    "sceneCode": "app-act-share&view",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=993&from=share",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5476,
+            "taskId": 871,
+            "taskName": "领20雪球",
+            "chanceNumber": 20,
+            "taskDesc": "圣诞节",
+            "tips": "邀请1个新人助力，即得20“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 872,
+                    "sceneName": "邀请新用户参与活动",
+                    "sceneCode": "app-act-new-invite&view",
+                    "sceneDesc": "新用户=从未打开过app的用户",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5477,
+            "taskId": 872,
+            "taskName": "领100雪球",
+            "chanceNumber": 100,
+            "taskDesc": "圣诞节",
+            "tips": "邀请6个新人助力，即得100“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 873,
+                    "sceneName": "邀请新用户参与活动",
+                    "sceneCode": "app-act-new-invite&view",
+                    "sceneDesc": "新用户=从未打开过app的用户",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "6"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5488,
+            "taskId": 885,
+            "taskName": "发布闲置得雪球",
+            "chanceNumber": 10,
+            "taskDesc": "圣诞节",
+            "tips": "发布一个闲置，即得“雪球”，每周1次",
+            "detail": [
+                {
+                    "taskDetailId": 886,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=xmas",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5491,
+            "taskId": 887,
+            "taskName": "旧物还能这样改？",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "为你喜欢的作品投票，即得“雪球”，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 888,
+                    "sceneName": "完成3次投票",
+                    "sceneCode": "app-vote-threetimes",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=xmas",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5489,
+            "taskId": 886,
+            "taskName": "学学如何做圣诞美食",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "浏览10s完成任务，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 887,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/video?vkSource=video&courseId=MzU0&selectId=&from=xmas",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5485,
+            "taskId": 882,
+            "taskName": "关注公众号领雪球",
+            "chanceNumber": 10,
+            "taskDesc": "圣诞节",
+            "tips": "关注公众号，回复“圣诞快乐”，戳链接得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 883,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5492,
+            "taskId": 888,
+            "taskName": "积分兑换锦旗送管家",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "完成1次电子锦旗兑换，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 889,
+                    "sceneName": "积分兑换锦旗成功",
+                    "sceneCode": "app-point-exchangebanners",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/pennant?from=hd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5486,
+            "taskId": 884,
+            "taskName": "浏览积分中心10s",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "浏览10s完成任务，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 885,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral?from=hd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5487,
+            "taskId": 883,
+            "taskName": "完成1次积分兑换",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "完成1次积分兑换，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 884,
+                    "sceneName": "积分兑换商品成功",
+                    "sceneCode": "app-point-exchangegoods",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3193&exchangeId=118",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5475,
+            "taskId": 874,
+            "taskName": "每天登录领2雪球",
+            "chanceNumber": 2,
+            "taskDesc": "圣诞节",
+            "tips": "每天登录app，即得2个“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 875,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5480,
+            "taskId": 880,
+            "taskName": "逛逛团购特惠",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "浏览10s完成任务，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 881,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgyhzzbzjxzt5747",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5482,
+            "taskId": 878,
+            "taskName": "逛逛维修服务",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "浏览10s完成任务，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 879,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5750?pageMark=nmxfdjwnjyhfzqdtg",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5483,
+            "taskId": 877,
+            "taskName": "逛逛家政服务",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "浏览10s完成任务，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 878,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=zzegbjjzzt1112y",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5484,
+            "taskId": 876,
+            "taskName": "逛逛订水服务",
+            "chanceNumber": 5,
+            "taskDesc": "圣诞节",
+            "tips": "浏览10s完成任务，即得“雪球”",
+            "detail": [
+                {
+                    "taskDetailId": 877,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5481,
+            "taskId": 879,
+            "taskName": "下单1次到家服务",
+            "chanceNumber": 10,
+            "taskDesc": "圣诞节",
+            "tips": "下单成功即得“雪球”，每天1次",
+            "detail": [
+                {
+                    "taskDetailId": 880,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=153&type=mini&from=gaobaiji",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5478,
+            "taskId": 875,
+            "taskName": "连登录5天领20雪球",
+            "chanceNumber": 20,
+            "taskDesc": "圣诞节",
+            "tips": "连续登录app5天，即得20“雪球”，每周1次",
+            "detail": [
+                {
+                    "taskDetailId": 876,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "2",
+                    "requiredValue": "5"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        }
+    ]
+}

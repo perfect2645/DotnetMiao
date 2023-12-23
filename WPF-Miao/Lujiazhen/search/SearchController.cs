@@ -18,7 +18,15 @@ namespace Lujiazhen.search
         {
             MainSession.SetStatus(MiaoProgress.GettingMiao);
             var defaultUser = MainSession.Users.FirstOrDefault();
+            //GetSign();
             GetMiao();
+        }
+
+        private void GetSign()
+        {
+            var signController = HttpServiceController.GetService<SignController>();
+            var defaultUser = MainSession.Users.FirstOrDefault();
+            var sign = signController.GetSignAsync(defaultUser).Result;
         }
 
         private void GetMiao()

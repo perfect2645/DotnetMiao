@@ -1,13 +1,14 @@
 ﻿using Lujiazhen.common;
+using Lujiazhen.login;
 using Utils;
 using Utils.datetime;
 
-namespace Lujiazhen.login
+namespace Lujiazhen.search
 {
-    internal class UserContent : LujiazhenContent
+    internal class SignContent : LujiazhenContent
     {
-        private static string baseUrl = ".yuanbaodaojia.com/v1/family_list";
-        public UserContent(LujiazhenLogin user) : base(baseUrl, user)
+        private static string baseUrl = ".yuanbaodaojia.com/v2/get_sign";
+        public SignContent(LujiazhenLogin user) : base(baseUrl, user)
         {
             BuildUrl();
             BuildContent();
@@ -15,7 +16,6 @@ namespace Lujiazhen.login
 
         protected override void BuildContent()
         {
-            AddContent("page", 1);
             var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
             Content.AddOrUpdate("timestamp", timestamp);
             AddContent("token", User.Token);

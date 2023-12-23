@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using Lujiazhen.login;
 using Lujiazhen.session;
 using System;
 using System.Linq;
@@ -9,30 +10,32 @@ using Utils;
 using Utils.json;
 using Utils.stringBuilder;
 
-namespace Lujiazhen.login
+namespace Lujiazhen.search
 {
-    internal class UserController : HttpClientBase
+    internal class SignController : HttpClientBase
     {
-        public UserController(HttpClient httpClient) : base(httpClient)
+        public SignController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void GetUserAsync(LujiazhenLogin user)
+        public async Task<string> GetSignAsync(LujiazhenLogin user)
         {
-            Task.Factory.StartNew(() => GetUser(user));
+            var sign = await Task.Factory.StartNew(() => GetSign(user));
+
+            return sign;
         }
 
-        private void GetUser(LujiazhenLogin user)
+        private string GetSign(LujiazhenLogin user)
         {
             try
             {
-                var content = new UserContent(user);
+                var content = new SignContent(user);
                 content.BuildDefaultHeaders(Client);
                 var response = PostStringAsync(content, HttpProcessor.Content.ContentType.String).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"GetUser - {response?.Message},请检查参数");
-                    return;
+                    return string.Empty;
                 }
                 var root = response.JsonBody.RootElement;
 
@@ -40,44 +43,32 @@ namespace Lujiazhen.login
                 if (code != "0000")
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: code={code}");
-                    return;
+                    return string.Empty;
                 }
 
                 var data = root.GetProperty("data");
                 if (data.ValueKind == JsonValueKind.Null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败: results is empty");
-                    return;
+                    return string.Empty;
                 }
-                SaveUser(data, user);
+                var sign = SaveSign(data, user);
+
+                return sign;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"获取用户信息异常{ex.Message}");
+                return null;
             }
         }
 
-        private void SaveUser(JsonElement data, LujiazhenLogin user)
+        private string SaveSign(JsonElement data, LujiazhenLogin user)
         {
-            var userList = JsonAnalysis.JsonToDicList(data);
-            if (!userList.HasItem())
-            {
-                MainSession.PrintLogEvent.Publish(this, $"获取用户信息失败");
-                return;
-            }
+            var sign = data.GetString();
 
-            var defaultUser = userList.FirstOrDefault(x => x["name"].NotNullString() == user.UserName);
-            if (defaultUser == null)
-            {
-                defaultUser = userList.FirstOrDefault();
-            }
-            var userName = defaultUser.GetString("name");
-            var userId = defaultUser.GetString("id");
 
-            user.UserId = userId;
-            user.UserName = userName;
-
-            MainSession.PrintLogEvent.Publish(this, defaultUser);
+            return sign;
         }
     }
 }

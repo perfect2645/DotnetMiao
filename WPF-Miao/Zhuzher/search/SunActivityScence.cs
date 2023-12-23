@@ -19,13 +19,16 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            TestSceneList();
-            //InitSceneList();
+            //TestSceneList();
+            InitSceneList();
         }
 
         private void TestSceneList()
         {
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
+            //AddScene("app-act-new-invite&view", 3, "1");
+
+
+
         }
 
         private void InitSceneList()
@@ -60,16 +63,38 @@ namespace Zhuzher.search
 
 
             // 活动特定
-            //参与感恩节活动
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=979&from=jifenrenwu");
-            AddScene("app-point-exchangegoods", 1, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3098&exchangeId=118");
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/integral?from=hd");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=zzegbjjzzt1112y");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5750?pageMark=nmxfdjwnjyhfzqdtg");
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
 
+            // 分享活动到微信被好友访问，即得5个“雪球”
+            AddScene("app-act-share&view", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=993&from=share");
+            //发布一个闲置，即得“雪球”，每周1次
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=xmas");
+            // 学学如何做圣诞美食
+            AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/video?vkSource=video&courseId=MzU0&selectId=&from=xmas");
+            // 关注公众号，回复“圣诞快乐”，戳链接得“雪球”
+            AddScene("puli-daka", 1, "gzhhuifu", 2);
+            // 浏览积分中心10s
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/integral?from=hd");
+            // 完成1次积分兑换
+            AddScene("app-point-exchangegoods", 1, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3193&exchangeId=118");
+            // 每天登录领2雪球
+            AddScene("app-startapp", 1, "1");
+            // 逛逛团购特惠
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgyhzzbzjxzt5747");
+            // 逛逛维修服务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5750?pageMark=nmxfdjwnjyhfzqdtg");
+            // 逛逛家政服务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=zzegbjjzzt1112y");
+            // 逛逛订水服务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
+            // 下单1次到家服务
+            AddScene("5thzone-convenience-pay", 1, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=153&type=mini&from=gaobaiji");
+            //旧物还能这样改？
+            AddScene("app-vote-threetimes", 1, "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=xmas");
+            // 积分兑换锦旗送管家
+            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=hd");
+            // 下单特惠商品
+            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
