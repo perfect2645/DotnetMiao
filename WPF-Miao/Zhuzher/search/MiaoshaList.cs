@@ -69,11 +69,10 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(8116, 1, "【秒杀】维达草莓手帕纸纸巾24包装", "1474", $"{DateTimeUtil.GetToday()} 20:03:01");
-            //AddMiaoshaItem(8117, 1, "【秒杀】立白大师香氛洗衣液100g9袋", "1474", $"{DateTimeUtil.GetToday()} 20:03:00");
-
-            AddMiaoshaItem(8118, 1, "【秒杀】 好麦多燕麦片", "1474", $"{DateTimeUtil.GetToday()} 20:00:00");
-            AddMiaoshaItem(8119, 1, "【秒杀】比邻攸麦黄油厚切吐司", "1474", $"{DateTimeUtil.GetToday()} 20:00:01");
+            AddMiaoshaItem(8221, 1, "金龙鱼挂面", "1487", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(8220, 1, "无忧农民东北大米2.5kg", "1487", $"{DateTimeUtil.GetToday()} 20:30:00");
+            //AddMiaoshaItem(8219, 1, "鲁花5S压榨一级花生油3.08L", "1487", $"{DateTimeUtil.GetToday()} 21:00:00");
+            //AddMiaoshaItem(8218, 1, "YSL圣罗兰小金条口红1966", "1487", $"{DateTimeUtil.GetToday()} 22:00:00");
 
         }
 

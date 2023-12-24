@@ -19,15 +19,15 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //TestSceneList();
-            InitSceneList();
+            TestSceneList();
+            //InitSceneList();
         }
 
         private void TestSceneList()
         {
             //AddScene("app-act-new-invite&view", 3, "1");
 
-
+            
 
         }
 
@@ -59,7 +59,8 @@ namespace Zhuzher.search
             // 到家服务单评价得积分
             // 二手闲置发帖
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=jfrw");
-
+            // 将报告分享给3个好友
+            AddScene("app-act-share&view", 3, "", 3);
 
 
             // 活动特定

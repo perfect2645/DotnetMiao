@@ -57,7 +57,7 @@ namespace Utils.timerUtil
             onTimeInterval = Math.Ceiling(onTimeInterval);
             if (onTimeInterval < 20)
             {
-                onTimeInterval = 600;
+                onTimeInterval = 220;
             }
 
             OnTimeTimer?.StopTimer();
