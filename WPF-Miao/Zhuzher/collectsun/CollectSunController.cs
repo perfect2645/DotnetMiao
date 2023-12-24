@@ -80,8 +80,8 @@ namespace Zhuzher.collectsun
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
-            var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
-            var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
+            var code = response.Body?.FirstOrDefault(x => x.Key == "code").Value?.ToString();
+            var msg = response.Body?.FirstOrDefault(x => x.Key == "message").Value?.ToString();
             if (code == null || code != "200")
             {
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName}失败:{msg}");
