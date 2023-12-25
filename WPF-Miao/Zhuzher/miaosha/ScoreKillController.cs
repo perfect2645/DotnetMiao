@@ -51,7 +51,6 @@ namespace Zhuzher.miaosha
             {
                 try
                 {
-                    Thread.Sleep(250);
                     if (item.Status > 1)
                     {
                         IntervalList[item.ExchangeGoodId].StopInterval();
