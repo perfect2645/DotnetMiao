@@ -19,16 +19,23 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //TestSceneList();
-            InitSceneList();
+            TestSceneList();
+            //InitSceneList();
         }
 
         private void TestSceneList()
         {
-            AddScene("app-act-new-invite&view", 1, "", 3);
+            AddScene("app-act-new-invite&view", 3, "", 3);
 
 
-
+            ////逛逛到家服务
+            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=nianhuojieliulan");
+            ////逛逛年货市集
+            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgyhzznhzt5861m");
+            ////去看看家门口的大集
+            //AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/doc?docId=MTAzMA==&vkSource=video&from=nhj");
+            ////查看我的年度报告
+            //AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/year2023?from=huodongrenwu");
         }
 
         private void InitSceneList()
@@ -78,8 +85,6 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/integral?from=hd");
             // 完成1次积分兑换
             AddScene("app-point-exchangegoods", 1, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3193&exchangeId=118");
-            // 每天登录领2雪球
-            AddScene("app-startapp", 1, "1");
             // 逛逛团购特惠
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgyhzzbzjxzt5747");
             // 逛逛维修服务
@@ -96,6 +101,9 @@ namespace Zhuzher.search
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=hd");
             // 下单特惠商品
             AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747");
+
+            // 分享页面
+            AddScene("app-h5share", 1, "", 3);
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

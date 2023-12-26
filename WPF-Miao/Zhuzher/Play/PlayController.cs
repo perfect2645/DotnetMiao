@@ -15,7 +15,7 @@ namespace Zhuzher.Exchange
     {
         #region Properties
 
-        public bool IsReward { get; set; } = true;
+        public bool IsReward { get; set; } = false;
 
         private readonly ScoreItemList GoodList = new ScoreItemList();
         private readonly UserProjectList UserProjectList = new UserProjectList();

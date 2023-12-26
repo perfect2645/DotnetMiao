@@ -69,10 +69,10 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(8221, 1, "金龙鱼挂面", "1487", $"{DateTimeUtil.GetToday()} 20:00:00");
-            AddMiaoshaItem(8220, 1, "无忧农民东北大米2.5kg", "1487", $"{DateTimeUtil.GetToday()} 20:30:00");
+            //AddMiaoshaItem(8221, 1, "金龙鱼挂面", "1487", $"{DateTimeUtil.GetToday()} 20:00:20");
+            //AddMiaoshaItem(8220, 1, "无忧农民东北大米2.5kg", "1487", $"{DateTimeUtil.GetToday()} 20:30:00");
             //AddMiaoshaItem(8219, 1, "鲁花5S压榨一级花生油3.08L", "1487", $"{DateTimeUtil.GetToday()} 21:00:00");
-            //AddMiaoshaItem(8218, 1, "YSL圣罗兰小金条口红1966", "1487", $"{DateTimeUtil.GetToday()} 22:00:00");
+            AddMiaoshaItem(8218, 1, "YSL圣罗兰小金条口红1966", "1487", $"{DateTimeUtil.GetToday()} 22:00:00");
 
         }
 
