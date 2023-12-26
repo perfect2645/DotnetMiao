@@ -97,6 +97,9 @@
                     <Button Content="竞猜"
                         Command="{Binding GuessBetCommand}" Width="100" Margin="10, 0">
                     </Button>
+                    <Button Content="夺宝"
+                        Command="{Binding LootCommand}" Width="100" Margin="10, 0">
+                    </Button>
                 </StackPanel>
             </StackPanel>
 

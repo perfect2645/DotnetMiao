@@ -17,15 +17,44 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
             "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5534,
+            "taskId": 908,
+            "taskName": "兑换锦旗赠送管家",
+            "chanceNumber": 2,
+            "taskDesc": "2024年货节",
+            "tips": "给管家送个锦旗，即得“福气”，一天可完成3次",
+            "detail": [
+                {
+                    "taskDetailId": 909,
+                    "sceneName": "积分兑换锦旗成功",
+                    "sceneCode": "app-point-exchangebanners",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/pennant?from=index",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 3,
             "finishCount": null,
             "isWarn": 0,
             "warnTitle": null,
@@ -46,10 +75,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=nianhuojieliulan",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -75,10 +104,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgyhzznhzt5861m",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -104,10 +133,10 @@
                     "sceneDesc": "",
                     "url": "https://communityclass.onewo.com/#/doc?docId=MTAzMA==&vkSource=video&from=nhj",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -133,10 +162,10 @@
                     "sceneDesc": "匹配参数为scene=xxx",
                     "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -162,10 +191,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3193&exchangeId=118",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -191,10 +220,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/year2023?from=huodongrenwu",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -220,10 +249,10 @@
                     "sceneDesc": "20230421更新：不可设置匹配条件",
                     "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=nianhuojiexiadan",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:CONV:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -249,39 +278,10 @@
                     "sceneDesc": "可以设置单个商品id为匹配条件",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgyhzznhzt5861m",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 5534,
-            "taskId": 908,
-            "taskName": "兑换锦旗赠送管家",
-            "chanceNumber": 1,
-            "taskDesc": "2024年货节",
-            "tips": "给管家送个锦旗，即得“福气”",
-            "detail": [
-                {
-                    "taskDetailId": 909,
-                    "sceneName": "积分兑换锦旗成功",
-                    "sceneCode": "app-point-exchangebanners",
-                    "sceneDesc": "",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/pennant?from=index",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:SCORE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -307,10 +307,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=525&from=nhj",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -336,10 +336,10 @@
                     "sceneDesc": "",
                     "url": "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=nhj",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -365,10 +365,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral?from=hd",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],

@@ -36,6 +36,7 @@ namespace Zhuzher.viewmodel
         public ICommand GuessBetCommand { get; set; }
         public ICommand TrackPlayCommand { get; set; }
         public ICommand ScoreExchangeCommand { get; set; }
+        public ICommand LootCommand { get; set; }
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -107,6 +108,7 @@ namespace Zhuzher.viewmodel
             GuessBetCommand = new RelayCommand(ExecuteGuessBet);
             TrackPlayCommand = new RelayCommand(ExecuteTrackPlay);
             ScoreExchangeCommand = new RelayCommand(ExecuteScoreExchange);
+            LootCommand = new RelayCommand(ExecuteLoot);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -149,6 +151,23 @@ namespace Zhuzher.viewmodel
                 MainSession.Cookie = Cookie;
                 var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
                 exchangeHandler.ExchangeAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteLoot()
+        {
+            try
+            {
+                var lootController = HttpServiceController.GetService<LootController>();
+                lootController.LootAsync();
             }
             catch (HttpException ex)
             {

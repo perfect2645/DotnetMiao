@@ -33,7 +33,7 @@ namespace Zhuzher.Exchange
                 var response = PostStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]ScoreBet - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]Loot - {response?.Message},请检查参数");
                     return false;
                 }
                 var root = response.JsonBody.RootElement;

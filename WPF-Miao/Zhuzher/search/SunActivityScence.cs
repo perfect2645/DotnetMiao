@@ -25,7 +25,7 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            AddScene("app-act-new-invite&view", 3, "", 3);
+            //AddScene("app-act-new-invite&view", 3, "", 3);
 
 
             ////逛逛到家服务
@@ -36,6 +36,8 @@ namespace Zhuzher.search
             //AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/doc?docId=MTAzMA==&vkSource=video&from=nhj");
             ////查看我的年度报告
             //AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/year2023?from=huodongrenwu");
+            // 积分兑换锦旗送管家
+            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
         }
 
         private void InitSceneList()
@@ -97,13 +99,14 @@ namespace Zhuzher.search
             AddScene("5thzone-convenience-pay", 1, "https://enterprise.4009515151.com/marketing-pages/h5/activity?id=153&type=mini&from=gaobaiji");
             //旧物还能这样改？
             AddScene("app-vote-threetimes", 1, "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=xmas");
-            // 积分兑换锦旗送管家
-            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=hd");
+
             // 下单特惠商品
             AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747");
 
             // 分享页面
             AddScene("app-h5share", 1, "", 3);
+            // 积分兑换锦旗送管家
+            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
