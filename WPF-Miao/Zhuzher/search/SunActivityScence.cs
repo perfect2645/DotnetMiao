@@ -19,25 +19,14 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            TestSceneList();
-            //InitSceneList();
+            //TestSceneList();
+            InitSceneList();
         }
 
         private void TestSceneList()
         {
             //AddScene("app-act-new-invite&view", 3, "", 3);
 
-
-            ////逛逛到家服务
-            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=nianhuojieliulan");
-            ////逛逛年货市集
-            //AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgyhzznhzt5861m");
-            ////去看看家门口的大集
-            //AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/doc?docId=MTAzMA==&vkSource=video&from=nhj");
-            ////查看我的年度报告
-            //AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/year2023?from=huodongrenwu");
-            // 积分兑换锦旗送管家
-            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
         }
 
         private void InitSceneList()
@@ -107,6 +96,17 @@ namespace Zhuzher.search
             AddScene("app-h5share", 1, "", 3);
             // 积分兑换锦旗送管家
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
+
+            //逛逛到家服务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=nianhuojieliulan");
+            //逛逛年货市集
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgyhzznhzt5861m");
+            //去看看家门口的大集
+            AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/doc?docId=MTAzMA==&vkSource=video&from=nhj");
+            //查看我的年度报告
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/year2023?from=huodongrenwu");
+            // 积分兑换锦旗送管家
+            AddScene("app-point-exchangebanners", 3, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

@@ -1,8 +1,10 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.JsonFactory;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Utils;
@@ -25,8 +27,8 @@ namespace Zhuzher.Exchange
                 {
                     ActivityGameId = 1493,
                     ActivityId = MainSession.ActivityId.ToInt(),
-                    GameGoodId = 8276,
-                    Number = 5
+                    GameGoodId = 8278,
+                    Number = 2
                 }
             };
             Task.Factory.StartNew(() =>
@@ -78,7 +80,7 @@ namespace Zhuzher.Exchange
 
         private void SaveLootResult(UserProject user, JsonElement result)
         {
-            var lootCodeList = result.GetProperty("lootCodeList").GetString();
+            var lootCodeList = result.GetRawText();
             MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]Loot成功 - lootCodeList:{lootCodeList}");
         }
     }
