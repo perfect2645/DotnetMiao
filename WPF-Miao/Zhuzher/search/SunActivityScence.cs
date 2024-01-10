@@ -25,9 +25,8 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            //AddScene("app-act-invite&view", 3, "https://enterprise.4009515151.com/marketing-pages/puli2023?from=fenxiang");
-            //AddScene("5thzone-blackpearl-comment", 2, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
 
+            //AddScene("5thzone-blackpearl-comment", 2, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
         }
 
         private void InitSceneList()
@@ -67,7 +66,8 @@ namespace Zhuzher.search
 
 
             // 活动特定
-
+            //参加年货节活动
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=992&from=jifen");
             //旧物还能这样改？
             AddScene("app-vote-threetimes", 1, "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=xmas");
 
@@ -93,6 +93,10 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/integral?from=hd");
             //完成1次积分兑换
             AddScene("app-point-exchangegoods", 1, "https://enterprise.4009515151.com/marketing-pages/integral/goodDetail?exchangeGoodId=3193&exchangeId=118");
+            // 到家年货市集抢6折券
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=jifennhj");
+            // 友邻年货市集享满减
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgjfzxnhjzt5861");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

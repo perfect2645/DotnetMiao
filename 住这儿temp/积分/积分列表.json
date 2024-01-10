@@ -3,6 +3,48 @@
     "code": 200,
     "result": [
         {
+            "activityTaskId": 5554,
+            "taskId": 915,
+            "taskName": "参与年货节赢飞天茅台",
+            "tips": "前往年货节主会场页面浏览10秒获得积分，1次/日",
+            "sceneType": "behavior",
+            "minVersion": "5.2.6",
+            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=992&from=jifen",
+            "scoreValue": 30,
+            "finished": true,
+            "eventCode": null,
+            "processValue": "1",
+            "requiredValue": "1"
+        },
+        {
+            "activityTaskId": 5558,
+            "taskId": 917,
+            "taskName": "到家年货市集抢6折券",
+            "tips": "去到家年货节活动页面浏览10秒获得积分，1次/天",
+            "sceneType": "behavior",
+            "minVersion": "5.2.6",
+            "url": "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=jifennhj",
+            "scoreValue": 10,
+            "finished": false,
+            "eventCode": null,
+            "processValue": "0",
+            "requiredValue": "1"
+        },
+        {
+            "activityTaskId": 5559,
+            "taskId": 916,
+            "taskName": "友邻年货市集享满减",
+            "tips": "去友邻年货节活动页面浏览10秒获得积分，1次/天",
+            "sceneType": "behavior",
+            "minVersion": "5.2.6",
+            "url": "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgjfzxnhjzt5861",
+            "scoreValue": 10,
+            "finished": false,
+            "eventCode": null,
+            "processValue": "0",
+            "requiredValue": "1"
+        },
+        {
             "activityTaskId": 5392,
             "taskId": 809,
             "taskName": "到家服务单评价得积分",
@@ -39,23 +81,9 @@
             "minVersion": "5.2.6",
             "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=jzjfzxllsyrw",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": "LIVE:CONV:0001",
-            "processValue": "0",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 4804,
-            "taskId": 661,
-            "taskName": "二手闲置社区发帖",
-            "tips": "二手闲置社区发帖得积分，每天1次",
-            "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=jfrw",
-            "scoreValue": 10,
-            "finished": false,
-            "eventCode": null,
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -67,9 +95,9 @@
             "minVersion": "5.2.6",
             "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zhuzheer_integral_center",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": "LIVE:CONV:0002",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -95,9 +123,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point",
             "scoreValue": 10,
-            "finished": false,
+            "finished": true,
             "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -109,9 +137,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point",
             "scoreValue": 10,
-            "finished": false,
+            "finished": true,
             "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -123,9 +151,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/integral/signin",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": "ACT:SCORE:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -151,23 +179,9 @@
             "minVersion": "5.2.4",
             "url": "zze://vanke.com/property/opendoor/list",
             "scoreValue": 10,
-            "finished": false,
+            "finished": true,
             "eventCode": "ACCESS:USER:0001",
-            "processValue": "0",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5190,
-            "taskId": 470,
-            "taskName": "报名线下活动并签到",
-            "tips": "报名线下活动并签到可获得积分，每天仅限1次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "http://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities",
-            "scoreValue": 1000,
-            "finished": false,
-            "eventCode": "OFFLINE:OFFLINE:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -178,34 +192,6 @@
             "sceneType": "behavior",
             "minVersion": "5.2.6",
             "url": "https://neighbor.4009515151.com/nova/home-with-back",
-            "scoreValue": 10,
-            "finished": true,
-            "eventCode": null,
-            "processValue": "1",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5418,
-            "taskId": 844,
-            "taskName": "浏览研选家品牌介绍",
-            "tips": "逛逛研选家页面停留10秒获得积分，每天1次",
-            "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan",
-            "scoreValue": 10,
-            "finished": true,
-            "eventCode": null,
-            "processValue": "1",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5419,
-            "taskId": 845,
-            "taskName": "浏览朴邻品牌介绍",
-            "tips": "逛逛朴邻页面停留10秒获得积分，每天1次",
-            "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin",
             "scoreValue": 10,
             "finished": true,
             "eventCode": null,
@@ -235,9 +221,9 @@
             "minVersion": "",
             "url": "https://neighbor.4009515151.com/nova/order-list",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": null,
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -277,24 +263,10 @@
             "minVersion": "5.2.6",
             "url": "1",
             "scoreValue": 500,
-            "finished": true,
-            "eventCode": "ACT:SCORE:0001",
-            "processValue": "7",
-            "requiredValue": "7"
-        },
-        {
-            "activityTaskId": 5443,
-            "taskId": 849,
-            "taskName": "参与感恩节活动",
-            "tips": "前往感恩节页面停留10秒获得积分，每天1次",
-            "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=979&from=jifenrenwu",
-            "scoreValue": 20,
             "finished": false,
-            "eventCode": "ACT:ONLINE:0003",
-            "processValue": "0",
-            "requiredValue": "1"
+            "eventCode": "ACT:SCORE:0001",
+            "processValue": "4",
+            "requiredValue": "7"
         },
         {
             "activityTaskId": 5473,
@@ -311,6 +283,48 @@
             "requiredValue": "1"
         },
         {
+            "activityTaskId": 5555,
+            "taskId": 470,
+            "taskName": "报名线下活动并签到",
+            "tips": "报名线下活动并签到可获得积分，每天仅限1次",
+            "sceneType": "behavior",
+            "minVersion": "",
+            "url": "http://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities",
+            "scoreValue": 1000,
+            "finished": false,
+            "eventCode": "OFFLINE:OFFLINE:0001",
+            "processValue": "0",
+            "requiredValue": "1"
+        },
+        {
+            "activityTaskId": 5556,
+            "taskId": 845,
+            "taskName": "浏览朴邻品牌介绍",
+            "tips": "逛逛朴邻页面停留10秒获得积分，每天1次",
+            "sceneType": "behavior",
+            "minVersion": "5.2.6",
+            "url": "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin",
+            "scoreValue": 10,
+            "finished": true,
+            "eventCode": null,
+            "processValue": "1",
+            "requiredValue": "1"
+        },
+        {
+            "activityTaskId": 5557,
+            "taskId": 844,
+            "taskName": "浏览研选家品牌介绍",
+            "tips": "逛逛研选家页面停留10秒获得积分，每天1次",
+            "sceneType": "behavior",
+            "minVersion": "5.2.6",
+            "url": "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan",
+            "scoreValue": 10,
+            "finished": true,
+            "eventCode": null,
+            "processValue": "1",
+            "requiredValue": "1"
+        },
+        {
             "activityTaskId": 4687,
             "taskId": 621,
             "taskName": "积分话题发帖",
@@ -319,9 +333,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=358",
             "scoreValue": 10,
-            "finished": false,
+            "finished": true,
             "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -333,9 +347,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/fe-event-pages/serviceEvaluation",
             "scoreValue": 200,
-            "finished": true,
+            "finished": false,
             "eventCode": "SERVICE:COMMENT:0002",
-            "processValue": "1",
+            "processValue": "0",
             "requiredValue": "1"
         },
         {
@@ -389,9 +403,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/year2023?from=jfrwfx1",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": null,
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1"
         },
         {
@@ -403,9 +417,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/year2023?from=jfrwfx3",
             "scoreValue": 50,
-            "finished": false,
+            "finished": true,
             "eventCode": null,
-            "processValue": "1",
+            "processValue": "3",
             "requiredValue": "3"
         }
     ]
