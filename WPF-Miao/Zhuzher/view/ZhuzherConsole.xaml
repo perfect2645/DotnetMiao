@@ -52,20 +52,29 @@
                 </StackPanel>
                 <StackPanel Background="Cornsilk" MinHeight="100"
                             Margin="10">
-                    <Button Content="收集积分" Margin="5"
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="收集积分" Margin="5"
                             HorizontalAlignment="Left"
                         Command="{Binding CollectScoreCommand}" Width="100">
-                    </Button>
-                    <Button Content="积分夺宝" Margin="5"
+                        </Button>
+                        <Button Content="积分大转盘" Margin="5"
+                            HorizontalAlignment="Left"
+                        Command="{Binding ScorePlayCommand}" Width="100">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="积分秒杀"
+                        Command="{Binding ScoreSeckillCommand}" Width="100" Margin="5, 10">
+                        </Button>
+                        <Button Content="积分兑换"
+                        Command="{Binding ScoreExchangeCommand}" Width="100" Margin="5, 10">
+                        </Button>
+                        <Button Content="积分夺宝" Margin="5"
                         Command="{Binding ScoreBetCommand}" Width="100"
                             HorizontalAlignment="Left">
-                    </Button>
-                    <Button Content="积分秒杀"
-                        Command="{Binding ScoreSeckillCommand}" Width="100" Margin="50, 10">
-                    </Button>
-                    <Button Content="积分兑换"
-                        Command="{Binding ScoreExchangeCommand}" Width="100" Margin="50, 10">
-                    </Button>
+                        </Button>
+                    </StackPanel>
+
                 </StackPanel>
                 <ListView VerticalAlignment="Top" 
                           Margin="20" 

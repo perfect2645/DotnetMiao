@@ -67,8 +67,7 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            AddExchangeItem(3230, 118, "洁柔卫生纸Face立体压花无芯卷纸70g30卷装");
-            AddExchangeItem(3229, 118, "全棉柔巾 ·棉柔巾洗面巾洁面卷装45g平纹200mm200");
+            AddExchangeItem(3511, 159, "维达110抽3包");
             //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
 

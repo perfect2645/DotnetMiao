@@ -37,6 +37,8 @@ namespace Zhuzher.viewmodel
         public ICommand TrackPlayCommand { get; set; }
         public ICommand ScoreExchangeCommand { get; set; }
         public ICommand LootCommand { get; set; }
+        public ICommand ScorePlayCommand { get; set; }
+        
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -109,6 +111,7 @@ namespace Zhuzher.viewmodel
             TrackPlayCommand = new RelayCommand(ExecuteTrackPlay);
             ScoreExchangeCommand = new RelayCommand(ExecuteScoreExchange);
             LootCommand = new RelayCommand(ExecuteLoot);
+            ScorePlayCommand = new RelayCommand(ExecuteScorePlay);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -377,6 +380,34 @@ namespace Zhuzher.viewmodel
                             Task.Factory.StartNew(() => scoreController.ScoreExchange(user, exchangeItem));
                         }
                         Thread.Sleep(300);
+                    }
+                });
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteScorePlay()
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var playHandler = HttpServiceController.GetService<ScorePlayController>();
+                    var userList = new UserProjectList();
+                    foreach (var user in userList.UserProjects)
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            playHandler.ActivityPlay(user);
+                            Thread.Sleep(1000);
+                        }
                     }
                 });
             }
