@@ -6,6 +6,7 @@ using Zhuzher.Exchange;
 using Zhuzher.miaosha;
 using Zhuzher.Play;
 using Zhuzher.Score;
+using Zhuzher.vote;
 
 namespace Zhuzher
 {
@@ -48,6 +49,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<PlayDetailController>();
             HttpServiceController.AddTransientService<ScoreExchangeController>();
             HttpServiceController.AddTransientService<LootController>();
+            HttpServiceController.AddTransientService<VoteController>();
 
             HttpServiceController.BuidServiceProvider();
         }

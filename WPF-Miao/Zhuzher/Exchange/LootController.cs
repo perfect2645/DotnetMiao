@@ -27,8 +27,8 @@ namespace Zhuzher.Exchange
                 {
                     ActivityGameId = 1493,
                     ActivityId = MainSession.ActivityId.ToInt(),
-                    GameGoodId = 8288,
-                    Number = 1
+                    GameGoodId = 8425,
+                    Number = 10
                 }
             };
             Task.Factory.StartNew(() =>

@@ -18,6 +18,7 @@ using Zhuzher.Play;
 using Zhuzher.Score;
 using Zhuzher.search;
 using Zhuzher.session;
+using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
 {
@@ -38,7 +39,9 @@ namespace Zhuzher.viewmodel
         public ICommand ScoreExchangeCommand { get; set; }
         public ICommand LootCommand { get; set; }
         public ICommand ScorePlayCommand { get; set; }
+        public ICommand VoteCommand { get; set; }
         
+
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -112,6 +115,7 @@ namespace Zhuzher.viewmodel
             ScoreExchangeCommand = new RelayCommand(ExecuteScoreExchange);
             LootCommand = new RelayCommand(ExecuteLoot);
             ScorePlayCommand = new RelayCommand(ExecuteScorePlay);
+            VoteCommand = new RelayCommand(ExecuteVote);
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -422,6 +426,27 @@ namespace Zhuzher.viewmodel
         }
 
         #endregion Score
+
+        #region Vote
+
+        private void ExecuteVote()
+        {
+            try
+            {
+                var voteController = HttpServiceController.GetService<VoteController>();
+                voteController.VoteAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Vote
 
         #region Session
 
