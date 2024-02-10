@@ -26,7 +26,14 @@ namespace Zhuzher.search
         private void TestSceneList()
         {
 
-            //AddScene("5thzone-blackpearl-comment", 2, "https://neighbor.4009515151.com/nova/activityTopic/5498?pageMark=bbpljxcsxtht548zl");
+            //写一首拜年诗歌，发帖成功即可获得1次抽奖机会
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=556");
+            //浏览男神女神评选活动10秒以上完成任务
+            AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/?contributeId=Mjk=&vkSource=video");
+            //浏览新春夺宝活动10秒以上完成任务
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=992&from=neirong");
+            //点击跳转前往关注公众号后，点击回复消息中的链接跳回
+            AddScene("puli-daka", 1, "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA");
         }
 
         private void InitSceneList()
