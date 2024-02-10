@@ -30,53 +30,54 @@
             </Style.Triggers>
         </Style>
     </Page.Resources>
-    
-    <basePage:OnTimeConsole x:Name="baseConsole"
+    <TabControl>
+        <TabItem Header="Console">
+            <basePage:OnTimeConsole x:Name="baseConsole"
                             IsCookieVisible="Collapsed"
                           Title="{Binding Title}"
                           HospitalDeptList="{Binding Departments}"
                           SelectedHospitalDept="{Binding SelectedDepartment, Mode=TwoWay}">
-        <basePage:OnTimeConsole.DynamicArea>
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" Height="50">
-                    <TextBox Width="100"
+                <basePage:OnTimeConsole.DynamicArea>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="50">
+                            <TextBox Width="100"
                          Height="30"
                          Margin="20,10,0,10"
                          Text="{Binding ActivityId}"
                          HorizontalAlignment="Left"
                          materialDesign:HintAssist.Hint="ActivityId">
-                    </TextBox>
-                    <Button Content="加入队伍" Margin="0,0,10,0"
+                            </TextBox>
+                            <Button Content="加入队伍" Margin="0,0,10,0"
                         Command="{Binding JoinTeamCommand}" Width="100">
-                    </Button>
-                </StackPanel>
-                <StackPanel Background="Cornsilk" MinHeight="100"
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Background="Cornsilk" MinHeight="100"
                             Margin="10">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="收集积分" Margin="5"
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="收集积分" Margin="5"
                             HorizontalAlignment="Left"
                         Command="{Binding CollectScoreCommand}" Width="100">
-                        </Button>
-                        <Button Content="积分大转盘" Margin="5"
+                                </Button>
+                                <Button Content="积分大转盘" Margin="5"
                             HorizontalAlignment="Left"
                         Command="{Binding ScorePlayCommand}" Width="100">
-                        </Button>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="积分秒杀"
+                                </Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="积分秒杀"
                         Command="{Binding ScoreSeckillCommand}" Width="100" Margin="5, 10">
-                        </Button>
-                        <Button Content="积分兑换"
+                                </Button>
+                                <Button Content="积分兑换"
                         Command="{Binding ScoreExchangeCommand}" Width="100" Margin="5, 10">
-                        </Button>
-                        <Button Content="积分夺宝" Margin="5"
+                                </Button>
+                                <Button Content="积分夺宝" Margin="5"
                         Command="{Binding ScoreBetCommand}" Width="100"
                             HorizontalAlignment="Left">
-                        </Button>
-                    </StackPanel>
+                                </Button>
+                            </StackPanel>
 
-                </StackPanel>
-                <ListView VerticalAlignment="Top" 
+                        </StackPanel>
+                        <ListView VerticalAlignment="Top" 
                           Margin="20" 
                           MinHeight="200"
                           BorderBrush="Pink"
@@ -84,37 +85,55 @@
                           ItemsSource="{Binding MiaoshaList}"
                           DisplayMemberPath="Display"
                           ItemContainerStyle="{StaticResource ContainerStyle}">
-                </ListView>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                    <Button Content="攒阳光" Margin="0,0,10,0"
+                        </ListView>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                            <Button Content="攒阳光" Margin="0,0,10,0"
                         Command="{Binding CollectSunCommand}" Width="100">
-                    </Button>
-                    <Button Content="换礼品"
+                            </Button>
+                            <Button Content="换礼品"
                         Command="{Binding ExchangeCommand}" Width="100" Margin="10, 0">
-                    </Button>
-                    <Button Content="抽奖"
+                            </Button>
+                            <Button Content="抽奖"
                         Command="{Binding PlayCommand}" Width="100" Margin="0, 0">
-                    </Button>
-                    <Button Content="TrackPlay"
+                            </Button>
+                            <Button Content="TrackPlay"
                         Command="{Binding TrackPlayCommand}" Width="100" Margin="10, 0">
-                    </Button>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,5,0,0">
-                    <Button Content="秒杀"
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,5,0,0">
+                            <Button Content="秒杀"
                         Command="{Binding SeckillCommand}" Width="100"  >
-                    </Button>
-                    <Button Content="竞猜"
+                            </Button>
+                            <Button Content="竞猜"
                         Command="{Binding GuessBetCommand}" Width="100" Margin="10, 0">
-                    </Button>
-                    <Button Content="夺宝"
+                            </Button>
+                            <Button Content="夺宝"
                         Command="{Binding LootCommand}" Width="100" Margin="10, 0">
-                    </Button>
-                    <Button Content="投票"
+                            </Button>
+                            <Button Content="投票"
                         Command="{Binding VoteCommand}" Width="100" Margin="10, 0">
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                </basePage:OnTimeConsole.DynamicArea>
+            </basePage:OnTimeConsole>
+        </TabItem>
+        <TabItem Header="Activity">
+            
+        </TabItem>
+        <TabItem Header="Score">
+            
+        </TabItem>
+        <TabItem Header="Post">
+            <StackPanel>
+                <StackPanel Height="100" Orientation="Horizontal">
+                    <Button Content="换礼品"
+                        Command="{Binding ExchangeCommand}" Width="100" Margin="5">
                     </Button>
                 </StackPanel>
             </StackPanel>
+        </TabItem>
+    </TabControl>
 
-        </basePage:OnTimeConsole.DynamicArea>
-    </basePage:OnTimeConsole>
 </Page>

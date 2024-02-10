@@ -1,4 +1,5 @@
 ﻿using HttpProcessor.Client;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
@@ -17,21 +18,21 @@ namespace Zhuzher.Post
         {
         }
 
-        public Task<Dictionary<string, string>> GetUnCollectedScoreAsync(UserProject user)
+        public Task<Dictionary<string, string>> CommentAsync(UserProject user)
         {
-            return Task.Factory.StartNew(() => GetUnCollectedScore(user));
+            return Task.Factory.StartNew(() => Comment(user));
         }
 
-        public Dictionary<string, string> GetUnCollectedScore(UserProject user)
+        public Dictionary<string, string> Comment(UserProject user)
         {
             try
             {
-                var content = new ZhuzherContent(user);
+                var content = new CommentContent(user);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败 - {response?.Message},请检查参数");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]评论失败 - {response?.Message},请检查参数");
                     return null;
                 }
                 var root = response.JsonBody.RootElement;
@@ -40,7 +41,7 @@ namespace Zhuzher.Post
                 var msg = root.GetProperty("message").GetString();
                 if (code != 200)
                 {
-                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败: code={code}, message={msg}");
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]评论失败失败: code={code}, message={msg}");
                     return null;
                 }
 
@@ -49,7 +50,7 @@ namespace Zhuzher.Post
             }
             catch (Exception ex)
             {
-                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败 - {ex.Message} - {ex.StackTrace}");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]评论失败失败 - {ex.Message} - {ex.StackTrace}");
                 return null;
             }
         }
@@ -60,7 +61,7 @@ namespace Zhuzher.Post
             var scoreList = JsonAnalysis.JsonToDicList(result);
             if (!scoreList.HasItem())
             {
-                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]评论失败失败");
             }
 
             foreach (var scoreItem in scoreList)
