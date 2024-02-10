@@ -5,6 +5,7 @@ using Zhuzher.collectsun;
 using Zhuzher.Exchange;
 using Zhuzher.miaosha;
 using Zhuzher.Play;
+using Zhuzher.Post;
 using Zhuzher.Score;
 using Zhuzher.vote;
 
@@ -50,6 +51,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<ScoreExchangeController>();
             HttpServiceController.AddTransientService<LootController>();
             HttpServiceController.AddTransientService<VoteController>();
+            HttpServiceController.AddTransientService<CommentController>();
 
             HttpServiceController.BuidServiceProvider();
         }

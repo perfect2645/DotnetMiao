@@ -104,6 +104,13 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=jifennhj");
             // 友邻年货市集享满减
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgjfzxnhjzt5861");
+
+            //写一首拜年诗歌，发帖成功即可获得1次抽奖机会
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=556");
+            //浏览男神女神评选活动10秒以上完成任务
+            AddScene("app-browseweb", 1, "https://communityclass.onewo.com/#/?contributeId=Mjk=&vkSource=video");
+            //浏览新春夺宝活动10秒以上完成任务
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=992&from=neirong");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

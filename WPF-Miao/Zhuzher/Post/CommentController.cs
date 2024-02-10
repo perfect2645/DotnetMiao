@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Utils;
 using Utils.json;
 using Zhuzher.Common;
+using Zhuzher.Exchange;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -18,16 +19,16 @@ namespace Zhuzher.Post
         {
         }
 
-        public Task<Dictionary<string, string>> CommentAsync(UserProject user)
+        public Task<Dictionary<string, string>> CommentAsync(UserProject user, string postId, string postContent)
         {
-            return Task.Factory.StartNew(() => Comment(user));
+            return Task.Factory.StartNew(() => Comment(user, postId, postContent));
         }
 
-        public Dictionary<string, string> Comment(UserProject user)
+        public Dictionary<string, string> Comment(UserProject user, string postId, string postContent)
         {
             try
             {
-                var content = new CommentContent(user);
+                var content = new CommentContent(user, postId, postContent);
                 content.BuildDefaultHeaders(Client);
                 var response = GetStringAsync(content).Result;
                 if (response?.Body == null)

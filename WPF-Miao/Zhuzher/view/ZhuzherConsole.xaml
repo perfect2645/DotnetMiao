@@ -128,8 +128,22 @@
         <TabItem Header="Post">
             <StackPanel>
                 <StackPanel Height="100" Orientation="Horizontal">
-                    <Button Content="换礼品"
-                        Command="{Binding ExchangeCommand}" Width="100" Margin="5">
+                    <TextBox Width="60"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding PostId}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="帖子ID">
+                    </TextBox>
+                    <TextBox Width="100"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding PostId}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="评论内容">
+                    </TextBox>
+                    <Button Content="帖子评论"
+                        Command="{Binding PostCommand}" Width="100" Margin="5">
                     </Button>
                 </StackPanel>
             </StackPanel>

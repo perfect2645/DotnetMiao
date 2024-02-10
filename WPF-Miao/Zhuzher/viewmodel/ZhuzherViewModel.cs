@@ -22,7 +22,7 @@ using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
 {
-    internal class ZhuzherViewModel : ViewModelBase
+    internal partial class ZhuzherViewModel : ViewModelBase
     {
         #region Properties
 
