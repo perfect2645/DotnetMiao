@@ -3,14 +3,41 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using System;
 using System.Windows.Input;
+using Zhuzher.Post;
 using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
 {
     internal partial class ZhuzherViewModel
     {
+        #region Properties
         public ICommand CommentCommand { get; set; }
         public ICommand LikeCommand { get; set; }
+
+
+        private string _postId= "9301476";
+        public string PostId
+        {
+            get { return _postId; }
+            set 
+            { 
+                _postId = value;
+                NotifyUI(() => PostId);
+            }
+        }
+
+        private string _comment = "恬恬又出动了";
+        public string Comment
+        {
+            get { return _comment; }
+            set
+            {
+                _comment = value;
+                NotifyUI(() => Comment);
+            }
+        }
+
+        #endregion Properties
 
         private void InitPostComments()
         {
@@ -22,8 +49,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                var voteController = HttpServiceController.GetService<VoteController>();
-                voteController.VoteAsync();
+                var commentController = HttpServiceController.GetService<CommentController>();
+                commentController.CommentAsync(PostId, Comment);
             }
             catch (HttpException ex)
             {
@@ -39,8 +66,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                var voteController = HttpServiceController.GetService<VoteController>();
-                voteController.VoteAsync();
+                var likeController = HttpServiceController.GetService<LikeController>();
+                likeController.LikeAsync(PostId);
             }
             catch (HttpException ex)
             {

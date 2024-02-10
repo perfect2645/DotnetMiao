@@ -138,12 +138,15 @@
                     <TextBox Width="100"
                          Height="30"
                          Margin="20,10,0,10"
-                         Text="{Binding PostId}"
+                         Text="{Binding Comment}"
                          HorizontalAlignment="Left"
                          materialDesign:HintAssist.Hint="评论内容">
                     </TextBox>
                     <Button Content="帖子评论"
-                        Command="{Binding PostCommand}" Width="100" Margin="5">
+                        Command="{Binding CommentCommand}" Width="100" Margin="5">
+                    </Button>
+                    <Button Content="帖子点赞"
+                        Command="{Binding LikeCommand}" Width="100" Margin="5">
                     </Button>
                 </StackPanel>
             </StackPanel>

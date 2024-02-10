@@ -116,6 +116,7 @@ namespace Zhuzher.viewmodel
             LootCommand = new RelayCommand(ExecuteLoot);
             ScorePlayCommand = new RelayCommand(ExecuteScorePlay);
             VoteCommand = new RelayCommand(ExecuteVote);
+            InitPostComments();
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
