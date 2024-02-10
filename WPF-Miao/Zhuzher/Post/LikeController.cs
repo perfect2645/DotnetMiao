@@ -34,14 +34,13 @@ namespace Zhuzher.Post
             {
                 var content = new LikeContent(user, postId);
                 content.BuildDefaultHeaders(Client);
-                var response = Client.PostJsonAsync(content).Result;
+                var response = Client.PutJsonAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]点赞失败 - {response?.Message},请检查参数");
                     return;
                 }
                 var root = response.JsonBody.RootElement;
-
                 var code = root.GetProperty("code").GetUInt32();
 
                 if (code != 0)
@@ -62,7 +61,9 @@ namespace Zhuzher.Post
 
         private void SummarizeScoreInfo(JsonElement result, UserProject user)
         {
-            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]点赞成功");
+            var postId = result.GetProperty("post_id").GetInt32();
+            var upCount = result.GetProperty("up_count").GetInt16();
+            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]点赞成功, postId={postId}, upCount={upCount}");
         }
     }
 }

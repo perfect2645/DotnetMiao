@@ -52,6 +52,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<LootController>();
             HttpServiceController.AddTransientService<VoteController>();
             HttpServiceController.AddTransientService<CommentController>();
+            HttpServiceController.AddTransientService<LikeController>();
 
             HttpServiceController.BuidServiceProvider();
         }
