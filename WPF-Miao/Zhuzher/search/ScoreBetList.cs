@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Zhuzher.Score;
 
 namespace Zhuzher.search
@@ -19,7 +15,7 @@ namespace Zhuzher.search
         private void InitList()
         {
             ScoreBets = new List<ScoreBet>();
-            ScoreBets.Add(new ScoreBet(56, 8217, 10, "maotai"));
+            ScoreBets.Add(new ScoreBet(56, 8430, 20, "Apple AirPods (第三代) 无线蓝牙耳机"));
 
         }
     }
