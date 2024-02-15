@@ -79,8 +79,8 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(3567, 164, 2127, "维达10卷", $"{DateTimeUtil.GetToday()} 20:00:00");
-            AddMiaoshaItem(3568, 164, 2127, "金龙鱼", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(3636, 173, 2162, "5元", $"{DateTimeUtil.GetToday()} 20:00:01");
+            AddMiaoshaItem(3637, 173, 2162, "10元", $"{DateTimeUtil.GetToday()} 20:00:00");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")

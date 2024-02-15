@@ -15,7 +15,7 @@ namespace Zhuzher.search
         private void InitList()
         {
             ScoreBets = new List<ScoreBet>();
-            ScoreBets.Add(new ScoreBet(56, 8430, 20, "Apple AirPods (第三代) 无线蓝牙耳机"));
+            ScoreBets.Add(new ScoreBet(56, 8431, 20, "Apple iPhone 15 支持移动联通电信5G"));
 
         }
     }

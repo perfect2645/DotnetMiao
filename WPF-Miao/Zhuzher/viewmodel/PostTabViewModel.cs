@@ -15,7 +15,7 @@ namespace Zhuzher.viewmodel
         public ICommand LikeCommand { get; set; }
 
 
-        private string _postId= "9301476";
+        private string _postId= "9325926";
         public string PostId
         {
             get { return _postId; }
@@ -26,7 +26,7 @@ namespace Zhuzher.viewmodel
             }
         }
 
-        private string _comment = "恬恬又出动了";
+        private string _comment = "我补充3点";
         public string Comment
         {
             get { return _comment; }
