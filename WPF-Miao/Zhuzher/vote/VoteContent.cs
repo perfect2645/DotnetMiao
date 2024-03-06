@@ -44,8 +44,8 @@ namespace Zhuzher.vote
         {
             //3728 fawei
             // 3706 dalian
-            AddContent("worksId", 3728);
-            AddContent("voteId", 27);
+            AddContent("worksId", 4809);
+            AddContent("voteId", 30);
         }
     }
 }
