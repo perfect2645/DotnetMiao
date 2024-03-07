@@ -69,11 +69,11 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(8221, 1, "金龙鱼挂面", "1487", $"{DateTimeUtil.GetToday()} 20:00:20");
-            //AddMiaoshaItem(8220, 1, "无忧农民东北大米2.5kg", "1487", $"{DateTimeUtil.GetToday()} 20:30:00");
-            //AddMiaoshaItem(8219, 1, "鲁花5S压榨一级花生油3.08L", "1487", $"{DateTimeUtil.GetToday()} 21:00:00");
-            AddMiaoshaItem(8218, 1, "YSL圣罗兰小金条口红1966", "1487", $"{DateTimeUtil.GetToday()} 22:00:00");
-
+            AddMiaoshaItem(8574, 1, "祖玛珑香水套装", "1523", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(8573, 1, "VVC防晒服", "1523", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(8571, 1, "植物洗脸巾", "1523", $"{DateTimeUtil.GetToday()} 20:00:01");
+            AddMiaoshaItem(8572, 1, "立白洗衣液", "1523", $"{DateTimeUtil.GetToday()} 20:00:02");
+            AddMiaoshaItem(8575, 1, "保洁体验券 138元无门槛券", "1523", $"{DateTimeUtil.GetToday()} 20:00:02");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

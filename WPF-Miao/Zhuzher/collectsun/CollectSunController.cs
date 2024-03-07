@@ -40,15 +40,12 @@ namespace Zhuzher.collectsun
 
         public void CollectSun(UserProject user)
         {
-            lock(_lock)
+            foreach (var scene in ScenceList.ScenceList)
             {
-                foreach (var scene in ScenceList.ScenceList)
+                for (var i = 0; i < scene.SceneTimes; i++)
                 {
-                    for (var i = 0; i < scene.SceneTimes; i++)
-                    {
-                        Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(2000);
-                    }
+                    Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                    Thread.Sleep(2000);
                 }
             }
         }
