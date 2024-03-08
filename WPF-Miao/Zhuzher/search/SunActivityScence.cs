@@ -19,14 +19,14 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            TestSceneList();
-            //InitSceneList();
+            //TestSceneList();
+            InitSceneList();
         }
 
         private void TestSceneList()
         {
             // 友邻年货市集享满减
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgjfzxnhjzt5861");
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1018&type=youlin&from=jifen");
             // 评价到家服务单，获得100个OK币，可完成5次
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
         }

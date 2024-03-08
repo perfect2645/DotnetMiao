@@ -38,7 +38,6 @@ namespace Zhuzher.search
             //17143791544
             AddUserProject(26897697, "1544", "21020025", "大连万科半山半海", "Bearer 3713d346-fba5-42d3-904e-a3511e921343");//417
             //16791014827
-            //AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 30c3f6d0-917e-4e32-aae5-11043aed9dca");
         }
 
         private void AddUserProject(int userId, string userName, string projectCode, string projectName, string auth)

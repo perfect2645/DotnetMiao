@@ -4,45 +4,18 @@
     "result": [
         {
             "activityTaskId": 5554,
-            "taskId": 915,
-            "taskName": "参与年货节赢飞天茅台",
-            "tips": "前往年货节主会场页面浏览10秒获得积分，1次/日",
+            "taskId": 948,
+            "taskName": "参与住这儿女神节活动",
+            "tips": "前往女神节主会场页面浏览10秒获得积分，1次/日",
             "sceneType": "behavior",
             "minVersion": "5.2.6",
-            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=992&from=jifen",
+            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1018&type=youlin&from=jifen",
             "scoreValue": 30,
-            "finished": true,
-            "eventCode": null,
-            "processValue": "1",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5558,
-            "taskId": 917,
-            "taskName": "到家年货市集抢6折券",
-            "tips": "去到家年货节活动页面浏览10秒获得积分，1次/天",
-            "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://neighbor.4009515151.com/nova/activityTopic/5869?pageMark=jifennhj",
-            "scoreValue": 10,
             "finished": false,
             "eventCode": null,
             "processValue": "0",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5559,
-            "taskId": 916,
-            "taskName": "友邻年货市集享满减",
-            "tips": "去友邻年货节活动页面浏览10秒获得积分，1次/天",
-            "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgjfzxnhjzt5861",
-            "scoreValue": 10,
-            "finished": false,
-            "eventCode": null,
-            "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-browseweb"
         },
         {
             "activityTaskId": 5392,
@@ -56,7 +29,8 @@
             "finished": false,
             "eventCode": "LIVE:CONV:0001",
             "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "5thzone-convenience-comment"
         },
         {
             "activityTaskId": 4038,
@@ -70,7 +44,8 @@
             "finished": false,
             "eventCode": "SERVICE:PAY:0001",
             "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "doc-property-pay"
         },
         {
             "activityTaskId": 4041,
@@ -84,7 +59,8 @@
             "finished": true,
             "eventCode": "LIVE:CONV:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-browseweb"
         },
         {
             "activityTaskId": 4666,
@@ -98,7 +74,8 @@
             "finished": true,
             "eventCode": "LIVE:CONV:0002",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-browseweb"
         },
         {
             "activityTaskId": 4895,
@@ -112,7 +89,8 @@
             "finished": false,
             "eventCode": "LIVE:CONV:0001",
             "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "5thzone-convenience-done"
         },
         {
             "activityTaskId": 4043,
@@ -126,7 +104,8 @@
             "finished": true,
             "eventCode": "CMS:SOCIAL:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-post"
         },
         {
             "activityTaskId": 4044,
@@ -140,7 +119,8 @@
             "finished": true,
             "eventCode": "CMS:SOCIAL:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-post-review"
         },
         {
             "activityTaskId": 4267,
@@ -154,7 +134,8 @@
             "finished": true,
             "eventCode": "ACT:SCORE:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-checkin-share"
         },
         {
             "activityTaskId": 4421,
@@ -168,7 +149,8 @@
             "finished": false,
             "eventCode": null,
             "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-announcement"
         },
         {
             "activityTaskId": 4877,
@@ -182,7 +164,8 @@
             "finished": true,
             "eventCode": "ACCESS:USER:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-keyforfree"
         },
         {
             "activityTaskId": 5285,
@@ -196,7 +179,8 @@
             "finished": true,
             "eventCode": null,
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-browseweb"
         },
         {
             "activityTaskId": 4408,
@@ -210,7 +194,8 @@
             "finished": false,
             "eventCode": null,
             "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-announcement"
         },
         {
             "activityTaskId": 4595,
@@ -224,7 +209,8 @@
             "finished": true,
             "eventCode": null,
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "5thzone-blackpearl-comment"
         },
         {
             "activityTaskId": 5420,
@@ -238,7 +224,8 @@
             "finished": true,
             "eventCode": "ACT:SCORE:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-startapp"
         },
         {
             "activityTaskId": 5421,
@@ -252,7 +239,8 @@
             "finished": true,
             "eventCode": "ACT:SCORE:0001",
             "processValue": "3",
-            "requiredValue": "3"
+            "requiredValue": "3",
+            "sceneCode": "app-startapp"
         },
         {
             "activityTaskId": 5422,
@@ -263,10 +251,11 @@
             "minVersion": "5.2.6",
             "url": "1",
             "scoreValue": 500,
-            "finished": false,
+            "finished": true,
             "eventCode": "ACT:SCORE:0001",
-            "processValue": "4",
-            "requiredValue": "7"
+            "processValue": "7",
+            "requiredValue": "7",
+            "sceneCode": "app-startapp"
         },
         {
             "activityTaskId": 5473,
@@ -274,13 +263,14 @@
             "taskName": "添加可可微信好友",
             "tips": "浏览页面10秒即可获得积分，永久1次",
             "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=6",
+            "minVersion": "",
+            "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=6&scene=jfzxrq",
             "scoreValue": 20,
             "finished": true,
-            "eventCode": null,
+            "eventCode": "ACT:ONLINE:0003",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "puli-daka"
         },
         {
             "activityTaskId": 5555,
@@ -294,7 +284,8 @@
             "finished": false,
             "eventCode": "OFFLINE:OFFLINE:0001",
             "processValue": "0",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "linjuhuodong"
         },
         {
             "activityTaskId": 5556,
@@ -308,7 +299,8 @@
             "finished": true,
             "eventCode": null,
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-browseweb"
         },
         {
             "activityTaskId": 5557,
@@ -322,7 +314,23 @@
             "finished": true,
             "eventCode": null,
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-browseweb"
+        },
+        {
+            "activityTaskId": 5593,
+            "taskId": 920,
+            "taskName": "积分拉新（5个）",
+            "tips": "邀请5个新用户注册住这儿app，每人仅限1次",
+            "sceneType": "behavior",
+            "minVersion": "",
+            "url": "1",
+            "scoreValue": 500,
+            "finished": false,
+            "eventCode": "ACT:SCORE:0001",
+            "processValue": "0",
+            "requiredValue": "5",
+            "sceneCode": "app-act-new-invite&view"
         },
         {
             "activityTaskId": 4687,
@@ -336,7 +344,8 @@
             "finished": true,
             "eventCode": "CMS:SOCIAL:0001",
             "processValue": "1",
-            "requiredValue": "1"
+            "requiredValue": "1",
+            "sceneCode": "app-post"
         },
         {
             "activityTaskId": 4936,
@@ -350,77 +359,8 @@
             "finished": false,
             "eventCode": "SERVICE:COMMENT:0002",
             "processValue": "0",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5495,
-            "taskId": 889,
-            "taskName": "浏览完我的年度报告",
-            "tips": "完整阅读我的年度报告后即可获得积分，永久1次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/year2023?from=jfrw",
-            "scoreValue": 100,
-            "finished": true,
-            "eventCode": null,
-            "processValue": "1",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5496,
-            "taskId": 890,
-            "taskName": "社区分享我的年度报告",
-            "tips": "成功发帖1次即可获得积分，永久1次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=525&from=jfrwft",
-            "scoreValue": 50,
-            "finished": true,
-            "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "1",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5497,
-            "taskId": 891,
-            "taskName": "发帖被点赞20次以上",
-            "tips": "发帖集赞20次以上即可获得积分，永久1次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=525&from=jfrwjz",
-            "scoreValue": 50,
-            "finished": false,
-            "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "0",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5498,
-            "taskId": 892,
-            "taskName": "将报告分享给1个好友",
-            "tips": "1个好友查看我的年度报告即可获得积分，1天/次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/year2023?from=jfrwfx1",
-            "scoreValue": 30,
-            "finished": true,
-            "eventCode": null,
-            "processValue": "1",
-            "requiredValue": "1"
-        },
-        {
-            "activityTaskId": 5499,
-            "taskId": 893,
-            "taskName": "将报告分享给3个好友",
-            "tips": "3个好友查看我的年度报告即可获得积分，1天/次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/year2023?from=jfrwfx3",
-            "scoreValue": 50,
-            "finished": true,
-            "eventCode": null,
-            "processValue": "3",
-            "requiredValue": "3"
+            "requiredValue": "1",
+            "sceneCode": "PropertyServiceEvaluation"
         }
     ]
 }

@@ -67,8 +67,8 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            AddExchangeItem(3567, 164, "维达10卷");
-            AddExchangeItem(3567, 164, "维达10卷");
+            AddExchangeItem(3644, 159, "洗脸巾");
+
             //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
 
@@ -79,9 +79,9 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(3608, 169, 2145, "酱油", $"{DateTimeUtil.GetToday()} 20:00:03");
-            AddMiaoshaItem(3609, 169, 2145, "调和油", $"{DateTimeUtil.GetToday()} 20:00:10");
-            AddMiaoshaItem(3610, 169, 2145, "维达", $"{DateTimeUtil.GetToday()} 20:00:15");
+            AddMiaoshaItem(3640, 174, 2163, "盒子", $"{DateTimeUtil.GetToday()} 11:00:00");
+            AddMiaoshaItem(3641, 174, 2163, "绳子", $"{DateTimeUtil.GetToday()} 11:00:02");
+
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")
