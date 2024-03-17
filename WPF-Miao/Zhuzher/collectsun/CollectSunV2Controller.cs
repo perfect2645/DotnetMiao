@@ -34,36 +34,32 @@ namespace Zhuzher.collectsun
         {
             foreach(var user in UserProjectList.UserProjects)
             {
-
                 Task.Factory.StartNew(() => CollectSun(user));
             }
         }
 
         public void CollectSun(UserProject user)
         {
-            lock(_lock)
+            foreach (var scene in ScenceList.ScenceList)
             {
-                foreach (var scene in ScenceList.ScenceList)
+                var apiVersion = scene.Version;
+                var v1Controller = HttpServiceController.GetService<CollectSunController>();
+                if (apiVersion == 1)
                 {
-                    var apiVersion = scene.Version;
-                    var v1Controller = HttpServiceController.GetService<CollectSunController>();
-                    if (apiVersion == 1)
-                    {
-                        v1Controller.CollectSun(user, scene);
-                        continue;
-                    }
-                    var v3Controller = HttpServiceController.GetService<CollectSunV3Controller>();
-                    if (apiVersion == 3)
-                    {
-                        v3Controller.CollectSunAsync(user, scene);
-                        continue;
-                    }
-                    for (var i = 0; i < scene.SceneTimes; i++)
-                    {
+                    v1Controller.CollectSun(user, scene);
+                    continue;
+                }
+                var v3Controller = HttpServiceController.GetService<CollectSunV3Controller>();
+                if (apiVersion == 3)
+                {
+                    v3Controller.CollectSunAsync(user, scene);
+                    continue;
+                }
+                for (var i = 0; i < scene.SceneTimes; i++)
+                {
   
-                        Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(2000);
-                    }
+                    Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                    Thread.Sleep(2000);
                 }
             }
         }

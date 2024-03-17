@@ -134,7 +134,9 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                MainSession.Cookie = Cookie;
+                //var announcementController = HttpServiceController.GetService<AnnouncementController>();
+                //announcementController.CollectSunAsync();
+
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
             }
