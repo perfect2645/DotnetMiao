@@ -18,6 +18,7 @@ namespace Zhuzher.Common
         private void BuildHeader()
         {
             AddHeader("Host", "chaos.4009515151.com");
+            AddHeader("Zhuzher-Project-Code", User.ProjectCode);
             AddHeader("Accept", "application/json");
             AddHeader("Authorization", User.Authorization);
             AddHeader("Sec-Fetch-Site", "same-site");

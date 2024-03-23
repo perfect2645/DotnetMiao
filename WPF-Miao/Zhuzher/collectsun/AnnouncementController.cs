@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Security.RightsManagement;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.json;
+using Utils.stringBuilder;
 using Zhuzher.Post;
 using Zhuzher.Score;
 using Zhuzher.search;
@@ -23,24 +25,35 @@ namespace Zhuzher.collectsun
 
         public void CollectSunAsync()
         {
-            foreach (var user in UserProjectList.UserProjects)
+            Task.Factory.StartNew(() =>
             {
-                Task.Factory.StartNew(() => CollectSun(user));
-            }
+                foreach (var user in UserProjectList.UserProjects)
+                {
+                    Task.Factory.StartNew(() => CollectSun(user));
+                    Thread.Sleep(1000);
+                }
+            });
         }
 
         private void CollectSun(UserProject user)
         {
-            var content = new AnnouncementContent(user);
-            for (int i = 0; i < 3; i++) 
+            
+            for (int i = 0; i < 1; i++) 
             {
-                var ann = GetAnnouncement(content);
-                ReadAnnouncement();
-                CommentAnnouncement();
+                var content = new AnnouncementContent(user);
+                GetAnnouncement(content);
+                if (string.IsNullOrEmpty(content.AnnouncementId))
+                {
+                    continue;
+                }
+                Thread.Sleep(1000);
+                ReadAnnouncement(content);
+                Thread.Sleep(1000);
+                CommentAnnouncement(content);
             }
         }
 
-        private (string, string) GetAnnouncement(AnnouncementContent content)
+        private void GetAnnouncement(AnnouncementContent content)
         {
             try
             {
@@ -49,7 +62,7 @@ namespace Zhuzher.collectsun
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]获取物业公告失败 - {response?.Message},请检查参数");
-                    return (string.Empty, string.Empty);
+                    return;
                 }
                 var root = response.JsonBody.RootElement;
 
@@ -58,16 +71,17 @@ namespace Zhuzher.collectsun
                 if (code != 200)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]获取物业公告失败: code={code}, message={msg}");
-                    return (string.Empty, string.Empty);
+                    return;
                 }
 
                 var result = root.GetProperty("result");
-                return ResolveDefaultAnnouncement(result, content.User);
+                var ann =  ResolveDefaultAnnouncement(result, content.User);
+                content.AnnouncementId = ann.Item1;
+                content.Title = ann.Item2;
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]获取物业公告失败 - {ex.Message} - {ex.StackTrace}");
-                return (string.Empty, string.Empty);
             }
         }
 
@@ -75,26 +89,92 @@ namespace Zhuzher.collectsun
         {
             var items = JsonAnalysis.JsonToDicList(result.GetProperty("items"));
 
-            var isReadItem = items.FirstOrDefault(x => x.GetString("is_read") == "False");
-            if (isReadItem == null)
+            //var notCommentItems = items.Where(x => x.GetString("comments").ToObjDic().GetString("count") == "0").ToList();
+
+            //var notCommentItem = notCommentItems?.FirstOrDefault();
+            //if (notCommentItem == null)
+            //{
+            //    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] - 没有未读公告");
+            //    return (string.Empty, string.Empty);
+            //}
+            var notReadItem = items.FirstOrDefault(x => x.GetString("is_read") == "False");
+            if (notReadItem == null)
             {
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] - 没有未读公告");
                 return (string.Empty, string.Empty);
             }
-
-            var id = isReadItem.GetString("id");
-            var title = $"{isReadItem.GetString("title")}-{isReadItem.GetString("abstract")}";
+            var id = notReadItem.GetString("id");
+            var title = $"{notReadItem.GetString("title")}-{notReadItem.GetString("abstract")}";
 
             return (id, title);
         }
 
-        private void ReadAnnouncement()
+        private void ReadAnnouncement(AnnouncementContent content)
         {
-            
+            try
+            {
+                var bottomUrl = "https://chaos.4009515151.com/fd/api/announcements/";
+                content.RequestUrl = $"{bottomUrl}{content.AnnouncementId}/bottom";
+                var response = GetStringAsync(content).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]ReadAnnouncement失败 - {response?.Message},请检查参数");
+                    return;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var code = root.GetProperty("code").GetUInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 200)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]ReadAnnouncement失败: code={code}, message={msg}");
+                    return;
+                }
+
+                MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]-读取公告【{content.Title}】: code={code}, message={msg}");
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]ReadAnnouncement失败 - {ex.Message} - {ex.StackTrace}");
+            }
         }
 
-        private void CommentAnnouncement()
+        private void CommentAnnouncement(AnnouncementContent content)
         {
+            try
+            {
+                var bottomUrl = "https://chaos.4009515151.com/fd/api/announcements/";
+                content.RequestUrl = $"{bottomUrl}{content.AnnouncementId}/comments";
+                var response = PostStringAsync(content, HttpProcessor.Content.ContentType.Json, false).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]公告评论失败 - {response?.Message},请检查参数");
+                    return;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var code = root.GetProperty("code").GetUInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 200)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]公告评论失败: code={code}, message={msg}");
+                    return;
+                }
+
+                var result = root.GetProperty("result");
+                ResolveConnmentResult(result, content);
+
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]公告评论失败 - {ex.Message} - {ex.StackTrace}");
+            }
+        }
+
+        private void ResolveConnmentResult(JsonElement result, AnnouncementContent content)
+        {
+            var contentMsg = result.GetProperty("content").GetString();
+            MainSession.PrintLogEvent.Publish(this, $"[{content.User.UserName}]-评论公告【{content.Title}】: content={contentMsg}");
         }
     }
 }
