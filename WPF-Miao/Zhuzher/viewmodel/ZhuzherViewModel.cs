@@ -96,7 +96,7 @@ namespace Zhuzher.viewmodel
             var scorekilllist = new ScoreItemList();
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
-            ActivityId = "1018";
+            ActivityId = "1042";
             MainSession.InviteCode = "T3L84I";
         }
 
@@ -254,9 +254,9 @@ namespace Zhuzher.viewmodel
 
                 var good = new MiaoshaItem
                 {
-                    GameGoodId = 7985,
-                    ActivityGameId = "1458",
-                    GoodName = "1000元购物金"
+                    GameGoodId = 8699,
+                    ActivityGameId = "1540",
+                    GoodName = "goodName=戴森吹风机"
                 };
 
                 playController.GoodAvailableAsync(good);

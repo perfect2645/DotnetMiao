@@ -1,0 +1,528 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 5813,
+            "taskId": 958,
+            "taskName": "在活动会场浏览10秒",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "浏览活动会场10秒即可完成任务，活动期间仅限1次",
+            "detail": [
+                {
+                    "taskDetailId": 959,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5814,
+            "taskId": 956,
+            "taskName": "加入同城闲置社群",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "点击跳转微信选择城市，添加可可后点击链接回到活动",
+            "detail": [
+                {
+                    "taskDetailId": 957,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=10",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5815,
+            "taskId": 955,
+            "taskName": "发布一次闲置",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "在闲置角发帖出闲置，发布成功后完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 956,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5816,
+            "taskId": 957,
+            "taskName": "给手工活动投票3次",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "去给「闲置变废为宝手工比赛」投票3次即完成，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 958,
+                    "sceneName": "完成3次投票",
+                    "sceneCode": "app-vote-threetimes",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/contributeActivity?activityId=MzE=&vkSource=video&from=activity",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5817,
+            "taskId": 959,
+            "taskName": "参加1次积分抽奖",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "每天参与积分中心大转盘抽奖，可额外获得10个花花",
+            "detail": [
+                {
+                    "taskDetailId": 960,
+                    "sceneName": "消耗积分",
+                    "sceneCode": "app-points",
+                    "sceneDesc": "仅用于积分抽奖！",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5818,
+            "taskId": 961,
+            "taskName": "分享活动到微信",
+            "chanceNumber": 3,
+            "taskDesc": "转好运",
+            "tips": "点击右上角转发活动到微信，每天可获得3个花花",
+            "detail": [
+                {
+                    "taskDetailId": 962,
+                    "sceneName": "分享页面",
+                    "sceneCode": "app-h5share",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5819,
+            "taskId": 962,
+            "taskName": "让3个邻居助力",
+            "chanceNumber": 30,
+            "taskDesc": "转好运",
+            "tips": "转发给3个邻居助力，每天完成助力可获得30个花花",
+            "detail": [
+                {
+                    "taskDetailId": 963,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "3"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5820,
+            "taskId": 963,
+            "taskName": "逛逛蕉下户外专场",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "浏览10秒以上完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 964,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6047?pageMark=hd4y",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5821,
+            "taskId": 964,
+            "taskName": "逛逛喝水日专题",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "浏览10秒以上完成任务，每日一次",
+            "detail": [
+                {
+                    "taskDetailId": 965,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdzhc",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5822,
+            "taskId": 965,
+            "taskName": "逛逛家政日专题",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "浏览10秒以上完成任务，每日一次",
+            "detail": [
+                {
+                    "taskDetailId": 966,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=4ysqyzhdrk32",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5823,
+            "taskId": 966,
+            "taskName": "逛逛到家4月福利活动",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "浏览10秒以上完成任务，每日一次",
+            "detail": [
+                {
+                    "taskDetailId": 967,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6088?pageMark=zhuhuichangbiaos",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5824,
+            "taskId": 973,
+            "taskName": "下单1次到家服务",
+            "chanceNumber": 30,
+            "taskDesc": "转好运",
+            "tips": "下单到家家政服务或购买桶装水，活动期间可完成5次",
+            "detail": [
+                {
+                    "taskDetailId": 974,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6088?pageMark=zhuhuichangbiaos",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 5,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5825,
+            "taskId": 968,
+            "taskName": "到家服务结单后评价",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "完成服务后填写服务评价即可完成任务，活动期间限5次",
+            "detail": [
+                {
+                    "taskDetailId": 969,
+                    "sceneName": "用户评价订单",
+                    "sceneCode": "5thzone-convenience-comment",
+                    "sceneDesc": "用户评价服务单可获得奖励",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 5,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5826,
+            "taskId": 972,
+            "taskName": "特惠购买伦晚脐橙",
+            "chanceNumber": 50,
+            "taskDesc": "转好运",
+            "tips": "下单伦晚脐橙即可完成任务，活动期间内限10次",
+            "detail": [
+                {
+                    "taskDetailId": 973,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/product-detail/143361?pageMark=bbtg143361t",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 10,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5827,
+            "taskId": 971,
+            "taskName": "特惠购买乌鸡蛋",
+            "chanceNumber": 50,
+            "taskDesc": "转好运",
+            "tips": "购买九华山乌鸡蛋即可完成任务，活动期间限10次",
+            "detail": [
+                {
+                    "taskDetailId": 972,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/product-detail/185228?pageMark=bbtg185228t",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 10,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5828,
+            "taskId": 970,
+            "taskName": "特惠购买纯牛奶",
+            "chanceNumber": 50,
+            "taskDesc": "转好运",
+            "tips": "购买特惠价格的高钙纯牛奶即可完成任务，活动期限10次",
+            "detail": [
+                {
+                    "taskDetailId": 971,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/product-detail/184356?pageMark=bbtg184356t",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 10,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5829,
+            "taskId": 967,
+            "taskName": "友邻购物晒1次好评",
+            "chanceNumber": 30,
+            "taskDesc": "转好运",
+            "tips": "友邻下单收获后晒单好评即可完成任务，每日限1次",
+            "detail": [
+                {
+                    "taskDetailId": 968,
+                    "sceneName": "友邻评价",
+                    "sceneCode": "5thzone-blackpearl-comment",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/order-list",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5830,
+            "taskId": 960,
+            "taskName": "每日登录获得10花花",
+            "chanceNumber": 10,
+            "taskDesc": "转好运",
+            "tips": "每天使用住这儿自动获得10个花花",
+            "detail": [
+                {
+                    "taskDetailId": 961,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        }
+    ]
+}

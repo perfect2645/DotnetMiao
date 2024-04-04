@@ -30,10 +30,8 @@ namespace Zhuzher.Exchange
 
         private void BuildContent()
         {
-            //AddContent("activityGameId", 1492);
-            //AddContent("activityId", 992);
-            AddContent("activityGameId", 1520);
-            AddContent("activityId", 1020);
+            AddContent("activityGameId", 1556);
+            AddContent("activityId", 1042);
             AddContent("projectCode", User.ProjectCode);
             AddContent("projectName", User.ProjectName);
         }
