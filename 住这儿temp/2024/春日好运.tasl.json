@@ -75,10 +75,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -104,10 +104,10 @@
                     "sceneDesc": "",
                     "url": "https://communityclass.onewo.com/#/contributeActivity?activityId=MzE=&vkSource=video&from=activity",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -133,10 +133,10 @@
                     "sceneDesc": "仅用于积分抽奖！",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -191,10 +191,10 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "3",
                     "requiredValue": "3"
                 }
             ],
@@ -220,10 +220,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6047?pageMark=hd4y",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -249,10 +249,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdzhc",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -278,10 +278,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=4ysqyzhdrk32",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -307,10 +307,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6088?pageMark=zhuhuichangbiaos",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -481,10 +481,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/order-list",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -510,10 +510,10 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
