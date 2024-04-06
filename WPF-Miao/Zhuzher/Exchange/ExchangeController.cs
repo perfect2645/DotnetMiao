@@ -100,7 +100,6 @@ namespace Zhuzher.Exchange
             PrintLog(user, good, msg);
         }
 
-
         public void Seckill(UserProject user, MiaoshaItem good)
         {
             var isLoot = false;
@@ -146,7 +145,7 @@ namespace Zhuzher.Exchange
                 // 中奖了
                 good.Status = 3;
             }
-            else if (msg == "好礼兑换未开始")
+            else if (msg == "兑换未开始")
             {
                 // 未开始
                 good.Status = 0;
