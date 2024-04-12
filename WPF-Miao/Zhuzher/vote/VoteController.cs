@@ -37,7 +37,7 @@ namespace Zhuzher.vote
             HttpDicResponse response = PostStringAsync(rewardContent, ContentType.Json).Result;
             if (response == null)
             {
-                MainSession.PrintLogEvent.Publish(this, $"投票失败");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} 投票失败");
                 return false;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -45,12 +45,12 @@ namespace Zhuzher.vote
 
             if (code == "200" && msg == "success")
             {
-                MainSession.PrintLogEvent.Publish(this, $"投票成功");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} 投票成功");
                 return true;
             }
             else
             {
-                MainSession.PrintLogEvent.Publish(this, $"兑换失败");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} 兑换失败");
                 return false;
             }
         }
