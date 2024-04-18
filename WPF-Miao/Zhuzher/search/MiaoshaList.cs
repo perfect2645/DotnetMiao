@@ -69,10 +69,10 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(8823, 1, "鲁花5S一级压榨花生油", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
-            AddMiaoshaItem(8824, 1, "伦晚脐橙1箱", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
-            AddMiaoshaItem(8825, 1, "芙迹青团盒装3盒18枚", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
-            AddMiaoshaItem(8826, 1, "东北大米5斤", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(8823, 1, "华为GT3 Pro运动智能手表", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(8824, 1, "多功能折叠营地小拖车", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(8825, 1, "露营户外加厚野餐垫", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
+            AddMiaoshaItem(8846, 1, "蕉下防晒袖套", "1557", $"{DateTimeUtil.GetToday()} 19:59:59");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

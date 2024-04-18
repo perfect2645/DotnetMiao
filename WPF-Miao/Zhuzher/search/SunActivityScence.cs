@@ -25,6 +25,8 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
+            //到家服务结单后评价
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
             //参加女生节活动
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1042&from=jifen");
 

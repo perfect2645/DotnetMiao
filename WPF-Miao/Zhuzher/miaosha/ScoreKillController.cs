@@ -16,14 +16,16 @@ namespace Zhuzher.miaosha
 {
     internal class ScoreKillController : HttpClientBase
     {
-        private Dictionary<int, IntervalOnTime> IntervalList = new Dictionary<int, IntervalOnTime>();
         private readonly UserProjectList UserProjectList = new UserProjectList();
+        private Dictionary<int, ActionOnTime> OntimeList = new Dictionary<int, ActionOnTime>();
 
         public ScoreKillController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void Seckill(List<ScoreItem> miaoshaList)
+        #region Seckill V2
+
+        public void SeckillV2(List<ScoreItem> miaoshaList)
         {
             MainSession.PrintLogEvent?.Publish(this, $"****秒杀开始预备");
             var miaoshaGroups = miaoshaList.GroupBy(x => x.StartTime).ToList();
@@ -36,28 +38,30 @@ namespace Zhuzher.miaosha
                     {
                         MainSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
                         var exchangeHandler = HttpServiceController.GetService<JifenSurkillController>();
-                        var interval = new IntervalOnTime(() => SeckillTick(user, item, exchangeHandler), item.GoodName, group.Key);
-                        IntervalList.AddOrUpdate(item.ExchangeGoodId, interval);
+                        var ontime = new ActionOnTime(() => SeckillOntimeTick(user, item, exchangeHandler), item.GoodName, item.StartTime);
+                        OntimeList.AddOrUpdate(item.ExchangeGoodId, ontime);
                     }
                 }
             }
 
             MainSession.PrintLogEvent?.Publish(this, $"****秒杀预备结束");
         }
-
-        public void SeckillTick(UserProject user, ScoreItem item, JifenSurkillController exchangeHandler)
+        public void SeckillOntimeTick(UserProject user, ScoreItem item, JifenSurkillController exchangeHandler)
         {
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    if (item.Status > 1)
-                    {
-                        IntervalList[item.ExchangeGoodId].StopInterval();
-                    }
+                    OntimeList[item.ExchangeGoodId].StopTimer();
                     item.Status = 1; //开始
                     MainSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
-                    exchangeHandler.ScoreSurkill(user, item);
+                    var count = 0;
+                    while (item.Status != 3)
+                    {
+                        count++;
+                        Task.Delay(200);
+                        exchangeHandler.ScoreSurkill(user, item);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -65,5 +69,7 @@ namespace Zhuzher.miaosha
                 }
             });
         }
+
+        #endregion Seckill V2
     }
 }

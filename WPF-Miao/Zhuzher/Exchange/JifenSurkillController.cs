@@ -27,10 +27,11 @@ namespace Zhuzher.Exchange
             var content = new JifenSurkillContent(user, good);
             content.BuildDefaultHeaders(Client);
 
-            if (good.Status >= 2)
+            if (good.Status > 2)
             {
                 return;
             }
+            MainSession.PrintLogEvent.Publish(this, $"{user.UserName}秒杀 【{good.GoodName}】开始了");
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
@@ -45,7 +46,7 @@ namespace Zhuzher.Exchange
                 // 中奖了
                 good.Status = 3;
             }
-            else if (msg == "好礼兑换未开始")
+            else if (msg.Contains("未开始"))
             {
                 // 未开始
                 good.Status = 0;
@@ -58,7 +59,7 @@ namespace Zhuzher.Exchange
             else if (code.ToInt() > 500)
             {
                 // 结束了
-                good.Status = 2;
+                //good.Status = 2;
             }
 
             PrintLog(user, good, msg);

@@ -58,9 +58,10 @@ namespace Zhuzher.miaosha
                     item.Status = 1; //开始
                     MainSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
                     var count = 0;
-                    while (item.Status != 3 || count < 5)
+                    while (item.Status != 3)
                     {
                         count ++;
+                        Task.Delay(200);
                         exchangeHandler.Seckill(user, item);
                     }
                 }
