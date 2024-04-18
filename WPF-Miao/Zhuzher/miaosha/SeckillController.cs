@@ -61,8 +61,8 @@ namespace Zhuzher.miaosha
                     while (item.Status != 3)
                     {
                         count ++;
-                        Task.Delay(200);
-                        exchangeHandler.Seckill(user, item);
+                        Thread.Sleep(200);
+                        //exchangeHandler.Seckill(user, item);
                     }
                 }
                 catch (Exception ex)

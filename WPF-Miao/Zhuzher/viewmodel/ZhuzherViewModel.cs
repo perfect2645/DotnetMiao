@@ -83,9 +83,9 @@ namespace Zhuzher.viewmodel
 
         public ZhuzherViewModel(LogPanel logPanel) : base(logPanel)
         {
+            MainSession.PrintLogEvent = PrintLogEvent;
             InitStaticData();
             InitCommands();
-            MainSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
