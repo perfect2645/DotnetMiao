@@ -62,7 +62,7 @@ namespace Zhuzher.miaosha
                     {
                         count ++;
                         Thread.Sleep(200);
-                        //exchangeHandler.Seckill(user, item);
+                        exchangeHandler.Seckill(user, item);
                     }
                 }
                 catch (Exception ex)

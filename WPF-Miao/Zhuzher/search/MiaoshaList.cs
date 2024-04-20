@@ -70,7 +70,7 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(8823, 1, "华为GT3 Pro运动智能手表", "1557", $"{DateTimeUtil.GetToday()} 19:59:55");
+            AddMiaoshaItem(8823, 1, "华为GT3 Pro运动智能手表", "1557", $"{DateTimeUtil.GetToday()} 20:00:55");
             AddMiaoshaItem(8824, 1, "多功能折叠营地小拖车", "1557", $"{DateTimeUtil.GetToday()} 19:59:56");
             AddMiaoshaItem(8825, 1, "露营户外加厚野餐垫", "1557", $"{DateTimeUtil.GetToday()} 19:59:57");
             //var testTime = DateTime.Now.AddSeconds(30).ToString("HH:mm:ss.fff");
