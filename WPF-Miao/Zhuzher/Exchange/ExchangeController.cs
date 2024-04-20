@@ -127,7 +127,7 @@ namespace Zhuzher.Exchange
             }
             content.BuildDefaultHeaders(Client);
 
-            if (good.Status >= 2)
+            if (good.Status > 2)
             {
                 return;
             }
