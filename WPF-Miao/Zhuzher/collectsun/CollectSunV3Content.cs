@@ -37,6 +37,7 @@ namespace Zhuzher.collectsun
         {
             var nowTimestapm = DateTimeUtil.GetTimeStamp();
             AddContent("userId", User.UserId);
+            AddContent("matchParam", Scene.MatchParam);
             AddContent("sceneCode", Scene.SceneCode);
             AddContent("requestId", nowTimestapm);
             AddContent("projectCode", User.ProjectCode);

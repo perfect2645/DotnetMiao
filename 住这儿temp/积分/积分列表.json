@@ -5,15 +5,15 @@
         {
             "activityTaskId": 5554,
             "taskId": 948,
-            "taskName": "参与住这儿女神节活动",
-            "tips": "前往女神节主会场页面浏览10秒获得积分，1次/日",
+            "taskName": "参与住这儿转好运抽奖",
+            "tips": "前往春日转好运活动浏览10秒获得积分，1次/日",
             "sceneType": "behavior",
             "minVersion": "5.2.6",
-            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1018&type=youlin&from=jifen",
+            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1042&from=jifen",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": null,
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "app-browseweb"
         },
@@ -26,9 +26,9 @@
             "minVersion": "",
             "url": "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": "LIVE:CONV:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "5thzone-convenience-comment"
         },
@@ -181,6 +181,36 @@
             "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "app-browseweb"
+        },
+        {
+            "activityTaskId": 5812,
+            "taskId": 954,
+            "taskName": "关注邻居公众号",
+            "tips": "关注“邻居公众号”，戳自动回复链接即得积分",
+            "sceneType": "behavior",
+            "minVersion": "",
+            "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
+            "scoreValue": 20,
+            "finished": false,
+            "eventCode": "ACT:ONLINE:0003",
+            "processValue": "0",
+            "requiredValue": "1",
+            "sceneCode": "puli-daka"
+        },
+        {
+            "activityTaskId": 5842,
+            "taskId": 978,
+            "taskName": "送一面锦旗给管家",
+            "tips": "赠送成功即返88积分，可积分抽奖iphone15",
+            "sceneType": "behavior",
+            "minVersion": "",
+            "url": "https://enterprise.4009515151.com/marketing-pages/pennant?from=index",
+            "scoreValue": 88,
+            "finished": false,
+            "eventCode": "ACT:SCORE:0001",
+            "processValue": "0",
+            "requiredValue": "1",
+            "sceneCode": "app-point-exchangebanners"
         },
         {
             "activityTaskId": 4408,
@@ -356,11 +386,26 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/fe-event-pages/serviceEvaluation",
             "scoreValue": 200,
-            "finished": false,
+            "finished": true,
             "eventCode": "SERVICE:COMMENT:0002",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "PropertyServiceEvaluation"
+        },
+        {
+            "activityTaskId": 5714,
+            "taskId": 950,
+            "taskName": "签署消防公约",
+            "tips": "完成签署消防协议得积分，可完成1次",
+            "sceneType": "behavior",
+            "minVersion": "",
+            "url": "https://enterprise.4009515151.com/marketing-pages/convention",
+            "scoreValue": 10,
+            "finished": true,
+            "eventCode": "ACT:ONLINE:0003",
+            "processValue": "1",
+            "requiredValue": "1",
+            "sceneCode": "puli-daka"
         }
     ]
 }

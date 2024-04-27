@@ -6,6 +6,7 @@ namespace Zhuzher.search
     internal class SunActivityScence
     {
         public string SceneCode { get; set; }
+        public string MatchParam { get; set; }
 
         public int SceneTimes { get; set; }
 
@@ -25,12 +26,14 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
+
             //到家服务结单后评价
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
             //参加女生节活动
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1042&from=jifen");
 
-
+            //报名线下活动并签到
+            //AddScene("linjuhuodong", 1, "http://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
         }
 
         private void InitSceneList()
@@ -66,6 +69,10 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin");
             // 浏览研选家品牌介绍
             AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan");
+            //送一面锦旗给管家
+            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
+            //关注邻居公众号
+            AddScene("puli-daka", "gzh");
 
             // 活动特定
             //参加女生节活动
@@ -74,6 +81,7 @@ namespace Zhuzher.search
             AddScene("app-vote-threetimes", 1, "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=xmas");
             // 下单特惠商品
             AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747");
+
 
             // 分享页面
             AddScene("app-h5share", 1, "", 3);
@@ -121,6 +129,18 @@ namespace Zhuzher.search
                 SceneTimes = time,
                 Url = url,
                 Version = version
+            });
+        }
+
+        private void AddScene(string code, string matchParam)
+        {
+            ScenceList.Add(new SunActivityScence
+            {
+                SceneCode = code,
+                SceneTimes = 1,
+                MatchParam = matchParam,
+                Url = "",
+                Version = 3
             });
         }
     }
