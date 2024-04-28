@@ -70,8 +70,8 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(8823, 1, "iPhone15", "1557", $"{DateTimeUtil.GetToday()} 20:00:55");
-            AddMiaoshaItem(8824, 1, "仙居杨梅汁1箱6支装", "1557", $"{DateTimeUtil.GetToday()} 20:00:00");
+            //AddMiaoshaItem(8823, 1, "iPhone15", "1557", $"{DateTimeUtil.GetToday()} 19:59:55");
+            //AddMiaoshaItem(8824, 1, "仙居杨梅汁1箱6支装", "1557", $"{DateTimeUtil.GetToday()} 20:00:00");
             AddMiaoshaItem(8825, 1, "无忧东北大米", "1557", $"{DateTimeUtil.GetToday()} 19:59:58");
             //var testTime = DateTime.Now.AddSeconds(30).ToString("HH:mm:ss.fff");
             //MainSession.PrintLogEvent.Publish(this, $"设置的开始时间：{testTime}");
