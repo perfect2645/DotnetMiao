@@ -27,13 +27,6 @@ namespace Zhuzher.search
         private void TestSceneList()
         {
 
-            //到家服务结单后评价
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
-            //参加女生节活动
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1042&from=jifen");
-
-            //报名线下活动并签到
-            //AddScene("linjuhuodong", 1, "http://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
         }
 
         private void InitSceneList()
@@ -41,6 +34,8 @@ namespace Zhuzher.search
             AddScene("app-startapp", 1, "1");
             //登录分享
             AddScene("app-checkin-share", 1, "", 3);
+            //到家服务结单后评价
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
             //邻里互助发帖
             AddScene("app-post", 3, "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point");
             //订单评价
@@ -85,40 +80,27 @@ namespace Zhuzher.search
 
             // 分享页面
             AddScene("app-h5share", 1, "", 3);
-            // 浏览到家女神节活动页10秒即得10个OK币，每天1次
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1018&type=youlin&from=jifen");
-            // 评价友邻订单，获得100个OK币，可完成5次
-            AddScene("5thzone-blackpearl-comment", 1, "https://neighbor.4009515151.com/nova/order-list");
 
             //在活动会场浏览10秒
             AddScene("app-browseweb", 1, "1");
-            //加入同城闲置社群
-            AddScene("puli-daka", 1, "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=10");
-            //发布一次闲置
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant");
-            //给手工活动投票3次
-            AddScene("app-vote-threetimes", 3, "https://communityclass.onewo.com/#/contributeActivity?activityId=MzE=&vkSource=video&from=activity");
-            //参加1次积分抽奖
-            AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong");
-            //分享活动到微信
-            AddScene("app-h5share", 1, "", 3);
-            //分享活动到微信
-            AddScene("app-act-invite&view", 3, "1");
-            //逛逛蕉下户外专场
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6047?pageMark=hd4y");
-            //逛逛喝水日专题
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdzhc");
-            //逛逛家政日专题
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=4ysqyzhdrk32");
-            //逛逛到家4月福利活动
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6088?pageMark=zhuhuichangbiaos");
-            //友邻购物晒1次好评
+            //每日参与话题讨论，发帖成功后完成任务
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=hd");
+            //逛逛到家服务会场
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1056&from=hd");
+            //看看母亲节团购好物
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6153?pageMark=bbtgyhzzmqjzt6153t");
+            // 购买5月精选团购好物
+            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6153?pageMark=bbtgyhzzmqjzt6153t");
+            // 评价友邻订单
             AddScene("5thzone-blackpearl-comment", 1, "https://neighbor.4009515151.com/nova/order-list");
-
-            //下单1次到家服务
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6088?pageMark=zhuhuichangbiaos");
-            //到家服务结单后评价
+            // 购买空调清洗服务
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan");
+            // 确认到家服务完单
+            AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
+            // 完单后评价服务质量
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
+            // 看看最新的物业公告
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
