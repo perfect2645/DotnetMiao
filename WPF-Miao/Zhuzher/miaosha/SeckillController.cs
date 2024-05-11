@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Utils;
+using Utils.stringBuilder;
 using Utils.timerUtil;
 using Zhuzher.Exchange;
 using Zhuzher.search;
@@ -18,12 +19,67 @@ namespace Zhuzher.miaosha
     {
         [Obsolete]
         private Dictionary<int, IntervalOnTime> IntervalList = new Dictionary<int, IntervalOnTime>();
-        private Dictionary<int, ActionOnTime> OntimeList = new Dictionary<int, ActionOnTime>();
+        private Dictionary<string, ActionOnTime> OntimeList = new Dictionary<string, ActionOnTime>();
         private readonly UserProjectList UserProjectList = new UserProjectList();
 
         public SeckillController(HttpClient httpClient) : base(httpClient)
         {
         }
+
+        #region Seckill V3
+
+        public void SeckillV3(List<MiaoshaItem> miaoshaList)
+        {
+            MainSession.PrintLogEvent?.Publish(this, $"****秒杀开始预备");
+            var miaoshaGroups = miaoshaList.GroupBy(x => x.StartTime).ToList();
+
+            foreach (var group in miaoshaGroups)
+            {
+                foreach (var user in UserProjectList.UserProjects)
+                {
+                    MainSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName},Group:{group.Key}");
+                    var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
+                    var ontime = new ActionOnTime(() => SeckillOntimeTickV3(user, group, exchangeHandler), user.UserName, group.Key);
+                    OntimeList.AddOrUpdate($"{group.Key}-{user.UserName}", ontime);
+                }
+            }
+
+            MainSession.PrintLogEvent?.Publish(this, $"****秒杀预备结束");
+        }
+        public void SeckillOntimeTickV3(UserProject user, IGrouping<DateTime, MiaoshaItem> group, ExchangeController exchangeHandler)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    OntimeList[$"{group.Key}-{user.UserName}"].StopTimer();
+                    var allDone = false;
+                    var count = 0;
+
+                    while (!allDone && count < 20)
+                    {
+                        allDone = group.All(x => x.Status == 3);
+                        count++;
+                        foreach(var item in group)
+                        {
+                            if (item.Status == 3)
+                            {
+                                continue;
+                            }
+                            MainSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
+                            exchangeHandler.Seckill(user, item);
+                            Thread.Sleep(100);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MainSession.PrintLogEvent?.Publish(this, ex.Message);
+                }
+            });
+        }
+
+        #endregion Seckill V3
 
         #region Seckill V2
 
@@ -41,7 +97,7 @@ namespace Zhuzher.miaosha
                         MainSession.PrintLogEvent?.Publish(this, $"准备User:{user.UserName}Item:{item.GoodName}");
                         var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
                         var ontime = new ActionOnTime(() => SeckillOntimeTick(user, item, exchangeHandler), item.GoodName, item.StartTime);
-                        OntimeList.AddOrUpdate(item.GameGoodId, ontime);
+                        OntimeList.AddOrUpdate(item.GameGoodId.NotNullString(), ontime);
                     }
                 }
             }
@@ -54,7 +110,7 @@ namespace Zhuzher.miaosha
             {
                 try
                 {
-                    OntimeList[item.GameGoodId].StopTimer();
+                    OntimeList[item.GameGoodId.NotNullString()].StopTimer();
                     item.Status = 1; //开始
                     MainSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
                     var count = 0;

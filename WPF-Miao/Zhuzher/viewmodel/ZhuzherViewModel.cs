@@ -281,7 +281,7 @@ namespace Zhuzher.viewmodel
             {
                 MainSession.Cookie = Cookie;
                 var seckillHandler = HttpServiceController.GetService<SeckillController>();
-                seckillHandler.SeckillV2(MiaoshaList);
+                seckillHandler.SeckillV3(MiaoshaList);
             }
             catch (HttpException ex)
             {

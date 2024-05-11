@@ -70,17 +70,12 @@ namespace Zhuzher.search
             AddScene("puli-daka", "gzh");
 
             // 活动特定
-            //参加女生节活动
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1042&from=jifen");
-            //旧物还能这样改？
-            AddScene("app-vote-threetimes", 1, "https://communityclass.onewo.com/#/?contributeId=MjY=&vkSource=video&from=xmas");
+            //参与5月焕新家活动
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1054&from=jifen");
             // 下单特惠商品
             AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/5747?pageMark=bbtgxxtsbzjxzt5747");
-
-
             // 分享页面
             AddScene("app-h5share", 1, "", 3);
-
             //在活动会场浏览10秒
             AddScene("app-browseweb", 1, "1");
             //每日参与话题讨论，发帖成功后完成任务
