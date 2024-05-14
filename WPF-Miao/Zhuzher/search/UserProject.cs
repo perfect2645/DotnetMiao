@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Zhuzher.search
 {
@@ -9,6 +10,7 @@ namespace Zhuzher.search
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string Authorization { get; set; }
+        public string DeviceId { get; set; }
     }
 
     internal class UserProjectList
@@ -20,6 +22,25 @@ namespace Zhuzher.search
         {
             UserProjects = new List<UserProject>();
             InitUserProjectList();
+            
+        }
+
+        private string InitUserDeviceId(string userName)
+        {
+            switch(userName)
+            {
+                //case "Fawei": return "46251174-A584-417E-9DEF-BC0B104C65C1";
+                case "妈妈": return "46187513-3D05-475G-SZ67-375JL335C75X";
+                case "7719": return "18864638-G836-96NF-8D65-QIG5725VD955";
+                case "Fawei2645": return "18704963-42VC-DB46-1046-BA10J4274993";
+                case "石琳": return "17088463-B007-886A-OIU6-CBJ6QAS47DDZ";
+                case "刘书辰": return "25184668-SF66-S36H-DHKY-CBK7VS22ZMB8";
+                case "爸爸": return "40887965-6496-47QP-GV11-JKV9YIHD6248";
+                case "4410": return "17045123-9583-67FA-SX55-NVA71345ALOP";
+                case "4175": return "23164809-NF25-375S-NK21-ZG23XG66ZFET";
+                case "1544": return "31548096-JK72-475M-SM10-TYH5WD11SX6G";
+                default:return string.Empty;
+            }
         }
 
         private void InitUserProjectList()
@@ -48,8 +69,10 @@ namespace Zhuzher.search
                 UserName = userName,
                 ProjectCode = projectCode,
                 ProjectName = projectName,
-                Authorization = auth
-            });
+                Authorization = auth,
+                DeviceId = InitUserDeviceId(userName)
+        });
+            
         }
     }
 }

@@ -3,22 +3,22 @@
     "code": 200,
     "result": [
         {
-            "activityTaskId": 5943,
-            "taskId": 987,
-            "taskName": "浏览活动会场10秒",
-            "chanceNumber": 8,
+            "activityTaskId": 5971,
+            "taskId": 1004,
+            "taskName": "研选家装，免费咨询",
+            "chanceNumber": 10,
             "taskDesc": "5月",
-            "tips": "在本页面停留10秒以上完成，限首次参与活动",
+            "tips": "留资提交家装咨询需求完成任务，仅限1次",
             "detail": [
                 {
-                    "taskDetailId": 988,
-                    "sceneName": "浏览页面10s",
-                    "sceneCode": "app-browseweb",
-                    "sceneDesc": "",
-                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1054",
+                    "taskDetailId": 1005,
+                    "sceneName": "研选提交预约资料",
+                    "sceneCode": "yanxuan-submit-information",
+                    "sceneDesc": "研选提交预约资料",
+                    "url": "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information",
                     "detailDesc": "",
                     "finished": false,
-                    "minVersion": "5.2.6",
+                    "minVersion": "",
                     "eventCode": null,
                     "processValue": "0",
                     "requiredValue": "1"
@@ -26,6 +26,64 @@
             ],
             "taskGameList": null,
             "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5969,
+            "taskId": 959,
+            "taskName": "参加1次积分抽奖",
+            "chanceNumber": 3,
+            "taskDesc": "转好运",
+            "tips": "15积分日来啦！参与积分抽奖即可完成任务，每次3次",
+            "detail": [
+                {
+                    "taskDetailId": 960,
+                    "sceneName": "消耗积分",
+                    "sceneCode": "app-points",
+                    "sceneDesc": "仅用于积分抽奖！",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 3,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5944,
+            "taskId": 988,
+            "taskName": "呼朋唤友赚金币",
+            "chanceNumber": 100,
+            "taskDesc": "5月",
+            "tips": "邀请1个新人注册app并参与活动即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 989,
+                    "sceneName": "邀请新用户参与活动",
+                    "sceneCode": "app-act-new-invite&view",
+                    "sceneDesc": "新用户=从未打开过app的用户",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 3,
             "finishCount": null,
             "isWarn": 0,
             "warnTitle": null,
@@ -61,19 +119,19 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5944,
-            "taskId": 988,
-            "taskName": "呼朋唤友赚金币",
-            "chanceNumber": 100,
+            "activityTaskId": 5970,
+            "taskId": 1003,
+            "taskName": "给邻居发布的好物点赞",
+            "chanceNumber": 3,
             "taskDesc": "5月",
-            "tips": "邀请1个新人注册app并参与活动即可完成任务",
+            "tips": "去给别人作品点赞，每日可完成3次任务",
             "detail": [
                 {
-                    "taskDetailId": 989,
-                    "sceneName": "邀请新用户参与活动",
-                    "sceneCode": "app-act-new-invite&view",
-                    "sceneDesc": "新用户=从未打开过app的用户",
-                    "url": "1",
+                    "taskDetailId": 1004,
+                    "sceneName": "点赞别人作品",
+                    "sceneCode": "gottalent-like",
+                    "sceneDesc": "达人秀观众给别人作品点赞",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=13&from=mini&from=activity",
                     "detailDesc": "",
                     "finished": false,
                     "minVersion": "",
@@ -220,10 +278,10 @@
                     "sceneDesc": "可以设置单个商品id为匹配条件",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6153?pageMark=bbtgyhzzmqjzt6153t",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -249,10 +307,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/order-list",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -336,10 +394,10 @@
                     "sceneDesc": "用户评价服务单可获得奖励",
                     "url": "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:CONV:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -472,7 +530,7 @@
             "taskName": "看看最新的物业公告",
             "chanceNumber": 5,
             "taskDesc": "物业节",
-            "tips": "看看最新物业公关，浏览10秒以上完成任务",
+            "tips": "看看最新物业公告，浏览10秒以上完成任务",
             "detail": [
                 {
                     "taskDetailId": 543,
@@ -481,10 +539,39 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5943,
+            "taskId": 987,
+            "taskName": "浏览活动会场10秒",
+            "chanceNumber": 8,
+            "taskDesc": "5月",
+            "tips": "在本页面停留10秒以上完成，限首次参与活动",
+            "detail": [
+                {
+                    "taskDetailId": 988,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1054",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
