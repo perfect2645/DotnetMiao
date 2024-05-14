@@ -71,12 +71,12 @@ namespace Zhuzher.Exchange
                 isLoot = true;
             }
 
-            var url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
+            var url = "https://z.onewo.com/market/api/activity/good/exchange";
             if (isLoot)
             {
-                url = "https://chaos.4009515151.com/market/api/activity/loot/exchange";
+                url = "https://z.onewo.com/market/api/activity/loot/exchange";
             }
-            var content = new ExchangeContent(url);
+            var content = new ExchangeContent(url, user);
 
             content.AddHeader("Authorization", user.Authorization);
             content.AddContent("projectCode", user.ProjectCode);
@@ -108,12 +108,12 @@ namespace Zhuzher.Exchange
                 isLoot = true;
             }
 
-            var url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
+            var url = "https://z.onewo.com/market/api/activity/good/exchange";
             if (isLoot)
             {
-                url = "https://chaos.4009515151.com/market/api/activity/loot/exchange";
+                url = "https://z.onewo.com/market/api/activity/loot/exchange";
             }
-            var content = new ExchangeContent(url);
+            var content = new ExchangeContent(url, user);
 
             content.AddHeader("Authorization", user.Authorization);
             content.AddContent("projectCode", user.ProjectCode);

@@ -30,5 +30,10 @@ namespace Zhuzher.Common
             AddHeader("Connection", "keep-alive");
             AddHeader("Sec-Fetch-Dest", "empty");
         }
+
+        protected void AddDeviceId()
+        {
+            AddHeader("X-Device-ID", User.DeviceId);
+        }
     }
 }

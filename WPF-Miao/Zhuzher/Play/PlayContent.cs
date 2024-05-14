@@ -15,10 +15,7 @@ namespace Zhuzher.Exchange
 
         private void BuildHeader()
         {
-
-            AddHeader("X-Device-ID", User.DeviceId);
-
-
+            AddDeviceId();
         }
 
         private void BuildContent()
