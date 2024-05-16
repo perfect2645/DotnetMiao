@@ -21,7 +21,7 @@ namespace Zhuzher.search
         public SunActivityScenceList()
         {
             TestSceneList();
-            //InitSceneList();
+            InitSceneList();
         }
 
         private void TestSceneList()
