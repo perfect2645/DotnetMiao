@@ -72,10 +72,10 @@ namespace Zhuzher.search
         {
             //AddMiaoshaItem(8956, 1, "粮油满满199减100元神券", "1586", $"{DateTimeUtil.GetToday()} 11:59:58");
 
-            //AddMiaoshaItem(8952, 1, "保时捷911车模", "1585", $"{DateTimeUtil.GetToday()} 19:59:58.800");
-            //AddMiaoshaItem(8953, 1, "徐璐同款可折叠防晒帽", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(8954, 1, "时光稻留蟹田米5kg", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(8955, 1, "胡姬花古法花生油400ml", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(8952, 1, "科颜氏淡斑精华液50ML", "1585", $"{DateTimeUtil.GetToday()} 19:59:58.800");
+            //AddMiaoshaItem(8953, 1, "真榴莲果肉榴莲饼4袋", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(8954, 1, "水牛厚椰乳1箱", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(8955, 1, "时光稻留蟹田米5kg", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
             AddMiaoshaItem(8957, 1, "水果全场满35减5元", "1586");
         }
 

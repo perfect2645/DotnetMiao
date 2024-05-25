@@ -26,7 +26,7 @@ namespace Zhuzher.Common
             AddHeader("Accept-Encoding", "gzip, deflate, br");
             AddHeader("Sec-Fetch-Mode", "cors");
             AddHeader("Origin", "https://enterprise.4009515151.com");
-            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2023101701 vanke_app_version/5.5.40 X_API_VERSION/20231017 vanke_app/zhuzher vanke_jsbridge_version/5.5.40");
+            AddHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2024051002 vanke_app_version/5.6.16 X_API_VERSION/20240510 vanke_app/zhuzher vanke_jsbridge_version/5.6.16");
             AddHeader("Referer", "https://enterprise.4009515151.com/");
             AddHeader("Connection", "keep-alive");
             AddHeader("Sec-Fetch-Dest", "empty");
