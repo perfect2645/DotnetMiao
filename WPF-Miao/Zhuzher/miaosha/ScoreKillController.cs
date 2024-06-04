@@ -54,7 +54,7 @@ namespace Zhuzher.miaosha
                     var allDone = false;
                     var count = 0;
 
-                    while (!allDone && count < 20)
+                    while (!allDone && count < 1)
                     {
                         allDone = group.All(x => x.Status == 3);
                         count++;

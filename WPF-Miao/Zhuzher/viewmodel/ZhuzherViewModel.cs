@@ -96,7 +96,7 @@ namespace Zhuzher.viewmodel
             var scorekilllist = new ScoreItemList();
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
-            ActivityId = "1054";
+            ActivityId = "1065";
             MainSession.InviteCode = "T3L84I";
         }
 
@@ -203,7 +203,7 @@ namespace Zhuzher.viewmodel
                     var userList = new UserProjectList();
                     foreach (var user in userList.UserProjects)
                     {
-                        for (int i = 0; i < 2; i++)
+                        for (int i = 0; i < 20; i++)
                         {
                             playHandler.ActivityPlay(user);
                             Thread.Sleep(1000);
