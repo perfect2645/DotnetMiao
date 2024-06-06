@@ -127,27 +127,51 @@
         </TabItem>
         <TabItem Header="Post">
             <StackPanel>
-                <StackPanel Height="100" Orientation="Horizontal">
-                    <TextBox Width="60"
+                <StackPanel>
+                    <StackPanel Height="100" Orientation="Horizontal">
+                        <TextBox Width="60"
                          Height="30"
                          Margin="20,10,0,10"
                          Text="{Binding PostId}"
                          HorizontalAlignment="Left"
                          materialDesign:HintAssist.Hint="帖子ID">
-                    </TextBox>
-                    <TextBox Width="100"
+                        </TextBox>
+                        <TextBox Width="100"
                          Height="30"
                          Margin="20,10,0,10"
                          Text="{Binding Comment}"
                          HorizontalAlignment="Left"
                          materialDesign:HintAssist.Hint="评论内容">
-                    </TextBox>
-                    <Button Content="帖子评论"
+                        </TextBox>
+                        <Button Content="帖子评论"
                         Command="{Binding CommentCommand}" Width="100" Margin="5">
-                    </Button>
-                    <Button Content="帖子点赞"
+                        </Button>
+                        <Button Content="帖子点赞"
                         Command="{Binding LikeCommand}" Width="100" Margin="5">
-                    </Button>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Height="100" Orientation="Horizontal">
+                        <TextBox Width="60"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding PostId}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="帖子ID">
+                        </TextBox>
+                        <TextBox Width="100"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding Comment}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="评论V2">
+                        </TextBox>
+                        <Button Content="帖子评论V2"
+                        Command="{Binding CommentV2Command}" Width="100" Margin="5">
+                        </Button>
+                        <Button Content="帖子点赞V2"
+                        Command="{Binding LikeV2Command}" Width="100" Margin="5">
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </TabItem>
