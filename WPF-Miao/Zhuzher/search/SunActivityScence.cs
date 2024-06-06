@@ -72,6 +72,8 @@ namespace Zhuzher.search
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
 
             // 活动特定
+            //参与活动免物业费
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1065&from=jifen");
             //参加1次积分抽奖
             AddScene("app-points", 3, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong");
             // 看看最新的物业公告

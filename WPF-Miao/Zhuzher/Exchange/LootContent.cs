@@ -12,6 +12,7 @@ namespace Zhuzher.Exchange
         {
             LootItem = lootItem;
             BuildContent();
+            AddDeviceId();
         }
 
         private void BuildContent()
