@@ -56,7 +56,7 @@ namespace Zhuzher.miaosha
                     var allDone = false;
                     var count = 0;
 
-                    while (!allDone && count < 20)
+                    while (!allDone && count < 1)
                     {
                         allDone = group.All(x => x.Status == 3);
                         count++;
@@ -68,7 +68,7 @@ namespace Zhuzher.miaosha
                             }
                             MainSession.PrintLogEvent?.Publish(item, $"开始秒杀！{user.UserName}{item.Log}");
                             exchangeHandler.Seckill(user, item);
-                            Thread.Sleep(100);
+                            Thread.Sleep(2000);
                         }
                     }
                 }

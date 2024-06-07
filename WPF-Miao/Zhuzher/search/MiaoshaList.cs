@@ -65,18 +65,21 @@ namespace Zhuzher.search
 
         private void TestInitMiaoshaList()
         {
-            //AddMiaoshaItem(5734, 1, "【6折】家政家电清洁大额补贴", "1059", "2022-12-08 20:13:00");
+            var time = DateTime.Now.AddSeconds(10).ToString("yyyy-MM-dd HH:mm:ss.fff");
+            AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{time}");
         }
 
         private void InitMiaoshaList()
         {
-            //AddMiaoshaItem(8956, 1, "粮油满满199减100元神券", "1586", $"{DateTimeUtil.GetToday()} 11:59:58");
+            AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{DateTimeUtil.GetToday()} 19:59:59.800");
 
-            AddMiaoshaItem(8952, 1, "科颜氏淡斑精华液50ML", "1585", $"{DateTimeUtil.GetToday()} 19:59:59.800");
-            //AddMiaoshaItem(8953, 1, "真榴莲果肉榴莲饼4袋", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(8954, 1, "水牛厚椰乳1箱", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(8955, 1, "时光稻留蟹田米5kg", "1585", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(8957, 1, "水果全场满35减5元", "1586");
+
+            //AddMiaoshaItem(9030, 1, "飞天茅台1瓶", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(9031, 1, "清风抽纸4包免单", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");
+
+
+            //AddMiaoshaItem(9032, 1, "空调清洗免单", "1599", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(9033, 1, "油烟机清洗免单", "1599", $"{DateTimeUtil.GetToday()} 19:59:58");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
