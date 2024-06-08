@@ -48,17 +48,17 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 8c839891-60c3-4a25-a60b-95d1c7508bdc");
+            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer dc64a176-7027-440d-9dda-71a0616b9000");
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer dfe09bb7-f3e9-442e-897a-c0a6103adb10");
-            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer bc84f888-5fd1-4869-96d1-7631d1005f61");
+            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 0c5f7fc1-449b-46fb-bd7d-139aef497122");
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer b2ac6ee7-99fd-46ff-a5c1-4c131cbe0184");
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 4924d22a-5822-4e9c-83d1-c17e9d033a8e");
             AddUserProject(21520695, "刘书辰", "21020002", "大连假日风景", "Bearer 288d394c-07e5-47ba-80fc-549b1e8195e2");
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer e716f8a7-b845-404e-9baf-18d2bbfaa838");
             //17116844410 asdf2645
-            AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer d4b74d7b-e955-4fb2-8d3e-68d1b07ae004");
+            AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer f6adde2e-a06f-43ed-9023-3f87b9d40adc");
             //17143794175
-            AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 8c622a2e-0aad-48bf-a3cd-12b30a416e61");
+            AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 26097b04-3903-4cf0-ac01-2a11b8614545");
             //17143791544
             AddUserProject(26897697, "1544", "21020025", "大连万科半山半海", "Bearer 99a25af9-d492-4bd8-9db7-c68eb17f48e7");
             //16791014827
