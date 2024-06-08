@@ -6,6 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.datetime;
+using Utils.number;
+using Utils.Rdom;
 using Zhuzher.session;
 
 namespace Zhuzher.search
@@ -71,7 +73,8 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{DateTimeUtil.GetToday()} 19:59:59.800");
+            var misecond = NumberUtil.IntRandom(500, 800);
+            AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
 
 
             //AddMiaoshaItem(9030, 1, "飞天茅台1瓶", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");
