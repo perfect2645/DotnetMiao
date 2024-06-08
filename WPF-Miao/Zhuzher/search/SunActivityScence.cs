@@ -21,7 +21,7 @@ namespace Zhuzher.search
         public SunActivityScenceList()
         {
             TestSceneList();
-            InitSceneList();
+            //InitSceneList();
         }
 
         private void TestSceneList()
@@ -29,8 +29,7 @@ namespace Zhuzher.search
             //研选家装，免费咨询
             //AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information");
 
-            ////签署发起社区静音倡议
-            //AddScene("puli-daka", "gaokaocy");
+
         }
 
         private void InitSceneList()
@@ -92,6 +91,10 @@ namespace Zhuzher.search
             AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan");
             //邀请新客下单空调清洗
             AddScene("invitee-new-oder", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan");
+            //留言许愿成为锦鲤
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=596&from=activity");
+            //分享你的狗屎运
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=597&from=activity");
             //完成任意金额在线缴费
             AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");
 

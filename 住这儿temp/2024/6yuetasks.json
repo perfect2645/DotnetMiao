@@ -17,10 +17,10 @@
                     "sceneDesc": "匹配参数为scene=xxx",
                     "url": "https://enterprise.4009515151.com/marketing-pages/convention",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -32,23 +32,23 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5988,
-            "taskId": 1010,
-            "taskName": "加入邻居团购福利群",
-            "chanceNumber": 10,
-            "taskDesc": "615",
-            "tips": "添加可可进群后后点击链接回到活动领金币",
+            "activityTaskId": 6021,
+            "taskId": 1018,
+            "taskName": "留言许愿成为锦鲤",
+            "chanceNumber": 5,
+            "taskDesc": "615艳华",
+            "tips": "每日在本话题发帖许愿获得金币，有机会做锦鲤哦",
             "detail": [
                 {
-                    "taskDetailId": 1011,
-                    "sceneName": "渠道访问立即获得",
-                    "sceneCode": "puli-daka",
-                    "sceneDesc": "匹配参数为scene=xxx",
-                    "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=14",
+                    "taskDetailId": 1019,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=596&from=activity",
                     "detailDesc": "",
                     "finished": false,
                     "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
+                    "eventCode": "CMS:SOCIAL:0001",
                     "processValue": "0",
                     "requiredValue": "1"
                 }
@@ -75,10 +75,10 @@
                     "sceneDesc": "仅用于积分抽奖！",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -133,10 +133,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -162,10 +162,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=591&from=activity",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -191,9 +191,67 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=592&from=activity",
                     "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6022,
+            "taskId": 1019,
+            "taskName": "分享你的狗屎运",
+            "chanceNumber": 20,
+            "taskDesc": "615艳华",
+            "tips": "发帖分享你的走运时刻，仅限完成1次",
+            "detail": [
+                {
+                    "taskDetailId": 1020,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=597&from=activity",
+                    "detailDesc": "",
                     "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5988,
+            "taskId": 1010,
+            "taskName": "加入邻居团购福利群",
+            "chanceNumber": 10,
+            "taskDesc": "615",
+            "tips": "添加可可进群后后点击链接回到活动领金币",
+            "detail": [
+                {
+                    "taskDetailId": 1011,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=14",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
                     "processValue": "0",
                     "requiredValue": "1"
                 }
@@ -220,10 +278,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6035?pageMark=bbtgyhhdsgzt6035t",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -249,10 +307,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/4998?pageMark=bbtgyhzznnzt48t",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -278,10 +336,10 @@
                     "sceneDesc": "可以设置单个商品id为匹配条件",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/4998?pageMark=bbtgyhzznnzt48t",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -365,10 +423,10 @@
                     "sceneDesc": "20230421更新：不可设置匹配条件",
                     "url": "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:CONV:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -423,10 +481,10 @@
                     "sceneDesc": "支付成功上报金额，预缴/普通缴费/车位缴费，单位“分”",
                     "url": "https://enterprise.4009515151.com/payment-center/home",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "SERVICE:PAY:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -452,10 +510,10 @@
                     "sceneDesc": "",
                     "url": "zze://vanke.com/property/opendoor/list",
                     "detailDesc": "手机开门成功，即可收集【2】阳光，每日2次",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.4",
                     "eventCode": "KEY:KEY:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -568,10 +626,10 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
