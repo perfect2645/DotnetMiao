@@ -21,15 +21,15 @@ namespace Zhuzher.search
         public SunActivityScenceList()
         {
             TestSceneList();
-            //InitSceneList();
+            InitSceneList();
         }
 
         private void TestSceneList()
         {
             //研选家装，免费咨询
             //AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information");
-
-
+            //到家服务结单后评价
+            //AddScene("app-housebinding", 1, "zze://vanke.com/user/house/list");
         }
 
         private void InitSceneList()
