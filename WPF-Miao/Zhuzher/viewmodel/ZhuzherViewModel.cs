@@ -134,8 +134,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                var announcementController = HttpServiceController.GetService<AnnouncementController>();
-                announcementController.CollectSunAsync();
+                //var announcementController = HttpServiceController.GetService<AnnouncementController>();
+                //announcementController.CollectSunAsync();
 
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
@@ -410,7 +410,7 @@ namespace Zhuzher.viewmodel
                     var userList = new UserProjectList();
                     foreach (var user in userList.UserProjects)
                     {
-                        for (int i = 0; i < 5; i++)
+                        for (int i = 0; i < 1; i++)
                         {
                             playHandler.ActivityPlay(user);
                             Thread.Sleep(1000);

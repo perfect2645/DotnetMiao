@@ -20,7 +20,7 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            TestSceneList();
+            //TestSceneList();
             InitSceneList();
         }
 
@@ -29,7 +29,7 @@ namespace Zhuzher.search
             //研选家装，免费咨询
             //AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information");
             //到家服务结单后评价
-            //AddScene("app-housebinding", 1, "zze://vanke.com/user/house/list");
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
         }
 
         private void InitSceneList()
@@ -38,7 +38,7 @@ namespace Zhuzher.search
             //登录分享
             AddScene("app-checkin-share", 1, "", 3);
             //到家服务结单后评价
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
             //邻里互助发帖
             AddScene("app-post", 3, "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point");
             //订单评价

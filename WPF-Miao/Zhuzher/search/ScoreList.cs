@@ -67,7 +67,7 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            AddExchangeItem(3933, 207, "洁厕神器");
+            AddExchangeItem(4091, 209, "鲁花");
 
             //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
@@ -79,7 +79,7 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(3786, 205, 2191, "湿巾", $"{DateTimeUtil.GetToday()} 19:59:58");
+            AddMiaoshaItem(4092, 210, 2192, "湿巾", $"{DateTimeUtil.GetToday()} 20:00:00");
             //AddMiaoshaItem(3787, 205, 2191, "拖鞋", $"{DateTimeUtil.GetToday()} 19:59:58");
             //AddMiaoshaItem(3785, 204, 2190, "纸", $"{DateTimeUtil.GetToday()} 19:59:59");
         }

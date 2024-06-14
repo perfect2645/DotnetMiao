@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -64,15 +65,19 @@ namespace Zhuzher.Score
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]收集积分失败");
             }
 
+            var total = 0;
             foreach(var scoreItem in scoreList)
             {
                 var itemName = scoreItem.GetString("happenName");
                 var itemId = scoreItem.GetString("id");
                 var pointsSum = scoreItem.GetString("pointsSum");
 
+                total += pointsSum.ToInt();
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]未收集积分【{itemName}】:{pointsSum}");
                 scoreDic.AddOrUpdate(itemId, itemName);
             }
+
+            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]未收集积分共【{total}】");
 
             return scoreDic;
         }
