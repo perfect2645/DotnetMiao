@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using Utils.datetime;
+using Utils.number;
 using Zhuzher.Play;
 using Zhuzher.search;
 using Zhuzher.session;
@@ -16,16 +17,14 @@ namespace Zhuzher.Exchange
         #region Properties
 
         public bool IsReward { get; set; } = false;
-
-        private readonly ScoreItemList GoodList = new ScoreItemList();
-        private readonly UserProjectList UserProjectList = new UserProjectList();
+        public int Number { get; set; } = -1;
 
         #endregion Properties
         public PlayController(HttpClient httpClient) : base(httpClient)
         {
         }
 
-        public void ActivityPlay(UserProject user)
+        public int ActivityPlay(UserProject user)
         {
             var content = new PlayContent(user);
             content.BuildDefaultHeaders(Client);
@@ -34,34 +33,33 @@ namespace Zhuzher.Exchange
             if (response == null)
             {
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
-                return;
+                return Number;
             }
             if (response.Body == null)
             {
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
-                return;
+                return Number;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
-
             if (code == "200" && msg == "success")
             {
                 var root = response.JsonBody.RootElement;
                 var result = root.GetProperty("result");
-                var number = result.GetProperty("number").GetInt32();
+                Number = result.GetProperty("number").GetInt32();
                 var goodName = result.GetProperty("goodName").GetString();
                 if (string.IsNullOrEmpty(goodName))
                 {
-                    return;
+                    return Number;
                 }
-                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {number}:{goodName}");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {Number}:{goodName}");
                 if (IsReward)
                 {
                     Thread.Sleep(1000);
-                    if (number == 5)
-                    {
+                    //if (Number == 1)
+                    //{
 
-                    }
+                    //}
                     //GetReward(content);
                 }
             }
@@ -69,7 +67,7 @@ namespace Zhuzher.Exchange
             {
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽奖失败- {msg}");
             }
-
+            return Number;
         }
 
         private void GetReward(PlayContent content)

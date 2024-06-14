@@ -1,5 +1,6 @@
 ﻿using Base.Events;
 using Base.session;
+using System.Collections.Generic;
 using System.Windows.Documents;
 using Zhuzher.search;
 
@@ -13,10 +14,12 @@ namespace Zhuzher.session
         public static LogEvents PrintLogEvent { get; set; }
 
         public static UserProjectList UserProjectList { get;}
+        public static Dictionary<int, int> UserIntSession { get; set; }
 
         static MainSession()
         {
             UserProjectList = new UserProjectList();
+            UserIntSession = new Dictionary<int, int>();
         }
     }
 }

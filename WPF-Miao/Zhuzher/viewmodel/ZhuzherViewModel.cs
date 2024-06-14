@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Utils;
 using Zhuzher.collectsun;
 using Zhuzher.Exchange;
 using Zhuzher.miaosha;
@@ -134,8 +135,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                //var announcementController = HttpServiceController.GetService<AnnouncementController>();
-                //announcementController.CollectSunAsync();
+                var announcementController = HttpServiceController.GetService<AnnouncementController>();
+                announcementController.CollectSunAsync();
 
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
@@ -199,15 +200,31 @@ namespace Zhuzher.viewmodel
             {
                 Task.Factory.StartNew(() =>
                 {
-                    var playHandler = HttpServiceController.GetService<PlayController>();
                     var userList = new UserProjectList();
                     foreach (var user in userList.UserProjects)
                     {
-                        for (int i = 0; i < 20; i++)
+                        if (MainSession.UserIntSession.ContainsKey(user.UserId))
                         {
-                            playHandler.ActivityPlay(user);
-                            Thread.Sleep(1000);
+                            var number = MainSession.UserIntSession[user.UserId];
+                            MainSession.PrintLogEvent.Publish(null, $"{user.UserName}已经中奖了{number}");
+                            continue;
                         }
+                        Task.Factory.StartNew(() =>
+                        {
+                            var playHandler = HttpServiceController.GetService<PlayController>();
+                            for (int i = 0; i < 10; i++)
+                            {
+                                var targetNumber = playHandler.ActivityPlay(user);
+                                if (targetNumber == 1)
+                                {
+
+                                    MainSession.UserIntSession.AddOrUpdate(user.UserId, targetNumber);
+                                    MainSession.PrintLogEvent.Publish(null, $"{user.UserName}预定结果中了{targetNumber}");
+                                    return;
+                                }
+                                Thread.Sleep(1000);
+                            }
+                        });
                     }
                 });
             }
