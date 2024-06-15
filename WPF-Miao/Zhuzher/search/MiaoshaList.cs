@@ -74,15 +74,15 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 800);
-            AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
+            //AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
 
 
             //AddMiaoshaItem(9030, 1, "飞天茅台1瓶", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(9031, 1, "清风抽纸4包免单", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(9031, 1, "清风抽纸4包免单", "1598", $"{DateTimeUtil.GetToday()} 20:00:01");
 
 
-            //AddMiaoshaItem(9032, 1, "空调清洗免单", "1599", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(9033, 1, "油烟机清洗免单", "1599", $"{DateTimeUtil.GetToday()} 19:59:58");
+            //AddMiaoshaItem(9032, 1, "空调清洗免单", "1599", $"{DateTimeUtil.GetToday()} 10:00:00");
+            //AddMiaoshaItem(9033, 1, "油烟机清洗免单", "1599", $"{DateTimeUtil.GetToday()} 10:00:00");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

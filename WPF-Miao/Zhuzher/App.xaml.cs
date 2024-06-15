@@ -54,6 +54,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<CommentController>();
             HttpServiceController.AddTransientService<LikeController>();
             HttpServiceController.AddTransientService<AnnouncementController>();
+            HttpServiceController.AddTransientService<PlayChanceController>();
 
             HttpServiceController.BuidServiceProvider();
         }
