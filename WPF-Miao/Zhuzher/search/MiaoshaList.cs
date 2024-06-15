@@ -68,17 +68,20 @@ namespace Zhuzher.search
         private void TestInitMiaoshaList()
         {
             var time = DateTime.Now.AddSeconds(10).ToString("yyyy-MM-dd HH:mm:ss.fff");
-            AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{time}");
+            AddMiaoshaItem(9040, 1, "桶装水100元神券", "1602", $"{time}");
+
+            time = DateTime.Now.AddSeconds(14).ToString("yyyy-MM-dd HH:mm:ss.fff");
+            AddMiaoshaItem(9038, 1, "桶装水60元神券", "1601", $"{time}");
         }
 
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 800);
-            //AddMiaoshaItem(9026, 1, "助威高考纯牛奶5箱0元券", "1595", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
+            AddMiaoshaItem(9039, 1, "友邻市集全场100元神券", "1602", $"{DateTimeUtil.GetToday()} 18:00:00.{misecond}");
 
 
             //AddMiaoshaItem(9030, 1, "飞天茅台1瓶", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(9031, 1, "清风抽纸4包免单", "1598", $"{DateTimeUtil.GetToday()} 20:00:01");
+            AddMiaoshaItem(9031, 1, "清风抽纸4包免单", "1598", $"{DateTimeUtil.GetToday()} 20:00:02");
 
 
             //AddMiaoshaItem(9032, 1, "空调清洗免单", "1599", $"{DateTimeUtil.GetToday()} 10:00:00");

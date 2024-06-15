@@ -52,10 +52,10 @@ namespace Zhuzher.search
             //AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer fd917af0-a233-4fa9-9ae3-7742f0d4bdc7");
             //AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 5f452611-f3fa-4a77-8f46-cdc78c4ef00d");
             //AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 5106290f-2e06-498f-a1aa-9af6286927a8");
-            //AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer b2ac6ee7-99fd-46ff-a5c1-4c131cbe0184");
-            //AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 4924d22a-5822-4e9c-83d1-c17e9d033a8e");
+            //AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 5f155233-513c-429b-beaa-c40df8079bc3");
+            AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 70ae913d-6f23-415b-a734-b49ae61892e9");
             //AddUserProject(21520695, "刘书辰", "21020002", "大连假日风景", "Bearer 288d394c-07e5-47ba-80fc-549b1e8195e2");
-            //AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer e716f8a7-b845-404e-9baf-18d2bbfaa838");
+            //AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 8238a70a-ca77-4749-9f7b-0a19445db9f0");
             ////17116844410 asdf2645
             //AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer ba501f77-358a-4f33-aa94-b80203deb2a7");
             ////17143794175
@@ -69,7 +69,7 @@ namespace Zhuzher.search
             ////13050516050
             //AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer f5ef7488-5f47-43a8-ac24-f94bc8afe37f");
             //18604266644孙森
-            AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 6adaf2e4-72da-4b73-a710-4e66528daa01");
+            //AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 6adaf2e4-72da-4b73-a710-4e66528daa01");
 
         }
 
