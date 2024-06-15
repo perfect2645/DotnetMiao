@@ -213,7 +213,7 @@ namespace Zhuzher.viewmodel
                         Task.Factory.StartNew(() =>
                         {
                             var playHandler = HttpServiceController.GetService<PlayController>();
-                            for (int i = 0; i < 10; i++)
+                            for (int i = 0; i < 1; i++)
                             {
                                 var targetNumber = playHandler.ActivityPlay(user);
                                 if (targetNumber == 1)
