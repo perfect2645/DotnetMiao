@@ -3,6 +3,35 @@
     "code": 200,
     "result": [
         {
+            "activityTaskId": 6049,
+            "taskId": 1020,
+            "taskName": "逛“百万补贴”专场！",
+            "chanceNumber": 20,
+            "taskDesc": "615晓霞",
+            "tips": "逛逛百万补贴活动，浏览10秒以上完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 1021,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
             "activityTaskId": 6021,
             "taskId": 1018,
             "taskName": "留言许愿成为锦鲤",
