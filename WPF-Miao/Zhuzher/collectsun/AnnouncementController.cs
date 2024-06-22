@@ -37,20 +37,16 @@ namespace Zhuzher.collectsun
 
         private void CollectSun(UserProject user)
         {
-            
-            for (int i = 0; i < 1; i++) 
+            var content = new AnnouncementContent(user);
+            GetAnnouncement(content);
+            if (string.IsNullOrEmpty(content.AnnouncementId))
             {
-                var content = new AnnouncementContent(user);
-                GetAnnouncement(content);
-                if (string.IsNullOrEmpty(content.AnnouncementId))
-                {
-                    continue;
-                }
-                Thread.Sleep(1000);
-                ReadAnnouncement(content);
-                Thread.Sleep(1000);
-                CommentAnnouncement(content);
+                return;
             }
+            Thread.Sleep(1000);
+            ReadAnnouncement(content);
+            Thread.Sleep(1000);
+            CommentAnnouncement(content);
         }
 
         private void GetAnnouncement(AnnouncementContent content)
