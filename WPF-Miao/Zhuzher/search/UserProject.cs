@@ -50,15 +50,15 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer fd917af0-a233-4fa9-9ae3-7742f0d4bdc7");
+            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer ea9ff83c-25f2-43ff-8aee-1999df1d5ad6");
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 5f452611-f3fa-4a77-8f46-cdc78c4ef00d");
             AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 5106290f-2e06-498f-a1aa-9af6286927a8");
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 5f155233-513c-429b-beaa-c40df8079bc3");//55477  
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 70ae913d-6f23-415b-a734-b49ae61892e9");
             AddUserProject(21520695, "刘书辰", "21020002", "大连假日风景", "Bearer 288d394c-07e5-47ba-80fc-549b1e8195e2");
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 8238a70a-ca77-4749-9f7b-0a19445db9f0");
-            //17116844410 纸抽
-            AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer 45910935-4a9d-401d-9b30-0fe5c8dc1a46");
+            //17116844410 
+            AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer e988585c-c2e8-4f73-b2df-b2259fe83e88");
             //17143794175//54830 
             AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 1099fec7-7a1a-461e-8bd8-295a79a6cc79");
             //17143791544

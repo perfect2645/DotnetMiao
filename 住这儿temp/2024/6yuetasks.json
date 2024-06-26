@@ -3,36 +3,7 @@
     "code": 200,
     "result": [
         {
-            "activityTaskId": 6049,
-            "taskId": 1020,
-            "taskName": "逛“百万补贴”专场！",
-            "chanceNumber": 20,
-            "taskDesc": "615晓霞",
-            "tips": "逛逛百万补贴活动，浏览10秒以上完成任务",
-            "detail": [
-                {
-                    "taskDetailId": 1021,
-                    "sceneName": "浏览页面10s",
-                    "sceneCode": "app-browseweb",
-                    "sceneDesc": "",
-                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "5.2.6",
-                    "eventCode": null,
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 6021,
+            "activityTaskId": 6046,
             "taskId": 1018,
             "taskName": "留言许愿成为锦鲤",
             "chanceNumber": 5,
@@ -46,10 +17,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=596&from=activity",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -61,7 +32,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5989,
+            "activityTaskId": 6030,
             "taskId": 959,
             "taskName": "参加1次积分抽奖",
             "chanceNumber": 10,
@@ -75,10 +46,10 @@
                     "sceneDesc": "仅用于积分抽奖！",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -90,7 +61,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5990,
+            "activityTaskId": 6031,
             "taskId": 988,
             "taskName": "呼朋唤友赚金币",
             "chanceNumber": 100,
@@ -119,7 +90,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5991,
+            "activityTaskId": 6032,
             "taskId": 542,
             "taskName": "看看最新的物业公告",
             "chanceNumber": 5,
@@ -133,10 +104,10 @@
                     "sceneDesc": "",
                     "url": "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -148,7 +119,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5992,
+            "activityTaskId": 6033,
             "taskId": 1011,
             "taskName": "分享遛娃圣地",
             "chanceNumber": 10,
@@ -162,10 +133,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=591&from=activity",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -177,7 +148,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5993,
+            "activityTaskId": 6034,
             "taskId": 1012,
             "taskName": "点评短剧场抽按摩仪",
             "chanceNumber": 10,
@@ -191,10 +162,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=592&from=activity",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -206,7 +177,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6022,
+            "activityTaskId": 6047,
             "taskId": 1019,
             "taskName": "分享你的狗屎运",
             "chanceNumber": 20,
@@ -220,10 +191,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=597&from=activity",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -235,7 +206,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5988,
+            "activityTaskId": 6029,
             "taskId": 1010,
             "taskName": "加入邻居团购福利群",
             "chanceNumber": 10,
@@ -264,7 +235,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5994,
+            "activityTaskId": 6035,
             "taskId": 1013,
             "taskName": "逛逛友邻荔枝专题",
             "chanceNumber": 5,
@@ -278,10 +249,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6035?pageMark=bbtgyhhdsgzt6035t",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -293,7 +264,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5995,
+            "activityTaskId": 6036,
             "taskId": 1014,
             "taskName": "逛逛友邻牛奶专题",
             "chanceNumber": 5,
@@ -307,10 +278,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/4998?pageMark=bbtgyhzznnzt48t",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -322,7 +293,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5996,
+            "activityTaskId": 6037,
             "taskId": 1015,
             "taskName": "购买友邻纯牛奶",
             "chanceNumber": 66,
@@ -336,10 +307,10 @@
                     "sceneDesc": "可以设置单个商品id为匹配条件",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/4998?pageMark=bbtgyhzznnzt48t",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -351,7 +322,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5997,
+            "activityTaskId": 6038,
             "taskId": 802,
             "taskName": "新用户注册并绑定房屋",
             "chanceNumber": 30,
@@ -380,7 +351,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5998,
+            "activityTaskId": 6039,
             "taskId": 1000,
             "taskName": "签到会场到访主会场",
             "chanceNumber": 10,
@@ -409,7 +380,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5999,
+            "activityTaskId": 6040,
             "taskId": 993,
             "taskName": "购买空调清洗服务",
             "chanceNumber": 66,
@@ -423,10 +394,10 @@
                     "sceneDesc": "20230421更新：不可设置匹配条件",
                     "url": "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "LIVE:CONV:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -438,7 +409,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6000,
+            "activityTaskId": 6041,
             "taskId": 996,
             "taskName": "邀请新客下单空调清洗",
             "chanceNumber": 66,
@@ -452,10 +423,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "LIVE:CONV:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -467,7 +438,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6001,
+            "activityTaskId": 6042,
             "taskId": 543,
             "taskName": "完成任意金额在线缴费",
             "chanceNumber": 15,
@@ -481,10 +452,10 @@
                     "sceneDesc": "支付成功上报金额，预缴/普通缴费/车位缴费，单位“分”",
                     "url": "https://enterprise.4009515151.com/payment-center/home",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "SERVICE:PAY:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -496,7 +467,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6002,
+            "activityTaskId": 6043,
             "taskId": 711,
             "taskName": "完成1次手机开门",
             "chanceNumber": 5,
@@ -510,10 +481,10 @@
                     "sceneDesc": "",
                     "url": "zze://vanke.com/property/opendoor/list",
                     "detailDesc": "手机开门成功，即可收集【2】阳光，每日2次",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.4",
                     "eventCode": "KEY:KEY:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -525,7 +496,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6003,
+            "activityTaskId": 6044,
             "taskId": 961,
             "taskName": "分享活动到微信",
             "chanceNumber": 6,
@@ -554,7 +525,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5916,
+            "activityTaskId": 6026,
             "taskId": 52,
             "taskName": "托收且预缴6个月",
             "chanceNumber": 66,
@@ -583,7 +554,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 5917,
+            "activityTaskId": 6027,
             "taskId": 48,
             "taskName": "无托收预缴6个月",
             "chanceNumber": 66,
@@ -612,7 +583,7 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6004,
+            "activityTaskId": 6045,
             "taskId": 331,
             "taskName": "每日登录住这儿",
             "chanceNumber": 16,
@@ -626,10 +597,10 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
