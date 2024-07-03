@@ -20,8 +20,8 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //TestSceneList();
             InitSceneList();
+            TestSceneList();
         }
 
         private void TestSceneList()

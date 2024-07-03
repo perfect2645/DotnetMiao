@@ -50,6 +50,7 @@ namespace Zhuzher.Exchange
                 var goodName = result.GetProperty("goodName").GetString();
                 if (string.IsNullOrEmpty(goodName))
                 {
+                    MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 没抽到 - {Number}:{goodName}");
                     return Number;
                 }
                 MainSession.PrintLogEvent.Publish(this, $"{user.UserName} - 抽到了 - {Number}:{goodName}");
