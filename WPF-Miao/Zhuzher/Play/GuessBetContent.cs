@@ -11,6 +11,7 @@ namespace Zhuzher.Play
         public GuessBetContent(UserProject user, GuessBet guessBet) : base(_url, user)
         {
             GuessBet = guessBet;
+            AddDeviceId();
             BuildContent();
         }
 

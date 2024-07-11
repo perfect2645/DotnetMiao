@@ -77,7 +77,7 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 800);
-            AddMiaoshaItem(9039, 1, "友邻市集全场100元神券", "1602", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
+            AddMiaoshaItem(9170, 1, "五粮液火爆金球酒", "1629", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
 
 
             //AddMiaoshaItem(9030, 1, "飞天茅台1瓶", "1598", $"{DateTimeUtil.GetToday()} 19:59:58");

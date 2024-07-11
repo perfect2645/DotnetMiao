@@ -1,6 +1,7 @@
 ﻿using HttpProcessor.Content;
 using Zhuzher.Common;
 using Zhuzher.search;
+using Zhuzher.session;
 
 namespace Zhuzher.Exchange
 {
@@ -20,8 +21,8 @@ namespace Zhuzher.Exchange
 
         private void BuildContent()
         {
-            AddContent("activityGameId", 1597);
-            AddContent("activityId", 1065);
+            AddContent("activityGameId", 1624);
+            AddContent("activityId", MainSession.ActivityId);
             AddContent("projectCode", User.ProjectCode);
             AddContent("projectName", User.ProjectName);
         }
