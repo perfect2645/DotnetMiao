@@ -21,17 +21,18 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            InitSceneList();
+            //InitSceneList();
             TestSceneList();
         }
 
         private void TestSceneList()
         {
-            //到家服务结单后评价
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
+            ////到家服务结单后评价
+            //AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
 
 
-
+            // 完单后评价服务质量
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1094&scene=miniopenurl&from=hd");
         }
 
         private void InitSceneList()
@@ -87,6 +88,14 @@ namespace Zhuzher.search
             AddScene("invitee-new-oder", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan");
             //完成任意金额在线缴费
             AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");
+            //逛百万补贴专场
+            AddScene("puli-daka", "miniopenurl");
+            // 运动补水季，福利下单
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6314?pageMark=zhcydj");
+            // 百万补贴购物赢大奖
+            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262sq");
+            // 完单后评价服务质量
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

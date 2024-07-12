@@ -97,7 +97,7 @@ namespace Zhuzher.viewmodel
             var scorekilllist = new ScoreItemList();
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
-            ActivityId = "1084";
+            ActivityId = "1094";
             MainSession.InviteCode = "T3L84I";
         }
 
@@ -136,8 +136,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                var announcementController = HttpServiceController.GetService<AnnouncementController>();
-                announcementController.CollectSunAsync();
+                //var announcementController = HttpServiceController.GetService<AnnouncementController>();
+                //announcementController.CollectSunAsync();
 
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();

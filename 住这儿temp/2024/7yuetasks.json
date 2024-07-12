@@ -3,6 +3,180 @@
     "code": 200,
     "result": [
         {
+            "activityTaskId": 6182,
+            "taskId": 1028,
+            "taskName": "逛百万补贴专场",
+            "chanceNumber": 10,
+            "taskDesc": "",
+            "tips": "到访百万补贴专场即可完成任务（小程序通用），每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 1029,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1094&scene=miniopenurl&from=hd",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6080,
+            "taskId": 1010,
+            "taskName": "加入邻居一起运动群",
+            "chanceNumber": 10,
+            "taskDesc": "615",
+            "tips": "添加可可进群后后点击链接回到活动领金币",
+            "detail": [
+                {
+                    "taskDetailId": 1011,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=14",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6183,
+            "taskId": 1029,
+            "taskName": "看球聊球赢大奖",
+            "chanceNumber": 77,
+            "taskDesc": "侣蓓",
+            "tips": "每天发表竞猜相关话题讨论",
+            "detail": [
+                {
+                    "taskDetailId": 1030,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=603&from=activity",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6184,
+            "taskId": 1031,
+            "taskName": "分享运动时刻",
+            "chanceNumber": 77,
+            "taskDesc": "艳华",
+            "tips": "每周分享自己的运动时刻",
+            "detail": [
+                {
+                    "taskDetailId": 1032,
+                    "sceneName": "成功发布作品",
+                    "sceneCode": "gottalent-contribution",
+                    "sceneDesc": "达人秀发布图文或视频成功",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=15&from=activity",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6185,
+            "taskId": 1032,
+            "taskName": "桶装水新客免费喝",
+            "chanceNumber": 10,
+            "taskDesc": "芷纾",
+            "tips": "每天浏览10秒即可完成任务，新客可以领免单福利！",
+            "detail": [
+                {
+                    "taskDetailId": 1033,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/water?pageMark=7yzhcxrq",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6186,
+            "taskId": 1033,
+            "taskName": "运动补水季，福利下单",
+            "chanceNumber": 177,
+            "taskDesc": "芷纾",
+            "tips": "任务存续期间前10次下单购买桶装水即可获得金币",
+            "detail": [
+                {
+                    "taskDetailId": 1034,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6314?pageMark=zhcydj",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 10,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
             "activityTaskId": 6081,
             "taskId": 718,
             "taskName": "完成1次积分兑换抽奖",
@@ -26,35 +200,6 @@
             ],
             "taskGameList": null,
             "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 6082,
-            "taskId": 988,
-            "taskName": "呼朋唤友赚金币",
-            "chanceNumber": 200,
-            "taskDesc": "5月",
-            "tips": "邀请1个新人注册app并参与活动即可完成任务",
-            "detail": [
-                {
-                    "taskDetailId": 989,
-                    "sceneName": "邀请新用户参与活动",
-                    "sceneCode": "app-act-new-invite&view",
-                    "sceneDesc": "新用户=从未打开过app的用户",
-                    "url": "1",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": null,
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 3,
             "finishCount": null,
             "isWarn": 0,
             "warnTitle": null,
@@ -90,145 +235,29 @@
             "warnText": null
         },
         {
-            "activityTaskId": 6080,
-            "taskId": 1010,
-            "taskName": "加入邻居团购福利群",
-            "chanceNumber": 10,
-            "taskDesc": "615",
-            "tips": "添加可可进群后后点击链接回到活动领金币",
+            "activityTaskId": 6187,
+            "taskId": 774,
+            "taskName": "百万补贴购物赢大奖",
+            "chanceNumber": 133,
+            "taskDesc": "百万补贴专用",
+            "tips": "任务存续期间，前10次购买百万补贴专场商品可获得金币",
             "detail": [
                 {
-                    "taskDetailId": 1011,
-                    "sceneName": "渠道访问立即获得",
-                    "sceneCode": "puli-daka",
-                    "sceneDesc": "匹配参数为scene=xxx",
-                    "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=14",
+                    "taskDetailId": 775,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262sq",
                     "detailDesc": "",
                     "finished": false,
                     "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
+                    "eventCode": "LIVE:SHOP:0001",
                     "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
             "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 6086,
-            "taskId": 1013,
-            "taskName": "逛逛友邻荔枝专题",
-            "chanceNumber": 5,
-            "taskDesc": "615",
-            "tips": "应季荔枝来了！每天逛10秒以上即可获得金币",
-            "detail": [
-                {
-                    "taskDetailId": 1014,
-                    "sceneName": "浏览页面10s",
-                    "sceneCode": "app-browseweb",
-                    "sceneDesc": "",
-                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6035?pageMark=bbtgyhhdsgzt6035t",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "5.2.6",
-                    "eventCode": null,
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 6087,
-            "taskId": 1014,
-            "taskName": "逛逛友邻牛奶专题",
-            "chanceNumber": 5,
-            "taskDesc": "615",
-            "tips": "5想牛奶只要99！逛逛专题10秒以上可完成任务",
-            "detail": [
-                {
-                    "taskDetailId": 1015,
-                    "sceneName": "浏览页面10s",
-                    "sceneCode": "app-browseweb",
-                    "sceneDesc": "",
-                    "url": "https://neighbor.4009515151.com/nova/activityTopic/4998?pageMark=bbtgyhzznnzt48t",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "5.2.6",
-                    "eventCode": null,
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 6089,
-            "taskId": 802,
-            "taskName": "新用户注册并绑定房屋",
-            "chanceNumber": 100,
-            "taskDesc": "",
-            "tips": "首次注册app并绑定房屋",
-            "detail": [
-                {
-                    "taskDetailId": 803,
-                    "sceneName": "未登录APP用户登录",
-                    "sceneCode": "app-startapp-new",
-                    "sceneDesc": "新用户=从未打开过app的用户",
-                    "url": "1",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "SERVICE:HELP:0002",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null
-        },
-        {
-            "activityTaskId": 6090,
-            "taskId": 1000,
-            "taskName": "签到会场到访主会场",
-            "chanceNumber": 10,
-            "taskDesc": "5月",
-            "tips": "参与线下社区活动可以攒金币赢物业费",
-            "detail": [
-                {
-                    "taskDetailId": 1001,
-                    "sceneName": "渠道访问立即获得",
-                    "sceneCode": "puli-daka",
-                    "sceneDesc": "匹配参数为scene=xxx",
-                    "url": "1",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
+            "limitCount": 10,
             "finishCount": null,
             "isWarn": 0,
             "warnTitle": null,
@@ -264,6 +293,35 @@
             "warnText": null
         },
         {
+            "activityTaskId": 6188,
+            "taskId": 995,
+            "taskName": "完单后评价服务质量",
+            "chanceNumber": 20,
+            "taskDesc": "5月",
+            "tips": "订单完成后评价，任务存续期间前10次评价可获得金币",
+            "detail": [
+                {
+                    "taskDetailId": 996,
+                    "sceneName": "用户评价订单",
+                    "sceneCode": "5thzone-convenience-comment",
+                    "sceneDesc": "用户评价服务单可获得奖励",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 10,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
             "activityTaskId": 6092,
             "taskId": 996,
             "taskName": "邀请新客下单空调清洗",
@@ -278,10 +336,10 @@
                     "sceneDesc": "",
                     "url": "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:CONV:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -307,10 +365,10 @@
                     "sceneDesc": "支付成功上报金额，预缴/普通缴费/车位缴费，单位“分”",
                     "url": "https://enterprise.4009515151.com/payment-center/home",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "SERVICE:PAY:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -340,6 +398,35 @@
                     "minVersion": "5.2.4",
                     "eventCode": "KEY:KEY:0001",
                     "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 6089,
+            "taskId": 802,
+            "taskName": "新用户注册并绑定房屋",
+            "chanceNumber": 100,
+            "taskDesc": "",
+            "tips": "首次注册app并绑定房屋",
+            "detail": [
+                {
+                    "taskDetailId": 803,
+                    "sceneName": "未登录APP用户登录",
+                    "sceneCode": "app-startapp-new",
+                    "sceneDesc": "新用户=从未打开过app的用户",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:HELP:0002",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
