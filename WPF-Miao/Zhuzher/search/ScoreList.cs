@@ -79,7 +79,7 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(4092, 210, 2192, "湿巾", $"{DateTimeUtil.GetToday()} 20:00:00");
+            AddMiaoshaItem(4175, 215, 2203, "湿巾", $"{DateTimeUtil.GetToday()} 19:59:59");
             //AddMiaoshaItem(3787, 205, 2191, "拖鞋", $"{DateTimeUtil.GetToday()} 19:59:58");
             //AddMiaoshaItem(3785, 204, 2190, "纸", $"{DateTimeUtil.GetToday()} 19:59:59");
         }

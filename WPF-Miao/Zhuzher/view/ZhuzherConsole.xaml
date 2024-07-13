@@ -134,7 +134,15 @@
             </StackPanel>
         </TabItem>
         <TabItem Header="Score">
-            
+            <StackPanel>
+                <StackPanel>
+                    <StackPanel Height="100" Orientation="Horizontal">
+                        <Button Content="查积分"
+                        Command="{Binding TotalScoreCommand}" Width="100" Margin="5">
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         </TabItem>
         <TabItem Header="Post">
             <StackPanel>

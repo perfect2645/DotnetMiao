@@ -55,6 +55,8 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<LikeController>();
             HttpServiceController.AddTransientService<AnnouncementController>();
             HttpServiceController.AddTransientService<PlayChanceController>();
+            HttpServiceController.AddTransientService<TotalScoreController>();
+            
 
             HttpServiceController.BuidServiceProvider();
         }

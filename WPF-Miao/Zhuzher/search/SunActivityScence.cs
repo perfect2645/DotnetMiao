@@ -21,18 +21,14 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //InitSceneList();
+            InitSceneList();
             TestSceneList();
         }
 
         private void TestSceneList()
         {
-            ////到家服务结单后评价
-            //AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
-
-
-            // 完单后评价服务质量
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1094&scene=miniopenurl&from=hd");
+            //到家服务结单后评价
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
         }
 
         private void InitSceneList()
