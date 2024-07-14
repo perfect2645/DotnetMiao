@@ -80,8 +80,8 @@ namespace Zhuzher.search
             //AddMiaoshaItem(9170, 1, "五粮液火爆金球酒", "1629", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
 
 
-            AddMiaoshaItem(9253, 1, "周六10点抢无门槛券", "1648", $"{DateTimeUtil.GetToday()} 9:59:58.{misecond}");
-            //AddMiaoshaItem(9254, 1, "周ri10点抢无门槛券", "1648", $"{DateTimeUtil.GetToday()} 9:59:58.{misecond}");
+            //AddMiaoshaItem(9253, 1, "周六10点抢无门槛券", "1648", $"{DateTimeUtil.GetToday()} 9:59:58.{misecond}");
+            AddMiaoshaItem(9254, 1, "周ri10点抢无门槛券", "1648", $"{DateTimeUtil.GetToday()} 9:59:59");
 
 
             //AddMiaoshaItem(9032, 1, "空调清洗免单", "1599", $"{DateTimeUtil.GetToday()} 10:00:00");

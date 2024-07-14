@@ -67,7 +67,9 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            AddExchangeItem(4091, 209, "鲁花");
+            //AddExchangeItem(4169, 214, "啤酒");
+            //AddExchangeItem(4171, 214, "蟠桃");
+            AddExchangeItem(4173, 214, "芒果");
 
             //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
