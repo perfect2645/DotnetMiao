@@ -21,7 +21,7 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            InitSceneList();
+            //InitSceneList();
             TestSceneList();
         }
 
@@ -92,6 +92,8 @@ namespace Zhuzher.search
             AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262sq");
             // 完单后评价服务质量
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
+            // 竞猜赢75寸电视
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1084&scene=hdchannel&from=jifen");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
