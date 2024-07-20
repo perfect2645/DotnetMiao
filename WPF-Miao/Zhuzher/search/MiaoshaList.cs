@@ -77,10 +77,8 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 800);
-            AddMiaoshaItem(9170, 1, "五粮液火爆金球酒", "1629", $"{DateTimeUtil.GetToday()} 19:59:58.{misecond}");
-
-
-            //AddMiaoshaItem(9253, 1, "周六10点抢无门槛券", "1648", $"{DateTimeUtil.GetToday()} 9:59:58.{misecond}");
+            AddMiaoshaItem(9168, 1, "小米手环8免单券", "1629", $"{DateTimeUtil.GetToday()} 19:59:58.{misecond}");
+            AddMiaoshaItem(9169, 1, "随身小风扇免单券（运动避暑神器）", "1629", $"{DateTimeUtil.GetToday()} 20:00:02.{misecond}");
             //AddMiaoshaItem(9254, 1, "周ri10点抢无门槛券", "1648", $"{DateTimeUtil.GetToday()} 9:59:58.{misecond}");
 
 
