@@ -135,12 +135,15 @@
         </TabItem>
         <TabItem Header="Score">
             <StackPanel>
-                <StackPanel>
-                    <StackPanel Height="100" Orientation="Horizontal">
-                        <Button Content="查积分"
-                        Command="{Binding TotalScoreCommand}" Width="100" Margin="5">
-                        </Button>
-                    </StackPanel>
+                <StackPanel Height="100" Orientation="Horizontal">
+                    <Button Content="查积分"
+                    Command="{Binding TotalScoreCommand}" Width="100" Margin="5">
+                    </Button>
+                </StackPanel>
+                <StackPanel Height="100" Orientation="Horizontal">
+                    <Button Content="积分月度评价"
+                    Command="{Binding SurveyCommand}" Width="100" Margin="5">
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </TabItem>

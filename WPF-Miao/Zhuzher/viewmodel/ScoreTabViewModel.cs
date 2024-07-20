@@ -18,6 +18,7 @@ namespace Zhuzher.viewmodel
     {
         #region Properties
         public ICommand TotalScoreCommand { get; set; }
+        public ICommand SurveyCommand { get; set; }
 
 
         #endregion Properties
@@ -25,6 +26,13 @@ namespace Zhuzher.viewmodel
         private void InitScoreTab()
         {
             TotalScoreCommand = new RelayCommand(ExecuteTotalScore);
+            SurveyCommand = new RelayCommand(ExecuteSurvey);
+        }
+
+        private void ExecuteSurvey()
+        {
+            var surveyController = HttpServiceController.GetService<SurveyAnswerController>();
+            surveyController.SurveyAnswerAsync();
         }
 
         private void ExecuteTotalScore()

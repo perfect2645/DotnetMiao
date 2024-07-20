@@ -250,8 +250,8 @@ namespace Zhuzher.viewmodel
                 var guessBet = new GuessBet
                 {
                     ActivityId = MainSession.ActivityId,
-                    ActivityGuessId = 207,
-                    OptionId = 263,
+                    ActivityGuessId = 210,
+                    OptionId = 269,
                 };
 
                 betController.GuessBetAsync(guessBet);
