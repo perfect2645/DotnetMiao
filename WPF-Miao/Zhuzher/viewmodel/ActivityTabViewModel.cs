@@ -14,13 +14,15 @@ namespace Zhuzher.viewmodel
     {
         #region Properties
         public ICommand ActivityChanceCommand { get; set; }
-       
+        public ICommand GuessResultCommand { get; set; }
+
 
         #endregion Properties
 
         private void InitActivityComments()
         {
             ActivityChanceCommand = new RelayCommand(ExecuteActivityChance);
+            GuessResultCommand = new RelayCommand(ExecuteGuessResult);
         }
 
         private void ExecuteActivityChance()
@@ -29,6 +31,23 @@ namespace Zhuzher.viewmodel
             {
                 var chanceController = HttpServiceController.GetService<PlayChanceController>();
                 chanceController.GetChanceAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteGuessResult()
+        {
+            try
+            {
+                var myGuessController = HttpServiceController.GetService<MyGuessController>();
+                myGuessController.GetGuessResultAsync(214);
             }
             catch (HttpException ex)
             {

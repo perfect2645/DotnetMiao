@@ -57,7 +57,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<PlayChanceController>();
             HttpServiceController.AddTransientService<TotalScoreController>();
             HttpServiceController.AddTransientService<SurveyAnswerController>();
-
+            HttpServiceController.AddTransientService<MyGuessController>();
 
             HttpServiceController.BuidServiceProvider();
         }

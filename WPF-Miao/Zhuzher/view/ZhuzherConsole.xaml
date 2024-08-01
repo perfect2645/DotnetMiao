@@ -128,7 +128,9 @@
                         </Button>
                     </StackPanel>
                     <StackPanel Height="100" Orientation="Horizontal">
-                        
+                        <Button Content="竞猜记录"
+                        Command="{Binding GuessResultCommand}" Width="100" Margin="5">
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
