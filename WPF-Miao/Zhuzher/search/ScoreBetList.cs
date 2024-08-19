@@ -16,10 +16,10 @@ namespace Zhuzher.search
         {
             ScoreBets = new List<ScoreBet>();
 
-            ScoreBets.Add(new ScoreBet(56, 9256, 500, "九阳(Joyoung)电炖锅"));
-            ScoreBets.Add(new ScoreBet(56, 9257, 500, "九阳(Joyoung)电炖锅"));
-            ScoreBets.Add(new ScoreBet(56, 9258, 500, "九阳(Joyoung)电炖锅"));
-            ScoreBets.Add(new ScoreBet(56, 9259, 500, "九阳(Joyoung)电炖锅"));
+            ScoreBets.Add(new ScoreBet(56, 9286, 500, "纽曼1"));
+            ScoreBets.Add(new ScoreBet(56, 9287, 500, "纽曼2"));
+            ScoreBets.Add(new ScoreBet(56, 9288, 500, "纽曼3"));
+            ScoreBets.Add(new ScoreBet(56, 9289, 500, "纽曼4"));
             //ScoreBets.Add(new ScoreBet(56, 9249, 100, "华为电视"));
 
         }

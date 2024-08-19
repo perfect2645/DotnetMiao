@@ -214,10 +214,10 @@ namespace Zhuzher.viewmodel
                         Task.Factory.StartNew(() =>
                         {
                             var playHandler = HttpServiceController.GetService<PlayController>();
-                            for (int i = 0; i < 1; i++)
+                            for (int i = 0; i < 50; i++)
                             {
                                 var targetNumber = playHandler.ActivityPlay(user);
-                                if (targetNumber == 1)
+                                if (targetNumber == 3)
                                 {
 
                                     MainSession.UserIntSession.AddOrUpdate(user.UserId, targetNumber);
@@ -250,8 +250,8 @@ namespace Zhuzher.viewmodel
                 var guessBet = new GuessBet
                 {
                     ActivityId = MainSession.ActivityId,
-                    ActivityGuessId = 217,
-                    OptionId = 285,
+                    ActivityGuessId = 219,
+                    OptionId = 287,
                 };
 
                 betController.GuessBetAsync(guessBet);
