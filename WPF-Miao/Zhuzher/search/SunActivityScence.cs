@@ -70,30 +70,12 @@ namespace Zhuzher.search
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
 
             // 活动特定
-            //参与活动免物业费
-            AddScene("app-browseweb", 1, $"https://enterprise.4009515151.com/fe-event-pages/marketing?id={MainSession.ActivityId}&from=jifen");
-            //完成1次积分兑换抽奖
-            AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral?from=hd");
-            // 看看最新的物业公告
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
-            //逛逛友邻荔枝专题
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6035?pageMark=bbtgyhhdsgzt6035t");
-            //逛逛友邻牛奶专题
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/4998?pageMark=bbtgyhzznnzt48t");
-            //购买空调清洗服务
-            AddScene("invitee-new-oder", 1, "https://neighbor.4009515151.com/summoner-canary/orders/product-detail?goodsId=6636101&pageMark=zhuzheer_product_scan");
-            //完成任意金额在线缴费
-            AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");
-            //逛百万补贴专场
-            AddScene("puli-daka", "miniopenurl");
-            // 运动补水季，福利下单
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6314?pageMark=zhcydj");
-            // 百万补贴购物赢大奖
-            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262sq");
-            // 完单后评价服务质量
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=nvshenjie");
-            // 竞猜赢75寸电视
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1084&scene=hdchannel&from=jifen");
+            //转发活动邀请3人助力
+            AddScene("app-act-invite&view", 1, $"1");
+            //给别人成功助力1次
+            AddScene("app-act-help", 1, $"1");
+            // 每天逛逛百万补贴会场，浏览10秒以上即可完成任务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262sy");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
