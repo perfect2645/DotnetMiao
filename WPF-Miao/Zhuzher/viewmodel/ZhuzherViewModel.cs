@@ -97,7 +97,7 @@ namespace Zhuzher.viewmodel
             var scorekilllist = new ScoreItemList();
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
-            ActivityId = "1084";
+            ActivityId = "1104";
             MainSession.InviteCode = "T3L84I";
         }
 
@@ -250,8 +250,8 @@ namespace Zhuzher.viewmodel
                 var guessBet = new GuessBet
                 {
                     ActivityId = MainSession.ActivityId,
-                    ActivityGuessId = 219,
-                    OptionId = 287,
+                    ActivityGuessId = 225,
+                    OptionId = 296,
                 };
 
                 betController.GuessBetAsync(guessBet);
