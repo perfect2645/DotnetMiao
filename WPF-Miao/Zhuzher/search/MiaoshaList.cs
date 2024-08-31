@@ -76,9 +76,9 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            var misecond = NumberUtil.IntRandom(200, 800);
-            //AddMiaoshaItem(9298, 1, "阳澄湖大闸蟹蟹卡", "1658", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
-            AddMiaoshaItem(9298, 1, "阳澄湖大闸蟹蟹卡", "1658", $"{DateTimeUtil.GetToday()} 20:00:00");
+            var misecond = NumberUtil.IntRandom(800, 999);
+            //AddMiaoshaItem(9299, 1, "阳澄湖大闸蟹蟹卡", "1658", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
+            AddMiaoshaItem(9299, 1, "阳澄湖大闸蟹蟹卡", "1658", $"{DateTimeUtil.GetToday()} 20:00:00");
 
 
             //AddMiaoshaItem(9032, 1, "空调清洗免单", "1599", $"{DateTimeUtil.GetToday()} 10:00:00");

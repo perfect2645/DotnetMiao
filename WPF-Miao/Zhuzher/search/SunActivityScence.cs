@@ -70,6 +70,8 @@ namespace Zhuzher.search
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
 
             // 活动特定
+            // 竞猜赢75寸电视
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1084&scene=hdchannel&from=jifen");
             //转发活动邀请3人助力
             AddScene("app-act-invite&view", 1, $"1");
             //给别人成功助力1次
