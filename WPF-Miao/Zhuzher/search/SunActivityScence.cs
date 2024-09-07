@@ -70,14 +70,9 @@ namespace Zhuzher.search
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
 
             // 活动特定
-            // 竞猜赢75寸电视
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1084&scene=hdchannel&from=jifen");
-            //转发活动邀请3人助力
-            AddScene("app-act-invite&view", 1, $"1");
-            //给别人成功助力1次
-            AddScene("app-act-help", 1, $"1");
-            // 每天逛逛百万补贴会场，浏览10秒以上即可完成任务
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262sy");
+            // 免费抢1万只大闸蟹
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1104&scene=hdchannel&from=jifen");
+
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

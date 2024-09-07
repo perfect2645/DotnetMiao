@@ -5,11 +5,11 @@
         {
             "activityTaskId": 5968,
             "taskId": 1016,
-            "taskName": "参与活动免物业费",
+            "taskName": "免费抢1万只大闸蟹",
             "tips": "前往活动会场参与活动，每天仅限1次",
             "sceneType": "behavior",
             "minVersion": "5.2.6",
-            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1065&from=jifen",
+            "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1104&scene=hdchannel&from=jifen",
             "scoreValue": 20,
             "finished": true,
             "eventCode": null,
@@ -41,9 +41,9 @@
             "minVersion": "",
             "url": "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen",
             "scoreValue": 30,
-            "finished": false,
+            "finished": true,
             "eventCode": "LIVE:CONV:0001",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "5thzone-convenience-comment"
         },
@@ -56,9 +56,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/payment-center/home",
             "scoreValue": 0,
-            "finished": true,
+            "finished": false,
             "eventCode": "SERVICE:PAY:0001",
-            "processValue": "1",
+            "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "doc-property-pay"
         },
@@ -106,36 +106,6 @@
             "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "5thzone-convenience-done"
-        },
-        {
-            "activityTaskId": 4043,
-            "taskId": 451,
-            "taskName": "邻里互助发帖",
-            "tips": "邻里互助发帖获得积分，每日3次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point",
-            "scoreValue": 10,
-            "finished": true,
-            "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "1",
-            "requiredValue": "1",
-            "sceneCode": "app-post"
-        },
-        {
-            "activityTaskId": 4044,
-            "taskId": 452,
-            "taskName": "邻里互助评论",
-            "tips": "发表优质评论得积分，每日1次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point",
-            "scoreValue": 10,
-            "finished": true,
-            "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "1",
-            "requiredValue": "1",
-            "sceneCode": "app-post-review"
         },
         {
             "activityTaskId": 4421,
@@ -191,9 +161,9 @@
             "minVersion": "",
             "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
             "scoreValue": 20,
-            "finished": true,
+            "finished": false,
             "eventCode": "ACT:ONLINE:0003",
-            "processValue": "1",
+            "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "puli-daka"
         },
@@ -283,7 +253,7 @@
             "scoreValue": 500,
             "finished": false,
             "eventCode": "ACT:SCORE:0001",
-            "processValue": "5",
+            "processValue": "6",
             "requiredValue": "7",
             "sceneCode": "app-startapp"
         },
@@ -296,9 +266,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/fe-event-pages/association?community=1&id=6&scene=jfzxrq",
             "scoreValue": 20,
-            "finished": false,
+            "finished": true,
             "eventCode": "ACT:ONLINE:0003",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "puli-daka"
         },
@@ -348,21 +318,6 @@
             "sceneCode": "app-browseweb"
         },
         {
-            "activityTaskId": 4687,
-            "taskId": 621,
-            "taskName": "积分话题发帖",
-            "tips": "前往积分话题成功发帖获得积分",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=358",
-            "scoreValue": 10,
-            "finished": true,
-            "eventCode": "CMS:SOCIAL:0001",
-            "processValue": "1",
-            "requiredValue": "1",
-            "sceneCode": "app-post"
-        },
-        {
             "activityTaskId": 4936,
             "taskId": 651,
             "taskName": "完成物业评价问卷",
@@ -376,21 +331,6 @@
             "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "PropertyServiceEvaluation"
-        },
-        {
-            "activityTaskId": 5714,
-            "taskId": 950,
-            "taskName": "签署消防公约",
-            "tips": "完成签署消防协议得积分，可完成1次",
-            "sceneType": "behavior",
-            "minVersion": "",
-            "url": "https://enterprise.4009515151.com/marketing-pages/convention",
-            "scoreValue": 10,
-            "finished": false,
-            "eventCode": "ACT:ONLINE:0003",
-            "processValue": "0",
-            "requiredValue": "1",
-            "sceneCode": "puli-daka"
         }
     ]
 }
