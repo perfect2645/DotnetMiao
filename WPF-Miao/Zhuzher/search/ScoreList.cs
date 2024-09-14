@@ -68,11 +68,11 @@ namespace Zhuzher.search
         private void InitExchangeList()
         {
             //AddExchangeItem(4327, 219, "鲁花");
-            AddExchangeItem(4416, 223, "买一送一】中秋DIY花灯9款可选亲子互动，锻炼动手能力");
-            AddExchangeItem(4417, 223, "福建红心柚子新鲜三红柚子当季水果红肉柚子时令鲜果");
-            AddExchangeItem(4418, 223, "【心相印】经典原生木桨100抽3层软抽纸 8包/提");
-            AddExchangeItem(4419, 223, "沃隆成长每日坚果");
-            AddExchangeItem(4420, 223, "【八十八倉】万科乡村振兴甄选·兴化大米2.5/5kg");
+            //AddExchangeItem(4416, 223, "买一送一】中秋DIY花灯9款可选亲子互动，锻炼动手能力");
+            //AddExchangeItem(4417, 223, "福建红心柚子新鲜三红柚子当季水果红肉柚子时令鲜果");
+            //AddExchangeItem(4418, 223, "【心相印】经典原生木桨100抽3层软抽纸 8包/提");
+            //AddExchangeItem(4419, 223, "沃隆成长每日坚果");
+            //AddExchangeItem(4420, 223, "【八十八倉】万科乡村振兴甄选·兴化大米2.5/5kg");
             AddExchangeItem(4421, 223, "蒙牛特仑苏纯牛奶苗条装250ml12盒");
 
             //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
