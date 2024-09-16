@@ -97,7 +97,7 @@ namespace Zhuzher.viewmodel
             var scorekilllist = new ScoreItemList();
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
-            ActivityId = "1104";
+            ActivityId = "1105";
             MainSession.InviteCode = "T3L84I";
         }
 
