@@ -151,7 +151,9 @@
                         <Button Content="拼图兑换"
                             Command="{Binding FragmentExchangeCommand}" Width="100" Margin="5">
                         </Button>
-
+                        <Button Content="拼图查询"
+                            Command="{Binding FragmentHoldCommand}" Width="100" Margin="5">
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

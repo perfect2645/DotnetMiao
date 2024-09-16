@@ -4,15 +4,16 @@ using Zhuzher.session;
 
 namespace Zhuzher.Play
 {
-    internal class FragmentExchangeContent : OnewoContent
+    internal class FragmentContent : OnewoContent
     {
         private const string _exchangeUrl = "https://z.onewo.com/market/api/activity/fragment/exchange";
         private const string _lotteryUrl = "https://z.onewo.com/market/api/activity/fragment/lottery";
+        private const string _holdUrl = "https://z.onewo.com/market/api/activity/fragment/hold";
 
         public int ActivityGameId { get; set; }
         public int GoodId { get; set; }
 
-        public FragmentExchangeContent(UserProject user, int activityGameId, int goodId) : base(_exchangeUrl, user)
+        public FragmentContent(UserProject user, int activityGameId, int goodId) : base(_exchangeUrl, user)
         {
             AddDeviceId();
 
@@ -21,7 +22,15 @@ namespace Zhuzher.Play
             BuildExchangeContent();
         }
 
-        public FragmentExchangeContent(UserProject user, int activityGameId) : base(_lotteryUrl, user)
+        public FragmentContent(UserProject user, int activityGameId) : base(_lotteryUrl, user)
+        {
+            AddDeviceId();
+
+            ActivityGameId = activityGameId;
+            BuildLotteryContent();
+        }
+
+        public FragmentContent(UserProject user, int activityGameId, string activityType ="hold") : base(_holdUrl, user)
         {
             AddDeviceId();
 
