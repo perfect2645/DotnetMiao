@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1CE4233A-2EBB-42E8-A81A-DF0A7B07DA9F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		WPF-Miao.pssln = WPF-Miao.pssln
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.csproj", "{8DEC8474-EE99-4B9B-B79D-F3B3192E5E2C}"

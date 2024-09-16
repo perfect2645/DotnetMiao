@@ -15,7 +15,30 @@ namespace Zhuzher.viewmodel
         #region Properties
         public ICommand ActivityChanceCommand { get; set; }
         public ICommand GuessResultCommand { get; set; }
+        public ICommand FragmentExchangeCommand { get; set; }
+        public ICommand FragmentLotteryCommand { get; set; }
 
+        private int _activityGameId = 1685;
+        public int ActivityGameId
+        {
+            get { return _activityGameId; }
+            set
+            {
+                NotifyUI(() => ActivityGameId);
+                _activityGameId = value;
+            }
+        }
+
+        private int _goodId;
+        public int GoodId
+        {
+            get { return _goodId; }
+            set
+            {
+                NotifyUI(() => GoodId);
+                _goodId = value;
+            }
+        }
 
         #endregion Properties
 
@@ -23,6 +46,8 @@ namespace Zhuzher.viewmodel
         {
             ActivityChanceCommand = new RelayCommand(ExecuteActivityChance);
             GuessResultCommand = new RelayCommand(ExecuteGuessResult);
+            FragmentExchangeCommand = new RelayCommand(FragmentExchange);
+            FragmentLotteryCommand = new RelayCommand(FragmentLottery);
         }
 
         private void ExecuteActivityChance()
@@ -48,6 +73,40 @@ namespace Zhuzher.viewmodel
             {
                 var myGuessController = HttpServiceController.GetService<MyGuessController>();
                 myGuessController.GetGuessResultAsync(214);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void FragmentExchange()
+        {
+            try
+            {
+                var fragmentPlay = HttpServiceController.GetService<FragmentExchangeController>();
+                fragmentPlay.FragmentExchangeAsync(ActivityGameId, GoodId);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void FragmentLottery()
+        {
+            try
+            {
+                var fragmentPlay = HttpServiceController.GetService<FragmentExchangeController>();
+                fragmentPlay.FragmentLotteryAsync(ActivityGameId);
             }
             catch (HttpException ex)
             {

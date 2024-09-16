@@ -22,7 +22,6 @@ namespace Zhuzher.search
         {
             UserProjects = new List<UserProject>();
             InitUserProjectList();
-            
         }
 
         private string InitUserDeviceId(string userName)
@@ -50,7 +49,7 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 47497716-6b7b-4da6-9655-e45ea4ebbb65");
+            //AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 47497716-6b7b-4da6-9655-e45ea4ebbb65");
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 500f9a6b-a1da-456a-91c3-7c115e00d207");
             AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 02837e20-d48f-4d3e-82f1-78ed4fac7682");
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 58543469-4145-4120-89dc-b15da4b5515e");

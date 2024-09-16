@@ -13,7 +13,7 @@ namespace Zhuzher.search
 
         public string Url { get; set; }
 
-        public int Version { get; set; } 
+        public int Version { get; set; }
     }
 
     internal class SunActivityScenceList
@@ -32,8 +32,6 @@ namespace Zhuzher.search
 
             ////开启住这儿消息通知
             //AddScene("app-push", 1, "zze://vanke.com/user/setting/list");
-
-
         }
 
         private void InitSceneList()
@@ -83,22 +81,16 @@ namespace Zhuzher.search
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
             //邀请10个邻居助力
             AddScene("app-act-invite&view", 1, "1");
-
             //每天首次给别人助力
             AddScene("app-act-help", 1, "1");
-
             //完成每日积分抽奖
             AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong");
-
             //做达人随手拍赢物业费
             AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie");
-
             //关注你喜欢的达人
             AddScene("gottalent-fans", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie");
-
             //给喜欢的达人作品点赞
             AddScene("gottalent-like", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie");
-
             //谈记忆中妈妈做菜味道
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=activity");
 

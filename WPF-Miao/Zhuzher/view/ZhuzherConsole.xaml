@@ -126,11 +126,32 @@
                         <Button Content="查金币"
                         Command="{Binding ActivityChanceCommand}" Width="100" Margin="5">
                         </Button>
-                    </StackPanel>
-                    <StackPanel Height="100" Orientation="Horizontal">
                         <Button Content="竞猜记录"
                         Command="{Binding GuessResultCommand}" Width="100" Margin="5">
                         </Button>
+                    </StackPanel>
+                    <StackPanel Height="100" Orientation="Horizontal" Background="AliceBlue">
+                        <TextBox Width="100"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding ActivityGameId}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="ActivityGameId">
+                        </TextBox>
+                        <Button Content="拼图抽奖"
+                            Command="{Binding FragmentLotteryCommand}" Width="100" Margin="5">
+                        </Button>
+                        <TextBox Width="100"
+                         Height="30"
+                         Margin="20,10,0,10"
+                         Text="{Binding GoodId}"
+                         HorizontalAlignment="Left"
+                         materialDesign:HintAssist.Hint="GoodId">
+                        </TextBox>
+                        <Button Content="拼图兑换"
+                            Command="{Binding FragmentExchangeCommand}" Width="100" Margin="5">
+                        </Button>
+
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
