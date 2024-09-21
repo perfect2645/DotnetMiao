@@ -133,16 +133,12 @@ namespace Zhuzher.Play
             var resultDic = JsonAnalysis.JsonToDic(result);
 
             var activityId = resultDic.GetString("activityId");
-            var holdList = JsonAnalysis.JsonToDicList(resultDic.GetString("holdList"));
-
-            var msg = "";
-            foreach(var holdItem in holdList)
-            {
-                var goodId = holdItem.GetString("goodId");
-                var count = holdItem.GetString("count");
-                msg = $"{msg}[{goodId}*{count}]";
-            }
-            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] 已经抽中了 {msg}");
+            var number = resultDic.GetString("number");
+            var goodType = resultDic.GetString("goodType");
+            var goodName = resultDic.GetString("goodName");
+            var chanceNumber = resultDic.GetString("chanceNumber");
+            var goodId = resultDic.GetString("goodId");
+            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] - 抽中了 number[{number}-{goodId}-{goodName}],还有积分:{chanceNumber}");
         }
 
         public bool FragmentHold(UserProject user, int activityGameId)
@@ -168,7 +164,7 @@ namespace Zhuzher.Play
                 }
 
                 var result = root.GetProperty("result");
-                SaveLotteryResult(user, result);
+                SaveHoldResult(user, result);
                 return true;
             }
             catch (Exception ex)
@@ -176,6 +172,23 @@ namespace Zhuzher.Play
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentExchange失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
+        }
+
+        private void SaveHoldResult(UserProject user, JsonElement result)
+        {
+            var resultDic = JsonAnalysis.JsonToDic(result);
+
+            var activityId = resultDic.GetString("activityId");
+            var holdList = JsonAnalysis.JsonToDicList(resultDic.GetString("holdList"));
+
+            var msg = "";
+            foreach (var holdItem in holdList)
+            {
+                var goodId = holdItem.GetString("goodId");
+                var count = holdItem.GetString("count");
+                msg = $"{msg}[{goodId}*{count}]";
+            }
+            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] 已经抽中了 {msg}");
         }
     }
 }
