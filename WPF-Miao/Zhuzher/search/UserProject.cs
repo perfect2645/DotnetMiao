@@ -69,7 +69,7 @@ namespace Zhuzher.search
             //13050516050
             AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 45985e8a-edd0-44c5-80ec-073db2bca196");
             //18604266644孙森--物业券0831
-            AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer b3e3d07e-f358-4bb9-9d78-47fe32725c48");
+            AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 6a8a690a-6fc5-49d1-916e-ce27002494c1");
             //13904221688
             AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer dd292b25-2176-4e9e-a27f-c7ec53fd6194");
 
