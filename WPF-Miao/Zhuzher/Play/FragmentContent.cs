@@ -8,9 +8,10 @@ namespace Zhuzher.Play
     {
         private const string _exchangeUrl = "https://z.onewo.com/market/api/activity/fragment/exchange";
         private const string _lotteryUrl = "https://z.onewo.com/market/api/activity/fragment/lottery";
-        private const string _holdUrl = "https://z.onewo.com/market/api/activity/fragment/hold";
+        private const string _baseUrl = "https://z.onewo.com/market/api/activity/fragment/";
 
         public int ActivityGameId { get; set; }
+        public string ActivityType { get; set; }
         public int GoodId { get; set; }
 
         public FragmentContent(UserProject user, int activityGameId, int goodId) : base(_exchangeUrl, user)
@@ -30,10 +31,11 @@ namespace Zhuzher.Play
             BuildLotteryContent();
         }
 
-        public FragmentContent(UserProject user, int activityGameId, string activityType ="hold") : base(_holdUrl, user)
+        public FragmentContent(UserProject user, int activityGameId, string activityType) 
+            : base($"{_baseUrl}{activityType}", user)
         {
             AddDeviceId();
-
+            ActivityType = activityType;
             ActivityGameId = activityGameId;
             BuildLotteryContent();
         }
@@ -51,8 +53,16 @@ namespace Zhuzher.Play
         {
             AddContent("activityGameId", ActivityGameId);
             AddContent("activityId", MainSession.ActivityId);
-            AddContent("projectCode", User.ProjectCode);
-            AddContent("projectName", User.ProjectName);
+            switch (ActivityType)
+            {
+                case "hold":
+                case "compose":
+                    break;
+                default:
+                AddContent("projectCode", User.ProjectCode);
+                AddContent("projectName", User.ProjectName);
+                    break;
+            }
         }
     }
 }

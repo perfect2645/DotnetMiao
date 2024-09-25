@@ -27,11 +27,8 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            //转发活动到微信群
-            //AddScene("app-h5share", 1, "1");
-
-            ////开启住这儿消息通知
-            //AddScene("app-push", 1, "zze://vanke.com/user/setting/list");
+            //去看看社区未知的美好
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=jifen");
         }
 
         private void InitSceneList()
@@ -77,6 +74,8 @@ namespace Zhuzher.search
             // 活动特定
             // 朴礼节签到
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=hdchannel&from=jifen");
+            //去看看社区未知的美好
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=jifen");
             //到家服务结单后评价
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
             //邀请10个邻居助力

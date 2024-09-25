@@ -18,7 +18,8 @@ namespace Zhuzher.viewmodel
         public ICommand FragmentExchangeCommand { get; set; }
         public ICommand FragmentLotteryCommand { get; set; }
         public ICommand FragmentHoldCommand { get; set; }
-        
+        public ICommand FragmentComposeCommand { get; set; }
+
 
         private int _activityGameId = 1685;
         public int ActivityGameId
@@ -51,6 +52,7 @@ namespace Zhuzher.viewmodel
             FragmentExchangeCommand = new RelayCommand(FragmentExchange);
             FragmentLotteryCommand = new RelayCommand(FragmentLottery);
             FragmentHoldCommand = new RelayCommand(FragmentHold);
+            FragmentComposeCommand = new RelayCommand(FragmentCompose);
         }
 
         private void ExecuteActivityChance()
@@ -86,6 +88,8 @@ namespace Zhuzher.viewmodel
                 Log(ex);
             }
         }
+
+        #region Fragment
 
         private void FragmentExchange()
         {
@@ -137,5 +141,24 @@ namespace Zhuzher.viewmodel
                 Log(ex);
             }
         }
+
+        private void FragmentCompose()
+        {
+            try
+            {
+                var fragmentPlay = HttpServiceController.GetService<FragmentExchangeController>();
+                fragmentPlay.FragmentHoldAsync(ActivityGameId);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Fragment
     }
 }

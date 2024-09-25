@@ -79,7 +79,7 @@ namespace Zhuzher.Play
                 }
 
                 var result = root.GetProperty("result");
-                SaveBatResult(user, result);
+                SaveExchangeResult(user, result);
                 return true;
             }
             catch (Exception ex)
@@ -89,7 +89,7 @@ namespace Zhuzher.Play
             }
         }
 
-        private void SaveBatResult(UserProject user, JsonElement result)
+        private void SaveExchangeResult(UserProject user, JsonElement result)
         {
             MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] - FragmentExchange");
         }
@@ -126,7 +126,6 @@ namespace Zhuzher.Play
                 return false;
             }
         }
-
 
         private void SaveLotteryResult(UserProject user, JsonElement result)
         {
@@ -189,6 +188,40 @@ namespace Zhuzher.Play
                 msg = $"{msg}[{goodId}*{count}]";
             }
             MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] 已经抽中了 {msg}");
+        }
+
+
+        public bool FragmentCompose(UserProject user, int activityGameId)
+        {
+            try
+            {
+                var content = new FragmentContent(user, activityGameId, "compose");
+                content.BuildDefaultHeaders(Client);
+                var response = PostStringAsync(content).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentCompose - {response?.Message},请检查参数");
+                    return false;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var code = root.GetProperty("code").GetUInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 200)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentCompose失败: code={code}, message={msg}");
+                    return false;
+                }
+
+                var result = root.GetProperty("result");
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentCompose成功: code={code}, message={msg}");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentExchange失败 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
         }
     }
 }
