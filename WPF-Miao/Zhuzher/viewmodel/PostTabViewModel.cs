@@ -17,7 +17,7 @@ namespace Zhuzher.viewmodel
         public ICommand CommentV2Command { get; set; }
         public ICommand LikeV2Command { get; set; }
         
-        private string _postId= "71394";
+        private string _postId= "73196";
         public string PostId
         {
             get { return _postId; }

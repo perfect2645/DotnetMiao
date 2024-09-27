@@ -147,7 +147,7 @@ namespace Zhuzher.viewmodel
             try
             {
                 var fragmentPlay = HttpServiceController.GetService<FragmentExchangeController>();
-                fragmentPlay.FragmentHoldAsync(ActivityGameId);
+                fragmentPlay.FragmentComposeAsync(ActivityGameId);
             }
             catch (HttpException ex)
             {

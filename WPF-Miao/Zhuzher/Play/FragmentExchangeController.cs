@@ -56,6 +56,19 @@ namespace Zhuzher.Play
 
         }
 
+        public void FragmentComposeAsync(int activityGameId)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                foreach (var user in MainSession.UserProjectList.UserProjects)
+                {
+                    Thread.Sleep(500);
+                    Task.Factory.StartNew(() => FragmentCompose(user, activityGameId));
+                }
+            });
+
+        }
+
         public bool FragmentExchange(UserProject user, int activityGameId, int goodId)
         {
             try
