@@ -27,8 +27,12 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            //去看看社区未知的美好
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=jifen");
+            ////成功加入别人队伍
+            //AddScene("app-act-jointeam", 1, "1");
+
+            //关注公众号每日领阳光
+            AddScene("app-h5share", "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=gzhanswer&from=gzhanswer");
+
         }
 
         private void InitSceneList()
@@ -122,6 +126,15 @@ namespace Zhuzher.search
 
             //在活动会场停留10秒
             AddScene("app-browseweb", 1, "1");
+
+            //转发活动到微信群
+            AddScene("app-h5share", 2, "", 3);
+
+            //转发活动到微信群
+            AddScene("app-h5share", 2, "", 3);
+
+            //关注公众号每日领阳光
+            AddScene("puli-daka", "gzhanswer");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

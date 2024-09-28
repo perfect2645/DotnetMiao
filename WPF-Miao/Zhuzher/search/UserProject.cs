@@ -41,7 +41,7 @@ namespace Zhuzher.search
                 case "4827": return "34059398-SJT8-3453-24MB-SDFKJ23SD8TN";
                 case "13204122645": return "32403098-SDF7-FGJ9-CVB8-ASDKHET48NE0";
                 case "13050516050": return "34698023-QPWF-DFG8-8JKG-TRICKRB3MW5L";
-                case "孙森": return "42398734-SDT6-V974-XMND-QFGOBCN6439A";
+                case "孙森": return "6C17A131-4FBE-4ED1-AF16-5D4A48AA8D16";
                 case "恬恬姥姥": return "34598072-DSF3-VSDR-PUYH-WSDFJK32446R";
                 default:return string.Empty;
             }
@@ -69,7 +69,7 @@ namespace Zhuzher.search
             //13050516050
             AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 45985e8a-edd0-44c5-80ec-073db2bca196");
             //18604266644孙森--物业券0831
-            AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 6a8a690a-6fc5-49d1-916e-ce27002494c1");
+            AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 6a8a690a-6fc5-49d1-916e-ce27002494c1");//R9SSDY
             //13904221688
             AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer dd292b25-2176-4e9e-a27f-c7ec53fd6194");
 
