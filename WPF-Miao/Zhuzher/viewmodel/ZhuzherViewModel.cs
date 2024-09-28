@@ -98,7 +98,7 @@ namespace Zhuzher.viewmodel
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
             ActivityId = "1105";
-            MainSession.InviteCode = "4SW47A";
+            MainSession.InviteCode = "EBEWIA";
         }
 
         private void InitCommands()
@@ -214,7 +214,7 @@ namespace Zhuzher.viewmodel
                         Task.Factory.StartNew(() =>
                         {
                             var playHandler = HttpServiceController.GetService<PlayController>();
-                            for (int i = 0; i < 50; i++)
+                            for (int i = 0; i < 3; i++)
                             {
                                 var targetNumber = playHandler.ActivityPlay(user);
                                 if (targetNumber == 3)

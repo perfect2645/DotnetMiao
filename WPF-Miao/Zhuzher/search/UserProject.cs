@@ -52,7 +52,7 @@ namespace Zhuzher.search
             AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 47497716-6b7b-4da6-9655-e45ea4ebbb65");
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 500f9a6b-a1da-456a-91c3-7c115e00d207");
             AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 02837e20-d48f-4d3e-82f1-78ed4fac7682");
-            AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 58543469-4145-4120-89dc-b15da4b5515e");
+            AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer faaca07c-6ff4-41c7-a88d-2f298e62727b");//EBEWIA
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 36b23d4f-dcf6-4fde-b2da-bf2915b85e65");
             AddUserProject(21520695, "刘书辰", "21020002", "大连假日风景", "Bearer f2b8bd1b-3156-4ec8-bf34-46b71108599a");
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer d9ad293e-b309-4dd6-8e08-a4e6f54e937a");
