@@ -21,7 +21,7 @@ namespace Zhuzher.Exchange
 
         private void BuildContent()
         {
-            AddContent("activityGameId", 1624);
+            AddContent("activityGameId", 1694);
             AddContent("activityId", MainSession.ActivityId);
             AddContent("projectCode", User.ProjectCode);
             AddContent("projectName", User.ProjectName);

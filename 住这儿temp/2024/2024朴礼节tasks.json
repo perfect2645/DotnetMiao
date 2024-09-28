@@ -3,6 +3,66 @@
     "code": 200,
     "result": [
         {
+            "activityTaskId": 6302,
+            "taskId": 1075,
+            "taskName": "邀请邻居成为队友",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "邀请别人加入自己队伍即可获得阳光，仅限首次邀请",
+            "detail": [
+                {
+                    "taskDetailId": 1076,
+                    "sceneName": "邀请好友并成功加入队伍",
+                    "sceneCode": "app-act-invite&jointeam",
+                    "sceneDesc": "组队邀请好友，好友成功加入队伍，则算完成",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6303,
+            "taskId": 1076,
+            "taskName": "成功加入别人队伍",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "成功加入到别人的队伍，立即获得100阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1077,
+                    "sceneName": "加入好友队伍",
+                    "sceneCode": "app-act-jointeam",
+                    "sceneDesc": "通过组队邀请码/链接加入队伍，算完成一次加入好友队伍场景",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
             "activityTaskId": 6262,
             "taskId": 1063,
             "taskName": "转发活动到微信群",
@@ -47,10 +107,10 @@
                     "sceneDesc": "",
                     "url": "zze://vanke.com/user/setting/list",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -77,10 +137,10 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "10",
                     "requiredValue": "10"
                 }
             ],
@@ -123,36 +183,6 @@
             "isShow": 1
         },
         {
-            "activityTaskId": 6266,
-            "taskId": 1046,
-            "taskName": "完成任意金额在线缴费",
-            "chanceNumber": 100,
-            "taskDesc": "朴里节",
-            "tips": "完成1元以上物业费或车位缴费，即可完成任务，仅限一次",
-            "detail": [
-                {
-                    "taskDetailId": 1047,
-                    "sceneName": "物业缴费上报金额",
-                    "sceneCode": "doc-property-pay",
-                    "sceneDesc": "支付成功上报金额，预缴/普通缴费/车位缴费，单位“分”",
-                    "url": "https://enterprise.4009515151.com/payment-center/home",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "SERVICE:PAY:0001",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 2
-        },
-        {
             "activityTaskId": 6267,
             "taskId": 1059,
             "taskName": "完成每日积分签到",
@@ -170,6 +200,36 @@
                     "finished": false,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6284,
+            "taskId": 1047,
+            "taskName": "关注公众号每日领阳光",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "关注邻居公众号，聊天框发送“朴里节”，点击链接领阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1048,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=/pages/MilkBook/index.html?url=https://mp.weixin.qq.com/s/z0lWLJ8LGFeGAOLEpi1DuA",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
                     "processValue": "0",
                     "requiredValue": "1"
                 }
@@ -227,10 +287,10 @@
                     "sceneDesc": "达人秀发布图文或视频成功",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -317,10 +377,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=activity",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -347,40 +407,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=587&from=activity",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 2
-        },
-        {
-            "activityTaskId": 6274,
-            "taskId": 1054,
-            "taskName": "发帖被点赞20次以上",
-            "chanceNumber": 2000,
-            "taskDesc": "朴里节",
-            "tips": "话题发帖被邻居点赞20次以上完成任务，仅限完成1次",
-            "detail": [
-                {
-                    "taskDetailId": 1055,
-                    "sceneName": "集赞20个以上",
-                    "sceneCode": "app-postlike-puli",
-                    "sceneDesc": "朴里节使用",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=activity",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -557,10 +587,10 @@
                     "sceneDesc": "研选提交预约资料",
                     "url": "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
