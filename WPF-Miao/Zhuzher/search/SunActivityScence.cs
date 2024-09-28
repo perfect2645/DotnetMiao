@@ -21,8 +21,8 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //InitSceneList();
-            TestSceneList();
+            InitSceneList();
+            //TestSceneList();
         }
 
         private void TestSceneList()
@@ -30,8 +30,8 @@ namespace Zhuzher.search
             ////成功加入别人队伍
             //AddScene("app-act-jointeam", 1, "1");
 
-            //关注公众号每日领阳光
-            AddScene("app-h5share", "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=gzhanswer&from=gzhanswer");
+            ////关注公众号每日领阳光
+            //AddScene("app-h5share", "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=gzhanswer&from=gzhanswer");
 
         }
 
