@@ -157,6 +157,9 @@
                         <Button Content="拼图合成"
                             Command="{Binding FragmentComposeCommand}" Width="100" Margin="5">
                         </Button>
+                        <Button Content="拼图开奖"
+                            Command="{Binding FragmentOpenPriceCommand}" Width="100" Margin="5">
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

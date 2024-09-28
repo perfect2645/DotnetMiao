@@ -69,6 +69,19 @@ namespace Zhuzher.Play
 
         }
 
+        public void FragmentOpenPrizeAsync(int activityGameId)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                foreach (var user in MainSession.UserProjectList.UserProjects)
+                {
+                    Thread.Sleep(500);
+                    Task.Factory.StartNew(() => FragmentOpenPrice(user, activityGameId));
+                }
+            });
+
+        }
+
         public bool FragmentExchange(UserProject user, int activityGameId, int goodId)
         {
             try
@@ -235,6 +248,50 @@ namespace Zhuzher.Play
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentExchange失败 - {ex.Message} - {ex.StackTrace}");
                 return false;
             }
+        }
+
+        public bool FragmentOpenPrice(UserProject user, int activityGameId)
+        {
+            try
+            {
+                var content = new FragmentContent(user, activityGameId, "openPrize");
+                content.BuildDefaultHeaders(Client);
+                var response = PostStringAsync(content).Result;
+                if (response?.Body == null)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]openPrize - {response?.Message},请检查参数");
+                    return false;
+                }
+                var root = response.JsonBody.RootElement;
+
+                var code = root.GetProperty("code").GetUInt32();
+                var msg = root.GetProperty("message").GetString();
+                if (code != 200)
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]openPrize失败: code={code}, message={msg}");
+                    return false;
+                }
+
+                var result = root.GetProperty("result");
+                SavePrizeResult(user, result);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentopenPrize失败 - {ex.Message} - {ex.StackTrace}");
+                return false;
+            }
+        }
+
+        private void SavePrizeResult(UserProject user, JsonElement result)
+        {
+            var resultDic = JsonAnalysis.JsonToDic(result);
+
+            var activityId = resultDic.GetString("activityId");
+            var goodType = resultDic.GetString("goodType");
+            var goodName = resultDic.GetString("goodName");
+            var goodId = resultDic.GetString("goodId");
+            MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}] - 抽中了 [{goodId}-{goodName}]");
         }
     }
 }

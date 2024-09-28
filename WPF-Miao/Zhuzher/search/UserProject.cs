@@ -49,7 +49,7 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 47497716-6b7b-4da6-9655-e45ea4ebbb65");
+            //AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 47497716-6b7b-4da6-9655-e45ea4ebbb65");
             //AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 6ec8c10b-ef23-4de4-9212-6bcb8cb055ba");
             //AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 02837e20-d48f-4d3e-82f1-78ed4fac7682");
             //AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer faaca07c-6ff4-41c7-a88d-2f298e62727b");//EBEWIA
@@ -70,8 +70,8 @@ namespace Zhuzher.search
             //AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 45985e8a-edd0-44c5-80ec-073db2bca196");
             ////18604266644孙森--物业券0831
             //AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 6a8a690a-6fc5-49d1-916e-ce27002494c1");//R9SSDY
-            ////13904221688
-            //AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer dd292b25-2176-4e9e-a27f-c7ec53fd6194");
+            //13904221688
+            AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer dd292b25-2176-4e9e-a27f-c7ec53fd6194");
 
         }
 
