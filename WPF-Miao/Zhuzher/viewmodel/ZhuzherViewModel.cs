@@ -137,8 +137,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                var announcementController = HttpServiceController.GetService<AnnouncementController>();
-                announcementController.CollectSunAsync();
+                //var announcementController = HttpServiceController.GetService<AnnouncementController>();
+                //announcementController.CollectSunAsync();
 
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
