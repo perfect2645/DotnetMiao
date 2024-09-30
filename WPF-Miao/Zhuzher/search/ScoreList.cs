@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.datetime;
+using Utils.number;
 
 namespace Zhuzher.search
 {
@@ -68,14 +69,6 @@ namespace Zhuzher.search
         private void InitExchangeList()
         {
             //AddExchangeItem(4327, 219, "鲁花");
-            //AddExchangeItem(4416, 223, "买一送一】中秋DIY花灯9款可选亲子互动，锻炼动手能力");
-            //AddExchangeItem(4417, 223, "福建红心柚子新鲜三红柚子当季水果红肉柚子时令鲜果");
-            //AddExchangeItem(4418, 223, "【心相印】经典原生木桨100抽3层软抽纸 8包/提");
-            //AddExchangeItem(4419, 223, "沃隆成长每日坚果");
-            //AddExchangeItem(4420, 223, "【八十八倉】万科乡村振兴甄选·兴化大米2.5/5kg");
-            AddExchangeItem(4421, 223, "蒙牛特仑苏纯牛奶苗条装250ml12盒");
-
-            //AddExchangeItem(3225, 118, "海天生抽酱油500ml+精制料酒800ml （中华老字号）");
         }
 
         private void TestInitMiaoshaList()
@@ -85,9 +78,11 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            AddMiaoshaItem(4175, 215, 2203, "湿巾", $"{DateTimeUtil.GetToday()} 19:59:59");
-            //AddMiaoshaItem(3787, 205, 2191, "拖鞋", $"{DateTimeUtil.GetToday()} 19:59:58");
-            //AddMiaoshaItem(3785, 204, 2190, "纸", $"{DateTimeUtil.GetToday()} 19:59:59");
+            var misecond = NumberUtil.IntRandom(500, 900);
+            AddMiaoshaItem(4441, 227, 2212, "50元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 11:59:59.{misecond}");
+            //AddMiaoshaItem(4440, 227, 2212, "20元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
+            //AddMiaoshaItem(4439, 227, 2212, "10元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
+            //AddMiaoshaItem(4438, 227, 2212, "5元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")
