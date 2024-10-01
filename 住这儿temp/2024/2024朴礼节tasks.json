@@ -3,6 +3,126 @@
     "code": 200,
     "result": [
         {
+            "activityTaskId": 6280,
+            "taskId": 1060,
+            "taskName": "预约家装服务顾问",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "点击前往了解家装维修业务，并登记您的需求信息",
+            "detail": [
+                {
+                    "taskDetailId": 1061,
+                    "sceneName": "研选提交预约资料",
+                    "sceneCode": "yanxuan-submit-information",
+                    "sceneDesc": "研选提交预约资料",
+                    "url": "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6308,
+            "taskId": 1079,
+            "taskName": "完整看完一篇人物专访",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "完整看完才可以获得阳光哦！每周可以完成一次",
+            "detail": [
+                {
+                    "taskDetailId": 1080,
+                    "sceneName": "完播社区课堂视频",
+                    "sceneCode": "app-communityclassfinish",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/video?vkSource=video&courseId=NDAx&selectId=",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:CONTENT:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6273,
+            "taskId": 1053,
+            "taskName": "国庆去哪玩？晒晒美照",
+            "chanceNumber": 50,
+            "taskDesc": "朴里节",
+            "tips": "国庆参与#美好河山#话题发帖讨论，完成50字以上发帖",
+            "detail": [
+                {
+                    "taskDetailId": 1054,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=578&from=activity",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6272,
+            "taskId": 1052,
+            "taskName": "发帖畅谈美好祖国",
+            "chanceNumber": 50,
+            "taskDesc": "朴里节",
+            "tips": "国庆参与#歌颂美好祖国#话题发帖讨论，完成50字以上",
+            "detail": [
+                {
+                    "taskDetailId": 1053,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=620&from=activity",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
             "activityTaskId": 6302,
             "taskId": 1075,
             "taskName": "邀请邻居成为队友",
@@ -17,10 +137,10 @@
                     "sceneDesc": "组队邀请好友，好友成功加入队伍，则算完成",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -47,10 +167,10 @@
                     "sceneDesc": "通过组队邀请码/链接加入队伍，算完成一次加入好友队伍场景",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -75,12 +195,12 @@
                     "sceneName": "分享页面",
                     "sceneCode": "app-h5share",
                     "sceneDesc": "",
-                    "url": "1",
+                    "url": "javascript:void(0) ",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -135,7 +255,7 @@
                     "sceneName": "邀请好友参与活动",
                     "sceneCode": "app-act-invite&view",
                     "sceneDesc": "",
-                    "url": "1",
+                    "url": "javascript:void(0) ",
                     "detailDesc": "",
                     "finished": true,
                     "minVersion": "",
@@ -167,10 +287,10 @@
                     "sceneDesc": "",
                     "url": "1",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -197,10 +317,10 @@
                     "sceneDesc": "app积分中心进行签到",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/signin",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -227,10 +347,10 @@
                     "sceneDesc": "匹配参数为scene=xxx",
                     "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=/pages/MilkBook/index.html?url=https://mp.weixin.qq.com/s/z0lWLJ8LGFeGAOLEpi1DuA",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -257,10 +377,10 @@
                     "sceneDesc": "仅用于积分抽奖！",
                     "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "ACT:SCORE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -317,10 +437,10 @@
                     "sceneDesc": "达人秀观众关注别人",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -347,10 +467,10 @@
                     "sceneDesc": "达人秀观众给别人作品点赞",
                     "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -361,66 +481,6 @@
             "warnTitle": null,
             "warnText": null,
             "isShow": 1
-        },
-        {
-            "activityTaskId": 6272,
-            "taskId": 1052,
-            "taskName": "谈记忆中妈妈做菜味道",
-            "chanceNumber": 50,
-            "taskDesc": "朴里节",
-            "tips": "每周参与#妈妈美好味道#话题发帖讨论，完成50字以上",
-            "detail": [
-                {
-                    "taskDetailId": 1053,
-                    "sceneName": "发帖成功",
-                    "sceneCode": "app-post",
-                    "sceneDesc": "邻居团队使用",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=activity",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "",
-                    "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 2
-        },
-        {
-            "activityTaskId": 6273,
-            "taskId": 1053,
-            "taskName": "说说身边美好的小事",
-            "chanceNumber": 50,
-            "taskDesc": "朴里节",
-            "tips": "每周参与#身边小事#话题发帖讨论，完成50字以上发帖",
-            "detail": [
-                {
-                    "taskDetailId": 1054,
-                    "sceneName": "发帖成功",
-                    "sceneCode": "app-post",
-                    "sceneDesc": "邻居团队使用",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=587&from=activity",
-                    "detailDesc": "",
-                    "finished": true,
-                    "minVersion": "",
-                    "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 2
         },
         {
             "activityTaskId": 6275,
@@ -437,10 +497,10 @@
                     "sceneDesc": "匹配条件可以设置社区活动id",
                     "url": "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "OFFLINE:OFFLINE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -467,10 +527,10 @@
                     "sceneDesc": "社文签到活动",
                     "url": "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "OFFLINE:OFFLINE:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -497,10 +557,10 @@
                     "sceneDesc": "支持app和小程序。小程序仅支持从任务点击跳转",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -527,10 +587,10 @@
                     "sceneDesc": "可以设置单个商品id为匹配条件",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -557,39 +617,9 @@
                     "sceneDesc": "20230421更新：不可设置匹配条件",
                     "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
                     "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "LIVE:CONV:0001",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": null,
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 1
-        },
-        {
-            "activityTaskId": 6280,
-            "taskId": 1060,
-            "taskName": "预约家装服务顾问",
-            "chanceNumber": 10,
-            "taskDesc": "朴里节",
-            "tips": "点击前往了解家装维修业务，并登记您的需求信息",
-            "detail": [
-                {
-                    "taskDetailId": 1061,
-                    "sceneName": "研选提交预约资料",
-                    "sceneCode": "yanxuan-submit-information",
-                    "sceneDesc": "研选提交预约资料",
-                    "url": "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026",
-                    "detailDesc": "",
                     "finished": true,
                     "minVersion": "",
-                    "eventCode": null,
+                    "eventCode": "LIVE:CONV:0001",
                     "processValue": "1",
                     "requiredValue": "1"
                 }
@@ -617,10 +647,10 @@
                     "sceneDesc": "",
                     "url": "zze://vanke.com/property/opendoor/list",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.4",
                     "eventCode": "ACCESS:USER:0001",
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
@@ -645,7 +675,7 @@
                     "sceneName": "浏览页面10s",
                     "sceneCode": "app-browseweb",
                     "sceneDesc": "支持app和小程序。小程序仅支持从任务点击跳转",
-                    "url": "1",
+                    "url": "javascript:void(0) ",
                     "detailDesc": "",
                     "finished": true,
                     "minVersion": "5.2.6",
@@ -675,12 +705,12 @@
                     "sceneName": "登录app",
                     "sceneCode": "app-startapp",
                     "sceneDesc": "",
-                    "url": "1",
+                    "url": "javascript:void(0) ",
                     "detailDesc": "",
-                    "finished": false,
+                    "finished": true,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "0",
+                    "processValue": "1",
                     "requiredValue": "1"
                 }
             ],
