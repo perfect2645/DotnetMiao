@@ -79,10 +79,10 @@ namespace Zhuzher.search
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 900);
-            //AddMiaoshaItem(4441, 227, 2212, "50元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 11:59:59.{misecond}");
-            //AddMiaoshaItem(4440, 227, 2212, "20元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
-            //AddMiaoshaItem(4439, 227, 2212, "10元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
-            AddMiaoshaItem(4438, 227, 2212, "5元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:03");
+            AddMiaoshaItem(4441, 227, 2213, "50元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 11:59:59.{misecond}");
+            //AddMiaoshaItem(4440, 227, 2213, "20元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
+            //AddMiaoshaItem(4439, 227, 2213, "10元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
+            //AddMiaoshaItem(4438, 227, 2213, "5元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:03");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")
