@@ -13,6 +13,12 @@ namespace Zhuzher.search
 
         public string Url { get; set; }
 
+        /// <summary>
+        /// 2 : https://z.onewo.com/market/api/notice/scene
+        /// {"userId":24521842,"matchParam":"https://enterprise.4009515151.com/fe-event-pages/marketing?id=1105&from=share&sharerId=11067046&projectCode=21020025","sceneCode":"app-h5share","projectCode":"44030999","requestId":"1728122839473"}
+        /// 4 : https://z.onewo.com/market/api/notice/scene
+        /// {"userId":11067046,"sceneCode":"app-checkin-share","requestId":"20241004121023","projectCode":"21020025"}
+        /// </summary>
         public int Version { get; set; }
     }
 
@@ -21,7 +27,7 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            InitSceneList();
+            //InitSceneList();
             TestSceneList();
         }
 
@@ -29,16 +35,12 @@ namespace Zhuzher.search
         {
             ////成功加入别人队伍
             //AddScene("app-act-jointeam", 1, "1");
-            ////转发活动到微信群
-            //AddScene("app-h5share", 1, "", 3);
-            ////关注公众号每日领阳光
-            AddScene("app-h5share", "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=gzhanswer&from=gzhanswer");
+            //转发活动到微信群
+            //AddScene("app-h5share", 1, "javascript:void(0) ");
+ 
 
-            //关注公众号每日领阳光
-            //AddScene("puli-daka", "gzhanswer");
-
-            ////转发活动到微信群
-            //AddScene("app-communityclassfinish", 1, "https://communityclass.onewo.com/#/video?vkSource=video&courseId=NDAx&selectId=");
+            //转发活动到微信群
+            //AddScene("app-h5share", 1, "", 4);
 
         }
 
@@ -47,8 +49,10 @@ namespace Zhuzher.search
             //完成每日积分签到
             AddScene("app-checkin", 1, "https://enterprise.4009515151.com/marketing-pages/integral/signin");
             AddScene("app-startapp", 1, "1");
+            ////登录分享
+            //AddScene("app-checkin-share", 1, "", 3);
             //登录分享
-            AddScene("app-checkin-share", 1, "", 3);
+            AddScene("app-checkin-share", 1, "", 4);
             //到家服务结单后评价
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
             //邻里互助发帖
@@ -134,8 +138,8 @@ namespace Zhuzher.search
             //在活动会场停留10秒
             AddScene("app-browseweb", 1, "1");
 
-            //转发活动到微信群
-            AddScene("app-h5share", 1, "", 3);
+            //分享每日领阳光
+            AddScene("app-h5share", 2, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1105&from=share&sharerId=28566129&projectCode=21020025", 2);
 
             //关注公众号每日领阳光
             AddScene("puli-daka", "gzhanswer");

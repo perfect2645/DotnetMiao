@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Zhuzher.Common;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -43,8 +44,19 @@ namespace Zhuzher.collectsun
 
         private void CollectSunForEachScene(UserProject user, SunActivityScence scene)
         {
-            var content = new CollectSunV3Content(user, scene);
-
+            OnewoContent? content = null;
+            if (scene.Version == 3)
+            {
+                content = new CollectSunV3Content(user, scene);
+            }
+            else if (scene.Version == 4)
+            {
+                content = new CollectSunV4Content(user, scene);
+            }
+            else
+            {
+                return;
+            }
             content.BuildDefaultHeaders(Client);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;

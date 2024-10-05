@@ -43,24 +43,37 @@ namespace Zhuzher.collectsun
             foreach (var scene in ScenceList.ScenceList)
             {
                 var apiVersion = scene.Version;
-                var v1Controller = HttpServiceController.GetService<CollectSunController>();
                 if (apiVersion == 1)
                 {
+                    var v1Controller = HttpServiceController.GetService<CollectSunController>();
                     v1Controller.CollectSun(user, scene);
                     continue;
                 }
-                var v3Controller = HttpServiceController.GetService<CollectSunV3Controller>();
-                if (apiVersion == 3)
+                if (apiVersion == 2)
                 {
+                    Thread.Sleep(200);
+                    Task.Factory.StartNew(() =>
+                    {
+                        var v2Controller = HttpServiceController.GetService<CollectSunV2Controller>();
+                        v2Controller.CollectSun(user, scene);
+                    });
+                    continue;
+                }
+                if (apiVersion == 3 || apiVersion == 4)
+                {
+                    var v3Controller = HttpServiceController.GetService<CollectSunV3Controller>();
                     v3Controller.CollectSunAsync(user, scene);
                     continue;
                 }
-                for (var i = 0; i < scene.SceneTimes; i++)
-                {
-  
-                    Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                    Thread.Sleep(3000);
-                }
+            }
+        }
+
+        public void CollectSun(UserProject user, SunActivityScence scene)
+        {
+            for (var i = 0; i < scene.SceneTimes; i++)
+            {
+                Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                Thread.Sleep(2000);
             }
         }
 

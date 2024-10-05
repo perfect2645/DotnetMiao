@@ -6,13 +6,13 @@ using Zhuzher.search;
 
 namespace Zhuzher.collectsun
 {
-    internal class CollectSunV2Content : OnewoContent
+    internal class CollectSunV4Content : OnewoContent
     {
         private const string _url = "https://z.onewo.com/market/api/notice/scene";
 
         public SunActivityScence Scene { get; }
 
-        public CollectSunV2Content(UserProject user, SunActivityScence scene) : base(_url, user)
+        public CollectSunV4Content(UserProject user, SunActivityScence scene) : base(_url, user)
         {
             Scene = scene;
             BuildHeader();
@@ -21,15 +21,11 @@ namespace Zhuzher.collectsun
 
         private void BuildHeader()
         {
-            //AddHeader("X-AppKey", "6292E1891CA246EB9A2AABD9039C4F71");
-            //AddHeader("X-AppSecret", "C67F286E63D54F3995C3F6C6F52508ED");
-            //AddDeviceId();
         }
 
         private void BuildContent()
         {
             var nowTimestapm = DateTimeUtil.GetTimeStamp();
-            AddContent("matchParam", Scene.Url);
             AddContent("userId", User.UserId);
             AddContent("sceneCode", Scene.SceneCode);
             AddContent("requestId", nowTimestapm);

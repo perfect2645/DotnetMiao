@@ -8,7 +8,7 @@ namespace Zhuzher.collectsun
 {
     internal class CollectSunV3Content : OnewoContent
     {
-        private const string _url = "https://z.onewo.com/market/api/notice/scene";
+        private const string _url = "https://z.onewo.com/market/partner/notice/scene";
 
         public SunActivityScence Scene { get; }
 
