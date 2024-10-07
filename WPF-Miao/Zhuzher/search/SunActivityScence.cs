@@ -35,13 +35,13 @@ namespace Zhuzher.search
         {
             ////成功加入别人队伍
             //AddScene("app-act-jointeam", 1, "1");
-            //转发活动到微信群
-            //AddScene("app-h5share", 1, "javascript:void(0) ");
- 
 
-            //转发活动到微信群
-            //AddScene("app-h5share", 1, "", 4);
-
+            //完整看完一篇人物专访
+            AddScene("app-communityclassfinish", 1, "https://communityclass.onewo.com/#/video?vkSource=video&courseId=NDAx&selectId=");
+            //国庆去哪玩？晒晒美照
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=578&from=activity");
+            //发帖畅谈美好祖国
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=620&from=activity");
         }
 
         private void InitSceneList()
