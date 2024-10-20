@@ -77,10 +77,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=578&from=activity",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -107,10 +107,10 @@
                     "sceneDesc": "邻居团队使用",
                     "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=620&from=activity",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "",
                     "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],

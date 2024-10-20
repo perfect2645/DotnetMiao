@@ -68,7 +68,10 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            //AddExchangeItem(4327, 219, "鲁花");
+            AddExchangeItem(4555, 231, "牙膏");
+            //AddExchangeItem(4558, 231, "小麦粉");
+            //AddExchangeItem(4560, 231, "蒙牛真果粒");
+            //AddExchangeItem(4559, 231, "瓷碗");
         }
 
         private void TestInitMiaoshaList()

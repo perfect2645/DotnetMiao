@@ -85,6 +85,8 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan");
             //送一面锦旗给管家
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
+            // 逛逛百万补贴福利
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
 
             // 活动特定
             // 朴礼节签到

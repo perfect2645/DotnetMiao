@@ -76,9 +76,9 @@ namespace Zhuzher.search
 
         private void InitMiaoshaList()
         {
-            var misecond = NumberUtil.IntRandom(2, 600);
-            AddMiaoshaItem(9443, 1, "花牛苹果1箱3斤装", "1696", $"{DateTimeUtil.GetToday()} 22:00:00.{misecond}");
-            AddMiaoshaItem(9442, 1, "蓝漂玫瑰香氛洗衣液800g", "1696", $"{DateTimeUtil.GetToday()} 22:00:04.{misecond}");
+            var misecond = NumberUtil.IntRandom(500, 900);
+            AddMiaoshaItem(9473, 1, "山东秋月梨大果4.5斤", "1702", $"{DateTimeUtil.GetToday()} 19:59:59.{misecond}");
+            AddMiaoshaItem(9474, 1, "蓝漂加大加厚80抽湿巾纸", "1702", $"{DateTimeUtil.GetToday()} 20:00:05.{misecond}");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")
