@@ -95,8 +95,6 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=jifen");
             //到家服务结单后评价
             AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
-            //邀请10个邻居助力
-            AddScene("app-act-invite&view", 1, "1");
             //每天首次给别人助力
             AddScene("app-act-help", 1, "1");
             //完成每日积分抽奖
@@ -145,6 +143,9 @@ namespace Zhuzher.search
 
             //关注公众号每日领阳光
             AddScene("puli-daka", "gzhanswer");
+
+            //你家适老化做的如何？
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=492&from=activity");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
