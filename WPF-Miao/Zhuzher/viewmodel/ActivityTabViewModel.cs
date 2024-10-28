@@ -20,6 +20,8 @@ namespace Zhuzher.viewmodel
         public ICommand FragmentHoldCommand { get; set; }
         public ICommand FragmentComposeCommand { get; set; }
         public ICommand FragmentOpenPriceCommand { get; set; }
+        public ICommand PuliDrawPrizeCommand { get; set; }
+        
 
         private int _activityGameId = 1685;
         public int ActivityGameId
@@ -54,7 +56,7 @@ namespace Zhuzher.viewmodel
             FragmentHoldCommand = new RelayCommand(FragmentHold);
             FragmentComposeCommand = new RelayCommand(FragmentCompose);
             FragmentOpenPriceCommand = new RelayCommand(FragmentOpenPrice);
-            
+            PuliDrawPrizeCommand = new RelayCommand(PuliDrawPrize);
         }
 
         private void ExecuteActivityChance()
@@ -80,6 +82,23 @@ namespace Zhuzher.viewmodel
             {
                 var myGuessController = HttpServiceController.GetService<MyGuessController>();
                 myGuessController.GetGuessResultAsync(214);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void PuliDrawPrize()
+        {
+            try
+            {
+                var puliDrawPrizeController = HttpServiceController.GetService<PuliDrawPrizeController>();
+                puliDrawPrizeController.GoodGetAsync();
             }
             catch (HttpException ex)
             {

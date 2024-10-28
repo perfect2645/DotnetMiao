@@ -123,12 +123,6 @@ namespace Zhuzher.search
             //逛逛百万补贴福利
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
 
-            //购买朴里节严选好物
-            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
-
-            //购买桶装水或家政服务
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
-
             //预约家装服务顾问
             AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026");
 

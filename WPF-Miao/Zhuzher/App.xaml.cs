@@ -59,6 +59,8 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<SurveyAnswerController>();
             HttpServiceController.AddTransientService<MyGuessController>();
             HttpServiceController.AddTransientService<FragmentExchangeController>();
+            HttpServiceController.AddTransientService<PuliDrawPrizeController>();
+            
 
             HttpServiceController.BuidServiceProvider();
         }
