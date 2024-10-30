@@ -42,6 +42,14 @@ namespace Zhuzher.search
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=578&from=activity");
             //发帖畅谈美好祖国
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=620&from=activity");
+            //参与智焕节话题讨论
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=610&from=activity");
+            //每天成功发布家电相关故事或视频即可完成任务
+            AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=24&from=hd");
+            //领券购买智焕节好物
+            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
+            //完成任意金额在线缴费
+            AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");
         }
 
         private void InitSceneList()
@@ -68,15 +76,18 @@ namespace Zhuzher.search
             AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
             //逛逛家政
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=jzjfzxllsyrw");
+            //下单家政/喝水/维修
+            AddScene("5thzone-convenience-done", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=jzjfzxllsyrw");
             //逛送水服务
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zhuzheer_integral_center");
+            //逛送水服务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/home-with-back");
             //积分话题发帖
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=358");
-            //AddScene("app-post-review", 2, "https://neighbor.4009515151.com/nova/order-list");
             // 物业公告查看 AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=point");
             AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
             // 到家服务单评价得积分
-            AddScene("5thzone-blackpearl-comment", 2, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
+            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
             // 二手闲置发帖
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=jfrw");
             // 浏览朴邻品牌介绍
@@ -87,6 +98,8 @@ namespace Zhuzher.search
             AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
             // 逛逛百万补贴福利
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
+            //订单评价获得积分
+            AddScene("app-post-review", 2, "https://neighbor.4009515151.com/nova/order-list");
 
             // 活动特定
             // 朴礼节签到
@@ -121,7 +134,7 @@ namespace Zhuzher.search
             AddScene("linjuhuodong", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
 
             //逛逛百万补贴福利
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
 
             //预约家装服务顾问
             AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026");
@@ -138,8 +151,8 @@ namespace Zhuzher.search
             //关注公众号每日领阳光
             AddScene("puli-daka", "gzhanswer");
 
-            //你家适老化做的如何？
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=492&from=activity");
+            //参与智焕节话题讨论
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=610&from=activity");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

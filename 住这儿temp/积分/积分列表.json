@@ -56,9 +56,9 @@
             "minVersion": "",
             "url": "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen",
             "scoreValue": 30,
-            "finished": true,
+            "finished": false,
             "eventCode": "LIVE:CONV:0001",
-            "processValue": "1",
+            "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "5thzone-convenience-comment"
         },
@@ -191,9 +191,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/marketing-pages/pennant?from=index",
             "scoreValue": 88,
-            "finished": true,
+            "finished": false,
             "eventCode": "ACT:SCORE:0001",
-            "processValue": "1",
+            "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "app-point-exchangebanners"
         },
@@ -281,9 +281,9 @@
             "minVersion": "",
             "url": "https://neighbor.4009515151.com/nova/order-list",
             "scoreValue": 30,
-            "finished": true,
+            "finished": false,
             "eventCode": null,
-            "processValue": "1",
+            "processValue": "0",
             "requiredValue": "1",
             "sceneCode": "5thzone-blackpearl-comment"
         },
@@ -401,9 +401,9 @@
             "minVersion": "",
             "url": "https://enterprise.4009515151.com/fe-event-pages/serviceEvaluation",
             "scoreValue": 200,
-            "finished": false,
+            "finished": true,
             "eventCode": "SERVICE:COMMENT:0002",
-            "processValue": "0",
+            "processValue": "1",
             "requiredValue": "1",
             "sceneCode": "PropertyServiceEvaluation"
         }
