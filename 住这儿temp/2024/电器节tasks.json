@@ -55,10 +55,10 @@
                     "sceneDesc": "",
                     "url": "javascript:void(0) ",
                     "detailDesc": "",
-                    "finished": true,
+                    "finished": false,
                     "minVersion": "5.2.6",
                     "eventCode": null,
-                    "processValue": "1",
+                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
@@ -114,7 +114,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6326,
@@ -197,7 +197,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6318,
@@ -242,7 +242,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6319,
@@ -262,7 +262,7 @@
                     "finished": false,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
+                    "processValue": "10",
                     "requiredValue": "100"
                 }
             ],
@@ -287,7 +287,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6320,
@@ -307,7 +307,7 @@
                     "finished": false,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
+                    "processValue": "10",
                     "requiredValue": "1000"
                 }
             ],
@@ -325,7 +325,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6321,
@@ -345,7 +345,7 @@
                     "finished": false,
                     "minVersion": "",
                     "eventCode": "LIVE:SHOP:0001",
-                    "processValue": "0",
+                    "processValue": "10",
                     "requiredValue": "10000"
                 }
             ],
@@ -363,7 +363,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6322,
@@ -401,7 +401,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6323,
@@ -439,7 +439,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6324,
@@ -477,7 +477,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         },
         {
             "activityTaskId": 6325,
@@ -515,7 +515,7 @@
             "isWarn": 0,
             "warnTitle": null,
             "warnText": null,
-            "isShow": 1
+            "isShow": 2
         }
     ]
 }

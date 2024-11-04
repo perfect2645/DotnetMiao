@@ -33,126 +33,48 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
-            ////成功加入别人队伍
-            //AddScene("app-act-jointeam", 1, "1");
 
-            //完整看完一篇人物专访
-            AddScene("app-communityclassfinish", 1, "https://communityclass.onewo.com/#/video?vkSource=video&courseId=NDAx&selectId=");
-            //国庆去哪玩？晒晒美照
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=578&from=activity");
-            //发帖畅谈美好祖国
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=620&from=activity");
+        }
+
+        private void InitSceneList()
+        {
+            AddScene("app-startapp", 1, "1");
+            //登录分享
+            AddScene("app-checkin-share", 1, "", 4);
+            //逛家政/维修
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=jzjfzxllsyrw");
+            //逛送水服务
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zhuzheer_integral_center");
+            //手机开门
+            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
+            //逛逛友邻市集
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/home-with-back");
+            // 浏览朴邻品牌介绍
+            AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin");
+            // 浏览研选家品牌介绍
+            AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan");
+            // 逛逛百万补贴福利
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
+
+            // 活动特定
             //参与智焕节话题讨论
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=610&from=activity");
             //每天成功发布家电相关故事或视频即可完成任务
             AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=24&from=hd");
             //领券购买智焕节好物
             AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
-            //完成任意金额在线缴费
-            AddScene("doc-property-pay", 1, "https://enterprise.4009515151.com/payment-center/home");
-        }
 
-        private void InitSceneList()
-        {
-            //完成每日积分签到
-            AddScene("app-checkin", 1, "https://enterprise.4009515151.com/marketing-pages/integral/signin");
-            AddScene("app-startapp", 1, "1");
-            ////登录分享
-            //AddScene("app-checkin-share", 1, "", 3);
-            //登录分享
-            AddScene("app-checkin-share", 1, "", 4);
-            //到家服务结单后评价
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
-            //邻里互助发帖
-            AddScene("app-post", 3, "https://enterprise.4009515151.com/marketing-pages/forum/portal?from=point");
-            //订单评价
-            AddScene("5thzone-blackpearl-comment", 2, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=jifen");
-            //邻里互助评论
-            AddScene("app-post-review", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=hd1108");
-            //逛逛友邻集市
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5370?pageMark=sqxzjjzzt");
-            //逛逛特惠商品 AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5468?pageMark=bbtghb11yzt5468mx");
-            //手机开门
-            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
-            //逛逛家政
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=jzjfzxllsyrw");
-            //下单家政/喝水/维修
-            AddScene("5thzone-convenience-done", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=jzjfzxllsyrw");
-            //逛送水服务
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zhuzheer_integral_center");
-            //逛送水服务
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/home-with-back");
-            //积分话题发帖
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=358");
-            // 物业公告查看 AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=point");
-            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/water?pageMark=zzehdttd");
-            // 到家服务单评价得积分
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
-            // 二手闲置发帖
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/forum/secondHandsWithWant?from=jfrw");
-            // 浏览朴邻品牌介绍
-            AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin");
-            // 浏览研选家品牌介绍
-            AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=yanxuan");
-            //送一面锦旗给管家
-            AddScene("app-point-exchangebanners", 1, "https://enterprise.4009515151.com/marketing-pages/pennant?from=index");
-            // 逛逛百万补贴福利
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
-            //订单评价获得积分
-            AddScene("app-post-review", 2, "https://neighbor.4009515151.com/nova/order-list");
+            //转发活动到业主群
+            AddScene("app-h5share", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1118&from=share&sharerId=28566129&projectCode=21020025", 2);
 
-            // 活动特定
-            // 朴礼节签到
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=hdchannel&from=jifen");
-            //去看看社区未知的美好
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=jifen");
-            //到家服务结单后评价
-            AddScene("5thzone-convenience-comment", 1, "https://neighbor.4009515151.com/summoner-canary/orders?tabIndex=0&isShowNavBar=1&pageMark=jifen");
-            //每天首次给别人助力
-            AddScene("app-act-help", 1, "1");
+            //逛逛百万补贴会场
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
+
+            //在智焕节百万补贴会场累计下单100元
+            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
             //完成每日积分抽奖
             AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong");
-            //做达人随手拍赢物业费
-            AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie");
-            //关注你喜欢的达人
-            AddScene("gottalent-fans", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie");
-            //给喜欢的达人作品点赞
-            AddScene("gottalent-like", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie");
-            //谈记忆中妈妈做菜味道
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=activity");
 
-            //说说身边美好的小事
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=587&from=activity");
-
-            //发帖被点赞20次以上
-            AddScene("app-postlike-puli", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=585&from=activity");
-
-            //报名朴里节社区活动
-            AddScene("app-communityactivity-signup", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
-
-            //朴里节社区活动签到
-            AddScene("linjuhuodong", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
-
-            //逛逛百万补贴福利
-            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
-
-            //预约家装服务顾问
-            AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026");
-
-            //使用手机开门
-            AddScene("app-keyforfree", 1, "zze://vanke.com/property/opendoor/list");
-
-            //在活动会场停留10秒
-            AddScene("app-browseweb", 1, "1");
-
-            //分享每日领阳光
-            AddScene("app-h5share", 2, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1105&from=share&sharerId=28566129&projectCode=21020025", 2);
-
-            //关注公众号每日领阳光
-            AddScene("puli-daka", "gzhanswer");
-
-            //参与智焕节话题讨论
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=610&from=activity");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
