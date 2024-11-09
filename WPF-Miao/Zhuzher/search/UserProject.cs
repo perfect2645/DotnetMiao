@@ -79,7 +79,7 @@ namespace Zhuzher.search
             //13204122645 已使用500
             AddUserProject(28566093, "13204122645", "21020025", "大连万科半山半海", "Bearer 4c7f47ca-fbb0-436e-bd87-c102cb5fbc59");//lsc
             //13050516050 已使用500
-            AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 824cdc5d-ef17-4436-8071-c99bf3ca3ae0");//lsc
+            AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer dab8bb00-a8e5-4ab1-8569-d1b252d6acbf");//lsc
         }
 
         private void AddUserProject(int userId, string userName, string projectCode, string projectName, string auth)
