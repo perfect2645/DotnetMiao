@@ -7,12 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="view\ArticleControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="view\ZhuzherConsole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="view\ArticleControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="view\ZhuzherConsole.xaml">
