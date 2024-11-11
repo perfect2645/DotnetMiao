@@ -51,16 +51,16 @@ namespace Zhuzher.search
         private void InitUserProjectList()
         {
             // Fawei 已使用1000
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 7d3829e1-e1bc-4403-ac5b-b88a9c35d9d8");//Fawei
+            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 7aa09638-075d-426a-a687-84f41ca9696b");//Fawei
             //7719 已使用1000
             AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 133defb7-8e4f-47a9-b97d-7e5e3094b621");//Fawei
             ////2645 已使用1000
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 9cd004ab-bc23-466e-acc1-efe5d673d621");//2645
-            //18604266644孙森 已使用500
+            ////18604266644孙森 已使用500
             AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer 9bc89d56-67a4-46af-aef7-29a8cfd1731d");//2645
             // mom 已使用500
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 766ab5f4-585e-4cb1-9b1d-423a5d63d31d");//mom
-            // dad 已使用1000
+            //// dad 已使用1000
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 83707356-2154-48c2-b741-7c0ef7d64339");//mom
             // SL 已使用500
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 50a293f5-8e3e-4306-8fa3-c9c409ccf5b3");//sl

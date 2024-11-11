@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Zhuzher.Play;
@@ -33,7 +34,6 @@ namespace Zhuzher.Post
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentExchange - {response?.Message},请检查参数");
-                    return false;
                 }
                 var root = response.JsonBody.RootElement;
 
@@ -42,18 +42,19 @@ namespace Zhuzher.Post
                 if (code != 200)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentExchange失败: code={code}, message={msg}");
-                    return false;
                 }
 
                 var result = root.GetProperty("result");
-                SaveExchangeResult(user, result);
-                return true;
+                SaveArticleResult(user, result);
             }
             catch (Exception ex)
             {
                 MainSession.PrintLogEvent.Publish(this, $"[{user.UserName}]FragmentExchange失败 - {ex.Message} - {ex.StackTrace}");
-                return false;
             }
+        }
+
+        private void SaveArticleResult(UserProject user, JsonElement result)
+        {
         }
     }
 }
