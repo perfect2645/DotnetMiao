@@ -10,6 +10,9 @@
     <Compile Update="view\ArticleControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="view\UserSelect.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="view\ZhuzherConsole.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="view\ArticleControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="view\UserSelect.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="view\ZhuzherConsole.xaml">

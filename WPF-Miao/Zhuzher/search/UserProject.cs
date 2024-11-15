@@ -4,7 +4,7 @@ using System.Windows.Documents;
 
 namespace Zhuzher.search
 {
-    internal class UserProject
+    public class UserProject
     {
         public string ProjectCode { get; set; }
         public string ProjectName { get; set; }

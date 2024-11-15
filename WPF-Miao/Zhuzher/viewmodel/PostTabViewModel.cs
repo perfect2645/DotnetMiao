@@ -2,9 +2,12 @@
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using System;
+using System.Collections.Generic;
+using System.Windows.Documents;
 using System.Windows.Input;
 using Zhuzher.Common;
 using Zhuzher.Post;
+using Zhuzher.search;
 using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
@@ -12,10 +15,13 @@ namespace Zhuzher.viewmodel
     internal partial class ZhuzherViewModel
     {
         #region Properties
+
         public ICommand CommentCommand { get; set; }
         public ICommand LikeCommand { get; set; }
         public ICommand CommentV2Command { get; set; }
         public ICommand LikeV2Command { get; set; }
+
+        public ArticleViewModel ArticleViewModel { get; set; }
 
         private string _postId = "79215";
         public string PostId
@@ -47,6 +53,8 @@ namespace Zhuzher.viewmodel
             LikeCommand = new RelayCommand(ExecutePostLike);
             CommentV2Command = new RelayCommand(ExecutePostCommentV2);
             LikeV2Command = new RelayCommand(ExecutePostLikeV2);
+
+            ArticleViewModel = new ArticleViewModel();
         }
 
         private void ExecutePostComment()
