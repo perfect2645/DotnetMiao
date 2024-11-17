@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using Base.Events;
+using CommunityToolkit.Mvvm.Input;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using System;
@@ -8,6 +9,7 @@ using System.Windows.Input;
 using Zhuzher.Common;
 using Zhuzher.Post;
 using Zhuzher.search;
+using Zhuzher.session;
 using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
@@ -49,12 +51,15 @@ namespace Zhuzher.viewmodel
 
         private void InitPostComments()
         {
+            MainSession.UpdateUiEvent = UpdateUiEvent;
+
             CommentCommand = new RelayCommand(ExecutePostComment);
             LikeCommand = new RelayCommand(ExecutePostLike);
             CommentV2Command = new RelayCommand(ExecutePostCommentV2);
             LikeV2Command = new RelayCommand(ExecutePostLikeV2);
 
             ArticleViewModel = new ArticleViewModel();
+            ArticleViewModel.LogExceptionAction = new Action<Exception>(Log);
         }
 
         private void ExecutePostComment()
@@ -124,5 +129,14 @@ namespace Zhuzher.viewmodel
                 Log(ex);
             }
         }
+
+
+        #region Update UI
+
+        protected override void UpdateUI(UiEventArgs e)
+        {
+        }
+
+        #endregion  Update UI
     }
 }

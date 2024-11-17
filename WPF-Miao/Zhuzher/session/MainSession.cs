@@ -15,6 +15,7 @@ namespace Zhuzher.session
 
         public static UserProjectList UserProjectList { get;}
         public static Dictionary<int, int> UserIntSession { get; set; }
+        public static UpdateUiEvent UpdateUiEvent { get; set; }
 
         static MainSession()
         {

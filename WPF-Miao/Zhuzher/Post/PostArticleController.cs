@@ -1,4 +1,5 @@
-﻿using HttpProcessor.Client;
+﻿using Base.Events;
+using HttpProcessor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Utils;
+using Utils.json;
 using Zhuzher.Play;
 using Zhuzher.search;
 using Zhuzher.session;
@@ -55,6 +58,54 @@ namespace Zhuzher.Post
 
         private void SaveArticleResult(UserProject user, JsonElement result)
         {
+            var recordsElement = result.GetProperty("records");
+            var recordsDic = JsonAnalysis.JsonToDicList(recordsElement);
+
+            var articleList = new List<Article>();
+
+            Task.Factory.StartNew(() =>
+            {
+                foreach (var record in recordsDic)
+                {
+                    var article = BuildNewArticleAsync(user, record);
+                    articleList.Add(article.Result);
+                }
+            });
+
+            if (!articleList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} not article found");
+            }
+
+            var uiEventArgs = new UiEventArgs();
+            uiEventArgs.Field = "articles";
+            uiEventArgs.Value = articleList;
+
+            MainSession.UpdateUiEvent.Publish(this, uiEventArgs);
+            MainSession.PrintLogEvent.Publish(this, $"{user.UserName} articleList publicshed count={articleList.Count}");
+        }
+
+        private async Task<Article> BuildNewArticleAsync(UserProject user, Dictionary<string, object> record)
+        {
+            var activityId = record.GetInt("activityId");
+            var articleId = record.GetInt("id");
+            var title = record.GetString("title");
+            var nickName = record.GetString("nickname");
+            var coverUrl = record.GetString("coverUrl");
+
+            var article = new Article
+            {
+                Id = activityId,
+                Title = title,
+                ActivityId = activityId,
+                User = user,
+                NickName = nickName,
+                CoverUrl = coverUrl
+            };
+
+            await article.BuildImgAsync();
+
+            return article;
         }
     }
 }

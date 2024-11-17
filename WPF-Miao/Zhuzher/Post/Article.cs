@@ -7,7 +7,7 @@ using Zhuzher.session;
 
 namespace Zhuzher.Post
 {
-    internal class Article
+    public class Article
     {
         public int ActivityId { get; set; }
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace Zhuzher.Post
 
         }
 
-        public async Task<byte[]> BuildImgAsync(string CoverUrl)
+        public async Task<byte[]> BuildImgAsync()
         {
             var imgController = HttpServiceController.GetService<ImageController>();
             ImgContent = await imgController.GetImageAsync(CoverUrl, User);

@@ -1,10 +1,16 @@
-﻿using Base.viewModel;
+﻿using Base.Events;
+using Base.viewModel;
 using CommunityToolkit.Mvvm.Input;
+using HttpProcessor.Container;
+using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Utils;
+using Zhuzher.Common;
+using Zhuzher.Post;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -14,6 +20,8 @@ namespace Zhuzher.viewmodel
     {
 
         #region Properties
+
+        public Action<Exception> LogExceptionAction { get; set; }
 
         private List<UserProject> _sourceUserList;
         public List<UserProject> SourceUserList
@@ -59,6 +67,28 @@ namespace Zhuzher.viewmodel
             }
         }
 
+        private int _articleId = 24;
+        public int ArticleId
+        {
+            get { return _articleId; }
+            set
+            {
+                _articleId = value;
+                NotifyUI(() => ArticleId);
+            }
+        }
+
+        private ObservableCollection<Article> _articleList;
+        public ObservableCollection<Article> ArticleList
+        {
+            get { return _articleList; }
+            set 
+            {
+                _articleList = value;
+                NotifyUI(() => ArticleList);
+            }
+        }
+
         public ICommand SearchCommand { get; set; }
 
         #endregion Properties
@@ -72,7 +102,19 @@ namespace Zhuzher.viewmodel
 
         private void SearchArticle()
         {
-
+            try
+            {
+                var searchController = HttpServiceController.GetService<PostArticleController>();
+                searchController.GetArticleAsync(SelectedSourceUser, ArticleId);
+            }
+            catch (HttpException ex)
+            {
+                LogExceptionAction.Invoke(ex);
+            }
+            catch (Exception ex)
+            {
+                LogExceptionAction.Invoke(ex);
+            }
         }
     }
 }
