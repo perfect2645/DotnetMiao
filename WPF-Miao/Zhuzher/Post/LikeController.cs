@@ -45,6 +45,23 @@ namespace Zhuzher.Post
             });
         }
 
+        public void LikeAsync(string postId, UserProject user, ApiVersion version)
+        {
+            _version = version;
+            _postId = postId;
+            Task.Factory.StartNew(() =>
+            {
+                if (version == ApiVersion.V1)
+                {
+                    Like(user, postId);
+                }
+                else if (version == ApiVersion.V2)
+                {
+                    LikeV2(user, postId);
+                }
+            });
+        }
+
         public void Like(UserProject user, string postId)
         {
             try

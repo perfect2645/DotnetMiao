@@ -41,6 +41,22 @@ namespace Zhuzher.Post
             });
         }
 
+        public void CommentAsync(string postId, string postContent, UserProject user, ApiVersion version)
+        {
+            _version = version;
+            Task.Factory.StartNew(() =>
+            {
+                if (version == ApiVersion.V1)
+                {
+                    Comment(user, postId, postContent);
+                }
+                else if (version == ApiVersion.V2)
+                {
+                    CommentV2(user, postId, postContent);
+                }
+            });
+        }
+
         public void Comment(UserProject user, string postId, string postContent)
         {
             try

@@ -100,7 +100,7 @@ namespace Zhuzher.Post
 
             var article = new Article
             {
-                Id = activityId,
+                Id = articleId,
                 Title = title,
                 ActivityId = activityId,
                 User = user,
