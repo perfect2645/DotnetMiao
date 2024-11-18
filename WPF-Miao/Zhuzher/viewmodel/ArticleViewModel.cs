@@ -96,6 +96,7 @@ namespace Zhuzher.viewmodel
         public ArticleViewModel()
         {
             SourceUserList = MainSession.UserProjectList.UserProjects.ToList();
+            SelectedSourceUser = SourceUserList.FirstOrDefault();
             CommentUserList = MainSession.UserProjectList.UserProjects.ToList();
             SearchCommand = new RelayCommand(SearchArticle);
         }
@@ -115,6 +116,11 @@ namespace Zhuzher.viewmodel
             {
                 LogExceptionAction.Invoke(ex);
             }
+        }
+
+        public void UpdateArticle(List<Article> articles)
+        {
+            ArticleList = new ObservableCollection<Article>(articles);
         }
     }
 }

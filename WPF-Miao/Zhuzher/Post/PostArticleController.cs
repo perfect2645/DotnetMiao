@@ -59,22 +59,27 @@ namespace Zhuzher.Post
         private void SaveArticleResult(UserProject user, JsonElement result)
         {
             var recordsElement = result.GetProperty("records");
-            var recordsDic = JsonAnalysis.JsonToDicList(recordsElement);
+            var recordsDicList = JsonAnalysis.JsonToDicList(recordsElement);
 
-            var articleList = new List<Article>();
+            if (!recordsDicList.HasItem())
+            {
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} not article found");
+            }
 
             Task.Factory.StartNew(() =>
             {
-                foreach (var record in recordsDic)
-                {
-                    var article = BuildNewArticleAsync(user, record);
-                    articleList.Add(article.Result);
-                }
-            });
+                BuildNewArticleAsync(user, recordsDicList);
 
-            if (!articleList.HasItem())
+            });
+        }
+
+        private void BuildNewArticleAsync(UserProject user, List<Dictionary<string, object>> recordsDic)
+        {
+            var articleList = new List<Article>();
+            foreach (var record in recordsDic)
             {
-                MainSession.PrintLogEvent.Publish(this, $"{user.UserName} not article found");
+                var article = BuildNewArticleAsync(user, record);
+                articleList.Add(article.Result);
             }
 
             var uiEventArgs = new UiEventArgs();

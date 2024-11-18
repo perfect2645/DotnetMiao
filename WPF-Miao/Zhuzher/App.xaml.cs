@@ -61,7 +61,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<FragmentExchangeController>();
             HttpServiceController.AddTransientService<PuliDrawPrizeController>();
             HttpServiceController.AddTransientService<PostArticleController>();
-            
+            HttpServiceController.AddTransientService<ImageController>();
 
             HttpServiceController.BuidServiceProvider();
         }

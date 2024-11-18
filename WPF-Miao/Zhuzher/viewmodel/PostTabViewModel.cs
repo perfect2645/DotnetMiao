@@ -135,6 +135,8 @@ namespace Zhuzher.viewmodel
 
         protected override void UpdateUI(UiEventArgs e)
         {
+            var articleList = e.Value as List<Article>;
+            ArticleViewModel.UpdateArticle(articleList);
         }
 
         #endregion  Update UI
