@@ -51,7 +51,7 @@ namespace Zhuzher.search
         private void InitUserProjectList()
         {
             // Fawei 已使用1000
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 7dab3158-7d7e-40c0-a56e-7a1cae6b89f5");//Fawei
+            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 18cd0fe7-3612-4c88-a2ba-f4fc50135f79");//Fawei
             //7719 已使用1000
             AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 133defb7-8e4f-47a9-b97d-7e5e3094b621");//Fawei
             ////2645 已使用1000

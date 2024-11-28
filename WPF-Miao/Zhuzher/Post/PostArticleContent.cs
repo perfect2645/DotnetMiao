@@ -5,7 +5,7 @@ namespace Zhuzher.Post
 {
     internal class PostArticleContent : OnewoContent
     {
-        private const string _baseUrl = "https://z.onewo.com/talento/api/note/page/myNote?current=1&size=20&total=0&selfFlag=0";
+        private const string _baseUrl = "https://z.onewo.com/talento/api/note/page/myNote?current=3&size=20&total=0&selfFlag=0";
 
         public int PostActivityId { get; set; }
 
