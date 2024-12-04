@@ -57,8 +57,8 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
 
             // 活动特定
-            // 朴礼节签到
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1105&scene=hdchannel&from=jifen");
+            // 智焕节签到
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1118&scene=hdchannel&from=jifen");
             //参与智焕节话题讨论
             AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=610&from=activity");
             //每天成功发布家电相关故事或视频即可完成任务

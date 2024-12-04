@@ -51,7 +51,7 @@ namespace Zhuzher.search
         private void InitUserProjectList()
         {
             // Fawei 已使用1000
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 18cd0fe7-3612-4c88-a2ba-f4fc50135f79");//Fawei
+            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 37919421-7c84-47ba-8c82-e29794060395");//Fawei
             //7719 已使用1000
             AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 133defb7-8e4f-47a9-b97d-7e5e3094b621");//Fawei
             ////2645 已使用1000
@@ -61,12 +61,12 @@ namespace Zhuzher.search
             // mom 已使用500
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 766ab5f4-585e-4cb1-9b1d-423a5d63d31d");//mom
             //// dad 已使用1000
-            AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 83707356-2154-48c2-b741-7c0ef7d64339");//mom
+            AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer c06c0972-94f8-4888-a182-e8fffa86fc79");//mom
             // SL 已使用500
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 50a293f5-8e3e-4306-8fa3-c9c409ccf5b3");//sl
             //17143794175 //sl 已使用500
             AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 11e71bbe-15bc-4e9d-a487-b8c5179ab136");
-            //13904221688 //sl 已使用500
+            //13904221688 //sl 已使用500   
             AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer 18dedc9d-31e5-4cfb-8047-3044d45a59fd");
             //17116844410 作废
             AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer 52abdb00-5cfc-4cc7-bda2-adb6bc47c132");//SLpad
@@ -79,7 +79,7 @@ namespace Zhuzher.search
             //13204122645 已使用500
             AddUserProject(28566093, "13204122645", "21020025", "大连万科半山半海", "Bearer 4c7f47ca-fbb0-436e-bd87-c102cb5fbc59");//lsc
             //13050516050 已使用500
-            AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer dab8bb00-a8e5-4ab1-8569-d1b252d6acbf");//lsc
+            AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 832a3931-5b7b-4457-9296-b4e9667c9950");//lsc
         }
 
         private void AddUserProject(int userId, string userName, string projectCode, string projectName, string auth)
