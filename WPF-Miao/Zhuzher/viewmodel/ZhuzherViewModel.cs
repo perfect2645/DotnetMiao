@@ -150,7 +150,7 @@ namespace Zhuzher.viewmodel
                 Log(ex);
             }
         }
-
+ 
         #endregion CollectSun
 
         #region Exchange

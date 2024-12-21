@@ -368,8 +368,8 @@
             "taskName": "浏览朴邻品牌介绍",
             "tips": "逛逛朴邻页面停留10秒获得积分，每天1次",
             "sceneType": "behavior",
-            "minVersion": "5.2.6",
-            "url": "https://mj.4009515151.com/hasaki/#/viewBrand?brandType=pulin",
+            "minVersion": "5.2.6",1
++ 10           "url": "1",
             "scoreValue": 10,
             "finished": true,
             "eventCode": null,

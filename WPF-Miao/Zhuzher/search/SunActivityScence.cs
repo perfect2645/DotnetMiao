@@ -33,11 +33,20 @@ namespace Zhuzher.search
 
         private void TestSceneList()
         {
+            //邀请10个邻居助力
+            //AddScene("app-act-invite&view", 1, "1");
+
+
+            //许愿贴被点赞20次
+            AddScene("app-postlike-puli", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=633&from=hd");
+
 
         }
 
         private void InitSceneList()
         {
+            //完成每日积分签到
+            AddScene("app-checkin", 1, "https://enterprise.4009515151.com/marketing-pages/integral/signin");
             AddScene("app-startapp", 1, "1");
             //登录分享
             AddScene("app-checkin-share", 1, "", 4);
@@ -59,24 +68,23 @@ namespace Zhuzher.search
             // 活动特定
             // 智焕节签到
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1118&scene=hdchannel&from=jifen");
-            //参与智焕节话题讨论
-            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=610&from=activity");
-            //每天成功发布家电相关故事或视频即可完成任务
-            AddScene("gottalent-contribution", 1, "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=24&from=hd");
-            //领券购买智焕节好物
-            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
-
-            //转发活动到业主群
-            AddScene("app-h5share", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1118&from=share&sharerId=28566129&projectCode=21020025", 2);
-
             //逛逛百万补贴会场
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
-
-            //在智焕节百万补贴会场累计下单100元
-            AddScene("5thzone-blackpearl-pay", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
             //完成每日积分抽奖
             AddScene("app-points", 1, "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong");
 
+            //预约免费墙面刷新服务
+            AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/subscribe/index?routeType=NHJ-QMSX&channelConfigCode=BCE00000026");
+            //逛逛年货节线上市集
+            AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/5861?pageMark=bbtgyhzznhzt5861t");
+            //参与年货节讨论或晒单
+            AddScene("app-post", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=633&from=hd");
+            //报名参与社区周边活动
+            AddScene("app-communityactivity-signup", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
+            //转发活动到3个微信群
+            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1136&from=share&sharerId=28566129&projectCode=21020025", 2);
+            //看看最新的物业公告
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)
