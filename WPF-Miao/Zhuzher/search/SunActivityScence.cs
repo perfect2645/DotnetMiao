@@ -66,8 +66,8 @@ namespace Zhuzher.search
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=jifenzx");
 
             // 活动特定
-            // 智焕节签到
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1118&scene=hdchannel&from=jifen");
+            // 年货节签到
+            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1136&scene=hdchannel&from=jifen");
             //逛逛百万补贴会场
             AddScene("app-browseweb", 1, "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd");
             //完成每日积分抽奖

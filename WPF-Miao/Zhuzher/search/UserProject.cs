@@ -38,9 +38,9 @@ namespace Zhuzher.search
                 case "石琳": return "83C363A2-63A1-4951-AA4F-75B38F7CC1EC";
                 case "4175": return "83C363A2-63A1-4951-AA4F-75B38F7CC1EC";//SL
                 case "恬恬姥姥": return "83C363A2-63A1-4951-AA4F-75B38F7CC1EC";//SL
-                case "4410": return "264DA340-F204-4FE1-A5A1-BE93CC50CA64";
-                case "1544": return "264DA340-F204-4FE1-A5A1-BE93CC50CA64";
-                case "4827": return "264DA340-F204-4FE1-A5A1-BE93CC50CA64";
+                case "4410": return "264DA340-F204-4FE1-A5A1-BE93CC50CA64";//SL PAD
+                case "1544": return "264DA340-F204-4FE1-A5A1-BE93CC50CA64";//SL PAD
+                case "4827": return "264DA340-F204-4FE1-A5A1-BE93CC50CA64";//SL PAD
                 case "刘书辰": return "A45A2B40-CA8D-4F51-A8AC-0B9E29919369";
                 case "13204122645": return "A45A2B40-CA8D-4F51-A8AC-0B9E29919369";
                 case "7719": return "A45A2B40-CA8D-4F51-A8AC-0B9E29919369";
@@ -51,36 +51,36 @@ namespace Zhuzher.search
 
         private void InitUserProjectList()
         {
-            // Fawei 已使用1000
-            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 6449ba22-4cc6-443a-ba31-0b28b4b40aa1");//Fawei
+            // Fawei
+            AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer 41b9d74d-24d1-4542-8e75-3ed5cfe31029");//Fawei
             //13050516050
             AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 1f73dd14-9777-4eff-959c-4e85a824d0ee");//Fawei
-            ////2645 已使用1000
+            //2645
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 22f50553-c420-402d-af3b-9e6520f0767f");//2645
-            ////18604266644孙森 已使用500
+            //18604266644孙森
             AddUserProject(16022567, "孙森", "21080001", "营口海港城", "Bearer cf7aa09c-1fbc-4082-b96a-b749e3d79ec4");//2645
-            // mom 已使用500
+            // mom
             AddUserProject(15045709, "妈妈", "21020002", "大连假日风景", "Bearer 1a9793fa-d013-4169-b556-a0464b10e904");//mom
-            //// dad 已使用1000
+            //// dad 
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 9f034c83-8e36-4a74-9ee9-db6c6c9dc21e");//mom
-            // SL 已使用500
+            // SL 
             AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 40f83a43-a39f-4572-9be5-7a6b74eb25e5");//sl
-            //17143794175 //sl 已使用500
+            //17143794175 
             AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer eae23ab9-9174-4acd-8a30-a44c4aa0b61e");
-            //13904221688 //sl 已使用500   
+            //13904221688  
             AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer ba22a297-79fa-4a02-b8a3-e39f4bfa9054");
             //17116844410 
-            AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer 52abdb00-5cfc-4cc7-bda2-adb6bc47c132");//SLpad
-            //17143791544 已使用500
-            AddUserProject(26897697, "1544", "21020025", "大连万科半山半海", "Bearer 6821a7fd-36c9-4e3f-a8f0-a322b20e186b"); //SLpad
+            AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer e0304db4-2858-4ae4-bb08-3277b5d328d9");//SLpad
+            //17143791544 
+            AddUserProject(26897697, "1544", "21020025", "大连万科半山半海", "Bearer fef36c90-9b8b-4edd-962b-73fe0a8d059e"); //SLpad
             //16791014827 已使用500
             AddUserProject(26652432, "4827", "21020002", "大连假日风景", "Bearer bda3012f-31b9-41b8-8cf2-8aac9bd97589");// SLpad
-            //LSC 已使用1000
-            AddUserProject(21520695, "刘书辰", "21020002", "大连假日风景", "Bearer 0572b033-4954-4253-b85a-c4f56eaa4c75");//lsc
-            //13204122645 已使用500
-            AddUserProject(28566093, "13204122645", "21020025", "大连万科半山半海", "Bearer 4c7f47ca-fbb0-436e-bd87-c102cb5fbc59");//lsc
-            //7719 已使用1000
-            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 133defb7-8e4f-47a9-b97d-7e5e3094b621");
+            //LSC
+            AddUserProject(21520695, "刘书辰", "21020002", "大连假日风景", "Bearer 5858a183-3e51-4fce-859a-244997b643da");//lsc
+            //13204122645
+            AddUserProject(28566093, "13204122645", "21020025", "大连万科半山半海", "Bearer 71e1319e-316f-46aa-90d8-7dc655361512");//lsc
+            //7719
+            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer a1cc5d51-135a-4c84-a521-c8b4190435f0");
         }
 
         private void AddUserProject(int userId, string userName, string projectCode, string projectName, string auth)
