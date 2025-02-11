@@ -37,10 +37,10 @@ namespace Zhuzher.search
             //AddScene("app-act-invite&view", 1, "1");
 
 
-            //许愿贴被点赞20次
-            AddScene("app-postlike-puli", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=633&from=hd");
-
-
+            //参与免费刷新1平米
+            AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/subscribe/index?routeType=NHJ-QMSX&channelConfigCode=BCE00000026");
+            //预约报名领早鸟优惠
+            AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/subscribe/241223/index?routeType=JFZX-ZNYH&channelConfigCode=BCE00000026");
         }
 
         private void InitSceneList()
@@ -85,6 +85,7 @@ namespace Zhuzher.search
             AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1136&from=share&sharerId=28566129&projectCode=21020025", 2);
             //看看最新的物业公告
             AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
+
         }
 
         private void AddScene(string code, int time, string? url=null, int version = 1)

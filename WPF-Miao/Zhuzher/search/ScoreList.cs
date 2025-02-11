@@ -68,7 +68,7 @@ namespace Zhuzher.search
 
         private void InitExchangeList()
         {
-            AddExchangeItem(5007, 255, "虾片");
+            AddExchangeItem(5125, 265, "红包");
             //AddExchangeItem(4558, 231, "小麦粉");
             //AddExchangeItem(4560, 231, "蒙牛真果粒");
             //AddExchangeItem(4559, 231, "瓷碗");

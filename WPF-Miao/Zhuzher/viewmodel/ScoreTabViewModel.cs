@@ -19,14 +19,15 @@ namespace Zhuzher.viewmodel
         #region Properties
         public ICommand TotalScoreCommand { get; set; }
         public ICommand SurveyCommand { get; set; }
-
-
+        public ICommand MonthExchangeCommand { get; set; }
+        
         #endregion Properties
 
         private void InitScoreTab()
         {
             TotalScoreCommand = new RelayCommand(ExecuteTotalScore);
             SurveyCommand = new RelayCommand(ExecuteSurvey);
+            MonthExchangeCommand = new RelayCommand(MonthExchange);
         }
 
         private void ExecuteSurvey()
@@ -36,6 +37,30 @@ namespace Zhuzher.viewmodel
         }
 
         private void ExecuteTotalScore()
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var socreController = HttpServiceController.GetService<TotalScoreController>();
+                    foreach (var user in MainSession.UserProjectList.UserProjects)
+                    {
+                        socreController.GetTotalScore(user);
+                        Thread.Sleep(200);
+                    }
+                });
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void MonthExchange()
         {
             try
             {
