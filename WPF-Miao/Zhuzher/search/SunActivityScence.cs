@@ -67,13 +67,13 @@ namespace Zhuzher.search
 
             // 活动特定
             // 作文大赛审核通过
-            AddScene("5thzonezwdsshtg", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information");
+            //AddScene("5thzonezwdsshtg", 1, "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information");
             //预约并完成家政服务
-            AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/nova/activityTopic/6722?from=hd");
+            //AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/nova/activityTopic/6722?from=hd");
             //转发活动到3个微信群
-            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1143&from=share&sharerId=28566129&projectCode=21020025", 2);
+            //AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1143&from=share&sharerId=28566129&projectCode=21020025", 2);
             //参与春意焕新投票活动
-            AddScene("app-post-vote", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=638");
+            //AddScene("app-post-vote", 1, "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=638");
 
             ////预约免费墙面刷新服务
             //AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/subscribe/index?routeType=NHJ-QMSX&channelConfigCode=BCE00000026");
@@ -84,7 +84,7 @@ namespace Zhuzher.search
             ////报名参与社区周边活动
             //AddScene("app-communityactivity-signup", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
             //看看最新的物业公告
-            AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
+            //AddScene("app-browseweb", 1, "https://enterprise.4009515151.com/marketing-pages/notice/list?from=act");
 
         }
 

@@ -63,11 +63,11 @@ namespace Zhuzher.search
             //// dad 橙子
             AddUserProject(21744666, "爸爸", "21020002", "大连假日风景", "Bearer 5d3abe8f-9de3-4577-a2bb-139cf91ef600");//mom
             // SL 橙子
-            AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 3c94a61e-ff4d-4645-bb83-ee007232164d");//sl
-            //17143794175 
-            AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 4debd814-4229-4dbb-9fea-1dd1825c16a8");
+            AddUserProject(13071092, "石琳", "21020025", "大连万科半山半海", "Bearer 2cf676f1-2f2b-45e1-a5ba-88020f54845e");//sl
+            //17143794175
+            AddUserProject(26652422, "4175", "21020002", "大连假日风景", "Bearer 2ead2c79-e8e2-47ab-82d1-c94e481d601d");
             //13904221688  橙子
-            AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer ba22a297-79fa-4a02-b8a3-e39f4bfa9054");
+            AddUserProject(28701528, "恬恬姥姥", "28701528", "大连万科半山半海", "Bearer d5b724fe-dc40-4245-958e-14dcd4ad8643");
             //17116844410 
             AddUserProject(26652384, "4410", "21020025", "大连万科半山半海", "Bearer e0304db4-2858-4ae4-bb08-3277b5d328d9");//SLpad
             //17143791544 
@@ -81,7 +81,7 @@ namespace Zhuzher.search
             //13204122645
             AddUserProject(28566093, "13204122645", "21020025", "大连万科半山半海", "Bearer 9f40d17f-e76e-459f-a917-58652dd86b74");//lsc
             //7719
-            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 32e97378-85ae-4d6d-a26e-e23d6a343b17");
+            AddUserProject(26190961, "7719", "21020002", "大连假日风景", "Bearer 3e73109e-8685-4b34-96d7-24f76150d70d");
         }
 
         private void AddUserProject(int userId, string userName, string projectCode, string projectName, string auth)

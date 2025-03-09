@@ -23,7 +23,7 @@ namespace Zhuzher.viewmodel
         public ICommand PuliDrawPrizeCommand { get; set; }
         
 
-        private int _activityGameId = 1744;
+        private int _activityGameId = 1756;
         public int ActivityGameId
         {
             get { return _activityGameId; }
