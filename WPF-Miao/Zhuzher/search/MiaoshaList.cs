@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using Utils;
 using Utils.datetime;
 using Utils.number;
@@ -67,18 +68,18 @@ namespace Zhuzher.search
 
         private void TestInitMiaoshaList()
         {
-            var time = DateTime.Now.AddSeconds(10).ToString("yyyy-MM-dd HH:mm:ss.fff");
-            AddMiaoshaItem(9040, 1, "桶装水100元神券", "1602", $"{time}");
+            //var time = DateTime.Now.AddSeconds(10).ToString("yyyy-MM-dd HH:mm:ss.fff");
+            //AddMiaoshaItem(9806, 1, "5元无门槛物业券", "1765", $"{time}");
 
-            time = DateTime.Now.AddSeconds(14).ToString("yyyy-MM-dd HH:mm:ss.fff");
-            AddMiaoshaItem(9038, 1, "桶装水60元神券", "1601", $"{time}");
+            //time = DateTime.Now.AddSeconds(14).ToString("yyyy-MM-dd HH:mm:ss.fff");
+            //AddMiaoshaItem(9807, 1, "88元无门槛物业券", "1765", $"{time}");
         }
 
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 900);
-            //AddMiaoshaItem(9762, 1, "中华红橙5斤免单", "1752", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
-            AddMiaoshaItem(9763, 1, "88元物业费优惠券", "1752", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
+            AddMiaoshaItem(9806, 1, "5元无门槛物业券", "1765", $"{DateTimeUtil.GetToday()} 20:00:02.{misecond}");
+            //AddMiaoshaItem(9763, 1, "88元物业费优惠券", "1752", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

@@ -3,57 +3,19 @@
     "code": 200,
     "result": [
         {
-            "activityTaskId": 6483,
-            "taskId": 1123,
-            "taskName": "提报刷墙翻新局改需求",
-            "chanceNumber": 4,
-            "taskDesc": "3月",
-            "tips": "回访确认有需求后3个工作日手动发放阳光",
+            "activityTaskId": 6493,
+            "taskId": 1129,
+            "taskName": "咨询秒好礼",
+            "chanceNumber": 1,
+            "taskDesc": "吴言",
+            "tips": "回访确认有需求后3个工作日手动发放1爱心",
             "detail": [
                 {
-                    "taskDetailId": 1124,
-                    "sceneName": "作文大赛审核通过",
-                    "sceneCode": "5thzonezwdsshtg",
-                    "sceneDesc": "第五空间友邻作文大赛审核通过",
-                    "url": "https://mj.4009515151.com/hasaki/#/puliRequireSave?requireType=yanxuan&activityType=springGo&sceneCode=yanxuan-submit-information",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": null,
-                    "eventCode": "ACT:ONLINE:0003",
-                    "processValue": "0",
-                    "requiredValue": "1"
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1756,
-                    "gameId": 1635,
-                    "gameTitle": "阳光",
-                    "limitCount": 4,
-                    "chanceName": "阳光"
-                }
-            ],
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 1
-        },
-        {
-            "activityTaskId": 6484,
-            "taskId": 1124,
-            "taskName": "预约并完成家政服务",
-            "chanceNumber": 3,
-            "taskDesc": "3月",
-            "tips": "服务单确认完成后自动获得阳光",
-            "detail": [
-                {
-                    "taskDetailId": 1125,
-                    "sceneName": "友邻收货、到家服务完成",
-                    "sceneCode": "5thzone-conv-user-confirm",
-                    "sceneDesc": "友邻确认收货，到家用户点确认完成或系统自动完成服务单确认",
-                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6722?from=hd",
+                    "taskDetailId": 1130,
+                    "sceneName": "研选提交预约资料",
+                    "sceneCode": "yanxuan-submit-information",
+                    "sceneDesc": "研选提交预约资料",
+                    "url": "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=3YFWR&channelConfigCode=BCE00000026",
                     "detailDesc": "",
                     "finished": false,
                     "minVersion": "",
@@ -62,15 +24,7 @@
                     "requiredValue": "1"
                 }
             ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1756,
-                    "gameId": 1635,
-                    "gameTitle": "阳光",
-                    "limitCount": 3,
-                    "chanceName": "阳光"
-                }
-            ],
+            "taskGameList": null,
             "limitCount": 1,
             "finishCount": null,
             "isWarn": 0,
@@ -79,15 +33,15 @@
             "isShow": 1
         },
         {
-            "activityTaskId": 6485,
-            "taskId": 1125,
-            "taskName": "转发活动给3个邻居",
-            "chanceNumber": 2,
-            "taskDesc": "3月",
-            "tips": "完成3次转发自动获得阳光",
+            "activityTaskId": 6494,
+            "taskId": 1128,
+            "taskName": "转发秒好礼",
+            "chanceNumber": 1,
+            "taskDesc": "吴言",
+            "tips": "点击转发到业主群，即可完成任务",
             "detail": [
                 {
-                    "taskDetailId": 1126,
+                    "taskDetailId": 1129,
                     "sceneName": "分享页面",
                     "sceneCode": "app-h5share",
                     "sceneDesc": "",
@@ -97,94 +51,10 @@
                     "minVersion": "5.2.6",
                     "eventCode": null,
                     "processValue": "0",
-                    "requiredValue": "3"
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1756,
-                    "gameId": 1635,
-                    "gameTitle": "阳光",
-                    "limitCount": 2,
-                    "chanceName": "阳光"
-                }
-            ],
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 1
-        },
-        {
-            "activityTaskId": 6486,
-            "taskId": 1126,
-            "taskName": "参与春意焕新投票活动",
-            "chanceNumber": 1,
-            "taskDesc": "3月",
-            "tips": "投票完成自动获得阳光",
-            "detail": [
-                {
-                    "taskDetailId": 1127,
-                    "sceneName": "邻居话题投票",
-                    "sceneCode": "app-post-vote",
-                    "sceneDesc": "邻里互助话题贴投票",
-                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=638",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": "CMS:SOCIAL:0001",
-                    "processValue": "0",
                     "requiredValue": "1"
                 }
             ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1756,
-                    "gameId": 1635,
-                    "gameTitle": "阳光",
-                    "limitCount": 1,
-                    "chanceName": "阳光"
-                }
-            ],
-            "limitCount": 1,
-            "finishCount": null,
-            "isWarn": 0,
-            "warnTitle": null,
-            "warnText": null,
-            "isShow": 1
-        },
-        {
-            "activityTaskId": 6487,
-            "taskId": 1127,
-            "taskName": "邀请10个邻居助力",
-            "chanceNumber": 1,
-            "taskDesc": "3月",
-            "tips": "邀请10个邻居助力即可获得秒杀机会，每月1次",
-            "detail": [
-                {
-                    "taskDetailId": 1128,
-                    "sceneName": "邀请好友参与活动",
-                    "sceneCode": "app-act-invite&view",
-                    "sceneDesc": "",
-                    "url": "1",
-                    "detailDesc": "",
-                    "finished": false,
-                    "minVersion": "",
-                    "eventCode": null,
-                    "processValue": "0",
-                    "requiredValue": "10"
-                }
-            ],
-            "taskGameList": [
-                {
-                    "activityGameId": 1758,
-                    "gameId": 1632,
-                    "gameTitle": "助力0元秒杀",
-                    "limitCount": 1,
-                    "chanceName": "秒杀机会"
-                }
-            ],
+            "taskGameList": null,
             "limitCount": 1,
             "finishCount": null,
             "isWarn": 0,
