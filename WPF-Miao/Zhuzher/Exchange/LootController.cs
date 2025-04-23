@@ -25,9 +25,9 @@ namespace Zhuzher.Exchange
             {
                 new LootItem
                 {
-                    ActivityGameId = 1636,
+                    ActivityGameId = 1769,
                     ActivityId = MainSession.ActivityId.ToInt(),
-                    GameGoodId = 9208,
+                    GameGoodId = 9813,
                     Number = 1
                 }
             };
