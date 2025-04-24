@@ -62,6 +62,7 @@ namespace Zhuzher
             HttpServiceController.AddTransientService<PuliDrawPrizeController>();
             HttpServiceController.AddTransientService<PostArticleController>();
             HttpServiceController.AddTransientService<ImageController>();
+            HttpServiceController.AddTransientService<InviteHelpController>();
 
             HttpServiceController.BuidServiceProvider();
         }
