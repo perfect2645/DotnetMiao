@@ -2,14 +2,10 @@
 using HttpProcessor.Request;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Zhuzher.Common;
-using Zhuzher.Post;
 using Zhuzher.search;
 using Zhuzher.session;
 
@@ -42,7 +38,7 @@ namespace Zhuzher.collectsun
             {
                 var content = new InviteHelpContent(targetUser, sourceUser);
                 content.BuildDefaultHeaders(Client);
-                var response = Client.PutJsonAsync(content).Result;
+                var response = Client.PostJsonAsync(content).Result;
                 if (response?.Body == null)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"[{sourceUser.UserName}]给[{targetUser.UserName}]助力失败 - {response?.Message},请检查参数");
@@ -58,8 +54,7 @@ namespace Zhuzher.collectsun
                     return;
                 }
 
-                var result = root.GetProperty("result");
-                SummarizeResult(result, targetUser, sourceUser);
+                SummarizeResult(root, targetUser, sourceUser);
             }
             catch (Exception ex)
             {

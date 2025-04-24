@@ -68,6 +68,10 @@
                          HorizontalAlignment="Left"
                          materialDesign:HintAssist.Hint="助力人数">
             </TextBox>
+            <Button Content="助力"
+                        Command="{Binding InviteHelpCommand}" Width="100" Margin="5"
+                        HorizontalAlignment="Left">
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

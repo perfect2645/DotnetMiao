@@ -180,24 +180,6 @@ namespace Zhuzher.viewmodel
             }
         }
 
-        private void InviteHelp()
-        {
-            try
-            {
-                var puliDrawPrizeController = HttpServiceController.GetService<InviteHelpController>();
-                puliDrawPrizeController.InviteHelpAsync(TargetHelpUser, SelectedHelpUserList);
-            }
-            catch (HttpException ex)
-            {
-                Log(ex);
-            }
-            catch (Exception ex)
-            {
-                Log(ex);
-            }
-        }
-
-
         #region Fragment
 
         private void FragmentExchange()
@@ -317,6 +299,23 @@ namespace Zhuzher.viewmodel
             }
 
             SelectedHelpUserList = SourceHelpUserList.Skip(targetUserIndex + 1).Take(HelpCount.Value).ToList();
+        }
+
+        private void InviteHelp()
+        {
+            try
+            {
+                var puliDrawPrizeController = HttpServiceController.GetService<InviteHelpController>();
+                puliDrawPrizeController.InviteHelpAsync(TargetHelpUser, SelectedHelpUserList);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
         }
 
         #endregion Invite
