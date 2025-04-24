@@ -116,7 +116,7 @@ namespace Zhuzher.viewmodel
             ScorePlayCommand = new RelayCommand(ExecuteScorePlay);
             VoteCommand = new RelayCommand(ExecuteVote);
             InitPostComments();
-            InitActivityComments();
+            InitActivityTab();
             InitScoreTab();
 
             SessionEvents.Instance.Subscribe(LogSession);

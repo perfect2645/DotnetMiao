@@ -2,10 +2,16 @@
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
+using Utils;
+using Zhuzher.collectsun;
 using Zhuzher.Common;
 using Zhuzher.Play;
 using Zhuzher.Post;
+using Zhuzher.search;
+using Zhuzher.session;
 using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
@@ -45,10 +51,73 @@ namespace Zhuzher.viewmodel
             }
         }
 
+        private List<UserProject> _targetHelpUserList;
+        public List<UserProject> TargetHelpUserList
+        {
+            get { return _targetHelpUserList; }
+            set
+            {
+                _targetHelpUserList = value;
+                NotifyUI(() => TargetHelpUserList);
+            }
+        }
+
+        private UserProject _targetHelpUser;
+        public UserProject TargetHelpUser
+        {
+            get { return _targetHelpUser; }
+            set
+            {
+                _targetHelpUser = value;
+                NotifyUI(() => TargetHelpUser);
+                UpdateSelectedSource();
+            }
+        }
+
+        private List<UserProject> _sourceHelpUserList;
+        public List<UserProject> SourceHelpUserList
+        {
+            get { return _sourceHelpUserList; }
+            set
+            {
+                _sourceHelpUserList = value;
+                NotifyUI(() => SourceHelpUserList);
+            }
+        }
+
+        private List<UserProject> _selectedHelpUserList;
+        public List<UserProject> SelectedHelpUserList
+        {
+            get { return _selectedHelpUserList; }
+            set
+            {
+                _selectedHelpUserList = value;
+                NotifyUI(() => SelectedHelpUserList);
+            }
+        }
+
+        private int? _helpCount;
+
+        public int? HelpCount
+        {
+            get { return _helpCount; }
+            set
+            {
+                _helpCount = value;
+                NotifyUI(() => HelpCount);
+                UpdateSelectedSource();
+            }
+        }
+
         #endregion Properties
 
-        private void InitActivityComments()
+        private void InitActivityTab()
         {
+            TargetHelpUserList = MainSession.UserProjectList.UserProjects.ToList();
+            SourceHelpUserList = MainSession.UserProjectList.UserProjects.ToList();
+            SelectedHelpUserList = new List<UserProject>();
+            TargetHelpUser = TargetHelpUserList.FirstOrDefault();
+
             ActivityChanceCommand = new RelayCommand(ExecuteActivityChance);
             GuessResultCommand = new RelayCommand(ExecuteGuessResult);
             FragmentExchangeCommand = new RelayCommand(FragmentExchange);
@@ -115,8 +184,8 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                //var puliDrawPrizeController = HttpServiceController.GetService<InviteHelpController>();
-                //puliDrawPrizeController.InviteHelpAsync();
+                var puliDrawPrizeController = HttpServiceController.GetService<InviteHelpController>();
+                puliDrawPrizeController.InviteHelpAsync(TargetHelpUser, SelectedHelpUserList);
             }
             catch (HttpException ex)
             {
@@ -217,5 +286,39 @@ namespace Zhuzher.viewmodel
         }
 
         #endregion Fragment
+
+        #region Invite
+
+        private void UpdateSelectedSource()
+        {
+            if (TargetHelpUser == null)
+            {
+                return;
+            }
+
+            if (!SourceHelpUserList.HasItem())
+            {
+                return;
+            }
+
+            var usersExceptTarget = SourceHelpUserList.Where(x => x.UserId != TargetHelpUser.UserId).ToList();
+            if (HelpCount == null || HelpCount <= 0 || HelpCount >= SourceHelpUserList.Count)
+            {
+                SelectedHelpUserList = usersExceptTarget;
+                return;
+            }
+
+            var targetUserIndex = SourceHelpUserList.IndexOf(TargetHelpUser);
+            if (targetUserIndex == -1)
+            {
+                MainSession.PrintLogEvent.Publish(this, "TargetHelpUserChanged error!");
+                SelectedHelpUserList = new List<UserProject>();
+                return;
+            }
+
+            SelectedHelpUserList = SourceHelpUserList.Skip(targetUserIndex + 1).Take(HelpCount.Value).ToList();
+        }
+
+        #endregion Invite
     }
 }
