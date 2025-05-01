@@ -73,12 +73,14 @@ namespace Zhuzher.search
 
             //time = DateTime.Now.AddSeconds(14).ToString("yyyy-MM-dd HH:mm:ss.fff");
             //AddMiaoshaItem(9807, 1, "88元无门槛物业券", "1765", $"{time}");
+
         }
 
         private void InitMiaoshaList()
         {
             var misecond = NumberUtil.IntRandom(500, 900);
-            AddMiaoshaItem(9806, 1, "5元无门槛物业券", "1765", $"{DateTimeUtil.GetToday()} 20:00:02.{misecond}");
+            //AddMiaoshaItem(9811, 1, "250物业费", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
+            AddMiaoshaItem(9810, 1, "油烟机138", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
             //AddMiaoshaItem(9763, 1, "88元物业费优惠券", "1752", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
         }
 

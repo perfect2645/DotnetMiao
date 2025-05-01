@@ -27,7 +27,7 @@ namespace Zhuzher.search
         public List<SunActivityScence> ScenceList = new List<SunActivityScence>();
         public SunActivityScenceList()
         {
-            //InitSceneList();
+            InitSceneList();
             TestSceneList();
         }
 
@@ -40,7 +40,7 @@ namespace Zhuzher.search
             ////参与免费刷新1平米
             //AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/subscribe/index?routeType=NHJ-QMSX&channelConfigCode=BCE00000026");
             //预约并完成家政服务
-            AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/summoner-canary/category-goods?pageMark=12yzhcjdqxyl&categoryId=3&pageMarkId=4949&categoryName=%E5%AE%B6%E7%94%B5%E6%B8%85%E6%B4%97");
+            //AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/summoner-canary/category-goods?pageMark=12yzhcjdqxyl&categoryId=3&pageMarkId=4949&categoryName=%E5%AE%B6%E7%94%B5%E6%B8%85%E6%B4%97");
         }
 
         private void InitSceneList()
