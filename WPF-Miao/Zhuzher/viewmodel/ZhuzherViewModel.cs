@@ -215,7 +215,7 @@ namespace Zhuzher.viewmodel
                             for (int i = 0; i < 1; i++)
                             {
                                 var targetNumber = playHandler.ActivityPlay(user);
-                                if (targetNumber == 3)
+                                if (targetNumber == 1)
                                 {
 
                                     MainSession.UserIntSession.AddOrUpdate(user.UserId, targetNumber);
