@@ -40,7 +40,13 @@ namespace Zhuzher.search
             ////参与免费刷新1平米
             //AddScene("app-browseweb", 1, "https://mj.4009515151.com/hasaki/#/subscribe/index?routeType=NHJ-QMSX&channelConfigCode=BCE00000026");
             //预约并完成家政服务
-            //AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/summoner-canary/category-goods?pageMark=12yzhcjdqxyl&categoryId=3&pageMarkId=4949&categoryName=%E5%AE%B6%E7%94%B5%E6%B8%85%E6%B4%97");
+            AddScene("5thzone-conv-user-confirm", 1, "https://neighbor.4009515151.com/summoner-canary/category-goods?pageMark=12yzhcjdqxyl&categoryId=3&pageMarkId=4949&categoryName=%E5%AE%B6%E7%94%B5%E6%B8%85%E6%B4%97");
+
+            // 社区活动报名成功
+            AddScene("app-communityactivity-signup", 1, "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities");
+
+            // 购买家政保洁维修服务
+            AddScene("5thzone-convenience-pay", 1, "https://neighbor.4009515151.com/summoner-canary/home?pageMark=dfhdldyyl");
         }
 
         private void InitSceneList()
@@ -67,10 +73,10 @@ namespace Zhuzher.search
 
             // 活动特定
             //转发活动到3个微信群
-            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1148&from=share&sharerId=28566129&projectCode=21020025", 2);
+            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1150&from=share&sharerId=28566129&projectCode=21020025", 2);
 
             //预约免费墙面刷新服务
-            AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=3YFWR&channelConfigCode=BCE00000026");
+            AddScene("yanxuan-submit-information", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1150&code=vkcwcawqe8");
 
         }
 
