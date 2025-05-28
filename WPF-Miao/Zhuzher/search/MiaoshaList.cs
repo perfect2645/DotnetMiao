@@ -80,7 +80,7 @@ namespace Zhuzher.search
         {
             var misecond = NumberUtil.IntRandom(500, 900);
             //AddMiaoshaItem(9811, 1, "250物业费", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
-            AddMiaoshaItem(9810, 1, "油烟机138", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
+            AddMiaoshaItem(9973, 1, "88元预缴物业费礼券", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
             //AddMiaoshaItem(9763, 1, "88元物业费优惠券", "1752", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
         }
 
