@@ -1,0 +1,186 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 6597,
+            "taskId": 1132,
+            "taskName": "预约咨询家装局改服务",
+            "chanceNumber": 1,
+            "taskDesc": "528",
+            "tips": "【请通过住这儿APP提报】提交预约后即可参与投注",
+            "detail": [
+                {
+                    "taskDetailId": 1133,
+                    "sceneName": "研选提交预约资料",
+                    "sceneCode": "yanxuan-submit-information",
+                    "sceneDesc": "研选提交预约资料",
+                    "url": "https://mj.4009515151.com/hasaki/#/zhu-zhe-er-save?routeType=202503loadingpage&channelConfigCode=BCE00000026",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6598,
+            "taskId": 1146,
+            "taskName": "签订装修局改订单",
+            "chanceNumber": 10,
+            "taskDesc": "",
+            "tips": "每周五晚统一补发本周装修局改签单客户的筹码",
+            "detail": [
+                {
+                    "taskDetailId": 1147,
+                    "sceneName": "作文大赛审核通过",
+                    "sceneCode": "5thzonezwdsshtg",
+                    "sceneDesc": "第五空间友邻作文大赛审核通过",
+                    "url": "https://mj.4009515151.com/hasaki/#/zhu-zhe-er-save?routeType=202503loadingpage&channelConfigCode=BCE00000026",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": null,
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6599,
+            "taskId": 1148,
+            "taskName": "家政维修服务下单",
+            "chanceNumber": 1,
+            "taskDesc": "",
+            "tips": "购买家政保洁或平台维修服务获得筹码，仅限1次",
+            "detail": [
+                {
+                    "taskDetailId": 1149,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=dfhdldyyl",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6600,
+            "taskId": 1147,
+            "taskName": "家政维修完成服务单",
+            "chanceNumber": 3,
+            "taskDesc": "",
+            "tips": "购买家政维修服务后预约师傅上门完成服务并确认订单",
+            "detail": [
+                {
+                    "taskDetailId": 1148,
+                    "sceneName": "友邻收货、到家服务完成",
+                    "sceneCode": "5thzone-conv-user-confirm",
+                    "sceneDesc": "友邻确认收货，到家用户点确认完成或系统自动完成服务单确认",
+                    "url": "https://neighbor.4009515151.com/summoner-canary/home?pageMark=dfhdldyyl",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6601,
+            "taskId": 1149,
+            "taskName": "预存物业费1000元",
+            "chanceNumber": 1,
+            "taskDesc": "",
+            "tips": "请在住这儿APP上完成预存1000元",
+            "detail": [
+                {
+                    "taskDetailId": 1150,
+                    "sceneName": "物业缴费上报金额",
+                    "sceneCode": "doc-property-pay",
+                    "sceneDesc": "支付成功上报金额，预缴/普通缴费/车位缴费，单位“分”",
+                    "url": "https://enterprise.4009515151.com/payment-center/home",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "SERVICE:PAY:0001",
+                    "processValue": "0",
+                    "requiredValue": "1000"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6602,
+            "taskId": 1150,
+            "taskName": "邀请528个人助力",
+            "chanceNumber": 2,
+            "taskDesc": "",
+            "tips": "邀请528个邻居点击助力",
+            "detail": [
+                {
+                    "taskDetailId": 1151,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "0",
+                    "requiredValue": "528"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        }
+    ]
+}
