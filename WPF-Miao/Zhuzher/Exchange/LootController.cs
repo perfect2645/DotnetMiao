@@ -25,10 +25,10 @@ namespace Zhuzher.Exchange
             {
                 new LootItem
                 {
-                    ActivityGameId = 1769,
+                    ActivityGameId = 1791,
                     ActivityId = MainSession.ActivityId.ToInt(),
-                    GameGoodId = 9813,
-                    Number = 1
+                    GameGoodId = 9981,
+                    Number = 11
                 }
             };
             Task.Factory.StartNew(() =>
