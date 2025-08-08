@@ -37,11 +37,7 @@ namespace Zhuzher.search
             //AddScene("app-act-invite&view", 1, "1");
 
 
-            //研选提交预约资料
-            AddScene("yanxuan-submit-information", 1, "https://mj.4009515151.com/hasaki/#/zhu-zhe-er-save?routeType=202503loadingpage&channelConfigCode=BCE00000026");
-
-            //作文大赛审核通过
-            AddScene("5thzonezwdsshtg", 1, "https://mj.4009515151.com/hasaki/#/zhu-zhe-er-save?routeType=202503loadingpage&channelConfigCode=BCE00000026");
+  
         }
 
         private void InitSceneList()
@@ -68,10 +64,13 @@ namespace Zhuzher.search
 
             // 活动特定
             //转发活动到3个微信群
-            AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1150&from=share&sharerId=28566129&projectCode=21020025", 2);
+            //AddScene("app-h5share", 3, "https://enterprise.4009515151.com/fe-event-pages/marketing?id=1150&from=share&sharerId=28566129&projectCode=21020025", 2);
 
             //预约免费墙面刷新服务
             //AddScene("yanxuan-submit-information", 1, "https://enterprise.4009515151.com/fe-event-pages/marketing?type=mini&id=1150&code=vkcwcawqe8");
+
+            // 浏览数字物业服务报告
+            AddScene("wuye-browsevenue15s", 1, "https://cms.onewo.com/vkcms/#/serviceReport?fromApp=1");
 
         }
 

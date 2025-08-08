@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{APP_NAME}}  # 应用名称
+  namespace: {{NAMESPACE}}  # 命名空间
+  labels:
+    app: {{APP_NAME}}  # 应用标签，用于关联Service
+    environment: {{ENVIRONMENT}}  # 环境标识（prod/staging/dev）
+spec:
+  replicas: 3  # 副本数量，根据负载调整
+  selector:
+    matchLabels:
+      app: {{APP_NAME}}  # 匹配Pod的标签
+  strategy:
+    rollingUpdate:
+      maxSurge: 1        # 滚动更新时允许超出期望副本数的最大数量
+      maxUnavailable: 0  # 滚动更新时允许不可用的最大副本数
+    type: RollingUpdate  # 滚动更新策略（替代Recreate）
+  template:
+    metadata:
+      labels:
+        app: {{APP_NAME}}  # Pod标签，需与selector匹配
+    spec:
+      containers:
+      - name: {{APP_NAME}}-container
+        image: {{IMAGE_REPOSITORY}}:{{IMAGE_TAG}}  # 容器镜像及版本
+        imagePullPolicy: IfNotPresent  # 镜像拉取策略（Always/IfNotPresent/Never）
+        
+        # 端口配置
+        ports:
+        - containerPort: 8080  # 容器内部端口
+          name: http  # 端口名称，用于Service关联
+          protocol: TCP
+        
+        # 资源限制
+        resources:
+          requests:  # 资源请求（调度依据）
+            cpu: 100m
+            memory: 128Mi
+          limits:    # 资源限制（防止资源滥用）
+            cpu: 500m
+            memory: 512Mi
+        
+        # 健康检查 - 存活探针（检测容器是否运行正常）
+        livenessProbe:
+          httpGet:
+            path: /actuator/health  # 健康检查接口
+            port: 8080
+          initialDelaySeconds: 60   # 首次检查延迟时间
+          periodSeconds: 10         # 检查间隔时间
+          timeoutSeconds: 5         # 检查超时时间
+          failureThreshold: 3       # 失败阈值
+        
+        # 健康检查 - 就绪探针（检测容器是否可接收请求）
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        
+        # 环境变量配置
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "{{ENVIRONMENT}}"  # 环境变量值
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:  # 从Secret获取敏感信息
+              name: {{DB_SECRET_NAME}}
+              key: host
+        
+        # 挂载配置文件
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config  # 容器内挂载路径
+          readOnly: true  # 只读权限
+      
+      # 配置文件卷
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{APP_CONFIG_MAP}}  # 关联的ConfigMap名称
+      
+      # 镜像拉取密钥（私有仓库时使用）
+      imagePullSecrets:
+      - name: {{REGISTRY_SECRET}}

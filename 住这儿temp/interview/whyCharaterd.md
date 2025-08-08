@@ -18,3 +18,12 @@ At last I am applying this role because i meet the overlap "What I am passionate
 I am hoping to building solutions that reaches users worldwide and as I grow here, I’d love to step into a tech leadership role, mentor others shaping the future of how SC builds solutions and this role is the perfect place to start that journey.
 
 
+## Why HCBC
+
+My departure was due to the bank’s strategic decision to close its China sites. 
+While it was not my personal choice to leave, I deeply appreciate the experience I gained at Citi.
+
+HSBC is one of the world’s largest and most respected banking and financial services organizations,
+ with a deep-rooted history in APAC.
+
+
