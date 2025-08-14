@@ -1,0 +1,250 @@
+POST https://eapply.abchina.com.cn/coin/coin/CoinSubmitRequest?issueid=I143&orgsbatch=1 HTTP/1.1
+Host: eapply.abchina.com.cn
+Connection: keep-alive
+Content-Length: 260
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://eapply.abchina.com.cn
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://eapply.abchina.com.cn/coin/coin/OrdinaryCoinRequest?issueid=I143&batchOrder=1&t=1704294340149
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: ptbeSessionId=7ac680a2-4214-470d-a739-e5f6b8e0da7c; Hm_lvt_2adfb955e896558eaaf6a8d222fda613=1704293149; Hm_lpvt_2adfb955e896558eaaf6a8d222fda613=1704293149; BIGipServerpool_pt_eapply.abchina.com_coin=!RAkU6LvSQpcZnnws349ffrmZoK8822qZLsiw9PQNPfFm6KGFXqsTdCO1fkHZAhUA4jurCVGxD74dvQ==; Hm_lvt_aaca25918a94e5c351646b457e25211d=1704294242; Hm_lpvt_aaca25918a94e5c351646b457e25211d=1704294340; CoinCaptchaCode=rGWOsk40Th3ZIPeysaeXmKfrc9RWUtGOGgxCx7AxGyeIqy+HwBPa9Yk+YkrlV52NvZ/D5JwDDcGa+J9jSJpUqw==
+
+name=%E5%B4%94%E6%B3%95%E5%A8%81&cardtype=0&identNo=210302198608163030&mobile=13940897525&piccode=w5pe&phoneCaptchaNo=&orglevel1=349999&orglevel2=342010&orglevel3=342020&cardvalue0=20&cardid0=201925&coindate=2024-01-14&issueid=I143&orgsbatch=1&extraparam=param
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Server: 
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1
+X-Frame-Options: SAMEORIGIN
+Date: Wed, 03 Jan 2024 15:08:12 GMT
+Content-Length: 9845
+Connection: Keep-alive
+Via: 1.1 ID-1716635742372160 uproxy-21
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>纪念币预售首页_中国农业银行</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="WT.cg_abc" content="中国农业银行;纪念币预售首页" />
+    <meta content="IE=7" http-equiv="X-UA-Compatible" />
+    
+    <link href="https://ptbe.cdn-static.abchina.com.cn/coin/Content/css/base.css" rel="stylesheet"/>
+
+    <link href="https://ptbe.cdn-static.abchina.com.cn/coin/Content/css/common.css" rel="stylesheet"/>
+
+    <link href="https://ptbe.cdn-static.abchina.com.cn/coin/Content/css/sqez.css" rel="stylesheet"/>
+
+    <link href="https://ptbe.cdn-static.abchina.com.cn/coin/Content/ui/jquery.ui.all.css" rel="stylesheet"/>
+
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/jquery-1.4.1.min.js"></script>
+
+    <script src="/coin/Scripts/transferaddress.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/jquery-1.8.3.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/jquery.ui.datepicker-zh-CN.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/jquery-ui.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/dcs_tag.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/Common_V2.js"></script>
+
+    <!--[if IE 6]>
+        <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/TranslucenPng.js"></script>
+
+        <script type="text/javascript">TranslucenPng.fix('*');</script>
+    <![endif]-->
+    
+    <script type="text/javascript">
+        //注册事件
+        function MemberRegisterDialog() {
+            showDialogbyUrl("https://app.abchina.com.cn/static/sns/RegisterGuide/", 440);
+        }
+        function showDialogbyUrl(url, dialogHeight) {
+            //viewWidth 视口宽度，viewHeight 视口高度 兼容常见浏览器
+            var viewWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var viewHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            var iFrameWidth = 900; //iframe 盒子的宽
+            var iFrameHeight = 460; //iframe 盒子的高
+            var yOffset = (viewHeight - iFrameHeight) / 2;  //偏移量换算公式
+            var xOffset = (viewWidth - iFrameWidth) / 2; //偏移量换算公式
+
+            $('<iframe id="frm" frameborder="0"  style="padding-left:12px; padding-top:10px;background:#fff;" scrolling="no" src="' + url + '" />').dialog({
+                width: 900,
+                title: '注册',
+                modal: true,
+                height: dialogHeight,
+                position: [xOffset, yOffset],
+                draggable: false,//不能拖动
+                closeOnEscape: true,
+                resizable: false
+            }).width(900).height(dialogHeight);
+
+        }
+        function Brancheapply() {
+            window.location.href = "/coin/coin/DefaultQuery";
+        }
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?aaca25918a94e5c351646b457e25211d";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div id="page_description" style="position:absolute; left:-9999px; top:-9999px;" tabindex="0">纪念币预约页面，根据该业务办理特点，为了使您获得更好的无障碍体验，请在家人陪伴下完成操作</div>
+    <div class="top">
+    <div class="topWrap fn-clear">
+        <div id="login_yes">
+            <ul class="top-left">
+                <li>欢迎登录中国农业银行门户网站</li>
+                <!--<li>
+                    您好！
+                    <span class="text-orange" style="line-height:31px"><a id="btnOut" href="hhh">［退出］</a></span>
+                </li>-->
+            </ul>
+            <ul class="top-right">
+                <li>本网站已支持IPv6</li>
+                <li><span><a addresstransfer href="https://www.abchina.com">官网首页</a></span></li>
+            </ul>
+        </div>
+        <div id="login_no">
+            <ul class="top-left">
+                <li>您好！欢迎访问中国农业银行门户网站</li>
+            </ul>
+            <ul class="top-right">
+                <li>本网站已支持IPv6</li>
+                <!--<li>
+                    <span class="text-orange" style="line-height:31px"><a id="btnIn" href="hhh">登录</a></span>
+                </li>-->
+                <li><span><a addresstransfer href="https://www.abchina.com">官网首页</a></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (loginState == 1) {
+            $('#login_no').hide();
+            if (removeLS) {
+                $('#btnOut').hide();
+            }
+            else
+                $('#btnOut').attr('href', logoutUrl)
+        }
+        else {
+            $('#login_yes').hide();
+            if (removeLS) {
+                $('#btnIn').hide();
+            }
+            else
+                $('#btnIn').attr('href', loginUrl)
+        }
+       
+    });
+</script>
+<div class="logo-header">
+    <h1><a class="logo" addresstransfer href="https://www.abchina.com"></a></h1>
+</div>
+
+
+    <div class="nav">
+<ul class="nav-left">
+<li tabindex="0"><a href = "/CreditCardApp/Home/Index"></a></li>
+</ul>
+<ul class="nav-center">
+<li id = "licard"  style = "width:212px;"><a tabindex="0" href = "/CreditCardApp/CreditcardsInfo/CreditIndex" > 信用卡 </a></li>
+<li  style = "width:212px;"><a href = "/branch/queue/defaultquery" tabindex="0"> 在线预约 </a></li >
+<li  style = "width:212px;"><a href = "/entapply/" tabindex="0"> 企业预填单 </a></li>
+<li  class='act'  style = "width:212px;"><a href = "/coin/coin/Index" tabindex="0"> 纪念币 </a></li>
+</ul>
+<div class="nav-right"></div>
+</div>
+;
+    <script type="text/javascript">
+        var title = "";
+        var loginState = 0
+        var removeLS = 0;
+        var logoutUrl ='/CreditCardApp/CreditcardsInfo/logout?returnUrl=/coin/coin/Index';
+        var loginUrl= '';
+    </script>
+    <div class="wrap-full">
+        
+
+
+
+<div class="apply-step">
+    <h1 class="apply-step-left"><span>纪念币预约</span></h1>
+    <ul class="apply-step-right">
+        <li id="stepdesc1"><em>1</em><span>预约信息填写</span><i></i></li>
+        <li id="stepdesc4" class="step-cur"><em>2</em><span>预约完成</span><i></i></li>
+    </ul>
+</div>
+<div class="apply-step-tit"><span>预约完成</span></div>
+<div class="apply-step-con">
+    <div class="text-center pb28">
+                <div class="pt28"><img src="https://ptbe.cdn-static.abchina.com.cn/coin/Content/images/pd_yysb.jpg" /></div>
+                <div class="mt28">
+                    信息提交失败，失败原因：<br /><br />
+                    <span class="text-red f14">**请先输入手机号,并点击发送**</span>
+                    <div class="mt28">
+                        <input class="btn-submit" data-role="none" value="返 回" type="button" onclick="CoinReturnForm()" />
+                    </div>
+                </div>
+</div>
+            </div>
+            <script type="text/javascript">
+                function CoinReturnForm() {
+                window.history.back();
+            }
+
+                //function getidentNo() {
+                //    var getval = document.getElementById("certNo").value;
+                //    window.location.href = "/CoinQuestionnaire/Index?certNo=" + getval;
+                //}
+            </script>
+
+    </div>
+    <div class="footer-content fn-clear">
+        <div class="footer fn-clear">
+            <ul class="footer-nav fn-clear">
+                <li><a href="https://www.abchina.com.cn/cn/AboutABC/ABCInformation/Branch/jingneifenzhijigou/" target="_blank" rel="nofollow noopener noreferrer" class="footer-location">分支机构</a></li>
+                <li><a href="https://www.abchina.com.cn/cn/PublicPlate/documents/200911/t20091130_16583.htm" target="_blank" rel="nofollow noopener noreferrer">网站声明</a></li>
+                <li><a href="https://app.abchina.com.cn/branch/" target="_blank" rel="nofollow noopener noreferrer">网点查询</a></li>
+                <li><a href="https://www.abchina.com.cn/cn/PublicPlate/WebLink/websitemap/" target="_blank" rel="nofollow noopener noreferrer">网站地图</a></li>
+                <li><a href="https://www.abchina.com.cn/cn/AboutABC/ContactUs/" target="_blank" rel="nofollow noopener noreferrer">联系我们</a></li>
+                <li class="bgNone"><a href="https://www.abchina.com.cn/cn/EBanking/CustomerServiceCenter/CustomerServiceCenter/default.htm" target="_blank" rel="nofollow noopener noreferrer">客服热线：95599</a></li>
+            </ul>
+            <ul class="footer-copyright fn-clear">
+                <li>中国农业银行版权所有</li>
+                <li class="bgNone"><a href='http://www.miibeian.gov.cn/' target='_blank' rel="noopener noreferrer">京ICP备05049539</a></li>
+            </ul>
+            <div class="footer-ext fn-clear">
+                <a class="footer-logo" href="https://search.szfw.org/cert/l/CX20120927001787002018" target="_blank" rel="nofollow noopener noreferrer"></a>
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://ptbe.cdn-static.abchina.com.cn/coin/Scripts/base.js"></script>
+
+</body>
+</html>

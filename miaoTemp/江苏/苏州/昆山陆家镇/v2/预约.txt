@@ -1,0 +1,10 @@
+POST https://ljzyyapi.yuanbaodaojia.com/v1/booking_vaccine_new HTTP/1.1
+Host: ljzyyapi.yuanbaodaojia.com
+Connection: keep-alive
+Content-Length: 202
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat
+content-type: application/x-www-form-urlencoded
+Referer: https://servicewechat.com/wxcbe627ede7df27a5/4/page-frame.html
+Accept-Encoding: gzip, deflate, br
+
+vaccineDayId=88&vaccineDayNumId=282&vaccineId=6&familyId=3670&sign=03044f9350c3975284f09b9f4cebf425&token=d0e6689e39905500bd972bf9282bfdd2&timestamp=1693933550&tokenSign=e54414f8254a219d7f764304325d7c74

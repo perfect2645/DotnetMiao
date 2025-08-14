@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./encrypt.js"></script>
+    <script src="https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const strToDecode = "571ccef21ce39ca06e515113cc05ef403a7fe1299aba398702a29953c3bd3c53aad8099cd4b6891a18d99e65cbeaa14ac1b9493321b8ec2fc28ce428cab851621b5b66789c0503f8ceaf74f391b51c9f2b6516120c13f2dac31627c00dc555c4823153323c947ca7d0dd3ce018bc4309";
+
+        const deResult = decryptByAes(strToDecode);
+        console.log(deResult);
+    </script>
+</body>
+</html>

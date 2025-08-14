@@ -3,6 +3,7 @@ using Lujiazhen.login;
 using Lujiazhen.session;
 using System;
 using Utils;
+using Utils.datetime;
 
 namespace Lujiazhen.appointment
 {
@@ -22,18 +23,21 @@ namespace Lujiazhen.appointment
             BuildContent();
         }
 
-        private void BuildContent()
+        protected override void BuildContent()
         {
-            AddContent("vaccineDayId", Order.VaccineDayId);
-            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
-            AddContent("vaccineId", Order.VaccineId);
             AddContent("familyId", Order.FamilyId);
-            AddContent("token", Order.User.Token);
-
             if (!string.IsNullOrEmpty(Order.User.Sign))
             {
                 AddContent("sign", Order.User.Sign);
             }
+            var timestamp = DateTimeUtil.GetTimeStamp().Substring(0, 10);
+            Content.AddOrUpdate("timestamp", timestamp);
+            AddContent("token", Order.User.Token);
+            AddContent("vaccineDayId", Order.VaccineDayId);
+            AddContent("vaccineDayNumId", Order.VaccineDayNumId);
+            AddContent("vaccineId", Order.VaccineId);
+
+            base.BuildContent();
         }
     }
 }

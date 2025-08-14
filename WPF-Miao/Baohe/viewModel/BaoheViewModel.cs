@@ -88,7 +88,7 @@ namespace Baohe.viewModel
 
             //VerifyCode.ArrangeSn = "170654946";
             //VerifyCode.Phone = "18301135103";
-            //StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(20);
         }
 
         private void InitStaticData()
@@ -99,13 +99,13 @@ namespace Baohe.viewModel
 
             //StartTime = DateTime.Today.AddHours(5).AddMinutes(59).AddSeconds(58);
             //StartTime = DateTime.Today.AddHours(7).AddMinutes(59).AddSeconds(50);
-            //StartTime = DateTime.Today.AddHours(8).AddMinutes(29).AddSeconds(40);
+            //StartTime = DateTime.Today.AddHours(8).AddMinutes(30).AddSeconds(2);
             //StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(57);
-            StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(57);
+            //StartTime = DateTime.Today.AddHours(11).AddMinutes(59).AddSeconds(57);
             //StartTime = DateTime.Today.AddHours(13).AddMinutes(13).AddSeconds(57);
-            //StartTime = DateTime.Today.AddHours(14).AddMinutes(59).AddSeconds(57);
+            //StartTime = DateTime.Today.AddHours(15).AddMinutes(59).AddSeconds(50);
             //StartTime = DateTime.Today.AddHours(19).AddMinutes(59).AddSeconds(58);
-            //StartTime = DateTime.Today.AddHours(20).AddMinutes(29).AddSeconds(55);
+            StartTime = DateTime.Today.AddHours(20).AddMinutes(30).AddSeconds(3);
             //StartTime = DateTime.Today.AddHours(21).AddMinutes(59).AddSeconds(57);
 
             if (Application.Current.Properties.Contains("UserName"))

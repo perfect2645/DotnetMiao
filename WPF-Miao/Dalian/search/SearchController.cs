@@ -52,11 +52,14 @@ namespace Dalian.search
 
             var dateList1 = MainSession.PlatformSession["DateList"] as List<DspVal>;
 
-            while (!isMiaoGet)
+            while (true)
             {
-                //isMiaoGet = miaoController.SearchMiao(dateList1.LastOrDefault().Value);
-                miaoController.SearchMiao(dateList1.LastOrDefault().Value);
-                Thread.Sleep(1000);
+                isMiaoGet = miaoController.SearchMiao(dateList1.LastOrDefault().Value);
+                Thread.Sleep(680);
+                if (isMiaoGet)
+                {
+                    Thread.Sleep(60 * 1000 * 14);
+                }
             }
         }
     }

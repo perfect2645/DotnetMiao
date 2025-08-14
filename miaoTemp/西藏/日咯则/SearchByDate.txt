@@ -1,0 +1,20 @@
+GET http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_YS_List.action?clientID=A0000005&ksID=015&ksMC=%E8%AE%A1%E5%88%92%E5%85%8D%E7%96%AB%E7%A7%91%E9%97%A8%E8%AF%8A&index=2 HTTP/1.1
+Host: pyx.ygnetservice.cn
+Connection: keep-alive
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+X-Requested-With: XMLHttpRequest
+Cookie: JSESSIONID=E48A9CA3DDC0B0D6A4C0757B47403100
+Referer: http://pyx.ygnetservice.cn/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_YS.action?openid=o0u9u6i0lNIVxoWofFCksAA5r5V8&clientID=A0000005&ksID=015&ksMC=%E8%AE%A1%E5%88%92%E5%85%8D%E7%96%AB%E7%A7%91%E9%97%A8%E8%AF%8A
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.9
+Date: Sun, 19 Nov 2023 02:05:05 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Content-Length: 242
+
+{"rq":"2023-11-21","data":[{"clientID":"A0000005","ksid":"015","zyid":"4008","zymc":"宫颈癌疫苗","sex":null,"ghlx":"普通号","pbrc":20,"ghrc":0,"jzrc":0,"syrc":20,"ghf":10.8,"rq":"2023-11-21","ksID":null,"ks":"计划免疫科门诊"}]}

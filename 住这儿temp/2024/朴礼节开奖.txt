@@ -1,0 +1,25 @@
+POST https://z.onewo.com/market/api/activity/team/good/get HTTP/1.1
+Host: z.onewo.com
+Accept: application/json, application/json
+Authorization: Bearer 9cd004ab-bc23-466e-acc1-efe5d673d621
+Accept-Language: zh-CN,zh-Hans;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Origin: https://enterprise.4009515151.com
+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 xxxx2024062802 vanke_app_version/5.6.36 X_API_VERSION/20240628 vanke_app/zhuzher vanke_jsbridge_version/5.6.36
+Connection: keep-alive
+X-Device-ID: 6C17A131-4FBE-4ED1-AF16-5D4A48AA8D16
+Referer: https://enterprise.4009515151.com/
+Content-Length: 85
+
+{"activityId":1105,"projectCode":"21020025","projectName":"大连万科半山半海"}
+HTTP/1.1 200 OK
+Date: Mon, 28 Oct 2024 03:19:50 GMT
+Content-Type: application/json
+Content-Length: 46
+Connection: keep-alive
+Vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+{"message":"success","code":200,"result":null}

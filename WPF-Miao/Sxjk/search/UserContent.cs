@@ -20,7 +20,8 @@ namespace Sxjk.search
             var cityCode = MainSession.PlatformSession.GetString(Constants.CityCode);
 
             UrlDic.AddOrUpdate("type", "0");
-            UrlDic.AddOrUpdate("bact_id", User.BactId);
+            //UrlDic.AddOrUpdate("bact_id", User.BactId);
+            UrlDic.AddOrUpdate("bact_id", "");
             UrlDic.AddOrUpdate("user_name", User.LoginUserName);
             UrlDic.AddOrUpdate("city_code", cityCode);
             base.BuildUrl();

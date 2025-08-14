@@ -40,15 +40,12 @@ namespace Zhuzher.collectsun
 
         public void CollectSun(UserProject user)
         {
-            lock(_lock)
+            foreach (var scene in ScenceList.ScenceList)
             {
-                foreach (var scene in ScenceList.ScenceList)
+                for (var i = 0; i < scene.SceneTimes; i++)
                 {
-                    for (var i = 0; i < scene.SceneTimes; i++)
-                    {
-                        Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(5000);
-                    }
+                    Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                    Thread.Sleep(2000);
                 }
             }
         }
@@ -58,14 +55,14 @@ namespace Zhuzher.collectsun
             for (var i = 0; i < scene.SceneTimes; i++)
             {
                 Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                Thread.Sleep(5000);
+                Thread.Sleep(2000);
             }
         }
 
         private void CollectSunForEachScene(UserProject user, SunActivityScence scene)
         {
             var content = new CollectSunContent();
-            content.AddHeader("Cookie", ZhuzherSession.Cookie);
+            content.AddHeader("Cookie", MainSession.Cookie);
             content.AddHeader("Authorization", user.Authorization);
             content.AddContent("userId", user.UserId);
             content.AddContent("projectCode", user.ProjectCode);
@@ -77,14 +74,14 @@ namespace Zhuzher.collectsun
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
-            var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
-            var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
+            var code = response.Body?.FirstOrDefault(x => x.Key == "code").Value?.ToString();
+            var msg = response.Body?.FirstOrDefault(x => x.Key == "message").Value?.ToString();
             if (code == null || code != "200")
             {
-                throw new HttpException($"失败：{msg}");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}失败:{msg}");
             }
             PrintLog(user, scene, msg);
         }
@@ -94,7 +91,7 @@ namespace Zhuzher.collectsun
             StringBuilder sb = new StringBuilder();
             sb.Append($"User:{user.UserName}, scene:{scene.SceneCode}, message:{msg}");
 
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }
 }

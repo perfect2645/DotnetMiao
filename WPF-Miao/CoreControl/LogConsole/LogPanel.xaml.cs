@@ -38,6 +38,7 @@ namespace CoreControl.LogConsole
                 var paragraph = new Paragraph();
                 paragraph.Inlines.Add(new Run(text));
                 document.Blocks.Add(paragraph);
+                logText.ScrollToEnd();
             });
         }
 

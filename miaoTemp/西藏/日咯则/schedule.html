@@ -1,0 +1,206 @@
+
+    
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>预约挂号-产科门诊</title>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weui.css">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weuix.css">
+   
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/animate.css">
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/global.css">
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/loading.css">
+	    
+    
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.min.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/iscroll-lite.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/jQuery/jquery.min.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/axios.min.js"></script>
+ 
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/js/loading.js"></script>   
+ 
+    <script>
+    
+
+	
+    
+    $(function(){
+    	
+ 	
+
+    	TagNav('#tagnav',{
+            type: 'scrollToNext',
+            curClassName: 'weui-state-active',
+            index:0
+        });
+    	
+    	var ncount = '0' ;
+    	 
+    	
+    	if (ncount==0){
+    	  	$("#s3").css('display','block');     	
+    	}
+    });
+    
+    
+    function loading(){
+    	$('body').loading({
+			loadingWidth:240,
+			title:'请稍等!',
+			name:'loading',
+			animateIn:'none',
+			discription:'正在加载数据...',
+			direction:'row',
+			type:'origin',
+			mustRelative:true,
+			originBg:'#71EA71',
+			originDivWidth:30,
+			originDivHeight:30,
+			originWidth:4,
+			originHeight:4,
+			smallLoading:false,
+			titleColor:'#388E7A',
+			loadingBg:'#312923',
+			loadingMaskBg:'rgba(22,22,22,0.2)'
+		});    	
+    }
+    
+ 
+    function fun_item_click(_clientID,_ksID,_ksMC,_sitem,_sindex){
+    	
+    	loading();
+  
+    	 $.ajax({
+            url: "http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_YS_List.action",
+            type: "GET",
+            data: {clientID:_clientID,ksID:_ksID,ksMC:_ksMC,index:_sindex},
+            success: function (data) {
+          
+            	   $("#list_ys").empty();
+           
+                	
+        	    	var htmls_head = '<div id="list_ys" class="weui-panel weui-panel_access">' ;
+        	    	var htmls = '' ;
+        	    	var htmls_foot = '</div>' ;
+        	    	for(var i=0; i<data.data.length; i++) {
+        	    		
+        	    		var sobj = data.data[i] ;
+        	    		
+        	    		htmls = htmls + '<div class="weui-panel__bd">'+
+        	                            '<a href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_JYFW/FUN_JYFW_YYGH_YS_GH.action?openid=o0u9u6pNQfh7XfKLS9M4zHA6iwlE&clientID='+data.data[i].clientID+'&rq='+data.rq+'&ksid='+data.data[i].ksid+'&zyid='+data.data[i].zyid+'" class="weui-media-box weui-media-box_appmsg">'+
+        	                            '<div class="weui-media-box__hd">'+
+        	                            '<img class="weui-media-box__thumb" src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//resources/YSPHOTO/'+data.data[i].clientID+'/'+data.data[i].zyid+'.png" alt="">'+
+        	                            '</div>'+
+        	                            '<div class="weui-media-box__bd">'+
+        	                            '<h4 class="weui-media-box__title">'+data.data[i].zymc+'</h4>'+
+        	                            '<p class="weui-media-box__desc">类型：'+data.data[i].ghlx+' / 挂号费：'+data.data[i].ghf+' 元</p>'+
+        	                            '</div>'+
+        	                            '</a>'+
+        	                            '</div>' ;
+        			 }
+        	    	
+        	    	 var html_nr = htmls_head + htmls + htmls_foot ;
+        	   
+        	    	 $("#list_ys").html(html_nr) ;  
+        	    	 
+        	    	 removeLoading('loading');
+        	    	 
+        	     	if (data.data.length==0){
+        	    	  	$("#s3").css('display','block');     	
+        	    	}else{
+        	    		$("#s3").css('display','none'); 
+        	    	}
+        	 
+            },
+            error:function(e){
+            	
+            	removeLoading('loading');
+    
+            }
+         })
+ 
+    }
+  
+    
+    function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+    
+    
+    </script>
+    
+    <style>
+         .weui-media-box__desc{
+              margin-top:  5px;
+         
+         }
+         
+    
+    
+    
+    </style>
+ 
+</head>
+<body ontouchstart>
+
+<div class="container">
+     
+     
+    <div id="tagnav" class="weui-navigator weui-navigator-wrapper">
+        <ul class="weui-navigator-list">
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','明天','1');">明天</a></li>
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','后天','2');">后天</a></li>
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','11/21','3');">11/21</a></li>
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','11/22','4');">11/22</a></li>
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','11/23','5');">11/23</a></li>
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','11/24','6');">11/24</a></li>
+          
+               <li><a href="javascript:fun_item_click('A0000005','019','产科门诊','11/25','7');">11/25</a></li>
+            
+        </ul>
+    </div>
+    
+
+ 
+    <div id="list_ys" class="weui-panel weui-panel_access">
+         
+   </div>
+   
+
+
+  <div class="weui-msgbox" style="display:none;" id="s3">
+     <p>
+        <i class="weui-icon-info-circle"></i>暂无数据
+     </p>
+  </div>   
+ 
+</div>
+
+   
+
+ 
+</body>
+</html>

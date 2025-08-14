@@ -1,0 +1,13 @@
+- adb version
+- adb start-server > 启动 server
+- adb kill-server 停止 server
+- adb devices 显示连接的设备列表
+- adb install xxx.apk 通过 adb 安装 app
+- adb install -r xxx.apk 覆盖安装 app
+- adb uninstall 包名 通过 adb 卸载 app
+
+- adb push path1 path2 推送电脑的文件到手机
+- adb pull path1 path2 拉去手机的文件到电脑
+- adb pull path
+- adb shell 进入手机的 Linux 控制台
+- adb -s 设备名 shell 多设备时指定设备

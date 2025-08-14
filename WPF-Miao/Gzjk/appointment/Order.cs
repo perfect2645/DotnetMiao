@@ -6,15 +6,16 @@ namespace Gzjk.appointment
     public class Order
     {
         public string UserName { get; set; }
-        public string FamilyId { get; set; }
-        public string HosId { get; set; }
-        public string IdCard { get; set; }
-        public string NumId { get; set; }
-        public string OpenId { get; set; }
-        public string Phone { get; set; }
-        public string ProjectId { get; set; }
-        public string SchId { get; set; }
-        public string Time { get; set; }
+        public string Birthday { get; set; }
+        public string Tel { get; set; }
+        public int Sex { get; set; } = 1;
+        public int Doctype { get; set; } = 1;
+        public string Idcard { get; set; }
+        public string Mxid { get; set; }
+        public string Date { get; set; }
+        public string Pid { get; set; }
+        public int Ftime { get; set; } = 1; //第几针
+        public string Guid { get; set; }
 
         public string ResultMsg { get; set; }
 
@@ -27,11 +28,11 @@ namespace Gzjk.appointment
             sb.AppendLine("******** 预约详情 *********");
 
             sb.AppendLine($"姓名 - {UserName}");
-            sb.AppendLine($"FamilyId - {FamilyId}");
-            sb.AppendLine($"Phone - {Phone}");
-            sb.AppendLine($"IdCard - {IdCard}");
-            sb.AppendLine($"Time - {Time}");
-            sb.AppendLine($"SchId - {SchId}");
+            sb.AppendLine($"Birthday - {Birthday}");
+            sb.AppendLine($"Phone - {Tel}");
+            sb.AppendLine($"Idcard - {Idcard}");
+            sb.AppendLine($"Date - {Date}");
+            sb.AppendLine($"第{Ftime}针");
             sb.AppendLine($"ResultMsg - {ResultMsg}");
             sb.AppendLine("**************************************");
 

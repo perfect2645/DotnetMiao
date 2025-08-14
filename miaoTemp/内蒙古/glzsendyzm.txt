@@ -1,0 +1,28 @@
+GET https://dxi.glzhealth.com/api/hpv/sms/send?phone=13909856656 HTTP/1.1
+Host: dxi.glzhealth.com
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+xweb_xhr: 1
+source: 10002
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x6309080f)XWEB/8461
+Content-Type: application/json
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://servicewechat.com/wxfb0f7df5d9bffade/143/page-frame.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+
+HTTP/1.1 200 OK
+Date: Mon, 13 Nov 2023 15:12:41 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+Vary: Accept-Encoding
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+Content-Length: 73
+
+{"code":200,"success":true,"data":{"captcha":false},"msg":"操作成功"}

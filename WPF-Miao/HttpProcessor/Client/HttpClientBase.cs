@@ -137,6 +137,20 @@ namespace HttpProcessor.Client
             }
         }
 
+        public virtual async Task<HttpDicResponse> GetImageAsync(HttpStringContent content)
+        {
+            try
+            {
+                var response = await Client.GetAsync(content.RequestUrl);
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, "GetImageAsync");
+            }
+        }
+
         #endregion Get
 
         #region Post String

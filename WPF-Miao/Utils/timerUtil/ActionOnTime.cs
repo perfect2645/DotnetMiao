@@ -21,6 +21,19 @@ namespace Utils.timerUtil
             OnTimeTimer.Elapsed += new System.Timers.ElapsedEventHandler(Timer_Elapsed);
         }
 
+        public ActionOnTime(Action action, string name, DateTime stratTime)
+        {
+            TargetAction = action;
+            ActionTime = stratTime;
+            Name = name;
+            OnTimeTimer = new System.Timers.Timer();
+            OnTimeTimer.Enabled = true;
+            OnTimeTimer.Interval = 100;
+            OnTimeTimer.Start();
+
+            OnTimeTimer.Elapsed += new System.Timers.ElapsedEventHandler(Timer_Elapsed);
+        }
+
         private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
         {
             if (e.SignalTime > ActionTime)

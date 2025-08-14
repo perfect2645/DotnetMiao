@@ -144,7 +144,20 @@ namespace Sanya.viewmodel
             DateList = new List<DspVal>();
 
             Departments = new List<HospitalDept>
-            {
+            {   
+                new SanyaHospital
+                {
+                    OrgCode = "A572000C021",
+                    ZoneCode = "460200",
+                    ZoneName = "5LiJ5Lqa5biC",
+                    AppCode = "HC_SANYA_WX",
+                    HospitalId = "A572000C021",
+                    HospitalName = "三亚市吉阳区海罗社区卫生健康服务中心",
+                    SubscribeType = "2c90812388d150370188d1934ed6003c",
+                    DepartmentId = "2c90801b88c4acc60188d1a7d0cc0137",
+                    DepartmentName = "九价",
+                    VaccineName = "九价"
+                },
                 new SanyaHospital
                 {
                     OrgCode = "A572000B004",

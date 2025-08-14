@@ -34,31 +34,46 @@ namespace Zhuzher.collectsun
         {
             foreach(var user in UserProjectList.UserProjects)
             {
-
                 Task.Factory.StartNew(() => CollectSun(user));
             }
         }
 
         public void CollectSun(UserProject user)
         {
-            lock(_lock)
+            foreach (var scene in ScenceList.ScenceList)
             {
-                foreach (var scene in ScenceList.ScenceList)
+                var apiVersion = scene.Version;
+                if (apiVersion == 1)
                 {
-                    var apiVersion = scene.Version;
                     var v1Controller = HttpServiceController.GetService<CollectSunController>();
-                    if (apiVersion == 1)
-                    {
-                        v1Controller.CollectSun(user, scene);
-                        continue;
-                    }
-                    for (var i = 0; i < scene.SceneTimes; i++)
-                    {
-  
-                        Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
-                        Thread.Sleep(5000);
-                    }
+                    v1Controller.CollectSun(user, scene);
+                    continue;
                 }
+                if (apiVersion == 2)
+                {
+                    Thread.Sleep(200);
+                    Task.Factory.StartNew(() =>
+                    {
+                        var v2Controller = HttpServiceController.GetService<CollectSunV2Controller>();
+                        v2Controller.CollectSun(user, scene);
+                    });
+                    continue;
+                }
+                if (apiVersion == 3 || apiVersion == 4)
+                {
+                    var v3Controller = HttpServiceController.GetService<CollectSunV3Controller>();
+                    v3Controller.CollectSunAsync(user, scene);
+                    continue;
+                }
+            }
+        }
+
+        public void CollectSun(UserProject user, SunActivityScence scene)
+        {
+            for (var i = 0; i < scene.SceneTimes; i++)
+            {
+                Task.Factory.StartNew(() => CollectSunForEachScene(user, scene));
+                Thread.Sleep(2000);
             }
         }
 
@@ -71,7 +86,7 @@ namespace Zhuzher.collectsun
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -88,7 +103,7 @@ namespace Zhuzher.collectsun
             StringBuilder sb = new StringBuilder();
             sb.Append($"User:{user.UserName}, scene:{scene.SceneCode}, message:{msg}");
 
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }
 }

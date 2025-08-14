@@ -185,5 +185,28 @@ namespace HttpProcessor.Request
         }
 
         #endregion Post
+
+        #region Put
+
+        public static async Task<HttpDicResponse> PutJsonAsync(this HttpClient client, HttpStringContent content, bool ensureSuccess = true)
+        {
+            try
+            {
+                var response = await client.PutAsync(content.RequestUrl, content.GetJsonContent());
+                if (ensureSuccess)
+                {
+                    response.EnsureSuccessStatusCode();
+                }
+                return new HttpDicResponse(response);
+            }
+            catch (Exception ex)
+            {
+                GLog.Logger.Error(ex);
+                throw new HttpException(ex, "PutJsonAsync");
+            }
+        }
+
+        #endregion Put
+
     }
 }

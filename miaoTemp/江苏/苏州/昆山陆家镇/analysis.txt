@@ -1,8 +1,8 @@
-提交请求参数
-
-(local var) s: {
-    vaccineDayId: any;
-    vaccineDayNumId: any;
-    vaccineId: any;
-    familyId: any;
-}
+                                        if ("0000" == n.errorCode) {
+                                            //var e = n.data; 
+                                            var e = "";
+                                            var t = c.default.setDecrypt(i.wjCommonkey, e);
+                                            i.wjCommonOpenData = t;
+                                            console.log(`signData=${n.data}`)
+                                            console.log(`sign=${t}`)
+                                        }

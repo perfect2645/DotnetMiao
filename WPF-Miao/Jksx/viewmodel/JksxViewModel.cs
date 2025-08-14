@@ -5,6 +5,7 @@ using CoreControl.LogConsole;
 using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using Jksx.appointment;
+using Jksx.common;
 using Jksx.login;
 using Jksx.search;
 using Jksx.session;
@@ -46,6 +47,9 @@ namespace Jksx.viewmodel
 
         private void TestData()
         {
+            var testDe = Encotor.DecodeToDicList("571ccef21ce39ca06e515113cc05ef403a7fe1299aba398702a29953c3bd3c53aad8099cd4b6891a18d99e65cbeaa14ac1b9493321b8ec2fc28ce428cab851621b5b66789c0503f8ceaf74f391b51c9f2b6516120c13f2dac31627c00dc555c4823153323c947ca7d0dd3ce018bc4309");
+
+
             Interval = 200;
 
             //StartTime = DateTime.Now.AddSeconds(5);

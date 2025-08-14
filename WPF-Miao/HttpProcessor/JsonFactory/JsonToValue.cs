@@ -38,6 +38,11 @@ namespace HttpProcessor.JsonFactory
             {
                 return prop.GetString();
             }
+
+            if (prop.ValueKind == JsonValueKind.Array)
+            {
+                return prop.Deserialize<string>();
+            }
             return null;
         }
 

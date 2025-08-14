@@ -1,8 +1,11 @@
 ﻿using HttpProcessor.Client;
+using HttpProcessor.Container;
 using HttpProcessor.Content;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Utils.stringBuilder;
 using Zhuzher.search;
@@ -25,26 +28,55 @@ namespace Zhuzher.Exchange
 
         public void ExchangeAsync()
         {
-            Task.Factory.StartNew(() => Exchange());
+            Task.Factory.StartNew(() =>
+            {
+                var userList = new UserProjectList();
+
+                var defaultUser = userList.UserProjects.FirstOrDefault();
+                var defaultGood = GoodList.MiaoshaList.FirstOrDefault();
+                WaitGoodAvailable(defaultUser, defaultGood);
+
+                foreach (var user in userList.UserProjects)
+                {
+                    foreach(var good in GoodList.MiaoshaList)
+                    {
+                        Exchange(user, good);
+                        Thread.Sleep(1000);
+                    }
+                }
+            });
+            //Task.Factory.StartNew(() => Exchange());
         }
 
-        private void Exchange()
+        private void WaitGoodAvailable(UserProject user, MiaoshaItem good)
         {
-            var user = UserProjectList.UserProjects.FirstOrDefault();
-            var good = GoodList.GetDefaultGood();
+            bool isGoodAvailable = false;
+            var goodController = HttpServiceController.GetService<GoodDetailController>();
+            while(!isGoodAvailable)
+            {
+                isGoodAvailable = goodController.GoodAvailable(user, good);
+                if (isGoodAvailable)
+                {
+                    return;
+                }
+                Thread.Sleep(1000 * 60);
+            }
+        }
 
+        private void Exchange(UserProject user, MiaoshaItem good)
+        {
             var isLoot = false;
             if (good.Number > 0)
             {
                 isLoot = true;
             }
 
-            var url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
+            var url = "https://z.onewo.com/market/api/activity/good/exchange";
             if (isLoot)
             {
-                url = "https://chaos.4009515151.com/market/api/activity/loot/exchange";
+                url = "https://z.onewo.com/market/api/activity/loot/exchange";
             }
-            var content = new ExchangeContent(url);
+            var content = new ExchangeContent(url, user);
 
             content.AddHeader("Authorization", user.Authorization);
             content.AddContent("projectCode", user.ProjectCode);
@@ -60,14 +92,13 @@ namespace Zhuzher.Exchange
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
             var msg = response.Body.FirstOrDefault(x => x.Key == "message").Value?.ToString();
 
             PrintLog(user, good, msg);
         }
-
 
         public void Seckill(UserProject user, MiaoshaItem good)
         {
@@ -77,12 +108,12 @@ namespace Zhuzher.Exchange
                 isLoot = true;
             }
 
-            var url = "https://chaos.4009515151.com/market/api/activity/good/exchange";
+            var url = "https://z.onewo.com/market/api/activity/good/exchange";
             if (isLoot)
             {
-                url = "https://chaos.4009515151.com/market/api/activity/loot/exchange";
+                url = "https://z.onewo.com/market/api/activity/loot/exchange";
             }
-            var content = new ExchangeContent(url);
+            var content = new ExchangeContent(url, user);
 
             content.AddHeader("Authorization", user.Authorization);
             content.AddContent("projectCode", user.ProjectCode);
@@ -96,14 +127,15 @@ namespace Zhuzher.Exchange
             }
             content.BuildDefaultHeaders(Client);
 
-            if (good.Status >= 2)
+            if (good.Status > 2)
             {
                 return;
             }
+            MainSession.PrintLogEvent.Publish(this, $"{user.UserName}-秒杀 【{good.GoodName}】开始了");
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
             good.Status = 2;
@@ -114,7 +146,7 @@ namespace Zhuzher.Exchange
                 // 中奖了
                 good.Status = 3;
             }
-            else if (msg == "好礼兑换未开始")
+            else if (msg.Contains("未开始"))
             {
                 // 未开始
                 good.Status = 0;
@@ -136,8 +168,8 @@ namespace Zhuzher.Exchange
         private void PrintLog(UserProject user, MiaoshaItem good, string? msg)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"兑换奖品- {good.Log}, message:{msg}");
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            sb.Append($"{user.UserName} 兑换奖品- {good.Log}, message:{msg}");
+            MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }
 }

@@ -15,8 +15,7 @@
         // %2B +
         // %3D =
 
-        // lu1Elq8v2RgVn8l2fYou5y4XRpG5D6FB/rjevLCigkGIti0C0hY+7IrBYk8Et6Hn0yzpA3yMTKBcyr6SHZq7VrhV9bwMgFsVp9pAN3pv+bVTt31yO6oMBsPWQhYSdaY2Bp6oBUvFdIHUT1T7PE9WYvLe9LxBd9qUBbC+3nIWnUHFYzki/22U1Ba6egf8cq1/ifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs=
-        // code=001KK1100R0OsQ1QPK100qZwwB0KK11i&appid=wx83daa62ee4b38e4b&user_name=other#388418&city_code=140800000000&version_name=6.6.0&os=web&userId=null&timeStamp=null
+        // 
 
 
         /* get userlist
@@ -26,7 +25,17 @@
 
          */
 
-        const deStr = decrypt('H6sf04SGY81I7liOqPPCugZNgIadtsNvx7VY1BXbH9wGl/NmT4CYFkUq5RcFem5ZUQ8whTpCsc5uyQ2qhmKUGLS0NqMGMjRikuXDx5IRVLtvanEmr4td60LgNlYtAMS1sK1uWZmEJN9rqn8U+vqsww==');
+         /* yuyue
+         child_code=000019960101000060&station_code=140109030100&vaccine_code=B473&reservation_date=2023-10-13&reservation_begin_time=14:30&reservation_end_time=17:30&price_id=4331&address_info={"address":"","city":"测试市","district":"","latitude":"","longitude":"","province":"","streetName":"","streetNumber":""}&verification_code=Xswf&user_name=other#388418&city_code=140100000000&version_name=6.6.0&os=web 
+          */
+
+        let paramStr = "kf2irIE6tUf3LUBuNUIb1V92qh7C3CHpPHkbAugbPuKNisKYlBkP%2FJLJQvxQmo140yzpA3yMTKBcyr6SHZq7VgLukbShypJBWWALUfeCTtn3eqVxWF%2FHs7LaVJ1ZBqHnbRslfFncOJkDu%2Fdsy2Xx4%2FLe9LxBd9qUBbC%2B3nIWnUHFYzki%2F22U1Ba6egf8cq1%2FifD9E9dbSKHIYJjbkV5wFBJD3s7FQ7LiAwtqeEoKAWs%3D";
+
+        paramStr = paramStr.replace(/%2F/g, '/');
+        paramStr = paramStr.replace(/%2B/g, '+');
+        paramStr = paramStr.replace(/%3D/g, '=');
+
+        const deStr = decrypt(paramStr);
         console.log(deStr);
 
         const enStr = encrypt(deStr);

@@ -24,7 +24,7 @@ namespace Jksx.login
 
             AddContent("params", BuildEncodeParams());
             AddContent("endec", "on");
-            AddContent("token", "v110");
+            AddContent("token", Constants.Version);
         }
 
         private string BuildEncodeParams()

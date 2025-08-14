@@ -1,0 +1,29 @@
+GET https://api.cn2030.com/sc/wx/HandlerSubscribe.ashx?act=GetCustSubscribeDateAll&pid=XBsAAA&id=6928&month=202311 HTTP/1.1
+Host: api.cn2030.com
+Connection: keep-alive
+xweb_xhr: 1
+cookie: ASP.NET_SessionId=2b5emv5gilc0wll5avk1khxu; path=/; HttpOnly; SameSite=Lax
+zftsl: f1a397777191101f3d3694b1833c0b5d
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090719)XWEB/8461
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 12 Nov 2023 06:33:59 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 1139
+Connection: keep-alive
+Cache-Control: private
+X-Powered-By: XX
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Zftsl,token
+
+{"status":200,"list":[{"date":"2023-11-13","enable":true},{"date":"2023-11-14","enable":true},{"date":"2023-11-15","enable":true},{"date":"2023-11-16","enable":true},{"date":"2023-11-17","enable":true},{"date":"2023-11-20","enable":true},{"date":"2023-11-21","enable":true},{"date":"2023-11-22","enable":true},{"date":"2023-11-23","enable":true},{"date":"2023-11-24","enable":true},{"date":"2023-11-27","enable":true},{"date":"2023-11-28","enable":true},{"date":"2023-11-29","enable":true},{"date":"2023-11-30","enable":true},{"date":"2023-12-01","enable":true},{"date":"2023-12-04","enable":true},{"date":"2023-12-05","enable":true},{"date":"2023-12-06","enable":true},{"date":"2023-12-07","enable":true},{"date":"2023-12-08","enable":true},{"date":"2023-12-11","enable":true},{"date":"2023-12-12","enable":true},{"date":"2023-12-13","enable":true},{"date":"2023-12-14","enable":true},{"date":"2023-12-15","enable":true},{"date":"2023-12-18","enable":true},{"date":"2023-12-19","enable":true},{"date":"2023-12-20","enable":true},{"date":"2023-12-21","enable":true},{"date":"2023-12-22","enable":true},{"date":"2023-12-25","enable":true}]}

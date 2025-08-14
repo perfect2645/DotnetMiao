@@ -1,0 +1,25 @@
+POST http://yygh.well-bone.com/prod-api/system/SysYwBook HTTP/1.1
+Host: yygh.well-bone.com
+Connection: keep-alive
+Content-Length: 195
+Accept: application/json, text/plain, */*
+Origin: http://yygh.well-bone.com
+Content-Type: application/json;charset=UTF-8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Content-Language: zh_CN
+Referer: http://yygh.well-bone.com/system/SysYwBookDetail
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"ywId":"1694864625296289793","ywDateId":"2023-09-08","datetimeId":"1699349606487896065","name":"周珊","sfz":"320583199911177602","sjhm":"16790235579","dwCode":"接种九价HPV疫苗","zxx":""}
+HTTP/1.1 200 OK
+Server: nginx/1.22.1
+Date: Thu, 07 Sep 2023 17:22:51 GMT
+Content-Type: application/json; charset=UTF-8
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Length: 78
+
+{"code":500,"msg":"预约已满，请重新选择预约时间段","data":null}

@@ -4,6 +4,10 @@ using System.Windows;
 using Zhuzher.collectsun;
 using Zhuzher.Exchange;
 using Zhuzher.miaosha;
+using Zhuzher.Play;
+using Zhuzher.Post;
+using Zhuzher.Score;
+using Zhuzher.vote;
 
 namespace Zhuzher
 {
@@ -29,11 +33,36 @@ namespace Zhuzher
         {
             HttpServiceController.AddTransientService<CollectSunController>();
             HttpServiceController.AddTransientService<CollectSunV2Controller>();
+            HttpServiceController.AddTransientService<CollectSunV3Controller>();
             HttpServiceController.AddTransientService<JoinTeamController>();
             HttpServiceController.AddTransientService<ExchangeController>();
             HttpServiceController.AddTransientService<SeckillController>();
             HttpServiceController.AddTransientService<JifenSurkillController>();
             HttpServiceController.AddTransientService<ScoreKillController>();
+            HttpServiceController.AddTransientService<PlayController>();
+            HttpServiceController.AddTransientService<ScorePlayController>();
+            HttpServiceController.AddTransientService<PlayRewardController>();
+            HttpServiceController.AddTransientService<CollectScoreController>();
+            HttpServiceController.AddTransientService<UnCollectedScoreController>();
+            HttpServiceController.AddTransientService<ScoreBetController>();
+            HttpServiceController.AddTransientService<GoodDetailController>();
+            HttpServiceController.AddTransientService<GuseeBetController>();
+            HttpServiceController.AddTransientService<PlayDetailController>();
+            HttpServiceController.AddTransientService<ScoreExchangeController>();
+            HttpServiceController.AddTransientService<LootController>();
+            HttpServiceController.AddTransientService<VoteController>();
+            HttpServiceController.AddTransientService<CommentController>();
+            HttpServiceController.AddTransientService<LikeController>();
+            HttpServiceController.AddTransientService<AnnouncementController>();
+            HttpServiceController.AddTransientService<PlayChanceController>();
+            HttpServiceController.AddTransientService<TotalScoreController>();
+            HttpServiceController.AddTransientService<SurveyAnswerController>();
+            HttpServiceController.AddTransientService<MyGuessController>();
+            HttpServiceController.AddTransientService<FragmentExchangeController>();
+            HttpServiceController.AddTransientService<PuliDrawPrizeController>();
+            HttpServiceController.AddTransientService<PostArticleController>();
+            HttpServiceController.AddTransientService<ImageController>();
+            HttpServiceController.AddTransientService<InviteHelpController>();
 
             HttpServiceController.BuidServiceProvider();
         }

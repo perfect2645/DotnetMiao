@@ -360,11 +360,11 @@ namespace Dayim.viewmodel
                     {
                         UserName = user.UserName,
                         User = user,
-                        HospitalCode = template.HospitalCode,
-                        MakeAnAppointment = template.MakeAnAppointment,
-                        TimeNo = template.TimeNo,
-                        UserId = template.UserId,
-                        VaccineInfoId = template.VaccineInfoId,
+                        //HospitalCode = template.HospitalCode,
+                        //MakeAnAppointment = template.MakeAnAppointment,
+                        //TimeNo = template.TimeNo,
+                        //UserId = template.UserId,
+                        //VaccineInfoId = template.VaccineInfoId,
                     };
 
                     orderList.Add(order);

@@ -1,0 +1,68 @@
+﻿using Zhuzher.Common;
+using Zhuzher.search;
+using Zhuzher.session;
+
+namespace Zhuzher.Play
+{
+    internal class FragmentContent : OnewoContent
+    {
+        private const string _exchangeUrl = "https://z.onewo.com/market/api/activity/fragment/exchange";
+        private const string _lotteryUrl = "https://z.onewo.com/market/api/activity/fragment/lottery";
+        private const string _baseUrl = "https://z.onewo.com/market/api/activity/fragment/";
+
+        public int ActivityGameId { get; set; }
+        public string ActivityType { get; set; }
+        public int GoodId { get; set; }
+
+        public FragmentContent(UserProject user, int activityGameId, int goodId) : base(_exchangeUrl, user)
+        {
+            AddDeviceId();
+
+            ActivityGameId = activityGameId;
+            GoodId = goodId;
+            BuildExchangeContent();
+        }
+
+        public FragmentContent(UserProject user, int activityGameId) : base(_lotteryUrl, user)
+        {
+            AddDeviceId();
+
+            ActivityGameId = activityGameId;
+            BuildLotteryContent();
+        }
+
+        public FragmentContent(UserProject user, int activityGameId, string activityType) 
+            : base($"{_baseUrl}{activityType}", user)
+        {
+            AddDeviceId();
+            ActivityType = activityType;
+            ActivityGameId = activityGameId;
+            BuildLotteryContent();
+        }
+
+        private void BuildExchangeContent()
+        {
+            AddContent("activityGameId", ActivityGameId);
+            AddContent("activityId", MainSession.ActivityId);
+            AddContent("goodId", GoodId);
+            AddContent("projectCode", User.ProjectCode);
+            AddContent("projectName", User.ProjectName);
+        }
+
+        private void BuildLotteryContent()
+        {
+            AddContent("activityGameId", ActivityGameId);
+            AddContent("activityId", MainSession.ActivityId);
+            switch (ActivityType)
+            {
+                case "hold":
+                case "compose":
+                    break;
+                default:
+                AddContent("projectCode", User.ProjectCode);
+                AddContent("projectName", User.ProjectName);
+                    break;
+            }
+        }
+    }
+}

@@ -49,12 +49,12 @@ namespace Lujiazhen.viewmodel
         {
             Interval = 200;
 
-            StartTime = DateTime.Now.AddSeconds(5);
+            //StartTime = DateTime.Now.AddSeconds(5);
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(59);
+            StartTime = DateTime.Today.AddHours(7).AddMinutes(29).AddSeconds(50);
 
             Departments = new List<HospitalDept>
             {
@@ -65,6 +65,14 @@ namespace Lujiazhen.viewmodel
                     HospitalName = "邵村院区",
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "6",
+                },
+                new LujiazhenHospital
+                {
+                    AppPrefix = "ljzyyapi",
+                    HospitalId = "1",
+                    HospitalName = "邵村院区",
+                    DepartmentName = "九价HPV首针（＜16周岁）",
+                    DepartmentId = "7",
                 },
                 new LujiazhenHospital
                 {
@@ -82,14 +90,7 @@ namespace Lujiazhen.viewmodel
                     DepartmentName = "九价HPV首针（≥16周岁）",
                     DepartmentId = "23",
                 },
-                new LujiazhenHospital
-                {
-                    AppPrefix = "ljzyyapi",
-                    HospitalId = "1",
-                    HospitalName = "邵村院区",
-                    DepartmentName = "九价HPV首针（＜16周岁）",
-                    DepartmentId = "7",
-                },
+
 
             };
 
@@ -231,7 +232,7 @@ namespace Lujiazhen.viewmodel
                         PrintLog(order.ToLogString());
                         return;
                     }
-                    Thread.Sleep(800);
+                    Thread.Sleep(2000);
                 }
             }
             catch (HttpException ex)
@@ -262,7 +263,7 @@ namespace Lujiazhen.viewmodel
                             PrintLog(order.ToLogString());
                             return;
                         }
-                        Thread.Sleep(800);
+                        Thread.Sleep(2000);
                     }
                 }
             }

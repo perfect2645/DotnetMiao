@@ -101,6 +101,12 @@ namespace Utils
             return dic[key].ToString();
         }
 
+        public static int GetInt(this Dictionary<string, object> dic, string key)
+        {
+            var strValue = dic.GetString(key);
+            return strValue.ToInt();
+        }
+
         public static object GetValue(this Dictionary<string, object> dic, string key)
         {
             if (dic == null || key == null)

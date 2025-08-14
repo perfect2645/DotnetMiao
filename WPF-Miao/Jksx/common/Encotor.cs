@@ -34,7 +34,7 @@ namespace Jksx.common
         {
             try
             {
-                var aesDe = AesEncode.AESEncrypt(data, Constants.EncodeKey, Constants.EncodeIV);
+                var aesDe = AesEncode.AESDecrypt(data, Constants.EncodeKey, Constants.EncodeIV);
                 var dataDic = aesDe.text.ToObjDic();
 
                 return dataDic;

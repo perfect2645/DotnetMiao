@@ -134,16 +134,16 @@ namespace Dxm.viewmodel
         private void TestData()
         {
             Interval = 200;
-            StartTime = DateTime.Now.AddSeconds(10);
+            //StartTime = DateTime.Now.AddSeconds(10);
             MainSession.PrintLogEvent.Publish(this, GetIP());
         }
 
         private void InitStaticData()
         {
-            StartTime = DateTime.Today.AddHours(9).AddMinutes(59).AddSeconds(10);
+            StartTime = DateTime.Today.AddHours(17).AddMinutes(59).AddSeconds(10);
 
             DateList = new List<DspVal>();
-            DateList.Add(new DspVal("2023-08-05 00:00:00"));
+            DateList.Add(new DspVal("2023-10-10 00:00:00"));
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);
             SelectedDate = DateList.FirstOrDefault();
@@ -152,20 +152,21 @@ namespace Dxm.viewmodel
             {
                 new DxmHospital
                 {
-                    AreaId = "130229",
-                    HospitalId = "1302290103",
-                    HospitalName = "玉田县中医院",
+                    AreaId = "150502",
+                    HospitalId = "1505021901",
+                    HospitalName = "预防接种门诊",
                     DepartmentName = "9价",
                     DepartmentId = "",
-                    // 每周六10点放
+                    // 通辽疾控
                 },
                 new DxmHospital
                 {
                     AreaId = "130229",
                     HospitalId = "1302290103",
                     HospitalName = "玉田县中医院",
-                    DepartmentName = "2价",
-                    DepartmentId = "573",
+                    DepartmentName = "9价",
+                    DepartmentId = "",
+                    // 每周六10点放
                 },
                 new DxmHospital
                 {

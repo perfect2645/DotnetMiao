@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 using Utils.datetime;
+using Utils.number;
 
 namespace Zhuzher.search
 {
@@ -54,24 +55,37 @@ namespace Zhuzher.search
     internal class ScoreItemList
     {
         public List<ScoreItem> MiaoshaList { get; set; }
+        public List<ScoreItem> ExchangeList { get; set; }
 
         public ScoreItemList()
         {
             MiaoshaList = new List<ScoreItem>();
+            ExchangeList = new List<ScoreItem>();
             InitMiaoshaList();
+            InitExchangeList();
             //TestInitMiaoshaList();
+        }
+
+        private void InitExchangeList()
+        {
+            AddExchangeItem(5245, 279, "红包");
+            //AddExchangeItem(4558, 283, "小麦粉");
+            //AddExchangeItem(4560, 283, "蒙牛真果粒");
+            //AddExchangeItem(4559, 231, "瓷碗");
         }
 
         private void TestInitMiaoshaList()
         {
-            //AddMiaoshaItem(5734, 1, "【6折】家政家电清洁大额补贴", "1059", "2022-12-08 20:13:00");
+            
         }
 
         private void InitMiaoshaList()
         {
-            var timeNow = DateTime.Now.AddSeconds(20);
-            AddMiaoshaItem(2748, 131, 1989, "物业券 ", $"{DateTimeUtil.GetToday()} 20:00:00");
-            //AddMiaoshaItem(2590, 118, "诺梵低糖款松露巧克力500g/盒", $"{DateTimeUtil.GetToday()} 20:00:00");
+            var misecond = NumberUtil.IntRandom(500, 900);
+            AddMiaoshaItem(4441, 227, 2213, "50元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 11:59:59.{misecond}");
+            //AddMiaoshaItem(4440, 227, 2213, "20元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
+            //AddMiaoshaItem(4439, 227, 2213, "10元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:00");
+            //AddMiaoshaItem(4438, 227, 2213, "5元物业预缴券（数量有限/每周一更新）", $"{DateTimeUtil.GetToday()} 12:00:03");
         }
 
         private void AddMiaoshaItem(int exchangeGoodId, int exchangeId, int exchangeGoodTimeId, string goodName, string startTimeStr = "")
@@ -91,6 +105,25 @@ namespace Zhuzher.search
             {
                 ExchangeGoodId = exchangeGoodId,
                 ExchangeGoodTimeId = exchangeGoodTimeId,
+                ExchangeId = exchangeId,
+                Group = 1,
+                GoodName = goodName,
+                StartTime = startTime,
+            });
+        }
+
+        private void AddExchangeItem(int exchangeGoodId, int exchangeId, string goodName)
+        {
+            var startTime = DateTime.Today;
+
+            if (startTime < DateTime.Now)
+            {
+                startTime = DateTime.Today;
+            }
+
+            ExchangeList.Add(new ScoreItem
+            {
+                ExchangeGoodId = exchangeGoodId,
                 ExchangeId = exchangeId,
                 Group = 1,
                 GoodName = goodName,

@@ -1,0 +1,75 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": {
+        "exchangeId": 227,
+        "startTime": 1727668800000,
+        "endTime": 1727711999000,
+        "availableStartTimestamp": 1223,
+        "availableEndTimestamp": 44422,
+        "scoreBackgroundImg": "https://img2.4009515151.com/2024/09/27/e7798de0-8487-46ad-bc56-dc828096a6571727422475327.jpg",
+        "backgroundColor": "#fff1de",
+        "goodList": [
+            {
+                "exchangeId": 227,
+                "exchangeGoodId": 4438,
+                "exchangeGoodTimeId": 2212,
+                "goodId": 6620,
+                "goodType": 2,
+                "goodName": "5元物业预缴券（数量有限/每周一更新）",
+                "smallImage": "https://img2.4009515151.com/2024/09/27/1c29945f-0c35-4afe-a0e3-7432d86c10981727421887485.jpg",
+                "needScore": 2500,
+                "number": 1,
+                "discountScore": 2500,
+                "limitCount": 1,
+                "exchangeLimitType": "person",
+                "exchangeLimitDays": null
+            },
+            {
+                "exchangeId": 227,
+                "exchangeGoodId": 4439,
+                "exchangeGoodTimeId": 2212,
+                "goodId": 6621,
+                "goodType": 2,
+                "goodName": "10元物业预缴券（数量有限/每周一更新）",
+                "smallImage": "https://img2.4009515151.com/2024/09/27/6ade668f-80c1-4167-af99-360b69c341261727421945619.jpg",
+                "needScore": 5000,
+                "number": 2,
+                "discountScore": 5000,
+                "limitCount": 1,
+                "exchangeLimitType": "person",
+                "exchangeLimitDays": null
+            },
+            {
+                "exchangeId": 227,
+                "exchangeGoodId": 4440,
+                "exchangeGoodTimeId": 2212,
+                "goodId": 6622,
+                "goodType": 2,
+                "goodName": "20元物业预缴券（数量有限/每周一更新）",
+                "smallImage": "https://img2.4009515151.com/2024/09/27/18cabf13-24be-4186-8aae-8eac7091b37e1727422031302.jpg",
+                "needScore": 10000,
+                "number": 3,
+                "discountScore": 10000,
+                "limitCount": 1,
+                "exchangeLimitType": "person",
+                "exchangeLimitDays": null
+            },
+            {
+                "exchangeId": 227,
+                "exchangeGoodId": 4441,
+                "exchangeGoodTimeId": 2212,
+                "goodId": 6623,
+                "goodType": 2,
+                "goodName": "50元物业预缴券（数量有限/每周一更新）",
+                "smallImage": "https://img2.4009515151.com/2024/09/27/7bf09e69-5005-49c1-a6ca-a1140f87119a1727422072360.jpg",
+                "needScore": 25000,
+                "number": 4,
+                "discountScore": 25000,
+                "limitCount": 1,
+                "exchangeLimitType": "person",
+                "exchangeLimitDays": null
+            }
+        ]
+    }
+}

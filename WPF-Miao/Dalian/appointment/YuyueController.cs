@@ -46,6 +46,12 @@ namespace Dalian.appointment
 
                 var status = root.GetProperty("status").GetInt32();
                 var msg = root.GetProperty("msg").GetString();
+                if (msg == "存在未支付的订单") 
+                {
+                    MainSession.PrintLogEvent.Publish(this, $"预约成功: 存在未支付的订单");
+                    return true;
+                }
+
                 if (status != 0)
                 {
                     MainSession.PrintLogEvent.Publish(this, $"预约失败: status={status}, msg={msg}");
@@ -65,6 +71,7 @@ namespace Dalian.appointment
             }
             catch (Exception ex)
             {
+                Logging.GLog.Logger.Error(ex);
                 MainSession.PrintLogEvent.Publish(this, $"预约异常{ex.Message}");
                 return false;
             }

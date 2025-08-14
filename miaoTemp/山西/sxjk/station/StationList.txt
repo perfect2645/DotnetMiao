@@ -25,3 +25,16 @@
     "message": "获取数据成功！",
     "success": true
 }
+
+
+//////// 临汾
+{
+    "station_name": "大槐树镇中心卫生院接种门诊",
+    "station_address": "山西省临汾市洪洞县大槐树镇湾里村",
+    "is_allow_bespeak": "1",
+    "station_lng": "111.695249",
+    "stock_num": "可预订数：384",
+    "station_lat": "36.276225",
+    "station_code": "141024010200",
+    "is_number": "0"
+}

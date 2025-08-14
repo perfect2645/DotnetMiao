@@ -1,0 +1,154 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 5606,
+            "taskId": 927,
+            "taskName": "参与新春赛诗会发帖",
+            "chanceNumber": 1,
+            "taskDesc": "跨年",
+            "tips": "写一首拜年诗歌，发帖成功即可获得1次抽奖机会",
+            "detail": [
+                {
+                    "taskDetailId": 928,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=556",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1511,
+                    "gameId": 1400,
+                    "gameTitle": "跨年抢头彩",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5607,
+            "taskId": 928,
+            "taskName": "去看看男神女神评选",
+            "chanceNumber": 1,
+            "taskDesc": "跨年",
+            "tips": "浏览男神女神评选活动10秒以上完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 929,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/?contributeId=Mjk=&vkSource=video",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1511,
+                    "gameId": 1400,
+                    "gameTitle": "跨年抢头彩",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5608,
+            "taskId": 929,
+            "taskName": "去看看新春夺宝活动",
+            "chanceNumber": 1,
+            "taskDesc": "跨年",
+            "tips": "浏览新春夺宝活动10秒以上完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 930,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "",
+                    "url": "https://enterprise.4009515151.com/fe-event-pages/marketing?id=992&from=neirong",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1511,
+                    "gameId": 1400,
+                    "gameTitle": "跨年抢头彩",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        },
+        {
+            "activityTaskId": 5609,
+            "taskId": 930,
+            "taskName": "关注“邻居公众号”",
+            "chanceNumber": 1,
+            "taskDesc": "跨年",
+            "tips": "点击跳转前往关注公众号后，点击回复消息中的链接跳回",
+            "detail": [
+                {
+                    "taskDetailId": 931,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=%2Fpages%2FMilkBook%2Findex%3Furl%3Dhttps%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fz0lWLJ8LGFeGAOLEpi1DuA",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": [
+                {
+                    "activityGameId": 1511,
+                    "gameId": 1400,
+                    "gameTitle": "跨年抢头彩",
+                    "limitCount": 1,
+                    "chanceName": ""
+                }
+            ],
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null
+        }
+    ]
+}

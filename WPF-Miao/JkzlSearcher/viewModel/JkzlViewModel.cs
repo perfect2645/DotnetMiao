@@ -78,8 +78,8 @@ namespace JkzlSearcher.viewModel
 
         private void TestData()
         {
-            StartTime = DateTime.Now.AddSeconds(10);
-            Cookie = "jkzlAn_uuid=06063330-A203-4D12-8280-B2E000B2FD50; jkzlAn_p=-1; jkzlAn_c=-1; YiHu_OpenId=eyJPcGVuSUQiOiJvUUtzQ3dvWFFJd0U1Yld2cnJPN1dWR1VwQVNvIiwiU2VjU3RyIjoiNzY2NDlCODg1MERDOUZGODlGOTUyNjI4M0VEOTA1RDAifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=oQKsCwoXQIwE5bWvrrO7WVGUpASo; OpenID=oQKsCwoXQIwE5bWvrrO7WVGUpASo; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9000415; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNTkyNjY0MzQiLCJDYXJkTnVtYmVyIjoiMjA4OTM0NjI2OCIsIkxvZ2luSWQiOiJvUUtzQ3dvWFFJd0U1Yld2cnJPN1dWR1VwQVNvIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiIyMkJDN0EwMTBCNzE3MTMyRDMxNzU3MzQyNTREM0M0RiJ9; TOKEN_02BFC4780DDECC5A419125006605F1A6=53E52FEDAAE144448DE3042584845D10; _YyghSysTrackUUID=05173959026; jkzlAn_refercode=; jkzlAn_utm_source=; jkzlAn_sid=4085B201-BB2E-49FF-8B3A-2AE991D60A8A; jkzlAn_channelid=9000415; jkzlAn_userid=159266434; jkzlAn_ct=1691228421030";
+            //StartTime = DateTime.Now.AddSeconds(10);
+            Cookie = "jkzlAn_uuid=06063330-A203-4D12-8280-B2E000B2FD50; YiHu_OpenId=eyJPcGVuSUQiOiJvc3VOVjZpZnl0MjdLRl9EVDl5WmRBb2hWNF9JIiwiU2VjU3RyIjoiQTEzOURERDVCRjYwNEY3RTY2RjBCRjVFNzUxMzFFOUEifQ%3D%3D; logintype=62; loginprovinceid=0; logincityid=0; loginid=osuNV6ifyt27KF_DT9yZdAohV4_I; OpenID=osuNV6ifyt27KF_DT9yZdAohV4_I; BaseDoctorUid=0; BaseUserType=0; LoginChannel=9001616; YiHu_UserJosn=eyJBY2NvdW50U24iOiIxNjE5NTY3NzgiLCJDYXJkTnVtYmVyIjoiMjA5MjAzNTMxNCIsIkxvZ2luSWQiOiJvc3VOVjZpZnl0MjdLRl9EVDl5WmRBb2hWNF9JIiwiVXNlck5hbWUiOiIiLCJTZWNTdHIiOiI0RTlDRTA4OERGMERBMkQ0MkFDQkY4NjhFRTY5MzE5OSJ9; TOKEN_86C2DBE5D7F3622F3DB5275A1C305BD1=D0E77E490D9C4672B75261BA8F2C5759; _YyghSysTrackUUID=10154517250; jkzlAn_refercode=; jkzlAn_utm_source=; jkzlAn_sid=F6EEA793-D6AE-4DF3-BB9F-E8A9048E588D; jkzlAn_channelid=9001616; jkzlAn_userid=161956778; jkzlAn_p=-1; jkzlAn_c=-1; jkzlAn_ct=1702194327246";
 
             MainSession.Cookie = Cookie;
 

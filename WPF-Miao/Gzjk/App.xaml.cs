@@ -32,7 +32,7 @@ namespace Gzjk
         private void InitController()
         {
             HttpServiceController.AddTransientService<UserController>();
-            HttpServiceController.AddTransientService<VaccineController>();
+            HttpServiceController.AddTransientService<DateController>();
             HttpServiceController.AddTransientService<MiaoController>();
             HttpServiceController.AddTransientService<YuyueController>();
 

@@ -13,7 +13,6 @@ namespace Gzjk.search
 
         private void BuildHeader()
         {
-            AddHeader("zftsl", User.Zftsl);
         }
     }
 }

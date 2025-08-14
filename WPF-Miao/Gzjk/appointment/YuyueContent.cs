@@ -1,12 +1,14 @@
 ﻿using Gzjk.common;
 using Gzjk.login;
 using System.Collections.Generic;
+using Utils;
+using Utils.Encode;
 
 namespace Gzjk.appointment
 {
     internal class YuyueContent : GzjkContent
     {
-        private static string baseUrl = "https://zsyy.wzlwpz.nbnfsoft.com:7073/peresvapi/reservation";
+        private static string baseUrl = "https://api.cn2030.com/sc/api/User/OrderPost";
         public Order Order { get; private set; }
         public YuyueContent(Order order, GzjkLogin user) : base(baseUrl, user)
         {
@@ -16,18 +18,25 @@ namespace Gzjk.appointment
 
         private void BuildContent()
         {
-            AddContent("family_id", Order.FamilyId);
-            AddContent("hos_id", Order.HosId);
-            AddContent("idcard", Order.IdCard);
-            AddContent("name", Order.UserName);
-            AddContent("num_id", Order.NumId);
-            AddContent("openid", Order.OpenId);
-            AddContent("phone", Order.Phone);
-            AddContent("project_id", Order.ProjectId);
-            AddContent("register_name", Order.UserName);
-            AddContent("sch_id", Order.SchId);
-            AddContent("sex", 2);
-            AddContent("time", Order.Time);
+            var contentDic = new Dictionary<string, object>();
+
+            contentDic.Add("birthday", Order.Birthday);
+            contentDic.Add("tel", Order.Tel);
+            contentDic.Add("sex", Order.Sex);
+            contentDic.Add("cname", Order.UserName);
+            contentDic.Add("doctype", Order.Doctype);
+            contentDic.Add("idcard", Order.Idcard);
+            contentDic.Add("mxid", Order.Mxid);
+            contentDic.Add("date", Order.Date);
+            contentDic.Add("pid", Order.Pid);
+            contentDic.Add("Ftime", Order.Ftime);
+            contentDic.Add("guid", Order.Guid);
+
+            var jsonContent = contentDic.ToJson();
+
+            //var encodeContent = AesEncode.AESEncrypt(jsonContent, );
+
+            AddContent("", jsonContent);
         }
     }
 }

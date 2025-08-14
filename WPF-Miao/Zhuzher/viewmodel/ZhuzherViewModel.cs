@@ -6,27 +6,41 @@ using HttpProcessor.Container;
 using HttpProcessor.ExceptionManager;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Utils;
 using Zhuzher.collectsun;
 using Zhuzher.Exchange;
 using Zhuzher.miaosha;
+using Zhuzher.Play;
+using Zhuzher.Score;
 using Zhuzher.search;
 using Zhuzher.session;
+using Zhuzher.vote;
 
 namespace Zhuzher.viewmodel
 {
-    internal class ZhuzherViewModel : ViewModelBase
+    internal partial class ZhuzherViewModel : ViewModelBase
     {
         #region Properties
 
         public ICommand CollectSunCommand { get; set; }
         public ICommand ExchangeCommand { get; set; }
+        public ICommand PlayCommand { get; set; }
         public ICommand SeckillCommand { get; set; }
         public ICommand ScoreSeckillCommand { get; set; }
         public ICommand JoinTeamCommand { get; set; }
+        public ICommand CollectScoreCommand { get; set; }
+        public ICommand ScoreBetCommand { get; set; }
+        public ICommand GuessBetCommand { get; set; }
+        public ICommand TrackPlayCommand { get; set; }
+        public ICommand ScoreExchangeCommand { get; set; }
+        public ICommand LootCommand { get; set; }
+        public ICommand ScorePlayCommand { get; set; }
+        public ICommand VoteCommand { get; set; }
+        
+
 
         private List<MiaoshaItem> _miaoshaList;
         public List<MiaoshaItem> MiaoshaList
@@ -57,7 +71,7 @@ namespace Zhuzher.viewmodel
             set
             {
                 _activityId = value;
-                ZhuzherSession.ActivityId = value;
+                MainSession.ActivityId = value;
                 NotifyUI(() => ActivityId);
             }
         }
@@ -68,9 +82,9 @@ namespace Zhuzher.viewmodel
 
         public ZhuzherViewModel(LogPanel logPanel) : base(logPanel)
         {
+            MainSession.PrintLogEvent = PrintLogEvent;
             InitStaticData();
             InitCommands();
-            ZhuzherSession.PrintLogEvent = PrintLogEvent;
         }
 
         private void InitStaticData()
@@ -81,17 +95,29 @@ namespace Zhuzher.viewmodel
             var scorekilllist = new ScoreItemList();
             ScoreMiaoshaList = scorekilllist.MiaoshaList;
 
-            ActivityId = "914";
-            ZhuzherSession.InviteCode = "ADA2PV";
+            ActivityId = "1164";
+            MainSession.InviteCode = "R9SSDY";
         }
 
         private void InitCommands()
         {
             CollectSunCommand = new RelayCommand(ExecuteCollectSunAsync, CanExecuteCollectSun);
             ExchangeCommand = new RelayCommand(ExecuteExchange);
+            PlayCommand = new RelayCommand(ExecutePlay);
             SeckillCommand = new RelayCommand(ExecuteSeckill);
             ScoreSeckillCommand = new RelayCommand(ExecuteScoreSeckill);
             JoinTeamCommand = new RelayCommand(ExecuteJoinTeam);
+            CollectScoreCommand = new RelayCommand(ExecuteCollectScore);
+            ScoreBetCommand = new RelayCommand(ExecuteScoreBet);
+            GuessBetCommand = new RelayCommand(ExecuteGuessBet);
+            TrackPlayCommand = new RelayCommand(ExecuteTrackPlay);
+            ScoreExchangeCommand = new RelayCommand(ExecuteScoreExchange);
+            LootCommand = new RelayCommand(ExecuteLoot);
+            ScorePlayCommand = new RelayCommand(ExecuteScorePlay);
+            VoteCommand = new RelayCommand(ExecuteVote);
+            InitPostComments();
+            InitActivityTab();
+            InitScoreTab();
 
             SessionEvents.Instance.Subscribe(LogSession);
         }
@@ -109,7 +135,9 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                //var announcementController = HttpServiceController.GetService<AnnouncementController>();
+                //announcementController.CollectSunAsync();
+
                 var searchController = HttpServiceController.GetService<CollectSunV2Controller>();
                 searchController.CollectSunAsync();
             }
@@ -122,7 +150,7 @@ namespace Zhuzher.viewmodel
                 Log(ex);
             }
         }
-
+ 
         #endregion CollectSun
 
         #region Exchange
@@ -131,7 +159,7 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var exchangeHandler = HttpServiceController.GetService<ExchangeController>();
                 exchangeHandler.ExchangeAsync();
             }
@@ -145,7 +173,123 @@ namespace Zhuzher.viewmodel
             }
         }
 
+        private void ExecuteLoot()
+        {
+            try
+            {
+                var lootController = HttpServiceController.GetService<LootController>();
+                lootController.LootAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
         #endregion Exchange
+
+        #region Play
+
+        private void ExecutePlay()
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var userList = new UserProjectList();
+                    foreach (var user in userList.UserProjects)
+                    {
+                        if (MainSession.UserIntSession.ContainsKey(user.UserId))
+                        {
+                            var number = MainSession.UserIntSession[user.UserId];
+                            MainSession.PrintLogEvent.Publish(null, $"{user.UserName}已经中奖了{number}");
+                            continue;
+                        }
+                        Task.Factory.StartNew(() =>
+                        {
+                            var playHandler = HttpServiceController.GetService<PlayController>();
+                            for (int i = 0; i < 1; i++)
+                            {
+                                var targetNumber = playHandler.ActivityPlay(user);
+                                if (targetNumber == 1)
+                                {
+
+                                    MainSession.UserIntSession.AddOrUpdate(user.UserId, targetNumber);
+                                    MainSession.PrintLogEvent.Publish(null, $"{user.UserName}预定结果中了{targetNumber}");
+                                    return;
+                                }
+                                Thread.Sleep(1000);
+                            }
+                        });
+                        Thread.Sleep(1000);
+                    }
+                });
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteGuessBet()
+        {
+            try
+            {
+                var betController = HttpServiceController.GetService<GuseeBetController>();
+
+                var guessBet = new GuessBet
+                {
+                    ActivityId = "1148",
+                    ActivityGuessId = 263,
+                    OptionId = 325,
+                };
+
+                betController.GuessBetAsync(guessBet);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteTrackPlay()
+        {
+            try
+            {
+                var playController = HttpServiceController.GetService<PlayDetailController>();
+
+                var good = new MiaoshaItem
+                {
+                    GameGoodId = 8699,
+                    ActivityGameId = "1540",
+                    GoodName = "goodName=戴森吹风机"
+                };
+
+                playController.GoodAvailableAsync(good);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Play
 
         #region Seckill
 
@@ -153,9 +297,68 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var seckillHandler = HttpServiceController.GetService<SeckillController>();
-                seckillHandler.Seckill(MiaoshaList);
+                seckillHandler.SeckillV3(MiaoshaList);
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }  
+
+        #endregion Seckill
+
+        #region JoinTeam
+
+        private void ExecuteJoinTeam()
+        {
+            try
+            {
+                var joinTeamController = HttpServiceController.GetService<JoinTeamController>();
+                joinTeamController.JoinTeamAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion
+
+        #region Score
+
+        private void ExecuteCollectScore()
+        {
+            try
+            {
+                var scoreController = HttpServiceController.GetService<CollectScoreController>();
+                scoreController.CollectScoreAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        private void ExecuteScoreBet()
+        {
+            try
+            {
+                var scoreBetController = HttpServiceController.GetService<ScoreBetController>();
+                scoreBetController.ScoreBetAsync();
             }
             catch (HttpException ex)
             {
@@ -171,9 +374,9 @@ namespace Zhuzher.viewmodel
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
+                MainSession.Cookie = Cookie;
                 var seckillHandler = HttpServiceController.GetService<ScoreKillController>();
-                seckillHandler.Seckill(ScoreMiaoshaList);
+                seckillHandler.SeckillV3(ScoreMiaoshaList);
             }
             catch (HttpException ex)
             {
@@ -185,19 +388,25 @@ namespace Zhuzher.viewmodel
             }
         }
 
-        
-
-        #endregion Seckill
-
-        #region JoinTeam
-
-        private void ExecuteJoinTeam()
+        private void ExecuteScoreExchange()
         {
             try
             {
-                ZhuzherSession.Cookie = Cookie;
-                var joinTeamController = HttpServiceController.GetService<JoinTeamController>();
-                joinTeamController.JoinTeamAsync();
+                MainSession.Cookie = Cookie;
+
+                var scoreItemList = new ScoreItemList();
+                Task.Factory.StartNew(() =>
+                {
+                    foreach (var exchangeItem in scoreItemList.ExchangeList)
+                    {
+                        foreach (var user in MainSession.UserProjectList.UserProjects)
+                        {
+                            var scoreController = HttpServiceController.GetService<ScoreExchangeController>();
+                            Task.Factory.StartNew(() => scoreController.ScoreExchange(user, exchangeItem));
+                        }
+                        Thread.Sleep(300);
+                    }
+                });
             }
             catch (HttpException ex)
             {
@@ -209,7 +418,56 @@ namespace Zhuzher.viewmodel
             }
         }
 
-        #endregion
+        private void ExecuteScorePlay()
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var playHandler = HttpServiceController.GetService<ScorePlayController>();
+                    var userList = new UserProjectList();
+                    foreach (var user in userList.UserProjects)
+                    {
+                        for (int i = 0; i < 1; i++)
+                        {
+                            playHandler.ActivityPlay(user);
+                            Thread.Sleep(1000);
+                        }
+                    }
+                });
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Score
+
+        #region Vote
+
+        private void ExecuteVote()
+        {
+            try
+            {
+                var voteController = HttpServiceController.GetService<VoteController>();
+                voteController.VoteAsync();
+            }
+            catch (HttpException ex)
+            {
+                Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+        }
+
+        #endregion Vote
 
         #region Session
 

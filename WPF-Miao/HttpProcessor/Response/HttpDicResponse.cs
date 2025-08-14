@@ -68,7 +68,13 @@ namespace HttpProcessor.Client
         protected override void BuildBody(HttpContent content)
         {
             var contentStr = string.Empty;
-            if (content.Headers?.ContentEncoding?.Contains("gzip") == true)
+            var mediaType = content.Headers?.ContentType?.MediaType;
+            if (mediaType!= null && mediaType.Contains("image"))
+            {
+                BuildImageBody(content, mediaType);
+                return;
+            }
+            else if (content.Headers?.ContentEncoding?.Contains("gzip") == true)
             {
                 contentStr = BuildBodyFromGzip(content);
             }
@@ -100,6 +106,18 @@ namespace HttpProcessor.Client
             {
 
             }
+        }
+
+        private void BuildImageBody(HttpContent content, string? mediaType)
+        {
+            ContentStr = mediaType;
+            byte[] imageBytes = content.ReadAsByteArrayAsync().Result;
+            if (!imageBytes.HasItem())
+            {
+                Message = "Get image response faild, image content is empty";
+            }
+            Body = new Dictionary<string, object>();
+            Body.AddOrUpdate("imageContent", imageBytes);
         }
 
         private string BuildBodyFromGzip(HttpContent httpContent)

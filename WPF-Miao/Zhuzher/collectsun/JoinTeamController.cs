@@ -26,19 +26,13 @@ namespace Zhuzher.collectsun
             var userData = new UserProjectList();
             var user = userData.UserProjects.FirstOrDefault();
 
-            var content = new CollectSunContent();
-            content.AddHeader("Cookie", ZhuzherSession.Cookie);
-            content.AddHeader("Authorization", user.Authorization);
-
+            var content = new JoinTeamContent(user);
             content.BuildDefaultHeaders(Client);
-            content.AddContent("projectCode", user.ProjectCode);
-            content.AddContent("activityId", ZhuzherSession.ActivityId);
-            content.AddContent("inviteCode", ZhuzherSession.InviteCode);
 
             HttpDicResponse response = PostStringAsync(content, ContentType.Json).Result;
             if (response == null)
             {
-                ZhuzherSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
+                MainSession.PrintLogEvent.Publish(this, $"{user.UserName}登录过期了");
                 return;
             }
             var code = response.Body.FirstOrDefault(x => x.Key == "code").Value?.ToString();
@@ -55,7 +49,7 @@ namespace Zhuzher.collectsun
             StringBuilder sb = new StringBuilder();
             sb.Append($"User:{user.UserName}, message:{msg}");
 
-            ZhuzherSession.PrintLogEvent.Publish(this, sb.ToString());
+            MainSession.PrintLogEvent.Publish(this, sb.ToString());
         }
     }
 }

@@ -6,7 +6,6 @@ namespace Gzjk.viewmodel
 {
     internal class GzjkHospital : HospitalDept
     {
-
         public new string Display 
         {  
             get 

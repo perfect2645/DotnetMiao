@@ -1,0 +1,143 @@
+GET http://pyx.ygnetservice.cn/Wxgzh_Hospital/GzhHospitalYwService_GRZX/FUN_GRZX_GRXX.action?code=001ySFFa1CTgpG02ItJa1LTVe83ySFFt&state=A0000005 HTTP/1.1
+Host: pyx.ygnetservice.cn
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/7.0.20.1781(0x6700143B) WindowsWechat(0x63030073)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Cookie: JSESSIONID=E47DFDC920B3995D75424B79F906BF27
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.9
+Date: Sat, 18 Nov 2023 14:31:07 GMT
+Content-Type: text/html;charset=UTF-8
+Content-Length: 4360
+Connection: keep-alive
+Content-Language: zh-CN
+
+
+    
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>个人信息</title>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weui.css">
+    <link rel="stylesheet" type="text/css"  href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/css/weuix.css">
+   
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/animate.css">
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/global.css">
+	<link rel="stylesheet" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/css/loading.css">
+ 
+	
+	
+	<script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/jQuery/jquery.min.js"></script>	   
+    
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.min.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/zepto.weui.js"></script>    
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/iscroll-lite.js"></script>
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/weui/js/axios.min.js"></script> 
+    <script src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//plugins/loading/js/loading.js"></script>   
+ 
+    <script>
+    
+    function loading(){
+    	$('body').loading({
+			loadingWidth:240,
+			title:'请稍等!',
+			name:'loading',
+			animateIn:'none',
+			discription:'正在提交...',
+			direction:'row',
+			type:'origin',
+			mustRelative:true,
+			originBg:'#71EA71',
+			originDivWidth:30,
+			originDivHeight:30,
+			originWidth:4,
+			originHeight:4,
+			smallLoading:false,
+			titleColor:'#388E7A',
+			loadingBg:'#312923',
+			loadingMaskBg:'rgba(22,22,22,0.2)'
+		});    	
+    }
+    
+    
+    function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+
+    
+    
+    
+  
+    </script>
+    
+    <style>
+       .weui-media-box__desc{
+           margin-top: 10px;
+           font-size: 16px;
+       }
+      
+ 
+    </style>    
+ 
+</head>
+<body ontouchstart >
+ 
+   
+ <div class="weui-cells">
+       <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//resources/USER/My.png" alt="">
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">139******25</h4>
+                    <p class="weui-media-box__desc">周瑠夏</p>
+                </div>
+       </a> 
+
+        <a class="weui-cell weui-cell_access" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_GRZX/FUN_GRZX_Get_yyghquery.action?clientID=A0000005&openid=">
+            <div class="weui-cell__hd"><img src="" alt="" style="width:5px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p>我的预约</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+
+        <a class="weui-cell weui-cell_access" href="http://pyx.ygnetservice.cn:80/Wxgzh_Hospital//GzhHospitalYwService_GRZX/FUN_GRZX_GRXX_CYJZR.action?clientID=A0000005">
+            <div class="weui-cell__hd"><img src="" alt="" style="width:5px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <p>常用就诊人</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+ 
+                
+        
+ </div>
+ 
+</body>
+
+
+
+</html>

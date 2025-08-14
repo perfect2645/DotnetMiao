@@ -170,7 +170,7 @@ namespace Utils
         }
 
 
-        public static String GetMD5_10(string str)
+        public static string GetMD5_10(string str)
         {
             // 创建MD5对象
             MD5 md5 = MD5.Create();

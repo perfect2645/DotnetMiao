@@ -1,0 +1,696 @@
+{
+    "message": "success",
+    "code": 200,
+    "result": [
+        {
+            "activityTaskId": 6280,
+            "taskId": 1060,
+            "taskName": "预约家装服务顾问",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "点击前往了解家装维修业务，并登记您的需求信息",
+            "detail": [
+                {
+                    "taskDetailId": 1061,
+                    "sceneName": "研选提交预约资料",
+                    "sceneCode": "yanxuan-submit-information",
+                    "sceneDesc": "研选提交预约资料",
+                    "url": "https://mj.4009515151.com/hasaki/#/save-data-index?routeType=ZZESY-PLJ&channelConfigCode=BCE00000026",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6308,
+            "taskId": 1079,
+            "taskName": "完整看完一篇人物专访",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "完整看完才可以获得阳光哦！每周可以完成一次",
+            "detail": [
+                {
+                    "taskDetailId": 1080,
+                    "sceneName": "完播社区课堂视频",
+                    "sceneCode": "app-communityclassfinish",
+                    "sceneDesc": "",
+                    "url": "https://communityclass.onewo.com/#/video?vkSource=video&courseId=NDAx&selectId=",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:CONTENT:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6273,
+            "taskId": 1053,
+            "taskName": "国庆去哪玩？晒晒美照",
+            "chanceNumber": 50,
+            "taskDesc": "朴里节",
+            "tips": "国庆参与#美好河山#话题发帖讨论，完成50字以上发帖",
+            "detail": [
+                {
+                    "taskDetailId": 1054,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=578&from=activity",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6272,
+            "taskId": 1052,
+            "taskName": "你家适老化做的如何？",
+            "chanceNumber": 50,
+            "taskDesc": "朴里节",
+            "tips": "国庆参与#歌颂美好祖国#话题发帖讨论，完成50字以上",
+            "detail": [
+                {
+                    "taskDetailId": 1053,
+                    "sceneName": "发帖成功",
+                    "sceneCode": "app-post",
+                    "sceneDesc": "邻居团队使用",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/forum/topicPage?id=492&from=activity",
+                    "detailDesc": "",
+                    "finished": false,
+                    "minVersion": "",
+                    "eventCode": "CMS:SOCIAL:0001",
+                    "processValue": "0",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6302,
+            "taskId": 1075,
+            "taskName": "邀请邻居成为队友",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "邀请别人加入自己队伍即可获得阳光，仅限首次邀请",
+            "detail": [
+                {
+                    "taskDetailId": 1076,
+                    "sceneName": "邀请好友并成功加入队伍",
+                    "sceneCode": "app-act-invite&jointeam",
+                    "sceneDesc": "组队邀请好友，好友成功加入队伍，则算完成",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6303,
+            "taskId": 1076,
+            "taskName": "成功加入别人队伍",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "成功加入到别人的队伍，立即获得100阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1077,
+                    "sceneName": "加入好友队伍",
+                    "sceneCode": "app-act-jointeam",
+                    "sceneDesc": "通过组队邀请码/链接加入队伍，算完成一次加入好友队伍场景",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6262,
+            "taskId": 1063,
+            "taskName": "转发活动到微信群",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "点击转发朴里节线上会场到业主群，每天转发2次获得阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1064,
+                    "sceneName": "分享页面",
+                    "sceneCode": "app-h5share",
+                    "sceneDesc": "",
+                    "url": "javascript:void(0) ",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 2,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6263,
+            "taskId": 1044,
+            "taskName": "开启住这儿消息通知",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "打开住这儿app通知权限，重要福利不错过",
+            "detail": [
+                {
+                    "taskDetailId": 1045,
+                    "sceneName": "打开通知推送开关",
+                    "sceneCode": "app-push",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/user/setting/list",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6264,
+            "taskId": 1064,
+            "taskName": "邀请10个邻居助力",
+            "chanceNumber": 1000,
+            "taskDesc": "朴里节",
+            "tips": "点击去完成转发给10个邻居完成助力，活动期间仅限1次",
+            "detail": [
+                {
+                    "taskDetailId": 1065,
+                    "sceneName": "邀请好友参与活动",
+                    "sceneCode": "app-act-invite&view",
+                    "sceneDesc": "",
+                    "url": "javascript:void(0) ",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "10",
+                    "requiredValue": "10"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6265,
+            "taskId": 1065,
+            "taskName": "每天首次给别人助力",
+            "chanceNumber": 20,
+            "taskDesc": "朴里节",
+            "tips": "每天首次给别人助力即可完成任务",
+            "detail": [
+                {
+                    "taskDetailId": 1066,
+                    "sceneName": "助力成功",
+                    "sceneCode": "app-act-help",
+                    "sceneDesc": "",
+                    "url": "1",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6267,
+            "taskId": 1059,
+            "taskName": "完成每日积分签到",
+            "chanceNumber": 30,
+            "taskDesc": "朴里节",
+            "tips": "每天点击前往积分中心完成一次积分签到",
+            "detail": [
+                {
+                    "taskDetailId": 1060,
+                    "sceneName": "签到",
+                    "sceneCode": "app-checkin",
+                    "sceneDesc": "app积分中心进行签到",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/signin",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6284,
+            "taskId": 1047,
+            "taskName": "关注公众号每日领阳光",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "关注邻居公众号，聊天框发送“朴里节”，点击链接领阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1048,
+                    "sceneName": "渠道访问立即获得",
+                    "sceneCode": "puli-daka",
+                    "sceneDesc": "匹配参数为scene=xxx",
+                    "url": "zze://vanke.com/common/service/launch_miniProgram?program_id=gh_501eecfa8fff&path=/pages/MilkBook/index.html?url=https://mp.weixin.qq.com/s/z0lWLJ8LGFeGAOLEpi1DuA",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:ONLINE:0003",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6268,
+            "taskId": 1058,
+            "taskName": "完成每日积分抽奖",
+            "chanceNumber": 30,
+            "taskDesc": "朴里节",
+            "tips": "每天点击前往积分中心完成一次积分抽奖",
+            "detail": [
+                {
+                    "taskDetailId": 1059,
+                    "sceneName": "消耗积分",
+                    "sceneCode": "app-points",
+                    "sceneDesc": "仅用于积分抽奖！",
+                    "url": "https://enterprise.4009515151.com/marketing-pages/integral/turnTable?from=huodong",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "ACT:SCORE:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6269,
+            "taskId": 1049,
+            "taskName": "做达人随手拍赢物业费",
+            "chanceNumber": 50,
+            "taskDesc": "朴里节",
+            "tips": "参与活动投稿，入选“美好生活官”有机会获得物业费礼券",
+            "detail": [
+                {
+                    "taskDetailId": 1050,
+                    "sceneName": "成功发布作品",
+                    "sceneCode": "gottalent-contribution",
+                    "sceneDesc": "达人秀发布图文或视频成功",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6270,
+            "taskId": 1050,
+            "taskName": "关注你喜欢的达人",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "点击观看邻居作品，关注您感兴趣的达人邻居",
+            "detail": [
+                {
+                    "taskDetailId": 1051,
+                    "sceneName": "关注别人",
+                    "sceneCode": "gottalent-fans",
+                    "sceneDesc": "达人秀观众关注别人",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6271,
+            "taskId": 1051,
+            "taskName": "给喜欢的达人作品点赞",
+            "chanceNumber": 15,
+            "taskDesc": "朴里节",
+            "tips": "点击观看邻居达人作品，给任意作品点赞",
+            "detail": [
+                {
+                    "taskDetailId": 1052,
+                    "sceneName": "点赞别人作品",
+                    "sceneCode": "gottalent-like",
+                    "sceneDesc": "达人秀观众给别人作品点赞",
+                    "url": "https://enterprise.4009515151.com/social-circle/talentShow/vote?activityId=19&from=pulijie",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6276,
+            "taskId": 1062,
+            "taskName": "朴里节社区活动签到",
+            "chanceNumber": 66,
+            "taskDesc": "朴里节",
+            "tips": "您本人前去参加社区朴里节活动，并在现场扫码签到",
+            "detail": [
+                {
+                    "taskDetailId": 1063,
+                    "sceneName": "线下签到场景",
+                    "sceneCode": "linjuhuodong",
+                    "sceneDesc": "社文签到活动",
+                    "url": "https://neighbor.onewo.com/neighbor-activity-mobile/zhuzher/activities",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "OFFLINE:OFFLINE:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6277,
+            "taskId": 1055,
+            "taskName": "逛逛百万补贴福利",
+            "chanceNumber": 30,
+            "taskDesc": "朴里节",
+            "tips": "在百补会场停留10秒以上即可完成任务，每日1次",
+            "detail": [
+                {
+                    "taskDetailId": 1056,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "支持app和小程序。小程序仅支持从任务点击跳转",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6278,
+            "taskId": 1056,
+            "taskName": "购买朴里节严选好物",
+            "chanceNumber": 200,
+            "taskDesc": "朴里节",
+            "tips": "活动期间，每天在百万补贴会场完成1次商品下单",
+            "detail": [
+                {
+                    "taskDetailId": 1057,
+                    "sceneName": "友邻支付成功",
+                    "sceneCode": "5thzone-blackpearl-pay",
+                    "sceneDesc": "可以设置单个商品id为匹配条件，可设置金额门槛",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "LIVE:SHOP:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6279,
+            "taskId": 1057,
+            "taskName": "购买桶装水或家政服务",
+            "chanceNumber": 200,
+            "taskDesc": "朴里节",
+            "tips": "活动期间，每天在百万补贴会场完成1次到家服务下单",
+            "detail": [
+                {
+                    "taskDetailId": 1058,
+                    "sceneName": "便民支付成功",
+                    "sceneCode": "5thzone-convenience-pay",
+                    "sceneDesc": "20230421更新：不可设置匹配条件",
+                    "url": "https://neighbor.4009515151.com/nova/activityTopic/6262?pageMark=bbyhzzzzebwbt6262hd",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "",
+                    "eventCode": "LIVE:CONV:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 1
+        },
+        {
+            "activityTaskId": 6281,
+            "taskId": 1045,
+            "taskName": "使用手机开门",
+            "chanceNumber": 10,
+            "taskDesc": "朴里节",
+            "tips": "每天首次使用手机开门即可获得朴里节阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1046,
+                    "sceneName": "手机开门成功",
+                    "sceneCode": "app-keyforfree",
+                    "sceneDesc": "",
+                    "url": "zze://vanke.com/property/opendoor/list",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.4",
+                    "eventCode": "ACCESS:USER:0001",
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6282,
+            "taskId": 1043,
+            "taskName": "在活动会场停留10秒",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "首次进入朴里节线上会场，停留10秒即可领阳光",
+            "detail": [
+                {
+                    "taskDetailId": 1044,
+                    "sceneName": "浏览页面10s",
+                    "sceneCode": "app-browseweb",
+                    "sceneDesc": "支持app和小程序。小程序仅支持从任务点击跳转",
+                    "url": "javascript:void(0) ",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        },
+        {
+            "activityTaskId": 6283,
+            "taskId": 1042,
+            "taskName": "每日送一抽，美好集卡",
+            "chanceNumber": 100,
+            "taskDesc": "朴里节",
+            "tips": "每日一抽，打开住这儿app即可获得抽卡机会",
+            "detail": [
+                {
+                    "taskDetailId": 1043,
+                    "sceneName": "登录app",
+                    "sceneCode": "app-startapp",
+                    "sceneDesc": "",
+                    "url": "javascript:void(0) ",
+                    "detailDesc": "",
+                    "finished": true,
+                    "minVersion": "5.2.6",
+                    "eventCode": null,
+                    "processValue": "1",
+                    "requiredValue": "1"
+                }
+            ],
+            "taskGameList": null,
+            "limitCount": 1,
+            "finishCount": null,
+            "isWarn": 0,
+            "warnTitle": null,
+            "warnText": null,
+            "isShow": 2
+        }
+    ]
+}

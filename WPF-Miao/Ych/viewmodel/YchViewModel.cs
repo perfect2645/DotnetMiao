@@ -135,7 +135,7 @@ namespace Ych.viewmodel
 
             DateList = new List<DspVal>
             {
-                new DspVal(DateTimeUtil.GetDayOfWeek(DayOfWeek.Saturday)),
+                new DspVal("2023-09-22"),
             };
 
             MainSession.PlatformSession.AddOrUpdate("DateList", DateList);

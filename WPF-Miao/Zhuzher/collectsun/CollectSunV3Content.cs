@@ -1,0 +1,39 @@
+﻿using HttpProcessor.Content;
+using System;
+using Utils.datetime;
+using Zhuzher.Common;
+using Zhuzher.search;
+
+namespace Zhuzher.collectsun
+{
+    internal class CollectSunV3Content : OnewoContent
+    {
+        private const string _url = "https://z.onewo.com/market/partner/notice/scene";
+
+        public SunActivityScence Scene { get; }
+
+        public CollectSunV3Content(UserProject user, SunActivityScence scene) : base(_url, user)
+        {
+            Scene = scene;
+            BuildHeader();
+            BuildContent();
+        }
+
+        private void BuildHeader()
+        {
+            AddHeader("X-AppKey", "6292E1891CA246EB9A2AABD9039C4F71");
+            AddHeader("X-AppSecret", "C67F286E63D54F3995C3F6C6F52508ED");
+        }
+
+        private void BuildContent()
+        {
+            var nowTimestapm = DateTimeUtil.GetTimeStamp();
+            AddContent("userId", User.UserId);
+            AddContent("matchParam", Scene.MatchParam);
+            AddContent("sceneCode", Scene.SceneCode);
+            AddContent("requestId", nowTimestapm);
+            AddContent("projectCode", User.ProjectCode);
+        }
+
+    }
+}

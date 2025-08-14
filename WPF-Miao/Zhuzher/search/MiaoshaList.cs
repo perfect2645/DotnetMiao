@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using Utils;
 using Utils.datetime;
+using Utils.number;
+using Utils.Rdom;
+using Zhuzher.session;
 
 namespace Zhuzher.search
 {
@@ -64,16 +68,20 @@ namespace Zhuzher.search
 
         private void TestInitMiaoshaList()
         {
-            //AddMiaoshaItem(5734, 1, "【6折】家政家电清洁大额补贴", "1059", "2022-12-08 20:13:00");
+            //var time = DateTime.Now.AddSeconds(10).ToString("yyyy-MM-dd HH:mm:ss.fff");
+            //AddMiaoshaItem(9806, 1, "5元无门槛物业券", "1765", $"{time}");
+
+            //time = DateTime.Now.AddSeconds(14).ToString("yyyy-MM-dd HH:mm:ss.fff");
+            //AddMiaoshaItem(9807, 1, "88元无门槛物业券", "1765", $"{time}");
+
         }
 
         private void InitMiaoshaList()
         {
-            //AddDuobaoItem(6177, "跨年抢头菜", "1239", 10);
-            //AddMiaoshaItem(7465, 1, "泸州老窖小酒免费兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:00");
-            AddMiaoshaItem(7416, 1, "免9月物业费(100个名额)", "1394", $"{DateTimeUtil.GetToday()} 20:00:00");
-            //AddMiaoshaItem(7432, 1, "圣牧有机奶3箱0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:02");
-            //AddMiaoshaItem(7465, 1, "莱阳秋月梨5斤0元兑换券", "1387", $"{DateTimeUtil.GetToday()} 20:00:03");
+            var misecond = NumberUtil.IntRandom(500, 900);
+            //AddMiaoshaItem(9811, 1, "250物业费", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
+            AddMiaoshaItem(9973, 1, "88元预缴物业费礼券", "1767", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
+            //AddMiaoshaItem(9763, 1, "88元物业费优惠券", "1752", $"{DateTimeUtil.GetToday()} 20:00:00.{misecond}");
         }
 
         private void AddMiaoshaItem(int gameGoodId, int group, string goodName, string activityGameId, string startTimeStr = "")

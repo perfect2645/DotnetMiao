@@ -125,11 +125,11 @@ namespace Dayim.search
                 var timeNo = schedule.GetString("timeNo");
                 var order = new Order
                 {
-                    HospitalCode = hosId,
-                    MakeAnAppointment = Date,
-                    TimeNo = timeNo,
-                    VaccineInfoId = deptId,
-                    Address = hosName
+                    //HospitalCode = hosId,
+                    //MakeAnAppointment = Date,
+                    //TimeNo = timeNo,
+                    //VaccineInfoId = deptId,
+                    //Address = hosName
                 };
                 orderList.Add(order);
             }

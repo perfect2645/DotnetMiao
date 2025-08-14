@@ -60,6 +60,6 @@
     </Page>
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties login_1json__JsonSchema="https://appsemble.app/api.json" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

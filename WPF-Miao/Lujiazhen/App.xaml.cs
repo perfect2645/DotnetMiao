@@ -30,6 +30,7 @@ namespace Lujiazhen
             HttpServiceController.AddTransientService<YuyueController>();
             HttpServiceController.AddTransientService<UserController>();
             HttpServiceController.AddTransientService<MiaoController>();
+            HttpServiceController.AddTransientService<SignController>();
             HttpServiceController.BuidServiceProvider();
         }
     }

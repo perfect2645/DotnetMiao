@@ -10,6 +10,22 @@ Referer: https://servicewechat.com/wx9c8036c9d91af8b6/11/page-frame.html
 Accept-Encoding: gzip, deflate, br
 
 bbe1525797c49f34bce89a579519703607ea561675b9ac6c74ca2dd731ac6d38092b795de0aca5fe945a8d65c7e2140d08ab4986d9bdce1c067c56deda6962e6fcf432dda9875e3bd01a660c2ee45db8d2e51ed700312296694829ad166f7fa0e95eece3cfb6d6f6f3be279d095a4932bb8c125196611aa89882c4071ad35770f6883257d722f0e1ff236266cfb11233fa0e35a8a64ba10cf529e06f2b4578f76db2b5623121c3c6c99d354e0d3e44560e9ccd951c85ffe88aed45f42e72e493b41d2fa8b98d032f19b484a4e2b140bd3dbe10f35e30c1e9a4438b13c9017a06
+
+{
+    "birthday": "2009-06-10",
+    "tel": "13909856656",
+    "sex": 1,
+    "cname": "包睿",
+    "doctype": 1,
+    "idcard": "210213200906102029",
+    "mxid": "D64fu8_eV-AqiJEkt1wdafUXCGaO-rJ2dZgOGEuJbfk",
+    "date": "2023-12-07",
+    "pid": "XBsAAA",
+    "Ftime": 1,
+    "guid": ""
+}
+
+
 HTTP/1.1 200 OK
 Server: openresty
 Date: Tue, 25 Jul 2023 14:41:44 GMT
@@ -24,3 +40,13 @@ Set-Cookie: ASP.NET_SessionId=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2O
 X-Powered-By: ASP.NET
 
 {"status":200,"msg":"提交成功"}
+
+
+
+zfsw_169976134
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:1126 ****zfsw=f8dd9d1eecad2af769fb15fe3eb6c326
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:906 yuyue****r=[object Object]
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:907 yuyue****e={"birthday":"2009-06-10","tel":"13909856656","sex":1,"cname":"包睿","doctype":1,"idcard":"210213200906102029","mxid":"D64fu8_eV-AqiJEkt1wdafUXCGaO-rJ2dZgOGEuJbfk","date":"2023-12-07","pid":"XBsAAA","Ftime":1,"guid":""}
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:908 yuyue****g=c216a80614866bb36ead1449a268aaa8019ba794
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:909 yuyue****iv=31323334353637383930303030303030
+vendor.js?t=wechat&s=1699691028315&v=994d3923ec62a6fbb2718bad62676079:910 yuyue****t=63323136613830363134383636626233
