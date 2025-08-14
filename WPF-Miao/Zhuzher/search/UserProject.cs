@@ -56,7 +56,7 @@ namespace Zhuzher.search
             //Fawei
             AddUserProject(11067046, "Fawei", "21020025", "大连万科半山半海", "Bearer c0d9fab8-2fe2-432a-b418-3602ce46374f");//Fawei
             //13050516050
-            AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer e66b4ccd-6714-43be-bd74-91c72fe47199");//Fawei
+            AddUserProject(28566129, "13050516050", "21020025", "大连万科半山半海", "Bearer 411dc8cc-7a7a-476c-b588-ee1a3546b190");//Fawei
             //2645
             AddUserProject(24521842, "Fawei2645", "21020025", "大连万科半山半海", "Bearer 15366cc6-1538-417e-a004-2981c7e1ef74");//2645
             //18604266644

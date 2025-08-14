@@ -78,3 +78,12 @@ i. Document / Wiki writing.
 - Trace the source via logs (e.g., ELK), check for permission flaws or system vulnerabilities.
 - Plan a fix and improvement in the next iteration, 
 prevent similar issue happens again.
+
+
+## PLINQ
+
+AsParallel并行 AsSequential转回同步， AsOrdered排序
+
+## deadlock
+
+## index not working
